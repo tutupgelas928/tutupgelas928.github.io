@@ -54,7 +54,7 @@ function bwstoc() {
  var bws_1 = getheading.replace(/[^a-z0-9]/gi," ");
  var bws_2 = bws_1.trim();
  var getHeadUri = bws_2.replace(/s/g, "_");
- document.getElementById("post-toc").querySelectorAll("h2, h3, p, li,  h4")[i].setAttribute("id", getHeadUri);
+ document.getElementById("post-toc").querySelectorAll("h2, h3, p, li, h4")[i].setAttribute("id", getHeadUri);
  bwstoc = "<li><a href='#" + getHeadUri + "'>" + getheading + "</a></li>";
  document.getElementById("bwstoc").innerHTML += bwstoc;
  }
