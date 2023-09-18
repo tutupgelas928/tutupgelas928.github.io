@@ -484,7 +484,7 @@ var script_url=HOST+"/feeds/posts/default";bcd140526_index_label&&(script_url+="
 </script></div>
 
 <br />
-<div style="text-align: center;"><b style="font-family: arial;"><a href="xselebgram.xyz/2020/" rel="nofollow" target="_blank">《First Page《Prev&nbsp;&nbsp;1-2-3-4-5-6-7...&nbsp; Next》Last Page》</a></b></div><br /><br /></div>
+<div style="text-align: center;"><b style="font-family: arial;"><a href="https://xselebgram.xyz/2020/" rel="nofollow" target="_blank">《First Page《Prev&nbsp;&nbsp;1-2-3-4-5-6-7...&nbsp; Next》Last Page》</a></b></div><br /><br /></div>
 
 
 <br />
