@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Top Culinary Businesses to Start in Peru: Profitable Food Ventures & Opportunities
+title: Top Culinary Businesses to Start in Peru: Profitable Food Ventures and Opportunities
 ---
 
 <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5ccoDEeFFfkubGD8_A1xIP16O-l2M_TPgHZFiOLLOe6B8_KO1n9mQUuBimYmmX0AkBcWHMAyD_FDaeqQjZXLaKRm8s2aAtI1niGcJARq9YyVuKsYKfq3geEwQ99NeB3G0HsEiKF2XduTzVc9Ej5H2KM7WF2d5NWiaeL9irX1AolQNexQlAeSBfm0U3pHE/s1600/images.jpeg" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="439" data-original-width="698" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5ccoDEeFFfkubGD8_A1xIP16O-l2M_TPgHZFiOLLOe6B8_KO1n9mQUuBimYmmX0AkBcWHMAyD_FDaeqQjZXLaKRm8s2aAtI1niGcJARq9YyVuKsYKfq3geEwQ99NeB3G0HsEiKF2XduTzVc9Ej5H2KM7WF2d5NWiaeL9irX1AolQNexQlAeSBfm0U3pHE/s1600/images.jpeg"/></a></div>
