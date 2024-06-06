@@ -1,3 +1,159 @@
+
+<script type='text/javascript'>
+        $(document).ready(function() {$(&#39;img#closed&#39;).click(function(){$(&#39;#btm_banner&#39;).hide(90);});});
+</script>
+        <!--start: floating ads-->
+        <div id='x1s' style='width:100%;margin:auto; text-align:center;float:none;overflow:auto; display:scroll;position:fixed; bottom:0%;z-index:9999'>
+         <div><a id='close-x1s' onclick='document.getElementById(&apos;x1s&apos;).style.display = &apos;none&apos;;' style='cursor:pointer;'><img alt='close' src='https://3.bp.blogspot.com/-ZZSacDHLWlM/VhvlKTMjbLI/AAAAAAAAF2M/UDzU4rrvcaI/s1600/btn_close.gif' title='close button'/></a></div>
+    <div style='text-align:center;display:block;max-width:100%;height:250px;overflow:auto;margin:auto'>
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'ede14ec8877a6ccf3400209caeeb340d',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//scheduleginnarcotic.com/ede14ec8877a6ccf3400209caeeb340d/invoke.js"></script>
+
+
+   
+      
+
+   
+   
+
+<script type='text/javascript' src='//scheduleginnarcotic.com/5c/94/27/5c9427ef446b0fed6096c80159d5dc56.js'></script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '635dcb03e7beaa4d75e48936998ed918',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//scheduleginnarcotic.com/635dcb03e7beaa4d75e48936998ed918/invoke.js"></script><hr />
+<script type="text/javascript">
+	atOptions = {
+		'key' : '2c902b5a511642622ead58e65094d444',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//scheduleginnarcotic.com/2c902b5a511642622ead58e65094d444/invoke.js"></script><hr />
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'cf9888f176a3707310a54d6f5a51ee75',
+		'format' : 'iframe',
+		'height' : 600,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//scheduleginnarcotic.com/cf9888f176a3707310a54d6f5a51ee75/invoke.js"></script><hr />
+<script type="text/javascript">
+	atOptions = {
+		'key' : '1eb9dca30aa3d003904d5a342d71b00f',
+		'format' : 'iframe',
+		'height' : 300,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//scheduleginnarcotic.com/1eb9dca30aa3d003904d5a342d71b00f/invoke.js"></script><hr />
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'b6a4dce2cd5cae47f6660cc872df579c',
+		'format' : 'iframe',
+		'height' : 60,
+		'width' : 468,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//scheduleginnarcotic.com/b6a4dce2cd5cae47f6660cc872df579c/invoke.js"></script><hr />
+<script type='text/javascript' src='//scheduleginnarcotic.com/4c/cb/43/4ccb43cbde27c2c051e70024585c39a2.js'></script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '431fdbe59a5047fab928fdd5b0b7896f',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//scheduleginnarcotic.com/431fdbe59a5047fab928fdd5b0b7896f/invoke.js"></script>
+
+</div></div>
+
+
+
+    
+     
+ 
+<section>
+      <link rel="stylesheet" href="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.css" type="text/css" />
+<script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
+<video id='my-video' controls autoplay muted style="width:100%;">
+    <source data-fluid-hd src='https://video.twimg.com/ext_tw_video/1143674758455648262/pu/vid/320x630/fhxIIe2IBzgv6J7T.mp4'
+ title='camila97javiera' type='video/mp4' />
+</video>
+
+<script type="application/javascript">
+    var testVideo = fluidPlayer(
+        "my-video",
+{
+	"layoutControls": {
+		"controlBar": {
+			"autoHideTimeout": 1,
+			"animated": true,
+			"autoHide": true
+		},
+		"htmlOnPauseBlock": {
+			"html": null,
+			"height": null,
+			"width": null
+		},
+		"autoplay": true,
+		"mute": true,
+		"allowTheatre": true,
+		"playPauseAnimation": true,
+		"playbackRateEnabled": true,
+		"allowDownload": true,
+		"playButtonShowing": true,
+		"fillToContainer": true,
+		"posterImage": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjooxnL9QnmuM7Kch1atkSJ9MflwdCsGk2tU13hq-D5YVsUXVibx9MZXL3pGyc536TJn4q5v8uEFzxrAciqSHv5jfPogUXMgX0chJmW-yYzvNvjErUJo81-Fd8lq_oyJET-mLf00GIuqVMjBXZUouV_z_HBT9x2xwVQOoLQ_oVNxZ3FgqPcw09rIzDT0sw/s1600/20240217_220452.png"
+	},
+	"vastOptions": {
+	"adList": [
+                    {
+                        "roll": "preRoll",
+                        "vastTag": "https://www.videosprofitnetwork.com/watch.xml?key=b368f564e52479f103fe40464d1cc337"
+                    },
+                    {
+                        "roll": "midRoll",
+                        "vastTag": "https://www.videosprofitnetwork.com/watch.xml?key=6f6732348ac4680e3e347f51038ca52e",
+                        "timer": 2
+                    },
+                    {
+                        "roll": "midRoll",
+                        "vastTag": "https://www.videosprofitnetwork.com/watch.xml?key=b320bff569bb5535540366abcef11a09",
+                        "timer": 1
+                    },
+{
+                        "roll": "midRoll",
+                        "vastTag": "https://www.videosprofitnetwork.com/watch.xml?key=f76eb4092d4b94ed2411172982571a87",
+                        "timer": 3
+                    },
+            ]
+        }
+}
+    );
+</script>  
+
 <style type="text/css">
 .bcd140526_post_feed li.item {
     display: block;
