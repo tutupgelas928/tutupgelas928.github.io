@@ -1,3 +1,5 @@
+<center>
+	
 
     
 <script type="text/javascript">
@@ -274,8 +276,21 @@ function bcd140526_main(b){"random"==bcd140526_sort_by?(b=bcd140526_bi_jshort(b)
 var script_url=HOST+"/feeds/posts/default";bcd140526_index_label&&(script_url+="/-/"+encodeURIComponent(bcd140526_index_label));script_url+="?alt=json-in-script";script_url="random"==bcd140526_sort_by?script_url+"&max-results=0":script_url+("&max-results="+bcd140526_post_count);script_url+="&callback=bcd140526_main";bcd140526_bi_script(script_url);
 
 </script>
+<a id="show_id" onclick="document.getElementById('spoiler_id').style.display=''; document.getElementById('show_id').style.display='none';"></a><span id="spoiler_id" style="display: none;"><a class="link" onclick="document.getElementById('spoiler_id').style.display='none'; document.getElementById('show_id').style.display='';"></a>
+<div style="background-color: rgba(0, 0, 0, 0); margin: 1px;">
+<div class="smallfont"><i><span style="font-size: 16px; font-weight: bold; margin-right: 3px;"></span></i><input onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = ''; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = ''; }" style="background-color: #00000000; font-size: 16px; width: auto;" type="button" value="" />
+</div>
+<div class="alt2" style="background-color: rgba(255, 255, 255, 0); margin: 0px; padding: 0px;">
+<div style="display: none;" loading="lazy">
 
-<div class="jontor" loading="lazy" style="width:100%; height:100px; overflow:auto;">
+
+<div class="jontor" loading="lazy" >
 <script src="https://rawgit.com/rezamuhamad/rakinfo/master/sitemap.js"></script>
 <script src="https://www.xselebgram.xyz/feeds/posts/default/?start-index=1&max-results=6666&amp;alt=json-in-script&amp;callback=rak_info_Load"></script>
 </div>
+</div></div></div></span>
+
+<hr />
+© 2024 tutupgelas928.github.io
+
+</center>
