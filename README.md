@@ -2,7 +2,6 @@
 <script type='text/javascript'>
         $(document).ready(function() {$(&#39;img#closed&#39;).click(function(){$(&#39;#btm_banner&#39;).hide(90);});});
 </script>
-        <!--start: floating ads-->
         <div id='x1s' style='width:100%;margin:auto; text-align:center;float:none;overflow:auto; display:scroll;position:fixed; bottom:0%;z-index:9999'>
          <div><a id='close-x1s' onclick='document.getElementById(&apos;x1s&apos;).style.display = &apos;none&apos;;' style='cursor:pointer;'><img alt='close' src='https://3.bp.blogspot.com/-ZZSacDHLWlM/VhvlKTMjbLI/AAAAAAAAF2M/UDzU4rrvcaI/s1600/btn_close.gif' title='close button'/></a></div>
     <div style='text-align:center;display:block;max-width:100%;height:250px;overflow:auto;margin:auto'>
@@ -253,7 +252,7 @@ var bcd140526_post_count = 150;/*bcd140526_post_count*/
 var bcd140526_thumbnail_size = 100;// v1.5, only effect with list style/*bcd140526_thumbnail_size*/
 var bcd140526_sort_by = 'latest'; // latest or random/*bcd140526_sort_by*/
 var bcd140526_index_label = 'blog';/*bcd140526_index_label*/
-var bcd140526_design_style = 'list';// list or column/*bcd140526_design_style*/
+var bcd140526_design_style = 'column';// list or column/*bcd140526_design_style*/
 var bcd140526_date_format = 'mm/dd/yyyy';/*bcd140526_date_format*/
 var lang_readmore = 'Readmore';/*lang_readmore*/
 var HOST = 'https://www.ioma.my.id';/*HOST*/
