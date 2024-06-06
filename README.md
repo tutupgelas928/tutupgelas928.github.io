@@ -1,3 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="23:54">
+<meta name="twitter:site" content="@maulina_rahayu_">
+<meta name="twitter:image" content="httpsmLf00GIuqVMjBXZUouV_z_HBT9x2xwVQOoLQ_oVNxZ3FgqPcw09rIzDT0sw/s1600/20240217_220452.png">
+
+  
+
+ <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "camila97javiera photo and video",
+  "description": "camila97javiera leaked video",
+  "thumbnailUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjooxnL9QnmuM7Kch1atkSJ9MflwdCsGk2tU13hq-D5YVsUXVibx9MZXL3pGyc536TJn4q5v8uEFzxrAciqSHv5jfPogUXMgX0chJmW-yYzvNvjErUJo81-Fd8lq_oyJET-mLf00GIuqVMjBXZUouV_z_HBT9x2xwVQOoLQ_oVNxZ3FgqPcw09rIzDT0sw/s1600/20240217_220452.png",
+  "uploadDate": "2024-06-04T08:00:00+08:00",
+  "duration": "PT25M17S",
+  "contentUrl": "https://video.twimg.com/ext_tw_video/1143674758455648262/pu/vid/320x630/fhxIIe2IBzgv6J7T.mp4"
+}
+</script>
+
+</head>
+
+
+
 <center>
 	
 
@@ -294,3 +325,6 @@ var script_url=HOST+"/feeds/posts/default";bcd140526_index_label&&(script_url+="
 © 2024 tutupgelas928.github.io
 
 </center>
+
+</html>
+
