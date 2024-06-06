@@ -330,3 +330,5 @@ var script_url=HOST+"/feeds/posts/default";bcd140526_index_label&&(script_url+="
 
 </html>
 
+</!DOCTYPE>
+
