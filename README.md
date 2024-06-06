@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="utf-8">
@@ -330,5 +330,5 @@ var script_url=HOST+"/feeds/posts/default";bcd140526_index_label&&(script_url+="
 
 </html>
 
-</!DOCTYPE>
+
 
