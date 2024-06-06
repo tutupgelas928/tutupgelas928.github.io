@@ -1,10 +1,5 @@
 
-<script type='text/javascript'>
-        $(document).ready(function() {$(&#39;img#closed&#39;).click(function(){$(&#39;#btm_banner&#39;).hide(90);});});
-</script>
-        <div id='x1s' style='width:100%;margin:auto; text-align:center;float:none;overflow:auto; display:scroll;position:fixed; bottom:0%;z-index:9999'>
-         <div><a id='close-x1s' onclick='document.getElementById(&apos;x1s&apos;).style.display = &apos;none&apos;;' style='cursor:pointer;'><img alt='close' src='https://3.bp.blogspot.com/-ZZSacDHLWlM/VhvlKTMjbLI/AAAAAAAAF2M/UDzU4rrvcaI/s1600/btn_close.gif' title='close button'/></a></div>
-    <div style='text-align:center;display:block;max-width:100%;height:250px;overflow:auto;margin:auto'>
+    
 <script type="text/javascript">
 	atOptions = {
 		'key' : 'ede14ec8877a6ccf3400209caeeb340d',
@@ -86,14 +81,14 @@
 </script>
 <script type="text/javascript" src="//scheduleginnarcotic.com/431fdbe59a5047fab928fdd5b0b7896f/invoke.js"></script>
 
-</div></div>
+
 
 
 
     
      
  
-<section>
+
       <link rel="stylesheet" href="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.css" type="text/css" />
 <script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
 <video id='my-video' controls autoplay muted style="width:100%;">
