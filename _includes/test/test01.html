@@ -182,28 +182,22 @@
 </style>
 
 <center><b>Latest Posts</b></center>
-
 {% for post in site.categories.seo01 %}
-
 <div class="post-item">
   <h2>
     <a href="{{ post.url }}">
       {{ post.title }}
     </a>
   </h2>
-
   <div class="excerpt">
     {{ post.description }}
   </div>
-
-  <div class="excerpt spo">
-  {{ post.excerpt | split: '<svg' | first }}
+  {% assign before_svg = post.content | split: '<p>' | first %}
+  <div class="excerpt spoo">
+    {{ before_svg }}
+  </div>
 </div>
-
-</div>
-
 {% endfor %}
-	
 </article> 
 </main>
 <!-- awal search -->
