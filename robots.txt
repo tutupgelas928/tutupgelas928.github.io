@@ -1,9 +1,3 @@
 User-agent: *
 Disallow: /Atest/
 Allow: /
-Sitemap: /sitemap-keywords.xml
-Sitemap: /sitemap.xml
-Sitemap: /sitemap-labels.xml
-Sitemap: /sitemap-tags.xml
-Sitemap: /sitemap-categories.xml
-Sitemap: /feed.xml
