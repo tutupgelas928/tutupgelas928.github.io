@@ -15,7 +15,8 @@ layout: null
     {% for post in site.posts limit:50 %}
       <item>
         <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.excerpt | xml_escape }}</description>
+        {% assign before_svg = post.content | split: '<p>' | first %}
+  <description>{{ before_svg }}</description>
         <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
         <link>{{ post.url | absolute_url | replace: '//', '/' | replace: ':/', '://' }}</link>
         <guid isPermaLink="true">{{ post.url | absolute_url | replace: '//', '/' | replace: ':/', '://' }}</guid>
