@@ -51,6 +51,10 @@ Sitemap: https://${host}/sitemap/01/sitemap44.xml
 Sitemap: https://${host}/sitemap/01/sitemap45.xml
 Sitemap: https://${host}/sitemap/01/sitemap46.xml
 Sitemap: https://${host}/sitemap/01/sitemap47.xml
+Sitemap: https://${host}/sitemap/01/sitemap48.xml
+Sitemap: https://${host}/sitemap/01/sitemap49.xml
+Sitemap: https://${host}/sitemap/01/sitemap50.xml
+Sitemap: https://${host}/sitemap/01/sitemap51.xml
 `;
 
   return new Response(body, {
