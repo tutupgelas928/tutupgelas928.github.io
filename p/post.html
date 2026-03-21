@@ -44,6 +44,7 @@ permalink: /post/
     </style>
 </head>
 <body>
+{% include /ads/gobloggugel/nanouturfs.html %}
     <main>
         <!-- ============================================
              DEFAULT CONTENT (tampil jika tidak ada query)
@@ -54,15 +55,8 @@ permalink: /post/
             
             <section>
                 <h2>Popular Categories</h2>
-                <ul>
-                    <li><a href="/post/?q=celebrity+profiles">Celebrity Profiles</a></li>
-                    <li><a href="/post/?q=exclusive+collections">Exclusive Collections</a></li>
-                    <li><a href="/post/?q=photo+archives">Photo Archives</a></li>
-                    <li><a href="/post/?q=video+collections">Video Collections</a></li>
-                    <li><a href="/post/?q=leaked+content">Leaked Content</a></li>
-                </ul>
-            </section>
           {% include /kw/post.html %}
+          </section>
         </div>
         
         <!-- ============================================
@@ -72,7 +66,7 @@ permalink: /post/
         <div id="query-content" style="display: none;">
             <!-- BREADCRUMB -->
             <div class="breadcrumb" id="breadcrumb">
-                <a href="/">Home</a> › 
+                <a href="/">Home</a> › <a href="/post/">Posts</a> › <a href="/caegories/">Categories</a> › <a href="/tags/">Tags</a> › <a href="/labels/">labels</a> › <a href="/keywords/">keywords</a> › <a href="/search/">Search</a> › 
                 <span id="breadcrumb-name"></span>
             </div>
             
@@ -406,7 +400,7 @@ permalink: /post/
     })();
     </script>
     
-{% include /ads/gobloggugel/nanouturfs.html %}
+
 
 
 
