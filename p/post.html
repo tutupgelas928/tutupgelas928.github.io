@@ -5,7 +5,7 @@ permalink: /post/
   
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head loading="lazy">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="content-language" content="en">
@@ -43,9 +43,10 @@ permalink: /post/
         .default-content { display: none; }
     </style>
 </head>
-<body>
-{% include /ads/gobloggugel/nanouturfs.html %}
+<body loading="lazy">
+
     <main>
+    {% include /ads/gobloggugel/nanouturfs.html %}
         <!-- ============================================
              DEFAULT CONTENT (tampil jika tidak ada query)
              ============================================ -->
@@ -66,7 +67,7 @@ permalink: /post/
         <div id="query-content" style="display: none;">
             <!-- BREADCRUMB -->
             <div class="breadcrumb" id="breadcrumb">
-                <a href="/">Home</a> › <a href="/post/">Posts</a> › <a href="/caegories/">Categories</a> › <a href="/tags/">Tags</a> › <a href="/labels/">labels</a> › <a href="/keywords/">keywords</a> › <a href="/search/">Search</a> › 
+                <a href="/">Home</a> › <a href="/post/">Posts</a> › <a href="/categories/">Categories</a> › <a href="/tags/">Tags</a> › <a href="/labels/">Labels</a> › <a href="/keywords/">Keywords</a> › <a href="/search/">Search</a> › 
                 <span id="breadcrumb-name"></span>
             </div>
             
