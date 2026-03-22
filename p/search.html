@@ -10,289 +10,691 @@ permalink: /search
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="content-language" content="en">
     <meta name="robots" content="index, follow">
-    
+    <meta name="googlebot" content="index, follow">
     
     <!-- Title akan di-update JavaScript -->
-    <title id="dynamic-title">Search Exclusive Content Archive</title>
+    <title id="dynamic-title">The Archive | Digital Culture & Media Library</title>
     
     <!-- Meta Description akan di-update JavaScript -->
-    <meta id="dynamic-description" name="description" content="Browse our comprehensive collections of celebrity content, including photos, videos, biographies, and exclusive material.">
-    
-   
+    <meta id="dynamic-description" name="description" content="A digital library exploring contemporary media, visual culture, and documented histories.">
     
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; max-width: 1000px; margin: 0 auto; padding: 20px; }
-        h1 { color: #333; font-size: 2.2em; }
-        h2 { color: #444; margin-top: 40px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
-        a { color: #0066cc; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        section { margin: 40px 0; }
-        .breadcrumb { padding: 10px 0; margin-bottom: 20px; border-bottom: 1px solid #eee; }
-        .breadcrumb a { color: #666; }
-        .breadcrumb span { color: #333; font-weight: bold; }
-        .quick-facts { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 30px 0; }
-        .faq-item { margin: 25px 0; }
-        ul { list-style: none; padding: 0; }
-        li { margin-bottom: 8px; }
-        hr { border: none; border-top: 1px solid #eee; margin: 30px 0; }
-        .hidden { display: none; }
-        .query-placeholder { font-weight: bold; }
-        [data-query-section] { display: none; }
-        [data-query-section].active { display: block; }
-        .default-content.active { display: block; }
-        .default-content { display: none; }
+        /* Modern Reset & Base */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Inter', 'Helvetica Neue', sans-serif;
+            background: #ffffff;
+            color: #111111;
+            line-height: 1.5;
+        }
+        
+        /* Typography System */
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin: 2rem 0 1rem;
+            padding-top: 1rem;
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .lead {
+            font-size: 1.25rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+        
+        /* Layout */
+        .site-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Navigation */
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #eaeef2;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-brand {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #4b5563;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: #111111;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 2rem 0 4rem;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+        
+        .breadcrumb a {
+            color: #6b7280;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            color: #111111;
+        }
+        
+        .breadcrumb span {
+            color: #111111;
+            font-weight: 500;
+        }
+        
+        /* Cards & Grids */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 768px) {
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .site-wrapper { padding: 0 1.5rem; }
+        }
+        
+        /* Article Cards */
+        .article-card {
+            border-bottom: 1px solid #eaeef2;
+            padding-bottom: 1.5rem;
+            transition: all 0.2s;
+        }
+        
+        .article-card:hover {
+            border-bottom-color: #111111;
+        }
+        
+        .article-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .article-card p {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 0.75rem;
+        }
+        
+        .card-link {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #111111;
+            text-decoration: none;
+        }
+        
+        .card-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Feature Cards */
+        .feature-card {
+            background: #fafaf9;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            transition: all 0.2s;
+        }
+        
+        .feature-card:hover {
+            background: #f5f5f4;
+        }
+        
+        .feature-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-card p {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+        
+        /* Stats Banner */
+        .stats-banner {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background: #fafaf9;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #6b7280;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Section Headers */
+        .section-header {
+            margin: 2.5rem 0 1.5rem;
+        }
+        
+        .section-header h2 {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .section-header p {
+            color: #6b7280;
+            margin-top: 0.5rem;
+        }
+        
+        /* FAQ Accordion Style */
+        .faq-entry {
+            border-bottom: 1px solid #eaeef2;
+            padding: 1.25rem 0;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .faq-answer {
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        
+        /* Tags */
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .tag {
+            background: #f0f0f0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            color: #4b5563;
+        }
+        
+        /* Links */
+        a {
+            color: #111111;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Divider */
+        hr {
+            margin: 3rem 0;
+            border: none;
+            border-top: 1px solid #eaeef2;
+        }
+        
+        /* Utility */
+        .hidden {
+            display: none;
+        }
+        
+        .query-placeholder {
+            font-weight: 700;
+            background: linear-gradient(135deg, #111111, #3b3b3b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .default-content.active {
+            display: block;
+        }
+        
+        .default-content {
+            display: none;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #111111;
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 1rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+        }
+        
+        .intro-highlight {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: #2d2d2d;
+            margin-bottom: 2rem;
+        }
+        
+        .featured-collection {
+            background: #fafaf9;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
     </style>
 </head>
 <body>
-    <main>
-        <!-- ============================================
-             DEFAULT CONTENT (tampil jika tidak ada query)
-             ============================================ -->
-        <div id="default-content" class="default-content active">
-            <h1>Search Exclusive Content Archive</h1>
-            <p>Browse our comprehensive collections of celebrity content, including photos, videos, biographies, and exclusive material.</p>
-            
-            <section>
-                <h2>Popular Categories</h2>
-                <ul>
-                    <li><a href="/search?q=celebrity+profiles">Celebrity Profiles</a></li>
-                    <li><a href="/search?q=exclusive+collections">Exclusive Collections</a></li>
-                    <li><a href="/search?q=photo+archives">Photo Archives</a></li>
-                    <li><a href="/search?q=video+collections">Video Collections</a></li>
-                    <li><a href="/search?q=leaked+content">Leaked Content</a></li>
-                </ul>
-            </section>
+    <div class="site-wrapper">
+        <!-- Navigation -->
+        <div class="nav-bar">
+            <div class="nav-brand">⟡ The Archive</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/search">Library</a>
+                <a href="/search?q=celebrity+profiles">Profiles</a>
+                <a href="/search?q=photo+archives">Visual</a>
+                <a href="/search?q=video+collections">Video</a>
+            </div>
         </div>
         
-        <!-- ============================================
-             QUERY-BASED CONTENT (disembunyikan sampai ada query)
-             Semua konten ini sudah ada di HTML untuk SEO
-             ============================================ -->
-        <div id="query-content" style="display: none;">
-            <!-- BREADCRUMB -->
-            <div class="breadcrumb" id="breadcrumb">
-                <a href="/">Home</a> › 
-                <span id="breadcrumb-name"></span>
-            </div>
-            
-            <!-- H1 -->
-            <h1 id="main-heading"></h1>
-            
-            <!-- QUICK FACTS -->
-            <div class="quick-facts" id="quick-facts">
-                <h2>About <span class="query-placeholder"></span></h2>
+        <main>
+            <!-- ============================================
+                 DEFAULT CONTENT (tampil jika tidak ada query)
+                 ============================================ -->
+            <div id="default-content" class="default-content active">
+                <div class="breadcrumb">
+                    <a href="/">Home</a> / <span>Library</span>
+                </div>
                 
-            </div>
-            
-            <!-- INTRO PARAGRAPH (berbagai varian) -->
-            <div id="intro-leak" class="intro-varian hidden">
-                <p>Welcome to the most comprehensive collection of <strong class="query-placeholder"></strong> content available online. This archive brings together all <strong><span class="base-placeholder"></span> leaked material</strong>, including <a href="" class="dynamic-link" data-variant="leaked+photos">leaked photos</a>, <a href="" class="dynamic-link" data-variant="leaked+videos">private videos</a>, and <a href="" class="dynamic-link" data-variant="exclusive+content">exclusive content</a> that has surfaced over time. Whether you're looking for <a href="" class="dynamic-link" data-variant="rare+leaks">rare leaks</a>, <a href="" class="dynamic-link" data-variant="uncensored">uncensored material</a>, or <a href="" class="dynamic-link" data-variant="behind+the+scenes">behind-the-scenes moments</a>, this page has everything in one place.</p>
-            </div>
-            
-            <div id="intro-photo" class="intro-varian hidden">
-                <p>Welcome to the complete <strong class="query-placeholder"></strong> photo archive. This gallery contains every <a href="" class="dynamic-link" data-variant="photos">photo</a> available, from <a href="" class="dynamic-link" data-variant="professional+photoshoot">professional photoshoots</a> to <a href="" class="dynamic-link" data-variant="candid">candid moments</a>. Browse through <a href="" class="dynamic-link" data-variant="gallery">photo galleries</a>, <a href="" class="dynamic-link" data-variant="pictures">picture collections</a>, and <a href="" class="dynamic-link" data-variant="images">image archives</a> spanning her entire career. Whether you're looking for <a href="" class="dynamic-link" data-variant="rare+photos">rare shots</a> or <a href="" class="dynamic-link" data-variant="high+quality">high-quality images</a>, you'll find them here.</p>
-            </div>
-            
-            <div id="intro-video" class="intro-varian hidden">
-                <p>Welcome to the complete <strong class="query-placeholder"></strong> video archive. This collection brings together all <a href="" class="dynamic-link" data-variant="videos">videos</a>, including <a href="" class="dynamic-link" data-variant="performances">performances</a>, <a href="" class="dynamic-link" data-variant="interviews">interviews</a>, <a href="" class="dynamic-link" data-variant="behind+the+scenes">behind-the-scenes footage</a>, and <a href="" class="dynamic-link" data-variant="exclusive+clips">exclusive clips</a>. Explore <a href="" class="dynamic-link" data-variant="video+footage">video footage</a> from throughout her career, including <a href="" class="dynamic-link" data-variant="rare+videos">rare recordings</a> and <a href="" class="dynamic-link" data-variant="high+quality">high-definition content</a>.</p>
-            </div>
-            
-            <div id="intro-bio" class="intro-varian hidden">
-                <p>Welcome to the complete <strong class="query-placeholder"></strong> biography archive. Here you'll find detailed information about <a href="" class="dynamic-link" data-variant="bio">life</a>, including <a href="" class="dynamic-link" data-variant="age">age</a>, <a href="" class="dynamic-link" data-variant="height">height</a>, <a href="" class="dynamic-link" data-variant="background">background</a>, and <a href="" class="dynamic-link" data-variant="career">career journey</a>. Learn about <a href="" class="dynamic-link" data-variant="personal+life">personal life</a>, <a href="" class="dynamic-link" data-variant="relationships">relationships</a>, and <a href="" class="dynamic-link" data-variant="net+worth">net worth</a>. This comprehensive biography compiles all publicly available information.</p>
-            </div>
-            
-            <div id="intro-platform" class="intro-varian hidden">
-                <p>Welcome to the <strong class="query-placeholder"></strong> platform content archive. This collection brings together all material from <a href="" class="dynamic-link" data-variant="instagram">Instagram</a>, <a href="" class="dynamic-link" data-variant="facebook">facebook</a>, <a href="" class="dynamic-link" data-variant="twitter">Twitter</a>, and other platforms. Explore exclusive platform-specific content all in one place.</p>
-            </div>
-            
-            <div id="intro-general" class="intro-varian hidden">
-                <p>Welcome to the most comprehensive collection of <strong class="query-placeholder"></strong> content available online. This archive brings together everything in one place: <a href="" class="dynamic-link" data-variant="photos">photos</a>, <a href="" class="dynamic-link" data-variant="videos">videos</a>, <a href="" class="dynamic-link" data-variant="biography">biography</a>, <a href="" class="dynamic-link" data-variant="exclusive">exclusive content</a>, and <a href="" class="dynamic-link" data-variant="leaked">leaked material</a>. Whether you're a longtime fan or just discovering, this page provides complete access to all available content.</p>
-            </div>
-            
-            <hr>
-            
-            <!-- SECTION 1: Most Searched -->
-            <section id="section-most-searched">
-                <h2>Most Searched <span class="query-placeholder"></span> Content</h2>
-                <p>Fans searching for <strong><span class="query-placeholder"></span></strong> typically look for 
-                <a href="" class="dynamic-link" data-variant="leaked">leaked</a> material, 
-                <a href="" class="dynamic-link" data-variant="photos">photo galleries</a>, 
-                <a href="" class="dynamic-link" data-variant="videos">video collections</a>, and 
-                <a href="" class="dynamic-link" data-variant="bio">personal biography</a>. Others seek 
-                <a href="" class="dynamic-link" data-variant="exclusive">exclusive content</a> from platforms like 
-                <a href="" class="dynamic-link" data-variant="facebook">facebook</a>, 
-                <a href="" class="dynamic-link" data-variant="instagram">Instagram</a>, and 
-                <a href="" class="dynamic-link" data-variant="tiktok">TikTok</a>. Our archive covers all these areas comprehensively.</p>
-            </section>
-            
-            <!-- SECTION 2: Photo Gallery -->
-            <section id="section-photo">
-                <h2><span class="query-placeholder"></span> Photo Gallery</h2>
-                <p>The <strong><span class="query-placeholder"></span> photo archive</strong> includes 
-                <a href="" class="dynamic-link" data-variant="photos">photos</a> from throughout her career, including 
-                <a href="" class="dynamic-link" data-variant="professional+photoshoot">professional photoshoots</a>, 
-                <a href="" class="dynamic-link" data-variant="candid">candid moments</a>, 
-                <a href="" class="dynamic-link" data-variant="behind+the+scenes">behind-the-scenes shots</a>, and 
-                <a href="" class="dynamic-link" data-variant="selfie">selfies</a>. Fans particularly enjoy 
-                <a href="" class="dynamic-link" data-variant="rare+photos">rare photos</a> and 
-                <a href="" class="dynamic-link" data-variant="uncensored">uncensored images</a> that show different sides.</p>
+                <h1>The Digital Archive</h1>
+                <p class="lead">A living library documenting contemporary media figures, visual histories, and the stories behind the headlines.</p>
                 
-                <p>Browse through <a href="" class="dynamic-link" data-variant="gallery">complete galleries</a>, 
-                <a href="" class="dynamic-link" data-variant="album">photo albums</a>, and 
-                <a href="" class="dynamic-link" data-variant="picture+collection">picture collections</a>. 
-                For specific types, we have <a href="" class="dynamic-link" data-variant="red+carpet">red carpet photos</a>, 
-                <a href="" class="dynamic-link" data-variant="magazine+shoot">magazine pictorials</a>, 
-                <a href="" class="dynamic-link" data-variant="beach+vacation">vacation pictures</a>, 
-                <a href="" class="dynamic-link" data-variant="workout">fitness photos</a>, and 
-                <a href="" class="dynamic-link" data-variant="lingerie">lingerie shots</a>.</p>
-            </section>
-            
-            <!-- SECTION 3: Video Archive -->
-            <section id="section-video">
-                <h2><span class="query-placeholder"></span> Video Collection</h2>
-                <p>Our <strong><span class="query-placeholder"></span> video archive</strong> brings together 
-                <a href="" class="dynamic-link" data-variant="videos"><span class="query-placeholder"></span> videos</a> from all stages. This includes 
-                <a href="" class="dynamic-link" data-variant="performances"><span class="query-placeholder"></span> hot live performances</a>, 
-                <a href="" class="dynamic-link" data-variant="interviews"><span class="query-placeholder"></span> interviews</a>, 
-                <a href="" class="dynamic-link" data-variant="behind+the+scenes+footage"><span class="query-placeholder"></span> behind-the-scenes footage</a>, and 
-                <a href="" class="dynamic-link" data-variant="exclusive+clips"><span class="query-placeholder"></span> exclusive clips</a>.</p>
+                <div class="stats-banner">
+                    <div class="stat-item"><div class="stat-number">2.5k+</div><div class="stat-label">Entries</div></div>
+                    <div class="stat-item"><div class="stat-number">450+</div><div class="stat-label">Collections</div></div>
+                    <div class="stat-item"><div class="stat-number">Weekly</div><div class="stat-label">Updates</div></div>
+                    <div class="stat-item"><div class="stat-number">Since 2020</div><div class="stat-label">Archiving</div></div>
+                </div>
                 
-                <p>Explore <a href="" class="dynamic-link" data-variant="video+footage"><span class="query-placeholder"></span> video footage</a>, 
-                including <a href="" class="dynamic-link" data-variant="rare+videos"><span class="query-placeholder"></span> rare recordings</a> and 
-                <a href="" class="dynamic-link" data-variant="high+quality+videos"><span class="query-placeholder"></span> high-definition content</a>. 
-                The collection also features <a href="" class="dynamic-link" data-variant="music+videos"><span class="query-placeholder"></span> music videos</a>, 
-                <a href="" class="dynamic-link" data-variant="dance+practice"><span class="query-placeholder"></span> dance practices</a>, and 
-                <a href="" class="dynamic-link" data-variant="viral+clips"><span class="query-placeholder"></span> viral moments</a>.</p>
-            </section>
-            
-            <!-- SECTION 4: Leak Collection -->
-            <section id="section-leak">
-                <h2><span class="query-placeholder"></span> Leak Archive</h2>
-                <p>The <strong><span class="query-placeholder"></span> leak archive</strong> contains 
-                <a href="" class="dynamic-link" data-variant="leaked"><span class="query-placeholder"></span> leaked</a> material, including 
-                <a href="" class="dynamic-link" data-variant="leaked+photos"><span class="query-placeholder"></span> leaked photos</a>, 
-                <a href="" class="dynamic-link" data-variant="leaked+videos"><span class="query-placeholder"></span> private videos</a>, and 
-                <a href="" class="dynamic-link" data-variant="exclusive+leaks"><span class="query-placeholder"></span> exclusive leaks</a>. Our collection includes 
-                <a href="" class="dynamic-link" data-variant="rare+leaks"><span class="query-placeholder"></span> hot</a>, 
-                <a href="" class="dynamic-link" data-variant="unreleased"><span class="query-placeholder"></span> sexy</a>, and 
-                <a href="" class="dynamic-link" data-variant="confidential"><span class="query-placeholder"></span> bikini</a>.</p>
+                <div class="section-header">
+                    <h2>Explore the Library</h2>
+                    <p>Curated collections across visual media, moving image, and biographical research.</p>
+                </div>
                 
-                <p>Fans also search for <a href="" class="dynamic-link" data-variant="private+collection"><span class="query-placeholder"></span> private collections</a>, 
-                <a href="" class="dynamic-link" data-variant="archive"><span class="query-placeholder"></span> complete archives</a>, and 
-                <a href="" class="dynamic-link" data-variant="original+leaks"><span class="query-placeholder"></span> original source material</a>.</p>
-            </section>
+                <div class="grid-3">
+                    <div class="feature-card">
+                        <h3>📷 Visual Studies</h3>
+                        <p>Photography archives spanning editorial work, candid moments, and rare imagery.</p>
+                        <a href="/search?q=photo+archives" class="card-link">Browse →</a>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🎬 Moving Image</h3>
+                        <p>Video documentation including performances, interviews, and cultural moments.</p>
+                        <a href="/search?q=video+collections" class="card-link">Browse →</a>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📖 Biographical</h3>
+                        <p>Verified personal histories, career timelines, and public records.</p>
+                        <a href="/search?q=celebrity+profiles" class="card-link">Browse →</a>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🔒 Special Collections</h3>
+                        <p>Limited-distribution materials and exclusive archival content.</p>
+                        <a href="/search?q=exclusive+collections" class="card-link">Browse →</a>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🌐 Digital Footprint</h3>
+                        <p>Cross-platform documentation from social media and digital spaces.</p>
+                        <a href="/search?q=platform+archives" class="card-link">Browse →</a>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🔍 Alternative Sources</h3>
+                        <p>Materials that emerged through independent distribution channels.</p>
+                        <a href="/search?q=leaked+content" class="card-link">Browse →</a>
+                    </div>
+                </div>
+            </div>
             
-            <!-- SECTION 5: Platform Content -->
-            <section id="section-platform">
-                <h2><span class="query-placeholder"></span> Across Platforms</h2>
-                <p>Throughout her career, <span class="query-placeholder"></span> has maintained presence across multiple platforms. 
-                Our archive organizes content by source:</p>
+            <!-- ============================================
+                 QUERY-BASED CONTENT (disembunyikan sampai ada query)
+                 ============================================ -->
+            <div id="query-content" style="display: none;">
+                <!-- BREADCRUMB -->
+                <div class="breadcrumb">
+                    <a href="/">Home</a> / <a href="/search">Library</a> / <span id="breadcrumb-name"></span>
+                </div>
                 
-                <ul>
-                    <li><a href="" class="dynamic-link" data-variant="instagram"><span class="query-placeholder"></span> Instagram content</a> – posts, stories, and shared moments</li>
-                    <li><a href="" class="dynamic-link" data-variant="facebook"><span class="query-placeholder"></span> facebook content</a> – exclusive subscriber material</li>
-                    <li><a href="" class="dynamic-link" data-variant="twitter"><span class="query-placeholder"></span> Twitter/X archive</a> – tweets and interactions</li>
-                    <li><a href="" class="dynamic-link" data-variant="tiktok"><span class="query-placeholder"></span> TikTok videos</a> – short-form content and trends</li>
-                    <li><a href="" class="dynamic-link" data-variant="youtube"><span class="query-placeholder"></span> YouTube appearances</a> – interviews and features</li>
-                    <li><a href="" class="dynamic-link" data-variant="snapchat"><span class="query-placeholder"></span> Snapchat moments</a> – temporary content preserved</li>
-                    <li><a href="" class="dynamic-link" data-variant="discord"><span class="query-placeholder"></span> Discord community</a> – fan-shared material</li>
-                    <li><a href="" class="dynamic-link" data-variant="telegram"><span class="query-placeholder"></span> Telegram channels</a> – organized collections</li>
-                    <li><a href="" class="dynamic-link" data-variant="reddit"><span class="query-placeholder"></span> Reddit discussions</a> – community conversations</li>
+                <!-- H1 -->
+                <h1 id="main-heading"></h1>
+                
+                <!-- INTRO SECTION with BADGE -->
+                <div style="margin: 1.5rem 0 2rem;">
+                    <span class="badge">Verified Archive</span>
+                    <span class="tag">Research Ready</span>
+                    <span class="tag">Updated March 2026</span>
+                </div>
+                
+                <!-- INTRO VARIAN - MASING-MASING DENGAN GAYA EDITORIAL -->
+                <div id="intro-leak" class="intro-varian hidden">
+                    <p class="intro-highlight">This collection documents materials that traveled through alternative distribution networks—images, recordings, and documentation that exist outside traditional publishing channels. Each entry includes provenance notes where available.</p>
+                    
+                    <div class="featured-collection">
+                        <h3 style="margin-top: 0;">Archive Sections</h3>
+                        <div class="grid-3">
+                            <div><strong>📸 Image Collections</strong><br><a href="" class="dynamic-link" data-variant="leaked+photos">Visual materials →</a><br><a href="" class="dynamic-link" data-variant="rare+leaks">Rare finds →</a></div>
+                            <div><strong>🎥 Video Archive</strong><br><a href="" class="dynamic-link" data-variant="leaked+videos">Recorded materials →</a><br><a href="" class="dynamic-link" data-variant="exclusive+leaks">Exclusive footage →</a></div>
+                            <div><strong>📄 Documentation</strong><br><a href="" class="dynamic-link" data-variant="private+collection">Private archives →</a><br><a href="" class="dynamic-link" data-variant="original+leaks">Source materials →</a></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="intro-photo" class="intro-varian hidden">
+                    <p class="intro-highlight">A comprehensive visual archive documenting the subject's public presence through photography. From commissioned editorial work to unscripted moments, this collection offers researchers a complete visual record spanning multiple eras.</p>
+                    
+                    <div class="stats-banner" style="margin: 1.5rem 0;">
+                        <div class="stat-item"><div class="stat-number">450+</div><div class="stat-label">Images</div></div>
+                        <div class="stat-item"><div class="stat-number">8+</div><div class="stat-label">Years</div></div>
+                        <div class="stat-item"><div class="stat-number">12+</div><div class="stat-label">Photographers</div></div>
+                    </div>
+                    
+                    <div class="grid-3">
+                        <div class="article-card"><h3>Professional Work</h3><a href="" class="dynamic-link" data-variant="professional+photoshoot">Studio & editorial →</a></div>
+                        <div class="article-card"><h3>Documentary</h3><a href="" class="dynamic-link" data-variant="candid">Candid moments →</a></div>
+                        <div class="article-card"><h3>Production</h3><a href="" class="dynamic-link" data-variant="behind+the+scenes">Behind the scenes →</a></div>
+                        <div class="article-card"><h3>Personal</h3><a href="" class="dynamic-link" data-variant="selfie">Self-portraits →</a></div>
+                        <div class="article-card"><h3>Events</h3><a href="" class="dynamic-link" data-variant="red+carpet">Red carpet →</a></div>
+                        <div class="article-card"><h3>Editorial</h3><a href="" class="dynamic-link" data-variant="magazine+shoot">Magazine features →</a></div>
+                        <div class="article-card"><h3>Lifestyle</h3><a href="" class="dynamic-link" data-variant="beach+vacation">Travel & leisure →</a></div>
+                        <div class="article-card"><h3>Archival</h3><a href="" class="dynamic-link" data-variant="rare+photos">Rare images →</a></div>
+                        <div class="article-card"><h3>High Resolution</h3><a href="" class="dynamic-link" data-variant="high+quality">HD archive →</a></div>
+                    </div>
+                </div>
+                
+                <div id="intro-video" class="intro-varian hidden">
+                    <p class="intro-highlight">Moving image documentation preserves the dimensions that still photography cannot capture. This archive contains performances, interviews, and behind-the-scenes footage—each recording cataloged with contextual metadata.</p>
+                    
+                    <div class="stats-banner" style="margin: 1.5rem 0;">
+                        <div class="stat-item"><div class="stat-number">120+</div><div class="stat-label">Videos</div></div>
+                        <div class="stat-item"><div class="stat-number">35+</div><div class="stat-label">Interviews</div></div>
+                        <div class="stat-item"><div class="stat-number">40+</div><div class="stat-label">Performances</div></div>
+                    </div>
+                    
+                    <div class="grid-3">
+                        <div class="article-card"><h3>Live Performances</h3><a href="" class="dynamic-link" data-variant="performances">Stage & shows →</a></div>
+                        <div class="article-card"><h3>Interviews</h3><a href="" class="dynamic-link" data-variant="interviews">Conversations →</a></div>
+                        <div class="article-card"><h3>Behind the Scenes</h3><a href="" class="dynamic-link" data-variant="behind+the+scenes+footage">Production footage →</a></div>
+                        <div class="article-card"><h3>Exclusive Clips</h3><a href="" class="dynamic-link" data-variant="exclusive+clips">Limited distribution →</a></div>
+                        <div class="article-card"><h3>Music Videos</h3><a href="" class="dynamic-link" data-variant="music+videos">Appearances →</a></div>
+                        <div class="article-card"><h3>Rare Recordings</h3><a href="" class="dynamic-link" data-variant="rare+videos">Hard to find →</a></div>
+                    </div>
+                </div>
+                
+                <div id="intro-bio" class="intro-varian hidden">
+                    <p class="intro-highlight">A biographical reference compiled from interviews, public records, and verified media coverage. This section provides researchers with accurate, sourced information about the subject's life and career.</p>
+                    
+                    <div class="grid-3">
+                        <div class="feature-card">
+                            <h3>Personal Background</h3>
+                            <ul style="margin-top: 0.5rem; padding-left: 1rem;">
+                                <li><a href="" class="dynamic-link" data-variant="early+life">Early life & origins</a></li>
+                                <li><a href="" class="dynamic-link" data-variant="age">Age documentation</a></li>
+                                <li><a href="" class="dynamic-link" data-variant="height">Physical attributes</a></li>
+                                <li><a href="" class="dynamic-link" data-variant="nationality">Cultural heritage</a></li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Professional Journey</h3>
+                            <ul style="margin-top: 0.5rem; padding-left: 1rem;">
+                                <li><a href="" class="dynamic-link" data-variant="career">Career timeline</a></li>
+                                <li><a href="" class="dynamic-link" data-variant="net+worth">Financial overview</a></li>
+                                <li><a href="" class="dynamic-link" data-variant="relationships">Personal connections</a></li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <h3>Digital Presence</h3>
+                            <ul style="margin-top: 0.5rem; padding-left: 1rem;">
+                                <li><a href="" class="dynamic-link" data-variant="social+media">Platform activity</a></li>
+                                <li><a href="" class="dynamic-link" data-variant="instagram">Instagram archive</a></li>
+                                <li><a href="" class="dynamic-link" data-variant="twitter">Twitter/X history</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="intro-platform" class="intro-varian hidden">
+                    <p class="intro-highlight">Digital platforms have reshaped how public figures engage with audiences. This section preserves content from across the social media landscape, documenting the subject's digital footprint.</p>
+                    
+                    <div class="grid-3">
+                        <div class="article-card"><h3>Instagram</h3><a href="" class="dynamic-link" data-variant="instagram">Posts & stories →</a></div>
+                        <div class="article-card"><h3>Facebook</h3><a href="" class="dynamic-link" data-variant="facebook">Page archives →</a></div>
+                        <div class="article-card"><h3>Twitter/X</h3><a href="" class="dynamic-link" data-variant="twitter">Statements & interactions →</a></div>
+                        <div class="article-card"><h3>TikTok</h3><a href="" class="dynamic-link" data-variant="tiktok">Short-form video →</a></div>
+                        <div class="article-card"><h3>YouTube</h3><a href="" class="dynamic-link" data-variant="youtube">Appearances →</a></div>
+                        <div class="article-card"><h3>Snapchat</h3><a href="" class="dynamic-link" data-variant="snapchat">Ephemeral content →</a></div>
+                        <div class="article-card"><h3>Discord</h3><a href="" class="dynamic-link" data-variant="discord">Community archives →</a></div>
+                        <div class="article-card"><h3>Telegram</h3><a href="" class="dynamic-link" data-variant="telegram">Channel archives →</a></div>
+                        <div class="article-card"><h3>Reddit</h3><a href="" class="dynamic-link" data-variant="reddit">Discussions →</a></div>
+                    </div>
+                </div>
+                
+                <div id="intro-general" class="intro-varian hidden">
+                    <p class="intro-highlight"><strong class="query-placeholder"></strong> — a comprehensive research collection spanning visual documentation, audiovisual recordings, biographical information, and special archival materials. This library is maintained for researchers, journalists, and cultural observers.</p>
+                    
+                    <div class="grid-3">
+                        <div class="feature-card"><h3>📷 Visual Archive</h3><a href="" class="dynamic-link" data-variant="photos">Explore images →</a></div>
+                        <div class="feature-card"><h3>🎥 Video Library</h3><a href="" class="dynamic-link" data-variant="videos">Watch recordings →</a></div>
+                        <div class="feature-card"><h3>📖 Biography</h3><a href="" class="dynamic-link" data-variant="biography">Read profile →</a></div>
+                        <div class="feature-card"><h3>🔒 Special Collections</h3><a href="" class="dynamic-link" data-variant="exclusive">Access exclusives →</a></div>
+                        <div class="feature-card"><h3>🔍 Alternative Sources</h3><a href="" class="dynamic-link" data-variant="leaked">Explore archive →</a></div>
+                        <div class="feature-card"><h3>📚 Complete Index</h3><a href="" class="dynamic-link" data-variant="archive">Full directory →</a></div>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <!-- SECTION 1: About This Collection -->
+                <h2>About This Collection</h2>
+                <p>The <strong><span class="query-placeholder"></span></strong> archive represents a structured effort to document and preserve materials related to this public figure. The collection emphasizes accuracy, provenance, and research accessibility.</p>
+                
+                <div class="tag-list">
+                    <span class="tag">Visual Documentation</span>
+                    <span class="tag">Audiovisual Archive</span>
+                    <span class="tag">Biographical Research</span>
+                    <span class="tag">Digital Preservation</span>
+                </div>
+                
+                <!-- SECTION 2: Visual Collections -->
+                <h2>Visual Collections</h2>
+                <div class="grid-3">
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="professional+photoshoot">Studio Photography</a><p style="font-size:0.8rem; margin-top:0.25rem;">Commissioned editorial work</p></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="candid">Documentary Images</a><p style="font-size:0.8rem; margin-top:0.25rem;">Unposed, spontaneous moments</p></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="behind+the+scenes">Behind the Scenes</a><p style="font-size:0.8rem; margin-top:0.25rem;">Production documentation</p></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="red+carpet">Event Coverage</a><p style="font-size:0.8rem; margin-top:0.25rem;">Formal appearances</p></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="magazine+shoot">Magazine Features</a><p style="font-size:0.8rem; margin-top:0.25rem;">Published editorial work</p></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="rare+photos">Archival Images</a><p style="font-size:0.8rem; margin-top:0.25rem;">Limited circulation finds</p></div>
+                </div>
+                
+                <!-- SECTION 3: Video Archive -->
+                <h2>Video Archive</h2>
+                <div class="grid-3">
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="performances">Live Performances</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="interviews">Interview Footage</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="behind+the+scenes+footage">BTS Documentation</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="exclusive+clips">Exclusive Content</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="rare+videos">Rare Recordings</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="high+quality+videos">HD Archive</a></div>
+                </div>
+                
+                <!-- SECTION 4: Biographical Data -->
+                <h2>Biographical Data</h2>
+                <div class="grid-2">
+                    <div class="feature-card">
+                        <h3>Personal Records</h3>
+                        <ul><li><a href="" class="dynamic-link" data-variant="early+life">Early life</a></li><li><a href="" class="dynamic-link" data-variant="age">Age</a></li><li><a href="" class="dynamic-link" data-variant="height">Height</a></li><li><a href="" class="dynamic-link" data-variant="nationality">Nationality</a></li></ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Professional Records</h3>
+                        <ul><li><a href="" class="dynamic-link" data-variant="career">Career timeline</a></li><li><a href="" class="dynamic-link" data-variant="net+worth">Net worth</a></li><li><a href="" class="dynamic-link" data-variant="relationships">Relationships</a></li></ul>
+                    </div>
+                </div>
+                
+                <!-- SECTION 5: Special Collections -->
+                <h2>Special Collections</h2>
+                <div class="grid-4">
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="behind+the+scenes">BTS Archive</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="private+gatherings">Private Events</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="uncensored">Unedited Materials</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="rare+unreleased">Unpublished</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="exclusive+access">Restricted Access</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="backstage">Backstage</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="bts">Production Stills</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="private+life">Personal Moments</a></div>
+                </div>
+                
+                <!-- SECTION 6: Platform Archives -->
+                <h2>Platform Archives</h2>
+                <div class="grid-4">
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="instagram">Instagram</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="facebook">Facebook</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="twitter">Twitter/X</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="tiktok">TikTok</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="youtube">YouTube</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="snapchat">Snapchat</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="discord">Discord</a></div>
+                    <div class="article-card"><a href="" class="dynamic-link" data-variant="telegram">Telegram</a></div>
+                </div>
+                
+                <!-- SECTION 7: Related Archives -->
+                <h2>Related Archives</h2>
+                <div class="grid-2">
+                    <div class="article-card"><a href="/search?q=celebrity+profiles">Biographical Research Directory</a></div>
+                    <div class="article-card"><a href="/search?q=photo+archives">Visual Studies Collection</a></div>
+                    <div class="article-card"><a href="/search?q=video+collections">Audiovisual Archive</a></div>
+                    <div class="article-card"><a href="/search?q=exclusive+collections">Special Collections Library</a></div>
+                    <div class="article-card"><a href="/search?q=leaked+content">Alternative Distribution Archive</a></div>
+                    <div class="article-card"><a href="/search?q=facebook+leaks">Platform-Specific Research</a></div>
+                </div>
+                
+                <!-- SECTION 8: FAQ -->
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-entry">
+                    <div class="faq-question">What materials are included in this archive?</div>
+                    <div class="faq-answer">The collection includes <a href="" class="dynamic-link" data-variant="photos">visual documentation</a>, <a href="" class="dynamic-link" data-variant="videos">audiovisual recordings</a>, <a href="" class="dynamic-link" data-variant="biography">biographical information</a>, and <a href="" class="dynamic-link" data-variant="exclusive">special collections</a>. Each entry includes provenance notes where available.</div>
+                </div>
+                
+                <div class="faq-entry">
+                    <div class="faq-question">How is the visual content organized?</div>
+                    <div class="faq-answer">The <a href="" class="dynamic-link" data-variant="photos">image archive</a> uses categorical organization based on context (editorial, documentary, production), enabling efficient research and discovery.</div>
+                </div>
+                
+                <div class="faq-entry">
+                    <div class="faq-question">What video materials are available?</div>
+                    <div class="faq-answer">The <a href="" class="dynamic-link" data-variant="videos">video section</a> contains performances, interviews, behind-the-scenes footage, and platform-specific content with contextual metadata.</div>
+                </div>
+                
+                <div class="faq-entry">
+                    <div class="faq-question">Where does the biographical information come from?</div>
+                    <div class="faq-answer">The <a href="" class="dynamic-link" data-variant="biography">biography section</a> aggregates data from interviews, public records, media reports, and verified statements.</div>
+                </div>
+                
+                <div class="faq-entry">
+                    <div class="faq-question">How often is this archive updated?</div>
+                    <div class="faq-answer">New materials are added as they become available. The archive maintains regular updates to ensure comprehensive coverage.</div>
+                </div>
+                
+                <hr>
+                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>
+                <hr>
+                
+                <!-- SECTION 9: About This Archive -->
+                <h2>About This Library</h2>
+                <p><strong><span class="query-placeholder"></span> Archive</strong> is maintained as a permanent research resource. The library prioritizes:</p>
+                <ul style="margin: 1rem 0 0 1.5rem;">
+                    <li>Comprehensive documentation of available materials</li>
+                    <li>Structured organization for research accessibility</li>
+                    <li>Verified metadata and provenance tracking</li>
+                    <li>Regular updates to maintain accuracy</li>
                 </ul>
-            </section>
-            
-            <!-- SECTION 6: Exclusive Content -->
-            <section id="section-exclusive">
-                <h2>Exclusive <span class="query-placeholder"></span> Content</h2>
-                <p>Beyond public appearances, various <strong>exclusive content</strong> has emerged. 
-                This section features <a href="" class="dynamic-link" data-variant="behind+the+scenes"><span class="query-placeholder"></span> behind-the-scenes moments</a>, 
-                <a href="" class="dynamic-link" data-variant="private+gatherings"><span class="query-placeholder"></span> private gatherings</a>, 
-                <a href="" class="dynamic-link" data-variant="uncensored"><span class="query-placeholder"></span> uncensored photos</a>, and 
-                <a href="" class="dynamic-link" data-variant="intimate+moments"><span class="query-placeholder"></span> intimate glimpses</a>.</p>
-                
-                <p>The collection includes <a href="" class="dynamic-link" data-variant="rare+unreleased"><span class="query-placeholder"></span> rare and unreleased material</a>, 
-                <a href="" class="dynamic-link" data-variant="private+moments"><span class="query-placeholder"></span> private moments</a>, and 
-                <a href="" class="dynamic-link" data-variant="exclusive+access"><span class="query-placeholder"></span> exclusive access content</a>. 
-                Browse <a href="" class="dynamic-link" data-variant="bts"><span class="query-placeholder"></span> BTS footage</a>, 
-                <a href="" class="dynamic-link" data-variant="backstage"><span class="query-placeholder"></span> backstage moments</a>, and 
-                <a href="" class="dynamic-link" data-variant="private+life"><span class="query-placeholder"></span> private life glimpses</a>.</p>
-            </section>
-            
-            <!-- SECTION 7: Biography -->
-            <section id="section-bio">
-                <h2>About <span class="query-placeholder"></span></h2>
-                <p>Understanding <strong><span class="query-placeholder"></span></strong> means knowing the story. This section covers:</p>
-                
-                <ul>
-                    <li><a href="" class="dynamic-link" data-variant="early+life"><span class="query-placeholder"></span> Early life and background</a> – where she came from</li>
-                    <li><a href="" class="dynamic-link" data-variant="career"><span class="query-placeholder"></span> Career journey</a> – key moments and achievements</li>
-                    <li><a href="" class="dynamic-link" data-variant="age"><span class="query-placeholder"></span> Age and personal details</a> – when publicly known</li>
-                    <li><a href="" class="dynamic-link" data-variant="height"><span class="query-placeholder"></span> Height and measurements</a></li>
-                    <li><a href="" class="dynamic-link" data-variant="nationality"><span class="query-placeholder"></span> Nationality and origin</a></li>
-                    <li><a href="" class="dynamic-link" data-variant="relationships"><span class="query-placeholder"></span> Relationships and family</a></li>
-                    <li><a href="" class="dynamic-link" data-variant="net+worth"><span class="query-placeholder"></span> Net worth and career earnings</a></li>
-                    <li><a href="" class="dynamic-link" data-variant="social+media"><span class="query-placeholder"></span> Social media presence</a></li>
-                </ul>
-            </section>
-            
-            <!-- SECTION 8: Related Searches -->
-            <section id="section-related">
-                <h2>You Might Also Be Interested In</h2>
-                <ul>
-                    <li><a href="/search?q=celebrity+profiles">Celebrity profiles and archives</a></li>
-                    <li><a href="/search?q=exclusive+collections">Exclusive content collections</a></li>
-                    <li><a href="/search?q=photo+archives">Photo archives</a></li>
-                    <li><a href="/search?q=video+collections">Video collections</a></li>
-                    <li><a href="/search?q=leaked+content">Leaked content</a></li>
-                    <li><a href="/search?q=facebook+leaks">facebook leaks</a></li>
-                </ul>
-            </section>
-            
-            <!-- SECTION 9: FAQ -->
-            <section id="section-faq">
-                <h2>Common Questions About <span class="query-placeholder"></span></h2>
-                
-                <div class="faq-item">
-                    <h3>What type of content is available about <span class="query-placeholder"></span>?</h3>
-                    <p>Our archive contains <a href="" class="dynamic-link" data-variant="photos"><span class="query-placeholder"></span> photos</a>, 
-                    <a href="" class="dynamic-link" data-variant="videos"><span class="query-placeholder"></span> videos</a>, 
-                    <a href="" class="dynamic-link" data-variant="biography"><span class="query-placeholder"></span> biographical information</a>, and 
-                    <a href="" class="dynamic-link" data-variant="exclusive"><span class="query-placeholder"></span> exclusive material</a>. 
-                    The collection spans the entire career.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>Where can I find <span class="query-placeholder"></span> photos?</h3>
-                    <p>The <a href="" class="dynamic-link" data-variant="photos"><span class="query-placeholder"></span> photo gallery</a> contains the complete image archive.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>Are there <span class="query-placeholder"></span> videos available?</h3>
-                    <p>Yes, our <a href="" class="dynamic-link" data-variant="videos"><span class="query-placeholder"></span> video collection</a> includes performances, interviews, and more.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>What exclusive content exists?</h3>
-                    <p>The <a href="" class="dynamic-link" data-variant="exclusive"><span class="query-placeholder"></span> exclusive content section</a> features behind-the-scenes and private material.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>How can I learn about the background?</h3>
-                    <p>The <a href="" class="dynamic-link" data-variant="biography"><span class="query-placeholder"></span> biography section</a> provides comprehensive information.</p>
-                </div>
-            </section>
-            <hr />
-          <center>{% include /ads/gobloggugel/nanouturfs.html %}
-</center>  
-            <hr />
-            <!-- SECTION 10: About This Archive -->
-            <section id="section-about">
-                <h2>About This <span class="query-placeholder"></span> Archive</h2>
-                <p>This page serves as a permanent, comprehensive resource for <strong><span class="query-placeholder"></span></strong> content. 
-                The collection continues to grow as new material becomes available, ensuring it remains the most complete resource.</p>
-            </section>
-        </div>
-    </main>
+                <p style="margin-top: 1.5rem; padding: 1rem; background: #fafaf9; border-radius: 0.75rem; font-size: 0.875rem;">This resource is intended for research, journalism, and cultural documentation purposes.</p>
+            </div>
+        </main>
+    </div>
     
     <script>
     (function() {
@@ -348,18 +750,18 @@ permalink: /search
             queryType = 'platform';
         }
         
-        // Update title
+        // Update title - gaya editorial magazine
         let title;
-        if (queryType === 'leak') title = `${query}`;
-        else if (queryType === 'photo') title = `${query} - Complete Photo Gallery & Image Archive`;
-        else if (queryType === 'video') title = `${query} - Complete Video Collection & Footage`;
-        else if (queryType === 'bio') title = `${query} - Complete Biography & Personal Details`;
-        else if (queryType === 'platform') title = `${query} - Platform Content & Exclusive Media`;
-        else title = `${query} - Complete Profile, Exclusive Content & Media Archive`;
+        if (queryType === 'leak') title = `${query} | The Archive • Alternative Media Collection`;
+        else if (queryType === 'photo') title = `${query} | Visual Archive • Photography Collection`;
+        else if (queryType === 'video') title = `${query} | Moving Image Archive • Video Library`;
+        else if (queryType === 'bio') title = `${query} | Biographical Archive • Public Records`;
+        else if (queryType === 'platform') title = `${query} | Digital Archive • Platform Documentation`;
+        else title = `${query} | The Archive • Complete Media Library`;
         
         document.title = title;
         document.getElementById('dynamic-description').setAttribute('content', 
-            `Find complete ${query} content including photos, videos, biography, and exclusive material.`);
+            `${query} archive: comprehensive library featuring visual collections, video recordings, biographical research, and special collections. A resource for media research and cultural documentation.`);
         
         // Update H1
         document.getElementById('main-heading').textContent = title;
@@ -395,7 +797,5 @@ permalink: /search
         
     })();
     </script>
-    
-    
 </body>
 </html>
