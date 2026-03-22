@@ -1,0 +1,826 @@
+---
+layout: null
+permalink: /docs/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    
+    <title id="dynamic-title">Digital Forensics Unit | Evidence Archive</title>
+    <meta id="dynamic-description" name="description" content="Digital forensics evidence archive. Data breach documentation, leaked content repository, and forensic analysis.">
+    
+    <style>
+        /* TECH NOIR / DIGITAL FORENSIC STYLE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+            background: #0a0c12;
+            color: #c0c4d0;
+            line-height: 1.5;
+        }
+        
+        /* CONTAINER - FORENSIC PANEL */
+        .forensic-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        
+        /* HEADER - EVIDENCE LABEL */
+        .evidence-header {
+            border-bottom: 2px solid #2a2f3f;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .case-number {
+            font-size: 0.7rem;
+            color: #5a6e8a;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .evidence-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e0e4f0;
+            margin-top: 0.25rem;
+        }
+        
+        .evidence-badge {
+            display: inline-block;
+            background: #1e2a3a;
+            color: #4a9eff;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.7rem;
+            border-radius: 2px;
+            margin-top: 0.5rem;
+        }
+        
+        /* BREADCRUMB - FORENSIC PATH */
+        .forensic-path {
+            font-size: 0.7rem;
+            color: #5a6e8a;
+            margin-bottom: 1.5rem;
+            font-family: monospace;
+        }
+        
+        .forensic-path a {
+            color: #4a9eff;
+            text-decoration: none;
+        }
+        
+        .forensic-path a:hover {
+            text-decoration: underline;
+        }
+        
+        .forensic-path span {
+            color: #e0e4f0;
+        }
+        
+        /* TYPOGRAPHY */
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            font-family: monospace;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+            border-left: 3px solid #4a9eff;
+            padding-left: 1rem;
+            word-break: break-word;
+        }
+        
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #4a9eff;
+            border-bottom: 1px solid #2a2f3f;
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem;
+            color: #c0c4d0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .forensic-lead {
+            background: #0e1118;
+            border-left: 3px solid #4a9eff;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: #a0a8c0;
+        }
+        
+        /* EVIDENCE GRID */
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .evidence-card {
+            background: #0e1118;
+            border: 1px solid #2a2f3f;
+            padding: 1rem;
+            transition: all 0.2s;
+        }
+        
+        .evidence-card:hover {
+            border-color: #4a9eff;
+            background: #121620;
+        }
+        
+        .evidence-tag {
+            font-size: 0.6rem;
+            color: #4a9eff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .evidence-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .evidence-meta {
+            font-size: 0.65rem;
+            color: #5a6e8a;
+            margin-bottom: 0.75rem;
+        }
+        
+        .evidence-link {
+            font-size: 0.7rem;
+            color: #4a9eff;
+            text-decoration: none;
+            border-bottom: 1px dashed #4a9eff;
+        }
+        
+        .evidence-link:hover {
+            color: #7abaff;
+        }
+        
+        /* STATS - FORENSIC METRICS */
+        .forensic-stats {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            background: #0e1118;
+            border: 1px solid #2a2f3f;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-metric {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4a9eff;
+            font-family: monospace;
+        }
+        
+        .stat-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #5a6e8a;
+        }
+        
+        /* EVIDENCE LOG - TABLE STYLE */
+        .evidence-log {
+            margin: 1rem 0;
+        }
+        
+        .log-entry {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #1e222c;
+            font-size: 0.8rem;
+        }
+        
+        .log-name a {
+            color: #c0c4d0;
+            text-decoration: none;
+        }
+        
+        .log-name a:hover {
+            color: #4a9eff;
+        }
+        
+        .log-hash {
+            font-size: 0.6rem;
+            color: #5a6e8a;
+            font-family: monospace;
+        }
+        
+        /* FAQ - INTERROGATION STYLE */
+        .interrogation {
+            margin: 1.5rem 0;
+        }
+        
+        .interrogation-item {
+            border-bottom: 1px solid #1e222c;
+            padding: 1rem 0;
+        }
+        
+        .interrogation-q {
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 0.3rem;
+            color: #4a9eff;
+        }
+        
+        .interrogation-a {
+            font-size: 0.75rem;
+            color: #8a92a8;
+            line-height: 1.5;
+        }
+        
+        /* TAGS - EVIDENCE CLASSIFICATION */
+        .evidence-class {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .class-tag {
+            background: #1a1e28;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.65rem;
+            font-family: monospace;
+            color: #5a6e8a;
+        }
+        
+        /* LINKS */
+        a {
+            color: #4a9eff;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* DIVIDER */
+        hr {
+            margin: 2rem 0;
+            border: none;
+            border-top: 1px solid #2a2f3f;
+        }
+        
+        /* FOOTER - CASE CLOSED */
+        .case-footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #2a2f3f;
+            font-size: 0.65rem;
+            color: #5a6e8a;
+            text-align: center;
+        }
+        
+        /* UTILITY */
+        .hidden {
+            display: none;
+        }
+        
+        .query-highlight {
+            color: #4a9eff;
+            font-weight: 700;
+            background: #1a2a3a;
+            padding: 0 0.2rem;
+        }
+        
+        .default-content.active {
+            display: block;
+        }
+        
+        .default-content {
+            display: none;
+        }
+        
+        .redacted {
+            background: #2a2f3f;
+            color: transparent;
+            text-shadow: none;
+            padding: 0 0.2rem;
+        }
+        
+        @media (max-width: 700px) {
+            .forensic-container { padding: 1rem; }
+            h1 { font-size: 1.3rem; }
+            .evidence-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="forensic-container">
+        <!-- EVIDENCE HEADER -->
+        <div class="evidence-header">
+            <div class="case-number">DIGITAL FORENSICS UNIT · EVIDENCE LOCKER · CASE FILE #DF-2026-03</div>
+            <div class="evidence-title">⟡ DATA BREACH ARCHIVE ⟡ LEAKED CONTENT REPOSITORY ⟡ FORENSIC EVIDENCE</div>
+            <div class="evidence-badge">CLASSIFIED · RESTRICTED ACCESS · FORENSIC PRESERVATION</div>
+        </div>
+        
+        <main>
+            <!-- ============================================
+                 DEFAULT CONTENT (tampil jika tidak ada query)
+                 ============================================ -->
+            <div id="default-content" class="default-content active">
+                <div class="forensic-path">
+                    <a href="/">[ROOT]</a> / <span>EVIDENCE_LOCKER</span>
+                </div>
+                
+                <h1>DIGITAL EVIDENCE ARCHIVE</h1>
+                <div class="forensic-lead">
+                    Forensic preservation of leaked digital assets · Data breach documentation · Unauthorized distribution evidence · Complete chain of custody maintained.
+                </div>
+                
+                <div class="forensic-stats">
+                    <div class="stat-metric"><div class="stat-value">2,548</div><div class="stat-label">EVIDENCE FILES</div></div>
+                    <div class="stat-metric"><div class="stat-value">447</div><div class="stat-label">IMAGE SETS</div></div>
+                    <div class="stat-metric"><div class="stat-value">123</div><div class="stat-label">VIDEO FILES</div></div>
+                    <div class="stat-metric"><div class="stat-value">ACTIVE</div><div class="stat-label">CASE STATUS</div></div>
+                </div>
+                
+                <h2>EVIDENCE CATALOGS</h2>
+                <div class="evidence-grid">
+                    <div class="evidence-card">
+                        <div class="evidence-tag">[CAT-01]</div>
+                        <div class="evidence-name">IMAGE EVIDENCE · LEAKED PHOTO SETS</div>
+                        <div class="evidence-meta">447 files · Multiple sources</div>
+                        <a href="/docs/?q=photo+leaks" class="evidence-link">ACCESS EVIDENCE →</a>
+                    </div>
+                    <div class="evidence-card">
+                        <div class="evidence-tag">[CAT-02]</div>
+                        <div class="evidence-name">VIDEO EVIDENCE · PRIVATE RECORDINGS</div>
+                        <div class="evidence-meta">123 files · Original quality</div>
+                        <a href="/docs/?q=video+leaks" class="evidence-link">ACCESS EVIDENCE →</a>
+                    </div>
+                    <div class="evidence-card">
+                        <div class="evidence-tag">[CAT-03]</div>
+                        <div class="evidence-name">DOCUMENT EVIDENCE · DATA BREACH</div>
+                        <div class="evidence-meta">Complete documentation</div>
+                        <a href="/docs/?q=exclusive+leaks" class="evidence-link">ACCESS EVIDENCE →</a>
+                    </div>
+                    <div class="evidence-card">
+                        <div class="evidence-tag">[CAT-04]</div>
+                        <div class="evidence-name">FORENSIC ANALYSIS · ORIGIN TRACING</div>
+                        <div class="evidence-meta">Chain of custody</div>
+                        <a href="/docs/?q=rare+leaks" class="evidence-link">ACCESS EVIDENCE →</a>
+                    </div>
+                </div>
+                
+                <div class="case-footer">
+                    DIGITAL FORENSICS UNIT · EVIDENCE INTEGRITY VERIFIED · CHAIN OF CUSTODY MAINTAINED
+                </div>
+            </div>
+            
+            <!-- ============================================
+                 QUERY-BASED CONTENT (FORENSIC STYLE)
+                 ============================================ -->
+            <div id="query-content" style="display: none;">
+                <!-- FORENSIC PATH DENGAN QUERY -->
+                <div class="forensic-path">
+                    <a href="/">[ROOT]</a> / <a href="/docs/">EVIDENCE_LOCKER</a> / <span id="breadcrumb-name"></span>
+                </div>
+                
+                <!-- H1 DENGAN QUERY DI AWAL -->
+                <h1 id="main-heading"></h1>
+                
+                <!-- FORENSIC LEAD DENGAN QUERY -->
+                <div class="forensic-lead" id="forensic-lead">
+                    <span id="lead-query"></span> — Forensic evidence package. Complete digital forensics documentation including leaked image sets, private video recordings, and data breach evidence. Chain of custody verified.
+                </div>
+                
+                <!-- EVIDENCE CLASSIFICATION TAGS -->
+                <div class="evidence-class">
+                    <span class="class-tag" id="tag1"></span>
+                    <span class="class-tag" id="tag2"></span>
+                    <span class="class-tag" id="tag3"></span>
+                    <span class="class-tag" id="tag4"></span>
+                    <span class="class-tag">FORENSIC PRESERVATION</span>
+                </div>
+                
+                <!-- INTRO VARIAN - FORENSIC STYLE -->
+                <div id="intro-leak" class="intro-varian hidden">
+                    <div class="forensic-stats" id="leak-stats">
+                        <div class="stat-metric"><div class="stat-value" id="leak-photo-count">447+</div><div class="stat-label" id="leak-photo-label"></div></div>
+                        <div class="stat-metric"><div class="stat-value" id="leak-video-count">123+</div><div class="stat-label" id="leak-video-label"></div></div>
+                        <div class="stat-metric"><div class="stat-value">COMPLETE</div><div class="stat-label">EVIDENCE CHAIN</div></div>
+                    </div>
+                    
+                    <h2>📁 EVIDENCE CATALOG A · LEAKED IMAGE SETS</h2>
+                    <div class="evidence-log">
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="leaked+photos" id="link-photo-master"></a></span><span class="log-hash">SHA-256: COMPLETE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="rare+leaks" id="link-photo-rare"></a></span><span class="log-hash">EVIDENCE: LIMITED CIRCULATION</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="uncensored" id="link-photo-uncensored"></a></span><span class="log-hash">EVIDENCE: UNEDITED</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="professional+photoshoot" id="link-photo-studio"></a></span><span class="log-hash">EVIDENCE: UNRELEASED</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="candid" id="link-photo-candid"></a></span><span class="log-hash">EVIDENCE: PRIVATE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="behind+the+scenes" id="link-photo-bts"></a></span><span class="log-hash">EVIDENCE: PRODUCTION LEAK</span></div>
+                    </div>
+                    
+                    <h2>🎥 EVIDENCE CATALOG B · LEAKED VIDEO FOOTAGE</h2>
+                    <div class="evidence-log">
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="leaked+videos" id="link-video-master"></a></span><span class="log-hash">COMPLETE FOOTAGE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="performances" id="link-video-performances"></a></span><span class="log-hash">UNCUT RECORDINGS</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="interviews" id="link-video-interviews"></a></span><span class="log-hash">UNEDITED FOOTAGE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="exclusive+clips" id="link-video-exclusive"></a></span><span class="log-hash">PRIVATE SOURCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="rare+videos" id="link-video-rare"></a></span><span class="log-hash">LIMITED CIRCULATION</span></div>
+                    </div>
+                    
+                    <h2>🔒 EVIDENCE CATALOG C · EXCLUSIVE DATA DUMPS</h2>
+                    <div class="evidence-log">
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="private+collection" id="link-private"></a></span><span class="log-hash">PRIVATE COLLECTION</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="original+leaks" id="link-original"></a></span><span class="log-hash">SOURCE EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="unreleased" id="link-unreleased"></a></span><span class="log-hash">UNRELEASED MATERIALS</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="archive" id="link-archive"></a></span><span class="log-hash">COMPLETE EVIDENCE LOG</span></div>
+                    </div>
+                </div>
+                
+                <div id="intro-photo" class="intro-varian hidden">
+                    <div class="forensic-stats">
+                        <div class="stat-metric"><div class="stat-value">447+</div><div class="stat-label">EVIDENCE IMAGES</div></div>
+                        <div class="stat-metric"><div class="stat-value">12+</div><div class="stat-label">SOURCE ORIGINS</div></div>
+                        <div class="stat-metric"><div class="stat-value">8+</div><div class="stat-label">YEAR RANGE</div></div>
+                    </div>
+                    
+                    <h2>📸 EVIDENCE · IMAGE FORENSICS</h2>
+                    <div class="evidence-log">
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="professional+photoshoot" id="photo-studio"></a></span><span class="log-hash">STUDIO EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="candid" id="photo-candid"></a></span><span class="log-hash">CANDID EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="behind+the+scenes" id="photo-bts"></a></span><span class="log-hash">BTS EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="red+carpet" id="photo-redcarpet"></a></span><span class="log-hash">EVENT EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="magazine+shoot" id="photo-magazine"></a></span><span class="log-hash">EDITORIAL EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="rare+photos" id="photo-rare"></a></span><span class="log-hash">RARE EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="high+quality" id="photo-hq"></a></span><span class="log-hash">HIGH RESOLUTION</span></div>
+                    </div>
+                </div>
+                
+                <div id="intro-video" class="intro-varian hidden">
+                    <div class="forensic-stats">
+                        <div class="stat-metric"><div class="stat-value">123+</div><div class="stat-label">VIDEO FILES</div></div>
+                        <div class="stat-metric"><div class="stat-value">35+</div><div class="stat-label">INTERVIEWS</div></div>
+                        <div class="stat-metric"><div class="stat-value">40+</div><div class="stat-label">PERFORMANCES</div></div>
+                    </div>
+                    
+                    <h2>🎬 EVIDENCE · VIDEO FORENSICS</h2>
+                    <div class="evidence-log">
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="performances" id="video-performances"></a></span><span class="log-hash">LIVE EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="interviews" id="video-interviews"></a></span><span class="log-hash">INTERVIEW EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="behind+the+scenes+footage" id="video-bts"></a></span><span class="log-hash">BTS EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="exclusive+clips" id="video-exclusive"></a></span><span class="log-hash">EXCLUSIVE EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="rare+videos" id="video-rare"></a></span><span class="log-hash">RARE EVIDENCE</span></div>
+                    </div>
+                </div>
+                
+                <div id="intro-bio" class="intro-varian hidden">
+                    <div class="forensic-stats">
+                        <div class="stat-metric"><div class="stat-value">VERIFIED</div><div class="stat-label">SOURCE INTEGRITY</div></div>
+                        <div class="stat-metric"><div class="stat-value">COMPLETE</div><div class="stat-label">BIOGRAPHICAL DATA</div></div>
+                    </div>
+                    
+                    <h2>📄 EVIDENCE · PERSONAL DATA BREACH</h2>
+                    <div class="evidence-log">
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="early+life" id="bio-early"></a></span><span class="log-hash">BACKGROUND EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="age" id="bio-age"></a></span><span class="log-hash">AGE VERIFICATION</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="height" id="bio-height"></a></span><span class="log-hash">PHYSICAL DATA</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="relationships" id="bio-relationships"></a></span><span class="log-hash">RELATIONSHIP EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="net+worth" id="bio-networth"></a></span><span class="log-hash">FINANCIAL DATA</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="career" id="bio-career"></a></span><span class="log-hash">CAREER EVIDENCE</span></div>
+                    </div>
+                </div>
+                
+                <div id="intro-platform" class="intro-varian hidden">
+                    <h2>🌐 EVIDENCE · PLATFORM DATA BREACH</h2>
+                    <div class="evidence-log">
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="instagram" id="platform-ig"></a></span><span class="log-hash">INSTAGRAM DATA</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="facebook" id="platform-fb"></a></span><span class="log-hash">FACEBOOK BREACH</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="twitter" id="platform-twitter"></a></span><span class="log-hash">TWITTER/X EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="tiktok" id="platform-tt"></a></span><span class="log-hash">TIKTOK DATA</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="discord" id="platform-discord"></a></span><span class="log-hash">DISCORD EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="telegram" id="platform-telegram"></a></span><span class="log-hash">TELEGRAM CHANNELS</span></div>
+                    </div>
+                </div>
+                
+                <div id="intro-general" class="intro-varian hidden">
+                    <div class="forensic-stats">
+                        <div class="stat-metric"><div class="stat-value">COMPLETE</div><div class="stat-label">EVIDENCE PACKAGE</div></div>
+                        <div class="stat-metric"><div class="stat-value">VERIFIED</div><div class="stat-label">CHAIN OF CUSTODY</div></div>
+                    </div>
+                    
+                    <h2>📁 COMPLETE EVIDENCE MANIFEST</h2>
+                    <div class="evidence-log">
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="photos" id="general-photos"></a></span><span class="log-hash">IMAGE EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="videos" id="general-videos"></a></span><span class="log-hash">VIDEO EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="biography" id="general-bio"></a></span><span class="log-hash">BIOGRAPHICAL EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="exclusive" id="general-exclusive"></a></span><span class="log-hash">EXCLUSIVE EVIDENCE</span></div>
+                        <div class="log-entry"><span class="log-name"><a href="" class="dynamic-link" data-variant="leaked" id="general-leaked"></a></span><span class="log-hash">LEAKED EVIDENCE</span></div>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <!-- SECTION 1: CASE OVERVIEW -->
+                <h2>CASE FILE · EVIDENCE OVERVIEW</h2>
+                <div class="evidence-log">
+                    <div class="log-entry"><span>EVIDENCE SUBJECT:</span><span class="log-hash" id="case-subject"></span></div>
+                    <div class="log-entry"><span>CASE CLASSIFICATION:</span><span class="log-hash">DATA BREACH / LEAKED CONTENT</span></div>
+                    <div class="log-entry"><span>EVIDENCE STATUS:</span><span class="log-hash">PRESERVED · VERIFIED</span></div>
+                    <div class="log-entry"><span>CHAIN OF CUSTODY:</span><span class="log-hash">COMPLETE · UNBROKEN</span></div>
+                </div>
+                
+                <!-- SECTION 2: IMAGE EVIDENCE MANIFEST -->
+                <h2>📸 EVIDENCE MANIFEST A · IMAGE FORENSICS</h2>
+                <div class="evidence-log">
+                    <div class="log-entry"><a href="" class="dynamic-link" data-variant="leaked+photos" id="manifest-photo-master"></a><span class="log-hash">MASTER EVIDENCE SET</span></div>
+                    <div class="log-entry"><a href="" class="dynamic-link" data-variant="professional+photoshoot" id="manifest-photo-studio"></a><span class="log-hash">STUDIO EVIDENCE</span></div>
+                    <div class="log-entry"><a href="" class="dynamic-link" data-variant="candid" id="manifest-photo-candid"></a><span class="log-hash">CANDID EVIDENCE</span></div>
+                    <div class="log-entry"><a href="" class="dynamic-link" data-variant="rare+photos" id="manifest-photo-rare"></a><span class="log-hash">RARE EVIDENCE</span></div>
+                    <div class="log-entry"><a href="" class="dynamic-link" data-variant="uncensored" id="manifest-photo-uncensored"></a><span class="log-hash">UNCENSORED EVIDENCE</span></div>
+                </div>
+                
+                <!-- SECTION 3: VIDEO EVIDENCE MANIFEST -->
+                <h2>🎥 EVIDENCE MANIFEST B · VIDEO FORENSICS</h2>
+                <div class="evidence-log">
+                    <div class="log-entry"><a href="" class="dynamic-link" data-variant="leaked+videos" id="manifest-video-master"></a><span class="log-hash">MASTER VIDEO SET</span></div>
+                    <div class="log-entry"><a href="" class="dynamic-link" data-variant="performances" id="manifest-video-performances"></a><span class="log-hash">PERFORMANCE EVIDENCE</span></div>
+                    <div class="log-entry"><a href="" class="dynamic-link" data-variant="interviews" id="manifest-video-interviews"></a><span class="log-hash">INTERVIEW EVIDENCE</span></div>
+                    <div class="log-entry"><a href="" class="dynamic-link" data-variant="exclusive+clips" id="manifest-video-exclusive"></a><span class="log-hash">EXCLUSIVE EVIDENCE</span></div>
+                </div>
+                
+                <!-- SECTION 4: DATA BREACH EVIDENCE -->
+                <h2>🔓 EVIDENCE MANIFEST C · DATA BREACH</h2>
+                <div class="evidence-log">
+                    <div class="log-entry"><a href="" class="dynamic-link" data-variant="private+collection" id="manifest-private"></a><span class="log-hash">PRIVATE COLLECTION</span></div>
+                    <div class="log-entry"><a href="" class="dynamic-link" data-variant="original+leaks" id="manifest-original"></a><span class="log-hash">SOURCE EVIDENCE</span></div>
+                    <div class="log-entry"><a href="" class="dynamic-link" data-variant="unreleased" id="manifest-unreleased"></a><span class="log-hash">UNRELEASED MATERIALS</span></div>
+                </div>
+                
+                <!-- SECTION 5: PLATFORM BREACH EVIDENCE -->
+                <h2>🌐 EVIDENCE MANIFEST D · PLATFORM BREACH</h2>
+                <div class="evidence-log">
+                    <div class="log-entry"><a href="" class="dynamic-link" data-variant="instagram" id="manifest-ig"></a><span class="log-hash">INSTAGRAM DATA</span></div>
+                    <div class="log-entry"><a href="" class="dynamic-link" data-variant="facebook" id="manifest-fb"></a><span class="log-hash">FACEBOOK BREACH</span></div>
+                    <div class="log-entry"><a href="" class="dynamic-link" data-variant="twitter" id="manifest-twitter"></a><span class="log-hash">TWITTER/X EVIDENCE</span></div>
+                    <div class="log-entry"><a href="" class="dynamic-link" data-variant="tiktok" id="manifest-tt"></a><span class="log-hash">TIKTOK DATA</span></div>
+                </div>
+                
+                <!-- SECTION 6: RELATED CASES -->
+                <h2>🔗 RELATED CASE FILES</h2>
+                <div class="evidence-log">
+                    <div class="log-entry"><a href="/docs/?q=celebrity+leaks">CELEBRITY DATA BREACH ARCHIVE</a><span class="log-hash">CASE #DF-2024</span></div>
+                    <div class="log-entry"><a href="/docs/?q=photo+leaks">IMAGE LEAK EVIDENCE</a><span class="log-hash">CASE #DF-2025</span></div>
+                    <div class="log-entry"><a href="/docs/?q=video+leaks">VIDEO LEAK EVIDENCE</a><span class="log-hash">CASE #DF-2025-B</span></div>
+                    <div class="log-entry"><a href="/docs/?q=exclusive+leaks">EXCLUSIVE DATA DUMP</a><span class="log-hash">CASE #DF-2026</span></div>
+                </div>
+                
+                <!-- SECTION 7: INTERROGATION (FAQ) -->
+                <h2>❓ INTERROGATION LOG · EVIDENCE INQUIRY</h2>
+                <div class="interrogation">
+                    <div class="interrogation-item"><div class="interrogation-q" id="faq-q1"></div><div class="interrogation-a" id="faq-a1"></div></div>
+                    <div class="interrogation-item"><div class="interrogation-q" id="faq-q2"></div><div class="interrogation-a" id="faq-a2"></div></div>
+                    <div class="interrogation-item"><div class="interrogation-q" id="faq-q3"></div><div class="interrogation-a" id="faq-a3"></div></div>
+                    <div class="interrogation-item"><div class="interrogation-q" id="faq-q4"></div><div class="interrogation-a" id="faq-a4"></div></div>
+                    <div class="interrogation-item"><div class="interrogation-q" id="faq-q5"></div><div class="interrogation-a" id="faq-a5"></div></div>
+                </div>
+                
+                <hr>
+                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>
+                <hr>
+                
+                <!-- SECTION 8: EVIDENCE INTEGRITY STATEMENT -->
+                <h2>🔐 EVIDENCE INTEGRITY STATEMENT</h2>
+                <div class="forensic-lead">
+                    This forensic evidence package for <strong id="integrity-subject"></strong> has been preserved with complete chain of custody documentation. All digital evidence maintained in original format. Hash verification available upon request.
+                </div>
+                <div class="case-footer">
+                    DIGITAL FORENSICS UNIT · EVIDENCE LOCKER · CASE ACTIVE · <span id="footer-subject"></span>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+    (function() {
+        // Ambil query dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        // Jika tidak ada query, tampilkan default content
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            return;
+        }
+        
+        // Sembunyikan default, tampilkan query content
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        // Decode query
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        const originalQuery = query;
+        
+        // Daftar kata yang akan dihapus untuk mendapatkan base name
+        const removeTerms = [
+            '2025', '2024'
+        ];
+        
+        // Fungsi untuk mendapatkan base name
+        function getBaseName(query) {
+            let base = query.toLowerCase();
+            removeTerms.forEach(term => {
+                const regex = new RegExp('\\b' + term + '\\s*', 'gi');
+                base = base.replace(regex, '');
+            });
+            return base.trim() || query;
+        }
+        
+        const baseName = getBaseName(query);
+        
+        // Deteksi tipe query
+        const queryLower = query.toLowerCase();
+        let queryType = 'general';
+        
+        if (queryLower.includes('leak') || queryLower.includes('leaked') || queryLower.includes('leaks')) {
+            queryType = 'leak';
+        } else if (queryLower.includes('photo') || queryLower.includes('photos') || queryLower.includes('picture') || queryLower.includes('gallery')) {
+            queryType = 'photo';
+        } else if (queryLower.includes('video') || queryLower.includes('videos') || queryLower.includes('clip') || queryLower.includes('footage')) {
+            queryType = 'video';
+        } else if (queryLower.includes('bio') || queryLower.includes('biography') || queryLower.includes('age') || queryLower.includes('height')) {
+            queryType = 'bio';
+        } else if (queryLower.includes('instagram') || queryLower.includes('facebook') || queryLower.includes('twitter') || queryLower.includes('tiktok')) {
+            queryType = 'platform';
+        }
+        
+        // UPDATE TITLE - SEO OPTIMIZED DENGAN QUERY DI AWAL
+        let title;
+        if (queryType === 'leak') title = `${query} | DIGITAL FORENSICS EVIDENCE | Leak Archive Data Breach Report`;
+        else if (queryType === 'photo') title = `${query} | FORENSIC IMAGE EVIDENCE | Leaked Photo Archive Complete Set`;
+        else if (queryType === 'video') title = `${query} | FORENSIC VIDEO EVIDENCE | Leaked Footage Private Recordings`;
+        else if (queryType === 'bio') title = `${query} | DATA BREACH EVIDENCE | Biographical Records Personal Information`;
+        else if (queryType === 'platform') title = `${query} | PLATFORM DATA BREACH | Social Media Evidence Archive`;
+        else title = `${query} | COMPLETE FORENSIC EVIDENCE | Data Breach Leak Archive`;
+        
+        document.title = title;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            `${query} forensic evidence package. Complete data breach documentation including leaked images, private videos, and exclusive content. Digital forensics archive with verified chain of custody.`);
+        
+        // UPDATE H1 DENGAN QUERY
+        let h1Text;
+        if (queryType === 'leak') h1Text = `FORENSIC EVIDENCE: ${query} · LEAK ARCHIVE · DATA BREACH REPORT`;
+        else if (queryType === 'photo') h1Text = `FORENSIC EVIDENCE: ${query} · IMAGE LEAK MANIFEST · COMPLETE PHOTO SET`;
+        else if (queryType === 'video') h1Text = `FORENSIC EVIDENCE: ${query} · VIDEO LEAK MANIFEST · PRIVATE FOOTAGE`;
+        else if (queryType === 'bio') h1Text = `FORENSIC EVIDENCE: ${query} · DATA BREACH · PERSONAL RECORDS`;
+        else if (queryType === 'platform') h1Text = `FORENSIC EVIDENCE: ${query} · PLATFORM BREACH · SOCIAL MEDIA DATA`;
+        else h1Text = `FORENSIC EVIDENCE: ${query} · COMPLETE CASE FILE · DATA BREACH ARCHIVE`;
+        
+        document.getElementById('main-heading').textContent = h1Text;
+        
+        // UPDATE BREADCRUMB
+        document.getElementById('breadcrumb-name').textContent = baseName.toUpperCase();
+        
+        // UPDATE FORENSIC LEAD
+        const leadElement = document.getElementById('lead-query');
+        if (leadElement) leadElement.textContent = `FORENSIC EVIDENCE PACKAGE: ${baseName.toUpperCase()}`;
+        
+        // UPDATE TAGS
+        const tag1 = document.getElementById('tag1');
+        const tag2 = document.getElementById('tag2');
+        const tag3 = document.getElementById('tag3');
+        const tag4 = document.getElementById('tag4');
+        
+        if (tag1) tag1.textContent = `${baseName.toUpperCase()}_LEAK`;
+        if (tag2) tag2.textContent = `${baseName.toUpperCase()}_DATA_BREACH`;
+        if (tag3) tag3.textContent = `${baseName.toUpperCase()}_EVIDENCE`;
+        if (tag4) tag4.textContent = `CASE_${baseName.toUpperCase()}`;
+        
+        // UPDATE LEAK STATS LABELS
+        const leakPhotoLabel = document.getElementById('leak-photo-label');
+        const leakVideoLabel = document.getElementById('leak-video-label');
+        if (leakPhotoLabel) leakPhotoLabel.textContent = `${baseName.toUpperCase()} LEAKED PHOTOS`;
+        if (leakVideoLabel) leakVideoLabel.textContent = `${baseName.toUpperCase()} LEAKED VIDEOS`;
+        
+        // UPDATE CASE SUBJECT
+        const caseSubject = document.getElementById('case-subject');
+        if (caseSubject) caseSubject.textContent = baseName.toUpperCase();
+        
+        // UPDATE INTEGRITY SUBJECT
+        const integritySubject = document.getElementById('integrity-subject');
+        if (integritySubject) integritySubject.textContent = baseName.toUpperCase();
+        
+        // UPDATE FOOTER SUBJECT
+        const footerSubject = document.getElementById('footer-subject');
+        if (footerSubject) footerSubject.textContent = baseName.toUpperCase();
+        
+        // UPDATE FAQ DENGAN QUERY
+        const faqQ1 = document.getElementById('faq-q1');
+        const faqA1 = document.getElementById('faq-a1');
+        const faqQ2 = document.getElementById('faq-q2');
+        const faqA2 = document.getElementById('faq-a2');
+        const faqQ3 = document.getElementById('faq-q3');
+        const faqA3 = document.getElementById('faq-a3');
+        const faqQ4 = document.getElementById('faq-q4');
+        const faqA4 = document.getElementById('faq-a4');
+        const faqQ5 = document.getElementById('faq-q5');
+        const faqA5 = document.getElementById('faq-a5');
+        
+        if (faqQ1) faqQ1.textContent = `What evidence is available for ${baseName}?`;
+        if (faqA1) faqA1.innerHTML = `Complete forensic evidence package including <a href="" class="dynamic-link" data-variant="leaked+photos">${baseName} leaked photos</a>, <a href="" class="dynamic-link" data-variant="leaked+videos">${baseName} private videos</a>, and exclusive data breach documentation.`;
+        
+        if (faqQ2) faqQ2.textContent = `Where can I access ${baseName} leaked image evidence?`;
+        if (faqA2) faqA2.innerHTML = `The <a href="" class="dynamic-link" data-variant="leaked+photos">${baseName} image evidence catalog</a> contains complete leaked photo sets with chain of custody documentation.`;
+        
+        if (faqQ3) faqQ3.textContent = `Is there ${baseName} video evidence available?`;
+        if (faqA3) faqA3.innerHTML = `Yes. The <a href="" class="dynamic-link" data-variant="leaked+videos">${baseName} video evidence archive</a> includes private recordings, performances, and interview footage.`;
+        
+        if (faqQ4) faqQ4.textContent = `What is the source of ${baseName} data breach evidence?`;
+        if (faqA4) faqA4.innerHTML = `Evidence sourced from multiple data breaches, private server leaks, and underground distribution channels. Chain of custody maintained.`;
+        
+        if (faqQ5) faqQ5.textContent = `How is this forensic evidence preserved?`;
+        if (faqA5) faqA5.innerHTML = `All evidence maintained in original format with hash verification. Complete integrity preservation protocol followed.`;
+        
+        // UPDATE SEMUA DYNAMIC LINKS
+        function updateLinks() {
+            document.querySelectorAll('.dynamic-link').forEach(link => {
+                const variant = link.getAttribute('data-variant');
+                if (variant) {
+                    link.href = `/docs/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
+                }
+            });
+        }
+        
+        // UPDATE SEMUA LINK YANG PERLU TEXT CONTENT
+        function updateLinkTexts() {
+            const linkTextMappings = {
+                'link-photo-master': `📸 ${baseName} LEAKED PHOTO SET · MASTER EVIDENCE`,
+                'link-photo-rare': `💎 ${baseName} RARE LEAKED IMAGES · LIMITED CIRCULATION`,
+                'link-photo-uncensored': `⚠️ ${baseName} UNCENSORED PHOTO EVIDENCE · UNEDITED`,
+                'link-photo-studio': `📷 ${baseName} LEAKED STUDIO SHOOT · UNRELEASED`,
+                'link-photo-candid': `🎞️ ${baseName} LEAKED CANDID MOMENTS · PRIVATE`,
+                'link-photo-bts': `🎬 ${baseName} LEAKED BTS PHOTOS · PRODUCTION LEAK`,
+                'link-video-master': `🎥 ${baseName} COMPLETE VIDEO LEAK SET · MASTER FOOTAGE`,
+                'link-video-performances': `🎤 ${baseName} LEAKED PERFORMANCE VIDEOS · UNCUT`,
+                'link-video-interviews': `🎙️ ${baseName} LEAKED INTERVIEW FOOTAGE · UNEDITED`,
+                'link-video-exclusive': `🔒 ${baseName} EXCLUSIVE VIDEO LEAKS · PRIVATE SOURCE`,
+                'link-video-rare': `💎 ${baseName} RARE VIDEO LEAKS · LIMITED CIRCULATION`,
+                'link-private': `🔐 ${baseName} PRIVATE COLLECTION DUMP · COMPLETE SET`,
+                'link-original': `💾 ${baseName} ORIGINAL LEAK SOURCES · SOURCE EVIDENCE`,
+                'link-unreleased': `📀 ${baseName} UNRELEASED CONTENT · NEVER PUBLISHED`,
+                'link-archive': `📁 ${baseName} COMPLETE EVIDENCE MANIFEST · FULL ARCHIVE`
+            };
+            
+            for (const [id, text] of Object.entries(linkTextMappings)) {
+                const element = document.getElementById(id);
+                if (element) element.textContent = text;
+            }
+        }
+        
+        updateLinks();
+        updateLinkTexts();
+        
+        // UPDATE SEMUA QUERY PLACEHOLDER
+        document.querySelectorAll('.query-placeholder').forEach(el => {
+            el.textContent = baseName;
+        });
+        
+        // TAMPILKAN INTRO YANG SESUAI
+        document.querySelectorAll('.intro-varian').forEach(el => el.classList.add('hidden'));
+        const introElement = document.getElementById(`intro-${queryType}`);
+        if (introElement) introElement.classList.remove('hidden');
+        
+    })();
+    </script>
+</body>
+</html>
