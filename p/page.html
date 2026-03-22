@@ -1,0 +1,772 @@
+---
+layout: null
+permalink: /page/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    
+    <title id="dynamic-title">Digital Encyclopedia | Media Archive</title>
+    <meta id="dynamic-description" name="description" content="Comprehensive digital encyclopedia featuring media archives, visual collections, and documented histories.">
+    
+    <style>
+        /* MODERN ENCYCLOPEDIA STYLE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+            line-height: 1.5;
+        }
+        
+        /* CONTAINER */
+        .encyclopedia {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* HEADER */
+        .encyclopedia-header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 2rem;
+        }
+        
+        .encyclopedia-title {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #0f172a, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .encyclopedia-sub {
+            color: #475569;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        /* BREADCRUMB - RICH SNIPPET */
+        .breadcrumb {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .breadcrumb a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            color: #0f172a;
+            font-weight: 600;
+        }
+        
+        /* TYPOGRAPHY - SEO OPTIMIZED */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem;
+            padding-top: 0.5rem;
+            border-top: 2px solid #e2e8f0;
+            color: #1e293b;
+        }
+        
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 1.25rem 0 0.75rem;
+            color: #334155;
+        }
+        
+        .lead {
+            font-size: 1.1rem;
+            color: #334155;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        /* CARDS & GRIDS */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        @media (max-width: 900px) {
+            .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .encyclopedia { padding: 1rem; }
+            h1 { font-size: 1.8rem; }
+        }
+        
+        @media (max-width: 600px) {
+            .grid-3, .grid-4 { grid-template-columns: 1fr; }
+        }
+        
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: all 0.2s;
+        }
+        
+        .card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .card h3 {
+            margin-top: 0;
+            font-size: 1rem;
+        }
+        
+        .card p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin-bottom: 0.75rem;
+        }
+        
+        /* STATS SECTION */
+        .stats-panel {
+            background: #f1f5f9;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #3b82f6;
+        }
+        
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+        }
+        
+        /* ENTRY LIST - FOR SEO LINKS */
+        .entry-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+        
+        .entry-link {
+            display: block;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+        }
+        
+        .entry-link a {
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .entry-link a:hover {
+            color: #3b82f6;
+        }
+        
+        .entry-meta {
+            font-size: 0.7rem;
+            color: #94a3b8;
+            margin-left: 0.5rem;
+        }
+        
+        /* FAQ ACCORDION */
+        .faq-section {
+            margin: 2rem 0;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 0;
+        }
+        
+        .faq-question {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+        
+        .faq-answer {
+            font-size: 0.85rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+        
+        /* TAGS */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .tag {
+            background: #e2e8f0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: #334155;
+        }
+        
+        /* LINKS */
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        hr {
+            margin: 2rem 0;
+            border: none;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        /* UTILITY */
+        .hidden {
+            display: none;
+        }
+        
+        .query-placeholder {
+            font-weight: 800;
+            background: linear-gradient(135deg, #0f172a, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .default-content.active {
+            display: block;
+        }
+        
+        .default-content {
+            display: none;
+        }
+        
+        .info-box {
+            background: #fef9e3;
+            border-left: 4px solid #eab308;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+        }
+        
+        .section-intro {
+            margin-bottom: 1rem;
+            color: #475569;
+        }
+        
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="encyclopedia">
+        <div class="encyclopedia-header">
+            <div class="encyclopedia-title">ENCYCLOPEDIA DIGITALIS</div>
+            <div class="encyclopedia-sub">Media Archive · Visual Documentation · Biographical Records</div>
+        </div>
+        
+        <main>
+            <!-- ============================================
+                 DEFAULT CONTENT (tampil jika tidak ada query)
+                 ============================================ -->
+            <div id="default-content" class="default-content active">
+                <div class="breadcrumb">
+                    <a href="/">Home</a> / <span>Encyclopedia</span>
+                </div>
+                
+                <h1>Digital Media Encyclopedia</h1>
+                <div class="lead">Comprehensive reference archive documenting contemporary media figures, visual culture, and digital histories.</div>
+                
+                <div class="stats-panel">
+                    <div class="stat"><div class="stat-number">2,500+</div><div class="stat-label">Entries</div></div>
+                    <div class="stat"><div class="stat-number">450+</div><div class="stat-label">Visual Records</div></div>
+                    <div class="stat"><div class="stat-number">120+</div><div class="stat-label">Video Archives</div></div>
+                    <div class="stat"><div class="stat-number">Weekly</div><div class="stat-label">Updates</div></div>
+                </div>
+                
+                <h2>Main Categories</h2>
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>📷 Visual Encyclopedia</h3>
+                        <p>Image collections, photography archives, and visual documentation.</p>
+                        <a href="/page/?q=photo+archives">Browse collection →</a>
+                    </div>
+                    <div class="card">
+                        <h3>🎬 Moving Image Archive</h3>
+                        <p>Video recordings, performances, interviews, and footage.</p>
+                        <a href="/page/?q=video+collections">Browse collection →</a>
+                    </div>
+                    <div class="card">
+                        <h3>📖 Biographical Records</h3>
+                        <p>Verified personal data, career timelines, and public information.</p>
+                        <a href="/page/?q=celebrity+profiles">Browse collection →</a>
+                    </div>
+                    <div class="card">
+                        <h3>🔒 Special Collections</h3>
+                        <p>Limited-distribution materials and archival documentation.</p>
+                        <a href="/page/?q=exclusive+collections">Browse collection →</a>
+                    </div>
+                    <div class="card">
+                        <h3>🌐 Digital Footprint</h3>
+                        <p>Cross-platform content from social media and digital spaces.</p>
+                        <a href="/page/?q=platform+archives">Browse collection →</a>
+                    </div>
+                    <div class="card">
+                        <h3>📡 Alternative Sources</h3>
+                        <p>Materials from independent distribution channels.</p>
+                        <a href="/page/?q=leaked+content">Browse collection →</a>
+                    </div>
+                </div>
+                
+                <div class="footer">
+                    Encyclopedia Digitalis · Independent Media Archive · Established 2020
+                </div>
+            </div>
+            
+            <!-- ============================================
+                 QUERY-BASED CONTENT (SEO OPTIMIZED)
+                 ============================================ -->
+            <div id="query-content" style="display: none;">
+                <!-- BREADCRUMB DENGAN QUERY -->
+                <div class="breadcrumb">
+                    <a href="/">Home</a> / <a href="/page/">Encyclopedia</a> / <span id="breadcrumb-name"></span>
+                </div>
+                
+                <!-- H1 DENGAN QUERY -->
+                <h1 id="main-heading"></h1>
+                
+                <!-- META DESCRIPTION AREA (TEXT YANG KAYA QUERY) -->
+                <div class="info-box">
+                    📌 <strong id="meta-keywords"></strong> — Complete encyclopedia entry featuring comprehensive documentation, visual archives, video collections, and biographical records.
+                </div>
+                
+                <!-- INTRO VARIAN - MASING-MASING DENGAN QUERY STRATEGIS -->
+                <div id="intro-leak" class="intro-varian hidden">
+                    <div class="lead">
+                        <strong class="query-placeholder"></strong> leak archive: comprehensive documentation of materials that emerged through alternative distribution channels. This encyclopedia entry contains verified information about <strong class="query-placeholder"></strong> leaked content, private collections, and exclusive materials.
+                    </div>
+                    
+                    <div class="stats-panel">
+                        <div class="stat"><div class="stat-number">450+</div><div class="stat-label"><span class="query-placeholder"></span> Leaked Photos</div></div>
+                        <div class="stat"><div class="stat-number">120+</div><div class="stat-label"><span class="query-placeholder"></span> Leaked Videos</div></div>
+                        <div class="stat"><div class="stat-number">Complete</div><div class="stat-label">Leak Archive</div></div>
+                    </div>
+                    
+                    <h2><span class="query-placeholder"></span> Leaked Photo Collections</h2>
+                    <div class="entry-grid">
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="leaked+photos">Complete <span class="query-placeholder"></span> Leaked Photo Set</a> <span class="entry-meta">→ Full archive</span></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="rare+leaks">Rare <span class="query-placeholder"></span> Leaked Images</a> <span class="entry-meta">→ Limited circulation</span></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="uncensored">Uncensored <span class="query-placeholder"></span> Leaked Photos</a> <span class="entry-meta">→ Unedited</span></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="professional+photoshoot"><span class="query-placeholder"></span> Leaked Studio Shoots</a> <span class="entry-meta">→ Unreleased</span></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="candid"><span class="query-placeholder"></span> Leaked Candid Moments</a> <span class="entry-meta">→ Private</span></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="behind+the+scenes"><span class="query-placeholder"></span> Leaked BTS Photos</a> <span class="entry-meta">→ Set leaks</span></div>
+                    </div>
+                    
+                    <h2><span class="query-placeholder"></span> Leaked Video Archive</h2>
+                    <div class="entry-grid">
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="leaked+videos">Complete <span class="query-placeholder"></span> Leaked Video Set</a> <span class="entry-meta">→ Full footage</span></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="performances"><span class="query-placeholder"></span> Leaked Performance Videos</a> <span class="entry-meta">→ Uncut</span></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="interviews"><span class="query-placeholder"></span> Leaked Interview Footage</a> <span class="entry-meta">→ Unedited</span></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="exclusive+clips">Exclusive <span class="query-placeholder"></span> Video Leaks</a> <span class="entry-meta">→ Private</span></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="rare+videos">Rare <span class="query-placeholder"></span> Video Leaks</a> <span class="entry-meta">→ Limited</span></div>
+                    </div>
+                    
+                    <h2><span class="query-placeholder"></span> Exclusive Leak Collections</h2>
+                    <div class="entry-grid">
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="private+collection"><span class="query-placeholder"></span> Private Collection Dumps</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="original+leaks">Original <span class="query-placeholder"></span> Leak Sources</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="unreleased"><span class="query-placeholder"></span> Unreleased Content</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="archive">Complete <span class="query-placeholder"></span> Leak Archive</a></div>
+                    </div>
+                </div>
+                
+                <div id="intro-photo" class="intro-varian hidden">
+                    <div class="lead">
+                        <strong class="query-placeholder"></strong> visual encyclopedia: complete photographic documentation spanning editorial work, candid moments, and private collections. This entry contains all available <strong class="query-placeholder"></strong> photos, images, and visual records.
+                    </div>
+                    
+                    <div class="stats-panel">
+                        <div class="stat"><div class="stat-number">450+</div><div class="stat-label"><span class="query-placeholder"></span> Photos</div></div>
+                        <div class="stat"><div class="stat-number">8+</div><div class="stat-label">Years Documented</div></div>
+                        <div class="stat"><div class="stat-number">12+</div><div class="stat-label">Photographers</div></div>
+                    </div>
+                    
+                    <h2><span class="query-placeholder"></span> Photo Collections by Type</h2>
+                    <div class="entry-grid">
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="professional+photoshoot"><span class="query-placeholder"></span> Professional Photography</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="candid"><span class="query-placeholder"></span> Candid Photos</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="behind+the+scenes"><span class="query-placeholder"></span> Behind the Scenes Images</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="selfie"><span class="query-placeholder"></span> Self Portraits</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="red+carpet"><span class="query-placeholder"></span> Red Carpet Photos</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="magazine+shoot"><span class="query-placeholder"></span> Magazine Features</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="rare+photos">Rare <span class="query-placeholder"></span> Photos</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="high+quality">High Resolution <span class="query-placeholder"></span> Images</a></div>
+                    </div>
+                    
+                    <h2><span class="query-placeholder"></span> Thematic Visual Collections</h2>
+                    <div class="entry-grid">
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="beach+vacation"><span class="query-placeholder"></span> Vacation Photos</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="workout"><span class="query-placeholder"></span> Fitness Photography</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="lingerie"><span class="query-placeholder"></span> Fashion Editorial</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="gallery">Complete <span class="query-placeholder"></span> Photo Gallery</a></div>
+                    </div>
+                </div>
+                
+                <div id="intro-video" class="intro-varian hidden">
+                    <div class="lead">
+                        <strong class="query-placeholder"></strong> moving image encyclopedia: comprehensive video archive featuring performances, interviews, behind-the-scenes footage, and exclusive recordings. Complete documentation of <strong class="query-placeholder"></strong> video content.
+                    </div>
+                    
+                    <div class="stats-panel">
+                        <div class="stat"><div class="stat-number">120+</div><div class="stat-label"><span class="query-placeholder"></span> Videos</div></div>
+                        <div class="stat"><div class="stat-number">35+</div><div class="stat-label">Interviews</div></div>
+                        <div class="stat"><div class="stat-number">40+</div><div class="stat-label">Performances</div></div>
+                    </div>
+                    
+                    <h2><span class="query-placeholder"></span> Video Collections by Category</h2>
+                    <div class="entry-grid">
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="performances"><span class="query-placeholder"></span> Live Performances</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="interviews"><span class="query-placeholder"></span> Interview Videos</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="behind+the+scenes+footage"><span class="query-placeholder"></span> Behind the Scenes Footage</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="exclusive+clips">Exclusive <span class="query-placeholder"></span> Video Clips</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="music+videos"><span class="query-placeholder"></span> Music Video Appearances</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="rare+videos">Rare <span class="query-placeholder"></span> Recordings</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="viral+clips"><span class="query-placeholder"></span> Viral Video Clips</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="high+quality+videos">HD <span class="query-placeholder"></span> Videos</a></div>
+                    </div>
+                </div>
+                
+                <div id="intro-bio" class="intro-varian hidden">
+                    <div class="lead">
+                        <strong class="query-placeholder"></strong> biographical encyclopedia: verified personal information, career timeline, physical attributes, and public records. Complete biographical documentation of <strong class="query-placeholder"></strong>.
+                    </div>
+                    
+                    <h2><span class="query-placeholder"></span> Personal Information</h2>
+                    <div class="entry-grid">
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="early+life"><span class="query-placeholder"></span> Early Life & Background</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="age"><span class="query-placeholder"></span> Age & Birth Details</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="height"><span class="query-placeholder"></span> Height & Measurements</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="nationality"><span class="query-placeholder"></span> Nationality & Origin</a></div>
+                    </div>
+                    
+                    <h2><span class="query-placeholder"></span> Professional Information</h2>
+                    <div class="entry-grid">
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="career"><span class="query-placeholder"></span> Career Timeline</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="net+worth"><span class="query-placeholder"></span> Net Worth & Earnings</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="relationships"><span class="query-placeholder"></span> Relationships & Family</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="social+media"><span class="query-placeholder"></span> Social Media Presence</a></div>
+                    </div>
+                </div>
+                
+                <div id="intro-platform" class="intro-varian hidden">
+                    <div class="lead">
+                        <strong class="query-placeholder"></strong> digital footprint encyclopedia: comprehensive documentation of platform presence across Instagram, Facebook, Twitter, TikTok, YouTube, and other digital spaces.
+                    </div>
+                    
+                    <h2><span class="query-placeholder"></span> Platform Archives</h2>
+                    <div class="entry-grid">
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="instagram"><span class="query-placeholder"></span> Instagram Archive</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="facebook"><span class="query-placeholder"></span> Facebook Content</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="twitter"><span class="query-placeholder"></span> Twitter/X History</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="tiktok"><span class="query-placeholder"></span> TikTok Videos</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="youtube"><span class="query-placeholder"></span> YouTube Appearances</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="snapchat"><span class="query-placeholder"></span> Snapchat Content</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="discord"><span class="query-placeholder"></span> Discord Archives</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="telegram"><span class="query-placeholder"></span> Telegram Channels</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="reddit"><span class="query-placeholder"></span> Reddit Discussions</a></div>
+                    </div>
+                </div>
+                
+                <div id="intro-general" class="intro-varian hidden">
+                    <div class="lead">
+                        <strong class="query-placeholder"></strong> complete encyclopedia entry: comprehensive documentation including visual archives, video collections, biographical records, and special collections. This is the definitive reference for <strong class="query-placeholder"></strong> content.
+                    </div>
+                    
+                    <h2><span class="query-placeholder"></span> Main Collections</h2>
+                    <div class="entry-grid">
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="photos"><span class="query-placeholder"></span> Photo Archive</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="videos"><span class="query-placeholder"></span> Video Archive</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="biography"><span class="query-placeholder"></span> Biography</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="exclusive"><span class="query-placeholder"></span> Exclusive Content</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="leaked"><span class="query-placeholder"></span> Alternative Sources</a></div>
+                        <div class="entry-link"><a href="" class="dynamic-link" data-variant="archive">Complete <span class="query-placeholder"></span> Archive</a></div>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <!-- SECTION 1: COMPREHENSIVE OVERVIEW -->
+                <h2>About <span class="query-placeholder"></span> Encyclopedia Entry</h2>
+                <p>This encyclopedia entry provides comprehensive documentation of <strong class="query-placeholder"></strong> including visual materials, video recordings, biographical information, and special collections. All information is verified and organized for research accessibility.</p>
+                <div class="tag-cloud">
+                    <span class="tag"><span class="query-placeholder"></span> Archive</span>
+                    <span class="tag"><span class="query-placeholder"></span> Documentation</span>
+                    <span class="tag"><span class="query-placeholder"></span> Visual Collection</span>
+                    <span class="tag"><span class="query-placeholder"></span> Video Archive</span>
+                </div>
+                
+                <!-- SECTION 2: VISUAL DOCUMENTATION -->
+                <h2><span class="query-placeholder"></span> Visual Documentation</h2>
+                <div class="entry-grid">
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="professional+photoshoot"><span class="query-placeholder"></span> Professional Photography</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="candid"><span class="query-placeholder"></span> Candid Photography</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="behind+the+scenes"><span class="query-placeholder"></span> Behind the Scenes</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="red+carpet"><span class="query-placeholder"></span> Red Carpet Appearances</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="magazine+shoot"><span class="query-placeholder"></span> Magazine Features</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="rare+photos">Rare <span class="query-placeholder"></span> Images</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="high+quality">High Resolution <span class="query-placeholder"></span> Photos</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="gallery">Complete <span class="query-placeholder"></span> Gallery</a></div>
+                </div>
+                
+                <!-- SECTION 3: VIDEO ARCHIVE -->
+                <h2><span class="query-placeholder"></span> Video Archive</h2>
+                <div class="entry-grid">
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="performances"><span class="query-placeholder"></span> Live Performances</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="interviews"><span class="query-placeholder"></span> Interview Recordings</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="behind+the+scenes+footage"><span class="query-placeholder"></span> Behind the Scenes Footage</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="exclusive+clips">Exclusive <span class="query-placeholder"></span> Clips</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="rare+videos">Rare <span class="query-placeholder"></span> Recordings</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="high+quality+videos">HD <span class="query-placeholder"></span> Videos</a></div>
+                </div>
+                
+                <!-- SECTION 4: SPECIAL COLLECTIONS -->
+                <h2><span class="query-placeholder"></span> Special Collections</h2>
+                <div class="entry-grid">
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="behind+the+scenes">BTS <span class="query-placeholder"></span> Archive</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="private+gatherings"><span class="query-placeholder"></span> Private Events</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="uncensored">Uncensored <span class="query-placeholder"></span> Content</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="rare+unreleased">Unreleased <span class="query-placeholder"></span> Materials</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="exclusive+access">Exclusive <span class="query-placeholder"></span> Access</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="backstage"><span class="query-placeholder"></span> Backstage Archive</a></div>
+                </div>
+                
+                <!-- SECTION 5: PLATFORM ARCHIVES -->
+                <h2><span class="query-placeholder"></span> Platform Archives</h2>
+                <div class="entry-grid">
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="instagram"><span class="query-placeholder"></span> Instagram</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="facebook"><span class="query-placeholder"></span> Facebook</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="twitter"><span class="query-placeholder"></span> Twitter/X</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="tiktok"><span class="query-placeholder"></span> TikTok</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="youtube"><span class="query-placeholder"></span> YouTube</a></div>
+                    <div class="entry-link"><a href="" class="dynamic-link" data-variant="snapchat"><span class="query-placeholder"></span> Snapchat</a></div>
+                </div>
+                
+                <!-- SECTION 6: RELATED ENTRIES -->
+                <h2>Related Encyclopedia Entries</h2>
+                <div class="entry-grid">
+                    <div class="entry-link"><a href="/page/?q=celebrity+profiles">Biographical Encyclopedia</a></div>
+                    <div class="entry-link"><a href="/page/?q=photo+archives">Visual Documentation Archive</a></div>
+                    <div class="entry-link"><a href="/page/?q=video+collections">Moving Image Encyclopedia</a></div>
+                    <div class="entry-link"><a href="/page/?q=exclusive+collections">Special Collections Directory</a></div>
+                    <div class="entry-link"><a href="/page/?q=leaked+content">Alternative Sources Archive</a></div>
+                    <div class="entry-link"><a href="/page/?q=facebook+leaks">Platform Data Archive</a></div>
+                </div>
+                
+                <!-- SECTION 7: FREQUENTLY ASKED QUESTIONS -->
+                <h2>Frequently Asked Questions About <span class="query-placeholder"></span></h2>
+                <div class="faq-section">
+                    <div class="faq-item"><div class="faq-question">What is included in the <span class="query-placeholder"></span> encyclopedia entry?</div><div class="faq-answer">Complete documentation including <a href="" class="dynamic-link" data-variant="photos"><span class="query-placeholder"></span> photos</a>, <a href="" class="dynamic-link" data-variant="videos"><span class="query-placeholder"></span> videos</a>, <a href="" class="dynamic-link" data-variant="biography">biographical information</a>, and <a href="" class="dynamic-link" data-variant="exclusive">special collections</a>.</div></div>
+                    <div class="faq-item"><div class="faq-question">Where can I find <span class="query-placeholder"></span> photos?</div><div class="faq-answer">The <a href="" class="dynamic-link" data-variant="photos"><span class="query-placeholder"></span> photo archive</a> contains complete visual documentation.</div></div>
+                    <div class="faq-item"><div class="faq-question">Are there <span class="query-placeholder"></span> videos available?</div><div class="faq-answer">Yes, the <a href="" class="dynamic-link" data-variant="videos"><span class="query-placeholder"></span> video archive</a> includes performances, interviews, and exclusive footage.</div></div>
+                    <div class="faq-item"><div class="faq-question">What biographical information is documented?</div><div class="faq-answer">The <a href="" class="dynamic-link" data-variant="biography"><span class="query-placeholder"></span> biography section</a> includes personal background, career timeline, and public records.</div></div>
+                    <div class="faq-item"><div class="faq-question">How often is this encyclopedia updated?</div><div class="faq-answer">New materials are added as they become available. The archive is updated weekly.</div></div>
+                </div>
+                
+                <hr>
+                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>
+                <hr>
+                
+                <!-- SECTION 8: ARCHIVE INFORMATION -->
+                <h2>About This Encyclopedia Entry</h2>
+                <p><strong class="query-placeholder"></strong> encyclopedia entry is maintained as a permanent reference resource. All materials are organized for research accessibility with verified metadata and provenance information where available.</p>
+                <div class="footer" style="margin-top: 1.5rem;">
+                    Encyclopedia Digitalis · Independent Media Archive · <span class="query-placeholder"></span> Complete Entry
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+    (function() {
+        // Ambil query dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        // Jika tidak ada query, tampilkan default content
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            return;
+        }
+        
+        // Sembunyikan default, tampilkan query content
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        // Decode query
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        const originalQuery = query;
+        
+        // Daftar kata yang akan dihapus untuk mendapatkan base name
+        const removeTerms = [
+            '2025', '2024'
+        ];
+        
+        // Fungsi untuk mendapatkan base name
+        function getBaseName(query) {
+            let base = query.toLowerCase();
+            removeTerms.forEach(term => {
+                const regex = new RegExp('\\b' + term + '\\s*', 'gi');
+                base = base.replace(regex, '');
+            });
+            return base.trim() || query;
+        }
+        
+        const baseName = getBaseName(query);
+        
+        // Deteksi tipe query
+        const queryLower = query.toLowerCase();
+        let queryType = 'general';
+        
+        if (queryLower.includes('leak') || queryLower.includes('leaked') || queryLower.includes('leaks')) {
+            queryType = 'leak';
+        } else if (queryLower.includes('photo') || queryLower.includes('photos') || queryLower.includes('picture') || queryLower.includes('gallery')) {
+            queryType = 'photo';
+        } else if (queryLower.includes('video') || queryLower.includes('videos') || queryLower.includes('clip') || queryLower.includes('footage')) {
+            queryType = 'video';
+        } else if (queryLower.includes('bio') || queryLower.includes('biography') || queryLower.includes('age') || queryLower.includes('height')) {
+            queryType = 'bio';
+        } else if (queryLower.includes('instagram') || queryLower.includes('facebook') || queryLower.includes('twitter') || queryLower.includes('tiktok')) {
+            queryType = 'platform';
+        }
+        
+        // Update title - SEO OPTIMIZED dengan query di awal
+        let title;
+        if (queryType === 'leak') title = `${query} Leak Archive | Complete Encyclopedia Entry | Photos Videos Documents`;
+        else if (queryType === 'photo') title = `${query} Photos | Complete Visual Encyclopedia | Image Archive Gallery`;
+        else if (queryType === 'video') title = `${query} Videos | Complete Video Encyclopedia | Footage Archive`;
+        else if (queryType === 'bio') title = `${query} Biography | Complete Encyclopedia Entry | Personal Information Career`;
+        else if (queryType === 'platform') title = `${query} Platform Archive | Social Media Encyclopedia | Digital Footprint`;
+        else title = `${query} | Complete Encyclopedia Entry | Archive Documentation Visual Video Biography`;
+        
+        document.title = title;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            `${query} complete encyclopedia entry. Comprehensive archive featuring photos, videos, biography, and special collections. Verified documentation and organized research access.`);
+        
+        // Update H1 dengan query di awal
+        let h1Text;
+        if (queryType === 'leak') h1Text = `${query} Leak Archive | Complete Encyclopedia Entry`;
+        else if (queryType === 'photo') h1Text = `${query} Photos | Complete Visual Encyclopedia`;
+        else if (queryType === 'video') h1Text = `${query} Videos | Complete Video Encyclopedia`;
+        else if (queryType === 'bio') h1Text = `${query} Biography | Complete Encyclopedia Entry`;
+        else if (queryType === 'platform') h1Text = `${query} Platform Archive | Digital Encyclopedia`;
+        else h1Text = `${query} | Complete Encyclopedia Entry`;
+        
+        document.getElementById('main-heading').textContent = h1Text;
+        
+        // Update meta keywords box
+        const metaKeywords = document.getElementById('meta-keywords');
+        if (metaKeywords) {
+            metaKeywords.textContent = `${query} | ${query} Leak Archive | ${query} Photos | ${query} Videos | ${query} Biography`;
+        }
+        
+        // Update breadcrumb
+        document.getElementById('breadcrumb-name').textContent = baseName;
+        
+        // Update semua placeholder dengan baseName
+        document.querySelectorAll('.query-placeholder').forEach(el => {
+            el.textContent = baseName;
+        });
+        
+        // Tampilkan intro yang sesuai
+        document.querySelectorAll('.intro-varian').forEach(el => el.classList.add('hidden'));
+        document.getElementById(`intro-${queryType}`).classList.remove('hidden');
+        
+        // Update semua dynamic links
+        function updateLinks() {
+            document.querySelectorAll('.dynamic-link').forEach(link => {
+                const variant = link.getAttribute('data-variant');
+                if (variant) {
+                    link.href = `/page/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
+                }
+            });
+        }
+        
+        updateLinks();
+        
+        // Update semua link yang perlu base name di text
+        document.querySelectorAll('.base-placeholder').forEach(el => {
+            el.textContent = baseName;
+        });
+        
+    })();
+    </script>
+</body>
+</html>
