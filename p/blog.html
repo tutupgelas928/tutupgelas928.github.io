@@ -1,0 +1,754 @@
+---
+layout: null
+permalink: /blog/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    
+    <title id="dynamic-title">Field Notes | Media Research Journal</title>
+    <meta id="dynamic-description" name="description" content="Independent research journal documenting contemporary media, visual culture, and public figures.">
+    
+    <style>
+        /* MINIMALIST RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            background: #fffef7;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        
+        /* TYPOGRAPHY - CLASSIC BOOK STYLE */
+        h1, h2, h3 {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            border-left: 3px solid #d4af37;
+            padding-left: 1.5rem;
+        }
+        
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin: 2.5rem 0 1rem;
+            letter-spacing: -0.3px;
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 1.25rem 0 0.5rem;
+        }
+        
+        .subhead {
+            font-size: 1.1rem;
+            color: #5a5a5a;
+            font-style: italic;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e8e6e0;
+            padding-bottom: 1rem;
+        }
+        
+        /* LAYOUT - NARROW READING WIDTH */
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        /* HEADER */
+        .journal-header {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            border-bottom: 1px solid #e8e6e0;
+            margin-bottom: 2rem;
+        }
+        
+        .journal-title {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #b8a67a;
+            margin-bottom: 0.5rem;
+        }
+        
+        .journal-name {
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+        
+        .journal-meta {
+            font-size: 0.75rem;
+            color: #8a8a8a;
+            margin-top: 0.5rem;
+        }
+        
+        /* BREADCRUMB */
+        .breadcrumb {
+            font-size: 0.75rem;
+            font-family: monospace;
+            color: #8a8a8a;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .breadcrumb a {
+            color: #8a8a8a;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            color: #d4af37;
+        }
+        
+        .breadcrumb span {
+            color: #1a1a1a;
+        }
+        
+        /* NOTES & CARDS */
+        .note-card {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: #fefcf8;
+            border-left: 2px solid #e8e6e0;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        @media (max-width: 700px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; padding-left: 1rem; }
+        }
+        
+        .entry {
+            border-bottom: 1px solid #f0ede8;
+            padding: 1rem 0;
+        }
+        
+        .entry h3 {
+            margin: 0 0 0.25rem;
+            font-size: 1rem;
+        }
+        
+        .entry p {
+            font-size: 0.85rem;
+            color: #5a5a5a;
+            margin-bottom: 0.5rem;
+        }
+        
+        .entry-link {
+            font-size: 0.8rem;
+            font-family: monospace;
+            color: #d4af37;
+            text-decoration: none;
+        }
+        
+        .entry-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* STATS - MINIMAL */
+        .stats-row {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            padding: 1.5rem 0;
+            border-top: 1px solid #e8e6e0;
+            border-bottom: 1px solid #e8e6e0;
+        }
+        
+        .stat {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 400;
+            font-family: monospace;
+        }
+        
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8a8a8a;
+        }
+        
+        /* FAQ SECTION */
+        .faq-block {
+            margin: 2rem 0;
+        }
+        
+        .faq-item {
+            margin: 1rem 0;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0ede8;
+        }
+        
+        .faq-q {
+            font-weight: 500;
+            font-family: monospace;
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .faq-a {
+            font-size: 0.85rem;
+            color: #5a5a5a;
+            line-height: 1.5;
+        }
+        
+        /* TAGS */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .tag {
+            font-size: 0.7rem;
+            font-family: monospace;
+            background: #f0ede8;
+            padding: 0.2rem 0.6rem;
+            color: #4a4a4a;
+        }
+        
+        /* LINKS */
+        a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* DIVIDER */
+        hr {
+            margin: 3rem 0;
+            border: none;
+            border-top: 1px solid #e8e6e0;
+        }
+        
+        /* FOOTNOTE */
+        .footnote {
+            font-size: 0.75rem;
+            color: #8a8a8a;
+            font-family: monospace;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e8e6e0;
+        }
+        
+        /* UTILITY */
+        .hidden {
+            display: none;
+        }
+        
+        .query-placeholder {
+            font-weight: 500;
+            font-family: monospace;
+            background: #fef5e6;
+            padding: 0 0.2rem;
+        }
+        
+        .default-content.active {
+            display: block;
+        }
+        
+        .default-content {
+            display: none;
+        }
+        
+        .intro-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin: 1.5rem 0;
+            color: #2a2a2a;
+        }
+        
+        .badge {
+            font-size: 0.65rem;
+            font-family: monospace;
+            background: #1a1a1a;
+            color: #fffef7;
+            padding: 0.2rem 0.6rem;
+            margin-right: 0.5rem;
+        }
+        
+        .reference {
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: #b8a67a;
+            margin-top: 0.25rem;
+        }
+        
+        .section-note {
+            font-size: 0.8rem;
+            color: #8a8a8a;
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="journal-header">
+            <div class="journal-title">INDEPENDENT RESEARCH JOURNAL</div>
+            <div class="journal-name">Field Notes</div>
+            <div class="journal-meta">Vol. IV · Media Documentation Series</div>
+        </div>
+        
+        <main>
+            <!-- ============================================
+                 DEFAULT CONTENT (tampil jika tidak ada query)
+                 ============================================ -->
+            <div id="default-content" class="default-content active">
+                <div class="breadcrumb">
+                    <a href="/">INDEX</a> / <span>JOURNAL</span>
+                </div>
+                
+                <h1>Media Documentation<br>Field Notes</h1>
+                <div class="subhead">Observations, archives, and research on contemporary media figures and visual culture.</div>
+                
+                <div class="stats-row">
+                    <div class="stat"><div class="stat-number">2.5k</div><div class="stat-label">Entries</div></div>
+                    <div class="stat"><div class="stat-number">450</div><div class="stat-label">Visual Records</div></div>
+                    <div class="stat"><div class="stat-number">120</div><div class="stat-label">Video Files</div></div>
+                    <div class="stat"><div class="stat-number">2020</div><div class="stat-label">Est.</div></div>
+                </div>
+                
+                <h2>Research Categories</h2>
+                <div class="grid-2">
+                    <div class="note-card">
+                        <h3>Visual Studies</h3>
+                        <p>Photographic archives, image collections, and visual documentation spanning multiple contexts.</p>
+                        <a href="/blog/?q=photo+archives" class="entry-link">→ Browse collection</a>
+                    </div>
+                    <div class="note-card">
+                        <h3>Moving Image</h3>
+                        <p>Video recordings including performances, interviews, and documentary footage.</p>
+                        <a href="/blog/?q=video+collections" class="entry-link">→ Browse collection</a>
+                    </div>
+                    <div class="note-card">
+                        <h3>Biographical Notes</h3>
+                        <p>Verified personal data, career timelines, and public records.</p>
+                        <a href="/blog/?q=celebrity+profiles" class="entry-link">→ Browse collection</a>
+                    </div>
+                    <div class="note-card">
+                        <h3>Special Collections</h3>
+                        <p>Limited-distribution materials and archival documentation.</p>
+                        <a href="/blog/?q=exclusive+collections" class="entry-link">→ Browse collection</a>
+                    </div>
+                </div>
+                
+                <div class="footnote">
+                    Field Notes is an independent research archive. Updated weekly.
+                </div>
+            </div>
+            
+            <!-- ============================================
+                 QUERY-BASED CONTENT (disembunyikan sampai ada query)
+                 ============================================ -->
+            <div id="query-content" style="display: none;">
+                <!-- BREADCRUMB -->
+                <div class="breadcrumb">
+                    <a href="/">INDEX</a> / <a href="/blog/">JOURNAL</a> / <span id="breadcrumb-name"></span>
+                </div>
+                
+                <!-- H1 -->
+                <h1 id="main-heading"></h1>
+                
+                <!-- STATUS BADGE -->
+                <div style="margin: 1rem 0 1.5rem;">
+                    <span class="badge">ARCHIVE ENTRY</span>
+                    <span class="tag">Verified</span>
+                    <span class="tag">March 2026</span>
+                </div>
+                
+                <!-- INTRO VARIAN - JOURNAL STYLE -->
+                <div id="intro-leak" class="intro-varian hidden">
+                    <div class="intro-text">This section documents materials that entered public circulation through alternative pathways. The archive includes visual records, video files, and supporting documentation—each with available provenance information.</div>
+                    
+                    <div class="grid-2">
+                        <div class="note-card">
+                            <h3>📷 Visual Materials</h3>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="leaked+photos">Image collections</a> <span class="reference">/ provenance available</span></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="rare+leaks">Limited circulation finds</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="uncensored">Unedited documentation</a></div>
+                        </div>
+                        <div class="note-card">
+                            <h3>🎥 Audiovisual</h3>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="leaked+videos">Video recordings</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="exclusive+leaks">Exclusive footage</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="unreleased">Unpublished materials</a></div>
+                        </div>
+                        <div class="note-card">
+                            <h3>📄 Documentation</h3>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="private+collection">Private archives</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="archive">Complete collections</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="original+leaks">Source documentation</a></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="intro-photo" class="intro-varian hidden">
+                    <div class="intro-text">A systematic visual archive documenting the subject's public presence. Each image is cataloged with contextual notes including date, context, and provenance where known.</div>
+                    
+                    <div class="stats-row" style="margin: 1rem 0;">
+                        <div class="stat"><div class="stat-number">450+</div><div class="stat-label">Images</div></div>
+                        <div class="stat"><div class="stat-number">8+</div><div class="stat-label">Years</div></div>
+                        <div class="stat"><div class="stat-number">12</div><div class="stat-label">Photographers</div></div>
+                    </div>
+                    
+                    <div class="grid-2">
+                        <div class="note-card">
+                            <h3>Primary Collections</h3>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="professional+photoshoot">Studio & Editorial</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="candid">Candid Documentation</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="behind+the+scenes">Production Stills</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="selfie">Personal Uploads</a></div>
+                        </div>
+                        <div class="note-card">
+                            <h3>Thematic Archives</h3>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="red+carpet">Event Coverage</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="magazine+shoot">Magazine Features</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="beach+vacation">Lifestyle</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="workout">Fitness</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="lingerie">Fashion Editorial</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="rare+photos">Rare Finds</a></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="intro-video" class="intro-varian hidden">
+                    <div class="intro-text">Moving image documentation preserved for research. This collection includes performances, interviews, and behind-the-scenes footage—each with technical metadata.</div>
+                    
+                    <div class="stats-row" style="margin: 1rem 0;">
+                        <div class="stat"><div class="stat-number">120+</div><div class="stat-label">Videos</div></div>
+                        <div class="stat"><div class="stat-number">35</div><div class="stat-label">Interviews</div></div>
+                        <div class="stat"><div class="stat-number">40</div><div class="stat-label">Performances</div></div>
+                    </div>
+                    
+                    <div class="grid-2">
+                        <div class="note-card">
+                            <h3>Performance Archive</h3>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="performances">Live presentations</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="music+videos">Music video appearances</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="dance+practice">Rehearsal footage</a></div>
+                        </div>
+                        <div class="note-card">
+                            <h3>Interview Collection</h3>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="interviews">Q&A sessions</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="exclusive+clips">Limited distribution</a></div>
+                        </div>
+                        <div class="note-card">
+                            <h3>Production Notes</h3>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="behind+the+scenes+footage">Behind the scenes</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="rare+videos">Rare recordings</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="viral+clips">Widely circulated</a></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="intro-bio" class="intro-varian hidden">
+                    <div class="intro-text">Biographical notes compiled from interviews, public records, and verified media sources. This section serves as a reference for researchers.</div>
+                    
+                    <div class="grid-2">
+                        <div class="note-card">
+                            <h3>Personal Records</h3>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="early+life">Early life & origins</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="age">Age documentation</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="height">Physical attributes</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="nationality">Cultural heritage</a></div>
+                        </div>
+                        <div class="note-card">
+                            <h3>Professional Timeline</h3>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="career">Career milestones</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="net+worth">Financial overview</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="relationships">Personal connections</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="social+media">Digital presence</a></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="intro-platform" class="intro-varian hidden">
+                    <div class="intro-text">Documentation of digital platform activity across social media networks. Preserved content from public accounts and community archives.</div>
+                    
+                    <div class="grid-2">
+                        <div class="note-card">
+                            <h3>Social Platforms</h3>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="instagram">Instagram archive</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="facebook">Facebook records</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="twitter">Twitter/X history</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="tiktok">TikTok collection</a></div>
+                        </div>
+                        <div class="note-card">
+                            <h3>Community Archives</h3>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="youtube">YouTube appearances</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="discord">Discord archives</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="telegram">Telegram channels</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="reddit">Reddit discussions</a></div>
+                            <div class="entry"><a href="" class="dynamic-link" data-variant="snapchat">Snapchat content</a></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="intro-general" class="intro-varian hidden">
+                    <div class="intro-text">A comprehensive research entry for <strong class="query-placeholder"></strong>. This archive includes visual documentation, video recordings, biographical data, and special collections—organized for research accessibility.</div>
+                    
+                    <div class="grid-2">
+                        <div class="note-card"><a href="" class="dynamic-link" data-variant="photos">Visual archive →</a><div class="section-note">Image collections & photography</div></div>
+                        <div class="note-card"><a href="" class="dynamic-link" data-variant="videos">Video archive →</a><div class="section-note">Recordings & footage</div></div>
+                        <div class="note-card"><a href="" class="dynamic-link" data-variant="biography">Biographical notes →</a><div class="section-note">Personal & professional data</div></div>
+                        <div class="note-card"><a href="" class="dynamic-link" data-variant="exclusive">Special collections →</a><div class="section-note">Limited distribution</div></div>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <!-- SECTION 1: Research Notes -->
+                <h2>Research Notes</h2>
+                <p>The <strong><span class="query-placeholder"></span></strong> archive is organized into six primary research categories. Each section includes verified materials with available metadata.</p>
+                
+                <div class="tags">
+                    <span class="tag">Visual Studies</span>
+                    <span class="tag">Moving Image</span>
+                    <span class="tag">Biographical</span>
+                    <span class="tag">Digital Archive</span>
+                </div>
+                
+                <!-- SECTION 2: Visual Archive -->
+                <h2>Visual Archive</h2>
+                <div class="grid-2">
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="professional+photoshoot">Studio photography</a> <span class="reference">/ editorial work</span></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="candid">Candid documentation</a> <span class="reference">/ unposed moments</span></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="behind+the+scenes">Production stills</a> <span class="reference">/ behind the scenes</span></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="red+carpet">Event coverage</a> <span class="reference">/ formal appearances</span></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="magazine+shoot">Magazine features</a> <span class="reference">/ published editorials</span></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="rare+photos">Archival images</a> <span class="reference">/ limited circulation</span></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="high+quality">High resolution</a> <span class="reference">/ maximum quality</span></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="gallery">Complete galleries</a> <span class="reference">/ full collections</span></div>
+                </div>
+                
+                <!-- SECTION 3: Video Archive -->
+                <h2>Video Archive</h2>
+                <div class="grid-2">
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="performances">Live performances</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="interviews">Interview footage</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="behind+the+scenes+footage">Behind the scenes</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="exclusive+clips">Exclusive content</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="rare+videos">Rare recordings</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="high+quality+videos">HD archive</a></div>
+                </div>
+                
+                <!-- SECTION 4: Biographical Notes -->
+                <h2>Biographical Notes</h2>
+                <div class="grid-2">
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="early+life">Early life</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="age">Age</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="height">Height</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="nationality">Nationality</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="career">Career timeline</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="net+worth">Net worth</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="relationships">Relationships</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="social+media">Social media</a></div>
+                </div>
+                
+                <!-- SECTION 5: Special Collections -->
+                <h2>Special Collections</h2>
+                <div class="grid-2">
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="behind+the+scenes">BTS archive</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="private+gatherings">Private events</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="uncensored">Unedited materials</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="rare+unreleased">Unpublished</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="exclusive+access">Restricted access</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="backstage">Backstage</a></div>
+                </div>
+                
+                <!-- SECTION 6: Platform Notes -->
+                <h2>Platform Notes</h2>
+                <div class="grid-2">
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="instagram">Instagram</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="facebook">Facebook</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="twitter">Twitter/X</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="tiktok">TikTok</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="youtube">YouTube</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="discord">Discord</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="telegram">Telegram</a></div>
+                    <div class="entry"><a href="" class="dynamic-link" data-variant="reddit">Reddit</a></div>
+                </div>
+                
+                <!-- SECTION 7: Related Journals -->
+                <h2>Related Journals</h2>
+                <div class="grid-2">
+                    <div class="entry"><a href="/blog/?q=celebrity+profiles">Biographical Research</a></div>
+                    <div class="entry"><a href="/blog/?q=photo+archives">Visual Studies</a></div>
+                    <div class="entry"><a href="/blog/?q=video+collections">Moving Image Archive</a></div>
+                    <div class="entry"><a href="/blog/?q=exclusive+collections">Special Collections</a></div>
+                    <div class="entry"><a href="/blog/?q=leaked+content">Alternative Sources</a></div>
+                    <div class="entry"><a href="/blog/?q=facebook+leaks">Platform Research</a></div>
+                </div>
+                
+                <!-- SECTION 8: FAQ -->
+                <h2>Research FAQs</h2>
+                <div class="faq-block">
+                    <div class="faq-item"><div class="faq-q">What materials are included?</div><div class="faq-a"><a href="" class="dynamic-link" data-variant="photos">Visual records</a>, <a href="" class="dynamic-link" data-variant="videos">video files</a>, <a href="" class="dynamic-link" data-variant="biography">biographical data</a>, and special collections.</div></div>
+                    <div class="faq-item"><div class="faq-q">How is visual content organized?</div><div class="faq-a">By context (editorial, candid, production) and theme (events, editorial, lifestyle).</div></div>
+                    <div class="faq-item"><div class="faq-q">What video materials are available?</div><div class="faq-a">Performances, interviews, BTS footage, and platform-specific content.</div></div>
+                    <div class="faq-item"><div class="faq-q">Sources for biographical data?</div><div class="faq-a">Interviews, public records, media reports, and verified statements.</div></div>
+                    <div class="faq-item"><div class="faq-q">Update frequency?</div><div class="faq-a">Regular updates as new materials become available.</div></div>
+                </div>
+                
+                <hr>
+                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>
+                <hr>
+                
+                <!-- SECTION 9: Archive Notes -->
+                <h2>Archive Notes</h2>
+                <p><strong><span class="query-placeholder"></span> Field Notes</strong> is maintained as a permanent research resource. The archive prioritizes verification, organization, and research accessibility.</p>
+                <div class="footnote" style="margin-top: 1.5rem;">
+                    Field Notes · Independent Research Journal · Established 2020
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+    (function() {
+        // Ambil query dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        // Jika tidak ada query, tampilkan default content
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            return;
+        }
+        
+        // Sembunyikan default, tampilkan query content
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        // Decode query
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        const originalQuery = query;
+        
+        // Daftar kata yang akan dihapus untuk mendapatkan base name
+        const removeTerms = [
+            '2025', '2024'
+        ];
+        
+        // Fungsi untuk mendapatkan base name
+        function getBaseName(query) {
+            let base = query.toLowerCase();
+            removeTerms.forEach(term => {
+                const regex = new RegExp('\\b' + term + '\\s*', 'gi');
+                base = base.replace(regex, '');
+            });
+            return base.trim() || query;
+        }
+        
+        const baseName = getBaseName(query);
+        
+        // Deteksi tipe query
+        const queryLower = query.toLowerCase();
+        let queryType = 'general';
+        
+        if (queryLower.includes('leak') || queryLower.includes('leaked') || queryLower.includes('leaks')) {
+            queryType = 'leak';
+        } else if (queryLower.includes('photo') || queryLower.includes('photos') || queryLower.includes('picture') || queryLower.includes('gallery')) {
+            queryType = 'photo';
+        } else if (queryLower.includes('video') || queryLower.includes('videos') || queryLower.includes('clip') || queryLower.includes('footage')) {
+            queryType = 'video';
+        } else if (queryLower.includes('bio') || queryLower.includes('biography') || queryLower.includes('age') || queryLower.includes('height')) {
+            queryType = 'bio';
+        } else if (queryLower.includes('instagram') || queryLower.includes('facebook') || queryLower.includes('twitter') || queryLower.includes('tiktok')) {
+            queryType = 'platform';
+        }
+        
+        // Update title - gaya journal akademik
+        let title;
+        if (queryType === 'leak') title = `${query} | Field Notes · Alternative Media Archive`;
+        else if (queryType === 'photo') title = `${query} | Field Notes · Visual Studies Archive`;
+        else if (queryType === 'video') title = `${query} | Field Notes · Moving Image Collection`;
+        else if (queryType === 'bio') title = `${query} | Field Notes · Biographical Research`;
+        else if (queryType === 'platform') title = `${query} | Field Notes · Digital Platform Archive`;
+        else title = `${query} | Field Notes · Complete Research Entry`;
+        
+        document.title = title;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            `${query} research archive: visual documentation, video recordings, biographical notes, and special collections. Independent research journal.`);
+        
+        // Update H1
+        document.getElementById('main-heading').textContent = title;
+        
+        // Update breadcrumb
+        document.getElementById('breadcrumb-name').textContent = baseName;
+        
+        // Update semua placeholder dengan baseName
+        document.querySelectorAll('.query-placeholder').forEach(el => {
+            el.textContent = baseName;
+        });
+        
+        // Tampilkan intro yang sesuai
+        document.querySelectorAll('.intro-varian').forEach(el => el.classList.add('hidden'));
+        document.getElementById(`intro-${queryType}`).classList.remove('hidden');
+        
+        // Update semua dynamic links
+        function updateLinks() {
+            document.querySelectorAll('.dynamic-link').forEach(link => {
+                const variant = link.getAttribute('data-variant');
+                if (variant) {
+                    link.href = `/blog/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
+                }
+            });
+        }
+        
+        updateLinks();
+        
+        // Update semua link yang perlu base name di text
+        document.querySelectorAll('.base-placeholder').forEach(el => {
+            el.textContent = baseName;
+        });
+        
+    })();
+    </script>
+</body>
+</html>
