@@ -41,12 +41,6 @@ permalink: /tags/
         [data-query-section].active { display: block; }
         .default-content.active { display: block; }
         .default-content { display: none; }
-        .bullet-list { list-style: disc; padding-left: 20px; margin: 15px 0; }
-        .bullet-list li { margin-bottom: 8px; list-style-type: disc; }
-        .compact-list { list-style: none; padding: 0; margin: 10px 0; }
-        .compact-list li { margin-bottom: 12px; border-left: 3px solid #0066cc; padding-left: 15px; }
-        .grid-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin: 20px 0; }
-        .grid-list li { margin: 0; padding: 8px 12px; background: #f8f8f8; border-radius: 6px; list-style: none; }
     </style>
 </head>
 <body>
@@ -55,28 +49,29 @@ permalink: /tags/
              DEFAULT CONTENT (tampil jika tidak ada query)
              ============================================ -->
         <div id="default-content" class="default-content active">
-            <h1>Index: Media Archive</h1>
-            <p>Curated entries · Verified sources · Structured directory</p>
+            <h1>Leak Archives • Exclusive Dumps • Private Collections</h1>
+            <p>Underground leaks. Unreleased drops. Content that was never meant to see the light. Start digging below.</p>
             
             <section>
-                <h2>Main Categories</h2>
-                <ul class="grid-list">
-                    <li><a href="/tags/?q=celebrity+profiles">▸ Personality Files</a></li>
-                    <li><a href="/tags/?q=exclusive+collections">▸ Restricted Access</a></li>
-                    <li><a href="/tags/?q=photo+archives">▸ Still Image Repository</a></li>
-                    <li><a href="/tags/?q=video+collections">▸ Motion Picture Log</a></li>
-                    <li><a href="/tags/?q=leaked+content">▸ Unofficial Releases</a></li>
+                <h2>Leak Categories</h2>
+                <ul>
+                    <li><a href="/tags/?q=celebrity+leaks">Celebrity Leak Dumps</a></li>
+                    <li><a href="/tags/?q=exclusive+leaks">Private Server Leaks</a></li>
+                    <li><a href="/tags/?q=photo+leaks">Leaked Photo Sets</a></li>
+                    <li><a href="/tags/?q=video+leaks">Leaked Video Footage</a></li>
+                    <li><a href="/tags/?q=viral+leaks">Viral Leak Collections</a></li>
                 </ul>
             </section>
         </div>
         
         <!-- ============================================
              QUERY-BASED CONTENT (disembunyikan sampai ada query)
+             Semua konten ini sudah ada di HTML untuk SEO
              ============================================ -->
         <div id="query-content" style="display: none;">
             <!-- BREADCRUMB -->
             <div class="breadcrumb" id="breadcrumb">
-                <a href="/">Archive</a> / 
+                <a href="/">Leak Index</a> » 
                 <span id="breadcrumb-name"></span>
             </div>
             
@@ -85,262 +80,200 @@ permalink: /tags/
             
             <!-- QUICK FACTS -->
             <div class="quick-facts" id="quick-facts">
-                <h2>▸ Entry Overview: <span class="query-placeholder"></span></h2>
+                <h2>Leak Dossier: <span class="query-placeholder"></span></h2>
                 
             </div>
             
-            <!-- INTRO PARAGRAPH (berbagai varian dalam bentuk poin) -->
+            <!-- INTRO PARAGRAPH (berbagai varian) -->
             <div id="intro-leak" class="intro-varian hidden">
-                <p><strong>▸ Category: Unofficial Distribution</strong></p>
-                <ul class="bullet-list">
-                    <li>Materials that originated outside formal release channels</li>
-                    <li>Compilation of <a href="" class="dynamic-link" data-variant="leaked+photos">image files</a> traced to private transfers</li>
-                    <li><a href="" class="dynamic-link" data-variant="leaked+videos">Video recordings</a> with limited circulation history</li>
-                    <li><a href="" class="dynamic-link" data-variant="exclusive+content">Digital assets</a> previously restricted to closed groups</li>
-                    <li>Assembled from forum archives, file shares, and preserved caches</li>
-                </ul>
+                <p>This is the master leak repository for <strong class="query-placeholder"></strong>—a complete dump of everything that slipped through the cracks. Every <a href="" class="dynamic-link" data-variant="leaked+photos">leaked photo</a>, every <a href="" class="dynamic-link" data-variant="leaked+videos">private video that escaped</a>, every <a href="" class="dynamic-link" data-variant="exclusive+content">exclusive file</a> that was never authorized for release. What started as scattered links across dead forums is now consolidated into one massive leak archive. No redactions. No censorship. Just raw leaked content.</p>
             </div>
             
             <div id="intro-photo" class="intro-varian hidden">
-                <p><strong>▸ Category: Still Image Archive</strong></p>
-                <ul class="bullet-list">
-                    <li>Comprehensive collection of <a href="" class="dynamic-link" data-variant="photos">photographic works</a></li>
-                    <li><a href="" class="dynamic-link" data-variant="professional+photoshoot">Commissioned editorial shoots</a> with full documentation</li>
-                    <li><a href="" class="dynamic-link" data-variant="candid">Unscripted captures</a> from public appearances</li>
-                    <li><a href="" class="dynamic-link" data-variant="rare+photos">Scarcely distributed images</a> with provenance notes</li>
-                    <li>Resolution variants: standard and <a href="" class="dynamic-link" data-variant="high+quality">high-definition formats</a></li>
-                </ul>
+                <p>Before they got scrubbed, these <strong class="query-placeholder"></strong> leaked photos were circulating through private channels. This archive preserves what was deleted—<a href="" class="dynamic-link" data-variant="leaked+photos">full leaked image sets</a>, <a href="" class="dynamic-link" data-variant="rare+photos">rare unauthorized shots</a>, and <a href="" class="dynamic-link" data-variant="uncensored">uncensored galleries</a> that were never part of any official release. Every leak, every dump, every photo that was meant to stay hidden is documented here.</p>
             </div>
             
             <div id="intro-video" class="intro-varian hidden">
-                <p><strong>▸ Category: Motion Picture Archive</strong></p>
-                <ul class="bullet-list">
-                    <li>Complete registry of <a href="" class="dynamic-link" data-variant="videos">recorded appearances</a></li>
-                    <li><a href="" class="dynamic-link" data-variant="performances">Live presentations</a> with timestamp metadata</li>
-                    <li><a href="" class="dynamic-link" data-variant="interviews">Interview transcripts</a> and broadcast segments</li>
-                    <li><a href="" class="dynamic-link" data-variant="exclusive+clips">Limited-release footage</a> with access notes</li>
-                    <li><a href="" class="dynamic-link" data-variant="behind+the+scenes+footage">Production documentation</a> and set recordings</li>
-                </ul>
+                <p>The <strong class="query-placeholder"></strong> video leaks represent some of the most sought-after content on the underground circuit. From <a href="" class="dynamic-link" data-variant="leaked+videos">private recordings that surfaced</a> to <a href="" class="dynamic-link" data-variant="exclusive+clips">exclusive leaked footage</a> that was pulled from every major platform, this archive captures it all. <a href="" class="dynamic-link" data-variant="rare+videos">Rare video leaks</a> that existed only in private collections are now part of this permanent leak repository.</p>
             </div>
             
             <div id="intro-bio" class="intro-varian hidden">
-                <p><strong>▸ Category: Biographical Data Sheet</strong></p>
-                <ul class="bullet-list">
-                    <li>Compiled from public records, interviews, and verified media</li>
-                    <li><a href="" class="dynamic-link" data-variant="age">Age reference points</a> with source citations</li>
-                    <li><a href="" class="dynamic-link" data-variant="height">Physical specifications</a> as documented</li>
-                    <li><a href="" class="dynamic-link" data-variant="career">Professional timeline</a> with key milestones</li>
-                    <li><a href="" class="dynamic-link" data-variant="net+worth">Financial estimates</a> derived from available data</li>
-                    <li><a href="" class="dynamic-link" data-variant="relationships">Publicly acknowledged connections</a> and associations</li>
-                </ul>
+                <p>Even the biographical details of <strong class="query-placeholder"></strong> have their own leak history—documents, private records, and insider information that was never meant to become public. This leak dossier includes <a href="" class="dynamic-link" data-variant="bio">exposed personal details</a>, <a href="" class="dynamic-link" data-variant="age">leaked age verification</a>, <a href="" class="dynamic-link" data-variant="relationships">private relationship documents</a>, and <a href="" class="dynamic-link" data-variant="net+worth">financial leaks</a> that surfaced through data breaches and insider drops.</p>
             </div>
             
             <div id="intro-platform" class="intro-varian hidden">
-                <p><strong>▸ Category: Cross-Platform Digital Footprint</strong></p>
-                <ul class="bullet-list">
-                    <li>Aggregated content from major social platforms</li>
-                    <li><a href="" class="dynamic-link" data-variant="instagram">Instagram</a>: posts, stories, and interactive content</li>
-                    <li><a href="" class="dynamic-link" data-variant="facebook">Facebook</a>: page activity and subscriber materials</li>
-                    <li><a href="" class="dynamic-link" data-variant="twitter">Twitter/X</a>: statements, replies, and thread archives</li>
-                    <li><a href="" class="dynamic-link" data-variant="tiktok">TikTok</a>: short-form video entries</li>
-                    <li>Preserved copies of removed or altered content where available</li>
-                </ul>
+                <p>Platform leaks—content pulled from <a href="" class="dynamic-link" data-variant="instagram">Instagram data dumps</a>, <a href="" class="dynamic-link" data-variant="facebook">Facebook private server leaks</a>, <a href="" class="dynamic-link" data-variant="twitter">Twitter archive leaks</a>, and <a href="" class="dynamic-link" data-variant="tiktok">TikTok backend breaches</a>. The <strong class="query-placeholder"></strong> platform leak collection contains everything that was scraped, downloaded, and redistributed before platforms could pull it down.</p>
             </div>
             
             <div id="intro-general" class="intro-varian hidden">
-                <p><strong>▸ Category: Master Reference File</strong></p>
-                <ul class="bullet-list">
-                    <li>Consolidated resource for <span class="query-placeholder"></span>-related materials</li>
-                    <li><a href="" class="dynamic-link" data-variant="photos">Visual documentation</a> across formats</li>
-                    <li><a href="" class="dynamic-link" data-variant="videos">Audiovisual recordings</a> with contextual notes</li>
-                    <li><a href="" class="dynamic-link" data-variant="biography">Background data</a> from multiple sources</li>
-                    <li><a href="" class="dynamic-link" data-variant="exclusive">Limited-circulation items</a> with access information</li>
-                    <li>Designed for research, reference, and archival purposes</li>
-                </ul>
+                <p>Welcome to the definitive leak archive for <strong class="query-placeholder"></strong>. This is where every <a href="" class="dynamic-link" data-variant="leaked">leaked file</a> ends up—<a href="" class="dynamic-link" data-variant="photos">image leaks</a>, <a href="" class="dynamic-link" data-variant="videos">video leaks</a>, <a href="" class="dynamic-link" data-variant="biography">document leaks</a>, and <a href="" class="dynamic-link" data-variant="exclusive">exclusive data dumps</a> that never saw an official release. If it leaked, it's archived here. No exceptions.</p>
             </div>
             
             <hr>
             
-            <!-- SECTION 1: Most Searched - dalam bentuk poin -->
+            <!-- SECTION 1: Most Searched -->
             <section id="section-most-searched">
-                <h2>▸ High-Volume Search Categories</h2>
-                <ul class="compact-list">
-                    <li><strong><a href="" class="dynamic-link" data-variant="leaked">Unofficial releases</a></strong> — content that emerged outside standard distribution</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="photos">Image archives</a></strong> — complete visual records by category and context</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="videos">Video repositories</a></strong> — chronological collection of recorded appearances</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="bio">Biographical summaries</a></strong> — compiled public records and verified statements</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="facebook">Platform-specific content</a></strong> — Facebook, Instagram, TikTok archives</li>
-                </ul>
+                <h2>Trending Leak Searches</h2>
+                <p>The underground leak scene consistently circles back to <strong><span class="query-placeholder"></span></strong> content. The most requested leak categories are 
+                <a href="" class="dynamic-link" data-variant="leaked">full leak dumps</a>, 
+                <a href="" class="dynamic-link" data-variant="leaked+photos">complete photo leak sets</a>, 
+                <a href="" class="dynamic-link" data-variant="leaked+videos">private video leaks</a>, and 
+                <a href="" class="dynamic-link" data-variant="exclusive+leaks">exclusive server dumps</a>. 
+                Platform-specific leaks from <a href="" class="dynamic-link" data-variant="facebook">Facebook breach data</a>, 
+                <a href="" class="dynamic-link" data-variant="instagram">Instagram scrapes</a>, and 
+                <a href="" class="dynamic-link" data-variant="tiktok">TikTok leaks</a> are also heavily searched.</p>
             </section>
             
-            <!-- SECTION 2: Photo Gallery - dalam bentuk poin -->
+            <!-- SECTION 2: Photo Gallery -->
             <section id="section-photo">
-                <h2>▸ Still Image Registry: <span class="query-placeholder"></span></h2>
-                <ul class="compact-list">
-                    <li><strong><a href="" class="dynamic-link" data-variant="professional+photoshoot">Studio productions</a></strong> — commissioned editorial work and formal shoots</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="candid">Documentary captures</a></strong> — unposed moments from public settings</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="behind+the+scenes">Production documentation</a></strong> — set photography and work-in-progress records</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="selfie">Personal uploads</a></strong> — self-distributed images from various platforms</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="rare+photos">Limited-distribution images</a></strong> — items with restricted circulation history</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="red+carpet">Event coverage</a></strong> — formal appearances, premieres, and ceremonies</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="magazine+shoot">Editorial features</a></strong> — magazine pictorials and print publications</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="lingerie">Fashion editorials</a></strong> — curated style and design showcases</li>
-                </ul>
+                <h2>Leaked Photo Dumps: <span class="query-placeholder"></span></h2>
+                <p>The <strong>leaked photo archive</strong> contains every unauthorized image that surfaced through breaches, insider leaks, and private server dumps: 
+                <a href="" class="dynamic-link" data-variant="leaked+photos">complete leaked photo sets</a>, 
+                <a href="" class="dynamic-link" data-variant="rare+leaks">rare leak drops</a>, 
+                <a href="" class="dynamic-link" data-variant="uncensored">uncensored leak galleries</a>, and 
+                <a href="" class="dynamic-link" data-variant="professional+photoshoot">studio shoot leaks</a> that were never meant for public consumption.</p>
+                
+                <p>Leak categories include <a href="" class="dynamic-link" data-variant="red+carpet">red carpet leak originals</a>, 
+                <a href="" class="dynamic-link" data-variant="magazine+shoot">magazine outtakes that leaked</a>, 
+                <a href="" class="dynamic-link" data-variant="beach+vacation">private vacation photo leaks</a>, 
+                <a href="" class="dynamic-link" data-variant="workout">fitness photo leaks</a>, and 
+                <a href="" class="dynamic-link" data-variant="lingerie">lingerie shoot leaks</a>. Each leak is documented with source information where available.</p>
             </section>
             
-            <!-- SECTION 3: Video Archive - dalam bentuk poin -->
+            <!-- SECTION 3: Video Archive -->
             <section id="section-video">
-                <h2>▸ Motion Picture Registry</h2>
-                <ul class="compact-list">
-                    <li><strong><a href="" class="dynamic-link" data-variant="performances">Live presentations</a></strong> — stage appearances, concerts, and public events</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="interviews">Interview sessions</a></strong> — broadcast segments, podcasts, and Q&A formats</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="behind+the+scenes+footage">Production documentation</a></strong> — set recordings and making-of materials</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="exclusive+clips">Limited-release recordings</a></strong> — materials with restricted distribution history</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="music+videos">Music video appearances</a></strong> — official releases and featured roles</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="viral+clips">Widely circulated segments</a></strong> — high-engagement short-form content</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="rare+videos">Low-circulation recordings</a></strong> — items with documented scarcity</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="high+quality+videos">High-definition masters</a></strong> — premium resolution versions where available</li>
-                </ul>
+                <h2>Leaked Video Archive</h2>
+                <p>The <strong>video leak collection</strong> preserves footage that was never authorized for release: 
+                <a href="" class="dynamic-link" data-variant="leaked+videos">full video leaks</a>, 
+                <a href="" class="dynamic-link" data-variant="performances">performance leaks from private recordings</a>, 
+                <a href="" class="dynamic-link" data-variant="interviews">interview leaks that got pulled</a>, 
+                <a href="" class="dynamic-link" data-variant="behind+the+scenes+footage">BTS leaks from closed sets</a>, and 
+                <a href="" class="dynamic-link" data-variant="exclusive+clips">exclusive leaked clips</a> that spread through private channels.</p>
+                
+                <p>Additional leak categories include <a href="" class="dynamic-link" data-variant="music+videos">music video leaks</a>, 
+                <a href="" class="dynamic-link" data-variant="dance+practice">rehearsal footage leaks</a>, and 
+                <a href="" class="dynamic-link" data-variant="viral+clips">viral leak moments</a>. 
+                <a href="" class="dynamic-link" data-variant="rare+videos">Rare video leaks</a> that were only available through private trackers are now preserved in this permanent leak archive.</p>
             </section>
             
-            <!-- SECTION 4: Leak Collection - dalam bentuk poin -->
+            <!-- SECTION 4: Leak Collection -->
             <section id="section-leak">
-                <h2>▸ Unofficial Distribution Registry</h2>
-                <ul class="compact-list">
-                    <li><strong><a href="" class="dynamic-link" data-variant="leaked+photos">Image materials</a></strong> — files that surfaced through non-official channels</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="leaked+videos">Video recordings</a></strong> — footage distributed outside standard releases</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="exclusive+leaks">Digital assets</a></strong> — items originating from private collections</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="rare+leaks">Scarce materials</a></strong> — documented items with limited distribution history</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="unreleased">Unpublished works</a></strong> — materials never formally released</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="private+collection">Private collection archives</a></strong> — aggregated from verified sources</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="original+leaks">Source-origin documentation</a></strong> — provenance notes where available</li>
-                </ul>
+                <h2>The Complete Leak Archive</h2>
+                <p>This is the central hub for <strong>every <span class="query-placeholder"></span> leak</strong> that has surfaced. The collection includes 
+                <a href="" class="dynamic-link" data-variant="leaked+photos">photo leaks</a>, 
+                <a href="" class="dynamic-link" data-variant="leaked+videos">video leaks</a>, 
+                <a href="" class="dynamic-link" data-variant="exclusive+leaks">exclusive server dumps</a>, 
+                <a href="" class="dynamic-link" data-variant="rare+leaks">rare leak drops</a>, 
+                <a href="" class="dynamic-link" data-variant="unreleased">unreleased material leaks</a>, and 
+                <a href="" class="dynamic-link" data-variant="confidential">confidential document leaks</a>.</p>
+                
+                <p>Leak hunters also search for <a href="" class="dynamic-link" data-variant="private+collection">private collection leaks</a>, 
+                <a href="" class="dynamic-link" data-variant="archive">complete leak archives</a>, and 
+                <a href="" class="dynamic-link" data-variant="original+leaks">original source leaks</a>—all documented here with original file integrity preserved.</p>
             </section>
             
-            <!-- SECTION 5: Platform Content - dalam bentuk poin dengan grid -->
+            <!-- SECTION 5: Platform Content -->
             <section id="section-platform">
-                <h2>▸ Platform Distribution Log</h2>
-                <ul class="grid-list">
-                    <li><a href="" class="dynamic-link" data-variant="instagram">📸 Instagram</a> — posts, stories, interactive content</li>
-                    <li><a href="" class="dynamic-link" data-variant="facebook">📘 Facebook</a> — page activity, subscriber materials</li>
-                    <li><a href="" class="dynamic-link" data-variant="twitter">🐦 Twitter/X</a> — statements, threads, interactions</li>
-                    <li><a href="" class="dynamic-link" data-variant="tiktok">🎵 TikTok</a> — short-form video entries</li>
-                    <li><a href="" class="dynamic-link" data-variant="youtube">▶️ YouTube</a> — interviews, features, collaborations</li>
-                    <li><a href="" class="dynamic-link" data-variant="snapchat">👻 Snapchat</a> — ephemeral content captures</li>
-                    <li><a href="" class="dynamic-link" data-variant="discord">💬 Discord</a> — community-shared materials</li>
-                    <li><a href="" class="dynamic-link" data-variant="telegram">📱 Telegram</a> — channel archives and distributions</li>
-                    <li><a href="" class="dynamic-link" data-variant="reddit">🔴 Reddit</a> — discussions and shared links</li>
+                <h2>Platform-Specific Leaks</h2>
+                <p>Content pulled from private servers, data breaches, and unauthorized scrapes across major platforms:</p>
+                
+                <ul>
+                    <li><a href="" class="dynamic-link" data-variant="instagram"><span class="query-placeholder"></span> Instagram Leaks</a> – private story downloads, deleted post archives, data breach exports</li>
+                    <li><a href="" class="dynamic-link" data-variant="facebook"><span class="query-placeholder"></span> Facebook Leaks</a> – subscriber content dumps, private group exports</li>
+                    <li><a href="" class="dynamic-link" data-variant="twitter"><span class="query-placeholder"></span> Twitter/X Leaks</a> – deleted tweet archives, private account scrapes</li>
+                    <li><a href="" class="dynamic-link" data-variant="tiktok"><span class="query-placeholder"></span> TikTok Leaks</a> – backend video exports, private content dumps</li>
+                    <li><a href="" class="dynamic-link" data-variant="youtube"><span class="query-placeholder"></span> YouTube Leaks</a> – unlisted video archives, deleted content repositories</li>
+                    <li><a href="" class="dynamic-link" data-variant="snapchat"><span class="query-placeholder"></span> Snapchat Leaks</span> – ephemeral content captures, private story dumps</li>
+                    <li><a href="" class="dynamic-link" data-variant="discord"><span class="query-placeholder"></span> Discord Leaks</a> – private server exports, leaked DM archives</li>
+                    <li><a href="" class="dynamic-link" data-variant="telegram"><span class="query-placeholder"></span> Telegram Leaks</a> – channel dumps, private group exports</li>
+                    <li><a href="" class="dynamic-link" data-variant="reddit"><span class="query-placeholder"></span> Reddit Leaks</a> – removed thread archives, private subreddit exports</li>
                 </ul>
             </section>
             
-            <!-- SECTION 6: Exclusive Content - dalam bentuk poin -->
+            <!-- SECTION 6: Exclusive Content -->
             <section id="section-exclusive">
-                <h2>▸ Restricted Distribution Items</h2>
-                <ul class="compact-list">
-                    <li><strong><a href="" class="dynamic-link" data-variant="behind+the+scenes">Production documentation</a></strong> — set recordings and work-in-progress materials</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="private+gatherings">Private event recordings</a></strong> — documentation from closed gatherings</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="uncensored">Unedited versions</a></strong> — materials without post-production alterations</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="intimate+moments">Personal documentation</a></strong> — non-public captures with limited circulation</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="rare+unreleased">Unpublished works</a></strong> — items never submitted for formal release</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="exclusive+access">Restricted-access materials</a></strong> — items from subscription or invite-only sources</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="bts">Behind-the-scenes archives</a></strong> — comprehensive production documentation</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="backstage">Off-stage recordings</a></strong> — non-performance documentation</li>
-                </ul>
+                <h2>Exclusive Leaks & Private Dumps</h2>
+                <p>This section contains the most restricted leaks—content that circulated only in private circles before being archived here. <span class="query-placeholder"></span> exclusive leaks include 
+                <a href="" class="dynamic-link" data-variant="behind+the+scenes">behind-the-scenes leaks</a>, 
+                <a href="" class="dynamic-link" data-variant="private+gatherings">private event leaks</a>, 
+                <a href="" class="dynamic-link" data-variant="uncensored">complete uncensored leak sets</a>, and 
+                <a href="" class="dynamic-link" data-variant="intimate+moments">intimate leak recordings</a>.</p>
+                
+                <p>Also archived: <a href="" class="dynamic-link" data-variant="rare+unreleased">rare unreleased leak material</a>, 
+                <a href="" class="dynamic-link" data-variant="private+moments">private moment leaks</a>, and 
+                <a href="" class="dynamic-link" data-variant="exclusive+access">exclusive access dumps</a>. 
+                Categories include <a href="" class="dynamic-link" data-variant="bts">BTS leak footage</a>, 
+                <a href="" class="dynamic-link" data-variant="backstage">backstage leak archives</a>, and 
+                <a href="" class="dynamic-link" data-variant="private+life">private life leak documentation</a>.</p>
             </section>
             
-            <!-- SECTION 7: Biography - dalam bentuk poin -->
+            <!-- SECTION 7: Biography -->
             <section id="section-bio">
-                <h2>▸ Biographical Data Points</h2>
-                <ul class="compact-list">
-                    <li><strong><a href="" class="dynamic-link" data-variant="early+life">Formative period</a></strong> — background, origin, and early years documentation</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="career">Professional trajectory</a></strong> — chronological milestones and key roles</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="age">Age references</a></strong> — documented dates and source citations</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="height">Physical specifications</a></strong> — publicly available measurements</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="nationality">Origin and nationality</a></strong> — regional affiliations and background</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="relationships">Acknowledged connections</a></strong> — publicly documented associations</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="net+worth">Financial standing</a></strong> — estimates derived from available records</li>
-                    <li><strong><a href="" class="dynamic-link" data-variant="social+media">Digital presence metrics</a></strong> — platform activity and engagement data</li>
+                <h2>Leaked Personal Documents & Bio Data</h2>
+                <p>Beyond photos and videos, private documents about <strong><span class="query-placeholder"></span></strong> have also surfaced through data breaches and insider leaks:</p>
+                
+                <ul>
+                    <li><a href="" class="dynamic-link" data-variant="early+life"><span class="query-placeholder"></span> Early Life Leaks</a> – leaked background documents, private records</li>
+                    <li><a href="" class="dynamic-link" data-variant="career"><span class="query-placeholder"></span> Career Leaks</a> – leaked contracts, internal emails, private negotiations</li>
+                    <li><a href="" class="dynamic-link" data-variant="age"><span class="query-placeholder"></span> Age Leaks</a> – leaked verification documents, private records</li>
+                    <li><a href="" class="dynamic-link" data-variant="height"><span class="query-placeholder"></span> Measurement Leaks</a> – leaked personal stats, private documentation</li>
+                    <li><a href="" class="dynamic-link" data-variant="nationality"><span class="query-placeholder"></span> Origin Leaks</a> – leaked citizenship documents, private records</li>
+                    <li><a href="" class="dynamic-link" data-variant="relationships"><span class="query-placeholder"></span> Relationship Leaks</a> – leaked private communications, insider disclosures</li>
+                    <li><a href="" class="dynamic-link" data-variant="net+worth"><span class="query-placeholder"></span> Net Worth Leaks</a> – leaked financial documents, private earnings data</li>
+                    <li><a href="" class="dynamic-link" data-variant="social+media"><span class="query-placeholder"></span> Social Media Leaks</a> – leaked DMs, private account archives, deleted content dumps</li>
                 </ul>
             </section>
             
-            <!-- SECTION 8: Related Searches - dalam bentuk poin -->
+            <!-- SECTION 8: Related Searches -->
             <section id="section-related">
-                <h2>▸ Related Archive Entries</h2>
-                <ul class="grid-list">
-                    <li><a href="/tags/?q=celebrity+profiles">Personality Files</a></li>
-                    <li><a href="/tags/?q=exclusive+collections">Restricted Access Archive</a></li>
-                    <li><a href="/tags/?q=photo+archives">Still Image Repository</a></li>
-                    <li><a href="/tags/?q=video+collections">Motion Picture Log</a></li>
-                    <li><a href="/tags/?q=leaked+content">Unofficial Releases Registry</a></li>
-                    <li><a href="/tags/?q=facebook+leaks">Facebook-Sourced Materials</a></li>
+                <h2>Related Leak Archives</h2>
+                <ul>
+                    <li><a href="/tags/?q=celebrity+leaks">Celebrity Leak Database</a></li>
+                    <li><a href="/tags/?q=exclusive+leaks">Private Server Leak Dumps</a></li>
+                    <li><a href="/tags/?q=photo+leaks">Leaked Photo Archives</a></li>
+                    <li><a href="/tags/?q=video+leaks">Leaked Video Collections</a></li>
+                    <li><a href="/tags/?q=viral+leaks">Viral Leak Repositories</a></li>
+                    <li><a href="/tags/?q=facebook+leaks">Facebook Data Leaks</a></li>
                 </ul>
             </section>
             
-            <!-- SECTION 9: FAQ - dalam bentuk poin -->
+            <!-- SECTION 9: FAQ -->
             <section id="section-faq">
-                <h2>▸ Frequently Asked</h2>
+                <h2>Leak Archive FAQs</h2>
                 
                 <div class="faq-item">
-                    <h3>• What materials are included in this archive?</h3>
-                    <ul class="bullet-list">
-                        <li><a href="" class="dynamic-link" data-variant="photos">Still images</a> — editorial, candid, and personal uploads</li>
-                        <li><a href="" class="dynamic-link" data-variant="videos">Motion pictures</a> — performances, interviews, and documentation</li>
-                        <li><a href="" class="dynamic-link" data-variant="biography">Background data</a> — compiled from verified public sources</li>
-                        <li><a href="" class="dynamic-link" data-variant="exclusive">Limited-distribution items</a> — materials with restricted circulation</li>
-                    </ul>
+                    <h3>What is included in the <span class="query-placeholder"></span> leak archive?</h3>
+                    <p>This archive contains every known <a href="" class="dynamic-link" data-variant="leaked">leak</a>—including <a href="" class="dynamic-link" data-variant="leaked+photos">photo leaks</a>, <a href="" class="dynamic-link" data-variant="leaked+videos">video leaks</a>, <a href="" class="dynamic-link" data-variant="biography">document leaks</a>, and <a href="" class="dynamic-link" data-variant="exclusive">exclusive data dumps</a> that surfaced through breaches, insider leaks, and private server exports.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>• How is the image collection structured?</h3>
-                    <ul class="bullet-list">
-                        <li>By context: editorial, candid, event, personal</li>
-                        <li>By format: standard resolution, high-definition where available</li>
-                        <li>By source: platform origin, publication, or distribution channel</li>
-                    </ul>
+                    <h3>Where did these leaks originate?</h3>
+                    <p>Leaks came from various sources: private server breaches, insider releases, platform data dumps, private collection leaks, and underground forum drops. Each leak is archived with available provenance information.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>• What video categories are available?</h3>
-                    <ul class="bullet-list">
-                        <li>Live performances and stage appearances</li>
-                        <li>Interview sessions and broadcast segments</li>
-                        <li>Behind-the-scenes and production documentation</li>
-                        <li>Short-form content from social platforms</li>
-                    </ul>
+                    <h3>Are these the original leak files?</h3>
+                    <p>The leak archive preserves original files where possible—no recompression, no watermarking, no modifications. File integrity is maintained from original leak sources.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>• Where does biographical information originate?</h3>
-                    <ul class="bullet-list">
-                        <li>Public interviews and media statements</li>
-                        <li>Verified public records and documentation</li>
-                        <li>Cross-referenced media reports</li>
-                    </ul>
+                    <h3>How often are new leaks added?</h3>
+                    <p>New leaks are added as they surface. When fresh <span class="query-placeholder"></span> leaks emerge across private channels, forums, or breach dumps, they are documented and archived here.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>• How frequently is content added?</h3>
-                    <ul class="bullet-list">
-                        <li>Ongoing as new materials become available</li>
-                        <li>Updates noted with timestamps where applicable</li>
-                        <li>Preservation of existing entries maintained</li>
-                    </ul>
+                    <h3>Is this the complete leak collection?</h3>
+                    <p>This represents the most comprehensive <span class="query-placeholder"></span> leak archive available—every known leak drop consolidated into a single permanent repository.</p>
                 </div>
             </section>
             <hr />
           <center>{% include /ads/gobloggugel/nanouturfs.html %}
 </center>  
             <hr />
-            <!-- SECTION 10: About This Archive - dalam bentuk poin -->
+            <!-- SECTION 10: About This Archive -->
             <section id="section-about">
-                <h2>▸ Archive Purpose Statement</h2>
-                <ul class="bullet-list">
-                    <li><strong>Centralized reference</strong> — consolidates dispersed materials into structured format</li>
-                    <li><strong>Documentation focus</strong> — maintained for research and archival purposes</li>
-                    <li><strong>Source transparency</strong> — provenance noted where verifiable</li>
-                    <li><strong>Continuous maintenance</strong> — updates applied as new information emerges</li>
-                    <li><strong>Preservation priority</strong> — content maintained regardless of external availability</li>
-                </ul>
+                <h2>About This Leak Repository</h2>
+                <p>This is a permanent, uncensored leak archive for <strong><span class="query-placeholder"></span></strong>. Every leak that surfaces—whether from private server breaches, insider releases, platform data dumps, or underground forum drops—is documented and preserved here. The archive exists to maintain a complete record of leaked content that would otherwise be lost to deletion, takedowns, and platform censorship.</p>
             </section>
         </div>
     </main>
@@ -401,16 +334,16 @@ permalink: /tags/
         
         // Update title
         let title;
-        if (queryType === 'leak') title = `${query}`;
-        else if (queryType === 'photo') title = `${query} - Complete Photo Gallery & Image Archive`;
-        else if (queryType === 'video') title = `${query} - Complete Video Collection & Footage`;
-        else if (queryType === 'bio') title = `${query} - Complete Biography & Personal Details`;
-        else if (queryType === 'platform') title = `${query} - Platform Content & Exclusive Media`;
-        else title = `${query} - Complete Profile, Exclusive Content & Media Archive`;
+        if (queryType === 'leak') title = `${query} - Leak Archive | Complete Dump & Private Collection`;
+        else if (queryType === 'photo') title = `${query} - Leaked Photo Archive | Complete Image Dump`;
+        else if (queryType === 'video') title = `${query} - Leaked Video Archive | Private Footage Collection`;
+        else if (queryType === 'bio') title = `${query} - Leaked Documents & Private Records Archive`;
+        else if (queryType === 'platform') title = `${query} - Platform Leaks | Data Breach Archive`;
+        else title = `${query} - Complete Leak Archive | Private Dumps & Exclusive Content`;
         
         document.title = title;
         document.getElementById('dynamic-description').setAttribute('content', 
-            `Find complete ${query} content including photos, videos, biography, and exclusive material.`);
+            `Complete ${query} leak archive - private photos, videos, documents, and exclusive data dumps. Full leak repository.`);
         
         // Update H1
         document.getElementById('main-heading').textContent = title;
