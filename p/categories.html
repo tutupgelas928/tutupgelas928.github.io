@@ -24,6 +24,7 @@ permalink: /categories/
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; max-width: 1000px; margin: 0 auto; padding: 20px; }
         h1 { color: #333; font-size: 2.2em; }
         h2 { color: #444; margin-top: 40px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        h3 { color: #555; margin-top: 25px; }
         a { color: #0066cc; text-decoration: none; }
         a:hover { text-decoration: underline; }
         section { margin: 40px 0; }
@@ -32,7 +33,9 @@ permalink: /categories/
         .breadcrumb span { color: #333; font-weight: bold; }
         .quick-facts { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 30px 0; }
         .faq-item { margin: 25px 0; }
-        ul { list-style: none; padding: 0; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; margin: 20px 0; }
+        .info-card { background: #f5f5f5; padding: 15px; border-radius: 8px; }
+        ul { padding-left: 20px; }
         li { margin-bottom: 8px; }
         hr { border: none; border-top: 1px solid #eee; margin: 30px 0; }
         .hidden { display: none; }
@@ -41,6 +44,8 @@ permalink: /categories/
         [data-query-section].active { display: block; }
         .default-content.active { display: block; }
         .default-content { display: none; }
+        .stats-list { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; }
+        .stat-item { flex: 1; min-width: 150px; background: #fff; padding: 12px; border: 1px solid #e0e0e0; border-radius: 6px; }
     </style>
 </head>
 <body>
@@ -49,18 +54,33 @@ permalink: /categories/
              DEFAULT CONTENT (tampil jika tidak ada query)
              ============================================ -->
         <div id="default-content" class="default-content active">
-            <h1>The Vault</h1>
-            <p>Deep dives. Rare finds. The stories behind the headlines. Start exploring the collections below.</p>
+            <h1>Digital Media Resource Center</h1>
+            <p>Comprehensive directory of media profiles, visual archives, and biographical references. Organized for efficient research and discovery.</p>
             
             <section>
-                <h2>Navigate by Category</h2>
-                <ul>
-                    <li><a href="/categories/?q=celebrity+profiles">Profiles & Backgrounds</a></li>
-                    <li><a href="/categories/?q=exclusive+collections">The Unseen Vault</a></li>
-                    <li><a href="/categories/?q=photo+archives">Visual Chronicles</a></li>
-                    <li><a href="/categories/?q=video+collections">Moving Image Archive</a></li>
-                    <li><a href="/categories/?q=leaked+content">Off the Record</a></li>
-                </ul>
+                <h2>Main Resource Categories</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>📁 Celebrity Profiles</h3>
+                        <p>Detailed biographical entries, career timelines, and public records.</p>
+                        <a href="/categories/?q=celebrity+profiles">Access directory →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>🖼️ Visual Archives</h3>
+                        <p>Curated image collections, photo sets, and visual documentation.</p>
+                        <a href="/categories/?q=photo+archives">Browse collection →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>🎬 Media Collections</h3>
+                        <p>Video recordings, interviews, performances, and footage archives.</p>
+                        <a href="/categories/?q=video+collections">View archive →</a>
+                    </div>
+                    <div class="info-card">
+                        <h3>🔍 Special Collections</h3>
+                        <p>Exclusive materials, limited distribution content, and special releases.</p>
+                        <a href="/categories/?q=exclusive+collections">Explore →</a>
+                    </div>
+                </div>
             </section>
         </div>
         
@@ -71,206 +91,359 @@ permalink: /categories/
         <div id="query-content" style="display: none;">
             <!-- BREADCRUMB -->
             <div class="breadcrumb" id="breadcrumb">
-                <a href="/">Index</a> / 
+                <a href="/">Home</a> / <a href="/categories/">Resource Index</a> / 
                 <span id="breadcrumb-name"></span>
             </div>
             
             <!-- H1 -->
             <h1 id="main-heading"></h1>
             
-            <!-- QUICK FACTS -->
+            <!-- QUICK FACTS - STATS GRID -->
             <div class="quick-facts" id="quick-facts">
-                <h2>Snapshot: <span class="query-placeholder"></span></h2>
-                
+                <h2>Quick Reference: <span class="query-placeholder"></span></h2>
+                <div class="stats-list">
+                    <div class="stat-item"><strong>📅 Active Period</strong><br>2018 - Present</div>
+                    <div class="stat-item"><strong>📁 Content Count</strong><br>500+ Items</div>
+                    <div class="stat-item"><strong>📊 Last Update</strong><br>March 2026</div>
+                    <div class="stat-item"><strong>🔍 Search Rank</strong><br>High Traffic</div>
+                </div>
             </div>
             
-            <!-- INTRO PARAGRAPH (berbagai varian) -->
+            <!-- INTRO PARAGRAPH (berbagai varian dalam format poin) -->
             <div id="intro-leak" class="intro-varian hidden">
-                <p>Material that circulated through private channels, surfaced on forums, and sparked conversations across the web. This section documents the <strong class="query-placeholder"></strong> leaks—a collection of <a href="" class="dynamic-link" data-variant="leaked+photos">images</a>, <a href="" class="dynamic-link" data-variant="leaked+videos">recordings</a>, and <a href="" class="dynamic-link" data-variant="exclusive+content">digital artifacts</a> that exist outside official releases. What began as scattered fragments across platforms is now assembled in one reference point.</p>
+                <p>This page provides structured access to <strong class="query-placeholder"></strong> materials that have circulated through various channels. The following categories organize content by format, source, and distribution type.</p>
+                <ul>
+                    <li><strong>Image Collections</strong> – <a href="" class="dynamic-link" data-variant="leaked+photos">Visual assets</a> from multiple sources</li>
+                    <li><strong>Video Archives</strong> – <a href="" class="dynamic-link" data-variant="leaked+videos">Recorded content</a> across different platforms</li>
+                    <li><strong>Documentation</strong> – <a href="" class="dynamic-link" data-variant="exclusive+content">Supporting materials</a> and contextual information</li>
+                    <li><strong>Distribution History</strong> – Timeline of how content became accessible</li>
+                </ul>
             </div>
             
             <div id="intro-photo" class="intro-varian hidden">
-                <p>A visual record spanning different eras, settings, and creative directions. The <strong class="query-placeholder"></strong> photo collection includes <a href="" class="dynamic-link" data-variant="photos">published work</a>, <a href="" class="dynamic-link" data-variant="professional+photoshoot">commissioned shoots</a>, <a href="" class="dynamic-link" data-variant="candid">unscripted moments</a>, and <a href="" class="dynamic-link" data-variant="rare+photos">images with limited circulation</a>. Each frame offers a different angle—some staged, some spontaneous, all part of a broader visual narrative.</p>
+                <p>The <strong class="query-placeholder"></strong> visual directory contains organized image collections. Content is categorized by:</p>
+                <ul>
+                    <li><strong>Format Types</strong> – <a href="" class="dynamic-link" data-variant="photos">Standard images</a>, <a href="" class="dynamic-link" data-variant="professional+photoshoot">professional shoots</a>, <a href="" class="dynamic-link" data-variant="candid">candid captures</a></li>
+                    <li><strong>Time Periods</strong> – Chronological organization of available materials</li>
+                    <li><strong>Source Attribution</strong> – <a href="" class="dynamic-link" data-variant="rare+photos">Rare finds</a>, <a href="" class="dynamic-link" data-variant="high+quality">high-resolution files</a>, archival records</li>
+                    <li><strong>Content Themes</strong> – <a href="" class="dynamic-link" data-variant="gallery">Gallery sections</a> organized by subject matter</li>
+                </ul>
             </div>
             
             <div id="intro-video" class="intro-varian hidden">
-                <p>Motion captures what still images cannot. This archive compiles <strong class="query-placeholder"></strong> video materials—<a href="" class="dynamic-link" data-variant="videos">recorded appearances</a>, <a href="" class="dynamic-link" data-variant="performances">stage presentations</a>, <a href="" class="dynamic-link" data-variant="interviews">conversations</a>, and <a href="" class="dynamic-link" data-variant="exclusive+clips">segments with limited distribution</a>. From broadcast footage to independent recordings, this is a chronological look at moving image content tied to her public trajectory.</p>
+                <p>The <strong class="query-placeholder"></strong> video archive indexes recorded materials from various sources. Available categories include:</p>
+                <ul>
+                    <li><strong>Performance Recordings</strong> – <a href="" class="dynamic-link" data-variant="performances">Live presentations</a> and stage appearances</li>
+                    <li><strong>Interview Content</strong> – <a href="" class="dynamic-link" data-variant="interviews">Conversations</a> and Q&A sessions</li>
+                    <li><strong>Production Materials</strong> – <a href="" class="dynamic-link" data-variant="behind+the+scenes+footage">Behind-the-scenes footage</a> and set documentation</li>
+                    <li><strong>Special Features</strong> – <a href="" class="dynamic-link" data-variant="exclusive+clips">Exclusive clips</a> and <a href="" class="dynamic-link" data-variant="rare+videos">rare recordings</a></li>
+                </ul>
             </div>
             
             <div id="intro-bio" class="intro-varian hidden">
-                <p>A structured overview of publicly available information regarding <strong class="query-placeholder"></strong>. This section covers <a href="" class="dynamic-link" data-variant="bio">background details</a>, <a href="" class="dynamic-link" data-variant="age">age references</a>, <a href="" class="dynamic-link" data-variant="height">physical attributes</a>, <a href="" class="dynamic-link" data-variant="career">professional milestones</a>, and <a href="" class="dynamic-link" data-variant="net+worth">financial estimates</a>. Sources include interviews, public records, and verified statements across various media outlets.</p>
+                <p>Comprehensive biographical reference for <strong class="query-placeholder"></strong>. The following data points are documented:</p>
+                <ul>
+                    <li><strong>Personal Background</strong> – <a href="" class="dynamic-link" data-variant="early+life">Early life</a>, <a href="" class="dynamic-link" data-variant="nationality">nationality</a>, <a href="" class="dynamic-link" data-variant="age">age</a>, <a href="" class="dynamic-link" data-variant="height">physical attributes</a></li>
+                    <li><strong>Professional Timeline</strong> – <a href="" class="dynamic-link" data-variant="career">Career milestones</a>, key projects, achievements</li>
+                    <li><strong>Public Records</strong> – <a href="" class="dynamic-link" data-variant="relationships">Relationship history</a>, <a href="" class="dynamic-link" data-variant="net+worth">financial data</a>, public statements</li>
+                    <li><strong>Digital Presence</strong> – <a href="" class="dynamic-link" data-variant="social+media">Platform activity</a> and online footprint</li>
+                </ul>
             </div>
             
             <div id="intro-platform" class="intro-varian hidden">
-                <p>Digital presence across multiple platforms creates a layered footprint. This section organizes <strong class="query-placeholder"></strong> content by source—<a href="" class="dynamic-link" data-variant="instagram">Instagram posts</a>, <a href="" class="dynamic-link" data-variant="facebook">Facebook activity</a>, <a href="" class="dynamic-link" data-variant="twitter">Twitter exchanges</a>, and <a href="" class="dynamic-link" data-variant="tiktok">TikTok clips</a>. The archive captures both active accounts and material that has since been removed or altered.</p>
+                <p>Platform-specific content index for <strong class="query-placeholder"></strong>. Materials organized by originating source:</p>
+                <ul>
+                    <li><strong>Instagram</strong> – <a href="" class="dynamic-link" data-variant="instagram">Posts, stories, and platform activity</a></li>
+                    <li><strong>Facebook</strong> – <a href="" class="dynamic-link" data-variant="facebook">Page content and subscriber materials</a></li>
+                    <li><strong>Twitter/X</strong> – <a href="" class="dynamic-link" data-variant="twitter">Public interactions and statements</a></li>
+                    <li><strong>TikTok</strong> – <a href="" class="dynamic-link" data-variant="tiktok">Short-form video content</a></li>
+                    <li><strong>Additional Platforms</strong> – <a href="" class="dynamic-link" data-variant="youtube">YouTube</a>, <a href="" class="dynamic-link" data-variant="snapchat">Snapchat</a>, <a href="" class="dynamic-link" data-variant="discord">Discord</a>, <a href="" class="dynamic-link" data-variant="telegram">Telegram</a>, <a href="" class="dynamic-link" data-variant="reddit">Reddit</a></li>
+                </ul>
             </div>
             
             <div id="intro-general" class="intro-varian hidden">
-                <p>A central reference point for <strong class="query-placeholder"></strong>-related materials. This page aggregates <a href="" class="dynamic-link" data-variant="photos">visual content</a>, <a href="" class="dynamic-link" data-variant="videos">recorded media</a>, <a href="" class="dynamic-link" data-variant="biography">background information</a>, and <a href="" class="dynamic-link" data-variant="exclusive">materials with limited public distribution</a>. Designed for researchers, archivists, and those seeking a consolidated view of available content.</p>
+                <p>Centralized resource page for <strong class="query-placeholder"></strong> related content. This directory provides structured access to:</p>
+                <ul>
+                    <li><strong>Visual Materials</strong> – <a href="" class="dynamic-link" data-variant="photos">Image collections</a> and photographic records</li>
+                    <li><strong>Audiovisual Content</strong> – <a href="" class="dynamic-link" data-variant="videos">Video recordings</a> and footage archives</li>
+                    <li><strong>Reference Data</strong> – <a href="" class="dynamic-link" data-variant="biography">Biographical information</a> and background details</li>
+                    <li><strong>Special Materials</strong> – <a href="" class="dynamic-link" data-variant="exclusive">Limited distribution content</a> and exclusive collections</li>
+                </ul>
             </div>
             
             <hr>
             
-            <!-- SECTION 1: Most Searched -->
+            <!-- SECTION 1: Most Searched - TABEL FORMAT -->
             <section id="section-most-searched">
-                <h2>High-Interest Topics</h2>
-                <p>Based on search patterns and user requests, the most frequently accessed <strong><span class="query-placeholder"></span></strong> materials include 
-                <a href="" class="dynamic-link" data-variant="leaked">undistributed content</a>, 
-                <a href="" class="dynamic-link" data-variant="photos">image archives</a>, 
-                <a href="" class="dynamic-link" data-variant="videos">video recordings</a>, and 
-                <a href="" class="dynamic-link" data-variant="bio">biographical summaries</a>. 
-                Platform-specific collections from <a href="" class="dynamic-link" data-variant="facebook">Facebook</a>, 
-                <a href="" class="dynamic-link" data-variant="instagram">Instagram</a>, and 
-                <a href="" class="dynamic-link" data-variant="tiktok">TikTok</a> also draw consistent attention.</p>
+                <h2>Most Requested Content Categories</h2>
+                <p>Based on search analytics and user access patterns, the following <strong><span class="query-placeholder"></span></strong> categories receive the highest engagement:</p>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>📸 Visual Content</h3>
+                        <ul>
+                            <li><a href="" class="dynamic-link" data-variant="photos">Photo collections</a></li>
+                            <li><a href="" class="dynamic-link" data-variant="gallery">Gallery archives</a></li>
+                            <li><a href="" class="dynamic-link" data-variant="rare+photos">Rare image finds</a></li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>🎥 Video Materials</h3>
+                        <ul>
+                            <li><a href="" class="dynamic-link" data-variant="videos">Video archives</a></li>
+                            <li><a href="" class="dynamic-link" data-variant="performances">Performance recordings</a></li>
+                            <li><a href="" class="dynamic-link" data-variant="interviews">Interview footage</a></li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>📄 Reference Data</h3>
+                        <ul>
+                            <li><a href="" class="dynamic-link" data-variant="bio">Biographical information</a></li>
+                            <li><a href="" class="dynamic-link" data-variant="career">Career timeline</a></li>
+                            <li><a href="" class="dynamic-link" data-variant="net+worth">Financial records</a></li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>🔒 Special Collections</h3>
+                        <ul>
+                            <li><a href="" class="dynamic-link" data-variant="exclusive">Exclusive materials</a></li>
+                            <li><a href="" class="dynamic-link" data-variant="leaked">Limited distribution content</a></li>
+                            <li><a href="" class="dynamic-link" data-variant="archive">Complete archives</a></li>
+                        </ul>
+                    </div>
+                </div>
             </section>
             
             <!-- SECTION 2: Photo Gallery -->
             <section id="section-photo">
-                <h2>Visual Archive: <span class="query-placeholder"></span></h2>
-                <p>The <strong>image collection</strong> spans multiple formats and contexts: 
-                <a href="" class="dynamic-link" data-variant="professional+photoshoot">studio productions</a>, 
-                <a href="" class="dynamic-link" data-variant="candid">unposed captures</a>, 
-                <a href="" class="dynamic-link" data-variant="behind+the+scenes">production stills</a>, and 
-                <a href="" class="dynamic-link" data-variant="selfie">personal uploads</a>. 
-                <a href="" class="dynamic-link" data-variant="rare+photos">Lesser-known images</a> and 
-                <a href="" class="dynamic-link" data-variant="high+quality">high-resolution files</a> are noted where available.</p>
+                <h2>Visual Resource Directory</h2>
+                <p>The image archive contains the following categorized collections:</p>
                 
-                <p>Categories within the gallery include <a href="" class="dynamic-link" data-variant="red+carpet">formal events</a>, 
-                <a href="" class="dynamic-link" data-variant="magazine+shoot">editorial work</a>, 
-                <a href="" class="dynamic-link" data-variant="beach+vacation">leisure settings</a>, 
-                <a href="" class="dynamic-link" data-variant="workout">fitness documentation</a>, and 
-                <a href="" class="dynamic-link" data-variant="lingerie">fashion-oriented shoots</a>. 
-                Each entry includes contextual details where available.</p>
+                <h3>📁 Primary Image Categories</h3>
+                <ul>
+                    <li><a href="" class="dynamic-link" data-variant="professional+photoshoot">Professional photography sessions</a> – Studio and editorial work</li>
+                    <li><a href="" class="dynamic-link" data-variant="candid">Candid photography</a> – Unposed, spontaneous captures</li>
+                    <li><a href="" class="dynamic-link" data-variant="behind+the+scenes">Behind-the-scenes documentation</a> – Production and set photography</li>
+                    <li><a href="" class="dynamic-link" data-variant="selfie">Self-portraits and personal uploads</a> – Direct-from-subject content</li>
+                </ul>
+                
+                <h3>📁 Thematic Collections</h3>
+                <ul>
+                    <li><a href="" class="dynamic-link" data-variant="red+carpet">Red carpet appearances</a> – Event photography and formal coverage</li>
+                    <li><a href="" class="dynamic-link" data-variant="magazine+shoot">Magazine features</a> – Published editorial content</li>
+                    <li><a href="" class="dynamic-link" data-variant="beach+vacation">Leisure and travel photography</a> – Vacation documentation</li>
+                    <li><a href="" class="dynamic-link" data-variant="workout">Fitness and wellness imagery</a> – Health-related visual content</li>
+                    <li><a href="" class="dynamic-link" data-variant="lingerie">Fashion and intimate wear photography</a> – Style-focused collections</li>
+                </ul>
+                
+                <h3>📁 Technical Specifications</h3>
+                <ul>
+                    <li><a href="" class="dynamic-link" data-variant="high+quality">High-resolution files</a> – Maximum quality available</li>
+                    <li><a href="" class="dynamic-link" data-variant="rare+photos">Limited circulation images</a> – Scarce or hard-to-find content</li>
+                    <li><a href="" class="dynamic-link" data-variant="gallery">Complete gallery sets</a> – Full collection access</li>
+                </ul>
             </section>
             
             <!-- SECTION 3: Video Archive -->
             <section id="section-video">
-                <h2>Moving Image Collection</h2>
-                <p>The <strong>video archive</strong> contains 
-                <a href="" class="dynamic-link" data-variant="videos">recorded segments</a> from various sources: 
-                <a href="" class="dynamic-link" data-variant="performances">live presentations</a>, 
-                <a href="" class="dynamic-link" data-variant="interviews">Q&A sessions</a>, 
-                <a href="" class="dynamic-link" data-variant="behind+the+scenes+footage">set documentation</a>, and 
-                <a href="" class="dynamic-link" data-variant="exclusive+clips">materials with limited release</a>.</p>
+                <h2>Video Resource Directory</h2>
+                <p>The video collection is organized by format and content type:</p>
                 
-                <p>Additional categories include <a href="" class="dynamic-link" data-variant="music+videos">music video appearances</a>, 
-                <a href="" class="dynamic-link" data-variant="dance+practice">rehearsal recordings</a>, and 
-                <a href="" class="dynamic-link" data-variant="viral+clips">widely circulated short-form content</a>. 
-                <a href="" class="dynamic-link" data-variant="rare+videos">Less common recordings</a> and 
-                <a href="" class="dynamic-link" data-variant="high+quality+videos">higher-resolution versions</a> are organized for reference.</p>
+                <h3>🎬 Primary Video Categories</h3>
+                <ul>
+                    <li><a href="" class="dynamic-link" data-variant="performances">Live performances</a> – Stage presentations and shows</li>
+                    <li><a href="" class="dynamic-link" data-variant="interviews">Interview recordings</a> – Q&A sessions and conversations</li>
+                    <li><a href="" class="dynamic-link" data-variant="behind+the+scenes+footage">Behind-the-scenes content</a> – Production documentation</li>
+                    <li><a href="" class="dynamic-link" data-variant="exclusive+clips">Exclusive footage</a> – Limited distribution materials</li>
+                </ul>
+                
+                <h3>🎬 Additional Content Types</h3>
+                <ul>
+                    <li><a href="" class="dynamic-link" data-variant="music+videos">Music video appearances</a> – Official and unofficial releases</li>
+                    <li><a href="" class="dynamic-link" data-variant="dance+practice">Rehearsal recordings</a> – Practice and preparation footage</li>
+                    <li><a href="" class="dynamic-link" data-variant="viral+clips">Widely circulated content</a> – High-engagement short-form videos</li>
+                    <li><a href="" class="dynamic-link" data-variant="rare+videos">Rare recordings</a> – Limited circulation or hard-to-find footage</li>
+                </ul>
+                
+                <h3>🎬 Quality Specifications</h3>
+                <ul>
+                    <li><a href="" class="dynamic-link" data-variant="high+quality+videos">High-definition content</a> – Maximum resolution available</li>
+                    <li><a href="" class="dynamic-link" data-variant="video+footage">Standard definition archives</a> – Legacy format recordings</li>
+                </ul>
             </section>
             
             <!-- SECTION 4: Leak Collection -->
             <section id="section-leak">
-                <h2>Undistributed Materials</h2>
-                <p>This section documents <strong>content that emerged outside official channels</strong>. The <span class="query-placeholder"></span> collection includes 
-                <a href="" class="dynamic-link" data-variant="leaked+photos">image files</a>, 
-                <a href="" class="dynamic-link" data-variant="leaked+videos">video recordings</a>, and 
-                <a href="" class="dynamic-link" data-variant="exclusive+leaks">other digital assets</a> that circulated through forums, private groups, and file-sharing platforms. 
-                <a href="" class="dynamic-link" data-variant="rare+leaks">Items with limited distribution history</a> and 
-                <a href="" class="dynamic-link" data-variant="unreleased">unpublished materials</a> are noted where provenance can be established.</p>
+                <h2>Limited Distribution Content Index</h2>
+                <p>Materials that have circulated through non-official channels, organized by type:</p>
                 
-                <p>Related search terms include <a href="" class="dynamic-link" data-variant="private+collection">private collections</a>, 
-                <a href="" class="dynamic-link" data-variant="archive">complete archives</a>, and 
-                <a href="" class="dynamic-link" data-variant="original+leaks">source materials</a>.</p>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>📸 Image-Based Content</h3>
+                        <ul>
+                            <li><a href="" class="dynamic-link" data-variant="leaked+photos">Photographic materials</a></li>
+                            <li><a href="" class="dynamic-link" data-variant="rare+leaks">Limited circulation images</a></li>
+                            <li><a href="" class="dynamic-link" data-variant="uncensored">Unedited visual content</a></li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>🎥 Video-Based Content</h3>
+                        <ul>
+                            <li><a href="" class="dynamic-link" data-variant="leaked+videos">Video recordings</a></li>
+                            <li><a href="" class="dynamic-link" data-variant="exclusive+leaks">Exclusive footage</a></li>
+                            <li><a href="" class="dynamic-link" data-variant="unreleased">Unreleased materials</a></li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>📄 Documentation</h3>
+                        <ul>
+                            <li><a href="" class="dynamic-link" data-variant="private+collection">Private collection archives</a></li>
+                            <li><a href="" class="dynamic-link" data-variant="archive">Complete archival records</a></li>
+                            <li><a href="" class="dynamic-link" data-variant="original+leaks">Source documentation</a></li>
+                        </ul>
+                    </div>
+                </div>
             </section>
             
             <!-- SECTION 5: Platform Content -->
             <section id="section-platform">
-                <h2>Cross-Platform Presence</h2>
-                <p>Digital footprint across major platforms, organized by source:</p>
+                <h2>Cross-Platform Content Directory</h2>
+                <p>Materials organized by originating digital platform:</p>
                 
-                <ul>
-                    <li><a href="" class="dynamic-link" data-variant="instagram"><span class="query-placeholder"></span> Instagram</a> – posted content and story archives</li>
-                    <li><a href="" class="dynamic-link" data-variant="facebook"><span class="query-placeholder"></span> Facebook</a> – page activity and exclusive subscriber content</li>
-                    <li><a href="" class="dynamic-link" data-variant="twitter"><span class="query-placeholder"></span> Twitter/X</a> – public statements and interactions</li>
-                    <li><a href="" class="dynamic-link" data-variant="tiktok"><span class="query-placeholder"></span> TikTok</a> – short-form video posts</li>
-                    <li><a href="" class="dynamic-link" data-variant="youtube"><span class="query-placeholder"></span> YouTube</a> – interviews, features, and collaborations</li>
-                    <li><a href="" class="dynamic-link" data-variant="snapchat"><span class="query-placeholder"></span> Snapchat</a> – temporary content captures</li>
-                    <li><a href="" class="dynamic-link" data-variant="discord"><span class="query-placeholder"></span> Discord</a> – community-shared materials</li>
-                    <li><a href="" class="dynamic-link" data-variant="telegram"><span class="query-placeholder"></span> Telegram</a> – channel archives and distributed content</li>
-                    <li><a href="" class="dynamic-link" data-variant="reddit"><span class="query-placeholder"></span> Reddit</a> – discussions and shared links</li>
-                </ul>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>📱 Social Media</h3>
+                        <ul>
+                            <li><a href="" class="dynamic-link" data-variant="instagram">Instagram</a> – Posts, stories, highlights</li>
+                            <li><a href="" class="dynamic-link" data-variant="facebook">Facebook</a> – Page content, subscriber materials</li>
+                            <li><a href="" class="dynamic-link" data-variant="twitter">Twitter/X</a> – Public statements, interactions</li>
+                            <li><a href="" class="dynamic-link" data-variant="tiktok">TikTok</a> – Short-form video content</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>📺 Video Platforms</h3>
+                        <ul>
+                            <li><a href="" class="dynamic-link" data-variant="youtube">YouTube</a> – Interviews, features, collaborations</li>
+                            <li><a href="" class="dynamic-link" data-variant="snapchat">Snapchat</a> – Ephemeral content archives</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>💬 Community Platforms</h3>
+                        <ul>
+                            <li><a href="" class="dynamic-link" data-variant="discord">Discord</a> – Community-shared materials</li>
+                            <li><a href="" class="dynamic-link" data-variant="telegram">Telegram</a> – Channel archives, distributed content</li>
+                            <li><a href="" class="dynamic-link" data-variant="reddit">Reddit</a> – Discussions, shared links, archives</li>
+                        </ul>
+                    </div>
+                </div>
             </section>
             
             <!-- SECTION 6: Exclusive Content -->
             <section id="section-exclusive">
-                <h2>Limited-Distribution Materials</h2>
-                <p>Items that never received wide public release fall into this category. <span class="query-placeholder"></span> materials here include 
-                <a href="" class="dynamic-link" data-variant="behind+the+scenes">production documentation</a>, 
-                <a href="" class="dynamic-link" data-variant="private+gatherings">event recordings</a>, 
-                <a href="" class="dynamic-link" data-variant="uncensored">unedited versions</a>, and 
-                <a href="" class="dynamic-link" data-variant="intimate+moments">personal captures</a> that were not part of official releases.</p>
+                <h2>Special Access Materials</h2>
+                <p>Content with limited distribution history, organized by category:</p>
                 
-                <p>This section also covers <a href="" class="dynamic-link" data-variant="rare+unreleased">unpublished works</a>, 
-                <a href="" class="dynamic-link" data-variant="private+moments">private recordings</a>, and 
-                <a href="" class="dynamic-link" data-variant="exclusive+access">restricted-access content</a>. 
-                Categories include <a href="" class="dynamic-link" data-variant="bts">production stills</a>, 
-                <a href="" class="dynamic-link" data-variant="backstage">off-camera moments</a>, and 
-                <a href="" class="dynamic-link" data-variant="private+life">non-public documentation</a>.</p>
+                <ul>
+                    <li><strong><a href="" class="dynamic-link" data-variant="behind+the+scenes">Production documentation</a></strong> – Behind-the-scenes materials</li>
+                    <li><strong><a href="" class="dynamic-link" data-variant="private+gatherings">Private event recordings</a></strong> – Limited attendance documentation</li>
+                    <li><strong><a href="" class="dynamic-link" data-variant="uncensored">Unedited content</a></strong> – Versions without post-production modifications</li>
+                    <li><strong><a href="" class="dynamic-link" data-variant="intimate+moments">Personal documentation</a></strong> – Private captures and recordings</li>
+                </ul>
+                
+                <h3>Additional Special Categories</h3>
+                <ul>
+                    <li><a href="" class="dynamic-link" data-variant="rare+unreleased">Unpublished materials</a> – Content not released through official channels</li>
+                    <li><a href="" class="dynamic-link" data-variant="private+moments">Private recordings</a> – Personal documentation</li>
+                    <li><a href="" class="dynamic-link" data-variant="exclusive+access">Restricted-access content</a> – Materials from limited-distribution sources</li>
+                    <li><a href="" class="dynamic-link" data-variant="bts">Behind-the-scenes content</a> – Production and set documentation</li>
+                    <li><a href="" class="dynamic-link" data-variant="backstage">Backstage materials</a> – Off-camera moments</li>
+                    <li><a href="" class="dynamic-link" data-variant="private+life">Personal life documentation</a> – Non-public captures</li>
+                </ul>
             </section>
             
             <!-- SECTION 7: Biography -->
             <section id="section-bio">
-                <h2>Biographical Overview</h2>
-                <p>A compiled summary of publicly documented information about <strong><span class="query-placeholder"></span></strong>:</p>
+                <h2>Biographical Reference Data</h2>
+                <p>Structured biographical information for <strong><span class="query-placeholder"></span></strong>:</p>
                 
-                <ul>
-                    <li><a href="" class="dynamic-link" data-variant="early+life"><span class="query-placeholder"></span> Early life</a> – background and formative years</li>
-                    <li><a href="" class="dynamic-link" data-variant="career"><span class="query-placeholder"></span> Professional trajectory</a> – key roles and projects</li>
-                    <li><a href="" class="dynamic-link" data-variant="age"><span class="query-placeholder"></span> Age</a> – as referenced in public sources</li>
-                    <li><a href="" class="dynamic-link" data-variant="height"><span class="query-placeholder"></span> Physical attributes</a> – documented measurements</li>
-                    <li><a href="" class="dynamic-link" data-variant="nationality"><span class="query-placeholder"></span> Origin</a> – nationality and regional ties</li>
-                    <li><a href="" class="dynamic-link" data-variant="relationships"><span class="query-placeholder"></span> Relationships</a> – publicly acknowledged connections</li>
-                    <li><a href="" class="dynamic-link" data-variant="net+worth"><span class="query-placeholder"></span> Financial standing</a> – estimated figures from available data</li>
-                    <li><a href="" class="dynamic-link" data-variant="social+media"><span class="query-placeholder"></span> Social media</a> – active platforms and engagement</li>
-                </ul>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>👤 Personal Information</h3>
+                        <ul>
+                            <li><a href="" class="dynamic-link" data-variant="early+life">Early life background</a> – Origins and formative years</li>
+                            <li><a href="" class="dynamic-link" data-variant="age">Age</a> – As documented in public records</li>
+                            <li><a href="" class="dynamic-link" data-variant="height">Height and physical attributes</a> – Documented measurements</li>
+                            <li><a href="" class="dynamic-link" data-variant="nationality">Nationality and origin</a> – Citizenship and regional ties</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>💼 Professional Information</h3>
+                        <ul>
+                            <li><a href="" class="dynamic-link" data-variant="career">Career trajectory</a> – Key projects and milestones</li>
+                            <li><a href="" class="dynamic-link" data-variant="net+worth">Financial standing</a> – Estimated figures from available data</li>
+                            <li><a href="" class="dynamic-link" data-variant="relationships">Relationship history</a> – Publicly acknowledged connections</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>🌐 Digital Presence</h3>
+                        <ul>
+                            <li><a href="" class="dynamic-link" data-variant="social+media">Social media platforms</a> – Active accounts and engagement</li>
+                            <li><a href="" class="dynamic-link" data-variant="instagram">Instagram activity</a> – Content and interaction patterns</li>
+                            <li><a href="" class="dynamic-link" data-variant="twitter">Twitter/X presence</a> – Public statements and exchanges</li>
+                        </ul>
+                    </div>
+                </div>
             </section>
             
             <!-- SECTION 8: Related Searches -->
             <section id="section-related">
-                <h2>Additional References</h2>
-                <ul>
-                    <li><a href="/categories/?q=celebrity+profiles">General profile archive</a></li>
-                    <li><a href="/categories/?q=exclusive+collections">Restricted-distribution collections</a></li>
-                    <li><a href="/categories/?q=photo+archives">Image archives</a></li>
-                    <li><a href="/categories/?q=video+collections">Video archives</a></li>
-                    <li><a href="/categories/?q=leaked+content">Unofficial releases</a></li>
-                    <li><a href="/categories/?q=facebook+leaks">Facebook-sourced materials</a></li>
-                </ul>
+                <h2>Related Resource Directories</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>📁 Main Directories</h3>
+                        <ul>
+                            <li><a href="/categories/?q=celebrity+profiles">Complete celebrity profiles</a></li>
+                            <li><a href="/categories/?q=photo+archives">Photo archives index</a></li>
+                            <li><a href="/categories/?q=video+collections">Video collections directory</a></li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>🔍 Special Collections</h3>
+                        <ul>
+                            <li><a href="/categories/?q=exclusive+collections">Exclusive content archive</a></li>
+                            <li><a href="/categories/?q=leaked+content">Limited distribution index</a></li>
+                            <li><a href="/categories/?q=facebook+leaks">Facebook-sourced materials</a></li>
+                        </ul>
+                    </div>
+                </div>
             </section>
             
             <!-- SECTION 9: FAQ -->
             <section id="section-faq">
-                <h2>Common Inquiries</h2>
+                <h2>Frequently Asked Questions</h2>
                 
                 <div class="faq-item">
-                    <h3>What types of materials are available in this archive?</h3>
-                    <p>The collection includes <a href="" class="dynamic-link" data-variant="photos">images</a>, 
-                    <a href="" class="dynamic-link" data-variant="videos">recordings</a>, 
-                    <a href="" class="dynamic-link" data-variant="biography">background information</a>, and 
-                    <a href="" class="dynamic-link" data-variant="exclusive">materials with limited distribution</a>. 
-                    Content spans multiple formats and sources.</p>
+                    <h3>What types of content are available in this resource?</h3>
+                    <p>This directory provides access to <a href="" class="dynamic-link" data-variant="photos">visual materials</a>, <a href="" class="dynamic-link" data-variant="videos">video recordings</a>, <a href="" class="dynamic-link" data-variant="biography">biographical data</a>, and <a href="" class="dynamic-link" data-variant="exclusive">special collections</a>. Content is organized by format and category for efficient discovery.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>How is the photo collection organized?</h3>
-                    <p>The <a href="" class="dynamic-link" data-variant="photos">image archive</a> is categorized by context—editorial work, candid moments, event coverage, and personal uploads where available.</p>
+                    <h3>How is the visual content organized?</h3>
+                    <p>The <a href="" class="dynamic-link" data-variant="photos">image archive</a> is categorized by context (editorial, candid, event coverage), time period, and technical specifications (resolution, source).</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>What video content is included?</h3>
-                    <p>The <a href="" class="dynamic-link" data-variant="videos">video section</a> contains performances, interviews, behind-the-scenes footage, and clips from various platforms.</p>
+                    <h3>What video materials are included?</h3>
+                    <p>The <a href="" class="dynamic-link" data-variant="videos">video section</a> contains performance recordings, interview footage, behind-the-scenes content, and platform-specific clips organized by format and type.</p>
                 </div>
                 
                 <div class="faq-item">
                     <h3>Where does the biographical information come from?</h3>
-                    <p>The <a href="" class="dynamic-link" data-variant="biography">biography section</a> aggregates data from interviews, public records, and verified media reports.</p>
+                    <p>The <a href="" class="dynamic-link" data-variant="biography">biography section</a> aggregates data from interviews, public records, verified media reports, and documented sources.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3>How often is this archive updated?</h3>
-                    <p>New materials are added as they become available and can be verified. The archive aims to maintain a comprehensive reference point.</p>
+                    <h3>How frequently is this directory updated?</h3>
+                    <p>New materials are added as they become available. The resource aims to maintain comprehensive coverage of all publicly accessible content.</p>
                 </div>
             </section>
             <hr />
@@ -279,10 +452,15 @@ permalink: /categories/
             <hr />
             <!-- SECTION 10: About This Archive -->
             <section id="section-about">
-                <h2>Purpose of This Collection</h2>
-                <p>This page functions as a centralized reference for <strong><span class="query-placeholder"></span></strong>-related content. 
-                The archive is maintained for documentation purposes, aggregating materials from various sources into a single, organized structure. 
-                Updates occur as new information or materials become accessible.</p>
+                <h2>About This Resource Directory</h2>
+                <p>This page serves as a structured reference point for <strong><span class="query-placeholder"></span></strong>-related content. Materials are organized by format, source, and category to facilitate efficient research and discovery. The directory is maintained as a comprehensive resource, with regular updates as new content becomes available.</p>
+                <p><strong>Key features of this resource:</strong></p>
+                <ul>
+                    <li>Structured categorization by content type</li>
+                    <li>Hierarchical organization for easy navigation</li>
+                    <li>Comprehensive coverage of available materials</li>
+                    <li>Regular updates to maintain accuracy</li>
+                </ul>
             </section>
         </div>
     </main>
@@ -343,16 +521,16 @@ permalink: /categories/
         
         // Update title
         let title;
-        if (queryType === 'leak') title = `${query}`;
-        else if (queryType === 'photo') title = `${query} - Complete Photo Gallery & Image Archive`;
-        else if (queryType === 'video') title = `${query} - Complete Video Collection & Footage`;
-        else if (queryType === 'bio') title = `${query} - Complete Biography & Personal Details`;
-        else if (queryType === 'platform') title = `${query} - Platform Content & Exclusive Media`;
-        else title = `${query} - Complete Profile, Exclusive Content & Media Archive`;
+        if (queryType === 'leak') title = `${query} | Resource Directory & Content Index`;
+        else if (queryType === 'photo') title = `${query} | Visual Resource Directory & Image Archive`;
+        else if (queryType === 'video') title = `${query} | Video Resource Directory & Media Archive`;
+        else if (queryType === 'bio') title = `${query} | Biographical Reference & Personal Data`;
+        else if (queryType === 'platform') title = `${query} | Cross-Platform Content Directory`;
+        else title = `${query} | Complete Resource Directory & Media Archive`;
         
         document.title = title;
         document.getElementById('dynamic-description').setAttribute('content', 
-            `Find complete ${query} content including photos, videos, biography, and exclusive material.`);
+            `Complete ${query} resource directory - organized access to photos, videos, biography, and special collections. Structured content index.`);
         
         // Update H1
         document.getElementById('main-heading').textContent = title;
