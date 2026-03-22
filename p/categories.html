@@ -1,6 +1,6 @@
 ---
 layout: null
-permalink: /post/
+permalink: /categories/
 ---
   
 <!DOCTYPE html>
@@ -55,11 +55,11 @@ permalink: /post/
             <section>
                 <h2>Navigate by Category</h2>
                 <ul>
-                    <li><a href="/post/?q=celebrity+profiles">Profiles & Backgrounds</a></li>
-                    <li><a href="/post/?q=exclusive+collections">The Unseen Vault</a></li>
-                    <li><a href="/post/?q=photo+archives">Visual Chronicles</a></li>
-                    <li><a href="/post/?q=video+collections">Moving Image Archive</a></li>
-                    <li><a href="/post/?q=leaked+content">Off the Record</a></li>
+                    <li><a href="/categories/?q=celebrity+profiles">Profiles & Backgrounds</a></li>
+                    <li><a href="/categories/?q=exclusive+collections">The Unseen Vault</a></li>
+                    <li><a href="/categories/?q=photo+archives">Visual Chronicles</a></li>
+                    <li><a href="/categories/?q=video+collections">Moving Image Archive</a></li>
+                    <li><a href="/categories/?q=leaked+content">Off the Record</a></li>
                 </ul>
             </section>
         </div>
@@ -231,12 +231,12 @@ permalink: /post/
             <section id="section-related">
                 <h2>Additional References</h2>
                 <ul>
-                    <li><a href="/post/?q=celebrity+profiles">General profile archive</a></li>
-                    <li><a href="/post/?q=exclusive+collections">Restricted-distribution collections</a></li>
-                    <li><a href="/post/?q=photo+archives">Image archives</a></li>
-                    <li><a href="/post/?q=video+collections">Video archives</a></li>
-                    <li><a href="/post/?q=leaked+content">Unofficial releases</a></li>
-                    <li><a href="/post/?q=facebook+leaks">Facebook-sourced materials</a></li>
+                    <li><a href="/categories/?q=celebrity+profiles">General profile archive</a></li>
+                    <li><a href="/categories/?q=exclusive+collections">Restricted-distribution collections</a></li>
+                    <li><a href="/categories/?q=photo+archives">Image archives</a></li>
+                    <li><a href="/categories/?q=video+collections">Video archives</a></li>
+                    <li><a href="/categories/?q=leaked+content">Unofficial releases</a></li>
+                    <li><a href="/categories/?q=facebook+leaks">Facebook-sourced materials</a></li>
                 </ul>
             </section>
             
@@ -374,7 +374,7 @@ permalink: /post/
             document.querySelectorAll('.dynamic-link').forEach(link => {
                 const variant = link.getAttribute('data-variant');
                 if (variant) {
-                    link.href = `/post/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
+                    link.href = `/categories/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
                 }
             });
         }
