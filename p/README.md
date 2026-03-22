@@ -1,0 +1,14 @@
+<ol>
+<li>post</li>
+<li>categories</li>
+<li>tags</li>
+<li>labels</li>
+<li>keywords</li>
+<li>search</li>
+<li>archive</li>
+<li>article</li>
+<li>blog</li>
+<li>docs</li>
+<li>model</li>
+<li>page</li>
+</ol>
