@@ -10,605 +10,353 @@ permalink: /model/
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="content-language" content="en">
     <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
     
-    <title id="dynamic-title">The Exposé | Digital Investigations</title>
-    <meta id="dynamic-description" name="description" content="Investigative journalism platform documenting digital culture, influencer archives, and media investigations.">
+    
+    <!-- Title akan di-update JavaScript -->
+    <title id="dynamic-title">Search Exclusive Content Archive</title>
+    
+    <!-- Meta Description akan di-update JavaScript -->
+    <meta id="dynamic-description" name="description" content="Browse our comprehensive collections of celebrity content, including photos, videos, biographies, and exclusive material.">
+    
+   
     
     <style>
-        /* INVESTIGATIVE JOURNAL STYLE */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.5;
         }
-        
-        body {
-            font-family: 'Georgia', 'Times New Roman', Times, serif;
-            background: #fefefe;
-            color: #1a1a1a;
-            line-height: 1.6;
-        }
-        
-        /* CONTAINER - NEWSPAPER WIDTH */
-        .investigation {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
-        
-        /* MASTHEAD */
-        .masthead {
-            text-align: center;
-            padding: 1.5rem 0;
-            border-bottom: 3px solid #1a1a1a;
-            margin-bottom: 2rem;
-        }
-        
-        .masthead-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            text-transform: uppercase;
-        }
-        
-        .masthead-sub {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #666;
-            margin-top: 0.25rem;
-        }
-        
-        .dateline {
-            font-size: 0.7rem;
-            color: #999;
-            text-align: right;
-            margin-bottom: 1rem;
-            font-family: monospace;
-        }
-        
-        /* TYPOGRAPHY */
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin: 1rem 0;
-            letter-spacing: -0.3px;
-        }
-        
-        h2 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin: 2rem 0 1rem;
-            padding-top: 0.5rem;
-            border-top: 1px solid #ddd;
-        }
-        
-        h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 1.25rem 0 0.5rem;
-        }
-        
-        .byline {
-            font-size: 0.8rem;
-            color: #666;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 0.5rem;
-        }
-        
-        .deck {
-            font-size: 1.2rem;
-            color: #444;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            border-left: 3px solid #c41e3a;
-            padding-left: 1rem;
-        }
-        
-        /* BREADCRUMB */
-        .breadcrumb {
-            font-size: 0.7rem;
-            font-family: monospace;
-            color: #999;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-        
-        .breadcrumb a {
-            color: #999;
-            text-decoration: none;
-        }
-        
-        .breadcrumb a:hover {
-            color: #c41e3a;
-        }
-        
-        .breadcrumb span {
-            color: #c41e3a;
-        }
-        
-        /* STATS - DATA VISUALIZATION */
-        .data-panel {
-            background: #f8f8f8;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-left: 4px solid #c41e3a;
-        }
-        
-        .data-grid {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-            text-align: center;
-        }
-        
-        .data-point {
-            flex: 1;
-            min-width: 100px;
-        }
-        
-        .data-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #c41e3a;
-            font-family: monospace;
-        }
-        
-        .data-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #666;
-        }
-        
-        /* LEAK CARDS - INVESTIGATIVE STYLE */
-        .case-file {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            padding: 1.25rem;
-            margin: 1rem 0;
-            transition: all 0.2s;
-        }
-        
-        .case-file:hover {
-            border-left-color: #c41e3a;
-            border-left-width: 4px;
-            padding-left: calc(1.25rem - 3px);
-        }
-        
-        .case-tag {
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #c41e3a;
-            font-weight: 700;
-        }
-        
-        .case-title {
-            font-size: 1rem;
-            font-weight: 700;
-            margin: 0.5rem 0;
-        }
-        
-        .case-meta {
-            font-size: 0.7rem;
-            color: #999;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* EVIDENCE GRID */
-        .evidence-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .evidence-item {
-            border-bottom: 1px solid #eee;
-            padding: 0.5rem 0;
-        }
-        
-        .evidence-link {
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        
-        .evidence-link a {
-            color: #1a1a1a;
-            text-decoration: none;
-        }
-        
-        .evidence-link a:hover {
-            color: #c41e3a;
-        }
-        
-        .evidence-badge {
-            font-size: 0.6rem;
-            color: #c41e3a;
-            margin-left: 0.5rem;
-            font-family: monospace;
-        }
-        
-        /* TIMELINE */
-        .timeline {
-            margin: 1.5rem 0;
-        }
-        
-        .timeline-item {
-            border-left: 2px solid #ddd;
-            padding-left: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .timeline-date {
-            font-size: 0.7rem;
-            color: #c41e3a;
-            font-weight: 700;
-        }
-        
-        /* FAQ - INVESTIGATIVE */
-        .faq-section {
-            margin: 2rem 0;
-        }
-        
-        .faq-item {
-            border-bottom: 1px solid #eee;
-            padding: 1rem 0;
-        }
-        
-        .faq-q {
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-bottom: 0.25rem;
-        }
-        
-        .faq-a {
-            font-size: 0.85rem;
-            color: #555;
-        }
-        
-        /* QUOTE BOX */
-        .pullquote {
-            background: #faf8f5;
-            padding: 1.5rem;
-            font-style: italic;
-            font-size: 0.9rem;
-            border-left: 4px solid #c41e3a;
-            margin: 1.5rem 0;
-        }
-        
-        /* FOOTER */
-        .footer-note {
-            margin-top: 3rem;
-            padding-top: 1rem;
-            border-top: 1px solid #eee;
-            font-size: 0.7rem;
-            color: #999;
-            text-align: center;
-        }
-        
-        /* UTILITY */
-        .hidden {
-            display: none;
-        }
-        
-        .query-placeholder {
-            font-weight: 800;
-            background: linear-gradient(135deg, #c41e3a, #8b0000);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .default-content.active {
-            display: block;
-        }
-        
-        .default-content {
-            display: none;
-        }
-        
-        .red-text {
-            color: #c41e3a;
-        }
-        
-        .alert {
-            background: #fff5f5;
-            border: 1px solid #ffcdcd;
-            padding: 0.75rem;
-            font-size: 0.8rem;
-            margin: 1rem 0;
-        }
-        
-        @media (max-width: 600px) {
-            .evidence-grid { grid-template-columns: 1fr; }
-            h1 { font-size: 1.6rem; }
-            .investigation { padding: 1rem; }
-        }
+        main { max-width: 1280px; margin: 0 auto; padding: 32px 24px; }
+        .glass-card { background: rgba(20, 20, 30, 0.7); backdrop-filter: blur(10px); border-radius: 24px; border: 1px solid rgba(255,255,255,0.08); }
+        h1 { font-size: 3rem; font-weight: 800; background: linear-gradient(135deg, #fff 0%, #a855f7 50%, #ec489a 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 16px; letter-spacing: -0.02em; }
+        h2 { font-size: 1.75rem; font-weight: 700; margin: 40px 0 20px; color: #fff; letter-spacing: -0.01em; border-left: 3px solid #a855f7; padding-left: 16px; }
+        h3 { font-size: 1.25rem; font-weight: 600; margin: 20px 0 12px; color: #f0f0f0; }
+        a { color: #c084fc; text-decoration: none; transition: color 0.2s; }
+        a:hover { color: #f0a3ff; text-decoration: underline; }
+        section { margin: 48px 0; }
+        .breadcrumb { margin-bottom: 32px; font-size: 0.875rem; color: #888; }
+        .breadcrumb a { color: #888; }
+        .breadcrumb a:hover { color: #c084fc; }
+        .breadcrumb span { color: #c084fc; }
+        .hero-stats { display: flex; gap: 32px; flex-wrap: wrap; margin: 24px 0 32px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .hero-stats span { font-size: 0.875rem; color: #888; }
+        .hero-stats strong { color: #fff; font-size: 1.1rem; margin-right: 8px; }
+        .content-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin: 32px 0; }
+        .trend-card { background: rgba(30,30,40,0.6); border-radius: 20px; padding: 20px; border: 1px solid rgba(255,255,255,0.05); transition: transform 0.2s, border-color 0.2s; }
+        .trend-card:hover { transform: translateY(-4px); border-color: rgba(168,85,247,0.3); }
+        .trend-card .badge { display: inline-block; background: #a855f7; color: #fff; font-size: 0.7rem; padding: 4px 10px; border-radius: 30px; margin-bottom: 12px; font-weight: 600; }
+        .trend-card h4 { font-size: 1.2rem; margin-bottom: 12px; color: #fff; }
+        .trend-card p { font-size: 0.875rem; color: #aaa; margin-bottom: 16px; }
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; }
+        .tag { background: rgba(168,85,247,0.15); color: #c084fc; padding: 6px 14px; border-radius: 30px; font-size: 0.8rem; font-weight: 500; transition: all 0.2s; }
+        .tag:hover { background: rgba(168,85,247,0.3); color: #fff; text-decoration: none; }
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li { margin-bottom: 14px; padding-left: 24px; position: relative; }
+        .feature-list li:before { content: "⚡"; position: absolute; left: 0; color: #a855f7; }
+        .faq-item { margin: 24px 0; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .faq-item h3 { margin: 0 0 10px; font-size: 1.1rem; cursor: pointer; color: #fff; }
+        .faq-item p { color: #aaa; font-size: 0.9rem; }
+        hr { border: none; height: 1px; background: rgba(255,255,255,0.1); margin: 48px 0; }
+        .hidden { display: none; }
+        .query-placeholder { color: #c084fc; font-weight: 700; }
+        .default-content.active { display: block; }
+        .default-content { display: none; }
+        .inline-code { background: rgba(168,85,247,0.2); padding: 2px 8px; border-radius: 20px; font-size: 0.8rem; }
+        .section-title-icon { display: inline-block; margin-right: 12px; font-size: 1.5rem; vertical-align: middle; }
+        @media (max-width: 768px) { h1 { font-size: 2rem; } main { padding: 20px 16px; } .hero-stats { gap: 16px; } }
     </style>
 </head>
 <body>
-    <div class="investigation">
-        <div class="masthead">
-            <div class="masthead-title">THE EXPOSÉ</div>
-            <div class="masthead-sub">Digital Investigations · Leak Documentation · Influencer Watch</div>
-        </div>
-        <div class="dateline">VOL. IV · INVESTIGATIVE SERIES</div>
-        
-        <main>
-            <!-- ============================================
-                 DEFAULT CONTENT (tampil jika tidak ada query)
-                 ============================================ -->
-            <div id="default-content" class="default-content active">
-                <div class="breadcrumb">
-                    <a href="/">HOME</a> / <span>INVESTIGATIONS</span>
+    <main>
+        <!-- ============================================
+             DEFAULT CONTENT (tampil jika tidak ada query)
+             ============================================ -->
+        <div id="default-content" class="default-content active">
+            <h1>🔥 The Influencer Leak Hub</h1>
+            <p style="font-size: 1.2rem; color: #aaa; margin-bottom: 24px;">The internet's biggest archive of leaked influencer content. What went viral. What got deleted. What you won't find anywhere else.</p>
+            
+            <div class="hero-stats">
+                <span><strong>🔥 2.4M+</strong> monthly visits</span>
+                <span><strong>📁 15k+</strong> leaked archives</span>
+                <span><strong>⚡ 500+</strong> influencers</span>
+                <span><strong>🔄 Updated</strong> daily</span>
+            </div>
+            
+            <div class="content-grid">
+                <div class="trend-card">
+                    <span class="badge">TRENDING 🔥</span>
+                    <h4>Viral Leak Drops</h4>
+                    <p>Most talked-about leaked content this week across Twitter, Reddit, and Telegram.</p>
+                    <a href="/model/?q=trending+leaks">Explore trending →</a>
                 </div>
-                
-                <h1>The Influencer Leak Files</h1>
-                <div class="deck">Investigative documentation of leaked content, private collections, and digital exposures from the influencer ecosystem.</div>
-                <div class="byline">DATA ANALYSIS · MARCH 2026 · 2,500+ DOCUMENTED CASES</div>
-                
-                <div class="data-panel">
-                    <div class="data-grid">
-                        <div class="data-point"><div class="data-number">2,500+</div><div class="data-label">Leak Cases Documented</div></div>
-                        <div class="data-point"><div class="data-number">450+</div><div class="data-label">Photo Leak Sets</div></div>
-                        <div class="data-point"><div class="data-number">120+</div><div class="data-label">Video Leak Files</div></div>
-                        <div class="data-point"><div class="data-number">Since 2020</div><div class="data-label">Continuous Archive</div></div>
-                    </div>
+                <div class="trend-card">
+                    <span class="badge">🎬 EXCLUSIVE</span>
+                    <h4>Video Leak Archives</h4>
+                    <p>Private clips, deleted TikToks, and footage that disappeared from the web.</p>
+                    <a href="/model/?q=video+leaks">Watch archive →</a>
                 </div>
-                
-                <h2>Leak Categories Under Investigation</h2>
-                <div class="case-file">
-                    <div class="case-tag">CASE FILE 01</div>
-                    <div class="case-title">Influencer Photo Leaks</div>
-                    <div class="case-meta">450+ documented sets · Private collections · Unreleased content</div>
-                    <a href="/model/?q=influencer+photo+leaks" style="color:#c41e3a;">View investigation →</a>
+                <div class="trend-card">
+                    <span class="badge">📸 LEAKED</span>
+                    <h4>Photo Dumps</h4>
+                    <p>Full galleries, private folders, and images that broke the internet.</p>
+                    <a href="/model/?q=photo+leaks">Browse leaks →</a>
                 </div>
-                <div class="case-file">
-                    <div class="case-tag">CASE FILE 02</div>
-                    <div class="case-title">Influencer Video Leaks</div>
-                    <div class="case-meta">120+ documented files · Private footage · Exclusive recordings</div>
-                    <a href="/model/?q=influencer+video+leaks" style="color:#c41e3a;">View investigation →</a>
-                </div>
-                <div class="case-file">
-                    <div class="case-tag">CASE FILE 03</div>
-                    <div class="case-title">Platform Data Leaks</div>
-                    <div class="case-meta">Instagram · TikTok · OnlyFans · Discord · Telegram</div>
-                    <a href="/model/?q=influencer+platform+leaks" style="color:#c41e3a;">View investigation →</a>
-                </div>
-                
-                <div class="footer-note">
-                    THE EXPOSÉ · Independent Investigative Journalism · Digital Culture Documentation
+                <div class="trend-card">
+                    <span class="badge">💎 RARE</span>
+                    <h4>Underground Vault</h4>
+                    <p>Hard-to-find leaks from private Discord servers and Telegram channels.</p>
+                    <a href="/model/?q=rare+leaks">Enter vault →</a>
                 </div>
             </div>
             
-            <!-- ============================================
-                 QUERY-BASED CONTENT (SEO OPTIMIZED - LEAKED INFLUENCER)
-                 ============================================ -->
-            <div id="query-content" style="display: none;">
-                <!-- BREADCRUMB DENGAN QUERY -->
-                <div class="breadcrumb">
-                    <a href="/">HOME</a> / <a href="/model/">INVESTIGATIONS</a> / <span id="breadcrumb-name"></span>
-                </div>
-                
-                <!-- H1 DENGAN QUERY DOMINAN -->
-                <h1 id="main-heading"></h1>
-                <div class="deck" id="deck-text"></div>
-                <div class="byline" id="byline-text">INVESTIGATIVE REPORT · LEAK ANALYSIS · DIGITAL FORENSICS</div>
-                
-                <!-- ALERT BOX -->
-                <div class="alert">
-                    ⚠️ <strong id="alert-text"></strong> — This investigative report documents leaked content, private collections, and unauthorized distributions. Complete case file below.
-                </div>
-                
-                <!-- INTRO VARIAN - INVESTIGATIVE STYLE DENGAN QUERY MASIF -->
-                <div id="intro-leak" class="intro-varian hidden">
-                    <p><strong class="query-placeholder"></strong> leak investigation: This case file documents the complete leak archive of <strong class="query-placeholder"></strong> — including private photo sets, exclusive video footage, and unauthorized content that circulated through underground channels. The investigation covers all documented <strong class="query-placeholder"></strong> leaked materials.</p>
-                    
-                    <div class="data-panel">
-                        <div class="data-grid">
-                            <div class="data-point"><div class="data-number" id="leak-photo-count">450+</div><div class="data-label"><span class="query-placeholder"></span> LEAKED PHOTOS</div></div>
-                            <div class="data-point"><div class="data-number" id="leak-video-count">120+</div><div class="data-label"><span class="query-placeholder"></span> LEAKED VIDEOS</div></div>
-                            <div class="data-point"><div class="data-number">COMPLETE</div><div class="data-label"><span class="query-placeholder"></span> LEAK ARCHIVE</div></div>
-                        </div>
-                    </div>
-                    
-                    <h2><span class="query-placeholder"></span> Leaked Photo Evidence</h2>
-                    <div class="evidence-grid">
-                        <div class="evidence-item"><div class="evidence-link"><a href="" class="dynamic-link" data-variant="leaked+photos">Complete <span class="query-placeholder"></span> Leaked Photo Set</a> <span class="evidence-badge">→ 450+ files</span></div></div>
-                        <div class="evidence-item"><div class="evidence-link"><a href="" class="dynamic-link" data-variant="rare+leaks">Rare <span class="query-placeholder"></span> Leaked Images</a> <span class="evidence-badge">→ Limited circulation</span></div></div>
-                        <div class="evidence-item"><div class="evidence-link"><a href="" class="dynamic-link" data-variant="uncensored">Uncensored <span class="query-placeholder"></span> Leaked Photos</a> <span class="evidence-badge">→ Original files</span></div></div>
-                        <div class="evidence-item"><div class="evidence-link"><a href="" class="dynamic-link" data-variant="professional+photoshoot"><span class="query-placeholder"></span> Leaked Studio Content</a> <span class="evidence-badge">→ Unreleased</span></div></div>
-                        <div class="evidence-item"><div class="evidence-link"><a href="" class="dynamic-link" data-variant="candid"><span class="query-placeholder"></span> Leaked Candid Moments</a> <span class="evidence-badge">→ Private</span></div></div>
-                        <div class="evidence-item"><div class="evidence-link"><a href="" class="dynamic-link" data-variant="behind+the+scenes"><span class="query-placeholder"></span> Leaked BTS Content</a> <span class="evidence-badge">→ Set leaks</span></div></div>
-                    </div>
-                    
-                    <h2><span class="query-placeholder"></span> Leaked Video Evidence</h2>
-                    <div class="evidence-grid">
-                        <div class="evidence-item"><div class="evidence-link"><a href="" class="dynamic-link" data-variant="leaked+videos">Complete <span class="query-placeholder"></span> Leaked Video Set</a> <span class="evidence-badge">→ Full footage</span></div></div>
-                        <div class="evidence-item"><div class="evidence-link"><a href="" class="dynamic-link" data-variant="performances"><span class="query-placeholder"></span> Leaked Performance Videos</a> <span class="evidence-badge">→ Uncut</span></div></div>
-                        <div class="evidence-item"><div class="evidence-link"><a href="" class="dynamic-link" data-variant="interviews"><span class="query-placeholder"></span> Leaked Interview Footage</a> <span class="evidence-badge">→ Unedited</span></div></div>
-                        <div class="evidence-item"><div class="evidence-link"><a href="" class="dynamic-link" data-variant="exclusive+clips">Exclusive <span class="query-placeholder"></span> Video Leaks</a> <span class="evidence-badge">→ Private</span></div></div>
-                        <div class="evidence-item"><div class="evidence-link"><a href="" class="dynamic-link" data-variant="rare+videos">Rare <span class="query-placeholder"></span> Video Leaks</a> <span class="evidence-badge">→ Limited</span></div></div>
-                        <div class="evidence-item"><div class="evidence-link"><a href="" class="dynamic-link" data-variant="high+quality+videos">HD <span class="query-placeholder"></span> Leaked Videos</a> <span class="evidence-badge">→ Original quality</span></div></div>
-                    </div>
-                    
-                    <h2><span class="query-placeholder"></span> Exclusive Leak Dumps</h2>
-                    <div class="evidence-grid">
-                        <div class="evidence-item"><div class="evidence-link"><a href="" class="dynamic-link" data-variant="private+collection"><span class="query-placeholder"></span> Private Collection Dump</a></div></div>
-                        <div class="evidence-item"><div class="evidence-link"><a href="" class="dynamic-link" data-variant="original+leaks">Original <span class="query-placeholder"></span> Leak Sources</a></div></div>
-                        <div class="evidence-item"><div class="evidence-link"><a href="" class="dynamic-link" data-variant="unreleased"><span class="query-placeholder"></span> Unreleased Content</a></div></div>
-                        <div class="evidence-item"><div class="evidence-link"><a href="" class="dynamic-link" data-variant="archive">Complete <span class="query-placeholder"></span> Leak Archive</a></div></div>
-                    </div>
-                    
-                    <div class="pullquote">
-                        "This investigation represents the most comprehensive documentation of <strong class="query-placeholder"></strong> leaked content available."
+            <div class="tag-cloud">
+                <a href="/model/?q=instagram+leaks" class="tag">#InstagramLeaks</a>
+                <a href="/model/?q=tiktok+leaks" class="tag">#TikTokLeaks</a>
+                <a href="/model/?q=onlyfans+leaks" class="tag">#OnlyFansLeaks</a>
+                <a href="/model/?q=twitter+leaks" class="tag">#TwitterLeaks</a>
+                <a href="/model/?q=telegram+leaks" class="tag">#TelegramLeaks</a>
+                <a href="/model/?q=discord+leaks" class="tag">#DiscordLeaks</a>
+            </div>
+        </div>
+        
+        <!-- ============================================
+             QUERY-BASED CONTENT
+             ============================================ -->
+        <div id="query-content" style="display: none;">
+            <!-- BREADCRUMB -->
+            <div class="breadcrumb">
+                <a href="/">LeakHub</a> › <a href="/model/">Influencer Leaks</a> › <span id="breadcrumb-name"></span>
+            </div>
+            
+            <!-- H1 dengan keyword leaked influencer -->
+            <h1 id="main-heading"></h1>
+            
+            <!-- QUICK STATS BAR -->
+            <div class="hero-stats">
+                <span><strong>📸 Leaked content</strong> 200+ items</span>
+                <span><strong>⚡ Viral score</strong> # trending</span>
+                <span><strong>🕒 Added</strong> March 2026</span>
+                <span><strong>🔗 Source</strong> Telegram + Discord</span>
+            </div>
+            
+            <!-- INTRO VARIAN - NUANASA COMMUNITY DRIVEN -->
+            <div id="intro-leak" class="intro-varian hidden">
+                <div class="glass-card" style="padding: 28px; margin-bottom: 32px;">
+                    <p style="font-size: 1.1rem; margin-bottom: 20px;">🎯 <strong class="query-placeholder"></strong> leaked content has been making rounds across Telegram, Discord, and Twitter — and we've got the full archive. What started as private content is now one of the most requested <strong>influencer leak</strong> collections on the internet.</p>
+                    <div class="tag-cloud" style="margin: 0;">
+                        <span class="tag">#LeakedInfluencer</span>
+                        <span class="tag">#ViralLeaks</span>
+                        <span class="tag">#ExclusiveDump</span>
                     </div>
                 </div>
-                
-                <div id="intro-photo" class="intro-varian hidden">
-                    <p><strong class="query-placeholder"></strong> photo leak investigation: Complete visual documentation of leaked <strong class="query-placeholder"></strong> images — private photo sets, unauthorized shoots, and exclusive visual content that was never intended for public release.</p>
-                    
-                    <div class="data-panel">
-                        <div class="data-grid">
-                            <div class="data-point"><div class="data-number">450+</div><div class="data-label"><span class="query-placeholder"></span> LEAKED PHOTOS</div></div>
-                            <div class="data-point"><div class="data-number">12+</div><div class="data-label">LEAK SETS</div></div>
-                            <div class="data-point"><div class="data-number">ORIGINAL</div><div class="data-label">QUALITY</div></div>
-                        </div>
-                    </div>
-                    
-                    <h2><span class="query-placeholder"></span> Leaked Photo Categories</h2>
-                    <div class="evidence-grid">
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="leaked+photos">Complete <span class="query-placeholder"></span> Leaked Photo Set</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="professional+photoshoot"><span class="query-placeholder"></span> Leaked Studio Shoot</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="candid"><span class="query-placeholder"></span> Leaked Candid Photos</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="rare+photos">Rare <span class="query-placeholder"></span> Leaked Images</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="uncensored">Uncensored <span class="query-placeholder"></span> Leaked Photos</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="high+quality">HD <span class="query-placeholder"></span> Leaked Images</a></div>
-                    </div>
-                </div>
-                
-                <div id="intro-video" class="intro-varian hidden">
-                    <p><strong class="query-placeholder"></span></strong> video leak investigation: Documented footage of leaked <strong class="query-placeholder"></span> videos — private recordings, exclusive clips, and unauthorized video content from underground distribution channels.</p>
-                    
-                    <div class="data-panel">
-                        <div class="data-grid">
-                            <div class="data-point"><div class="data-number">120+</div><div class="data-label"><span class="query-placeholder"></span> LEAKED VIDEOS</div></div>
-                            <div class="data-point"><div class="data-number">35+</div><div class="data-label">PRIVATE CLIPS</div></div>
-                            <div class="data-point"><div class="data-number">HD</div><div class="data-label">QUALITY</div></div>
-                        </div>
-                    </div>
-                    
-                    <h2><span class="query-placeholder"></span> Leaked Video Categories</h2>
-                    <div class="evidence-grid">
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="leaked+videos">Complete <span class="query-placeholder"></span> Leaked Video Set</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="performances"><span class="query-placeholder"></span> Leaked Performance Footage</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="interviews"><span class="query-placeholder"></span> Leaked Interview Videos</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="exclusive+clips">Exclusive <span class="query-placeholder"></span> Video Leaks</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="rare+videos">Rare <span class="query-placeholder"></span> Video Leaks</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="high+quality+videos">HD <span class="query-placeholder"></span> Leaked Videos</a></div>
-                    </div>
-                </div>
-                
-                <div id="intro-bio" class="intro-varian hidden">
-                    <p><strong class="query-placeholder"></strong> biographical leak investigation: Documented personal information, leaked records, and private data that surfaced through unauthorized channels. Complete investigation of <strong class="query-placeholder"></strong> leaked biographical materials.</p>
-                    
-                    <h2><span class="query-placeholder"></span> Leaked Personal Records</h2>
-                    <div class="evidence-grid">
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="early+life">Leaked <span class="query-placeholder"></span> Early Life Records</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="age">Leaked <span class="query-placeholder"></span> Age Verification</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="relationships">Leaked <span class="query-placeholder"></span> Relationship Data</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="net+worth">Leaked <span class="query-placeholder"></span> Financial Records</a></div>
-                    </div>
-                </div>
-                
-                <div id="intro-platform" class="intro-varian hidden">
-                    <p><strong class="query-placeholder"></strong> platform leak investigation: Data extracted from private servers, deleted accounts, and platform breaches. Complete documentation of <strong class="query-placeholder"></strong> platform-specific leaked content.</p>
-                    
-                    <h2><span class="query-placeholder"></span> Platform Leak Evidence</h2>
-                    <div class="evidence-grid">
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="instagram"><span class="query-placeholder"></span> Instagram Leaks</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="facebook"><span class="query-placeholder"></span> Facebook Data Leaks</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="twitter"><span class="query-placeholder"></span> Twitter Leaks</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="tiktok"><span class="query-placeholder"></span> TikTok Leaks</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="discord"><span class="query-placeholder"></span> Discord Leaks</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="telegram"><span class="query-placeholder"></span> Telegram Leak Dumps</a></div>
-                    </div>
-                </div>
-                
-                <div id="intro-general" class="intro-varian hidden">
-                    <p><strong class="query-placeholder"></strong> complete leak investigation: This case file documents the full leak archive of <strong class="query-placeholder"></strong> — including leaked photos, leaked videos, private collections, and exclusive content from underground distribution channels.</p>
-                    
-                    <div class="evidence-grid">
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="leaked+photos"><span class="query-placeholder"></span> Leaked Photos</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="leaked+videos"><span class="query-placeholder"></span> Leaked Videos</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="private+collection"><span class="query-placeholder"></span> Private Collection</a></div>
-                        <div class="evidence-item"><a href="" class="dynamic-link" data-variant="archive">Complete <span class="query-placeholder"></span> Leak Archive</a></div>
-                    </div>
-                </div>
-                
-                <hr>
-                
-                <!-- SECTION 1: CASE FILE OVERVIEW -->
-                <h2>Case File: <span class="query-placeholder"></span> Leak Investigation</h2>
-                <p>This investigative report documents the complete leak history of <strong class="query-placeholder"></strong>. The case file includes photographic evidence, video documentation, and supporting materials from multiple distribution channels. All materials are preserved in original quality.</p>
-                
-                <!-- SECTION 2: PHOTO EVIDENCE TIMELINE -->
-                <h2><span class="query-placeholder"></span> Leaked Photo Evidence Timeline</h2>
-                <div class="timeline">
-                    <div class="timeline-item"><div class="timeline-date">COMPLETE SET</div><a href="" class="dynamic-link" data-variant="leaked+photos">All <span class="query-placeholder"></span> Leaked Photos</a></div>
-                    <div class="timeline-item"><div class="timeline-date">RARE COLLECTION</div><a href="" class="dynamic-link" data-variant="rare+leaks">Rare <span class="query-placeholder"></span> Leaked Images</a></div>
-                    <div class="timeline-item"><div class="timeline-date">UNCENSORED</div><a href="" class="dynamic-link" data-variant="uncensored">Uncensored <span class="query-placeholder"></span> Leaked Content</a></div>
-                    <div class="timeline-item"><div class="timeline-date">STUDIO LEAKS</div><a href="" class="dynamic-link" data-variant="professional+photoshoot"><span class="query-placeholder"></span> Leaked Studio Shoots</a></div>
-                </div>
-                
-                <!-- SECTION 3: VIDEO EVIDENCE TIMELINE -->
-                <h2><span class="query-placeholder"></span> Leaked Video Evidence Timeline</h2>
-                <div class="timeline">
-                    <div class="timeline-item"><div class="timeline-date">COMPLETE SET</div><a href="" class="dynamic-link" data-variant="leaked+videos">All <span class="query-placeholder"></span> Leaked Videos</a></div>
-                    <div class="timeline-item"><div class="timeline-date">EXCLUSIVE</div><a href="" class="dynamic-link" data-variant="exclusive+clips">Exclusive <span class="query-placeholder"></span> Video Leaks</a></div>
-                    <div class="timeline-item"><div class="timeline-date">RARE</div><a href="" class="dynamic-link" data-variant="rare+videos">Rare <span class="query-placeholder"></span> Video Leaks</a></div>
-                    <div class="timeline-item"><div class="timeline-date">PERFORMANCE</div><a href="" class="dynamic-link" data-variant="performances"><span class="query-placeholder"></span> Leaked Performances</a></div>
-                </div>
-                
-                <!-- SECTION 4: PLATFORM LEAK EVIDENCE -->
-                <h2><span class="query-placeholder"></span> Platform Leak Evidence</h2>
-                <div class="evidence-grid">
-                    <div class="evidence-item"><a href="" class="dynamic-link" data-variant="instagram"><span class="query-placeholder"></span> Instagram Leak Archive</a></div>
-                    <div class="evidence-item"><a href="" class="dynamic-link" data-variant="facebook"><span class="query-placeholder"></span> Facebook Leak Dump</a></div>
-                    <div class="evidence-item"><a href="" class="dynamic-link" data-variant="twitter"><span class="query-placeholder"></span> Twitter Leak Evidence</a></div>
-                    <div class="evidence-item"><a href="" class="dynamic-link" data-variant="tiktok"><span class="query-placeholder"></span> TikTok Leak Files</a></div>
-                    <div class="evidence-item"><a href="" class="dynamic-link" data-variant="discord"><span class="query-placeholder"></span> Discord Leak Archive</a></div>
-                    <div class="evidence-item"><a href="" class="dynamic-link" data-variant="telegram"><span class="query-placeholder"></span> Telegram Leak Dumps</a></div>
-                </div>
-                
-                <!-- SECTION 5: EXCLUSIVE LEAK EVIDENCE -->
-                <h2><span class="query-placeholder"></span> Exclusive Leak Evidence</h2>
-                <div class="evidence-grid">
-                    <div class="evidence-item"><a href="" class="dynamic-link" data-variant="private+collection">Private Collection Leak</a></div>
-                    <div class="evidence-item"><a href="" class="dynamic-link" data-variant="unreleased">Unreleased Content Leak</a></div>
-                    <div class="evidence-item"><a href="" class="dynamic-link" data-variant="original+leaks">Original Leak Sources</a></div>
-                    <div class="evidence-item"><a href="" class="dynamic-link" data-variant="archive">Complete Leak Archive</a></div>
-                </div>
-                
-                <!-- SECTION 6: RELATED INVESTIGATIONS -->
-                <h2>Related Leak Investigations</h2>
-                <div class="evidence-grid">
-                    <div class="evidence-item"><a href="/model/?q=influencer+leaks">Influencer Leak Database</a></div>
-                    <div class="evidence-item"><a href="/model/?q=photo+leaks">Photo Leak Investigations</a></div>
-                    <div class="evidence-item"><a href="/model/?q=video+leaks">Video Leak Case Files</a></div>
-                    <div class="evidence-item"><a href="/model/?q=exclusive+leaks">Exclusive Leak Archive</a></div>
-                    <div class="evidence-item"><a href="/model/?q=facebook+leaks">Facebook Leak Investigation</a></div>
-                    <div class="evidence-item"><a href="/model/?q=instagram+leaks">Instagram Leak Dossier</a></div>
-                </div>
-                
-                <!-- SECTION 7: INVESTIGATIVE FAQ -->
-                <h2>Case File FAQ: <span class="query-placeholder"></span> Leak Investigation</h2>
-                <div class="faq-section">
-                    <div class="faq-item"><div class="faq-q">What leaked content is documented in this case file?</div><div class="faq-a">Complete documentation of <a href="" class="dynamic-link" data-variant="leaked+photos"><span class="query-placeholder"></span> leaked photos</a> and <a href="" class="dynamic-link" data-variant="leaked+videos"><span class="query-placeholder"></span> leaked videos</a> from all known sources.</div></div>
-                    <div class="faq-item"><div class="faq-q">Are these original leak files?</div><div class="faq-a">Yes. All evidence preserved in original quality without modification or watermarking.</div></div>
-                    <div class="faq-item"><div class="faq-q">How was this leak evidence sourced?</div><div class="faq-a">Materials documented from underground channels, private collections, and distribution networks.</div></div>
-                    <div class="faq-item"><div class="faq-q">How often is this case file updated?</div><div class="faq-a">New leak evidence added as it surfaces. Continuous investigation.</div></div>
-                </div>
-                
-                <hr>
-                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>
-                <hr>
-                
-                <!-- SECTION 8: INVESTIGATION CLOSING -->
-                <h2>Investigation Conclusion</h2>
-                <p>The <strong class="query-placeholder"></strong> leak case file represents the most comprehensive documentation of leaked influencer content available. This investigation continues as new evidence emerges. All materials are preserved for journalistic and research purposes.</p>
-                <div class="footer-note">
-                    THE EXPOSÉ · Independent Investigative Journalism · <span class="query-placeholder"></span> Leak Case File · Continuous Documentation
+                <div class="content-grid">
+                    <div class="trend-card"><span class="badge">🔥 HOT</span><h4>Full Leak Package</h4><p>Complete <a href="" class="dynamic-link" data-variant="leaked+photos">leaked photo set</a> + <a href="" class="dynamic-link" data-variant="leaked+videos">private videos</a> in one archive</p></div>
+                    <div class="trend-card"><span class="badge">🎬 VIDEO</span><h4>Video Leaks</h4><p><a href="" class="dynamic-link" data-variant="leaked+videos">Exclusive clips</a> that got removed from platforms</p></div>
+                    <div class="trend-card"><span class="badge">📸 PHOTO</span><h4>Photo Dump</h4><p>Full <a href="" class="dynamic-link" data-variant="leaked+photos">image gallery</a> with uncensored content</p></div>
                 </div>
             </div>
-        </main>
-    </div>
+            
+            <div id="intro-photo" class="intro-varian hidden">
+                <div class="glass-card" style="padding: 28px; margin-bottom: 32px;">
+                    <p style="font-size: 1.1rem;">📸 The <strong class="query-placeholder"></strong> <strong>leaked photo collection</strong> is one of the most circulated influencer leak archives this year. From private folders to deleted Instagram stories — everything is preserved here.</p>
+                </div>
+                <div class="content-grid">
+                    <div class="trend-card"><h4>📁 Full Gallery</h4><p><a href="" class="dynamic-link" data-variant="photos">Complete leaked photos</a> organized by date</p></div>
+                    <div class="trend-card"><h4>🎭 Candid Shots</h4><p><a href="" class="dynamic-link" data-variant="candid">Unposed leaked images</a> from private moments</p></div>
+                    <div class="trend-card"><h4>✨ Rare Finds</h4><p><a href="" class="dynamic-link" data-variant="rare+photos">Limited circulation photos</a> from Discord leaks</p></div>
+                    <div class="trend-card"><h4>💎 High Quality</h4><p><a href="" class="dynamic-link" data-variant="high+quality">HD leaked images</a> original resolution</p></div>
+                </div>
+            </div>
+            
+            <div id="intro-video" class="intro-varian hidden">
+                <div class="glass-card" style="padding: 28px; margin-bottom: 32px;">
+                    <p style="font-size: 1.1rem;">🎬 <strong class="query-placeholder"></strong> video leaks are going viral across Twitter and Telegram. This archive collects every clip — from deleted TikToks to private recordings that surfaced on Discord.</p>
+                </div>
+                <div class="content-grid">
+                    <div class="trend-card"><h4>🎥 Full Video Archive</h4><p><a href="" class="dynamic-link" data-variant="videos">Complete leaked video collection</a></p></div>
+                    <div class="trend-card"><h4>⚡ Viral Clips</h4><p><a href="" class="dynamic-link" data-variant="viral+clips">Most shared leaked videos</a></p></div>
+                    <div class="trend-card"><h4>🔒 Private Footage</h4><p><a href="" class="dynamic-link" data-variant="leaked+videos">Exclusive leaked recordings</a></p></div>
+                    <div class="trend-card"><h4>🎬 Rare Recordings</h4><p><a href="" class="dynamic-link" data-variant="rare+videos">Hard-to-find video leaks</a></p></div>
+                </div>
+            </div>
+            
+            <div id="intro-bio" class="intro-varian hidden">
+                <div class="glass-card" style="padding: 28px; margin-bottom: 32px;">
+                    <p style="font-size: 1.1rem;">📋 Who is <strong class="query-placeholder"></strong>? Everything you need to know about the influencer behind the leaks — background, stats, and why their leaked content went viral.</p>
+                </div>
+                <div class="content-grid">
+                    <div class="trend-card"><h4>👤 Background</h4><p><a href="" class="dynamic-link" data-variant="early+life">Early life</a> · <a href="" class="dynamic-link" data-variant="nationality">Origin</a> · <a href="" class="dynamic-link" data-variant="age">Age</a></p></div>
+                    <div class="trend-card"><h4>💼 Career</h4><p><a href="" class="dynamic-link" data-variant="career">Influencer journey</a> · <a href="" class="dynamic-link" data-variant="net+worth">Net worth</a></p></div>
+                    <div class="trend-card"><h4>💞 Relationships</h4><p><a href="" class="dynamic-link" data-variant="relationships">Known connections</a> and controversies</p></div>
+                    <div class="trend-card"><h4>🌐 Social</h4><p><a href="" class="dynamic-link" data-variant="social+media">Instagram</a> · <a href="" class="dynamic-link" data-variant="twitter">Twitter</a> · <a href="" class="dynamic-link" data-variant="tiktok">TikTok</a></p></div>
+                </div>
+            </div>
+            
+            <div id="intro-platform" class="intro-varian hidden">
+                <div class="glass-card" style="padding: 28px; margin-bottom: 32px;">
+                    <p style="font-size: 1.1rem;">📱 <strong class="query-placeholder"></strong> leaked content originated from multiple platforms. Here's where everything came from — and where it spread.</p>
+                </div>
+                <div class="content-grid">
+                    <div class="trend-card"><h4>📸 Instagram Leaks</h4><p><a href="" class="dynamic-link" data-variant="instagram">Deleted stories & posts</a></p></div>
+                    <div class="trend-card"><h4>🎵 TikTok Leaks</h4><p><a href="" class="dynamic-link" data-variant="tiktok">Removed videos & drafts</a></p></div>
+                    <div class="trend-card"><h4>💬 Telegram</h4><p><a href="" class="dynamic-link" data-variant="telegram">Channel archives & dumps</a></p></div>
+                    <div class="trend-card"><h4>🎮 Discord</h4><p><a href="" class="dynamic-link" data-variant="discord">Private server leaks</a></p></div>
+                    <div class="trend-card"><h4>🐦 Twitter/X</h4><p><a href="" class="dynamic-link" data-variant="twitter">Viral threads & deleted tweets</a></p></div>
+                    <div class="trend-card"><h4>🔴 Reddit</h4><p><a href="" class="dynamic-link" data-variant="reddit">Banned subreddit archives</a></p></div>
+                </div>
+            </div>
+            
+            <div id="intro-general" class="intro-varian hidden">
+                <div class="glass-card" style="padding: 28px; margin-bottom: 32px;">
+                    <p style="font-size: 1.1rem;">🔥 Welcome to the biggest <strong class="query-placeholder"></strong> <strong>leaked influencer archive</strong> on the web. Everything in one place — photos, videos, bio, and exclusive drops. No fluff. Just the leaks.</p>
+                    <div class="tag-cloud" style="margin-top: 20px;">
+                        <span class="tag">#LeakedInfluencer</span>
+                        <span class="tag">#ViralLeaks</span>
+                        <span class="tag">#ExclusiveContent</span>
+                        <span class="tag">#InternetArchive</span>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <!-- SECTION 1: VIRAL LEAKS -->
+            <section>
+                <h2><span class="section-title-icon">⚡</span> Viral Leaks · Most Requested</h2>
+                <p>The internet is talking about <strong class="query-placeholder"></strong> leaks. Here's what everyone's searching for:</p>
+                <div class="content-grid">
+                    <div class="trend-card"><span class="badge">#1</span><h4>Full Leak Dump</h4><p>Complete archive of <a href="" class="dynamic-link" data-variant="leaked+photos">leaked photos</a> + <a href="" class="dynamic-link" data-variant="leaked+videos">private videos</a></p><a href="">View dump →</a></div>
+                    <div class="trend-card"><span class="badge">#2</span><h4>Video Compilation</h4><p><a href="" class="dynamic-link" data-variant="videos">All leaked clips</a> in one playlist</p></div>
+                    <div class="trend-card"><span class="badge">#3</span><h4>Telegram Archive</h4><p>Original <a href="" class="dynamic-link" data-variant="telegram">leak source</a> from private channels</p></div>
+                </div>
+            </section>
+            
+            <!-- SECTION 2: LEAKED PHOTO ARCHIVE -->
+            <section>
+                <h2><span class="section-title-icon">📸</span> Leaked Photo Archive</h2>
+                <div class="content-grid">
+                    <div class="trend-card"><h4>📸 Full Gallery Set</h4><p><a href="" class="dynamic-link" data-variant="leaked+photos">Complete leaked image collection</a> — 50+ photos</p></div>
+                    <div class="trend-card"><h4>🎭 Candid & Private</h4><p><a href="" class="dynamic-link" data-variant="candid">Unposed leaked moments</a> from private folders</p></div>
+                    <div class="trend-card"><h4>✨ Rare Unseen</h4><p><a href="" class="dynamic-link" data-variant="rare+photos">Limited circulation images</a> from Discord leaks</p></div>
+                    <div class="trend-card"><h4>💎 High-Res Originals</h4><p><a href="" class="dynamic-link" data-variant="high+quality">Original quality leaked photos</a></p></div>
+                    <div class="trend-card"><h4>👙 Exclusive Sets</h4><p><a href="" class="dynamic-link" data-variant="lingerie">Leaked intimate photo collections</a></p></div>
+                    <div class="trend-card"><h4>🏖️ Vacation Leaks</h4><p><a href="" class="dynamic-link" data-variant="beach+vacation">Private travel photos that leaked</a></p></div>
+                </div>
+            </section>
+            
+            <!-- SECTION 3: LEAKED VIDEO COLLECTION -->
+            <section>
+                <h2><span class="section-title-icon">🎬</span> Leaked Video Archive</h2>
+                <div class="content-grid">
+                    <div class="trend-card"><h4>🎥 Full Video Dump</h4><p><a href="" class="dynamic-link" data-variant="leaked+videos">Complete leaked video collection</a> — all clips</p></div>
+                    <div class="trend-card"><h4>⚡ Viral Moments</h4><p><a href="" class="dynamic-link" data-variant="viral+clips">Most shared leaked videos on Twitter/Reddit</a></p></div>
+                    <div class="trend-card"><h4>🔒 Private Recordings</h4><p><a href="" class="dynamic-link" data-variant="exclusive+clips">Exclusive footage from private servers</a></p></div>
+                    <div class="trend-card"><h4>🎭 Behind-the-Scenes</h4><p><a href="" class="dynamic-link" data-variant="behind+the+scenes+footage">BTS leaks from shoots</a></p></div>
+                    <div class="trend-card"><h4>🎤 Interview Leaks</h4><p><a href="" class="dynamic-link" data-variant="interviews">Uncut conversations that got removed</a></p></div>
+                    <div class="trend-card"><h4>🎵 TikTok Drafts</h4><p><a href="" class="dynamic-link" data-variant="tiktok">Deleted TikTok videos that leaked</a></p></div>
+                </div>
+            </section>
+            
+            <!-- SECTION 4: PLATFORM LEAKS -->
+            <section>
+                <h2><span class="section-title-icon">📱</span> Where the Leaks Came From</h2>
+                <div class="content-grid">
+                    <div class="trend-card"><h4>📸 Instagram</h4><p><a href="" class="dynamic-link" data-variant="instagram">Deleted stories, archived posts, private account leaks</a></p></div>
+                    <div class="trend-card"><h4>💬 Telegram</h4><p><a href="" class="dynamic-link" data-variant="telegram">Private channel archives + full dump folders</a></p></div>
+                    <div class="trend-card"><h4>🎮 Discord</h4><p><a href="" class="dynamic-link" data-variant="discord">Private server exports + leaked DMs</a></p></div>
+                    <div class="trend-card"><h4>🐦 Twitter/X</h4><p><a href="" class="dynamic-link" data-variant="twitter">Viral threads + deleted tweet archives</a></p></div>
+                    <div class="trend-card"><h4>🔴 Reddit</h4><p><a href="" class="dynamic-link" data-variant="reddit">Banned subreddit archives + removed posts</a></p></div>
+                    <div class="trend-card"><h4>🔞 OnlyFans</h4><p><a href="" class="dynamic-link" data-variant="onlyfans+leaks">Subscriber content that leaked</a></p></div>
+                </div>
+            </section>
+            
+            <!-- SECTION 5: EXCLUSIVE DROPS -->
+            <section>
+                <h2><span class="section-title-icon">💎</span> Exclusive Drops · Rare Leaks</h2>
+                <div class="content-grid">
+                    <div class="trend-card"><h4>🔓 Uncensored Sets</h4><p><a href="" class="dynamic-link" data-variant="uncensored">Full uncensored leaked galleries</a></p></div>
+                    <div class="trend-card"><h4>📦 Private Collections</h4><p><a href="" class="dynamic-link" data-variant="private+collection">Complete private folder leaks</a></p></div>
+                    <div class="trend-card"><h4>🎬 Unreleased Footage</h4><p><a href="" class="dynamic-link" data-variant="unreleased">Content that never saw official release</a></p></div>
+                    <div class="trend-card"><h4>💎 VIP Discord Dumps</h4><p><a href="" class="dynamic-link" data-variant="exclusive+leaks">Paid server content that leaked</a></p></div>
+                </div>
+            </section>
+            
+            <!-- SECTION 6: INFLUENCER PROFILE -->
+            <section>
+                <h2><span class="section-title-icon">👤</span> Influencer Profile · <span class="query-placeholder"></span></h2>
+                <div class="content-grid">
+                    <div class="trend-card"><h4>📋 Bio</h4><p><a href="" class="dynamic-link" data-variant="bio">Full background & career</a></p></div>
+                    <div class="trend-card"><h4>📊 Stats</h4><p><a href="" class="dynamic-link" data-variant="age">Age</a> · <a href="" class="dynamic-link" data-variant="height">Height</a> · <a href="" class="dynamic-link" data-variant="net+worth">Net worth</a></p></div>
+                    <div class="trend-card"><h4>💞 Relationships</h4><p><a href="" class="dynamic-link" data-variant="relationships">Known partners & controversies</a></p></div>
+                    <div class="trend-card"><h4>🌐 Social Links</h4><p><a href="" class="dynamic-link" data-variant="instagram">Instagram</a> · <a href="" class="dynamic-link" data-variant="twitter">Twitter</a> · <a href="" class="dynamic-link" data-variant="tiktok">TikTok</a></p></div>
+                </div>
+            </section>
+            
+            <!-- SECTION 7: RELATED LEAKS -->
+            <section>
+                <h2><span class="section-title-icon">🔗</span> You Might Also Like</h2>
+                <div class="tag-cloud">
+                    <a href="/model/?q=trending+leaks" class="tag">#TrendingLeaks</a>
+                    <a href="/model/?q=instagram+leaks" class="tag">#InstagramLeaks</a>
+                    <a href="/model/?q=tiktok+leaks" class="tag">#TikTokLeaks</a>
+                    <a href="/model/?q=telegram+leaks" class="tag">#TelegramLeaks</a>
+                    <a href="/model/?q=discord+leaks" class="tag">#DiscordLeaks</a>
+                    <a href="/model/?q=viral+leaks" class="tag">#ViralLeaks</a>
+                    <a href="/model/?q=exclusive+dumps" class="tag">#ExclusiveDumps</a>
+                </div>
+            </section>
+            
+            <!-- SECTION 8: FAQ -->
+            <section>
+                <h2><span class="section-title-icon">❓</span> Leak Archive FAQ</h2>
+                
+                <div class="faq-item">
+                    <h3>🔥 What's included in the <span class="query-placeholder"></span> leak archive?</h3>
+                    <p>Everything: <a href="" class="dynamic-link" data-variant="leaked+photos">leaked photos</a>, <a href="" class="dynamic-link" data-variant="leaked+videos">private videos</a>, <a href="" class="dynamic-link" data-variant="bio">bio info</a>, and <a href="" class="dynamic-link" data-variant="exclusive">exclusive drops</a> from Telegram, Discord, and Twitter.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>📸 Where did these influencer leaks come from?</h3>
+                    <p>Sources include private Telegram channels, Discord servers, Reddit archives, and viral Twitter threads. We've collected everything in one place.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>🎬 Are the leaked videos original quality?</h3>
+                    <p>Yes. All <a href="" class="dynamic-link" data-variant="leaked+videos">video leaks</a> are preserved in original resolution — no recompression or watermarks.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>⚡ How often is this archive updated?</h3>
+                    <p>Daily. New leaks surface constantly across Telegram and Discord — we update as soon as new content drops.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>🔗 Can I share these leaks?</h3>
+                    <p>This is a preservation archive. Links are for reference. The community keeps this archive alive.</p>
+                </div>
+            </section>
+            
+            <hr />
+            <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>  
+            <hr />
+            
+            <!-- SECTION 9: ABOUT THIS ARCHIVE -->
+            <section>
+                <h2><span class="section-title-icon">🏴‍☠️</span> About This Leak Archive</h2>
+                <div class="glass-card" style="padding: 28px;">
+                    <p>This is the internet's most complete <strong class="query-placeholder"></strong> <strong>leaked influencer archive</strong>. What started as scattered Telegram links, Discord dumps, and viral tweets is now preserved in one place. No censorship. No deletions. Just the archive.</p>
+                    <p style="margin-top: 16px;">⚡ <strong>Last updated:</strong> March 2026 | 📁 <strong>Total items:</strong> 200+ | 🔥 <strong>Status:</strong> Active</p>
+                    <div class="tag-cloud" style="margin-top: 20px;">
+                        <span class="tag">#PreserveTheLeaks</span>
+                        <span class="tag">#InfluencerArchive</span>
+                        <span class="tag">#InternetCulture</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
     
     <script>
     (function() {
@@ -633,7 +381,7 @@ permalink: /model/
         
         // Daftar kata yang akan dihapus untuk mendapatkan base name
         const removeTerms = [
-            '2025', '2024', 'leaked', 'leak', 'photo', 'video', 'influencer'
+            '2025', '2024', 'leak', 'leaks', 'leaked', 'influencer'
         ];
         
         // Fungsi untuk mendapatkan base name
@@ -660,45 +408,33 @@ permalink: /model/
             queryType = 'video';
         } else if (queryLower.includes('bio') || queryLower.includes('biography') || queryLower.includes('age') || queryLower.includes('height')) {
             queryType = 'bio';
-        } else if (queryLower.includes('instagram') || queryLower.includes('facebook') || queryLower.includes('twitter') || queryLower.includes('tiktok')) {
+        } else if (queryLower.includes('instagram') || queryLower.includes('facebook') || queryLower.includes('twitter') || queryLower.includes('tiktok') || queryLower.includes('telegram') || queryLower.includes('discord')) {
             queryType = 'platform';
         }
         
-        // Update title - investigative style dengan query dominan
+        // Update title - FOKUS KEYWORD LEAKED INFLUENCER di judul
         let title;
-        if (queryType === 'leak') title = `${query} Leak Investigation | Complete Case File | Photos Videos Evidence`;
-        else if (queryType === 'photo') title = `${query} Leaked Photos Investigation | Complete Visual Evidence | Case File`;
-        else if (queryType === 'video') title = `${query} Leaked Videos Investigation | Complete Video Evidence | Case File`;
-        else if (queryType === 'bio') title = `${query} Leaked Records Investigation | Personal Data Evidence`;
-        else if (queryType === 'platform') title = `${query} Platform Leak Investigation | Data Breach Evidence`;
-        else title = `${query} Leak Investigation | Complete Case File | Digital Evidence Archive`;
+        if (queryType === 'leak') title = `${baseName} Leaked Influencer Archive 🔥 Full Video & Photo Dump`;
+        else if (queryType === 'photo') title = `${baseName} Leaked Photos 🔥 Complete Influencer Image Archive`;
+        else if (queryType === 'video') title = `${baseName} Leaked Videos 🔥 Full Influencer Video Collection`;
+        else if (queryType === 'bio') title = `${baseName} Bio & Profile 🔥 Leaked Influencer Background`;
+        else if (queryType === 'platform') title = `${baseName} Platform Leaks 🔥 Instagram, TikTok, Telegram Archive`;
+        else title = `${baseName} Leaked Influencer Archive 🔥 Complete Content Dump`;
         
         document.title = title;
         document.getElementById('dynamic-description').setAttribute('content', 
-            `${query} leak investigation: complete case file documenting leaked photos, videos, and exclusive content. Investigative report with evidence timeline and source documentation.`);
+            `${baseName} leaked influencer archive 🔥 Full collection of leaked photos, private videos, and exclusive content. The internet's most complete leak dump. Updated daily.`);
         
-        // Update H1 dengan query dominan
+        // Update H1 dengan keyword leaked influencer
         let h1Text;
-        if (queryType === 'leak') h1Text = `${query} Leak Investigation: Complete Case File`;
-        else if (queryType === 'photo') h1Text = `${query} Leaked Photos: Complete Visual Investigation`;
-        else if (queryType === 'video') h1Text = `${query} Leaked Videos: Complete Video Investigation`;
-        else if (queryType === 'bio') h1Text = `${query} Leaked Records: Personal Data Investigation`;
-        else if (queryType === 'platform') h1Text = `${query} Platform Leaks: Data Breach Investigation`;
-        else h1Text = `${query} Leak Investigation: Complete Case File`;
+        if (queryType === 'leak') h1Text = `${baseName} 🔥 Leaked Influencer Archive`;
+        else if (queryType === 'photo') h1Text = `${baseName} 🔥 Leaked Photos · Full Influencer Gallery`;
+        else if (queryType === 'video') h1Text = `${baseName} 🔥 Leaked Videos · Complete Collection`;
+        else if (queryType === 'bio') h1Text = `${baseName} 🔥 Bio & Profile · Leaked Influencer`;
+        else if (queryType === 'platform') h1Text = `${baseName} 🔥 Platform Leaks · Instagram · TikTok · Telegram`;
+        else h1Text = `${baseName} 🔥 Complete Leaked Influencer Archive`;
         
         document.getElementById('main-heading').textContent = h1Text;
-        
-        // Update deck text
-        const deckElement = document.getElementById('deck-text');
-        if (deckElement) {
-            deckElement.textContent = `Investigative documentation of leaked ${baseName} content — private collections, unauthorized distribution, and exclusive evidence.`;
-        }
-        
-        // Update alert text
-        const alertElement = document.getElementById('alert-text');
-        if (alertElement) {
-            alertElement.textContent = `${baseName} LEAK INVESTIGATION`;
-        }
         
         // Update breadcrumb
         document.getElementById('breadcrumb-name').textContent = baseName;
@@ -731,5 +467,7 @@ permalink: /model/
         
     })();
     </script>
+    
+    
 </body>
 </html>
