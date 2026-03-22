@@ -1,0 +1,754 @@
+---
+layout: null
+permalink: /article/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    
+    <title id="dynamic-title">The Vault | Underground Media Archive</title>
+    <meta id="dynamic-description" name="description" content="Underground archive preserving leaked content, private collections, and exclusive media drops.">
+    
+    <style>
+        /* DARK MODE UNDERGROUND AESTHETIC */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', 'SF Mono', 'Fira Code', monospace;
+            background: #0a0a0a;
+            color: #d4d4d4;
+            line-height: 1.5;
+        }
+        
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        
+        /* GLITCH EFFECT HEADER */
+        .header {
+            border-bottom: 1px solid #2a2a2a;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #e0e0e0;
+        }
+        
+        .logo span {
+            color: #ff3e3e;
+            text-shadow: 0 0 5px rgba(255,62,62,0.5);
+        }
+        
+        .status {
+            font-size: 0.7rem;
+            color: #6a6a6a;
+            background: #1a1a1a;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2px;
+        }
+        
+        .warning {
+            font-size: 0.7rem;
+            color: #ff3e3e;
+            letter-spacing: 1px;
+        }
+        
+        /* TYPOGRAPHY */
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+            word-break: break-word;
+        }
+        
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ff3e3e;
+            border-left: 3px solid #ff3e3e;
+            padding-left: 0.8rem;
+        }
+        
+        h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .lead {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        /* BREADCRUMB */
+        .breadcrumb {
+            font-size: 0.7rem;
+            color: #6a6a6a;
+            margin-bottom: 1.5rem;
+            font-family: monospace;
+        }
+        
+        .breadcrumb a {
+            color: #6a6a6a;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            color: #ff3e3e;
+        }
+        
+        .breadcrumb span {
+            color: #ff3e3e;
+        }
+        
+        /* LEAK CARDS */
+        .leak-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .leak-card {
+            background: #111111;
+            border: 1px solid #2a2a2a;
+            padding: 1.2rem;
+            transition: all 0.2s ease;
+        }
+        
+        .leak-card:hover {
+            border-color: #ff3e3e;
+            background: #141414;
+        }
+        
+        .leak-type {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ff3e3e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .leak-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .leak-meta {
+            font-size: 0.65rem;
+            color: #6a6a6a;
+            margin-bottom: 0.8rem;
+            font-family: monospace;
+        }
+        
+        .leak-link {
+            font-size: 0.75rem;
+            color: #ff3e3e;
+            text-decoration: none;
+            border-bottom: 1px dashed #ff3e3e;
+        }
+        
+        .leak-link:hover {
+            color: #ff6a6a;
+        }
+        
+        /* STATS BAR - UNDERGROUND STYLE */
+        .stats-bar {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 1.2rem;
+            background: #0c0c0c;
+            border: 1px solid #2a2a2a;
+            margin: 1.5rem 0;
+        }
+        
+        .stat {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: monospace;
+            color: #ff3e3e;
+        }
+        
+        .stat-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #6a6a6a;
+        }
+        
+        /* ENTRY LIST */
+        .entry-list {
+            margin: 1rem 0;
+        }
+        
+        .entry-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #1e1e1e;
+        }
+        
+        .entry-name {
+            font-size: 0.85rem;
+        }
+        
+        .entry-name a {
+            color: #d4d4d4;
+            text-decoration: none;
+        }
+        
+        .entry-name a:hover {
+            color: #ff3e3e;
+        }
+        
+        .entry-badge {
+            font-size: 0.6rem;
+            color: #ff3e3e;
+            background: rgba(255,62,62,0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 2px;
+        }
+        
+        /* FAQ SECTION */
+        .faq-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #1e1e1e;
+        }
+        
+        .faq-q {
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+            color: #ff3e3e;
+        }
+        
+        .faq-a {
+            font-size: 0.8rem;
+            color: #aaa;
+            line-height: 1.5;
+        }
+        
+        /* TAGS */
+        .tag {
+            display: inline-block;
+            font-size: 0.6rem;
+            background: #1a1a1a;
+            padding: 0.2rem 0.6rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #aaa;
+        }
+        
+        /* LINKS */
+        a {
+            color: #ff3e3e;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* DIVIDER */
+        hr {
+            margin: 2rem 0;
+            border: none;
+            border-top: 1px solid #2a2a2a;
+        }
+        
+        /* FOOTER */
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #2a2a2a;
+            font-size: 0.7rem;
+            color: #6a6a6a;
+            text-align: center;
+        }
+        
+        /* UTILITY */
+        .hidden {
+            display: none;
+        }
+        
+        .query-placeholder {
+            color: #ff3e3e;
+            font-weight: bold;
+        }
+        
+        .default-content.active {
+            display: block;
+        }
+        
+        .default-content {
+            display: none;
+        }
+        
+        .red-text {
+            color: #ff3e3e;
+        }
+        
+        .intro-block {
+            background: #0c0c0c;
+            padding: 1.2rem;
+            border-left: 3px solid #ff3e3e;
+            margin: 1rem 0 1.5rem;
+        }
+        
+        @media (max-width: 700px) {
+            .container { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .stats-bar { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- UNDERGROUND HEADER -->
+        <div class="header">
+            <div class="header-top">
+                <div class="logo">VAULT://<span>UNRELEASED</span></div>
+                <div class="status">● PRIVATE ARCHIVE | ENCRYPTED</div>
+            </div>
+            <div class="warning">⚠️ RESTRICTED ACCESS | LEAKED MATERIALS ARCHIVE</div>
+        </div>
+        
+        <main>
+            <!-- ============================================
+                 DEFAULT CONTENT (tampil jika tidak ada query)
+                 ============================================ -->
+            <div id="default-content" class="default-content active">
+                <div class="breadcrumb">
+                    [ VAULT ] / <span>INDEX</span>
+                </div>
+                
+                <h1>UNDERGROUND<br>LEAK ARCHIVE</h1>
+                <div class="lead">Private collections · Unreleased media · Exclusive dumps · Preserved content from alternative distribution channels.</div>
+                
+                <div class="stats-bar">
+                    <div class="stat"><div class="stat-number">2.5k+</div><div class="stat-label">LEAKED FILES</div></div>
+                    <div class="stat"><div class="stat-number">450+</div><div class="stat-label">PHOTO SETS</div></div>
+                    <div class="stat"><div class="stat-number">120+</div><div class="stat-label">VIDEO LEAKS</div></div>
+                    <div class="stat"><div class="stat-label">ACTIVE ARCHIVE</div></div>
+                </div>
+                
+                <h2>LEAK CATEGORIES</h2>
+                <div class="leak-grid">
+                    <div class="leak-card">
+                        <div class="leak-type">[ PHOTO LEAKS ]</div>
+                        <div class="leak-title">Private Image Dumps</div>
+                        <div class="leak-meta">● 450+ files ● Various sources</div>
+                        <a href="/article/?q=photo+leaks" class="leak-link">ACCESS ARCHIVE →</a>
+                    </div>
+                    <div class="leak-card">
+                        <div class="leak-type">[ VIDEO LEAKS ]</div>
+                        <div class="leak-title">Exclusive Footage</div>
+                        <div class="leak-meta">● 120+ files ● Private recordings</div>
+                        <a href="/article/?q=video+leaks" class="leak-link">ACCESS ARCHIVE →</a>
+                    </div>
+                    <div class="leak-card">
+                        <div class="leak-type">[ EXCLUSIVE DUMPS ]</div>
+                        <div class="leak-title">Server Breach Collections</div>
+                        <div class="leak-meta">● Complete sets ● Original quality</div>
+                        <a href="/article/?q=exclusive+leaks" class="leak-link">ACCESS ARCHIVE →</a>
+                    </div>
+                    <div class="leak-card">
+                        <div class="leak-type">[ RARE FINDS ]</div>
+                        <div class="leak-title">Limited Circulation</div>
+                        <div class="leak-meta">● Hard to find ● Preserved</div>
+                        <a href="/article/?q=rare+leaks" class="leak-link">ACCESS ARCHIVE →</a>
+                    </div>
+                </div>
+                
+                <div class="footer">
+                    VAULT://UNRELEASED · Underground Archive · Preserving leaked content since 2020
+                </div>
+            </div>
+            
+            <!-- ============================================
+                 QUERY-BASED CONTENT (disembunyikan sampai ada query)
+                 ============================================ -->
+            <div id="query-content" style="display: none;">
+                <!-- BREADCRUMB -->
+                <div class="breadcrumb">
+                    [ VAULT ] / <a href="/article/">ARCHIVE</a> / <span id="breadcrumb-name"></span>
+                </div>
+                
+                <!-- H1 -->
+                <h1 id="main-heading"></h1>
+                
+                <!-- STATUS -->
+                <div style="margin: 0.5rem 0 1rem;">
+                    <span class="tag">#LEAKED</span>
+                    <span class="tag">#EXCLUSIVE</span>
+                    <span class="tag">#PRIVATE_COLLECTION</span>
+                    <span class="tag">#UNDERGROUND</span>
+                </div>
+                
+                <!-- INTRO VARIAN - LEAK FOCUSED -->
+                <div id="intro-leak" class="intro-varian hidden">
+                    <div class="intro-block">
+                        <span class="red-text">▼ LEAK DETECTED ▼</span><br>
+                        Complete leak archive for <strong class="query-placeholder"></strong>. Private photos, exclusive videos, and unreleased content that circulated through underground channels. Preserved in original quality.
+                    </div>
+                    
+                    <div class="leak-grid">
+                        <div class="leak-card">
+                            <div class="leak-type">[ PHOTO LEAKS ]</div>
+                            <div class="leak-title">Complete Image Dump</div>
+                            <div class="leak-meta">● Original files ● Unedited</div>
+                            <a href="" class="dynamic-link leak-link" data-variant="leaked+photos">VIEW LEAKED PHOTOS →</a>
+                        </div>
+                        <div class="leak-card">
+                            <div class="leak-type">[ VIDEO LEAKS ]</div>
+                            <div class="leak-title">Private Footage</div>
+                            <div class="leak-meta">● Recordings ● Exclusive</div>
+                            <a href="" class="dynamic-link leak-link" data-variant="leaked+videos">WATCH LEAKED VIDEOS →</a>
+                        </div>
+                        <div class="leak-card">
+                            <div class="leak-type">[ EXCLUSIVE ]</div>
+                            <div class="leak-title">Server Dumps</div>
+                            <div class="leak-meta">● Complete collections</div>
+                            <a href="" class="dynamic-link leak-link" data-variant="exclusive+leaks">ACCESS EXCLUSIVE →</a>
+                        </div>
+                        <div class="leak-card">
+                            <div class="leak-type">[ RARE ]</div>
+                            <div class="leak-title">Limited Circulation</div>
+                            <div class="leak-meta">● Hard to find</div>
+                            <a href="" class="dynamic-link leak-link" data-variant="rare+leaks">VIEW RARE LEAKS →</a>
+                        </div>
+                    </div>
+                    
+                    <h2>COMPLETE LEAK MANIFEST</h2>
+                    <div class="entry-list">
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="leaked+photos">📸 LEAKED PHOTO SETS</a></span><span class="entry-badge">450+ FILES</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="leaked+videos">🎥 LEAKED VIDEO RECORDINGS</a></span><span class="entry-badge">120+ FILES</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="private+collection">🔒 PRIVATE COLLECTION DUMPS</a></span><span class="entry-badge">COMPLETE</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="uncensored">⚠️ UNCENSORED MATERIALS</a></span><span class="entry-badge">UNEDITED</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="unreleased">📀 UNRELEASED CONTENT</a></span><span class="entry-badge">ORIGINAL</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="original+leaks">💾 ORIGINAL LEAK SOURCES</a></span><span class="entry-badge">PROVENANCE</span></div>
+                    </div>
+                </div>
+                
+                <div id="intro-photo" class="intro-varian hidden">
+                    <div class="intro-block">
+                        <span class="red-text">▼ LEAKED PHOTO ARCHIVE ▼</span><br>
+                        Complete leaked image collection for <strong class="query-placeholder"></strong>. Private photos, unauthorized shoots, and exclusive visual content that was never meant for public release.
+                    </div>
+                    
+                    <div class="stats-bar">
+                        <div class="stat"><div class="stat-number">450+</div><div class="stat-label">LEAKED PHOTOS</div></div>
+                        <div class="stat"><div class="stat-number">12+</div><div class="stat-label">LEAK SETS</div></div>
+                        <div class="stat"><div class="stat-number">ORIGINAL</div><div class="stat-label">QUALITY</div></div>
+                    </div>
+                    
+                    <div class="entry-list">
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="leaked+photos">🔥 COMPLETE LEAKED PHOTO SET</a></span><span class="entry-badge">MASTER DUMP</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="professional+photoshoot">📸 LEAKED STUDIO SHOOT</a></span><span class="entry-badge">UNRELEASED</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="candid">🎞️ LEAKED CANDID MOMENTS</a></span><span class="entry-badge">PRIVATE</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="behind+the+scenes">🎬 LEAKED BTS PHOTOS</a></span><span class="entry-badge">SET LEAKS</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="rare+photos">💎 RARE LEAKED IMAGES</a></span><span class="entry-badge">LIMITED</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="uncensored">⚠️ UNCENSORED LEAKS</a></span><span class="entry-badge">FULL</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="high+quality">📷 HIGH RESOLUTION LEAKS</a></span><span class="entry-badge">HD</span></div>
+                    </div>
+                </div>
+                
+                <div id="intro-video" class="intro-varian hidden">
+                    <div class="intro-block">
+                        <span class="red-text">▼ LEAKED VIDEO ARCHIVE ▼</span><br>
+                        Private video recordings, exclusive footage, and leaked content that surfaced through underground channels. Preserved in original quality.
+                    </div>
+                    
+                    <div class="stats-bar">
+                        <div class="stat"><div class="stat-number">120+</div><div class="stat-label">LEAKED VIDEOS</div></div>
+                        <div class="stat"><div class="stat-number">35+</div><div class="stat-label">PRIVATE CLIPS</div></div>
+                        <div class="stat"><div class="stat-number">HD</div><div class="stat-label">QUALITY</div></div>
+                    </div>
+                    
+                    <div class="entry-list">
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="leaked+videos">🎥 COMPLETE VIDEO LEAKS</a></span><span class="entry-badge">MASTER SET</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="performances">🎤 LEAKED PERFORMANCES</a></span><span class="entry-badge">UNCUT</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="interviews">🎙️ LEAKED INTERVIEW FOOTAGE</a></span><span class="entry-badge">UNEDITED</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="behind+the+scenes+footage">🎬 LEAKED BTS VIDEO</a></span><span class="entry-badge">EXCLUSIVE</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="exclusive+clips">🔒 PRIVATE CLIPS LEAK</a></span><span class="entry-badge">RARE</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="rare+videos">💎 RARE VIDEO LEAKS</a></span><span class="entry-badge">LIMITED</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="high+quality+videos">📀 HD VIDEO LEAKS</a></span><span class="entry-badge">ORIGINAL</span></div>
+                    </div>
+                </div>
+                
+                <div id="intro-bio" class="intro-varian hidden">
+                    <div class="intro-block">
+                        <span class="red-text">▼ LEAKED PERSONAL DATA ▼</span><br>
+                        Confidential documents, private records, and leaked biographical information that surfaced through data breaches and insider releases.
+                    </div>
+                    
+                    <div class="entry-list">
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="early+life">📄 LEAKED EARLY LIFE RECORDS</a></span><span class="entry-badge">CONFIDENTIAL</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="age">🔞 LEAKED AGE VERIFICATION</a></span><span class="entry-badge">DOCUMENTS</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="relationships">💔 LEAKED RELATIONSHIP DATA</a></span><span class="entry-badge">PRIVATE</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="net+worth">💰 LEAKED FINANCIAL RECORDS</a></span><span class="entry-badge">EXPOSED</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="career">📁 LEAKED CONTRACTS</a></span><span class="entry-badge">INSIDER</span></div>
+                    </div>
+                </div>
+                
+                <div id="intro-platform" class="intro-varian hidden">
+                    <div class="intro-block">
+                        <span class="red-text">▼ PLATFORM DATA LEAKS ▼</span><br>
+                        Content extracted from private servers, deleted accounts, and platform breaches. Preserved before takedown.
+                    </div>
+                    
+                    <div class="entry-list">
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="instagram">📱 INSTAGRAM LEAKS</a></span><span class="entry-badge">DELETED</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="facebook">💙 FACEBOOK LEAKS</a></span><span class="entry-badge">PRIVATE SERVER</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="twitter">🐦 TWITTER LEAKS</a></span><span class="entry-badge">DM LEAKS</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="tiktok">🎵 TIKTOK LEAKS</a></span><span class="entry-badge">BACKEND</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="discord">💬 DISCORD LEAKS</a></span><span class="entry-badge">PRIVATE CHANNELS</span></div>
+                        <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="telegram">📱 TELEGRAM LEAKS</a></span><span class="entry-badge">CHANNEL DUMPS</span></div>
+                    </div>
+                </div>
+                
+                <div id="intro-general" class="intro-varian hidden">
+                    <div class="intro-block">
+                        <span class="red-text">▼ COMPLETE LEAK ARCHIVE ▼</span><br>
+                        Master leak repository for <strong class="query-placeholder"></strong>. All leaked content—photos, videos, documents, and exclusive dumps—preserved in one location.
+                    </div>
+                    
+                    <div class="leak-grid">
+                        <div class="leak-card"><div class="leak-type">[ PHOTO LEAKS ]</div><a href="" class="dynamic-link leak-link" data-variant="leaked+photos">ACCESS →</a></div>
+                        <div class="leak-card"><div class="leak-type">[ VIDEO LEAKS ]</div><a href="" class="dynamic-link leak-link" data-variant="leaked+videos">ACCESS →</a></div>
+                        <div class="leak-card"><div class="leak-type">[ EXCLUSIVE ]</div><a href="" class="dynamic-link leak-link" data-variant="exclusive+leaks">ACCESS →</a></div>
+                        <div class="leak-card"><div class="leak-type">[ RARE ]</div><a href="" class="dynamic-link leak-link" data-variant="rare+leaks">ACCESS →</a></div>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <!-- SECTION 1: LEAK MANIFEST -->
+                <h2>LEAK MANIFEST</h2>
+                <div class="entry-list">
+                    <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="leaked+photos">📸 LEAKED PHOTO COLLECTIONS</a></span><span class="entry-badge">COMPLETE</span></div>
+                    <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="leaked+videos">🎥 LEAKED VIDEO ARCHIVE</a></span><span class="entry-badge">FULL SET</span></div>
+                    <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="private+collection">🔒 PRIVATE COLLECTION DUMP</a></span><span class="entry-badge">EXCLUSIVE</span></div>
+                    <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="uncensored">⚠️ UNCENSORED MATERIALS</a></span><span class="entry-badge">UNEDITED</span></div>
+                    <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="unreleased">📀 UNRELEASED CONTENT</a></span><span class="entry-badge">ORIGINAL</span></div>
+                    <div class="entry-item"><span class="entry-name"><a href="" class="dynamic-link" data-variant="original+leaks">💾 SOURCE LEAKS</a></span><span class="entry-badge">PROVENANCE</span></div>
+                </div>
+                
+                <!-- SECTION 2: PHOTO LEAKS DETAIL -->
+                <h2>LEAKED PHOTO SETS</h2>
+                <div class="entry-list">
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="leaked+photos">Complete leaked image set</a><span class="entry-badge">MASTER</span></div>
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="professional+photoshoot">Leaked studio shoot</a><span class="entry-badge">UNRELEASED</span></div>
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="candid">Leaked candid moments</a><span class="entry-badge">PRIVATE</span></div>
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="rare+photos">Rare leaked images</a><span class="entry-badge">LIMITED</span></div>
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="uncensored">Uncensored leaked photos</a><span class="entry-badge">FULL</span></div>
+                </div>
+                
+                <!-- SECTION 3: VIDEO LEAKS DETAIL -->
+                <h2>LEAKED VIDEO FOOTAGE</h2>
+                <div class="entry-list">
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="leaked+videos">Complete video leak set</a><span class="entry-badge">MASTER</span></div>
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="performances">Leaked performance footage</a><span class="entry-badge">UNCUT</span></div>
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="interviews">Leaked interview recordings</a><span class="entry-badge">UNEDITED</span></div>
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="exclusive+clips">Private video leaks</a><span class="entry-badge">EXCLUSIVE</span></div>
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="rare+videos">Rare video leaks</a><span class="entry-badge">LIMITED</span></div>
+                </div>
+                
+                <!-- SECTION 4: PLATFORM LEAKS -->
+                <h2>PLATFORM DATA LEAKS</h2>
+                <div class="entry-list">
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="instagram">Instagram private content</a><span class="entry-badge">LEAKED</span></div>
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="facebook">Facebook server leaks</a><span class="entry-badge">BREACH</span></div>
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="twitter">Twitter DM leaks</a><span class="entry-badge">EXPOSED</span></div>
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="tiktok">TikTok backend leaks</a><span class="entry-badge">DUMP</span></div>
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="discord">Discord private leaks</a><span class="entry-badge">CHANNELS</span></div>
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="telegram">Telegram leak dumps</a><span class="entry-badge">ARCHIVE</span></div>
+                </div>
+                
+                <!-- SECTION 5: EXCLUSIVE LEAKS -->
+                <h2>EXCLUSIVE LEAK COLLECTIONS</h2>
+                <div class="entry-list">
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="exclusive+leaks">Exclusive server dumps</a><span class="entry-badge">VIP</span></div>
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="behind+the+scenes">Leaked BTS footage</a><span class="entry-badge">SET LEAKS</span></div>
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="private+gatherings">Private event leaks</a><span class="entry-badge">RESTRICTED</span></div>
+                    <div class="entry-item"><a href="" class="dynamic-link" data-variant="backstage">Backstage leak archive</a><span class="entry-badge">EXCLUSIVE</span></div>
+                </div>
+                
+                <!-- SECTION 6: RELATED LEAK ARCHIVES -->
+                <h2>RELATED LEAK REPOSITORIES</h2>
+                <div class="entry-list">
+                    <div class="entry-item"><a href="/article/?q=celebrity+leaks">Celebrity leak database</a></div>
+                    <div class="entry-item"><a href="/article/?q=photo+leaks">Photo leak archive</a></div>
+                    <div class="entry-item"><a href="/article/?q=video+leaks">Video leak collection</a></div>
+                    <div class="entry-item"><a href="/article/?q=exclusive+leaks">Exclusive leak dumps</a></div>
+                    <div class="entry-item"><a href="/article/?q=facebook+leaks">Facebook data leaks</a></div>
+                </div>
+                
+                <!-- SECTION 7: FAQ -->
+                <h2>LEAK ARCHIVE FAQ</h2>
+                <div class="faq-item"><div class="faq-q">What leaked content is available?</div><div class="faq-a">Complete <a href="" class="dynamic-link" data-variant="leaked+photos">photo leaks</a>, <a href="" class="dynamic-link" data-variant="leaked+videos">video leaks</a>, and exclusive dumps preserved in original quality.</div></div>
+                <div class="faq-item"><div class="faq-q">Are these the original leak files?</div><div class="faq-a">Yes. All files preserved in original quality without modification.</div></div>
+                <div class="faq-item"><div class="faq-q">How are leaks sourced?</div><div class="faq-a">From underground channels, server breaches, and private collections.</div></div>
+                <div class="faq-item"><div class="faq-q">How often is this archive updated?</div><div class="faq-a">New leaks added as they surface.</div></div>
+                
+                <hr>
+                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>
+                <hr>
+                
+                <!-- SECTION 8: ARCHIVE STATEMENT -->
+                <h2>VAULT STATEMENT</h2>
+                <p><strong class="query-placeholder"></strong> leak archive is a permanent underground repository. All leaked materials are preserved in their original form. Archive updated continuously.</p>
+                <div class="footer" style="margin-top: 1.5rem;">
+                    VAULT://UNRELEASED · Underground Leak Archive · Preserving leaked content
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+    (function() {
+        // Ambil query dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        // Jika tidak ada query, tampilkan default content
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            return;
+        }
+        
+        // Sembunyikan default, tampilkan query content
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        // Decode query
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        const originalQuery = query;
+        
+        // Daftar kata yang akan dihapus untuk mendapatkan base name
+        const removeTerms = [
+            '2025', '2024'
+        ];
+        
+        // Fungsi untuk mendapatkan base name
+        function getBaseName(query) {
+            let base = query.toLowerCase();
+            removeTerms.forEach(term => {
+                const regex = new RegExp('\\b' + term + '\\s*', 'gi');
+                base = base.replace(regex, '');
+            });
+            return base.trim() || query;
+        }
+        
+        const baseName = getBaseName(query);
+        
+        // Deteksi tipe query
+        const queryLower = query.toLowerCase();
+        let queryType = 'general';
+        
+        if (queryLower.includes('leak') || queryLower.includes('leaked') || queryLower.includes('leaks')) {
+            queryType = 'leak';
+        } else if (queryLower.includes('photo') || queryLower.includes('photos') || queryLower.includes('picture') || queryLower.includes('gallery')) {
+            queryType = 'photo';
+        } else if (queryLower.includes('video') || queryLower.includes('videos') || queryLower.includes('clip') || queryLower.includes('footage')) {
+            queryType = 'video';
+        } else if (queryLower.includes('bio') || queryLower.includes('biography') || queryLower.includes('age') || queryLower.includes('height')) {
+            queryType = 'bio';
+        } else if (queryLower.includes('instagram') || queryLower.includes('facebook') || queryLower.includes('twitter') || queryLower.includes('tiktok')) {
+            queryType = 'platform';
+        }
+        
+        // Update title - underground leak style
+        let title;
+        if (queryType === 'leak') title = `${query} | LEAK ARCHIVE · Underground Vault`;
+        else if (queryType === 'photo') title = `${query} | LEAKED PHOTO SET · Private Image Dump`;
+        else if (queryType === 'video') title = `${query} | LEAKED VIDEO FOOTAGE · Private Recordings`;
+        else if (queryType === 'bio') title = `${query} | LEAKED DOCUMENTS · Confidential Data`;
+        else if (queryType === 'platform') title = `${query} | PLATFORM LEAKS · Data Breach Archive`;
+        else title = `${query} | COMPLETE LEAK ARCHIVE · Underground Vault`;
+        
+        document.title = title;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            `${query} leak archive: complete collection of leaked photos, private videos, and exclusive content. Underground vault preserving leaked materials.`);
+        
+        // Update H1
+        document.getElementById('main-heading').textContent = title;
+        
+        // Update breadcrumb
+        document.getElementById('breadcrumb-name').textContent = baseName;
+        
+        // Update semua placeholder dengan baseName
+        document.querySelectorAll('.query-placeholder').forEach(el => {
+            el.textContent = baseName;
+        });
+        
+        // Tampilkan intro yang sesuai
+        document.querySelectorAll('.intro-varian').forEach(el => el.classList.add('hidden'));
+        document.getElementById(`intro-${queryType}`).classList.remove('hidden');
+        
+        // Update semua dynamic links
+        function updateLinks() {
+            document.querySelectorAll('.dynamic-link').forEach(link => {
+                const variant = link.getAttribute('data-variant');
+                if (variant) {
+                    link.href = `/article/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
+                }
+            });
+        }
+        
+        updateLinks();
+        
+        // Update semua link yang perlu base name di text
+        document.querySelectorAll('.base-placeholder').forEach(el => {
+            el.textContent = baseName;
+        });
+        
+    })();
+    </script>
+</body>
+</html>
