@@ -71,18 +71,14 @@ permalink: /tags/
         <div id="query-content" style="display: none;">
             <!-- BREADCRUMB -->
             <div class="breadcrumb" id="breadcrumb">
-                <a href="/">Leak Index</a> » 
+                <a href="/">Home</a> » <a href="/tags/">Leak Index</a> » 
                 <span id="breadcrumb-name"></span>
             </div>
             
             <!-- H1 -->
             <h1 id="main-heading"></h1>
             
-            <!-- QUICK FACTS -->
-            <div class="quick-facts" id="quick-facts">
-                <h2>Leak Dossier: <span class="query-placeholder"></span></h2>
-                
-            </div>
+            
             
             <!-- INTRO PARAGRAPH (berbagai varian) -->
             <div id="intro-leak" class="intro-varian hidden">
@@ -113,7 +109,7 @@ permalink: /tags/
             
             <!-- SECTION 1: Most Searched -->
             <section id="section-most-searched">
-                <h2>Trending Leak Searches</h2>
+                <h2><span class="query-placeholder"></span> Trending Leak Searches</h2>
                 <p>The underground leak scene consistently circles back to <strong><span class="query-placeholder"></span></strong> content. The most requested leak categories are 
                 <a href="" class="dynamic-link" data-variant="leaked">full leak dumps</a>, 
                 <a href="" class="dynamic-link" data-variant="leaked+photos">complete photo leak sets</a>, 
@@ -142,7 +138,7 @@ permalink: /tags/
             
             <!-- SECTION 3: Video Archive -->
             <section id="section-video">
-                <h2>Leaked Video Archive</h2>
+                <h2><span class="query-placeholder"></span> Leaked Video Archive</h2>
                 <p>The <strong>video leak collection</strong> preserves footage that was never authorized for release: 
                 <a href="" class="dynamic-link" data-variant="leaked+videos">full video leaks</a>, 
                 <a href="" class="dynamic-link" data-variant="performances">performance leaks from private recordings</a>, 
@@ -158,7 +154,7 @@ permalink: /tags/
             
             <!-- SECTION 4: Leak Collection -->
             <section id="section-leak">
-                <h2>The Complete Leak Archive</h2>
+                <h2><span class="query-placeholder"></span> The Complete Leak Archive</h2>
                 <p>This is the central hub for <strong>every <span class="query-placeholder"></span> leak</strong> that has surfaced. The collection includes 
                 <a href="" class="dynamic-link" data-variant="leaked+photos">photo leaks</a>, 
                 <a href="" class="dynamic-link" data-variant="leaked+videos">video leaks</a>, 
@@ -174,7 +170,7 @@ permalink: /tags/
             
             <!-- SECTION 5: Platform Content -->
             <section id="section-platform">
-                <h2>Platform-Specific Leaks</h2>
+                <h2><span class="query-placeholder"></span> Platform-Specific Leaks</h2>
                 <p>Content pulled from private servers, data breaches, and unauthorized scrapes across major platforms:</p>
                 
                 <ul>
@@ -192,7 +188,7 @@ permalink: /tags/
             
             <!-- SECTION 6: Exclusive Content -->
             <section id="section-exclusive">
-                <h2>Exclusive Leaks & Private Dumps</h2>
+                <h2><span class="query-placeholder"></span> Exclusive Leaks & Private Dumps</h2>
                 <p>This section contains the most restricted leaks—content that circulated only in private circles before being archived here. <span class="query-placeholder"></span> exclusive leaks include 
                 <a href="" class="dynamic-link" data-variant="behind+the+scenes">behind-the-scenes leaks</a>, 
                 <a href="" class="dynamic-link" data-variant="private+gatherings">private event leaks</a>, 
@@ -209,7 +205,7 @@ permalink: /tags/
             
             <!-- SECTION 7: Biography -->
             <section id="section-bio">
-                <h2>Leaked Personal Documents & Bio Data</h2>
+                <h2><span class="query-placeholder"></span> Leaked Personal Documents & Bio Data</h2>
                 <p>Beyond photos and videos, private documents about <strong><span class="query-placeholder"></span></strong> have also surfaced through data breaches and insider leaks:</p>
                 
                 <ul>
@@ -226,7 +222,7 @@ permalink: /tags/
             
             <!-- SECTION 8: Related Searches -->
             <section id="section-related">
-                <h2>Related Leak Archives</h2>
+                <h2><span class="query-placeholder"></span> Related Leak Archives</h2>
                 <ul>
                     <li><a href="/tags/?q=celebrity+leaks">Celebrity Leak Database</a></li>
                     <li><a href="/tags/?q=exclusive+leaks">Private Server Leak Dumps</a></li>
@@ -239,7 +235,7 @@ permalink: /tags/
             
             <!-- SECTION 9: FAQ -->
             <section id="section-faq">
-                <h2>Leak Archive FAQs</h2>
+                <h2><span class="query-placeholder"></span> Leak Archive FAQs</h2>
                 
                 <div class="faq-item">
                     <h3>What is included in the <span class="query-placeholder"></span> leak archive?</h3>
@@ -365,7 +361,7 @@ permalink: /tags/
             document.querySelectorAll('.dynamic-link').forEach(link => {
                 const variant = link.getAttribute('data-variant');
                 if (variant) {
-                    link.href = `/tags/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
+                    link.href = `/labels/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
                 }
             });
         }
