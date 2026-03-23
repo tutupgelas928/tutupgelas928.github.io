@@ -359,19 +359,8 @@ permalink: /search
     </style>
 </head>
 <body>
-    <div class="site-wrapper">
-        <!-- Navigation -->
-        <div class="nav-bar">
-            <div class="nav-brand">⟡ The Archive</div>
-            <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="/search">Library</a>
-                <a href="/search?q=celebrity+profiles">Profiles</a>
-                <a href="/search?q=photo+archives">Visual</a>
-                <a href="/search?q=video+collections">Video</a>
-            </div>
-        </div>
-        
+    
+               {% include /ads/gobloggugel/nanouturfs.html %} 
         <main>
             <!-- ============================================
                  DEFAULT CONTENT (tampil jika tidak ada query)
@@ -579,7 +568,7 @@ permalink: /search
                 </div>
                 
                 <!-- SECTION 2: Visual Collections -->
-                <h2>Visual Collections</h2>
+                <h2><span class="query-placeholder"></span> Visual Collections</h2>
                 <div class="grid-3">
                     <div class="article-card"><a href="" class="dynamic-link" data-variant="professional+photoshoot">Studio Photography</a><p style="font-size:0.8rem; margin-top:0.25rem;">Commissioned editorial work</p></div>
                     <div class="article-card"><a href="" class="dynamic-link" data-variant="candid">Documentary Images</a><p style="font-size:0.8rem; margin-top:0.25rem;">Unposed, spontaneous moments</p></div>
@@ -590,7 +579,7 @@ permalink: /search
                 </div>
                 
                 <!-- SECTION 3: Video Archive -->
-                <h2>Video Archive</h2>
+                <h2><span class="query-placeholder"></span> Video Archive</h2>
                 <div class="grid-3">
                     <div class="article-card"><a href="" class="dynamic-link" data-variant="performances">Live Performances</a></div>
                     <div class="article-card"><a href="" class="dynamic-link" data-variant="interviews">Interview Footage</a></div>
@@ -601,20 +590,20 @@ permalink: /search
                 </div>
                 
                 <!-- SECTION 4: Biographical Data -->
-                <h2>Biographical Data</h2>
+                <h2><span class="query-placeholder"></span> Biographical Data</h2>
                 <div class="grid-2">
                     <div class="feature-card">
                         <h3>Personal Records</h3>
                         <ul><li><a href="" class="dynamic-link" data-variant="early+life">Early life</a></li><li><a href="" class="dynamic-link" data-variant="age">Age</a></li><li><a href="" class="dynamic-link" data-variant="height">Height</a></li><li><a href="" class="dynamic-link" data-variant="nationality">Nationality</a></li></ul>
                     </div>
                     <div class="feature-card">
-                        <h3>Professional Records</h3>
+                        <h3><span class="query-placeholder"></span> Professional Records</h3>
                         <ul><li><a href="" class="dynamic-link" data-variant="career">Career timeline</a></li><li><a href="" class="dynamic-link" data-variant="net+worth">Net worth</a></li><li><a href="" class="dynamic-link" data-variant="relationships">Relationships</a></li></ul>
                     </div>
                 </div>
                 
                 <!-- SECTION 5: Special Collections -->
-                <h2>Special Collections</h2>
+                <h2><span class="query-placeholder"></span> Special Collections</h2>
                 <div class="grid-4">
                     <div class="article-card"><a href="" class="dynamic-link" data-variant="behind+the+scenes">BTS Archive</a></div>
                     <div class="article-card"><a href="" class="dynamic-link" data-variant="private+gatherings">Private Events</a></div>
@@ -627,7 +616,7 @@ permalink: /search
                 </div>
                 
                 <!-- SECTION 6: Platform Archives -->
-                <h2>Platform Archives</h2>
+                <h2><span class="query-placeholder"></span> Platform Archives</h2>
                 <div class="grid-4">
                     <div class="article-card"><a href="" class="dynamic-link" data-variant="instagram">Instagram</a></div>
                     <div class="article-card"><a href="" class="dynamic-link" data-variant="facebook">Facebook</a></div>
@@ -640,7 +629,7 @@ permalink: /search
                 </div>
                 
                 <!-- SECTION 7: Related Archives -->
-                <h2>Related Archives</h2>
+                <h2><span class="query-placeholder"></span> Related Archives</h2>
                 <div class="grid-2">
                     <div class="article-card"><a href="/search?q=celebrity+profiles">Biographical Research Directory</a></div>
                     <div class="article-card"><a href="/search?q=photo+archives">Visual Studies Collection</a></div>
@@ -678,9 +667,9 @@ permalink: /search
                     <div class="faq-answer">New materials are added as they become available. The archive maintains regular updates to ensure comprehensive coverage.</div>
                 </div>
                 
-                <hr>
-                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>
-                <hr>
+                
+  
+                
                 
                 <!-- SECTION 9: About This Archive -->
                 <h2>About This Library</h2>
@@ -783,7 +772,7 @@ permalink: /search
             document.querySelectorAll('.dynamic-link').forEach(link => {
                 const variant = link.getAttribute('data-variant');
                 if (variant) {
-                    link.href = `/search?q=${encodeURIComponent(baseName + ' ' + variant)}`;
+                    link.href = `/archive/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
                 }
             });
         }
