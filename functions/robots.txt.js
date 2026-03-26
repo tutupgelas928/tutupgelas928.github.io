@@ -1,9 +1,10 @@
 export async function onRequestGet(context) {
-  const host = context.request.headers.get("host");
+  const host = context.request.headers.get("host") || "example.com";
 
   let sitemapList = "";
-  for (let i = 01; i <= 50; i++) {
-    sitemapList += `Sitemap: https://${host}/sitemap/01/sitemap${i}.xml\n`;
+  for (let i = 1; i <= 50; i++) {
+    const num = String(i).padStart(2, "0"); // jadi 01, 02, 03
+    sitemapList += `Sitemap: https://${host}/sitemap/01/sitemap${num}.xml\n`;
   }
 
   const body = `User-agent: *
@@ -14,9 +15,7 @@ ${sitemapList}`;
   return new Response(body, {
     headers: {
       "Content-Type": "text/plain; charset=UTF-8",
-      "Cache-Control": "no-cache, no-store, must-revalidate",
-      "Pragma": "no-cache",
-      "Expires": "0"
+      "Cache-Control": "no-cache"
     }
   });
 }
