@@ -13,7 +13,7 @@ export async function onRequestGet(context) {
   };
 
   let startIndex = 1;
-  const maxResults = 500;
+  const maxResults = 100;
   let labelSet = new Set();
 
   while (true) {
