@@ -325,8 +325,9 @@ permalink: /blog/
             margin-top: 0.25rem;
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
     <div class="container">
         <div class="journal-header">
             <div class="journal-title">INDEPENDENT RESEARCH JOURNAL</div>
@@ -750,5 +751,9 @@ permalink: /blog/
         
     })();
     </script>
+
+<br /><br /><br />
+{% include footer.html %}
+</div>
 </body>
 </html>

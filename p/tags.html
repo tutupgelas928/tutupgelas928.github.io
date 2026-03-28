@@ -42,8 +42,9 @@ permalink: /tags/
         .default-content.active { display: block; }
         .default-content { display: none; }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
     <main>
         <!-- ============================================
              DEFAULT CONTENT (tampil jika tidak ada query)
@@ -377,5 +378,9 @@ permalink: /tags/
     </script>
     
     
+
+<br /><br /><br />
+{% include footer.html %}
+</div>
 </body>
 </html>

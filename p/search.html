@@ -357,8 +357,9 @@ permalink: /search
             margin: 2rem 0;
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
     
                {% include /ads/gobloggugel/nanouturfs.html %} 
         <main class="site-wrapper">
@@ -786,5 +787,9 @@ permalink: /search
         
     })();
     </script>
+
+<br /><br /><br />
+{% include footer.html %}
+</div>
 </body>
 </html>

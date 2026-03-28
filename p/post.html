@@ -42,8 +42,9 @@ permalink: /post/
         .default-content.active { display: block; }
         .default-content { display: none; }
     </style>
-</head>
-<body loading="lazy">
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 
     <main>
     {% include /ads/gobloggugel/nanouturfs.html %}
@@ -417,5 +418,9 @@ permalink: /post/
 
   
     
+
+<br /><br /><br />
+{% include footer.html %}
+</div>
 </body>
 </html>

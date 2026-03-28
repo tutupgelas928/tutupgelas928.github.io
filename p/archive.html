@@ -193,8 +193,9 @@ permalink: /archive/
             h2 { font-size: 1.4rem; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
     <main>
         <div class="container">
         <!-- ============================================
@@ -622,5 +623,9 @@ permalink: /archive/
         
     })();
     </script>
+
+<br /><br /><br />
+{% include footer.html %}
+</div>
 </body>
 </html>

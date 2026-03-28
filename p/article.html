@@ -345,8 +345,9 @@ permalink: /article/
             .stats-bar { flex-direction: column; gap: 1rem; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
     <div class="container">
         <!-- UNDERGROUND HEADER -->
         <div class="header">
@@ -750,5 +751,9 @@ permalink: /article/
         
     })();
     </script>
+
+<br /><br /><br />
+{% include footer.html %}
+</div>
 </body>
 </html>

@@ -47,8 +47,9 @@ permalink: /categories/
         .stats-list { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; }
         .stat-item { flex: 1; min-width: 150px; background: #fff; padding: 12px; border: 1px solid #e0e0e0; border-radius: 6px; }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
     <main>
         <!-- ============================================
              DEFAULT CONTENT (tampil jika tidak ada query)
@@ -559,5 +560,9 @@ permalink: /categories/
     </script>
     
     
+
+<br /><br /><br />
+{% include footer.html %}
+</div>
 </body>
 </html>

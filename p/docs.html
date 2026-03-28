@@ -341,8 +341,9 @@ permalink: /docs/
             .evidence-grid { grid-template-columns: 1fr; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
     <div class="forensic-container">
         <!-- EVIDENCE HEADER -->
         <div class="evidence-header">
@@ -822,5 +823,9 @@ permalink: /docs/
         
     })();
     </script>
+
+<br /><br /><br />
+{% include footer.html %}
+</div>
 </body>
 </html>
