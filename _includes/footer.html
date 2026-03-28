@@ -38,11 +38,10 @@
 
 
 
-
 <script defer>
 function initSpo() {
   document.querySelectorAll('.spo').forEach(el => {
-    let ul;
+    let ul = el;
 
     // convert div → ul
     if (el.tagName.toLowerCase() === 'div') {
@@ -56,12 +55,10 @@ function initSpo() {
       });
 
       el.replaceWith(ul);
-    } else {
-      ul = el;
     }
 
-    // kalau sudah pernah diproses → skip
-    if (ul.dataset.done) return;
+    // pastikan hanya sekali proses
+    if (ul.dataset.done === "true") return;
     ul.dataset.done = "true";
 
     // menu default
@@ -74,7 +71,12 @@ function initSpo() {
       { href: "/search", text: "latest search" }
     ];
 
-    menu.reverse().forEach(item => {
+    // CEK apakah sudah ada menu (biar ga dobel walau beda struktur)
+    const firstLink = ul.querySelector('li a');
+    if (firstLink && firstLink.getAttribute('href') === "/post/") return;
+
+    // insert ke depan
+    menu.slice().reverse().forEach(item => {
       const li = document.createElement('li');
       const a = document.createElement('a');
 
@@ -87,20 +89,6 @@ function initSpo() {
   });
 }
 
-// jalan normal
 initSpo();
-
-// fallback kalau Jekyll load belakangan
 setTimeout(initSpo, 200);
 </script>
-
-
-
-
-
-
-
-
-
-
-
