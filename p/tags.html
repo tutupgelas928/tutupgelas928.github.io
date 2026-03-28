@@ -45,6 +45,9 @@ permalink: /tags/
 {% include head.html %}
   </head>
 <body><div loading="lazy">
+<nav>
+{% include /kw/tags.html %}
+</nav>
     <main>
         <!-- ============================================
              DEFAULT CONTENT (tampil jika tidak ada query)
@@ -67,7 +70,7 @@ permalink: /tags/
         
         <!-- ============================================
              QUERY-BASED CONTENT (disembunyikan sampai ada query)
-             Semua konten ini sudah ada di HTML untuk SEO
+             Semua konten ini sudah ada di HTML u
              ============================================ -->
         <div id="query-content" style="display: none;">
             <!-- BREADCRUMB -->
