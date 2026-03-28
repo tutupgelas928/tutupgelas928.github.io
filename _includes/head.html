@@ -5,50 +5,56 @@
 </style>
 
 <script defer>
-document.querySelectorAll('.spo').forEach(el => {
-  let ul;
+function initSpo() {
+  document.querySelectorAll('.spo').forEach(el => {
+    let ul;
 
-  // kalau masih div → convert ke ul
-  if (el.tagName.toLowerCase() === 'div') {
-    ul = document.createElement('ul');
-    ul.className = el.className;
+    // convert div → ul
+    if (el.tagName.toLowerCase() === 'div') {
+      ul = document.createElement('ul');
+      ul.className = el.className;
 
-    el.querySelectorAll('a').forEach(a => {
-      const li = document.createElement('li');
-      li.appendChild(a);
-      ul.appendChild(li);
-    });
+      el.querySelectorAll('a').forEach(a => {
+        const li = document.createElement('li');
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
 
-    el.replaceWith(ul);
-  } else {
-    ul = el;
-  }
+      el.replaceWith(ul);
+    } else {
+      ul = el;
+    }
 
-  // menu default (yang mau ditambahkan di awal)
-  const menu = [
-    { href: "/post/", text: "latest post" },
-    { href: "/categories/", text: "categories" },
-    { href: "/tags/", text: "tags" },
-    { href: "/labels/", text: "labels" },
-    { href: "/keywords/", text: "keywords" },
-    { href: "/search", text: "latest search" }
-  ];
+    // kalau sudah pernah diproses → skip
+    if (ul.dataset.done) return;
+    ul.dataset.done = "true";
 
-  // biar tidak dobel (cek item pertama)
-  if (!ul.querySelector('li[data-auto="true"]')) {
+    // menu default
+    const menu = [
+      { href: "/post/", text: "latest post" },
+      { href: "/categories/", text: "categories" },
+      { href: "/tags/", text: "tags" },
+      { href: "/labels/", text: "labels" },
+      { href: "/keywords/", text: "keywords" },
+      { href: "/search", text: "latest search" }
+    ];
+
     menu.reverse().forEach(item => {
       const li = document.createElement('li');
-      li.setAttribute('data-auto', 'true');
-
       const a = document.createElement('a');
+
       a.href = item.href;
       a.textContent = item.text;
 
       li.appendChild(a);
-
-      // masukkan ke paling awal
       ul.insertBefore(li, ul.firstChild);
     });
-  }
-});
+  });
+}
+
+// jalan normal
+initSpo();
+
+// fallback kalau Jekyll load belakangan
+setTimeout(initSpo, 200);
 </script>
