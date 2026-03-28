@@ -5,16 +5,50 @@
 </style>
 
 <script defer>
-document.querySelectorAll('div.spo').forEach(div => {
-  const ul = document.createElement('ul');
-  ul.className = div.className;
+document.querySelectorAll('.spo').forEach(el => {
+  let ul;
 
-  div.querySelectorAll('a').forEach(a => {
-    const li = document.createElement('li');
-    li.appendChild(a);
-    ul.appendChild(li);
-  });
+  // kalau masih div → convert ke ul
+  if (el.tagName.toLowerCase() === 'div') {
+    ul = document.createElement('ul');
+    ul.className = el.className;
 
-  div.replaceWith(ul);
+    el.querySelectorAll('a').forEach(a => {
+      const li = document.createElement('li');
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+
+    el.replaceWith(ul);
+  } else {
+    ul = el;
+  }
+
+  // menu default (yang mau ditambahkan di awal)
+  const menu = [
+    { href: "/post/", text: "latest post" },
+    { href: "/categories/", text: "categories" },
+    { href: "/tags/", text: "tags" },
+    { href: "/labels/", text: "labels" },
+    { href: "/keywords/", text: "keywords" },
+    { href: "/search", text: "latest search" }
+  ];
+
+  // biar tidak dobel (cek item pertama)
+  if (!ul.querySelector('li[data-auto="true"]')) {
+    menu.reverse().forEach(item => {
+      const li = document.createElement('li');
+      li.setAttribute('data-auto', 'true');
+
+      const a = document.createElement('a');
+      a.href = item.href;
+      a.textContent = item.text;
+
+      li.appendChild(a);
+
+      // masukkan ke paling awal
+      ul.insertBefore(li, ul.firstChild);
+    });
+  }
 });
 </script>
