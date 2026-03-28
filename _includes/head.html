@@ -4,3 +4,17 @@
 }
 </style>
 
+<script defer>
+document.querySelectorAll('div.spo').forEach(div => {
+  const ul = document.createElement('ul');
+  ul.className = div.className;
+
+  div.querySelectorAll('a').forEach(a => {
+    const li = document.createElement('li');
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+
+  div.replaceWith(ul);
+});
+</script>
