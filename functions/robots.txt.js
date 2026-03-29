@@ -2,7 +2,7 @@ export async function onRequestGet(context) {
   const host = context.request.headers.get("host") || "example.com";
 
   let sitemapList = "";
-  for (let i = 1; i <= 50; i++) {
+  for (let i = 51; i <= 100; i++) {
     const num = String(i).padStart(2, "0"); // jadi 01, 02, 03
     sitemapList += `Sitemap: https://${host}/sitemap/01/sitemap${num}.xml\n`;
   }
