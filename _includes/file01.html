@@ -1,4 +1,4 @@
-{% assign max_related = 10 %}
+{% assign max_related = 99 %}
 {% assign count = 0 %}
 
 <div class="related-posts">
@@ -39,10 +39,6 @@
               </p>
             {% endif %}
 
-            {% assign before_svg = post.content | split: '<p>' | first %}
-  <div class="excerpt spo">
-    {{ before_svg }}
-  </div>
           </div>
 
           {% assign count = count | plus: 1 %}
