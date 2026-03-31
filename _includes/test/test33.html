@@ -3,7 +3,7 @@
 <head loading="lazy">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
- <link rel="stylesheet" href="https://adabunalima5.github.io/file/css/01/01.css"/> 
+ 
   
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
 <link rel="shortcut icon" href="/favicon.ico" />
@@ -72,7 +72,7 @@
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
 		{% include verif.html %}
   </head>	
-<body loading="lazy">	
+<body><div loading="lazy">	
 	{% include /test/file/header2.html %}
 <main loading="lazy">
 <article>
@@ -197,7 +197,7 @@
   </div>
 
   {% assign before_svg = post.content | split: '<p>' | first %}
-  <div class="excerpt spo">
+  <div class="excerpt" loading="lazy">
     {{ before_svg }}
   </div>
 
@@ -211,5 +211,5 @@
 {% include /ads/gobloggugel/sosmed.html %}
 {% include footer2.html %}
 
-</body>
+</div></body>
 </html>
