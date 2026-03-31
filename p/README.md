@@ -10,5 +10,14 @@
 <li>blog</li>
 <li>docs</li>
 <li>model</li>
-<li>page</li>
+<li>page</li><br />
+  <li>file</li>
+  <li>docs</li>
+  <li>model</li>
+  <li>gallery</li>
+  <li>folder</li>
+  <li>art</li>
+  <li>form</li>
+  <li>tab</li>
+  <li>pop</li>
 </ol>
