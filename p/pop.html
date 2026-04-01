@@ -1,0 +1,688 @@
+---
+layout: null
+permalink: /pop/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    
+    <title id="dynamic-title">Digital Library Catalog | Archive Collection</title>
+    <meta id="dynamic-description" name="description" content="Digital Library Catalog. Complete archive collection with Dewey Decimal classification. Research access available.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'IBM Plex Sans', sans-serif;
+            background: #eef2f0;
+            color: #2c3e2f;
+            line-height: 1.5;
+        }
+        
+        /* Library Header */
+        .library-header {
+            background: #2c4a35;
+            color: #f5f0e6;
+            padding: 24px 0;
+            border-bottom: 4px solid #d4b87a;
+        }
+        
+        .library-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        
+        .library-title {
+            font-family: 'IBM Plex Serif', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+        }
+        
+        .library-subtitle {
+            font-size: 0.7rem;
+            color: #cbdcd0;
+            margin-top: 6px;
+            letter-spacing: 1px;
+        }
+        
+        .card-catalog {
+            background: #fffcf7;
+            padding: 8px 16px;
+            border-left: 3px solid #d4b87a;
+            font-family: monospace;
+            font-size: 0.7rem;
+            margin-top: 12px;
+            display: inline-block;
+        }
+        
+        main { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 48px 32px 80px;
+        }
+        
+        .container {
+            background: transparent;
+            padding: 0;
+        }
+        
+        /* Typography - Library Style */
+        h1 { 
+            font-size: 2.2rem; 
+            font-weight: 500; 
+            line-height: 1.3;
+            font-family: 'IBM Plex Serif', serif;
+            color: #2c4a35;
+            margin-bottom: 16px;
+            letter-spacing: -0.2px;
+        }
+        
+        h2 { 
+            font-size: 1.2rem; 
+            font-weight: 500; 
+            margin: 48px 0 20px 0;
+            font-family: 'IBM Plex Serif', serif;
+            color: #2c4a35;
+            border-bottom: 2px solid #e0d6c8;
+            padding-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        
+        h3 { 
+            font-size: 0.9rem; 
+            font-weight: 600; 
+            margin: 16px 0 8px 0;
+            font-family: 'IBM Plex Sans', sans-serif;
+            color: #8b6b42;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Links - Catalog Style */
+        a { 
+            color: #5f7a5a; 
+            text-decoration: none;
+            border-bottom: 1px dotted #cbdcd0;
+            transition: all 0.2s;
+        }
+        
+        a:hover { 
+            color: #d4b87a;
+            border-bottom-color: #d4b87a;
+        }
+        
+        /* Breadcrumb - Catalog Path */
+        .breadcrumb { 
+            font-size: 0.7rem;
+            font-family: monospace;
+            color: #8faa99;
+            margin-bottom: 32px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e0d6c8;
+        }
+        
+        .breadcrumb a { color: #5f7a5a; border-bottom: none; }
+        
+        /* Grid - Catalog Cards */
+        .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 28px;
+            margin: 32px 0;
+        }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        @media (max-width: 1024px) { .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+        
+        /* Card - Catalog Entry */
+        .catalog-card {
+            background: #fffcf7;
+            border: 1px solid #e8dfd2;
+            padding: 24px;
+            transition: all 0.2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        
+        .catalog-card:hover {
+            border-color: #d4b87a;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .call-number {
+            font-family: monospace;
+            font-size: 0.6rem;
+            color: #b8aa8c;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Stats - Collection Summary */
+        .collection-summary {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin: 32px 0;
+            padding: 24px 0;
+            border-top: 1px solid #e0d6c8;
+            border-bottom: 1px solid #e0d6c8;
+        }
+        
+        .summary-item {
+            flex: 1;
+            min-width: 100px;
+        }
+        
+        .summary-number {
+            font-size: 2rem;
+            font-weight: 500;
+            font-family: 'IBM Plex Serif', serif;
+            color: #8b6b42;
+            display: block;
+            line-height: 1;
+        }
+        
+        .summary-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8faa99;
+            margin-top: 6px;
+        }
+        
+        /* Catalog Note - Library Card */
+        .catalog-note {
+            margin: 32px 0;
+            padding: 24px 32px;
+            background: #fffcf7;
+            border: 1px solid #e8dfd2;
+            font-family: 'IBM Plex Serif', serif;
+            font-size: 0.9rem;
+            color: #5f6e58;
+        }
+        
+        /* Subject Tags */
+        .subject-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .subject-tag {
+            background: #fffcf7;
+            border: 1px solid #e0d6c8;
+            padding: 4px 14px;
+            font-size: 0.65rem;
+            font-family: monospace;
+            transition: all 0.2s;
+        }
+        
+        .subject-tag a {
+            border-bottom: none;
+            color: #6d8b6a;
+        }
+        
+        .subject-tag:hover {
+            background: #f5f0e6;
+            border-color: #d4b87a;
+        }
+        
+        /* Holdings - Timeline */
+        .holdings {
+            margin: 32px 0;
+        }
+        
+        .holding-entry {
+            display: flex;
+            gap: 24px;
+            padding: 16px 0;
+            border-bottom: 1px solid #e8dfd2;
+            font-size: 0.85rem;
+        }
+        
+        .holding-date {
+            font-family: monospace;
+            color: #d4b87a;
+            min-width: 100px;
+        }
+        
+        /* FAQ - Patron Questions */
+        .patron-question {
+            margin: 28px 0;
+            padding: 20px 0;
+            border-bottom: 1px solid #e8dfd2;
+        }
+        
+        .question {
+            font-weight: 600;
+            font-family: 'IBM Plex Serif', serif;
+            color: #2c4a35;
+            margin-bottom: 8px;
+        }
+        
+        .answer {
+            color: #6a7a63;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        
+        hr { 
+            border: none; 
+            border-top: 1px solid #e0d6c8; 
+            margin: 48px 0; 
+        }
+        
+        .hidden { display: none; }
+        .query-placeholder { font-weight: 600; background: #f5f0e6; padding: 2px 6px; font-family: monospace; }
+        .default-content.active { display: block; }
+        .default-content { display: none; }
+        #query-content { display: none; }
+        
+        .dewey-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-family: monospace;
+            background: #2c4a35;
+            color: #f5f0e6;
+            padding: 4px 12px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        
+        .library-footer {
+            font-size: 0.65rem;
+            color: #8faa99;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #e0d6c8;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            main { padding: 32px 20px; }
+            h1 { font-size: 1.6rem; }
+            .catalog-note { padding: 20px; }
+        }
+    </style>
+    {% include head.html %}
+</head>
+<body>
+    <div class="library-header">
+        <div class="library-container">
+            <div class="library-title">DIGITAL LIBRARY CATALOG</div>
+            <div class="library-subtitle">ARCHIVE COLLECTION • DEWEY DECIMAL CLASSIFICATION • OPEN STACKS</div>
+            <div class="card-catalog">Library of Congress Control Number: 2026-3847-ARCH</div>
+        </div>
+    </div>
+    
+    <main>
+        <div class="container">
+            <!-- DEFAULT CONTENT - LIBRARY ENTRANCE -->
+            <div id="default-content" class="default-content active">
+                <div class="dewey-badge">DEWEY CLASS: 025.34 | DIGITAL ARCHIVES</div>
+                <h1>Digital Archive Collection<br>Complete Library Catalog</h1>
+                <p style="font-size: 0.95rem; color: #6a7a63; margin: 16px 0 24px 0; max-width: 700px;">A comprehensive collection catalog with full bibliographic records, subject classifications, and holdings information. Research access available to registered patrons.</p>
+                
+                <div class="collection-summary">
+                    <div class="summary-item"><span class="summary-number">15,247</span><span class="summary-label">CATALOG ENTRIES</span></div>
+                    <div class="summary-item"><span class="summary-number">3,892</span><span class="summary-label">MEDIA HOLDINGS</span></div>
+                    <div class="summary-item"><span class="summary-number">9,456</span><span class="summary-label">VISUAL MATERIALS</span></div>
+                    <div class="summary-item"><span class="summary-number">1,899</span><span class="summary-label">TEXTUAL RECORDS</span></div>
+                </div>
+                
+                <div class="catalog-note">
+                    <strong>LIBRARIAN'S NOTE</strong><br>
+                    The Digital Archive Collection maintains complete bibliographic records for all holdings. Each entry includes full cataloging data, subject classifications, and access information. Materials are available for research purposes.
+                    <div style="margin-top: 12px;">— Archives Department</div>
+                </div>
+                
+                <!-- COLLECTION DIVISIONS -->
+                <h2>Collection Divisions</h2>
+                <div class="grid-3">
+                    <div class="catalog-card">
+                        <div class="call-number">CALL NO: VIS-001-ARCH</div>
+                        <h3>Visual Materials Division</h3>
+                        <p>Photographic collections, image archives, and visual records.</p>
+                        <div style="margin-top: 12px;"><a href="/pop/?q=visual materials">Browse holdings →</a></div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="call-number">CALL NO: MED-002-ARCH</div>
+                        <h3>Media Holdings Division</h3>
+                        <p>Video recordings, time-based media, and audiovisual materials.</p>
+                        <div style="margin-top: 12px;"><a href="/pop/?q=media holdings">Browse holdings →</a></div>
+                    </div>
+                    <div class="catalog-card">
+                        <div class="call-number">CALL NO: TXT-003-ARCH</div>
+                        <h3>Textual Records Division</h3>
+                        <p>Documentary materials, personal papers, and textual archives.</p>
+                        <div style="margin-top: 12px;"><a href="/pop/?q=textual records">Browse holdings →</a></div>
+                    </div>
+                </div>
+                
+                <!-- SUBJECT HEADINGS -->
+                <h2>Subject Headings (LCSH)</h2>
+                <div class="subject-tags">
+                    <div class="subject-tag"><a href="/pop/?q=primary sources">PRIMARY SOURCES</a></div>
+                    <div class="subject-tag"><a href="/pop/?q=archival materials">ARCHIVAL MATERIALS</a></div>
+                    <div class="subject-tag"><a href="/pop/?q=special collections">SPECIAL COLLECTIONS</a></div>
+                    <div class="subject-tag"><a href="/pop/?q=digital archives">DIGITAL ARCHIVES</a></div>
+                    <div class="subject-tag"><a href="/pop/?q=rare materials">RARE MATERIALS</a></div>
+                </div>
+                
+                <!-- PLATFORM HOLDINGS -->
+                <h2>Platform Holdings</h2>
+                <div class="subject-tags">
+                    <div class="subject-tag"><a href="/pop/?q=instagram holdings">INSTAGRAM HOLDINGS</a></div>
+                    <div class="subject-tag"><a href="/pop/?q=twitter holdings">TWITTER HOLDINGS</a></div>
+                    <div class="subject-tag"><a href="/pop/?q=tiktok holdings">TIKTOK HOLDINGS</a></div>
+                    <div class="subject-tag"><a href="/pop/?q=facebook holdings">FACEBOOK HOLDINGS</a></div>
+                    <div class="subject-tag"><a href="/pop/?q=discord holdings">DISCORD HOLDINGS</a></div>
+                </div>
+                
+                <hr>
+                
+                <div class="catalog-note" style="text-align: center;">
+                    <strong>CATALOG SEARCH</strong><br>
+                    Enter a subject, creator name, or call number to access full bibliographic records.
+                </div>
+                
+                <div class="library-footer">
+                    Library of Congress Classification • Complete Holdings Catalog • Updated Quarterly
+                </div>
+            </div>
+            
+            <!-- QUERY-BASED CONTENT - BIBLIOGRAPHIC RECORD -->
+            <div id="query-content" style="display: none;">
+                <div class="breadcrumb">
+                    <a href="/">LIBRARY CATALOG</a> / <a href="/pop/">ARCHIVE COLLECTION</a> / <span id="breadcrumb-name"></span> / BIBLIOGRAPHIC RECORD
+                </div>
+                
+                <div class="dewey-badge" id="dewey-badge"></div>
+                <h1 id="main-heading"></h1>
+                <p id="bibliographic-info" style="font-size: 0.7rem; font-family: monospace; color: #8faa99; margin-bottom: 24px;"></p>
+                
+                <!-- CATALOG SUMMARY -->
+                <div class="collection-summary" id="catalog-summary"></div>
+                
+                <!-- LIBRARIAN'S NOTE -->
+                <div class="catalog-note" id="librarian-note"></div>
+                
+                <!-- ============================================
+                     BIBLIOGRAPHIC DIVISIONS - AUTO GENERATED LINKS
+                     ============================================ -->
+                <h2>Bibliographic Divisions</h2>
+                <div id="bibliographic-divisions" class="grid-2"></div>
+                
+                <!-- ============================================
+                     SUBJECT HEADINGS - AUTO GENERATED
+                     ============================================ -->
+                <h2>Subject Headings (LCSH)</h2>
+                <div id="subject-headings" class="subject-tags"></div>
+                
+                <!-- ============================================
+                     PLATFORM HOLDINGS - AUTO GENERATED
+                     ============================================ -->
+                <h2>Platform Holdings</h2>
+                <div id="platform-holdings" class="subject-tags"></div>
+                
+                <!-- ============================================
+                     ACQUISITION HISTORY - AUTO GENERATED
+                     ============================================ -->
+                <h2>Acquisition History</h2>
+                <div id="acquisition-history" class="holdings"></div>
+                
+                <!-- ============================================
+                     RELATED CATALOG ENTRIES - AUTO GENERATED
+                     ============================================ -->
+                <h2>Related Catalog Entries</h2>
+                <div id="related-entries" class="subject-tags"></div>
+                
+                <!-- ============================================
+                     PATRON QUESTIONS (FAQ) - AUTO GENERATED
+                     ============================================ -->
+                <h2>Patron Questions</h2>
+                <div id="patron-questions"></div>
+                
+                <hr />
+                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>  
+                
+                <div class="library-footer">
+                    <span id="call-number-footer"></span> • LCCN: <span id="lccn-number"></span> • Complete Holdings • For Research Use
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            return;
+        }
+        
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        
+        // Format display name - library catalog style
+        function getDisplayName(q) {
+            const removeTerms = ['holdings', 'materials', 'records', 'collection', 'archive', 'catalog'];
+            let name = q.toLowerCase();
+            removeTerms.forEach(term => {
+                name = name.replace(new RegExp('\\s*' + term + '\\s*$', 'i'), '');
+            });
+            return name.trim().split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || q;
+        }
+        
+        const displayName = getDisplayName(query);
+        const deweyNumber = `791.${Math.floor(Math.random() * 900 + 100)}`;
+        const lccnNumber = `2026-${Math.floor(Math.random() * 9000 + 1000)}-ARCH`;
+        const callNumber = `${deweyNumber} .${displayName.substring(0, 3).toUpperCase()}${Math.floor(Math.random() * 900 + 100)}`;
+        
+        // Update title
+        document.title = `${displayName} | Bibliographic Record | Digital Library Catalog`;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            `Bibliographic record: ${displayName}. Complete holdings information with ${Math.floor(Math.random() * 500) + 200} catalog entries. Library of Congress classification.`);
+        
+        // Breadcrumb
+        document.getElementById('breadcrumb-name').textContent = displayName.toLowerCase().replace(/ /g, '-');
+        
+        // Dewey Badge
+        document.getElementById('dewey-badge').innerHTML = `DEWEY CLASS: ${deweyNumber} | LCCN: ${lccnNumber}`;
+        
+        // Main heading
+        document.getElementById('main-heading').innerHTML = `${displayName}<br><span style="font-size: 0.8rem;">Bibliographic Record</span>`;
+        document.getElementById('bibliographic-info').innerHTML = `CALL NUMBER: ${callNumber} | LOCATION: Archive Stacks | STATUS: Available for Research`;
+        
+        // Random counts
+        const totalHoldings = Math.floor(Math.random() * 600) + 200;
+        const mediaHoldings = Math.floor(Math.random() * 120) + 30;
+        const visualMaterials = Math.floor(Math.random() * 500) + 150;
+        const textualRecords = Math.floor(Math.random() * 70) + 15;
+        
+        // Catalog summary
+        document.getElementById('catalog-summary').innerHTML = `
+            <div class="summary-item"><span class="summary-number">${totalHoldings}</span><span class="summary-label">TOTAL HOLDINGS</span></div>
+            <div class="summary-item"><span class="summary-number">${mediaHoldings}</span><span class="summary-label">MEDIA HOLDINGS</span></div>
+            <div class="summary-item"><span class="summary-number">${visualMaterials}</span><span class="summary-label">VISUAL MATERIALS</span></div>
+            <div class="summary-item"><span class="summary-number">${textualRecords}</span><span class="summary-label">TEXTUAL RECORDS</span></div>
+        `;
+        
+        // Librarian's note
+        const librarianNotes = [
+            `Complete bibliographic record for ${displayName} holdings. Total holdings: ${totalHoldings} items including ${visualMaterials} visual materials, ${mediaHoldings} media holdings, and ${textualRecords} textual records. All materials cataloged according to Library of Congress standards.`,
+            `This record documents the complete ${displayName} collection in the Digital Library Archive. Holdings include ${visualMaterials} visual works, ${mediaHoldings} media items, and ${textualRecords} textual records. Full cataloging available.`,
+            `Archival holdings for ${displayName}: ${totalHoldings} total items. Collection includes visual materials (${visualMaterials}), media holdings (${mediaHoldings}), and textual records (${textualRecords}). Complete bibliographic data provided.`
+        ];
+        document.getElementById('librarian-note').innerHTML = `<strong>LIBRARIAN'S NOTE</strong><br>${librarianNotes[Math.floor(Math.random() * librarianNotes.length)]}<div style="margin-top: 12px;">— Cataloging Department</div>`;
+        
+        // ============================================
+        // 1. BIBLIOGRAPHIC DIVISIONS - AUTO GENERATED LINKS
+        // ============================================
+        const bibliographicDivisions = [
+            { label: "Visual Materials", query: "visual materials", desc: `${visualMaterials} cataloged works` },
+            { label: "Media Holdings", query: "media holdings", desc: `${mediaHoldings} media items` },
+            { label: "Textual Records", query: "textual records", desc: `${textualRecords} textual works` },
+            { label: "Special Collections", query: "special collections", desc: "Rare and unique materials" },
+            { label: "Archival Materials", query: "archival materials", desc: "Complete archival holdings" },
+            { label: "Reference Collection", query: "reference collection", desc: "Bibliographic references" }
+        ];
+        
+        document.getElementById('bibliographic-divisions').innerHTML = bibliographicDivisions.map(div => `
+            <div class="catalog-card">
+                <div class="call-number">CALL NO: ${div.label.substring(0, 3).toUpperCase()}-${Math.floor(Math.random() * 900 + 100)}</div>
+                <h3>${div.label}</h3>
+                <p>${div.desc}</p>
+                <div style="margin-top: 12px;"><a href="/pop/?q=${encodeURIComponent(displayName + ' ' + div.query)}">View holdings →</a></div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 2. SUBJECT HEADINGS - AUTO GENERATED
+        // ============================================
+        const subjectHeadings = [
+            'primary sources', 'archival materials', 'special collections', 
+            'digital archives', 'rare materials', 'manuscript collections',
+            'visual archives', 'media collections', 'documentary records'
+        ];
+        
+        document.getElementById('subject-headings').innerHTML = subjectHeadings.map(subj => `
+            <div class="subject-tag"><a href="/pop/?q=${encodeURIComponent(displayName + ' ' + subj)}">${subj.toUpperCase()}</a></div>
+        `).join('');
+        
+        // ============================================
+        // 3. PLATFORM HOLDINGS - AUTO GENERATED
+        // ============================================
+        const platforms = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube'];
+        
+        document.getElementById('platform-holdings').innerHTML = platforms.map(p => `
+            <div class="subject-tag"><a href="/pop/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' holdings')}">${p.toUpperCase()} HOLDINGS</a></div>
+        `).join('');
+        
+        // ============================================
+        // 4. ACQUISITION HISTORY - AUTO GENERATED
+        // ============================================
+        const acquisitionEvents = [
+            { date: "2023", event: `Initial cataloging of ${displayName} holdings began` },
+            { date: "2024", event: `Major acquisition: ${visualMaterials} visual materials added` },
+            { date: "2025", event: `Complete ${displayName} collection cataloged and classified` },
+            { date: "2026", event: `Holdings updated: ${totalHoldings} total items in collection` }
+        ];
+        
+        document.getElementById('acquisition-history').innerHTML = acquisitionEvents.map(ev => `
+            <div class="holding-entry">
+                <div class="holding-date">${ev.date}</div>
+                <div class="holding-desc">${ev.event}</div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 5. RELATED CATALOG ENTRIES - AUTO GENERATED
+        // ============================================
+        const relatedEntries = [
+            'kendall jenner', 'hailey bieber', 'gigi hadid', 'bella hadid',
+            'emma watson', 'scarlett johansson', 'zendaya', 'margot robbie'
+        ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 10);
+        
+        document.getElementById('related-entries').innerHTML = relatedEntries.map(entry => `
+            <div class="subject-tag"><a href="/pop/?q=${encodeURIComponent(entry)}">${entry.toUpperCase()} COLLECTION</a></div>
+        `).join('');
+        
+        // ============================================
+        // 6. PATRON QUESTIONS (FAQ) - AUTO GENERATED
+        // ============================================
+        const patronQuestions = [
+            {
+                q: `How do I access the complete ${displayName} holdings?`,
+                a: `Full holdings are available for research purposes. Request materials through the reference desk or access online catalog records. `,
+                links: ['access policy', 'research request']
+            },
+            {
+                q: `What is included in the ${displayName} catalog entry?`,
+                a: `This entry includes ${totalHoldings} total holdings with full bibliographic records, subject classifications, and holdings information. `,
+                links: ['complete catalog', 'holdings list']
+            },
+            {
+                q: `Are new ${displayName} materials being added?`,
+                a: `Yes. The collection is updated quarterly with new acquisitions and catalog entries. `,
+                links: ['new acquisitions', 'collection updates']
+            },
+            {
+                q: `How are materials classified in this collection?`,
+                a: `All holdings are classified according to Library of Congress standards with full Dewey Decimal classification. `,
+                links: ['classification system', 'cataloging standards']
+            }
+        ];
+        
+        document.getElementById('patron-questions').innerHTML = patronQuestions.map(pq => {
+            const linkHtml = pq.links.map(link => 
+                `<a href="/pop/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
+            ).join(' • ');
+            return `
+                <div class="patron-question">
+                    <div class="question">${pq.q}</div>
+                    <div class="answer">${pq.a}</div>
+                    ${linkHtml ? `<div style="margin-top: 12px; font-size:0.7rem; color:#b8aa8c;">SEE ALSO: ${linkHtml}</div>` : ''}
+                </div>
+            `;
+        }).join('');
+        
+        // ============================================
+        // 7. FOOTER INFO
+        // ============================================
+        document.getElementById('call-number-footer').innerHTML = `CALL NUMBER: ${callNumber}`;
+        document.getElementById('lccn-number').innerHTML = lccnNumber;
+        
+        // ============================================
+        // EXTRA: Add holdings reference
+        // ============================================
+        const holdingsRefs = [
+            'full catalog', 'holdings list', 'bibliographic data', 'collection guide'
+        ];
+        
+        const summaryDiv = document.getElementById('catalog-summary');
+        if (summaryDiv) {
+            let refHtml = `
+                <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #e0d6c8; width: 100%;">
+                    <div style="font-size:0.6rem; color:#8faa99; margin-bottom: 10px;">CATALOG REFERENCES:</div>
+                    <div class="subject-tags" style="margin-top: 0;">
+                        ${holdingsRefs.map(ref => `<div class="subject-tag"><a href="/pop/?q=${encodeURIComponent(displayName + ' ' + ref)}">${ref.toUpperCase()}</a></div>`).join('')}
+                    </div>
+                </div>
+            `;
+            summaryDiv.innerHTML += refHtml;
+        }
+        
+        // Add dewey classification note
+        const librarianNoteDiv = document.getElementById('librarian-note');
+        if (librarianNoteDiv) {
+            librarianNoteDiv.innerHTML += `
+                <div style="margin-top: 16px; font-size:0.7rem; color:#8faa99; border-top: 1px solid #e0d6c8; padding-top: 12px;">
+                    <strong>Classification:</strong> Dewey Decimal ${deweyNumber} • Library of Congress: ${lccnNumber} • Subject: Digital Archives
+                </div>
+            `;
+        }
+        
+    })();
+    </script>
+    
+    <br /><br /><br />
+    {% include footer.html %}
+</body>
+</html>
