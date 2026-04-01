@@ -1,6 +1,6 @@
 ---
 layout: null
-permalink: /model/
+permalink: /gallery/
 ---
   
 <!DOCTYPE html>
@@ -313,18 +313,18 @@ permalink: /model/
                         <h3>Search by Name</h3>
                         <p>Enter any public figure, influencer, or celebrity name in the search bar above. Our database cross-references across 40+ sources.</p>
                         <div class="link-row" style="margin-top: 12px;">
-                            <a href="/model/?q=kendall jenner">Kendall Jenner →</a>
-                            <a href="/model/?q=hailey bieber">Hailey Bieber →</a>
-                            <a href="/model/?q=emma watson">Emma Watson →</a>
+                            <a href="/gallery/?q=kendall jenner">Kendall Jenner →</a>
+                            <a href="/gallery/?q=hailey bieber">Hailey Bieber →</a>
+                            <a href="/gallery/?q=emma watson">Emma Watson →</a>
                         </div>
                     </div>
                     <div class="card">
                         <h3>Search by Topic</h3>
                         <p>Looking for specific types of content? Try searching by category to narrow your investigation.</p>
                         <div class="link-row" style="margin-top: 12px;">
-                            <a href="/model/?q=photo archives">Photo Archives →</a>
-                            <a href="/model/?q=video archives">Video Archives →</a>
-                            <a href="/model/?q=document leaks">Document Leaks →</a>
+                            <a href="/gallery/?q=photo archives">Photo Archives →</a>
+                            <a href="/gallery/?q=video archives">Video Archives →</a>
+                            <a href="/gallery/?q=document leaks">Document Leaks →</a>
                         </div>
                     </div>
                 </div>
@@ -334,17 +334,17 @@ permalink: /model/
                     <div class="card">
                         <h3>The Private Server Collection</h3>
                         <p>A complete archive from a compromised server. Content that never saw public release.</p>
-                        <div class="link-row"><a href="/model/?q=private server dumps">Read investigation →</a></div>
+                        <div class="link-row"><a href="/gallery/?q=private server dumps">Read investigation →</a></div>
                     </div>
                     <div class="card">
                         <h3>Deleted Platform Content</h3>
                         <p>What Instagram, Twitter, and TikTok removed. Preserved before deletion.</p>
-                        <div class="link-row"><a href="/model/?q=deleted platform content">Read investigation →</a></div>
+                        <div class="link-row"><a href="/gallery/?q=deleted platform content">Read investigation →</a></div>
                     </div>
                     <div class="card">
                         <h3>The Lost Archive</h3>
                         <p>Content that vanished within hours of surfacing. Documented here.</p>
-                        <div class="link-row"><a href="/model/?q=lost archive">Read investigation →</a></div>
+                        <div class="link-row"><a href="/gallery/?q=lost archive">Read investigation →</a></div>
                     </div>
                 </div>
                 
@@ -504,7 +504,7 @@ permalink: /model/
                 <h3>${ev.label}</h3>
                 <p>${ev.desc}</p>
                 <div class="link-row">
-                    <a href="/model/?q=${encodeURIComponent(displayName + ' ' + ev.query)}">Access evidence →</a>
+                    <a href="/gallery/?q=${encodeURIComponent(displayName + ' ' + ev.query)}">Access evidence →</a>
                 </div>
             </div>
         `).join('');
@@ -517,7 +517,7 @@ permalink: /model/
         document.getElementById('platform-manifest').innerHTML = `
             <p style="margin-bottom: 12px; font-weight: 600;">Content removed from the following platforms:</p>
             <div class="link-row">
-                ${platforms.map(p => `<a href="/model/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' archive')}">${p}</a>`).join('')}
+                ${platforms.map(p => `<a href="/gallery/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' archive')}">${p}</a>`).join('')}
             </div>
             <p style="margin-top: 16px; font-size: 0.8rem; color: #666;">Each link leads to platform-specific archives documenting deleted ${displayName} content.</p>
         `;
@@ -535,7 +535,7 @@ permalink: /model/
                 <h3>${name.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}</h3>
                 <p>Complete investigative dossier</p>
                 <div class="link-row">
-                    <a href="/model/?q=${encodeURIComponent(name)}">View dossier →</a>
+                    <a href="/gallery/?q=${encodeURIComponent(name)}">View dossier →</a>
                 </div>
             </div>
         `).join('');
@@ -560,7 +560,7 @@ permalink: /model/
         
         document.getElementById('investigative-notes').innerHTML = noteCategories.map(note => {
             const linkHtml = note.links.map(link => 
-                `<a href="/model/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
+                `<a href="/gallery/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
             ).join(' • ');
             return `
                 <div class="faq-item">
@@ -593,7 +593,7 @@ permalink: /model/
         if (narrativeDiv) {
             let extraHtml = '<div class="link-row" style="margin-top: 16px;">';
             extraLinkPhrases.forEach(phrase => {
-                extraHtml += `<a href="/model/?q=${encodeURIComponent(displayName + ' ' + phrase.link)}">${phrase.text} →</a>`;
+                extraHtml += `<a href="/gallery/?q=${encodeURIComponent(displayName + ' ' + phrase.link)}">${phrase.text} →</a>`;
             });
             extraHtml += '</div>';
             narrativeDiv.innerHTML += extraHtml;
