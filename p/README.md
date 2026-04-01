@@ -1,64 +1,62 @@
 <ol>
-<li>post</li>
-<li>categories</li>
-<li>tags</li>
-<li>labels</li>
-<li>keywords</li>
-<li>search</li>
-<li>archive</li>
-<li>article</li>
-<li>blog</li>
-<li>docs</li>
-<li>model</li>
-<li>page</li>
-  <li>file</li>
-  <li>gallery</li>
-  <li>folder</li>
-  <li>art</li>
-  <li>form</li>
-  <li>tab</li>
-  <li>pop</li>
-  <li>content</li>
-  <li>media</li>
-  <li>library</li>
-  <li>catalog</li>
-  <li>record</li>
-  <li>bio</li>
-  <li>list</li>
-  <li>data</li>
-  <li>note</li>
-  <li>visual</li>
-  <li>special</li>
-  <li>rare</li>
-  <li>item</li>
-  <li>personal</li>
-<li>session</li>
-<li>section</li>
-<li>studio</li>
-<li>view</li>
-<li>preview</li>
-<li>topic</li>
-<li>about</li>
-<li>edition</li>
-<li>photo</li>
-<li>video</li>
-<li>explore</li>
-<li>image</li>
-<li>movie</li>
-<li>limited</li>
-<li>vault</li>
-  <li>git</li>
-  <li>hub</li>
-  <li>beta</li>
-  <li>fokus</li>
-  <li>type</li>
-<li>record</li>
-<li>format</li>
-<li>digital</li>
-<li>original</li>
-<li>document</li>
-<li>frame</li>
-<li>source</li>
-<li>note</li>
-<li>track</li>
+<li><a href="https://nengmaya538.github.io/post/">post</a></li>
+<li><a href="https://nengmaya538.github.io/categories/">categories</a></li>
+<li><a href="https://nengmaya538.github.io/tags/">tags</a></li>
+<li><a href="https://nengmaya538.github.io/labels/">labels</a></li>
+<li><a href="https://nengmaya538.github.io/keywords/">keywords</a></li>
+<li><a href="https://nengmaya538.github.io/search/">search</a></li>
+<li><a href="https://nengmaya538.github.io/archive/">archive</a></li>
+<li><a href="https://nengmaya538.github.io/article/">article</a></li>
+<li><a href="https://nengmaya538.github.io/blog/">blog</a></li>
+<li><a href="https://nengmaya538.github.io/docs/">docs</a></li>
+<li><a href="https://nengmaya538.github.io/model/">model</a></li>
+<li><a href="https://nengmaya538.github.io/page/">page</a></li>
+<li><a href="https://nengmaya538.github.io/file/">file</a></li>
+<li><a href="https://nengmaya538.github.io/gallery/">gallery</a></li>
+<li><a href="https://nengmaya538.github.io/folder/">folder</a></li>
+<li><a href="https://nengmaya538.github.io/art/">art</a></li>
+<li><a href="https://nengmaya538.github.io/form/">form</a></li>
+<li><a href="https://nengmaya538.github.io/tab/">tab</a></li>
+<li><a href="https://nengmaya538.github.io/pop/">pop</a></li>
+<li><a href="https://nengmaya538.github.io/content/">content</a></li>
+<li><a href="https://nengmaya538.github.io/media/">media</a></li>
+<li><a href="https://nengmaya538.github.io/library/">library</a></li>
+<li><a href="https://nengmaya538.github.io/catalog/">catalog</a></li>
+<li><a href="https://nengmaya538.github.io/record/">record</a></li>
+<li><a href="https://nengmaya538.github.io/bio/">bio</a></li>
+<li><a href="https://nengmaya538.github.io/list/">list</a></li>
+<li><a href="https://nengmaya538.github.io/data/">data</a></li>
+<li><a href="https://nengmaya538.github.io/note/">note</a></li>
+<li><a href="https://nengmaya538.github.io/visual/">visual</a></li>
+<li><a href="https://nengmaya538.github.io/special/">special</a></li>
+<li><a href="https://nengmaya538.github.io/rare/">rare</a></li>
+<li><a href="https://nengmaya538.github.io/item/">item</a></li>
+<li><a href="https://nengmaya538.github.io/personal/">personal</a></li>
+<li><a href="https://nengmaya538.github.io/session/">session</a></li>
+<li><a href="https://nengmaya538.github.io/section/">section</a></li>
+<li><a href="https://nengmaya538.github.io/studio/">studio</a></li>
+<li><a href="https://nengmaya538.github.io/view/">view</a></li>
+<li><a href="https://nengmaya538.github.io/preview/">preview</a></li>
+<li><a href="https://nengmaya538.github.io/topic/">topic</a></li>
+<li><a href="https://nengmaya538.github.io/about/">about</a></li>
+<li><a href="https://nengmaya538.github.io/edition/">edition</a></li>
+<li><a href="https://nengmaya538.github.io/photo/">photo</a></li>
+<li><a href="https://nengmaya538.github.io/video/">video</a></li>
+<li><a href="https://nengmaya538.github.io/explore/">explore</a></li>
+<li><a href="https://nengmaya538.github.io/image/">image</a></li>
+<li><a href="https://nengmaya538.github.io/movie/">movie</a></li>
+<li><a href="https://nengmaya538.github.io/limited/">limited</a></li>
+<li><a href="https://nengmaya538.github.io/vault/">vault</a></li>
+<li><a href="https://nengmaya538.github.io/git/">git</a></li>
+<li><a href="https://nengmaya538.github.io/hub/">hub</a></li>
+<li><a href="https://nengmaya538.github.io/beta/">beta</a></li>
+<li><a href="https://nengmaya538.github.io/fokus/">fokus</a></li>
+<li><a href="https://nengmaya538.github.io/type/">type</a></li>
+<li><a href="https://nengmaya538.github.io/format/">format</a></li>
+<li><a href="https://nengmaya538.github.io/digital/">digital</a></li>
+<li><a href="https://nengmaya538.github.io/original/">original</a></li>
+<li><a href="https://nengmaya538.github.io/document/">document</a></li>
+<li><a href="https://nengmaya538.github.io/frame/">frame</a></li>
+<li><a href="https://nengmaya538.github.io/source/">source</a></li>
+<li><a href="https://nengmaya538.github.io/track/">track</a></li>
 </ol>
