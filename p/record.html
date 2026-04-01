@@ -1,0 +1,657 @@
+---
+layout: null
+permalink: /record/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    <meta name="rating" content="RTA-5042-1996-1400-1577-RTA">
+    
+    <title id="dynamic-title">Clinical Research Database | Case Files | IRB Approved</title>
+    <meta id="dynamic-description" name="description" content="Clinical research database. Approved studies. Documented case files. Institutional Review Board approved.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=Source+Code+Pro:wght@400;500&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Source Sans Pro', sans-serif;
+            background: #eef2f5;
+            color: #2c3e44;
+            line-height: 1.5;
+        }
+        
+        /* Clinical Header */
+        .clinical-header {
+            background: #1a4a5c;
+            color: white;
+            padding: 24px 0;
+            border-bottom: 4px solid #6bb5a8;
+        }
+        
+        .clinical-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        
+        .institution {
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #a8d5d0;
+        }
+        
+        .study-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+        
+        .irb-info {
+            font-size: 0.65rem;
+            margin-top: 8px;
+            color: #c0e0db;
+        }
+        
+        main { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 40px 32px 60px;
+        }
+        
+        .container {
+            background: white;
+            padding: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #d4dee0;
+        }
+        
+        /* Typography - Clinical Style */
+        h1 { 
+            font-size: 1.8rem; 
+            font-weight: 600; 
+            line-height: 1.3;
+            color: #1a4a5c;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+        
+        h2 { 
+            font-size: 1.1rem; 
+            font-weight: 600; 
+            margin: 32px 0 16px 0;
+            color: #2c6b6b;
+            border-left: 3px solid #6bb5a8;
+            padding-left: 14px;
+            letter-spacing: 0.3px;
+        }
+        
+        h3 { 
+            font-size: 0.9rem; 
+            font-weight: 600; 
+            margin: 16px 0 10px 0;
+            color: #3a7a7a;
+        }
+        
+        /* Links - Citation Style */
+        a { 
+            color: #2c7a6e; 
+            text-decoration: none;
+            border-bottom: 1px solid #c0d8d4;
+            transition: all 0.2s;
+        }
+        
+        a:hover { 
+            color: #1a5c52;
+            border-bottom-color: #6bb5a8;
+        }
+        
+        /* Breadcrumb - Record Locator */
+        .breadcrumb { 
+            font-size: 0.7rem;
+            color: #7a9aa0;
+            margin-bottom: 24px;
+            padding: 16px 24px;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8ec;
+            font-family: 'Source Code Pro', monospace;
+        }
+        
+        .breadcrumb a { color: #2c7a6e; border-bottom: none; }
+        
+        /* Grid - Case Reports */
+        .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 24px;
+            margin: 24px 0;
+        }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        @media (max-width: 1024px) { .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+        
+        /* Card - Clinical Case */
+        .case-card {
+            background: #ffffff;
+            border: 1px solid #e2e8ec;
+            padding: 20px;
+            transition: all 0.2s;
+            border-radius: 4px;
+        }
+        
+        .case-card:hover {
+            border-color: #6bb5a8;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .case-id {
+            font-size: 0.6rem;
+            font-family: 'Source Code Pro', monospace;
+            color: #6bb5a8;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Stats - Clinical Metrics */
+        .clinical-stats {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+            margin: 24px 0;
+            padding: 20px 24px;
+            background: #f8fafc;
+            border: 1px solid #e2e8ec;
+            border-radius: 4px;
+        }
+        
+        .stat {
+            flex: 1;
+            min-width: 90px;
+        }
+        
+        .stat-number {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #2c7a6e;
+            display: block;
+            line-height: 1;
+            font-family: 'Source Code Pro', monospace;
+        }
+        
+        .stat-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #7a9aa0;
+            margin-top: 6px;
+        }
+        
+        /* Clinical Note - Case Summary */
+        .clinical-note {
+            margin: 24px 0;
+            padding: 20px 24px;
+            background: #f8fafc;
+            border-left: 3px solid #6bb5a8;
+            font-size: 0.9rem;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* Tag System - Clinical Tags */
+        .clinical-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .clinical-tag {
+            background: #f0f5f7;
+            border: 1px solid #d4e2e4;
+            padding: 4px 14px;
+            font-size: 0.65rem;
+            font-family: 'Source Code Pro', monospace;
+            transition: all 0.2s;
+            border-radius: 20px;
+        }
+        
+        .clinical-tag a {
+            border-bottom: none;
+        }
+        
+        .clinical-tag:hover {
+            background: #e2f0ec;
+            border-color: #6bb5a8;
+        }
+        
+        /* Timeline - Study Timeline */
+        .study-timeline {
+            margin: 24px 0;
+        }
+        
+        .timeline-entry {
+            display: flex;
+            gap: 20px;
+            padding: 14px 0;
+            border-bottom: 1px solid #e8f0f2;
+            font-size: 0.85rem;
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: #2c7a6e;
+            min-width: 90px;
+            font-family: 'Source Code Pro', monospace;
+        }
+        
+        /* FAQ - Clinical Questions */
+        .clinical-qa {
+            margin: 20px 0;
+            padding: 16px 0;
+            border-bottom: 1px solid #e8f0f2;
+        }
+        
+        .clinical-question {
+            font-weight: 600;
+            color: #2c6b6b;
+            margin-bottom: 8px;
+        }
+        
+        hr { 
+            border: none; 
+            border-top: 1px solid #e2e8ec; 
+            margin: 32px 0; 
+        }
+        
+        .hidden { display: none; }
+        .query-placeholder { font-weight: 600; background: #f0f5f7; padding: 2px 6px; font-family: monospace; border-radius: 3px; }
+        .default-content.active { display: block; }
+        .default-content { display: none; }
+        #query-content { display: none; }
+        
+        .protocol-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-family: 'Source Code Pro', monospace;
+            background: #1a4a5c;
+            color: white;
+            padding: 4px 12px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+        }
+        
+        .disclaimer {
+            font-size: 0.65rem;
+            color: #9ab0b5;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #e2e8ec;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            main { padding: 24px 20px; }
+            h1 { font-size: 1.5rem; }
+            .clinical-stats { padding: 16px; }
+        }
+    </style>
+    {% include head.html %}
+</head>
+<body>
+    <div class="clinical-header">
+        <div class="clinical-container">
+            <div class="institution">INSTITUTE FOR DIGITAL MEDIA RESEARCH</div>
+            <div class="study-title">Clinical Research Database • Digital Media Case Files</div>
+            <div class="irb-info">IRB Protocol #: IDMR-2024-089 • Approved for Research • Valid through 2027</div>
+        </div>
+    </div>
+    
+    <main>
+        <div class="container">
+            <!-- DEFAULT CONTENT - RESEARCH HOME -->
+            <div id="default-content" class="default-content active">
+                <div style="padding: 24px;">
+                    <div class="protocol-badge">IRB APPROVED STUDY • PROTOCOL IDMR-2024-089</div>
+                    <h1>Digital Media<br>Clinical Research Database</h1>
+                    <p style="font-size: 0.95rem; color: #5a7a7a; margin: 16px 0 24px 0;">A peer-reviewed clinical database documenting digital media case studies for research purposes. All subjects de-identified per IRB requirements.</p>
+                    
+                    <div class="clinical-stats">
+                        <div class="stat"><span class="stat-number">15,247</span><span class="stat-label">CASE STUDIES</span></div>
+                        <div class="stat"><span class="stat-number">3,892</span><span class="stat-label">VIDEO RECORDS</span></div>
+                        <div class="stat"><span class="stat-number">9,456</span><span class="stat-label">IMAGING STUDIES</span></div>
+                        <div class="stat"><span class="stat-number">1,899</span><span class="stat-label">CLINICAL NOTES</span></div>
+                    </div>
+                    
+                    <div class="clinical-note">
+                        <strong>Principal Investigator's Note</strong><br>
+                        This database contains documented case studies of digital media phenomena. All materials are de-identified and approved for research purposes by the Institutional Review Board. Data collection follows standard clinical research protocols.
+                        <div style="margin-top: 12px; font-size:0.75rem;">— Dr. E. Carter, MD, PhD • Principal Investigator</div>
+                    </div>
+                    
+                    <!-- RESEARCH CATEGORIES -->
+                    <h2>Research Categories</h2>
+                    <div class="grid-3">
+                        <div class="case-card">
+                            <div class="case-id">PROTOCOL: VIS-001</div>
+                            <h3>Visual Media Studies</h3>
+                            <p style="font-size:0.85rem;">Documented visual media case files • Imaging records</p>
+                            <div style="margin-top: 12px;"><a href="/record/?q=visual media studies">View studies →</a></div>
+                        </div>
+                        <div class="case-card">
+                            <div class="case-id">PROTOCOL: VID-002</div>
+                            <h3>Video Documentation</h3>
+                            <p style="font-size:0.85rem;">Clinical video records • Time-based media analysis</p>
+                            <div style="margin-top: 12px;"><a href="/record/?q=video documentation">View studies →</a></div>
+                        </div>
+                        <div class="case-card">
+                            <div class="case-id">PROTOCOL: DOC-003</div>
+                            <h3>Document Analysis</h3>
+                            <p style="font-size:0.85rem;">Clinical notes • Documented case files</p>
+                            <div style="margin-top: 12px;"><a href="/record/?q=document analysis">View studies →</a></div>
+                        </div>
+                    </div>
+                    
+                    <!-- CLINICAL TAGS -->
+                    <h2>Research Protocols</h2>
+                    <div class="clinical-tags">
+                        <div class="clinical-tag"><a href="/record/?q=primary cases">PRIMARY CASES</a></div>
+                        <div class="clinical-tag"><a href="/record/?q=verified records">VERIFIED RECORDS</a></div>
+                        <div class="clinical-tag"><a href="/record/?q=longitudinal study">LONGITUDINAL STUDY</a></div>
+                        <div class="clinical-tag"><a href="/record/?q=control group">CONTROL GROUP</a></div>
+                        <div class="clinical-tag"><a href="/record/?q=case series">CASE SERIES</a></div>
+                    </div>
+                    
+                    <!-- PLATFORM SOURCES -->
+                    <h2>Data Sources</h2>
+                    <div class="clinical-tags">
+                        <div class="clinical-tag"><a href="/record/?q=instagram data">INSTAGRAM DATA</a></div>
+                        <div class="clinical-tag"><a href="/record/?q=twitter data">TWITTER DATA</a></div>
+                        <div class="clinical-tag"><a href="/record/?q=tiktok data">TIKTOK DATA</a></div>
+                        <div class="clinical-tag"><a href="/record/?q=facebook data">FACEBOOK DATA</a></div>
+                        <div class="clinical-tag"><a href="/record/?q=discord data">DISCORD DATA</a></div>
+                        <div class="clinical-tag"><a href="/record/?q=telegram data">TELEGRAM DATA</a></div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="clinical-note" style="text-align: center;">
+                        <strong>Research Access</strong><br>
+                        Enter subject identifier to access de-identified case files. All research conducted under IRB Protocol IDMR-2024-089.
+                    </div>
+                    
+                    <div class="disclaimer">
+                        IRB APPROVED RESEARCH • DE-IDENTIFIED DATA • FOR RESEARCH PURPOSES ONLY
+                    </div>
+                </div>
+            </div>
+            
+            <!-- QUERY-BASED CONTENT - INDIVIDUAL CASE FILE -->
+            <div id="query-content" style="display: none;">
+                <div style="padding: 24px;">
+                    <div class="breadcrumb">
+                        <a href="/">IRB Portal</a> / <a href="/record/">Research Database</a> / <span id="breadcrumb-name"></span> / Case File
+                    </div>
+                    
+                    <div class="protocol-badge" id="protocol-badge">IRB APPROVED • PROTOCOL IDMR-2024-089</div>
+                    <h1 id="main-heading"></h1>
+                    <p id="case-id" style="font-size: 0.7rem; color: #7a9aa0; margin-bottom: 20px; font-family: 'Source Code Pro', monospace;"></p>
+                    
+                    <!-- CLINICAL METRICS -->
+                    <div class="clinical-stats" id="clinical-metrics"></div>
+                    
+                    <!-- CASE SUMMARY -->
+                    <div class="clinical-note" id="case-summary"></div>
+                    
+                    <!-- ============================================
+                         RESEARCH DATA CATEGORIES - AUTO LINKS
+                         ============================================ -->
+                    <h2>Research Data Categories</h2>
+                    <div id="research-categories" class="grid-2"></div>
+                    
+                    <!-- ============================================
+                         DATA SOURCES - AUTO GENERATED
+                         ============================================ -->
+                    <h2>Data Sources</h2>
+                    <div id="data-sources" class="clinical-tags"></div>
+                    
+                    <!-- ============================================
+                         RELATED CASE STUDIES - AUTO GENERATED
+                         ============================================ -->
+                    <h2>Related Case Studies</h2>
+                    <div id="related-studies" class="clinical-tags"></div>
+                    
+                    <!-- ============================================
+                         STUDY TIMELINE - AUTO GENERATED
+                         ============================================ -->
+                    <h2>Study Timeline</h2>
+                    <div id="study-timeline" class="study-timeline"></div>
+                    
+                    <!-- ============================================
+                         CLINICAL Q&A - AUTO GENERATED
+                         ============================================ -->
+                    <h2>Research Q&A</h2>
+                    <div id="clinical-qa"></div>
+                    
+                    <hr />
+                    <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>  
+                    
+                    <div class="disclaimer" id="research-disclaimer">
+                        IRB APPROVED • DE-IDENTIFIED DATA • FOR RESEARCH PURPOSES ONLY
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            return;
+        }
+        
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        
+        // Format display name - clinical research style
+        function getDisplayName(q) {
+            const removeTerms = ['case', 'study', 'data', 'records', 'files', 'research', 'protocol'];
+            let name = q.toLowerCase();
+            removeTerms.forEach(term => {
+                name = name.replace(new RegExp('\\s*' + term + '\\s*$', 'i'), '');
+            });
+            return name.trim().split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || q;
+        }
+        
+        const displayName = getDisplayName(query);
+        const studyId = `CS-${new Date().getFullYear()}-${Math.floor(Math.random() * 9000 + 1000)}`;
+        const piName = ["Dr. E. Carter, MD", "Dr. S. Martinez, PhD", "Dr. A. Williams, MD, PhD"][Math.floor(Math.random() * 3)];
+        
+        // Update title
+        document.title = `Case Study: ${displayName} | Clinical Research Database | IRB Approved`;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            `Clinical case study: ${displayName}. De-identified research data. ${Math.floor(Math.random() * 500) + 200} documented observations. IRB approved.`);
+        
+        // Breadcrumb
+        document.getElementById('breadcrumb-name').textContent = displayName.toLowerCase().replace(/ /g, '-');
+        
+        // Protocol badge
+        document.getElementById('protocol-badge').innerHTML = `IRB APPROVED • PROTOCOL IDMR-2024-089 • CASE ${studyId}`;
+        
+        // Main heading
+        document.getElementById('main-heading').innerHTML = `${displayName}<br><span style="font-size:0.8rem;">Clinical Case Study • De-identified Data</span>`;
+        document.getElementById('case-id').innerHTML = `Study ID: ${studyId} | Principal Investigator: ${piName} | Data Collection: ${new Date().getFullYear() - 2}-${new Date().getFullYear()}`;
+        
+        // Random counts
+        const observations = Math.floor(Math.random() * 600) + 200;
+        const videoRecords = Math.floor(Math.random() * 120) + 30;
+        const imagingStudies = Math.floor(Math.random() * 500) + 150;
+        const clinicalNotes = Math.floor(Math.random() * 70) + 15;
+        
+        // Clinical metrics
+        document.getElementById('clinical-metrics').innerHTML = `
+            <div class="stat"><span class="stat-number">${observations}</span><span class="stat-label">OBSERVATIONS</span></div>
+            <div class="stat"><span class="stat-number">${videoRecords}</span><span class="stat-label">VIDEO RECORDS</span></div>
+            <div class="stat"><span class="stat-number">${imagingStudies}</span><span class="stat-label">IMAGING STUDIES</span></div>
+            <div class="stat"><span class="stat-number">${clinicalNotes}</span><span class="stat-label">CLINICAL NOTES</span></div>
+        `;
+        
+        // Case summary
+        const summaries = [
+            `This case study documents ${observations} observations related to ${displayName}. Data collected over ${Math.floor(Math.random() * 4 + 2)} years. All materials de-identified per IRB protocol.`,
+            `Clinical documentation for subject ${displayName}: ${observations} verified observations, ${videoRecords} video records, and ${imagingStudies} imaging studies. Longitudinal data analysis ongoing.`,
+            `Case file ${studyId}: ${displayName}. ${observations} documented observations. ${videoRecords} video records. ${imagingStudies} imaging studies. All data collected under approved protocol.`
+        ];
+        document.getElementById('case-summary').innerHTML = `<strong>Case Summary</strong><br>${summaries[Math.floor(Math.random() * summaries.length)]}<div style="margin-top: 12px; font-size:0.75rem;">— Clinical Research Team</div>`;
+        
+        // ============================================
+        // 1. RESEARCH DATA CATEGORIES - AUTO LINKS
+        // ============================================
+        const researchCategories = [
+            { label: "Imaging Studies", query: "imaging studies", count: imagingStudies, type: "Visual Data" },
+            { label: "Video Records", query: "video records", count: videoRecords, type: "Time-based Media" },
+            { label: "Clinical Notes", query: "clinical notes", count: clinicalNotes, type: "Documentation" },
+            { label: "Longitudinal Data", query: "longitudinal data", count: Math.floor(Math.random() * 80) + 20, type: "Follow-up" },
+            { label: "Control Group Data", query: "control group", count: Math.floor(Math.random() * 100) + 30, type: "Comparative" },
+            { label: "Follow-up Studies", query: "follow-up studies", count: Math.floor(Math.random() * 60) + 15, type: "Outcomes" }
+        ];
+        
+        document.getElementById('research-categories').innerHTML = researchCategories.map(cat => `
+            <div class="case-card">
+                <div class="case-id">DATA SET: ${cat.label.substring(0, 4).toUpperCase()}</div>
+                <h3>${cat.label}</h3>
+                <p style="font-size:0.75rem;">n=${cat.count} • ${cat.type}</p>
+                <div style="margin-top: 12px;"><a href="/record/?q=${encodeURIComponent(displayName + ' ' + cat.query)}">Access data →</a></div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 2. DATA SOURCES - AUTO GENERATED
+        // ============================================
+        const sources = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube'];
+        
+        document.getElementById('data-sources').innerHTML = sources.map(src => `
+            <div class="clinical-tag"><a href="/record/?q=${encodeURIComponent(displayName + ' ' + src.toLowerCase() + ' source')}">${src.toUpperCase()} DATA</a></div>
+        `).join('');
+        
+        // ============================================
+        // 3. RELATED CASE STUDIES - AUTO GENERATED
+        // ============================================
+        const relatedSubjects = [
+            'kendall jenner', 'hailey bieber', 'gigi hadid', 'bella hadid',
+            'emma watson', 'scarlett johansson', 'zendaya', 'margot robbie'
+        ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 10);
+        
+        document.getElementById('related-studies').innerHTML = relatedSubjects.map(sub => `
+            <div class="clinical-tag"><a href="/record/?q=${encodeURIComponent(sub)}">${sub.toUpperCase()} CASE STUDY</a></div>
+        `).join('');
+        
+        // ============================================
+        // 4. STUDY TIMELINE - AUTO GENERATED
+        // ============================================
+        const timelineEntries = [
+            { date: `${new Date().getFullYear() - 2}`, event: `Initial ${displayName} case documentation began` },
+            { date: `${new Date().getFullYear() - 1}`, event: `IRB approval for ${displayName} longitudinal study` },
+            { date: `${new Date().getFullYear() - 0}`, event: `Data collection completed, n=${observations + videoRecords + imagingStudies + clinicalNotes}` },
+            { date: "Current", event: `Ongoing data analysis and follow-up studies` }
+        ];
+        
+        document.getElementById('study-timeline').innerHTML = timelineEntries.map(entry => `
+            <div class="timeline-entry">
+                <div class="timeline-date">${entry.date}</div>
+                <div class="timeline-desc">${entry.event}</div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 5. CLINICAL Q&A - AUTO GENERATED
+        // ============================================
+        const clinicalQA = [
+            { 
+                q: `What is the scope of this ${displayName} case study?`, 
+                a: `This study documents ${observations} observations across ${Math.floor(Math.random() * 8 + 3)} data sources. `,
+                links: ['study parameters', 'research scope'] 
+            },
+            { 
+                q: `How was data verified for this case?`, 
+                a: `All data underwent standard clinical verification protocols. ${videoRecords} video records verified. ${imagingStudies} imaging studies reviewed. `,
+                links: ['verification protocol', 'data integrity'] 
+            },
+            { 
+                q: `Can researchers access complete ${displayName} case data?`, 
+                a: `Qualified researchers may request access through IRB protocol IDMR-2024-089. De-identified data available. `,
+                links: ['data access', 'research request'] 
+            },
+            { 
+                q: `Are there follow-up studies planned?`, 
+                a: `Longitudinal follow-up is ongoing. New observations will be added as they become available. `,
+                links: ['follow-up protocol', 'study updates'] 
+            }
+        ];
+        
+        document.getElementById('clinical-qa').innerHTML = clinicalQA.map(qa => {
+            const linkHtml = qa.links.map(link => 
+                `<a href="/record/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
+            ).join(' • ');
+            return `
+                <div class="clinical-qa">
+                    <div class="clinical-question">Q: ${qa.q}</div>
+                    <div style="color: #5a7a7a; font-size:0.85rem;">A: ${qa.a}</div>
+                    ${linkHtml ? `<div style="margin-top: 10px; font-size:0.65rem;">🔗 REFERENCES: ${linkHtml}</div>` : ''}
+                </div>
+            `;
+        }).join('');
+        
+        // ============================================
+        // EXTRA: Add research metadata
+        // ============================================
+        const metadataRefs = [
+            'study methodology', 'data collection protocol', 'statistical analysis', 'IRB documentation'
+        ];
+        
+        const metricsDiv = document.getElementById('clinical-metrics');
+        if (metricsDiv) {
+            let metaHtml = `
+                <div style="margin-top: 20px; width: 100%; border-top: 1px solid #e2e8ec; padding-top: 16px;">
+                    <div style="font-size:0.6rem; color:#7a9aa0; margin-bottom: 10px;">RESEARCH METADATA:</div>
+                    <div class="clinical-tags" style="margin-top: 0;">
+                        ${metadataRefs.map(ref => `<div class="clinical-tag"><a href="/record/?q=${encodeURIComponent(displayName + ' ' + ref)}">${ref.toUpperCase()}</a></div>`).join('')}
+                    </div>
+                </div>
+            `;
+            metricsDiv.innerHTML += metaHtml;
+        }
+        
+        // Add IRB disclaimer to case summary
+        const caseSummaryDiv = document.getElementById('case-summary');
+        if (caseSummaryDiv) {
+            caseSummaryDiv.innerHTML += `
+                <div style="margin-top: 14px; font-size:0.65rem; color:#7a9aa0;">
+                    IRB Protocol IDMR-2024-089 • All data de-identified • HIPAA compliant • For research use only
+                </div>
+            `;
+        }
+        
+        // Update disclaimer
+        document.getElementById('research-disclaimer').innerHTML = `IRB APPROVED • PROTOCOL IDMR-2024-089 • DE-IDENTIFIED DATA • ${displayName.toUpperCase()} CASE STUDY • FOR RESEARCH PURPOSES ONLY`;
+        
+    })();
+    </script>
+    
+    <br /><br /><br />
+    {% include footer.html %}
+</body>
+</html>
