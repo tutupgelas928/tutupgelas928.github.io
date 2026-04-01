@@ -1,0 +1,719 @@
+---
+layout: null
+permalink: /library/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    <meta name="rating" content="RTA-5042-1996-1400-1577-RTA">
+    
+    <title id="dynamic-title">VHS ARCHIVE // Analog Collection // Master Tape 001</title>
+    <meta id="dynamic-description" name="description" content="Analog archive. Vintage collection. Preserved magnetic media. Established 1984.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'IBM Plex Mono', monospace;
+            background: #2a2418;
+            color: #d4c8aa;
+            line-height: 1.5;
+            background-image: radial-gradient(circle at 25% 40%, rgba(80, 60, 40, 0.4) 2%, transparent 2.5%);
+            background-size: 28px 28px;
+            position: relative;
+        }
+        
+        /* VHS Tracking Lines Effect */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.2) 0px,
+                rgba(0, 0, 0, 0.2) 2px,
+                transparent 2px,
+                transparent 6px
+            );
+            pointer-events: none;
+            z-index: 999;
+            animation: tracking 8s linear infinite;
+        }
+        
+        @keyframes tracking {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(8px); }
+        }
+        
+        /* Tape Wobble Effect */
+        @keyframes tapeWobble {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(0.5px); }
+            75% { transform: translateX(-0.5px); }
+        }
+        
+        .vhs-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            position: relative;
+            z-index: 1;
+            animation: tapeWobble 4s ease-in-out infinite;
+        }
+        
+        /* VHS Tape Header */
+        .tape-header {
+            background: #1e1912;
+            border: 3px solid #5c4a2e;
+            border-radius: 12px 12px 0 0;
+            padding: 20px 24px;
+            margin-bottom: 0;
+            position: relative;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.5), 0 5px 10px rgba(0,0,0,0.3);
+        }
+        
+        .tape-label {
+            display: inline-block;
+            background: #3a2c1c;
+            padding: 6px 16px;
+            font-family: 'Special Elite', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: #e8c88c;
+            border-left: 3px solid #c49a6c;
+            margin-bottom: 16px;
+        }
+        
+        .vhs-title {
+            font-family: 'Special Elite', monospace;
+            font-size: 2.2rem;
+            font-weight: normal;
+            color: #ecd9b4;
+            text-shadow: 2px 2px 0 #4a3a22;
+            letter-spacing: -0.5px;
+        }
+        
+        .tape-meta {
+            font-size: 0.65rem;
+            color: #9a8a6a;
+            margin-top: 12px;
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        
+        /* Main Container - Old Paper */
+        .main-content {
+            background: #2c2418;
+            border: 1px solid #5c4a2e;
+            border-top: none;
+            padding: 32px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.3), 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Typography */
+        h1 { 
+            font-size: 1.8rem; 
+            font-weight: normal;
+            line-height: 1.3;
+            font-family: 'Special Elite', monospace;
+            color: #ecd9b4;
+            margin-bottom: 20px;
+            border-left: 4px solid #c49a6c;
+            padding-left: 20px;
+        }
+        
+        h2 { 
+            font-size: 1rem; 
+            font-weight: normal;
+            margin: 40px 0 20px 0;
+            font-family: 'Special Elite', monospace;
+            color: #e8c88c;
+            letter-spacing: 1px;
+            border-bottom: 1px dashed #5c4a2e;
+            padding-bottom: 6px;
+        }
+        
+        h3 { 
+            font-size: 0.85rem; 
+            font-weight: 600;
+            margin: 16px 0 10px 0;
+            font-family: 'IBM Plex Mono', monospace;
+            color: #d4b87a;
+        }
+        
+        /* Links - Handwritten Style */
+        a { 
+            color: #e8c88c; 
+            text-decoration: none;
+            border-bottom: 1px dotted #7a623a;
+            transition: all 0.2s;
+        }
+        
+        a:hover { 
+            color: #f5e2b0;
+            border-bottom-color: #e8c88c;
+            text-shadow: 0 0 3px rgba(232,200,140,0.5);
+        }
+        
+        /* Breadcrumb - Tape Counter */
+        .tape-counter {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            color: #7a6a4a;
+            margin-bottom: 28px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #3a2e1e;
+            letter-spacing: 1px;
+        }
+        
+        .tape-counter a { color: #b89a5a; border-bottom: none; }
+        
+        /* Grid - Tape Shelf */
+        .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 24px;
+            margin: 28px 0;
+        }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        @media (max-width: 1024px) { .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+        
+        /* Card - VHS Case */
+        .vhs-case {
+            background: #1e1912;
+            border: 2px solid #4a3a22;
+            padding: 20px;
+            transition: all 0.2s;
+            position: relative;
+        }
+        
+        .vhs-case::after {
+            content: "▌▌";
+            position: absolute;
+            bottom: 8px;
+            right: 12px;
+            font-size: 1rem;
+            color: #4a3a22;
+        }
+        
+        .vhs-case:hover {
+            border-color: #c49a6c;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .vhs-label {
+            font-size: 0.55rem;
+            font-family: monospace;
+            color: #9a8a6a;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        
+        /* Stats - Tape Metrics */
+        .tape-metrics {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+            margin: 28px 0;
+            padding: 20px;
+            background: #1e1912;
+            border: 1px solid #4a3a22;
+        }
+        
+        .metric {
+            flex: 1;
+            min-width: 90px;
+        }
+        
+        .metric-number {
+            font-size: 1.6rem;
+            font-weight: normal;
+            font-family: 'Special Elite', monospace;
+            color: #e8c88c;
+            display: block;
+            line-height: 1;
+        }
+        
+        .metric-label {
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #9a8a6a;
+            margin-top: 6px;
+        }
+        
+        /* Film Reel Style */
+        .film-note {
+            margin: 28px 0;
+            padding: 24px;
+            background: #1e1912;
+            border-left: 4px solid #c49a6c;
+            font-family: 'Special Elite', monospace;
+            font-size: 0.9rem;
+            position: relative;
+        }
+        
+        .film-note::before {
+            content: "🎞️";
+            position: absolute;
+            left: -12px;
+            top: -12px;
+            font-size: 1.2rem;
+        }
+        
+        /* Tag System - Film Tags */
+        .film-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .film-tag {
+            background: #1e1912;
+            border: 1px solid #4a3a22;
+            padding: 4px 14px;
+            font-size: 0.6rem;
+            font-family: monospace;
+            transition: all 0.2s;
+        }
+        
+        .film-tag a {
+            border-bottom: none;
+        }
+        
+        .film-tag:hover {
+            border-color: #c49a6c;
+            background: #2a2218;
+        }
+        
+        /* Timeline - Film Log */
+        .film-log {
+            margin: 28px 0;
+        }
+        
+        .film-entry {
+            display: flex;
+            gap: 20px;
+            padding: 14px 0;
+            border-bottom: 1px solid #3a2e1e;
+            font-size: 0.8rem;
+        }
+        
+        .film-date {
+            color: #c49a6c;
+            min-width: 90px;
+            font-family: monospace;
+        }
+        
+        /* FAQ - Viewer Questions */
+        .viewer-note {
+            margin: 24px 0;
+            padding: 18px 0;
+            border-bottom: 1px solid #3a2e1e;
+        }
+        
+        .viewer-question {
+            font-weight: 600;
+            font-family: 'Special Elite', monospace;
+            color: #e8c88c;
+            margin-bottom: 8px;
+        }
+        
+        hr { 
+            border: none; 
+            border-top: 2px dashed #4a3a22; 
+            margin: 40px 0; 
+        }
+        
+        .hidden { display: none; }
+        .query-placeholder { background: #3a2a1a; padding: 2px 8px; font-family: monospace; color: #e8c88c; }
+        .default-content.active { display: block; }
+        .default-content { display: none; }
+        #query-content { display: none; }
+        
+        .static-badge {
+            display: inline-block;
+            font-size: 0.55rem;
+            background: #3a2c1c;
+            padding: 3px 10px;
+            letter-spacing: 1px;
+            font-family: monospace;
+            margin-bottom: 16px;
+        }
+        
+        .counter-digits {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            color: #e8c88c;
+            background: #0a0804;
+            padding: 2px 8px;
+            display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            .vhs-container { padding: 20px 16px; }
+            .main-content { padding: 20px; }
+            .vhs-title { font-size: 1.5rem; }
+            h1 { font-size: 1.4rem; }
+        }
+    </style>
+    {% include head.html %}
+</head>
+<body>
+    <div class="vhs-container">
+        <!-- VHS TAPE HEADER -->
+        <div class="tape-header">
+            <div class="tape-label">VHS ARCHIVE • MASTER COLLECTION • EST. 1984</div>
+            <div class="vhs-title">THE VAULT<br>Analog Collection</div>
+            <div class="tape-meta">
+                <span>▌▌ MASTER TAPE 001</span>
+                <span>⏺ RECORDING: SP</span>
+                <span>⏱️ TOTAL TIME: ∞</span>
+                <span>🎞️ 15,247 FRAMES</span>
+            </div>
+        </div>
+        
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- DEFAULT CONTENT - VHS LIBRARY -->
+            <div id="default-content" class="default-content active">
+                <div class="static-badge">🎬 NOW PLAYING: MAIN LIBRARY</div>
+                <h1>Welcome to the<br>Analog Archive</h1>
+                <p style="font-size: 0.9rem; color: #b8a87a; margin: 16px 0 24px 0;">A collection of magnetic media, preserved in its original analog form. What was once lost to time, now cataloged.</p>
+                
+                <div class="tape-metrics">
+                    <div class="metric"><span class="metric-number">15,247</span><span class="metric-label">TAPES</span></div>
+                    <div class="metric"><span class="metric-number">3,892</span><span class="metric-label">VIDEO REELS</span></div>
+                    <div class="metric"><span class="metric-number">9,456</span><span class="metric-label">PHOTOGRAPHIC</span></div>
+                    <div class="metric"><span class="metric-number">1,899</span><span class="metric-label">DOCUMENTS</span></div>
+                </div>
+                
+                <div class="film-note">
+                    "What you're about to view exists outside the digital realm. These are physical recordings, transferred and preserved. The original magnetic tape degrades. The digital copy remains."
+                    <div style="margin-top: 12px; font-size:0.7rem;">— Archive Keeper, 1984</div>
+                </div>
+                
+                <!-- SHELF CATEGORIES -->
+                <h2>▌ SHELF CATEGORIES</h2>
+                <div class="grid-3">
+                    <div class="vhs-case">
+                        <div class="vhs-label">[VHS-001]</div>
+                        <h3>VISUAL COLLECTION</h3>
+                        <p style="font-size:0.75rem;">Photographic records • Image transfers</p>
+                        <div style="margin-top: 12px;"><a href="/library/?q=visual collection">▶ VIEW TAPES</a></div>
+                    </div>
+                    <div class="vhs-case">
+                        <div class="vhs-label">[VHS-002]</div>
+                        <h3>VIDEO REELS</h3>
+                        <p style="font-size:0.75rem;">Motion picture transfers • Time-based media</p>
+                        <div style="margin-top: 12px;"><a href="/library/?q=video reels">▶ VIEW TAPES</a></div>
+                    </div>
+                    <div class="vhs-case">
+                        <div class="vhs-label">[VHS-003]</div>
+                        <h3>ARCHIVAL DOCUMENTS</h3>
+                        <p style="font-size:0.75rem;">Paper records • Transcribed materials</p>
+                        <div style="margin-top: 12px;"><a href="/library/?q=archival documents">▶ VIEW TAPES</a></div>
+                    </div>
+                </div>
+                
+                <!-- RARE COLLECTIONS -->
+                <h2>▌ RARE COLLECTIONS</h2>
+                <div class="film-tags">
+                    <div class="film-tag"><a href="/library/?q=private collection">PRIVATE COLLECTION</a></div>
+                    <div class="film-tag"><a href="/library/?q=deleted scenes">DELETED SCENES</a></div>
+                    <div class="film-tag"><a href="/library/?q=rare footage">RARE FOOTAGE</a></div>
+                    <div class="film-tag"><a href="/library/?q=master reels">MASTER REELS</a></div>
+                    <div class="film-tag"><a href="/library/?q=uncut versions">UNCUT VERSIONS</a></div>
+                </div>
+                
+                <!-- PLATFORM TRANSFERS -->
+                <h2>▌ DIGITAL TRANSFERS</h2>
+                <div class="film-tags">
+                    <div class="film-tag"><a href="/library/?q=instagram transfer">INSTAGRAM</a></div>
+                    <div class="film-tag"><a href="/library/?q=twitter transfer">TWITTER</a></div>
+                    <div class="film-tag"><a href="/library/?q=tiktok transfer">TIKTOK</a></div>
+                    <div class="film-tag"><a href="/library/?q=facebook transfer">FACEBOOK</a></div>
+                    <div class="film-tag"><a href="/library/?q=discord transfer">DISCORD</a></div>
+                    <div class="film-tag"><a href="/library/?q=telegram transfer">TELEGRAM</a></div>
+                </div>
+                
+                <hr>
+                
+                <div class="film-note" style="text-align: center;">
+                    <span style="font-family: monospace;">⏺ INSERT TAPE LABEL →</span><br>
+                    <span style="font-size:0.7rem;">Enter a name in the search bar to locate specific recordings.</span>
+                </div>
+                
+                <div class="tape-metrics" style="margin-top: 20px; justify-content: center;">
+                    <div class="counter-digits">COUNTER: 0000</div>
+                </div>
+            </div>
+            
+            <!-- QUERY-BASED CONTENT - INDIVIDUAL TAPE -->
+            <div id="query-content" style="display: none;">
+                <div class="tape-counter">
+                    <span>COUNTER: <span id="counter-display">0000</span></span> &nbsp;|&nbsp;
+                    <span>TRACK: <span id="track-number">01</span></span> &nbsp;|&nbsp;
+                    <a href="/">⏏ EJECT</a> &nbsp;|&nbsp;
+                    <a href="/library/">⏪ LIBRARY</a>
+                </div>
+                
+                <div class="static-badge" id="tape-badge">🎬 MASTER TAPE</div>
+                <h1 id="main-heading"></h1>
+                <p id="tape-id" style="font-size: 0.7rem; color: #b89a5a; margin-bottom: 20px; font-family: monospace;"></p>
+                
+                <!-- TAPE METRICS -->
+                <div class="tape-metrics" id="tape-metrics"></div>
+                
+                <!-- FILM NOTE -->
+                <div class="film-note" id="film-note"></div>
+                
+                <!-- ============================================
+                     TAPE SECTIONS - AUTO GENERATED LINKS
+                     ============================================ -->
+                <h2>▌ TAPE SECTIONS</h2>
+                <div id="tape-sections" class="grid-2"></div>
+                
+                <!-- ============================================
+                     TRANSFER SOURCES - AUTO GENERATED
+                     ============================================ -->
+                <h2>▌ TRANSFER SOURCES</h2>
+                <div id="transfer-sources" class="film-tags"></div>
+                
+                <!-- ============================================
+                     RELATED TAPES - AUTO GENERATED
+                     ============================================ -->
+                <h2>▌ RELATED TAPES</h2>
+                <div id="related-tapes" class="film-tags"></div>
+                
+                <!-- ============================================
+                     FILM LOG - AUTO GENERATED
+                     ============================================ -->
+                <h2>▌ FILM LOG</h2>
+                <div id="film-log" class="film-log"></div>
+                
+                <!-- ============================================
+                     VIEWER NOTES (FAQ) - AUTO GENERATED
+                     ============================================ -->
+                <h2>▌ VIEWER NOTES</h2>
+                <div id="viewer-notes"></div>
+                
+                <hr />
+                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>  
+                
+                <div class="tape-metrics" style="margin-top: 20px;">
+                    <div class="counter-digits">▌▌ TRACKING ADJUSTED ▌▌</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            return;
+        }
+        
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        
+        // Format display name - analog style
+        function getDisplayName(q) {
+            const removeTerms = ['tape', 'reel', 'collection', 'transfer', 'footage', 'archive'];
+            let name = q.toLowerCase();
+            removeTerms.forEach(term => {
+                name = name.replace(new RegExp('\\s*' + term + '\\s*$', 'i'), '');
+            });
+            return name.trim().split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || q;
+        }
+        
+        const displayName = getDisplayName(query);
+        const tapeNumber = Math.floor(Math.random() * 9000 + 1000);
+        const counterValue = Math.floor(Math.random() * 9999);
+        
+        // Update title
+        document.title = `VHS: ${displayName} | Analog Archive | Master Tape ${tapeNumber}`;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            `Analog recording: ${displayName}. Preserved magnetic media. Transferred from original source. VHS Archive.`);
+        
+        // Update elements
+        document.getElementById('counter-display').textContent = String(counterValue).padStart(4, '0');
+        document.getElementById('track-number').textContent = String(Math.floor(Math.random() * 99) + 1).padStart(2, '0');
+        document.getElementById('tape-badge').innerHTML = `🎬 MASTER TAPE: ${tapeNumber}`;
+        
+        // Main heading
+        document.getElementById('main-heading').innerHTML = `${displayName}<br><span style="font-size:0.8rem;">Analog Recording • SP Mode</span>`;
+        document.getElementById('tape-id').innerHTML = `CATALOG: VHS-${tapeNumber} | FORMAT: NTSC | RECORDING SPEED: SP | CONDITION: PRESERVED`;
+        
+        // Random counts
+        const frameCount = Math.floor(Math.random() * 600) + 200;
+        const videoReels = Math.floor(Math.random() * 120) + 30;
+        const photoTransfers = Math.floor(Math.random() * 500) + 150;
+        const docCount = Math.floor(Math.random() * 70) + 15;
+        
+        // Tape metrics
+        document.getElementById('tape-metrics').innerHTML = `
+            <div class="metric"><span class="metric-number">${frameCount}</span><span class="metric-label">FRAMES</span></div>
+            <div class="metric"><span class="metric-number">${videoReels}</span><span class="metric-label">VIDEO REELS</span></div>
+            <div class="metric"><span class="metric-number">${photoTransfers}</span><span class="metric-label">PHOTO TRANSFERS</span></div>
+            <div class="metric"><span class="metric-number">${docCount}</span><span class="metric-label">DOCUMENTS</span></div>
+        `;
+        
+        // Film note
+        const filmNotes = [
+            `This tape contains the complete ${displayName} analog collection. Transferred from original magnetic media. Preserved in SP mode for maximum quality.`,
+            `Original ${displayName} recording. Transferred from Beta to VHS in 1998. Digitally preserved 2019. Complete archive.`,
+            `Master tape ${tapeNumber}: ${displayName}. Source material from private collection. Transferred with professional equipment.`
+        ];
+        document.getElementById('film-note').innerHTML = filmNotes[Math.floor(Math.random() * filmNotes.length)];
+        
+        // ============================================
+        // 1. TAPE SECTIONS - AUTO GENERATED LINKS
+        // ============================================
+        const tapeSections = [
+            { label: "VISUAL FRAMES", query: "visual frames", count: frameCount, format: "35mm transfer" },
+            { label: "VIDEO REELS", query: "video reels", count: videoReels, format: "SP mode" },
+            { label: "DOCUMENT TRANSFERS", query: "document transfers", count: docCount, format: "scanned" },
+            { label: "DELETED SCENES", query: "deleted scenes", count: Math.floor(Math.random() * 40) + 10, format: "uncut" },
+            { label: "MASTER COPIES", query: "master copies", count: Math.floor(Math.random() * 20) + 5, format: "original" },
+            { label: "BEHIND THE REEL", query: "behind the reel", count: Math.floor(Math.random() * 30) + 8, format: "B-roll" }
+        ];
+        
+        document.getElementById('tape-sections').innerHTML = tapeSections.map(section => `
+            <div class="vhs-case">
+                <div class="vhs-label">[REEL-${section.label.substring(0,3)}]</div>
+                <h3>${section.label}</h3>
+                <p style="font-size:0.7rem;">${section.count} items • ${section.format}</p>
+                <div style="margin-top: 12px;"><a href="/library/?q=${encodeURIComponent(displayName + ' ' + section.query)}">▶ PLAY TAPE</a></div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 2. TRANSFER SOURCES - AUTO GENERATED
+        // ============================================
+        const sources = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube'];
+        
+        document.getElementById('transfer-sources').innerHTML = sources.map(src => `
+            <div class="film-tag"><a href="/library/?q=${encodeURIComponent(displayName + ' ' + src.toLowerCase() + ' transfer')}">${src.toUpperCase()} TRANSFER</a></div>
+        `).join('');
+        
+        // ============================================
+        // 3. RELATED TAPES - AUTO GENERATED
+        // ============================================
+        const relatedNames = [
+            'kendall jenner', 'hailey bieber', 'gigi hadid', 'bella hadid',
+            'emma watson', 'scarlett johansson', 'zendaya', 'margot robbie'
+        ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 10);
+        
+        document.getElementById('related-tapes').innerHTML = relatedNames.map(name => `
+            <div class="film-tag"><a href="/library/?q=${encodeURIComponent(name)}">${name.toUpperCase()} TAPE</a></div>
+        `).join('');
+        
+        // ============================================
+        // 4. FILM LOG - AUTO GENERATED TIMELINE
+        // ============================================
+        const filmLogEntries = [
+            { date: "1984", event: `Original ${displayName} recording captured` },
+            { date: "1998", event: `Transferred from Beta to VHS format` },
+            { date: "2019", event: `Digital preservation and cataloging` },
+            { date: "2024", event: `Complete ${displayName} archive compiled` },
+            { date: "Present", event: `Master tape stored in climate-controlled vault` }
+        ];
+        
+        document.getElementById('film-log').innerHTML = filmLogEntries.map(entry => `
+            <div class="film-entry">
+                <div class="film-date">${entry.date}</div>
+                <div class="film-desc">${entry.event}</div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 5. VIEWER NOTES (FAQ) - AUTO GENERATED
+        // ============================================
+        const viewerNotes = [
+            { q: `What is the source of this ${displayName} tape?`, 
+              a: `Transferred from original magnetic media. Preserved in SP mode. `,
+              links: ['original source', 'transfer log'] },
+            { q: `Is this the complete ${displayName} recording?`, 
+              a: `Yes. This is the master tape containing all ${frameCount + videoReels + photoTransfers + docCount} preserved items. `,
+              links: ['full collection', 'master copy'] },
+            { q: `How was this tape preserved?`, 
+              a: `Climate-controlled storage. Digital transfer completed 2019. Regular quality checks. `,
+              links: ['preservation methods', 'archival process'] },
+            { q: `Are there more ${displayName} recordings?`, 
+              a: `New materials are added as they are discovered and transferred. `,
+              links: ['new acquisitions', 'recent transfers'] }
+        ];
+        
+        document.getElementById('viewer-notes').innerHTML = viewerNotes.map(note => {
+            const linkHtml = note.links.map(link => 
+                `<a href="/library/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
+            ).join(' • ');
+            return `
+                <div class="viewer-note">
+                    <div class="viewer-question">🎬 ${note.q}</div>
+                    <div style="color: #b8a87a; font-size:0.8rem;">${note.a}</div>
+                    ${linkHtml ? `<div style="margin-top: 10px; font-size:0.6rem;">🔗 RELATED: ${linkHtml}</div>` : ''}
+                </div>
+            `;
+        }).join('');
+        
+        // ============================================
+        // EXTRA: Add tape counter info
+        // ============================================
+        const extraReferences = [
+            'technical specs', 'transfer log', 'preservation notes', 'quality report'
+        ];
+        
+        const tapeMetricsDiv = document.getElementById('tape-metrics');
+        if (tapeMetricsDiv) {
+            let extraHtml = `
+                <div style="margin-top: 20px; width: 100%; border-top: 1px solid #4a3a22; padding-top: 16px;">
+                    <div style="font-size:0.55rem; color:#9a8a6a; margin-bottom: 10px;">▌ TAPE INFORMATION:</div>
+                    <div class="film-tags" style="margin-top: 0;">
+                        ${extraReferences.map(ref => `<div class="film-tag"><a href="/library/?q=${encodeURIComponent(displayName + ' ' + ref)}">${ref.toUpperCase()}</a></div>`).join('')}
+                    </div>
+                </div>
+            `;
+            tapeMetricsDiv.innerHTML += extraHtml;
+        }
+        
+        // Add tracking line effect note
+        const filmNoteDiv = document.getElementById('film-note');
+        if (filmNoteDiv) {
+            filmNoteDiv.innerHTML += `
+                <div style="margin-top: 14px; font-size:0.6rem; color:#7a623a;">
+                    ⚡ TRACKING: ADJUSTED | PLAYBACK: STABLE | SIGNAL: CLEAR
+                </div>
+            `;
+        }
+        
+    })();
+    </script>
+    
+    <br /><br /><br />
+    {% include footer.html %}
+</body>
+</html>
