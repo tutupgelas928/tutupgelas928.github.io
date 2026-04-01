@@ -51,4 +51,14 @@
   <li>hub</li>
   <li>beta</li>
   <li>fokus</li>
+  <li>type</li>
+<li>record</li>
+<li>format</li>
+<li>digital</li>
+<li>original</li>
+<li>document</li>
+<li>frame</li>
+<li>source</li>
+<li>note</li>
+<li>track</li>
 </ol>
