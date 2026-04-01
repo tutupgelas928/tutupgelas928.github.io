@@ -1,0 +1,508 @@
+---
+layout: null
+permalink: /file/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    
+    <title id="dynamic-title">The Vault | Exclusive Content Database</title>
+    <meta id="dynamic-description" name="description" content="Deep archive of rare celebrity content, private collections, and exclusive materials. Complete database with verified sources.">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            background: #0a0a0a;
+            color: #e5e5e5;
+            line-height: 1.5;
+        }
+        main { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 40px 24px;
+        }
+        .container {
+            background: #111111;
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            border: 1px solid #2a2a2a;
+        }
+        h1 { 
+            font-size: 3.2rem; 
+            font-weight: 800; 
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff 0%, #a855f7 50%, #ec489a 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+        h2 { 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            margin: 48px 0 20px 0;
+            color: #ffffff;
+            border-left: 4px solid #a855f7;
+            padding-left: 20px;
+        }
+        h3 { 
+            font-size: 1.3rem; 
+            font-weight: 600; 
+            margin: 28px 0 12px 0;
+            color: #f0f0f0;
+        }
+        a { 
+            color: #c084fc; 
+            text-decoration: none; 
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        a:hover { 
+            color: #f0abfc; 
+            text-decoration: underline;
+        }
+        .breadcrumb { 
+            padding: 12px 0 24px 0; 
+            margin-bottom: 24px; 
+            border-bottom: 1px solid #2a2a2a;
+            font-size: 0.85rem;
+            color: #888;
+        }
+        .breadcrumb a { color: #888; }
+        .breadcrumb a:hover { color: #c084fc; }
+        .breadcrumb span { color: #c084fc; font-weight: 600; }
+        
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 32px 0; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 32px 0; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 32px 0; }
+        @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+        
+        .card { 
+            background: #1a1a1a; 
+            border-radius: 16px; 
+            padding: 24px;
+            border: 1px solid #2a2a2a;
+            transition: all 0.3s ease;
+        }
+        .card:hover { 
+            border-color: #a855f7; 
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -12px rgba(168,85,247,0.2);
+        }
+        .card h3 { margin-top: 0; margin-bottom: 12px; color: #c084fc; }
+        
+        .teaser { 
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+            border-left: 4px solid #a855f7;
+            padding: 28px;
+            border-radius: 16px;
+            margin: 32px 0;
+            font-size: 1.1rem;
+        }
+        
+        .stat-bar { 
+            display: flex; 
+            gap: 32px; 
+            flex-wrap: wrap; 
+            background: #0f0f0f; 
+            padding: 20px 28px; 
+            border-radius: 16px;
+            margin: 24px 0;
+            border: 1px solid #2a2a2a;
+        }
+        .stat-item { flex: 1; min-width: 120px; }
+        .stat-number { font-size: 1.8rem; font-weight: 800; color: #c084fc; display: block; }
+        .stat-label { font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .pill-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 24px 0;
+        }
+        .pill {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 40px;
+            padding: 8px 20px;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        .pill:hover {
+            border-color: #a855f7;
+            background: rgba(168,85,247,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .badge { 
+            display: inline-block; 
+            background: #a855f7; 
+            color: white; 
+            font-size: 0.7rem; 
+            padding: 4px 10px; 
+            border-radius: 20px; 
+            margin-right: 8px;
+            font-weight: 600;
+        }
+        
+        .keyword-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0;
+        }
+        .keyword-tag {
+            background: linear-gradient(135deg, #1e1e2e 0%, #2a2a3a 100%);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid #3a3a4a;
+            transition: all 0.2s;
+        }
+        .keyword-tag:hover {
+            border-color: #a855f7;
+            transform: scale(1.02);
+        }
+        
+        .faq-item { margin: 24px 0; padding-bottom: 20px; border-bottom: 1px solid #2a2a2a; }
+        hr { border: none; border-top: 1px solid #2a2a2a; margin: 48px 0; }
+        .hidden { display: none; }
+        .query-placeholder { color: #c084fc; font-weight: 700; }
+        .default-content.active { display: block; }
+        .default-content { display: none; }
+        #query-content { display: none; }
+        
+        @media (max-width: 768px) {
+            .container { padding: 24px; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.4rem; }
+        }
+    </style>
+    {% include head.html %}
+</head>
+<body>
+    <main>
+        <div class="container">
+            <!-- DEFAULT CONTENT -->
+            <div id="default-content" class="default-content active">
+                <div class="badge">⚡ THE VAULT</div>
+                <h1>Beneath the Algorithm<br>Where Deleted Content Lives</h1>
+                <p style="font-size: 1.2rem; color: #aaa; margin: 16px 0 24px 0;">Over 15,000 archived items. Content that vanished from mainstream platforms.</p>
+                
+                <div class="stat-bar">
+                    <div class="stat-item"><span class="stat-number">15,247+</span><span class="stat-label">Total Assets</span></div>
+                    <div class="stat-item"><span class="stat-number">3,892+</span><span class="stat-label">Video Files</span></div>
+                    <div class="stat-item"><span class="stat-number">9,456+</span><span class="stat-label">Image Files</span></div>
+                </div>
+                
+                <div class="pill-group">
+                    <div class="pill"><a href="/file/?q=celebrity+archives">🎭 Celebrity Archives</a></div>
+                    <div class="pill"><a href="/file/?q=influencer+vault">📱 Influencer Vault</a></div>
+                    <div class="pill"><a href="/file/?q=rare+collections">💎 Rare Collections</a></div>
+                    <div class="pill"><a href="/file/?q=deleted+content">🗑️ Deleted Content</a></div>
+                    <div class="pill"><a href="/file/?q=exclusive+dumps">🔓 Exclusive Dumps</a></div>
+                </div>
+                
+                <div class="suspense-box">
+                    <p style="margin-top: 16px; font-size: 1.1rem;">↓ Type any name, any topic in the search bar ↓</p>
+                </div>
+            </div>
+            
+            <!-- QUERY-BASED CONTENT - AUTO-GENERATED INTERNAL LINKS -->
+            <div id="query-content" style="display: none;">
+                <div class="breadcrumb">
+                    <a href="/">The Vault</a> › 
+                    <a href="/file/">Archive</a> › 
+                    <span id="breadcrumb-name"></span>
+                </div>
+                
+                <h1 id="main-heading"></h1>
+                
+                <div class="teaser" id="dynamic-teaser"></div>
+                
+                <!-- ============================================
+                     SECTION 1: AUTO-GENERATED RELATED QUERIES
+                     ============================================ -->
+                <section>
+                    <h2>🔍 Related Searches</h2>
+                    <div id="related-queries" class="pill-group"></div>
+                </section>
+                
+                <!-- ============================================
+                     SECTION 2: CONTENT TYPE NAVIGATION
+                     ============================================ -->
+                <section>
+                    <h2>📁 Browse By Content Type</h2>
+                    <div id="content-type-links" class="grid-3"></div>
+                </section>
+                
+                <!-- ============================================
+                     SECTION 3: PLATFORM-SPECIFIC ARCHIVES
+                     ============================================ -->
+                <section>
+                    <h2>📱 Platform Archives</h2>
+                    <div id="platform-links" class="grid-4"></div>
+                </section>
+                
+                <!-- ============================================
+                     SECTION 4: RARE & EXCLUSIVE VARIANTS
+                     ============================================ -->
+                <section>
+                    <h2>💎 Exclusive Variants</h2>
+                    <div id="exclusive-links" class="grid-2"></div>
+                </section>
+                
+                <!-- ============================================
+                     SECTION 5: RELATED CELEBRITY SUGGESTIONS
+                     ============================================ -->
+                <section>
+                    <h2>🎭 You Might Also Explore</h2>
+                    <div id="celebrity-suggestions" class="keyword-cloud"></div>
+                </section>
+                
+                <!-- ============================================
+                     SECTION 6: FAQ WITH DYNAMIC LINKS
+                     ============================================ -->
+                <section>
+                    <h2>❓ Frequently Asked</h2>
+                    <div id="dynamic-faq"></div>
+                </section>
+                
+                <hr />
+                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>  
+                <hr />
+            </div>
+        </div>
+    </main>
+    
+    <script>
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            return;
+        }
+        
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        
+        // ============================================
+        // HELPER FUNCTIONS FOR AUTO-GENERATED LINKS
+        // ============================================
+        
+        // Get base name (remove common suffixes)
+        function getBaseName(q) {
+            const removeTerms = ['leak', 'leaks', 'leaked', 'archive', 'archives', 'photo', 'video', 'bio', 'collection'];
+            let base = q.toLowerCase();
+            removeTerms.forEach(term => {
+                base = base.replace(new RegExp('\\s*' + term + '\\s*$', 'i'), '');
+                base = base.replace(new RegExp('^' + term + '\\s*', 'i'), '');
+            });
+            return base.trim() || q;
+        }
+        
+        const baseName = getBaseName(query);
+        
+        // Update title
+        document.title = `${baseName} | Complete Archive | The Vault`;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            `Complete ${baseName} archive - private photos, videos, and documents. Full collection preserved. Explore what really happened.`);
+        
+        // Update H1
+        document.getElementById('main-heading').textContent = `${baseName}: The Complete Archive`;
+        document.getElementById('breadcrumb-name').textContent = baseName;
+        
+        // Update all placeholders
+        document.querySelectorAll('.query-placeholder').forEach(el => el.textContent = baseName);
+        
+        // Dynamic teaser
+        const teasers = [
+            `You're about to explore the complete ${baseName} archive — content that was removed from mainstream platforms.`,
+            `What you're about to see: the full ${baseName} collection, preserved before takedowns.`,
+            `This is the archive platforms didn't want you to find. The complete ${baseName} database.`
+        ];
+        document.getElementById('dynamic-teaser').innerHTML = `<span class="badge">🔍 ARCHIVE ACCESS</span><p style="margin-top:12px;">${teasers[Math.floor(Math.random() * teasers.length)]}</p>`;
+        
+        // ============================================
+        // 1. AUTO-GENERATE RELATED QUERIES
+        // ============================================
+        const relatedTerms = [
+            { suffix: 'full collection', label: '📁 Full Collection' },
+            { suffix: 'complete archive', label: '📦 Complete Archive' },
+            { suffix: 'rare photos', label: '📸 Rare Photos' },
+            { suffix: 'exclusive videos', label: '🎬 Exclusive Videos' },
+            { suffix: 'private documents', label: '📄 Private Documents' },
+            { suffix: 'deleted content', label: '🗑️ Deleted Content' },
+            { suffix: 'uncensored', label: '⚠️ Uncensored' },
+            { suffix: 'behind the scenes', label: '🎬 Behind The Scenes' }
+        ];
+        
+        const relatedContainer = document.getElementById('related-queries');
+        relatedContainer.innerHTML = relatedTerms.map(term => 
+            `<div class="pill"><a href="/file/?q=${encodeURIComponent(baseName + ' ' + term.suffix)}">${term.label}</a></div>`
+        ).join('');
+        
+        // ============================================
+        // 2. CONTENT TYPE NAVIGATION
+        // ============================================
+        const contentTypes = [
+            { type: 'photos', label: '📸 Photo Archives', desc: 'Complete image collections' },
+            { type: 'videos', label: '🎬 Video Archives', desc: 'Private footage & recordings' },
+            { type: 'documents', label: '📄 Document Archives', desc: 'Personal records & files' },
+            { type: 'exclusive', label: '🔓 Exclusive Content', desc: 'Rare & verified material' }
+        ];
+        
+        const contentTypeContainer = document.getElementById('content-type-links');
+        contentTypeContainer.innerHTML = contentTypes.map(ct => 
+            `<div class="card">
+                <h3>${ct.label}</h3>
+                <p>${ct.desc}</p>
+                <a href="/file/?q=${encodeURIComponent(baseName + ' ' + ct.type)}">Browse →</a>
+             </div>`
+        ).join('');
+        
+        // ============================================
+        // 3. PLATFORM-SPECIFIC ARCHIVES
+        // ============================================
+        const platforms = [
+            'instagram', 'twitter', 'tiktok', 'facebook', 
+            'discord', 'telegram', 'snapchat', 'youtube'
+        ];
+        
+        const platformContainer = document.getElementById('platform-links');
+        platformContainer.innerHTML = platforms.map(platform => 
+            `<div class="card">
+                <h3>📱 ${platform.charAt(0).toUpperCase() + platform.slice(1)}</h3>
+                <p>Deleted ${platform} content & archives</p>
+                <a href="/file/?q=${encodeURIComponent(baseName + ' ' + platform + ' archive')}">Explore →</a>
+             </div>`
+        ).join('');
+        
+        // ============================================
+        // 4. EXCLUSIVE VARIANTS
+        // ============================================
+        const exclusiveVariants = [
+            { variant: 'private server dump', label: '🔓 Private Server Dump', desc: 'Complete collection from breached servers' },
+            { variant: 'lost archive', label: '💎 The "Lost" Archive', desc: 'Content deleted within hours of surfacing' },
+            { variant: 'original uncensored', label: '⚠️ Uncensored Originals', desc: 'No watermarks, no edits' },
+            { variant: 'complete collection', label: '📦 Complete Database', desc: 'Every file in one place' }
+        ];
+        
+        const exclusiveContainer = document.getElementById('exclusive-links');
+        exclusiveContainer.innerHTML = exclusiveVariants.map(ev => 
+            `<div class="card">
+                <h3>${ev.label}</h3>
+                <p>${ev.desc}</p>
+                <a href="/file/?q=${encodeURIComponent(baseName + ' ' + ev.variant)}">Access →</a>
+             </div>`
+        ).join('');
+        
+        // ============================================
+        // 5. CELEBRITY SUGGESTIONS (auto-generated based on query)
+        // ============================================
+        const celebritySuggestions = [
+            'kendall jenner', 'hailey bieber', 'selena gomez', 'ariana grande',
+            'emma watson', 'scarlett johansson', 'margot robbie', 'zendaya'
+        ];
+        
+        // Filter suggestions that are different from current query
+        const filteredSuggestions = celebritySuggestions
+            .filter(name => !baseName.toLowerCase().includes(name.toLowerCase()))
+            .slice(0, 12);
+        
+        const celebContainer = document.getElementById('celebrity-suggestions');
+        celebContainer.innerHTML = filteredSuggestions.map(celeb => 
+            `<a href="/file/?q=${encodeURIComponent(celeb)}" class="keyword-tag">🎭 ${celeb}</a>`
+        ).join('');
+        
+        // ============================================
+        // 6. DYNAMIC FAQ WITH AUTO-GENERATED LINKS
+        // ============================================
+        const faqItems = [
+            {
+                q: `How did the ${baseName} archive originally surface?`,
+                a: `The ${baseName} archive first appeared on private servers before spreading across platforms. `,
+                links: ['private server dumps', 'underground forums']
+            },
+            {
+                q: `Is this the complete ${baseName} collection?`,
+                a: `Yes. This is the most comprehensive ${baseName} archive available anywhere. `,
+                links: ['full database', 'complete archive']
+            },
+            {
+                q: `What's the most requested ${baseName} content?`,
+                a: `The private video recordings and uncensored photo sets generate the most attention. `,
+                links: ['exclusive videos', 'uncensored photos']
+            },
+            {
+                q: `Where else can I find ${baseName} content?`,
+                a: `Most links were taken down elsewhere. This archive is one of the few places where the complete collection exists. `,
+                links: ['verified archives', 'exclusive collections']
+            }
+        ];
+        
+        const faqContainer = document.getElementById('dynamic-faq');
+        faqContainer.innerHTML = faqItems.map(faq => {
+            const linkHtml = faq.links.map(link => 
+                `<a href="/file/?q=${encodeURIComponent(baseName + ' ' + link)}">${link}</a>`
+            ).join(' • ');
+            return `
+                <div class="faq-item">
+                    <h3>${faq.q}</h3>
+                    <p>${faq.a} ${linkHtml ? 'Related: ' + linkHtml : ''}</p>
+                </div>
+            `;
+        }).join('');
+        
+        // ============================================
+        // EXTRA: ADDITIONAL AUTO-GENERATED QUERY LINKS
+        // ============================================
+        // Inject more related query variations into the page
+        const additionalVariations = [
+            'original files', 'high resolution', 'verified content', 
+            'rare footage', 'deleted scenes', 'private collection',
+            'full gallery', 'master archive', 'complete set'
+        ];
+        
+        // Add a new section if needed
+        const mainContent = document.getElementById('query-content');
+        const additionalSection = document.createElement('section');
+        additionalSection.innerHTML = `
+            <h2>🔗 More ${baseName} Archives</h2>
+            <div class="pill-group" id="extra-links"></div>
+        `;
+        
+        const extraLinksContainer = document.createElement('div');
+        extraLinksContainer.className = 'pill-group';
+        extraLinksContainer.innerHTML = additionalVariations.map(variation => 
+            `<div class="pill"><a href="/file/?q=${encodeURIComponent(baseName + ' ' + variation)}">${variation}</a></div>`
+        ).join('');
+        
+        additionalSection.querySelector('#extra-links')?.replaceWith(extraLinksContainer);
+        
+        // Insert before FAQ section
+        const faqSection = document.querySelector('#dynamic-faq')?.closest('section');
+        if (faqSection) {
+            faqSection.parentNode.insertBefore(additionalSection, faqSection);
+        }
+        
+    })();
+    </script>
+    
+    <br /><br /><br />
+    {% include footer.html %}
+</body>
+</html>
