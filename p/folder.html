@@ -1,0 +1,782 @@
+---
+layout: null
+permalink: /folder/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    
+    <title id="dynamic-title">// NEXUS:// DATABASE_ACCESS</title>
+    <meta id="dynamic-description" name="description" content="[CLASSIFIED] Terminal access to the Nexus Database. Restricted content archive. Authorization required.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Space Mono', monospace;
+            background: #0a0c0f;
+            color: #00ff9d;
+            line-height: 1.5;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* CRT Effect */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 255, 157, 0.03) 0px,
+                rgba(0, 255, 157, 0.03) 2px,
+                transparent 2px,
+                transparent 4px
+            );
+            pointer-events: none;
+            z-index: 999;
+        }
+        
+        /* Scanline */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 50%,
+                rgba(0, 0, 0, 0.4) 50%
+            );
+            background-size: 100% 8px;
+            pointer-events: none;
+            z-index: 999;
+            animation: scan 8s linear infinite;
+        }
+        
+        @keyframes scan {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100%; }
+        }
+        
+        /* Glitch Text */
+        @keyframes glitch {
+            0%, 100% { text-shadow: 0 0 0 #00ff9d, 0 0 0 #ff00de; }
+            33% { text-shadow: -2px 0 0 #ff00de, 2px 0 0 #00ff9d; }
+            66% { text-shadow: 2px 0 0 #ff00de, -2px 0 0 #00ff9d; }
+        }
+        
+        .glitch {
+            animation: glitch 0.3s infinite;
+        }
+        
+        main { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 20px 24px 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Terminal Header */
+        .terminal-header {
+            background: #0f1115;
+            border: 1px solid #00ff9d30;
+            border-radius: 8px 8px 0 0;
+            padding: 12px 20px;
+            margin-bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+        
+        .terminal-dots {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #2a2f3a;
+        }
+        
+        .dot.red { background: #ff5f5f; }
+        .dot.yellow { background: #ffbd5f; }
+        .dot.green { background: #00ff9d; }
+        
+        .terminal-path {
+            color: #00ff9d;
+            font-family: 'Space Mono', monospace;
+        }
+        
+        .terminal-path span { color: #ff00de; }
+        
+        .container {
+            background: #0a0c0f;
+            border: 1px solid #00ff9d30;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            padding: 32px;
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.1);
+        }
+        
+        /* Typography */
+        h1 { 
+            font-size: 2.5rem; 
+            font-weight: 900; 
+            line-height: 1.2;
+            font-family: 'Orbitron', monospace;
+            background: linear-gradient(135deg, #00ff9d 0%, #ff00de 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+        
+        h2 { 
+            font-size: 1.2rem; 
+            font-weight: 700; 
+            margin: 48px 0 20px 0;
+            font-family: 'Orbitron', monospace;
+            color: #00ff9d;
+            border-left: 3px solid #ff00de;
+            padding-left: 16px;
+            letter-spacing: 1px;
+        }
+        
+        h3 { 
+            font-size: 0.9rem; 
+            font-weight: 700; 
+            margin: 20px 0 12px 0;
+            font-family: 'Orbitron', monospace;
+            color: #ff00de;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Links - Terminal Style */
+        a { 
+            color: #00ff9d; 
+            text-decoration: none;
+            border-bottom: 1px dashed #00ff9d60;
+            transition: all 0.2s;
+            font-family: 'Space Mono', monospace;
+        }
+        
+        a:hover { 
+            color: #ff00de;
+            border-bottom-color: #ff00de;
+            text-shadow: 0 0 5px #ff00de;
+        }
+        
+        /* Breadcrumb - System Path */
+        .breadcrumb { 
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: #4a5568;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #00ff9d20;
+        }
+        
+        .breadcrumb a { color: #00ff9d; text-decoration: none; border-bottom: none; }
+        .breadcrumb a:hover { color: #ff00de; }
+        
+        /* Grid - Neon Borders */
+        .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 20px;
+            margin: 32px 0;
+        }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        @media (max-width: 1024px) { .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+        
+        /* Card - Terminal Window */
+        .card {
+            background: #0f1115;
+            border: 1px solid #00ff9d30;
+            border-radius: 6px;
+            padding: 20px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: ">";
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            color: #00ff9d30;
+            font-family: monospace;
+            font-size: 0.7rem;
+        }
+        
+        .card:hover {
+            border-color: #ff00de;
+            box-shadow: 0 0 15px rgba(255, 0, 222, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .card h3 { margin-top: 8px; }
+        
+        /* Stats - Data Display */
+        .stats-panel {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin: 32px 0;
+            padding: 20px;
+            background: #0f1115;
+            border: 1px solid #00ff9d30;
+            border-radius: 6px;
+        }
+        
+        .stat {
+            flex: 1;
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: 'Orbitron', monospace;
+            color: #ff00de;
+            display: block;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #4a5568;
+            margin-top: 6px;
+            font-family: 'Space Mono', monospace;
+        }
+        
+        /* Terminal Prompt */
+        .terminal-prompt {
+            background: #0f1115;
+            border-left: 3px solid #ff00de;
+            padding: 20px;
+            margin: 32px 0;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .prompt-line {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .prompt-sign {
+            color: #00ff9d;
+        }
+        
+        /* Link Matrix - Pill Style */
+        .matrix-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0;
+        }
+        
+        .matrix-link {
+            background: #0f1115;
+            border: 1px solid #00ff9d30;
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-size: 0.7rem;
+            font-family: 'Space Mono', monospace;
+            transition: all 0.2s;
+        }
+        
+        .matrix-link a {
+            border-bottom: none;
+        }
+        
+        .matrix-link:hover {
+            border-color: #ff00de;
+            background: rgba(255, 0, 222, 0.1);
+        }
+        
+        /* Timeline - Data Log */
+        .data-log {
+            margin: 32px 0;
+        }
+        
+        .log-entry {
+            display: flex;
+            gap: 20px;
+            padding: 16px 0;
+            border-bottom: 1px solid #00ff9d20;
+            font-size: 0.8rem;
+        }
+        
+        .log-timestamp {
+            font-family: 'Space Mono', monospace;
+            color: #ff00de;
+            min-width: 100px;
+        }
+        
+        /* FAQ - System Query */
+        .sys-query {
+            margin: 24px 0;
+            padding: 16px;
+            background: #0f1115;
+            border: 1px solid #00ff9d20;
+            border-radius: 4px;
+        }
+        
+        .sys-question {
+            color: #00ff9d;
+            font-weight: 700;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+        
+        .sys-question::before {
+            content: "> ";
+            color: #ff00de;
+        }
+        
+        /* Glitch Effect for Random Elements */
+        @keyframes flicker {
+            0% { opacity: 1; }
+            95% { opacity: 1; }
+            96% { opacity: 0.3; }
+            97% { opacity: 1; }
+            98% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .glitch-flicker {
+            animation: flicker 3s infinite;
+        }
+        
+        hr { 
+            border: none; 
+            border-top: 1px solid #00ff9d30; 
+            margin: 48px 0; 
+        }
+        
+        .hidden { display: none; }
+        .query-placeholder { color: #ff00de; font-weight: 700; background: #00ff9d10; padding: 2px 6px; border-radius: 3px; }
+        .default-content.active { display: block; }
+        .default-content { display: none; }
+        #query-content { display: none; }
+        
+        .badge {
+            display: inline-block;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            background: #ff00de20;
+            border: 1px solid #ff00de;
+            color: #ff00de;
+            padding: 2px 10px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.8rem; }
+            .log-entry { flex-direction: column; gap: 6px; }
+            .log-timestamp { min-width: auto; }
+        }
+    </style>
+    {% include head.html %}
+</head>
+<body>
+    <main>
+        <div class="terminal-header">
+            <div class="terminal-dots">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <div class="terminal-path">
+                <span>user@nexus</span>:<span>~/database/archive</span>$
+            </div>
+            <div style="color: #4a5568;">v2.4.7 | SECURE CONNECTION</div>
+        </div>
+        
+        <div class="container">
+            <!-- DEFAULT CONTENT - TERMINAL INTERFACE -->
+            <div id="default-content" class="default-content active">
+                <div class="badge">// ACCESS: PUBLIC_TERMINAL //</div>
+                <h1 class="glitch">NEXUS DATABASE<br><span style="font-size: 1.2rem;">[ CLASSIFIED ARCHIVE ]</span></h1>
+                
+                <div class="terminal-prompt">
+                    <div class="prompt-line">
+                        <span class="prompt-sign">$></span>
+                        <span>system_status: <span style="color:#00ff9d">ONLINE</span></span>
+                    </div>
+                    <div class="prompt-line" style="margin-top: 8px;">
+                        <span class="prompt-sign">$></span>
+                        <span>database_entries: <span style="color:#ff00de">15,247</span> verified</span>
+                    </div>
+                    <div class="prompt-line" style="margin-top: 8px;">
+                        <span class="prompt-sign">$></span>
+                        <span>last_update: <span style="color:#00ff9d">2026.03.31_23:59:47</span></span>
+                    </div>
+                </div>
+                
+                <div class="stats-panel">
+                    <div class="stat"><span class="stat-number">15.2K</span><span class="stat-label">ENTRIES</span></div>
+                    <div class="stat"><span class="stat-number">3.9K</span><span class="stat-label">VIDEO_FILES</span></div>
+                    <div class="stat"><span class="stat-number">9.4K</span><span class="stat-label">IMAGE_FILES</span></div>
+                    <div class="stat"><span class="stat-number">1.9K</span><span class="stat-label">DOCUMENTS</span></div>
+                </div>
+                
+                <!-- QUERY MATRIX - AUTO LINKS -->
+                <h2>> QUERY_MATRIX</h2>
+                <div class="matrix-links">
+                    <div class="matrix-link"><a href="/folder/?q=celebrity+nexus">CELEBRITY_NEXUS</a></div>
+                    <div class="matrix-link"><a href="/folder/?q=influencer+matrix">INFLUENCER_MATRIX</a></div>
+                    <div class="matrix-link"><a href="/folder/?q=rare+collection">RARE_COLLECTION</a></div>
+                    <div class="matrix-link"><a href="/folder/?q=deleted+content">DELETED_CONTENT</a></div>
+                    <div class="matrix-link"><a href="/folder/?q=private+recordings">PRIVATE_RECORDINGS</a></div>
+                    <div class="matrix-link"><a href="/folder/?q=exclusive+nexus">EXCLUSIVE_NEXUS</a></div>
+                    <div class="matrix-link"><a href="/folder/?q=verified+vault">VERIFIED_VAULT</a></div>
+                    <div class="matrix-link"><a href="/folder/?q=uncensored+archive">UNCENSORED_ARCHIVE</a></div>
+                </div>
+                
+                <!-- SYSTEM NODES -->
+                <h2>> SYSTEM_NODES</h2>
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>[NODE_ALPHA]</h3>
+                        <p>Visual Database — Complete image archives, verified and indexed.</p>
+                        <div class="matrix-links" style="margin-top: 12px;">
+                            <a href="/folder/?q=photo+nexus">ACCESS →</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>[NODE_BETA]</h3>
+                        <p>Video Repository — Private footage, deleted content, exclusive recordings.</p>
+                        <div class="matrix-links" style="margin-top: 12px;">
+                            <a href="/folder/?q=video+nexus">ACCESS →</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>[NODE_GAMMA]</h3>
+                        <p>Document Archive — Personal records, verified documents, leaked files.</p>
+                        <div class="matrix-links" style="margin-top: 12px;">
+                            <a href="/folder/?q=document+nexus">ACCESS →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PLATFORM NODES -->
+                <h2>> PLATFORM_NODES</h2>
+                <div class="matrix-links">
+                    <div class="matrix-link"><a href="/folder/?q=instagram+nexus">INSTAGRAM_NEXUS</a></div>
+                    <div class="matrix-link"><a href="/folder/?q=twitter+nexus">TWITTER_NEXUS</a></div>
+                    <div class="matrix-link"><a href="/folder/?q=tiktok+nexus">TIKTOK_NEXUS</a></div>
+                    <div class="matrix-link"><a href="/folder/?q=facebook+nexus">FACEBOOK_NEXUS</a></div>
+                    <div class="matrix-link"><a href="/folder/?q=discord+nexus">DISCORD_NEXUS</a></div>
+                    <div class="matrix-link"><a href="/folder/?q=telegram+nexus">TELEGRAM_NEXUS</a></div>
+                    <div class="matrix-link"><a href="/folder/?q=snapchat+nexus">SNAPCHAT_NEXUS</a></div>
+                </div>
+                
+                <hr>
+                
+                <div class="terminal-prompt" style="text-align: center;">
+                    <div class="prompt-line" style="justify-content: center;">
+                        <span class="prompt-sign blink">_</span>
+                        <span>ENTER_QUERY: [NAME] [TOPIC] [IDENTIFIER]</span>
+                    </div>
+                    <div style="margin-top: 16px;">
+                        <span class="badge">>> ACCESS_GRANTED: PUBLIC_TERMINAL</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- QUERY-BASED CONTENT - TERMINAL DATABASE INTERFACE -->
+            <div id="query-content" style="display: none;">
+                <div class="breadcrumb">
+                    <span style="color:#00ff9d">user@nexus</span>:<span style="color:#4a5568">~/database/folder/</span><span id="breadcrumb-path"></span>
+                </div>
+                
+                <h1 id="main-heading"></h1>
+                <div id="subheader" style="font-size: 0.7rem; color: #ff00de; margin-bottom: 24px; font-family: monospace;"></div>
+                
+                <!-- DATA SUMMARY PANEL -->
+                <div class="stats-panel" id="data-summary"></div>
+                
+                <!-- SYSTEM RESPONSE -->
+                <div class="terminal-prompt" id="system-response"></div>
+                
+                <!-- ============================================
+                     DATA NODES - AUTO GENERATED INTERNAL LINKS
+                     ============================================ -->
+                <h2>> DATA_NODES</h2>
+                <div id="data-nodes" class="grid-3"></div>
+                
+                <!-- ============================================
+                     PLATFORM_SCATTER - AUTO GENERATED
+                     ============================================ -->
+                <h2>> PLATFORM_SCATTER</h2>
+                <div id="platform-scatter" class="matrix-links"></div>
+                
+                <!-- ============================================
+                     RELATED_QUERIES - AUTO GENERATED
+                     ============================================ -->
+                <h2>> RELATED_QUERIES</h2>
+                <div id="related-queries" class="matrix-links"></div>
+                
+                <!-- ============================================
+                     TIMESTAMP_LOG - AUTO GENERATED
+                     ============================================ -->
+                <h2>> TIMESTAMP_LOG</h2>
+                <div id="timestamp-log" class="data-log"></div>
+                
+                <!-- ============================================
+                     SYSTEM_QUERIES (FAQ)
+                     ============================================ -->
+                <h2>> SYSTEM_QUERIES</h2>
+                <div id="system-queries"></div>
+                
+                <!-- ============================================
+                     CONNECTION_NODES (RELATED CELEBRITIES)
+                     ============================================ -->
+                <h2>> CONNECTION_NODES</h2>
+                <div id="connection-nodes" class="matrix-links"></div>
+                
+                <hr />
+                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>  
+                
+                <div class="terminal-prompt" style="margin-top: 32px; text-align: center; font-size: 0.7rem;">
+                    <span class="prompt-sign">$></span> session_active: TRUE | encryption: AES-256 | node_status: <span style="color:#00ff9d">ONLINE</span>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            return;
+        }
+        
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        
+        // Clean base name for display - terminal style
+        function getBaseName(q) {
+            const removeTerms = ['archive', 'nexus', 'matrix', 'vault', 'collection', 'database'];
+            let name = q.toLowerCase();
+            removeTerms.forEach(term => {
+                name = name.replace(new RegExp('\\s*' + term + '\\s*$', 'i'), '');
+                name = name.replace(new RegExp('^' + term + '\\s*', 'i'), '');
+            });
+            return name.trim().toUpperCase() || q.toUpperCase();
+        }
+        
+        const baseName = getBaseName(query);
+        const displayName = query.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        
+        // Update title - terminal style
+        document.title = `[${baseName}] // NEXUS_DATABASE // SECURE_ACCESS`;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            `Nexus Database entry for ${displayName}. ${Math.floor(Math.random() * 500) + 100}+ verified records. Encrypted archive.`);
+        
+        // Main heading
+        document.getElementById('main-heading').innerHTML = `${baseName}<br><span style="font-size: 0.8rem; color: #00ff9d;">// DATABASE_ENTRY // STATUS: ACTIVE</span>`;
+        document.getElementById('breadcrumb-path').innerHTML = baseName.toLowerCase() + '/';
+        document.getElementById('subheader').innerHTML = `[ENTRY_ID: ${baseName.substring(0, 4)}${Math.floor(Math.random() * 9000 + 1000)}] | VERIFIED: ${new Date().toISOString().slice(0, 10)} | ENCRYPTION: ACTIVE`;
+        
+        // Random data counts
+        const photoCount = Math.floor(Math.random() * 600) + 200;
+        const videoCount = Math.floor(Math.random() * 150) + 30;
+        const docCount = Math.floor(Math.random() * 80) + 15;
+        
+        // Data summary panel
+        document.getElementById('data-summary').innerHTML = `
+            <div class="stat"><span class="stat-number">${photoCount}+</span><span class="stat-label">VISUAL_ASSETS</span></div>
+            <div class="stat"><span class="stat-number">${videoCount}</span><span class="stat-label">VIDEO_FILES</span></div>
+            <div class="stat"><span class="stat-number">${docCount}</span><span class="stat-label">DOCUMENTS</span></div>
+            <div class="stat"><span class="stat-number">${Math.floor(Math.random() * 30) + 8}</span><span class="stat-label">SOURCE_NODES</span></div>
+        `;
+        
+        // System response
+        const systemResponses = [
+            `> QUERY_ACCEPTED: ${baseName} // RETRIEVING ${photoCount + videoCount + docCount} RECORDS // DECRYPTION IN PROGRESS`,
+            `> ACCESS_GRANTED: ${baseName} DATABASE // ${photoCount} VISUAL // ${videoCount} VIDEO // ${docCount} DOC`,
+            `> CONNECTION_ESTABLISHED: ${baseName} NODE // TOTAL_ENTRIES: ${photoCount + videoCount + docCount} // VERIFIED`
+        ];
+        document.getElementById('system-response').innerHTML = `<div class="prompt-line"><span class="prompt-sign">$></span> ${systemResponses[Math.floor(Math.random() * systemResponses.length)]}</div>`;
+        
+        // ============================================
+        // 1. DATA NODES - AUTO GENERATED INTERNAL LINKS
+        // ============================================
+        const dataNodes = [
+            { label: '[NODE_VISUAL]', query: 'visual assets', desc: `${photoCount}+ verified images`, type: 'photos' },
+            { label: '[NODE_VIDEO]', query: 'video files', desc: `${videoCount} recordings`, type: 'videos' },
+            { label: '[NODE_DOCUMENT]', query: 'documents', desc: `${docCount} verified records`, type: 'documents' },
+            { label: '[NODE_EXCLUSIVE]', query: 'exclusive nexus', desc: 'Restricted materials', type: 'exclusive' },
+            { label: '[NODE_UNCENSORED]', query: 'uncensored', desc: 'Unedited originals', type: 'uncensored' },
+            { label: '[NODE_RARE]', query: 'rare collection', desc: 'Limited release content', type: 'rare' }
+        ];
+        
+        document.getElementById('data-nodes').innerHTML = dataNodes.map(node => `
+            <div class="card">
+                <h3>${node.label}</h3>
+                <p>${node.desc}</p>
+                <div class="matrix-links" style="margin-top: 12px; padding: 0;">
+                    <a href="/folder/?q=${encodeURIComponent(displayName + ' ' + node.query)}">[ACCESS_NODE] →</a>
+                </div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 2. PLATFORM SCATTER - AUTO GENERATED
+        // ============================================
+        const platforms = ['INSTAGRAM', 'TWITTER', 'TIKTOK', 'FACEBOOK', 'DISCORD', 'TELEGRAM', 'SNAPCHAT', 'YOUTUBE', 'REDDIT'];
+        
+        document.getElementById('platform-scatter').innerHTML = platforms.map(p => `
+            <div class="matrix-link"><a href="/folder/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' nexus')}">${p}_NEXUS</a></div>
+        `).join('');
+        
+        // ============================================
+        // 3. RELATED QUERIES - AUTO GENERATED
+        // ============================================
+        const relatedVariants = [
+            'complete archive', 'full database', 'original files', 'high resolution',
+            'private collection', 'verified records', 'master index', 'source files'
+        ];
+        
+        document.getElementById('related-queries').innerHTML = relatedVariants.map(v => `
+            <div class="matrix-link"><a href="/folder/?q=${encodeURIComponent(displayName + ' ' + v)}">${v.toUpperCase().replace(/ /g, '_')}</a></div>
+        `).join('');
+        
+        // ============================================
+        // 4. TIMESTAMP LOG - AUTO GENERATED
+        // ============================================
+        const logEntries = [
+            { time: '2024.03.15_14:23:07', action: `INITIAL_${baseName}_ENTRY_CREATED` },
+            { time: '2024.06.22_09:47:33', action: `${photoCount}+_VISUAL_ASSETS_INDEXED` },
+            { time: '2024.09.08_22:15:41', action: `PLATFORM_SCATTER_COMPLETE_${platforms.length}_NODES` },
+            { time: '2025.01.17_03:42:19', action: `VERIFICATION_PROTOCOL_COMPLETED` },
+            { time: '2025.11.02_18:30:55', action: `DATABASE_ENTRY_UPDATED_${photoCount + videoCount + docCount}_TOTAL` },
+            { time: '2026.03.31_23:59:47', action: `LAST_SYNC_COMPLETE_${new Date().toISOString().slice(0, 10)}` }
+        ];
+        
+        document.getElementById('timestamp-log').innerHTML = logEntries.map(entry => `
+            <div class="log-entry">
+                <div class="log-timestamp">[${entry.time}]</div>
+                <div class="log-action">${entry.action}</div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 5. SYSTEM QUERIES (FAQ with auto links)
+        // ============================================
+        const sysQueries = [
+            { q: `ORIGIN_OF_${baseName}_DATA`, 
+              a: `Initial data nodes detected from private servers. `,
+              links: ['private nexus', 'source origin'] },
+            { q: `VERIFICATION_STATUS`, 
+              a: `All ${baseName} records cross-referenced across ${Math.floor(Math.random() * 15) + 10} source nodes. `,
+              links: ['verified vault', 'source verification'] },
+            { q: `COMPLETE_${baseName}_DATABASE`, 
+              a: `Full archive contains ${photoCount + videoCount + docCount} verified entries. `,
+              links: ['complete archive', 'full database'] },
+            { q: `UPDATE_FREQUENCY`, 
+              a: `Database sync every 72 hours. New ${baseName} materials added automatically. `,
+              links: ['new releases', 'archive updates'] }
+        ];
+        
+        document.getElementById('system-queries').innerHTML = sysQueries.map(sq => {
+            const linkHtml = sq.links.map(link => 
+                `<a href="/folder/?q=${encodeURIComponent(displayName + ' ' + link)}" style="font-size:0.7rem;">${link.toUpperCase()}</a>`
+            ).join(' // ');
+            return `
+                <div class="sys-query">
+                    <div class="sys-question">${sq.q}</div>
+                    <div style="color: #8a9ba8; font-size: 0.75rem;">${sq.a}</div>
+                    ${linkHtml ? `<div style="margin-top: 12px; font-size:0.7rem;">[RELATED: ${linkHtml}]</div>` : ''}
+                </div>
+            `;
+        }).join('');
+        
+        // ============================================
+        // 6. CONNECTION NODES (Related celebrities)
+        // ============================================
+        const connectionNames = [
+            'kendall jenner', 'hailey bieber', 'gigi hadid', 'bella hadid',
+            'emma watson', 'scarlett johansson', 'zendaya', 'margot robbie'
+        ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 12);
+        
+        document.getElementById('connection-nodes').innerHTML = connectionNames.map(name => `
+            <div class="matrix-link"><a href="/folder/?q=${encodeURIComponent(name)}">${name.toUpperCase().replace(/ /g, '_')}</a></div>
+        `).join('');
+        
+        // ============================================
+        // EXTRA: Inject additional matrix links in system response
+        // ============================================
+        const extraLinks = [
+            'master index', 'full database', 'source code', 'verified records'
+        ];
+        
+        const systemResponseDiv = document.getElementById('system-response');
+        if (systemResponseDiv) {
+            let extraHtml = '<div class="matrix-links" style="margin-top: 16px; padding: 0;">';
+            extraLinks.forEach(link => {
+                extraHtml += `<div class="matrix-link"><a href="/folder/?q=${encodeURIComponent(displayName + ' ' + link)}">${link.toUpperCase().replace(/ /g, '_')}</a></div>`;
+            });
+            extraHtml += '</div>';
+            systemResponseDiv.innerHTML += extraHtml;
+        }
+        
+    })();
+    </script>
+    
+    <br /><br /><br />
+    {% include footer.html %}
+</body>
+</html>
