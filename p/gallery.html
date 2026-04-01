@@ -1,0 +1,608 @@
+---
+layout: null
+permalink: /model/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    
+    <title id="dynamic-title">DIGITAL FOOTPRINTS | Investigative Database</title>
+    <meta id="dynamic-description" name="description" content="Investigative database tracking digital footprints, deleted content, and archived material. Independent research since 2024.">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            background: #faf9f7;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        
+        /* Newspaper style header */
+        .header-banner {
+            border-bottom: 3px solid #1a1a1a;
+            padding: 20px 0;
+            margin-bottom: 40px;
+            text-align: center;
+            background: white;
+        }
+        
+        .logo {
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .logo-main {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            font-family: 'Georgia', serif;
+        }
+        
+        .edition {
+            font-size: 0.7rem;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 12px;
+            margin-top: 12px;
+        }
+        
+        main { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 0 24px 60px;
+        }
+        
+        .container {
+            background: white;
+            padding: 0;
+        }
+        
+        /* Typography */
+        h1 { 
+            font-size: 3rem; 
+            font-weight: 700; 
+            line-height: 1.2;
+            margin-bottom: 24px;
+            font-family: 'Georgia', serif;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 { 
+            font-size: 1.4rem; 
+            font-weight: 600; 
+            margin: 48px 0 20px 0;
+            font-family: 'Georgia', serif;
+            border-left: 3px solid #1a1a1a;
+            padding-left: 18px;
+            letter-spacing: -0.2px;
+        }
+        
+        h3 { 
+            font-size: 1.2rem; 
+            font-weight: 600; 
+            margin: 24px 0 12px 0;
+            font-family: 'Georgia', serif;
+        }
+        
+        /* Links style - underlined like journalism */
+        a { 
+            color: #1a1a1a; 
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        
+        a:hover { 
+            color: #666;
+            text-decoration-thickness: 2px;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb { 
+            font-family: 'Courier New', monospace;
+            font-size: 0.7rem;
+            color: #999;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #eee;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .breadcrumb a { color: #666; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        
+        /* Grid layouts */
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin: 32px 0; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin: 32px 0; }
+        @media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 24px; } }
+        
+        /* Card style - minimal, border only */
+        .card {
+            border-top: 2px solid #1a1a1a;
+            padding: 20px 0 0 0;
+            background: transparent;
+        }
+        
+        .card h3 { margin-top: 0; }
+        
+        /* Stats - clean numbers */
+        .stats-grid {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+            margin: 32px 0;
+            padding: 24px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .stat {
+            flex: 1;
+            min-width: 100px;
+        }
+        
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+            display: block;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-top: 6px;
+        }
+        
+        /* Pull quote style */
+        .pull-quote {
+            margin: 40px 0;
+            padding: 24px 32px;
+            background: #f5f3f0;
+            border-left: 4px solid #1a1a1a;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        
+        /* Timeline style */
+        .timeline {
+            margin: 32px 0;
+        }
+        
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 24px;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .timeline-date {
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            color: #666;
+        }
+        
+        /* Link clusters */
+        .link-cluster {
+            margin: 24px 0;
+            padding: 20px;
+            background: #faf9f7;
+            border: 1px solid #eee;
+        }
+        
+        .link-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 12px 0;
+        }
+        
+        .link-row a {
+            font-size: 0.85rem;
+            text-decoration: none;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 2px;
+        }
+        
+        /* FAQ style */
+        .faq-item {
+            margin: 28px 0;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+        
+        .faq-answer {
+            color: #444;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* Footer */
+        .footer-note {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid #eee;
+            font-size: 0.75rem;
+            color: #999;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+        }
+        
+        hr { border: none; border-top: 1px solid #eee; margin: 48px 0; }
+        .hidden { display: none; }
+        .query-placeholder { font-weight: 700; background: #f0f0f0; padding: 0 4px; }
+        .default-content.active { display: block; }
+        .default-content { display: none; }
+        #query-content { display: none; }
+        
+        .badge {
+            display: inline-block;
+            font-family: 'Courier New', monospace;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: #1a1a1a;
+            color: white;
+            padding: 2px 8px;
+            margin-right: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            main { padding: 0 16px 40px; }
+            h1 { font-size: 2rem; }
+            .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+        }
+    </style>
+    {% include head.html %}
+</head>
+<body>
+    <div class="header-banner">
+        <div class="logo">DIGITAL INVESTIGATIONS UNIT</div>
+        <div class="logo-main">FOOTPRINTS</div>
+        <div class="edition">INDEPENDENT ARCHIVE • EST. 2024 • VOL. IV</div>
+    </div>
+    
+    <main>
+        <div class="container">
+            <!-- DEFAULT CONTENT - INVESTIGATIVE BRIEF -->
+            <div id="default-content" class="default-content active">
+                <div class="badge">READER BRIEFING</div>
+                <h1>What the Internet Erased<br>We Preserved.</h1>
+                <p style="font-size: 1.2rem; color: #444; margin: 16px 0 24px 0; line-height: 1.4;">A public database tracking deleted content, private collections, and digital footprints that were never meant to be found.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat"><span class="stat-number">15,247</span><span class="stat-label">Verified Entries</span></div>
+                    <div class="stat"><span class="stat-number">892</span><span class="stat-label">Sources</span></div>
+                    <div class="stat"><span class="stat-number">2019</span><span class="stat-label">First Archive</span></div>
+                </div>
+                
+                <div class="pull-quote">
+                    "Every week, content disappears from public platforms. Our work is documenting what gets erased before it's gone forever."
+                </div>
+                
+                <!-- SEARCH GUIDANCE -->
+                <h2>How to Use This Database</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>Search by Name</h3>
+                        <p>Enter any public figure, influencer, or celebrity name in the search bar above. Our database cross-references across 40+ sources.</p>
+                        <div class="link-row" style="margin-top: 12px;">
+                            <a href="/model/?q=kendall jenner">Kendall Jenner →</a>
+                            <a href="/model/?q=hailey bieber">Hailey Bieber →</a>
+                            <a href="/model/?q=emma watson">Emma Watson →</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Search by Topic</h3>
+                        <p>Looking for specific types of content? Try searching by category to narrow your investigation.</p>
+                        <div class="link-row" style="margin-top: 12px;">
+                            <a href="/model/?q=photo archives">Photo Archives →</a>
+                            <a href="/model/?q=video archives">Video Archives →</a>
+                            <a href="/model/?q=document leaks">Document Leaks →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Featured Investigations</h2>
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>The Private Server Collection</h3>
+                        <p>A complete archive from a compromised server. Content that never saw public release.</p>
+                        <div class="link-row"><a href="/model/?q=private server dumps">Read investigation →</a></div>
+                    </div>
+                    <div class="card">
+                        <h3>Deleted Platform Content</h3>
+                        <p>What Instagram, Twitter, and TikTok removed. Preserved before deletion.</p>
+                        <div class="link-row"><a href="/model/?q=deleted platform content">Read investigation →</a></div>
+                    </div>
+                    <div class="card">
+                        <h3>The Lost Archive</h3>
+                        <p>Content that vanished within hours of surfacing. Documented here.</p>
+                        <div class="link-row"><a href="/model/?q=lost archive">Read investigation →</a></div>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <div style="text-align: center; padding: 40px 0;">
+                    <p style="color: #666;">↓ Begin your investigation. Search any name above. ↓</p>
+                </div>
+            </div>
+            
+            <!-- QUERY-BASED CONTENT - NARRATIVE STYLE WITH AUTO-GENERATED LINKS -->
+            <div id="query-content" style="display: none;">
+                <div class="breadcrumb">
+                    FOOTPRINTS / ARCHIVE / <span id="breadcrumb-name"></span> / COMPLETE DOSSIER
+                </div>
+                
+                <h1 id="main-heading"></h1>
+                <p id="subhead" style="font-size: 1rem; color: #666; margin-bottom: 32px; border-left: 3px solid #ddd; padding-left: 16px;"></p>
+                
+                <!-- CASE FILE SECTION -->
+                <div class="stats-grid" id="case-stats"></div>
+                
+                <!-- NARRATIVE INTRO -->
+                <div id="narrative-intro" class="pull-quote"></div>
+                
+                <!-- ============================================
+                     SECTION 1: TIMELINE (AUTO-GENERATED)
+                     ============================================ -->
+                <h2>Case Timeline</h2>
+                <div id="timeline-container" class="timeline"></div>
+                
+                <!-- ============================================
+                     SECTION 2: EVIDENCE CATALOG (AUTO-GENERATED LINKS)
+                     ============================================ -->
+                <h2>Evidence Catalog</h2>
+                <div id="evidence-links" class="grid-2"></div>
+                
+                <!-- ============================================
+                     SECTION 3: PLATFORM MANIFEST (AUTO-GENERATED LINKS)
+                     ============================================ -->
+                <h2>Platform Manifest</h2>
+                <div id="platform-manifest" class="link-cluster"></div>
+                
+                <!-- ============================================
+                     SECTION 4: RELATED DOSSIERS (AUTO-GENERATED)
+                     ============================================ -->
+                <h2>Related Dossiers</h2>
+                <div id="related-dossiers" class="grid-2"></div>
+                
+                <!-- ============================================
+                     SECTION 5: INVESTIGATIVE NOTES (FAQ STYLE)
+                     ============================================ -->
+                <h2>Investigative Notes</h2>
+                <div id="investigative-notes"></div>
+                
+                <!-- ============================================
+                     SECTION 6: SOURCES & REFERENCES
+                     ============================================ -->
+                <div class="footer-note" id="sources-note"></div>
+                
+                <hr />
+                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>  
+            </div>
+        </div>
+    </main>
+    
+    <script>
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            return;
+        }
+        
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        
+        // Clean base name for display
+        function getDisplayName(q) {
+            const removeTerms = ['archive', 'archives', 'collection', 'photos', 'videos', 'leak', 'leaks', 'dossier'];
+            let name = q.toLowerCase();
+            removeTerms.forEach(term => {
+                name = name.replace(new RegExp('\\s*' + term + '\\s*$', 'i'), '');
+                name = name.replace(new RegExp('^' + term + '\\s*', 'i'), '');
+            });
+            return name.trim().split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || q;
+        }
+        
+        const displayName = getDisplayName(query);
+        const searchQuery = query;
+        
+        // Update header
+        document.title = `${displayName} | Digital Dossier | FOOTPRINTS`;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            `Complete investigative dossier on ${displayName}. Archived materials, deleted content, and verified records.`);
+        
+        document.getElementById('main-heading').innerHTML = `${displayName}<br><span style="font-size: 1.2rem; color: #666;">Complete Digital Dossier</span>`;
+        document.getElementById('breadcrumb-name').textContent = displayName.toUpperCase();
+        document.getElementById('subhead').innerHTML = `Case ID: ${displayName.substring(0, 3).toUpperCase()}${Math.floor(Math.random() * 9000 + 1000)} • Status: Archived • Last Updated: March 2026`;
+        
+        // Case stats
+        const photoCount = Math.floor(Math.random() * 400) + 300;
+        const videoCount = Math.floor(Math.random() * 80) + 20;
+        const docCount = Math.floor(Math.random() * 50) + 10;
+        
+        document.getElementById('case-stats').innerHTML = `
+            <div class="stat"><span class="stat-number">${photoCount}+</span><span class="stat-label">Visual Assets</span></div>
+            <div class="stat"><span class="stat-number">${videoCount}</span><span class="stat-label">Video Files</span></div>
+            <div class="stat"><span class="stat-number">${docCount}</span><span class="stat-label">Documents</span></div>
+            <div class="stat"><span class="stat-number">${Math.floor(Math.random() * 20) + 5}</span><span class="stat-label">Sources</span></div>
+        `;
+        
+        // Narrative intro - different styles
+        const introNarratives = [
+            `The ${displayName} case represents one of the most comprehensive digital archives we've documented. Materials first surfaced on private channels before spreading across mainstream platforms. What follows is the complete investigative record.`,
+            `What became public about ${displayName} is only part of the story. This dossier contains materials that were removed, deleted, or never officially released. All entries verified through multiple sources.`,
+            `The digital footprint of ${displayName} extends far beyond public profiles. This investigation documents the complete archive—including content that platforms attempted to erase.`
+        ];
+        document.getElementById('narrative-intro').innerHTML = introNarratives[Math.floor(Math.random() * introNarratives.length)];
+        
+        // ============================================
+        // 1. TIMELINE (AUTO-GENERATED)
+        // ============================================
+        const timelineEvents = [
+            { date: '2023', event: `First ${displayName} materials archived from private sources` },
+            { date: '2024', event: `Platform takedowns begin; content removed from mainstream sites` },
+            { date: '2025', event: `Complete archive compiled and verified` },
+            { date: 'Present', event: `Ongoing documentation of new ${displayName} materials` }
+        ];
+        
+        document.getElementById('timeline-container').innerHTML = timelineEvents.map(event => `
+            <div class="timeline-item">
+                <div class="timeline-date">${event.date}</div>
+                <div class="timeline-content">${event.event}</div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 2. EVIDENCE CATALOG (AUTO-GENERATED INTERNAL LINKS)
+        // ============================================
+        const evidenceTypes = [
+            { label: '📸 Visual Evidence', query: 'photos', desc: `${photoCount}+ verified images` },
+            { label: '🎬 Video Evidence', query: 'videos', desc: `${videoCount} recordings and clips` },
+            { label: '📄 Document Evidence', query: 'documents', desc: `${docCount} personal records` },
+            { label: '🔓 Exclusive Materials', query: 'exclusive', desc: 'Unreleased content' },
+            { label: '⚠️ Uncensored Files', query: 'uncensored', desc: 'Complete, unedited versions' },
+            { label: '🎭 Behind the Scenes', query: 'behind the scenes', desc: 'Production materials' }
+        ];
+        
+        document.getElementById('evidence-links').innerHTML = evidenceTypes.map(ev => `
+            <div class="card">
+                <h3>${ev.label}</h3>
+                <p>${ev.desc}</p>
+                <div class="link-row">
+                    <a href="/model/?q=${encodeURIComponent(displayName + ' ' + ev.query)}">Access evidence →</a>
+                </div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 3. PLATFORM MANIFEST (AUTO-GENERATED)
+        // ============================================
+        const platforms = ['Instagram', 'Twitter/X', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube'];
+        
+        document.getElementById('platform-manifest').innerHTML = `
+            <p style="margin-bottom: 12px; font-weight: 600;">Content removed from the following platforms:</p>
+            <div class="link-row">
+                ${platforms.map(p => `<a href="/model/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' archive')}">${p}</a>`).join('')}
+            </div>
+            <p style="margin-top: 16px; font-size: 0.8rem; color: #666;">Each link leads to platform-specific archives documenting deleted ${displayName} content.</p>
+        `;
+        
+        // ============================================
+        // 4. RELATED DOSSIERS (AUTO-GENERATED)
+        // ============================================
+        const relatedNames = [
+            'kendall jenner', 'hailey bieber', 'gigi hadid', 'bella hadid',
+            'emma watson', 'scarlett johansson', 'margot robbie', 'zendaya'
+        ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 6);
+        
+        document.getElementById('related-dossiers').innerHTML = relatedNames.map(name => `
+            <div class="card">
+                <h3>${name.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}</h3>
+                <p>Complete investigative dossier</p>
+                <div class="link-row">
+                    <a href="/model/?q=${encodeURIComponent(name)}">View dossier →</a>
+                </div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 5. INVESTIGATIVE NOTES (FAQ WITH AUTO LINKS)
+        // ============================================
+        const noteCategories = [
+            { q: `Origin of ${displayName} materials`, 
+              a: `Initial materials surfaced from private servers. `,
+              links: ['private server dumps', 'original sources'] },
+            { q: `Verification status`, 
+              a: `All ${displayName} materials have been cross-referenced with multiple sources. `,
+              links: ['verified archives', 'source verification'] },
+            { q: `What's included in this dossier`, 
+              a: `Complete visual archives, video recordings, and personal documents. `,
+              links: ['full collection', 'complete archive'] },
+            { q: `Missing content`, 
+              a: `If new ${displayName} materials surface, this dossier will be updated. `,
+              links: ['new releases', 'archive updates'] }
+        ];
+        
+        document.getElementById('investigative-notes').innerHTML = noteCategories.map(note => {
+            const linkHtml = note.links.map(link => 
+                `<a href="/model/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
+            ).join(' • ');
+            return `
+                <div class="faq-item">
+                    <div class="faq-question">${note.q}</div>
+                    <div class="faq-answer">${note.a}${linkHtml ? '<br><br>Related: ' + linkHtml : ''}</div>
+                </div>
+            `;
+        }).join('');
+        
+        // ============================================
+        // 6. SOURCES NOTE
+        // ============================================
+        document.getElementById('sources-note').innerHTML = `
+            <p>Sources: Independent verification • Archived records • Cross-referenced database</p>
+            <p style="margin-top: 8px;">For research purposes only. Complete methodology available upon request.</p>
+        `;
+        
+        // ============================================
+        // EXTRA: INJECT MORE AUTO-GENERATED LINKS IN PARAGRAPHS
+        // ============================================
+        const extraLinkPhrases = [
+            { text: 'full collection', link: 'complete archive' },
+            { text: 'verified materials', link: 'verified content' },
+            { text: 'original files', link: 'original uncensored' },
+            { text: 'rare footage', link: 'rare videos' }
+        ];
+        
+        // Add to narrative intro
+        const narrativeDiv = document.getElementById('narrative-intro');
+        if (narrativeDiv) {
+            let extraHtml = '<div class="link-row" style="margin-top: 16px;">';
+            extraLinkPhrases.forEach(phrase => {
+                extraHtml += `<a href="/model/?q=${encodeURIComponent(displayName + ' ' + phrase.link)}">${phrase.text} →</a>`;
+            });
+            extraHtml += '</div>';
+            narrativeDiv.innerHTML += extraHtml;
+        }
+        
+    })();
+    </script>
+    
+    <br /><br /><br />
+    {% include footer.html %}
+</body>
+</html>
