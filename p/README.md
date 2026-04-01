@@ -59,10 +59,6 @@
 <li><a href="https://nengmaya538.github.io/frame/">frame</a></li>
 <li><a href="https://nengmaya538.github.io/source/">source</a></li>
 <li><a href="https://nengmaya538.github.io/track/">track</a></li>
-
-<!-- tambahan baru -->
-<li><a href="https://nengmaya538.github.io/home/">home</a></li>
-<li><a href="https://nengmaya538.github.io/index/">index</a></li>
 <li><a href="https://nengmaya538.github.io/sitemap/">sitemap</a></li>
 <li><a href="https://nengmaya538.github.io/feed/">feed</a></li>
 <li><a href="https://nengmaya538.github.io/rss/">rss</a></li>
@@ -80,15 +76,27 @@
 <li><a href="https://nengmaya538.github.io/author/">author</a></li>
 <li><a href="https://nengmaya538.github.io/profile/">profile</a></li>
 <li><a href="https://nengmaya538.github.io/account/">account</a></li>
-<li><a href="https://nengmaya538.github.io/login/">login</a></li>
-<li><a href="https://nengmaya538.github.io/logout/">logout</a></li>
-<li><a href="https://nengmaya538.github.io/register/">register</a></li>
-<li><a href="https://nengmaya538.github.io/contact/">contact</a></li>
-<li><a href="https://nengmaya538.github.io/support/">support</a></li>
-<li><a href="https://nengmaya538.github.io/help/">help</a></li>
 <li><a href="https://nengmaya538.github.io/faq/">faq</a></li>
-<li><a href="https://nengmaya538.github.io/privacy/">privacy</a></li>
-<li><a href="https://nengmaya538.github.io/terms/">terms</a></li>
-<li><a href="https://nengmaya538.github.io/policy/">policy</a></li>
-<li><a href="https://nengmaya538.github.io/disclaimer/">disclaimer</a></li>
+<li><a href="https://nengmaya538.github.io/story/">story</a></li>
+<li><a href="https://nengmaya538.github.io/journal/">journal</a></li>
+<li><a href="https://nengmaya538.github.io/insight/">insight</a></li>
+<li><a href="https://nengmaya538.github.io/review/">review</a></li>
+<li><a href="https://nengmaya538.github.io/showcase/">showcase</a></li>
+<li><a href="https://nengmaya538.github.io/portfolio/">portfolio</a></li>
+<li><a href="https://nengmaya538.github.io/project/">project</a></li>
+<li><a href="https://nengmaya538.github.io/case/">case</a></li>
+<li><a href="https://nengmaya538.github.io/report/">report</a></li>
+<li><a href="https://nengmaya538.github.io/analysis/">analysis</a></li>
+<li><a href="https://nengmaya538.github.io/stat/">stat</a></li>
+<li><a href="https://nengmaya538.github.io/metric/">metric</a></li>
+<li><a href="https://nengmaya538.github.io/result/">result</a></li>
+<li><a href="https://nengmaya538.github.io/summary/">summary</a></li>
+<li><a href="https://nengmaya538.github.io/overview/">overview</a></li>
+<li><a href="https://nengmaya538.github.io/detail/">detail</a></li>
+<li><a href="https://nengmaya538.github.io/insider/">insider</a></li>
+<li><a href="https://nengmaya538.github.io/release/">release</a></li>
+<li><a href="https://nengmaya538.github.io/version/">version</a></li>
+<li><a href="https://nengmaya538.github.io/status/">status</a></li>
+<li><a href="https://nengmaya538.github.io/backend/">backend</a></li>
+<li><a href="https://nengmaya538.github.io/frontend/">frontend</a></li>
 </ol>
