@@ -1,0 +1,692 @@
+---
+layout: null
+permalink: /catalog/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    <meta name="rating" content="RTA-5042-1996-1400-1577-RTA">
+    
+    <title id="dynamic-title">MAISON ARCHIVE | Private Collection | Haute Couture</title>
+    <meta id="dynamic-description" name="description" content="Maison Archive. Private collection of rare and exclusive fashion editorials. By appointment only.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Montserrat', sans-serif;
+            background: #faf7f2;
+            color: #2c2418;
+            line-height: 1.5;
+        }
+        
+        /* Luxury Header */
+        .luxury-header {
+            background: #ffffff;
+            border-bottom: 1px solid #e8dfd3;
+            padding: 32px 0;
+            position: relative;
+        }
+        
+        .luxury-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        .logo {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            color: #9b7b5c;
+            margin-bottom: 16px;
+        }
+        
+        .logo-main {
+            font-size: 2.2rem;
+            letter-spacing: 8px;
+            font-weight: 300;
+            color: #2c2418;
+        }
+        
+        .logo-tagline {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: #b8a88c;
+            margin-top: 8px;
+        }
+        
+        /* Gold Accent */
+        .gold-line {
+            width: 60px;
+            height: 1px;
+            background: #c9b28b;
+            margin: 20px auto;
+        }
+        
+        main { 
+            max-width: 1300px; 
+            margin: 0 auto; 
+            padding: 48px 40px 80px;
+        }
+        
+        .container {
+            background: transparent;
+            padding: 0;
+        }
+        
+        /* Typography - Elegant */
+        h1 { 
+            font-size: 2.5rem; 
+            font-weight: 300; 
+            line-height: 1.2;
+            font-family: 'Cormorant Garamond', serif;
+            color: #2c2418;
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+        }
+        
+        h2 { 
+            font-size: 1.1rem; 
+            font-weight: 400; 
+            margin: 56px 0 24px 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #9b7b5c;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #e8dfd3;
+            padding-bottom: 12px;
+        }
+        
+        h3 { 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            margin: 20px 0 12px 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #2c2418;
+            letter-spacing: 1px;
+        }
+        
+        /* Links - Subtle Elegance */
+        a { 
+            color: #9b7b5c; 
+            text-decoration: none;
+            border-bottom: 1px solid #e8dfd3;
+            transition: all 0.2s;
+            font-weight: 300;
+        }
+        
+        a:hover { 
+            color: #c9b28b;
+            border-bottom-color: #c9b28b;
+        }
+        
+        /* Breadcrumb - Collection Reference */
+        .breadcrumb { 
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: #c8bcac;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e8dfd3;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+        }
+        
+        .breadcrumb a { color: #9b7b5c; border-bottom: none; }
+        
+        /* Grid - Lookbook Layout */
+        .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 32px;
+            margin: 32px 0;
+        }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        @media (max-width: 1024px) { .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+        
+        /* Card - Lookbook Page */
+        .lookbook-card {
+            background: #ffffff;
+            border: 1px solid #ece4d8;
+            padding: 28px;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .lookbook-card::before {
+            content: "";
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 20px;
+            height: 20px;
+            border-top: 1px solid #e8dfd3;
+            border-right: 1px solid #e8dfd3;
+        }
+        
+        .lookbook-card:hover {
+            border-color: #c9b28b;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+        }
+        
+        .collection-tag {
+            font-size: 0.55rem;
+            letter-spacing: 2px;
+            color: #c9b28b;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        
+        /* Stats - Collection Metrics */
+        .collection-stats {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            padding: 32px 0;
+            border-top: 1px solid #e8dfd3;
+            border-bottom: 1px solid #e8dfd3;
+        }
+        
+        .stat {
+            flex: 1;
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 300;
+            font-family: 'Cormorant Garamond', serif;
+            color: #c9b28b;
+            display: block;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #b8ac9c;
+            margin-top: 8px;
+        }
+        
+        /* Curator's Note */
+        .curator-note {
+            margin: 40px 0;
+            padding: 32px 40px;
+            background: #fefcf8;
+            border-left: 3px solid #c9b28b;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #5c5348;
+        }
+        
+        /* Tags - Collection Tags */
+        .collection-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 24px 0;
+        }
+        
+        .collection-tag-item {
+            background: transparent;
+            border: 1px solid #e8dfd3;
+            padding: 6px 18px;
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+        
+        .collection-tag-item a {
+            border-bottom: none;
+            color: #9b8a74;
+        }
+        
+        .collection-tag-item:hover {
+            border-color: #c9b28b;
+            background: #fefcf8;
+        }
+        
+        /* Timeline - Collection Chronology */
+        .collection-chronology {
+            margin: 32px 0;
+        }
+        
+        .chrono-entry {
+            display: flex;
+            gap: 28px;
+            padding: 20px 0;
+            border-bottom: 1px solid #e8dfd3;
+        }
+        
+        .chrono-season {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #c9b28b;
+            min-width: 100px;
+        }
+        
+        /* FAQ - Atelier Notes */
+        .atelier-note {
+            margin: 28px 0;
+            padding: 24px 0;
+            border-bottom: 1px solid #e8dfd3;
+        }
+        
+        .atelier-question {
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            color: #2c2418;
+            margin-bottom: 10px;
+            letter-spacing: 0.3px;
+        }
+        
+        .atelier-answer {
+            color: #6a6358;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        
+        hr { 
+            border: none; 
+            border-top: 1px solid #e8dfd3; 
+            margin: 56px 0; 
+        }
+        
+        .hidden { display: none; }
+        .query-placeholder { font-weight: 400; background: #faf7f2; padding: 2px 8px; font-style: italic; color: #c9b28b; }
+        .default-content.active { display: block; }
+        .default-content { display: none; }
+        #query-content { display: none; }
+        
+        .private-badge {
+            display: inline-block;
+            font-size: 0.55rem;
+            letter-spacing: 2px;
+            background: transparent;
+            border: 1px solid #c9b28b;
+            color: #c9b28b;
+            padding: 4px 12px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+        
+        .by-appointment {
+            font-size: 0.65rem;
+            color: #c8bcac;
+            text-align: center;
+            margin-top: 40px;
+            letter-spacing: 1px;
+        }
+        
+        @media (max-width: 768px) {
+            main { padding: 32px 24px; }
+            h1 { font-size: 1.8rem; }
+            .curator-note { padding: 24px; }
+            .chrono-entry { flex-direction: column; gap: 8px; }
+        }
+    </style>
+    {% include head.html %}
+</head>
+<body>
+    <div class="luxury-header">
+        <div class="luxury-container">
+            <div class="logo">
+                <div class="logo-main">MAISON ARCHIVE</div>
+                <div class="gold-line"></div>
+                <div class="logo-tagline">PRIVATE COLLECTION • HAUTE COUTURE</div>
+            </div>
+        </div>
+    </div>
+    
+    <main>
+        <div class="container">
+            <!-- DEFAULT CONTENT - MAISON LOBBY -->
+            <div id="default-content" class="default-content active">
+                <div class="private-badge">BY APPOINTMENT ONLY</div>
+                <h1>The Private Collection<br>Rare & Exclusive Editorials</h1>
+                <p style="font-size: 0.95rem; color: #6a6358; margin: 16px 0 24px 0; max-width: 650px;">A curated archive of rare fashion editorials, private collections, and exclusive visual narratives. Established in the tradition of haute couture.</p>
+                
+                <div class="collection-stats">
+                    <div class="stat"><span class="stat-number">15,247</span><span class="stat-label">ARCHIVED PIECES</span></div>
+                    <div class="stat"><span class="stat-number">3,892</span><span class="stat-label">MOVING IMAGES</span></div>
+                    <div class="stat"><span class="stat-number">9,456</span><span class="stat-label">EDITORIALS</span></div>
+                    <div class="stat"><span class="stat-number">1,899</span><span class="stat-label">ARCHIVAL DOCS</span></div>
+                </div>
+                
+                <div class="curator-note">
+                    "Each piece in this collection tells a story — of a moment captured, a narrative preserved, a vision realized. What you will find here exists outside the commercial sphere, preserved for those who understand the art of curation."
+                    <div style="margin-top: 16px; font-size: 0.8rem; font-family: 'Montserrat', sans-serif;">— The Curatorial Department</div>
+                </div>
+                
+                <!-- COLLECTION ROOMS -->
+                <h2>THE COLLECTION ROOMS</h2>
+                <div class="grid-3">
+                    <div class="lookbook-card">
+                        <div class="collection-tag">ROOM I</div>
+                        <h3>Visual Archive</h3>
+                        <p style="font-size:0.8rem; color:#6a6358;">Photographic editorials • Rare prints • Limited editions</p>
+                        <div style="margin-top: 16px;"><a href="/catalog/?q=visual archive">VIEW COLLECTION →</a></div>
+                    </div>
+                    <div class="lookbook-card">
+                        <div class="collection-tag">ROOM II</div>
+                        <h3>Moving Image Gallery</h3>
+                        <p style="font-size:0.8rem; color:#6a6358;">Film editorials • Time-based works • Screen tests</p>
+                        <div style="margin-top: 16px;"><a href="/catalog/?q=moving image gallery">VIEW COLLECTION →</a></div>
+                    </div>
+                    <div class="lookbook-card">
+                        <div class="collection-tag">ROOM III</div>
+                        <h3>Archive Library</h3>
+                        <p style="font-size:0.8rem; color:#6a6358;">Personal records • Historical documents • Provenance</p>
+                        <div style="margin-top: 16px;"><a href="/catalog/?q=archive library">VIEW COLLECTION →</a></div>
+                    </div>
+                </div>
+                
+                <!-- SPECIAL COLLECTIONS -->
+                <h2>SPECIAL COLLECTIONS</h2>
+                <div class="collection-tags">
+                    <div class="collection-tag-item"><a href="/catalog/?q=private collection">PRIVATE COLLECTION</a></div>
+                    <div class="collection-tag-item"><a href="/catalog/?q=rare editorials">RARE EDITORIALS</a></div>
+                    <div class="collection-tag-item"><a href="/catalog/?q=limited edition">LIMITED EDITION</a></div>
+                    <div class="collection-tag-item"><a href="/catalog/?q=archival pieces">ARCHIVAL PIECES</a></div>
+                    <div class="collection-tag-item"><a href="/catalog/?q=master copies">MASTER COPIES</a></div>
+                    <div class="collection-tag-item"><a href="/catalog/?q=uncut series">UNCUT SERIES</a></div>
+                </div>
+                
+                <!-- PLATFORM ARCHIVES -->
+                <h2>DIGITAL PLATFORM ARCHIVES</h2>
+                <div class="collection-tags">
+                    <div class="collection-tag-item"><a href="/catalog/?q=instagram archive">INSTAGRAM</a></div>
+                    <div class="collection-tag-item"><a href="/catalog/?q=twitter archive">TWITTER</a></div>
+                    <div class="collection-tag-item"><a href="/catalog/?q=tiktok archive">TIKTOK</a></div>
+                    <div class="collection-tag-item"><a href="/catalog/?q=facebook archive">FACEBOOK</a></div>
+                    <div class="collection-tag-item"><a href="/catalog/?q=discord archive">DISCORD</a></div>
+                    <div class="collection-tag-item"><a href="/catalog/?q=telegram archive">TELEGRAM</a></div>
+                </div>
+                
+                <hr>
+                
+                <div class="curator-note" style="text-align: center;">
+                    <span style="font-size:0.8rem;">INQUIRIES BY APPOINTMENT</span><br>
+                    <span style="font-size:0.7rem;">Enter a name to access the private collection</span>
+                </div>
+                
+                <div class="by-appointment">
+                    MAISON ARCHIVE • ESTABLISHED 2019 • ALL RIGHTS RESERVED
+                </div>
+            </div>
+            
+            <!-- QUERY-BASED CONTENT - PRIVATE COLLECTION ENTRY -->
+            <div id="query-content" style="display: none;">
+                <div class="breadcrumb">
+                    <a href="/">MAISON</a> / <a href="/catalog/">PRIVATE COLLECTION</a> / <span id="breadcrumb-name"></span>
+                </div>
+                
+                <div class="private-badge" id="collection-badge">PRIVATE COLLECTION</div>
+                <h1 id="main-heading"></h1>
+                <p id="collection-id" style="font-size: 0.7rem; color: #b8ac9c; margin-bottom: 24px; letter-spacing: 1px;"></p>
+                
+                <!-- COLLECTION METRICS -->
+                <div class="collection-stats" id="collection-metrics"></div>
+                
+                <!-- CURATOR'S STATEMENT -->
+                <div class="curator-note" id="curator-statement"></div>
+                
+                <!-- ============================================
+                     COLLECTION ROOMS - AUTO GENERATED LINKS
+                     ============================================ -->
+                <h2>COLLECTION ROOMS</h2>
+                <div id="collection-rooms" class="grid-2"></div>
+                
+                <!-- ============================================
+                     PLATFORM ARCHIVES - AUTO GENERATED
+                     ============================================ -->
+                <h2>DIGITAL ARCHIVES</h2>
+                <div id="digital-archives" class="collection-tags"></div>
+                
+                <!-- ============================================
+                     RELATED COLLECTIONS - AUTO GENERATED
+                     ============================================ -->
+                <h2>RELATED COLLECTIONS</h2>
+                <div id="related-collections" class="collection-tags"></div>
+                
+                <!-- ============================================
+                     COLLECTION CHRONOLOGY - AUTO GENERATED
+                     ============================================ -->
+                <h2>COLLECTION CHRONOLOGY</h2>
+                <div id="collection-chronology" class="collection-chronology"></div>
+                
+                <!-- ============================================
+                     ATELIER NOTES (FAQ) - AUTO GENERATED
+                     ============================================ -->
+                <h2>ATELIER NOTES</h2>
+                <div id="atelier-notes"></div>
+                
+                <hr />
+                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>  
+                
+                <div class="by-appointment">
+                    <span id="collection-credit"></span> • PRIVATE COLLECTION • BY APPOINTMENT ONLY
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            return;
+        }
+        
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        
+        // Format display name - luxury collection style
+        function getDisplayName(q) {
+            const removeTerms = ['collection', 'archive', 'gallery', 'library', 'room', 'series', 'editorial'];
+            let name = q.toLowerCase();
+            removeTerms.forEach(term => {
+                name = name.replace(new RegExp('\\s*' + term + '\\s*$', 'i'), '');
+                name = name.replace(new RegExp('^' + term + '\\s*', 'i'), '');
+            });
+            return name.trim().split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || q;
+        }
+        
+        const displayName = getDisplayName(query);
+        const collectionCode = `${displayName.substring(0, 3).toUpperCase()}${Math.floor(Math.random() * 900 + 100)}`;
+        
+        // Update title
+        document.title = `${displayName} | Private Collection | Maison Archive`;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            `Private collection: ${displayName}. Rare editorials, archival pieces, and exclusive works. Maison Archive.`);
+        
+        // Breadcrumb
+        document.getElementById('breadcrumb-name').textContent = displayName.toLowerCase().replace(/ /g, '-');
+        
+        // Collection badge
+        document.getElementById('collection-badge').innerHTML = `PRIVATE COLLECTION • ${displayName.toUpperCase()}`;
+        
+        // Main heading
+        document.getElementById('main-heading').innerHTML = `${displayName}<br><span style="font-size:0.85rem; font-weight:300;">The Private Collection</span>`;
+        document.getElementById('collection-id').innerHTML = `COLLECTION NO. ${collectionCode} • ACQUIRED ${new Date().getFullYear()} • ARCHIVAL STATUS: PERMANENT`;
+        
+        // Random counts
+        const editorialCount = Math.floor(Math.random() * 600) + 200;
+        const filmCount = Math.floor(Math.random() * 120) + 30;
+        const printCount = Math.floor(Math.random() * 500) + 150;
+        const documentCount = Math.floor(Math.random() * 70) + 15;
+        
+        // Collection metrics
+        document.getElementById('collection-metrics').innerHTML = `
+            <div class="stat"><span class="stat-number">${editorialCount}</span><span class="stat-label">EDITORIALS</span></div>
+            <div class="stat"><span class="stat-number">${filmCount}</span><span class="stat-label">FILM WORKS</span></div>
+            <div class="stat"><span class="stat-number">${printCount}</span><span class="stat-label">PRINT ARCHIVE</span></div>
+            <div class="stat"><span class="stat-number">${documentCount}</span><span class="stat-label">ARCHIVAL DOCS</span></div>
+        `;
+        
+        // Curator statement
+        const curatorStatements = [
+            `"The ${displayName} collection represents a significant acquisition for Maison Archive. Each piece has been carefully selected and preserved according to archival standards." — Senior Curator`,
+            `"This private collection documents a unique moment in visual culture. The ${displayName} archive is preserved for those who appreciate the art of curation." — Curatorial Department`,
+            `"What you see here has been meticulously archived. The ${displayName} collection reflects our commitment to preserving rare and significant works." — Archives Division`
+        ];
+        document.getElementById('curator-statement').innerHTML = curatorStatements[Math.floor(Math.random() * curatorStatements.length)];
+        
+        // ============================================
+        // 1. COLLECTION ROOMS - AUTO GENERATED LINKS
+        // ============================================
+        const collectionRooms = [
+            { label: "PRINT EDITORIALS", query: "print editorials", count: editorialCount, room: "Room I" },
+            { label: "FILM ARCHIVE", query: "film archive", count: filmCount, room: "Room II" },
+            { label: "ARCHIVAL LIBRARY", query: "archival library", count: documentCount, room: "Room III" },
+            { label: "RARE EDITIONS", query: "rare editions", count: Math.floor(Math.random() * 50) + 15, room: "Private Vault" },
+            { label: "MASTER COPIES", query: "master copies", count: Math.floor(Math.random() * 25) + 5, room: "Master Collection" },
+            { label: "LIMITED SERIES", query: "limited series", count: Math.floor(Math.random() * 40) + 10, room: "Special Edition" }
+        ];
+        
+        document.getElementById('collection-rooms').innerHTML = collectionRooms.map(room => `
+            <div class="lookbook-card">
+                <div class="collection-tag">${room.room}</div>
+                <h3>${room.label}</h3>
+                <p style="font-size:0.75rem; color:#6a6358;">${room.count} pieces • Archival quality</p>
+                <div style="margin-top: 16px;"><a href="/catalog/?q=${encodeURIComponent(displayName + ' ' + room.query)}">VIEW COLLECTION →</a></div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 2. DIGITAL ARCHIVES - AUTO GENERATED
+        // ============================================
+        const platforms = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube'];
+        
+        document.getElementById('digital-archives').innerHTML = platforms.map(p => `
+            <div class="collection-tag-item"><a href="/catalog/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' archive')}">${p.toUpperCase()} ARCHIVE</a></div>
+        `).join('');
+        
+        // ============================================
+        // 3. RELATED COLLECTIONS - AUTO GENERATED
+        // ============================================
+        const relatedCollections = [
+            'complete works', 'full collection', 'master archive', 'definitive edition',
+            'rare pieces', 'archival set', 'limited run', 'curated selection'
+        ];
+        
+        document.getElementById('related-collections').innerHTML = relatedCollections.map(rel => `
+            <div class="collection-tag-item"><a href="/catalog/?q=${encodeURIComponent(displayName + ' ' + rel)}">${rel.toUpperCase()}</a></div>
+        `).join('');
+        
+        // ============================================
+        // 4. COLLECTION CHRONOLOGY - AUTO GENERATED
+        // ============================================
+        const chronologyEntries = [
+            { season: "2019", event: `Initial acquisition of ${displayName} works began` },
+            { season: "2021", event: `Digital archive established and cataloged` },
+            { season: "2023", event: `Complete ${displayName} collection verified` },
+            { season: "2024", event: `Private collection opened to qualified inquiries` },
+            { season: "Present", event: `Ongoing preservation and cataloging` }
+        ];
+        
+        document.getElementById('collection-chronology').innerHTML = chronologyEntries.map(entry => `
+            <div class="chrono-entry">
+                <div class="chrono-season">${entry.season}</div>
+                <div class="chrono-desc">${entry.event}</div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 5. ATELIER NOTES (FAQ) - AUTO GENERATED
+        // ============================================
+        const atelierNotes = [
+            { q: `What is the provenance of the ${displayName} collection?`, 
+              a: `Acquired from private sources and verified for authenticity. Each piece includes documented provenance. `,
+              links: ['provenance records', 'acquisition history'] },
+            { q: `Is this the complete ${displayName} archive?`, 
+              a: `Yes. This represents the complete collection of ${editorialCount + filmCount + printCount + documentCount} verified pieces. `,
+              links: ['complete works', 'full collection'] },
+            { q: `How is the collection preserved?`, 
+              a: `Climate-controlled archival storage. Digital preservation with multiple redundancies. Regular condition assessments. `,
+              links: ['preservation methods', 'archival standards'] },
+            { q: `Can new pieces be added to the ${displayName} collection?`, 
+              a: `The collection continues to grow as new works become available for acquisition. `,
+              links: ['new acquisitions', 'collection updates'] }
+        ];
+        
+        document.getElementById('atelier-notes').innerHTML = atelierNotes.map(note => {
+            const linkHtml = note.links.map(link => 
+                `<a href="/catalog/?q=${encodeURIComponent(displayName + ' ' + link)}" style="font-size:0.7rem;">${link}</a>`
+            ).join(' • ');
+            return `
+                <div class="atelier-note">
+                    <div class="atelier-question">${note.q}</div>
+                    <div class="atelier-answer">${note.a}</div>
+                    ${linkHtml ? `<div style="margin-top: 12px; font-size:0.65rem; color:#c8bcac;">RELATED: ${linkHtml}</div>` : ''}
+                </div>
+            `;
+        }).join('');
+        
+        // ============================================
+        // 6. COLLECTION CREDIT
+        // ============================================
+        document.getElementById('collection-credit').innerHTML = `${displayName} Collection • ${editorialCount + filmCount + printCount + documentCount} Total Pieces • Maison Archive Permanent Collection`;
+        
+        // ============================================
+        // EXTRA: Add related artist collections
+        // ============================================
+        const relatedArtists = [
+            'Kendall Jenner', 'Hailey Bieber', 'Gigi Hadid', 'Bella Hadid',
+            'Emma Watson', 'Scarlett Johansson', 'Zendaya', 'Margot Robbie'
+        ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 8);
+        
+        const chronologyDiv = document.getElementById('collection-chronology');
+        if (chronologyDiv) {
+            let artistsHtml = `
+                <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #e8dfd3;">
+                    <div style="font-size:0.7rem; color:#c9b28b; margin-bottom: 16px; letter-spacing: 1px;">RELATED PRIVATE COLLECTIONS</div>
+                    <div class="collection-tags" style="margin-top: 0;">
+                        ${relatedArtists.map(artist => `<div class="collection-tag-item"><a href="/catalog/?q=${encodeURIComponent(artist)}">${artist.toUpperCase()} COLLECTION</a></div>`).join('')}
+                    </div>
+                </div>
+            `;
+            chronologyDiv.innerHTML += artistsHtml;
+        }
+        
+        // Add collection note
+        const curatorDiv = document.getElementById('curator-statement');
+        if (curatorDiv) {
+            curatorDiv.innerHTML += `
+                <div style="margin-top: 18px; font-size:0.7rem; color:#c8bcac;">
+                    ✦ Archival Reference: ${collectionCode} ✦
+                </div>
+            `;
+        }
+        
+    })();
+    </script>
+    
+    <br /><br /><br />
+    {% include footer.html %}
+</body>
+</html>
