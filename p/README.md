@@ -12,7 +12,6 @@
 <li>model</li>
 <li>page</li><br />
   <li>file</li>
-  <li>docs</li>
   <li>model</li>
   <li>gallery</li>
   <li>folder</li>
