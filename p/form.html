@@ -1,0 +1,675 @@
+---
+layout: null
+permalink: /form/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    <meta name="rating" content="RTA-5042-1996-1400-1577-RTA">
+    
+    <title id="dynamic-title">CONFIDENTIAL | Private Investigation Files</title>
+    <meta id="dynamic-description" name="description" content="Private investigation records. Documented evidence and verified materials. Authorized personnel only.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Courier Prime', monospace;
+            background: #1e1b1a;
+            color: #d4cfc4;
+            line-height: 1.5;
+        }
+        
+        /* Confidential Stamp */
+        .confidential-bg {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            opacity: 0.03;
+            font-size: 4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transform: rotate(-15deg);
+            pointer-events: none;
+            z-index: 0;
+            font-family: 'Courier Prime', monospace;
+            color: #9e7b5c;
+        }
+        
+        main { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 40px 24px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .container {
+            background: #231f1d;
+            padding: 40px;
+            border: 1px solid #4a3a2c;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            position: relative;
+        }
+        
+        /* File Tab */
+        .file-tab {
+            position: absolute;
+            top: -12px;
+            left: 40px;
+            background: #4a3a2c;
+            padding: 4px 24px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #d4cfc4;
+            font-family: 'Courier Prime', monospace;
+        }
+        
+        /* Typography - Detective Style */
+        h1 { 
+            font-size: 2.2rem; 
+            font-weight: 700; 
+            line-height: 1.3;
+            font-family: 'Playfair Display', serif;
+            color: #e8d9b0;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+            border-left: 3px solid #9e7b5c;
+            padding-left: 20px;
+        }
+        
+        h2 { 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            margin: 48px 0 20px 0;
+            font-family: 'Courier Prime', monospace;
+            color: #e8d9b0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px dashed #4a3a2c;
+            padding-bottom: 8px;
+        }
+        
+        h3 { 
+            font-size: 0.9rem; 
+            font-weight: 700; 
+            margin: 20px 0 12px 0;
+            font-family: 'Courier Prime', monospace;
+            color: #c9ad7a;
+            letter-spacing: 1px;
+        }
+        
+        /* Links - Evidence References */
+        a { 
+            color: #c9ad7a; 
+            text-decoration: none;
+            border-bottom: 1px dotted #4a3a2c;
+            transition: all 0.2s;
+        }
+        
+        a:hover { 
+            color: #e8d9b0;
+            border-bottom-color: #c9ad7a;
+        }
+        
+        /* Breadcrumb - Case Reference */
+        .breadcrumb { 
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.65rem;
+            color: #6a5a4a;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #2a2422;
+            text-transform: uppercase;
+        }
+        
+        .breadcrumb a { color: #9e7b5c; border-bottom: none; }
+        
+        /* Grid - Evidence Cards */
+        .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 24px;
+            margin: 32px 0;
+        }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        @media (max-width: 1024px) { .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+        
+        /* Card - Evidence Folder */
+        .card {
+            background: #2a2422;
+            border: 1px solid #3a3228;
+            padding: 20px;
+            transition: all 0.2s;
+        }
+        
+        .card:hover {
+            border-color: #9e7b5c;
+            background: #2f2825;
+        }
+        
+        .card h3 { margin-top: 0; }
+        
+        /* Stats - Case Summary */
+        .case-summary {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin: 32px 0;
+            padding: 24px;
+            background: #2a2422;
+            border-left: 3px solid #9e7b5c;
+        }
+        
+        .stat {
+            flex: 1;
+            min-width: 100px;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Courier Prime', monospace;
+            color: #e8d9b0;
+            display: block;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #9e7b5c;
+            margin-top: 6px;
+        }
+        
+        /* Redacted Style */
+        .redacted {
+            background: #1e1b1a;
+            color: #3a3228;
+            padding: 0 4px;
+            font-style: italic;
+        }
+        
+        /* Case File Note */
+        .case-note {
+            margin: 32px 0;
+            padding: 20px 24px;
+            background: #2a2422;
+            border-left: 3px solid #9e7b5c;
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.85rem;
+        }
+        
+        .case-note strong {
+            color: #e8d9b0;
+        }
+        
+        /* Evidence Tags */
+        .evidence-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .evidence-tag {
+            background: transparent;
+            border: 1px solid #3a3228;
+            padding: 4px 14px;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s;
+        }
+        
+        .evidence-tag a {
+            border-bottom: none;
+            color: #9e7b5c;
+        }
+        
+        .evidence-tag:hover {
+            border-color: #c9ad7a;
+            background: #2f2825;
+        }
+        
+        /* Timeline - Investigation Log */
+        .investigation-log {
+            margin: 32px 0;
+        }
+        
+        .log-entry {
+            display: flex;
+            gap: 24px;
+            padding: 16px 0;
+            border-bottom: 1px solid #2a2422;
+            font-size: 0.8rem;
+        }
+        
+        .log-date {
+            font-family: 'Courier Prime', monospace;
+            color: #c9ad7a;
+            min-width: 100px;
+        }
+        
+        /* FAQ - Case Q&A */
+        .case-qa {
+            margin: 24px 0;
+            padding: 20px 0;
+            border-bottom: 1px solid #2a2422;
+        }
+        
+        .qa-question {
+            font-weight: 700;
+            font-family: 'Courier Prime', monospace;
+            color: #e8d9b0;
+            margin-bottom: 8px;
+        }
+        
+        .qa-answer {
+            color: #b4aa9a;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        
+        hr { 
+            border: none; 
+            border-top: 1px solid #2a2422; 
+            margin: 48px 0; 
+        }
+        
+        .hidden { display: none; }
+        .query-placeholder { color: #c9ad7a; font-weight: 700; background: #1e1b1a; padding: 2px 6px; }
+        .default-content.active { display: block; }
+        .default-content { display: none; }
+        #query-content { display: none; }
+        
+        .case-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #4a3a2c;
+            color: #d4cfc4;
+            padding: 4px 12px;
+            margin-bottom: 24px;
+        }
+        
+        .warning-note {
+            font-size: 0.7rem;
+            color: #9e7b5c;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #2a2422;
+        }
+        
+        @media (max-width: 768px) {
+            main { padding: 20px 16px; }
+            .container { padding: 24px; }
+            h1 { font-size: 1.6rem; }
+            .log-entry { flex-direction: column; gap: 6px; }
+        }
+    </style>
+    {% include head.html %}
+</head>
+<body>
+    <div class="confidential-bg">CONFIDENTIAL</div>
+    
+    <main>
+        <div class="container">
+            <div class="file-tab">PRIVATE & CONFIDENTIAL</div>
+            
+            <!-- DEFAULT CONTENT - INVESTIGATION OFFICE -->
+            <div id="default-content" class="default-content active">
+                <div class="case-badge">CASE FILE REF: PI-2026-001</div>
+                <h1>Private Investigation Files<br>Documented Evidence Archive</h1>
+                <p style="font-size: 0.9rem; color: #b4aa9a; margin: 16px 0 24px 0;">Authorized access only. Complete investigation records, verified evidence, and documented materials.</p>
+                
+                <div class="case-summary">
+                    <div class="stat"><span class="stat-number">15,247</span><span class="stat-label">EVIDENCE ITEMS</span></div>
+                    <div class="stat"><span class="stat-number">3,892</span><span class="stat-label">VIDEO RECORDS</span></div>
+                    <div class="stat"><span class="stat-number">9,456</span><span class="stat-label">PHOTOGRAPHS</span></div>
+                    <div class="stat"><span class="stat-number">1,899</span><span class="stat-label">DOCUMENTS</span></div>
+                </div>
+                
+                <div class="case-note">
+                    <strong>INVESTIGATOR'S NOTE:</strong> The following records are part of an ongoing documentation project. All materials have been verified through multiple sources. Access is restricted to authorized personnel.
+                </div>
+                
+                <!-- EVIDENCE CATEGORIES -->
+                <h2>EVIDENCE CATEGORIES</h2>
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>VISUAL EVIDENCE</h3>
+                        <p>Photographic records, image documentation, visual exhibits.</p>
+                        <div style="margin-top: 12px;"><a href="/form/?q=visual evidence">Review evidence →</a></div>
+                    </div>
+                    <div class="card">
+                        <h3>VIDEO RECORDS</h3>
+                        <p>Motion picture evidence, time-based documentation.</p>
+                        <div style="margin-top: 12px;"><a href="/form/?q=video records">Review evidence →</a></div>
+                    </div>
+                    <div class="card">
+                        <h3>DOCUMENTARY EVIDENCE</h3>
+                        <p>Written records, personal files, documented materials.</p>
+                        <div style="margin-top: 12px;"><a href="/form/?q=documentary evidence">Review evidence →</a></div>
+                    </div>
+                </div>
+                
+                <!-- EVIDENCE SOURCES -->
+                <h2>EVIDENCE SOURCES</h2>
+                <div class="evidence-tags">
+                    <div class="evidence-tag"><a href="/form/?q=primary sources">PRIMARY SOURCES</a></div>
+                    <div class="evidence-tag"><a href="/form/?q=verified records">VERIFIED RECORDS</a></div>
+                    <div class="evidence-tag"><a href="/form/?q=private collection">PRIVATE COLLECTION</a></div>
+                    <div class="evidence-tag"><a href="/form/?q=archival materials">ARCHIVAL MATERIALS</a></div>
+                    <div class="evidence-tag"><a href="/form/?q=exclusive evidence">EXCLUSIVE EVIDENCE</a></div>
+                </div>
+                
+                <!-- PLATFORM SOURCES -->
+                <h2>PLATFORM SOURCES</h2>
+                <div class="evidence-tags">
+                    <div class="evidence-tag"><a href="/form/?q=instagram records">INSTAGRAM RECORDS</a></div>
+                    <div class="evidence-tag"><a href="/form/?q=twitter records">TWITTER RECORDS</a></div>
+                    <div class="evidence-tag"><a href="/form/?q=tiktok records">TIKTOK RECORDS</a></div>
+                    <div class="evidence-tag"><a href="/form/?q=discord records">DISCORD RECORDS</a></div>
+                    <div class="evidence-tag"><a href="/form/?q=telegram records">TELEGRAM RECORDS</a></div>
+                </div>
+                
+                <hr>
+                
+                <div class="case-note" style="text-align: center;">
+                    <strong>ACCESS INSTRUCTION:</strong> Enter subject name or case identifier to access investigation files.
+                </div>
+                
+                <div class="warning-note">
+                    ⚠️ CONFIDENTIAL INVESTIGATION FILES • AUTHORIZED ACCESS ONLY • ALL ACTIVITIES LOGGED
+                </div>
+            </div>
+            
+            <!-- QUERY-BASED CONTENT - SUBJECT FILE -->
+            <div id="query-content" style="display: none;">
+                <div class="breadcrumb">
+                    <a href="/">PI OFFICE</a> / <a href="/form/">CASE FILES</a> / <span id="breadcrumb-name"></span> / SUBJECT FILE
+                </div>
+                
+                <div id="case-badge" class="case-badge"></div>
+                <h1 id="main-heading"></h1>
+                <p id="file-id" style="font-size: 0.7rem; color: #9e7b5c; margin-bottom: 24px;"></p>
+                
+                <!-- CASE SUMMARY -->
+                <div class="case-summary" id="case-summary"></div>
+                
+                <!-- INVESTIGATOR'S NOTE -->
+                <div class="case-note" id="investigator-note"></div>
+                
+                <!-- ============================================
+                     EVIDENCE CATALOG - AUTO GENERATED LINKS
+                     ============================================ -->
+                <h2>EVIDENCE CATALOG</h2>
+                <div id="evidence-catalog" class="grid-2"></div>
+                
+                <!-- ============================================
+                     SOURCE MATERIALS - AUTO GENERATED
+                     ============================================ -->
+                <h2>SOURCE MATERIALS</h2>
+                <div id="source-materials" class="evidence-tags"></div>
+                
+                <!-- ============================================
+                     PLATFORM RECORDS - AUTO GENERATED
+                     ============================================ -->
+                <h2>PLATFORM RECORDS</h2>
+                <div id="platform-records" class="evidence-tags"></div>
+                
+                <!-- ============================================
+                     INVESTIGATION TIMELINE - AUTO GENERATED
+                     ============================================ -->
+                <h2>INVESTIGATION TIMELINE</h2>
+                <div id="investigation-timeline" class="investigation-log"></div>
+                
+                <!-- ============================================
+                     RELATED CASE FILES - AUTO GENERATED
+                     ============================================ -->
+                <h2>RELATED CASE FILES</h2>
+                <div id="related-cases" class="evidence-tags"></div>
+                
+                <!-- ============================================
+                     CASE Q&A - AUTO GENERATED
+                     ============================================ -->
+                <h2>CASE Q&A</h2>
+                <div id="case-qa"></div>
+                
+                <hr />
+                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>  
+                
+                <div class="warning-note">
+                    ⚠️ CONFIDENTIAL INVESTIGATION • VERIFIED EVIDENCE • CASE FILE <span id="case-number"></span> • ALL RIGHTS RESERVED
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            return;
+        }
+        
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        
+        // Clean display name - case file format
+        function getDisplayName(q) {
+            const removeTerms = ['evidence', 'records', 'files', 'materials', 'archive', 'case'];
+            let name = q.toLowerCase();
+            removeTerms.forEach(term => {
+                name = name.replace(new RegExp('\\s*' + term + '\\s*$', 'i'), '');
+            });
+            return name.trim().split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || q;
+        }
+        
+        const displayName = getDisplayName(query);
+        const caseNumber = `PI-${new Date().getFullYear()}-${Math.floor(Math.random() * 9000 + 1000)}`;
+        
+        // Update title
+        document.title = `CASE: ${displayName} | Confidential Investigation Files`;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            `Confidential case file: ${displayName}. Verified evidence, documented records, investigation materials. Authorized access only.`);
+        
+        // Breadcrumb
+        document.getElementById('breadcrumb-name').textContent = displayName.toUpperCase();
+        
+        // Case badge
+        document.getElementById('case-badge').innerHTML = `CASE FILE: ${displayName.toUpperCase()} • STATUS: ACTIVE INVESTIGATION`;
+        
+        // Main heading
+        document.getElementById('main-heading').innerHTML = `${displayName}<br><span style="font-size: 0.9rem;">Subject Investigation File</span>`;
+        document.getElementById('file-id').innerHTML = `FILE NO: ${caseNumber} | OPENED: ${new Date().toLocaleDateString()} | CLASSIFICATION: CONFIDENTIAL`;
+        document.getElementById('case-number').innerHTML = caseNumber;
+        
+        // Random evidence counts
+        const photoCount = Math.floor(Math.random() * 600) + 200;
+        const videoCount = Math.floor(Math.random() * 120) + 30;
+        const docCount = Math.floor(Math.random() * 70) + 15;
+        
+        // Case summary
+        document.getElementById('case-summary').innerHTML = `
+            <div class="stat"><span class="stat-number">${photoCount}</span><span class="stat-label">PHOTOGRAPHIC EVIDENCE</span></div>
+            <div class="stat"><span class="stat-number">${videoCount}</span><span class="stat-label">VIDEO RECORDS</span></div>
+            <div class="stat"><span class="stat-number">${docCount}</span><span class="stat-label">DOCUMENTARY EVIDENCE</span></div>
+            <div class="stat"><span class="stat-number">${Math.floor(Math.random() * 30) + 12}</span><span class="stat-label">VERIFIED SOURCES</span></div>
+        `;
+        
+        // Investigator's note
+        const investigatorNotes = [
+            `INVESTIGATOR'S NOTE: Subject ${displayName} case file contains ${photoCount + videoCount + docCount} verified evidence items. All materials documented through standard investigation protocols.`,
+            `CASE NOTES: Evidence relating to ${displayName} has been compiled from multiple sources. Each item has undergone verification procedures.`,
+            `INVESTIGATION SUMMARY: The ${displayName} file represents comprehensive documentation of available evidence. Continued monitoring in progress.`
+        ];
+        document.getElementById('investigator-note').innerHTML = `<strong>${investigatorNotes[Math.floor(Math.random() * investigatorNotes.length)]}</strong>`;
+        
+        // ============================================
+        // 1. EVIDENCE CATALOG - AUTO GENERATED INTERNAL LINKS
+        // ============================================
+        const evidenceCatalog = [
+            { label: "PHOTOGRAPHIC EVIDENCE", query: "photographic evidence", desc: `${photoCount} verified images` },
+            { label: "VIDEO RECORDS", query: "video records", desc: `${videoCount} motion picture files` },
+            { label: "DOCUMENTARY EVIDENCE", query: "documentary evidence", desc: `${docCount} written records` },
+            { label: "EXCLUSIVE MATERIALS", query: "exclusive materials", desc: "Restricted access evidence" },
+            { label: "UNCENSORED RECORDS", query: "complete records", desc: "Full documentation" },
+            { label: "SOURCE FILES", query: "source files", desc: "Original materials" }
+        ];
+        
+        document.getElementById('evidence-catalog').innerHTML = evidenceCatalog.map(ev => `
+            <div class="card">
+                <h3>${ev.label}</h3>
+                <p>${ev.desc}</p>
+                <div style="margin-top: 12px;"><a href="/form/?q=${encodeURIComponent(displayName + ' ' + ev.query)}">ACCESS EVIDENCE →</a></div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 2. SOURCE MATERIALS - AUTO GENERATED
+        // ============================================
+        const sourceMaterials = [
+            'primary sources', 'verified records', 'private collection', 
+            'archival materials', 'exclusive evidence', 'original files',
+            'complete records', 'verified documentation'
+        ];
+        
+        document.getElementById('source-materials').innerHTML = sourceMaterials.map(src => `
+            <div class="evidence-tag"><a href="/form/?q=${encodeURIComponent(displayName + ' ' + src)}">${src.toUpperCase()}</a></div>
+        `).join('');
+        
+        // ============================================
+        // 3. PLATFORM RECORDS - AUTO GENERATED
+        // ============================================
+        const platforms = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube'];
+        
+        document.getElementById('platform-records').innerHTML = platforms.map(p => `
+            <div class="evidence-tag"><a href="/form/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' records')}">${p.toUpperCase()} RECORDS</a></div>
+        `).join('');
+        
+        // ============================================
+        // 4. INVESTIGATION TIMELINE - AUTO GENERATED
+        // ============================================
+        const timelineEvents = [
+            { date: "Q1 2024", event: `Initial evidence related to ${displayName} documented` },
+            { date: "Q3 2024", event: `Platform records compiled and verified` },
+            { date: "Q1 2025", event: `Complete ${displayName} evidence catalog established` },
+            { date: "Q4 2025", event: `Case file review and verification completed` },
+            { date: "Present", event: `Ongoing documentation of new evidence` }
+        ];
+        
+        document.getElementById('investigation-timeline').innerHTML = timelineEvents.map(ev => `
+            <div class="log-entry">
+                <div class="log-date">${ev.date}</div>
+                <div class="log-desc">${ev.event}</div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 5. RELATED CASE FILES - AUTO GENERATED
+        // ============================================
+        const relatedSubjects = [
+            'kendall jenner', 'hailey bieber', 'gigi hadid', 'bella hadid',
+            'emma watson', 'scarlett johansson', 'zendaya', 'margot robbie'
+        ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 10);
+        
+        document.getElementById('related-cases').innerHTML = relatedSubjects.map(sub => `
+            <div class="evidence-tag"><a href="/form/?q=${encodeURIComponent(sub)}">${sub.toUpperCase()} CASE FILE</a></div>
+        `).join('');
+        
+        // ============================================
+        // 6. CASE Q&A (FAQ with auto links)
+        // ============================================
+        const caseQA = [
+            {
+                q: `What is the scope of the ${displayName} investigation?`,
+                a: `This case file documents all available evidence related to ${displayName} from verified sources. `,
+                links: ['investigation scope', 'case parameters']
+            },
+            {
+                q: `How is evidence verified?`,
+                a: `All materials undergo standard verification protocols before inclusion in case files. `,
+                links: ['verification process', 'evidence standards']
+            },
+            {
+                q: `Can I access complete ${displayName} case files?`,
+                a: `Authorized personnel may request full case file access. Documentation is available for research purposes. `,
+                links: ['access request', 'case file access']
+            },
+            {
+                q: `Are new ${displayName} records being added?`,
+                a: `Yes. The investigation continues to document new evidence as it becomes available. `,
+                links: ['new evidence', 'case updates']
+            }
+        ];
+        
+        document.getElementById('case-qa').innerHTML = caseQA.map(qa => {
+            const linkHtml = qa.links.map(link => 
+                `<a href="/form/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
+            ).join(' • ');
+            return `
+                <div class="case-qa">
+                    <div class="qa-question">${qa.q}</div>
+                    <div class="qa-answer">${qa.a}</div>
+                    ${linkHtml ? `<div style="margin-top: 12px; font-size:0.7rem; color:#9e7b5c;">REFERENCES: ${linkHtml}</div>` : ''}
+                </div>
+            `;
+        }).join('');
+        
+        // ============================================
+        // EXTRA: Add evidence reference
+        // ============================================
+        const additionalRefs = [
+            'case summary', 'evidence log', 'source verification', 'investigation notes'
+        ];
+        
+        const caseSummaryDiv = document.getElementById('case-summary');
+        if (caseSummaryDiv) {
+            let refsHtml = `
+                <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #3a3228;">
+                    <div style="font-size:0.7rem; color:#9e7b5c; margin-bottom: 12px;">EVIDENCE REFERENCES:</div>
+                    <div class="evidence-tags" style="margin-top: 0;">
+                        ${additionalRefs.map(ref => `<div class="evidence-tag"><a href="/form/?q=${encodeURIComponent(displayName + ' ' + ref)}">${ref.toUpperCase()}</a></div>`).join('')}
+                    </div>
+                </div>
+            `;
+            caseSummaryDiv.innerHTML += refsHtml;
+        }
+        
+        // Add warning about content
+        const caseNoteDiv = document.getElementById('investigator-note');
+        if (caseNoteDiv) {
+            caseNoteDiv.innerHTML += `
+                <div style="margin-top: 16px; font-size:0.7rem; color:#9e7b5c;">
+                    ⚠️ MATERIALS DOCUMENTED FOR INVESTIGATIVE PURPOSES • AUTHORIZED ACCESS ONLY
+                </div>
+            `;
+        }
+        
+    })();
+    </script>
+    
+    <br /><br /><br />
+    {% include footer.html %}
+</body>
+</html>
