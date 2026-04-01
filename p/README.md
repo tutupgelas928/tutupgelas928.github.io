@@ -59,4 +59,36 @@
 <li><a href="https://nengmaya538.github.io/frame/">frame</a></li>
 <li><a href="https://nengmaya538.github.io/source/">source</a></li>
 <li><a href="https://nengmaya538.github.io/track/">track</a></li>
+
+<!-- tambahan baru -->
+<li><a href="https://nengmaya538.github.io/home/">home</a></li>
+<li><a href="https://nengmaya538.github.io/index/">index</a></li>
+<li><a href="https://nengmaya538.github.io/sitemap/">sitemap</a></li>
+<li><a href="https://nengmaya538.github.io/feed/">feed</a></li>
+<li><a href="https://nengmaya538.github.io/rss/">rss</a></li>
+<li><a href="https://nengmaya538.github.io/atom/">atom</a></li>
+<li><a href="https://nengmaya538.github.io/news/">news</a></li>
+<li><a href="https://nengmaya538.github.io/update/">update</a></li>
+<li><a href="https://nengmaya538.github.io/latest/">latest</a></li>
+<li><a href="https://nengmaya538.github.io/recent/">recent</a></li>
+<li><a href="https://nengmaya538.github.io/popular/">popular</a></li>
+<li><a href="https://nengmaya538.github.io/trending/">trending</a></li>
+<li><a href="https://nengmaya538.github.io/featured/">featured</a></li>
+<li><a href="https://nengmaya538.github.io/highlight/">highlight</a></li>
+<li><a href="https://nengmaya538.github.io/recommend/">recommend</a></li>
+<li><a href="https://nengmaya538.github.io/editor/">editor</a></li>
+<li><a href="https://nengmaya538.github.io/author/">author</a></li>
+<li><a href="https://nengmaya538.github.io/profile/">profile</a></li>
+<li><a href="https://nengmaya538.github.io/account/">account</a></li>
+<li><a href="https://nengmaya538.github.io/login/">login</a></li>
+<li><a href="https://nengmaya538.github.io/logout/">logout</a></li>
+<li><a href="https://nengmaya538.github.io/register/">register</a></li>
+<li><a href="https://nengmaya538.github.io/contact/">contact</a></li>
+<li><a href="https://nengmaya538.github.io/support/">support</a></li>
+<li><a href="https://nengmaya538.github.io/help/">help</a></li>
+<li><a href="https://nengmaya538.github.io/faq/">faq</a></li>
+<li><a href="https://nengmaya538.github.io/privacy/">privacy</a></li>
+<li><a href="https://nengmaya538.github.io/terms/">terms</a></li>
+<li><a href="https://nengmaya538.github.io/policy/">policy</a></li>
+<li><a href="https://nengmaya538.github.io/disclaimer/">disclaimer</a></li>
 </ol>
