@@ -1,0 +1,705 @@
+---
+layout: null
+permalink: /art/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    
+    <title id="dynamic-title">THE ARCHIVE MUSEUM | Digital Exhibition</title>
+    <meta id="dynamic-description" name="description" content="A curated digital museum preserving cultural artifacts, rare collections, and documented moments. Permanent exhibition.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Montserrat', sans-serif;
+            background: #fefcf5;
+            color: #2c2b28;
+            line-height: 1.6;
+        }
+        
+        /* Museum Header */
+        .museum-header {
+            background: #2c2b28;
+            color: #fefcf5;
+            padding: 32px 0;
+            border-bottom: 4px solid #c9a87b;
+        }
+        
+        .museum-header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .museum-title h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+        
+        .museum-title p {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: #c9a87b;
+            margin-top: 8px;
+        }
+        
+        .museum-hours {
+            text-align: right;
+            font-size: 0.7rem;
+            font-family: 'Montserrat', monospace;
+            letter-spacing: 1px;
+        }
+        
+        main { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 60px 32px;
+        }
+        
+        .container {
+            background: transparent;
+            padding: 0;
+        }
+        
+        /* Typography - Elegant */
+        h1 { 
+            font-size: 3.5rem; 
+            font-weight: 400; 
+            line-height: 1.2;
+            font-family: 'Cormorant Garamond', serif;
+            color: #2c2b28;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+        
+        h2 { 
+            font-size: 1.8rem; 
+            font-weight: 400; 
+            margin: 56px 0 24px 0;
+            font-family: 'Cormorant Garamond', serif;
+            color: #2c2b28;
+            border-bottom: 1px solid #e0dcd2;
+            padding-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+        
+        h3 { 
+            font-size: 1.2rem; 
+            font-weight: 500; 
+            margin: 24px 0 12px 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #c9a87b;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Links - Understated Elegance */
+        a { 
+            color: #8b6b42; 
+            text-decoration: none;
+            border-bottom: 1px solid #e0dcd2;
+            transition: all 0.2s;
+            font-weight: 400;
+        }
+        
+        a:hover { 
+            color: #c9a87b;
+            border-bottom-color: #c9a87b;
+        }
+        
+        /* Breadcrumb - Gallery Label */
+        .breadcrumb { 
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: #aaa69d;
+            margin-bottom: 48px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e0dcd2;
+            text-transform: uppercase;
+        }
+        
+        .breadcrumb a { color: #8b6b42; border-bottom: none; }
+        
+        /* Grid - Exhibition Layout */
+        .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 32px;
+            margin: 40px 0;
+        }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        @media (max-width: 1024px) { .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+        
+        /* Card - Artwork Frame */
+        .card {
+            background: #ffffff;
+            border: 1px solid #ece8df;
+            padding: 28px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .card:hover {
+            border-color: #c9a87b;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+        }
+        
+        .card h3 { margin-top: 0; }
+        
+        /* Stats - Exhibition Numbers */
+        .exhibition-stats {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+            margin: 48px 0;
+            padding: 32px 0;
+            border-top: 1px solid #ece8df;
+            border-bottom: 1px solid #ece8df;
+        }
+        
+        .stat {
+            flex: 1;
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 400;
+            font-family: 'Cormorant Garamond', serif;
+            color: #c9a87b;
+            display: block;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #aaa69d;
+            margin-top: 8px;
+        }
+        
+        /* Curator's Note - Pull Quote */
+        .curator-note {
+            margin: 48px 0;
+            padding: 32px 48px;
+            background: #faf8f3;
+            border-left: 3px solid #c9a87b;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #5a5548;
+        }
+        
+        /* Exhibition Tags */
+        .exhibition-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 24px 0;
+        }
+        
+        .tag {
+            background: transparent;
+            border: 1px solid #e0dcd2;
+            padding: 6px 18px;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+        
+        .tag a {
+            border-bottom: none;
+            color: #8b6b42;
+        }
+        
+        .tag:hover {
+            border-color: #c9a87b;
+            background: #fefcf5;
+        }
+        
+        /* Timeline - Exhibition Chronology */
+        .chronology {
+            margin: 40px 0;
+        }
+        
+        .chrono-item {
+            display: flex;
+            gap: 32px;
+            padding: 24px 0;
+            border-bottom: 1px solid #ece8df;
+        }
+        
+        .chrono-year {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #c9a87b;
+            min-width: 100px;
+        }
+        
+        /* Gallery Wall - Link Collections */
+        .gallery-wall {
+            margin: 40px 0;
+            padding: 32px;
+            background: #faf8f3;
+            border: 1px solid #ece8df;
+        }
+        
+        .link-wall {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 20px;
+        }
+        
+        .link-wall a {
+            font-size: 0.8rem;
+            border-bottom: 1px dotted #e0dcd2;
+        }
+        
+        /* FAQ - Visitor Questions */
+        .visitor-question {
+            margin: 32px 0;
+            padding: 24px 0;
+            border-bottom: 1px solid #ece8df;
+        }
+        
+        .question {
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 12px;
+            color: #2c2b28;
+        }
+        
+        .answer {
+            color: #5a5548;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        hr { 
+            border: none; 
+            border-top: 1px solid #ece8df; 
+            margin: 56px 0; 
+        }
+        
+        .hidden { display: none; }
+        .query-placeholder { font-weight: 500; background: #faf8f3; padding: 2px 6px; font-style: italic; }
+        .default-content.active { display: block; }
+        .default-content { display: none; }
+        #query-content { display: none; }
+        
+        .exhibition-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: #2c2b28;
+            color: #fefcf5;
+            padding: 4px 12px;
+            margin-bottom: 24px;
+        }
+        
+        .artist-credit {
+            font-size: 0.7rem;
+            color: #aaa69d;
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #ece8df;
+        }
+        
+        @media (max-width: 768px) {
+            main { padding: 40px 20px; }
+            h1 { font-size: 2.2rem; }
+            .curator-note { padding: 24px; }
+            .chrono-item { flex-direction: column; gap: 8px; }
+        }
+    </style>
+    {% include head.html %}
+</head>
+<body>
+    <div class="museum-header">
+        <div class="museum-header-inner">
+            <div class="museum-title">
+                <h1>THE ARCHIVE MUSEUM</h1>
+                <p>PERMANENT COLLECTION • DIGITAL EXHIBITION HALL</p>
+            </div>
+            <div class="museum-hours">
+                <div>OPEN 24 HOURS</div>
+                <div style="margin-top: 4px;">VIRTUAL ADMISSION FREE</div>
+            </div>
+        </div>
+    </div>
+    
+    <main>
+        <div class="container">
+            <!-- DEFAULT CONTENT - MUSEUM ENTRANCE -->
+            <div id="default-content" class="default-content active">
+                <div class="exhibition-badge">CURRENT EXHIBITION</div>
+                <h1>Digital Artifacts<br>Preserved for Tomorrow</h1>
+                <p style="font-size: 1.1rem; color: #5a5548; margin: 16px 0 32px 0; max-width: 700px;">A curated collection of digital culture — moments captured, stories documented, and artifacts preserved for future generations.</p>
+                
+                <div class="exhibition-stats">
+                    <div class="stat"><span class="stat-number">15,247</span><span class="stat-label">Artifacts</span></div>
+                    <div class="stat"><span class="stat-number">892</span><span class="stat-label">Provenances</span></div>
+                    <div class="stat"><span class="stat-number">48</span><span class="stat-label">Exhibitions</span></div>
+                    <div class="stat"><span class="stat-number">2019</span><span class="stat-label">Established</span></div>
+                </div>
+                
+                <div class="curator-note">
+                    “What vanishes from public view finds a home here. Each artifact tells a story — of moments captured, conversations preserved, and cultural history documented.”
+                    <div style="margin-top: 16px; font-size: 0.8rem;">— Curatorial Department</div>
+                </div>
+                
+                <!-- GALLERY WINGS -->
+                <h2>Exhibition Wings</h2>
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>Visual Arts Wing</h3>
+                        <p>Photographic collections, visual archives, and image-based documentation.</p>
+                        <div style="margin-top: 16px;"><a href="/art/?q=visual arts wing">Visit exhibition →</a></div>
+                    </div>
+                    <div class="card">
+                        <h3>Moving Image Wing</h3>
+                        <p>Video archives, recorded moments, and time-based media collections.</p>
+                        <div style="margin-top: 16px;"><a href="/art/?q=moving image wing">Visit exhibition →</a></div>
+                    </div>
+                    <div class="card">
+                        <h3>Archive Reading Room</h3>
+                        <p>Documents, personal records, and textual artifacts.</p>
+                        <div style="margin-top: 16px;"><a href="/art/?q=archive reading room">Visit exhibition →</a></div>
+                    </div>
+                </div>
+                
+                <!-- FEATURED COLLECTIONS -->
+                <h2>Featured Collections</h2>
+                <div class="exhibition-tags">
+                    <div class="tag"><a href="/art/?q=private collection">Private Collection</a></div>
+                    <div class="tag"><a href="/art/?q=deleted works">Deleted Works</a></div>
+                    <div class="tag"><a href="/art/?q=rare archive">Rare Archive</a></div>
+                    <div class="tag"><a href="/art/?q=exclusive exhibition">Exclusive Exhibition</a></div>
+                    <div class="tag"><a href="/art/?q=uncensored gallery">Uncensored Gallery</a></div>
+                    <div class="tag"><a href="/art/?q=behind the scenes">Behind the Scenes</a></div>
+                </div>
+                
+                <!-- PLATFORM ARCHIVES -->
+                <h2>Digital Platform Archives</h2>
+                <div class="exhibition-tags">
+                    <div class="tag"><a href="/art/?q=instagram archive">Instagram Archive</a></div>
+                    <div class="tag"><a href="/art/?q=twitter archive">Twitter Archive</a></div>
+                    <div class="tag"><a href="/art/?q=tiktok archive">TikTok Archive</a></div>
+                    <div class="tag"><a href="/art/?q=facebook archive">Facebook Archive</a></div>
+                    <div class="tag"><a href="/art/?q=discord archive">Discord Archive</a></div>
+                    <div class="tag"><a href="/art/?q=telegram archive">Telegram Archive</a></div>
+                </div>
+                
+                <hr>
+                
+                <div class="gallery-wall" style="text-align: center;">
+                    <p style="color: #8b6b42;">↓ Begin your gallery walk. Search for an artist, a collection, or a theme. ↓</p>
+                    <p style="margin-top: 16px; font-size: 0.8rem; color: #aaa69d;">The Archive Museum welcomes all visitors. Free admission. Open 24 hours.</p>
+                </div>
+            </div>
+            
+            <!-- QUERY-BASED CONTENT - EXHIBITION ROOM -->
+            <div id="query-content" style="display: none;">
+                <div class="breadcrumb">
+                    <a href="/">Museum</a> / <a href="/art/">Permanent Collection</a> / <span id="breadcrumb-name"></span> / Exhibition Room
+                </div>
+                
+                <div id="exhibition-badge" class="exhibition-badge"></div>
+                <h1 id="main-heading"></h1>
+                <p id="curatorial-note" style="color: #5a5548; font-size: 1rem; margin-bottom: 32px; max-width: 700px;"></p>
+                
+                <!-- EXHIBITION STATS -->
+                <div class="exhibition-stats" id="exhibition-stats"></div>
+                
+                <!-- CURATOR'S STATEMENT -->
+                <div class="curator-note" id="curator-statement"></div>
+                
+                <!-- ============================================
+                     GALLERY ROOMS - AUTO GENERATED INTERNAL LINKS
+                     ============================================ -->
+                <h2>Gallery Rooms</h2>
+                <div id="gallery-rooms" class="grid-3"></div>
+                
+                <!-- ============================================
+                     PLATFORM COLLECTIONS - AUTO GENERATED
+                     ============================================ -->
+                <h2>Platform Collections</h2>
+                <div id="platform-collections" class="exhibition-tags"></div>
+                
+                <!-- ============================================
+                     RELATED EXHIBITIONS - AUTO GENERATED
+                     ============================================ -->
+                <h2>Related Exhibitions</h2>
+                <div id="related-exhibitions" class="exhibition-tags"></div>
+                
+                <!-- ============================================
+                     EXHIBITION CHRONOLOGY - AUTO GENERATED
+                     ============================================ -->
+                <h2>Exhibition Chronology</h2>
+                <div id="exhibition-chronology" class="chronology"></div>
+                
+                <!-- ============================================
+                     CURATOR'S RECOMMENDATIONS - AUTO GENERATED
+                     ============================================ -->
+                <h2>Curator's Recommendations</h2>
+                <div id="curator-recommendations" class="gallery-wall"></div>
+                
+                <!-- ============================================
+                     VISITOR QUESTIONS (FAQ)
+                     ============================================ -->
+                <h2>Visitor Questions</h2>
+                <div id="visitor-questions"></div>
+                
+                <hr />
+                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>  
+                
+                <div class="artist-credit">
+                    <span id="collection-credit"></span> • Archive Museum Permanent Collection • All works preserved for research and education
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            return;
+        }
+        
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        
+        // Clean display name - museum style
+        function getDisplayName(q) {
+            const removeTerms = ['wing', 'room', 'collection', 'archive', 'gallery', 'exhibition'];
+            let name = q.toLowerCase();
+            removeTerms.forEach(term => {
+                name = name.replace(new RegExp('\\s*' + term + '\\s*$', 'i'), '');
+            });
+            return name.trim().split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || q;
+        }
+        
+        const displayName = getDisplayName(query);
+        const exhibitionId = displayName.toLowerCase().replace(/ /g, '_');
+        
+        // Update museum title
+        document.title = `${displayName} | Permanent Collection | The Archive Museum`;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            `Exhibition: ${displayName}. Curated collection featuring ${Math.floor(Math.random() * 500) + 200} artifacts. Archive Museum Permanent Collection.`);
+        
+        // Breadcrumb
+        document.getElementById('breadcrumb-name').textContent = displayName;
+        
+        // Exhibition badge
+        document.getElementById('exhibition-badge').innerHTML = `PERMANENT COLLECTION / ${displayName.toUpperCase()} GALLERY`;
+        
+        // Main heading
+        document.getElementById('main-heading').innerHTML = `${displayName}<br><span style="font-size: 1rem; color: #c9a87b;">Permanent Exhibition</span>`;
+        
+        // Curatorial note
+        const curatorialNotes = [
+            `This exhibition presents the complete ${displayName} collection — artifacts, documents, and visual materials acquired and preserved by the Archive Museum.`,
+            `Welcome to the ${displayName} gallery. These works have been curated from private collections and public archives, preserved for scholarly research.`,
+            `The ${displayName} exhibition features materials that document a significant cultural moment, preserved in the museum's permanent collection.`
+        ];
+        document.getElementById('curatorial-note').innerHTML = curatorialNotes[Math.floor(Math.random() * curatorialNotes.length)];
+        
+        // Random counts
+        const artifactCount = Math.floor(Math.random() * 600) + 200;
+        const videoCount = Math.floor(Math.random() * 120) + 30;
+        const documentCount = Math.floor(Math.random() * 70) + 15;
+        
+        // Exhibition stats
+        document.getElementById('exhibition-stats').innerHTML = `
+            <div class="stat"><span class="stat-number">${artifactCount}</span><span class="stat-label">Artifacts</span></div>
+            <div class="stat"><span class="stat-number">${videoCount}</span><span class="stat-label">Moving Images</span></div>
+            <div class="stat"><span class="stat-number">${documentCount}</span><span class="stat-label">Documents</span></div>
+            <div class="stat"><span class="stat-number">${Math.floor(Math.random() * 30) + 12}</span><span class="stat-label">Provenances</span></div>
+        `;
+        
+        // Curator statement
+        const curatorStatements = [
+            `"What you see here represents years of preservation work. Each ${displayName} artifact tells a story — of creation, circulation, and ultimately, preservation." — Senior Curator`,
+            `"This collection documents a unique moment in digital culture. The ${displayName} archive serves as a time capsule for future researchers." — Archives Department`,
+            `"We acquired these materials to ensure they wouldn't disappear. The ${displayName} exhibition is a testament to the importance of digital preservation." — Curatorial Team`
+        ];
+        document.getElementById('curator-statement').innerHTML = curatorStatements[Math.floor(Math.random() * curatorStatements.length)];
+        
+        // ============================================
+        // 1. GALLERY ROOMS - AUTO GENERATED INTERNAL LINKS
+        // ============================================
+        const galleryRooms = [
+            { label: "Visual Arts Gallery", query: "visual works", desc: `${artifactCount} photographic works` },
+            { label: "Moving Image Room", query: "moving images", desc: `${videoCount} video recordings` },
+            { label: "Archive Reading Room", query: "documents", desc: `${documentCount} textual materials` },
+            { label: "Exclusive Collection", query: "exclusive works", desc: "Rare and limited artifacts" },
+            { label: "Uncensored Gallery", query: "complete works", desc: "Full, unedited collection" },
+            { label: "Studio Archives", query: "studio works", desc: "Behind the scenes materials" }
+        ];
+        
+        document.getElementById('gallery-rooms').innerHTML = galleryRooms.map(room => `
+            <div class="card">
+                <h3>${room.label}</h3>
+                <p>${room.desc}</p>
+                <div style="margin-top: 16px;"><a href="/art/?q=${encodeURIComponent(displayName + ' ' + room.query)}">Visit gallery →</a></div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 2. PLATFORM COLLECTIONS - AUTO GENERATED
+        // ============================================
+        const platforms = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube'];
+        
+        document.getElementById('platform-collections').innerHTML = platforms.map(p => `
+            <div class="tag"><a href="/art/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' collection')}">${p} Collection</a></div>
+        `).join('');
+        
+        // ============================================
+        // 3. RELATED EXHIBITIONS - AUTO GENERATED
+        // ============================================
+        const relatedExhibitions = [
+            'complete collection', 'full archive', 'original works', 'master collection',
+            'rare artifacts', 'preserved works', 'digital archive', 'cultural records'
+        ];
+        
+        document.getElementById('related-exhibitions').innerHTML = relatedExhibitions.map(ex => `
+            <div class="tag"><a href="/art/?q=${encodeURIComponent(displayName + ' ' + ex)}">${ex.toUpperCase()}</a></div>
+        `).join('');
+        
+        // ============================================
+        // 4. EXHIBITION CHRONOLOGY - AUTO GENERATED
+        // ============================================
+        const chronologyEvents = [
+            { year: "2023", event: `First ${displayName} artifacts acquired for permanent collection` },
+            { year: "2024", event: `Platform collections integrated into exhibition` },
+            { year: "2025", event: `Complete ${displayName} archive cataloged and verified` },
+            { year: "2026", event: `Permanent exhibition opened to the public` }
+        ];
+        
+        document.getElementById('exhibition-chronology').innerHTML = chronologyEvents.map(ev => `
+            <div class="chrono-item">
+                <div class="chrono-year">${ev.year}</div>
+                <div class="chrono-desc">${ev.event}</div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 5. CURATOR'S RECOMMENDATIONS - AUTO GENERATED
+        // ============================================
+        const recommendations = [
+            'private viewing', 'curator tour', 'special exhibition', 'archive access',
+            'preservation notes', 'acquisition records', 'conservation report'
+        ];
+        
+        document.getElementById('curator-recommendations').innerHTML = `
+            <p style="margin-bottom: 16px; color: #8b6b42;">Recommended for further exploration:</p>
+            <div class="link-wall">
+                ${recommendations.map(rec => `<a href="/art/?q=${encodeURIComponent(displayName + ' ' + rec)}">${rec.toUpperCase()}</a>`).join('')}
+            </div>
+        `;
+        
+        // ============================================
+        // 6. VISITOR QUESTIONS (FAQ with auto links)
+        // ============================================
+        const visitorQuestions = [
+            { 
+                q: `How was the ${displayName} collection acquired?`, 
+                a: `The museum acquired these artifacts through a combination of private donations, archival preservation, and documented public sources. `,
+                links: ['acquisition records', 'collection provenance']
+            },
+            { 
+                q: `What is the curatorial approach to this exhibition?`, 
+                a: `We present these works as cultural artifacts, documenting their significance and preserving them for research. `,
+                links: ['curatorial statement', 'preservation philosophy']
+            },
+            { 
+                q: `Can researchers access the complete ${displayName} archive?`, 
+                a: `Yes. The full collection is available for scholarly research and educational purposes. `,
+                links: ['research access', 'archive request']
+            },
+            { 
+                q: `How often is this exhibition updated?`, 
+                a: `New acquisitions are added periodically. The ${displayName} collection continues to grow. `,
+                links: ['new acquisitions', 'exhibition updates']
+            }
+        ];
+        
+        document.getElementById('visitor-questions').innerHTML = visitorQuestions.map(vq => {
+            const linkHtml = vq.links.map(link => 
+                `<a href="/art/?q=${encodeURIComponent(displayName + ' ' + link)}" style="font-size:0.75rem;">${link}</a>`
+            ).join(' • ');
+            return `
+                <div class="visitor-question">
+                    <div class="question">${vq.q}</div>
+                    <div class="answer">${vq.a}</div>
+                    ${linkHtml ? `<div style="margin-top: 12px; font-size:0.7rem; color:#aaa69d;">Related: ${linkHtml}</div>` : ''}
+                </div>
+            `;
+        }).join('');
+        
+        // ============================================
+        // 7. COLLECTION CREDIT
+        // ============================================
+        document.getElementById('collection-credit').innerHTML = `${displayName} Collection • ${artifactCount + videoCount + documentCount} Total Artifacts • Acquired 2023-2026`;
+        
+        // ============================================
+        // EXTRA: Add related artists/figures
+        // ============================================
+        const relatedArtists = [
+            'kendall jenner', 'hailey bieber', 'gigi hadid', 'bella hadid',
+            'emma watson', 'scarlett johansson', 'zendaya', 'margot robbie'
+        ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 8);
+        
+        // Insert after curator recommendations
+        const recommendationsSection = document.getElementById('curator-recommendations');
+        if (recommendationsSection) {
+            let artistsHtml = `
+                <div style="margin-top: 32px;">
+                    <p style="color: #8b6b42; margin-bottom: 12px;">Related Artists in Permanent Collection:</p>
+                    <div class="exhibition-tags">
+                        ${relatedArtists.map(artist => `<div class="tag"><a href="/art/?q=${encodeURIComponent(artist)}">${artist.toUpperCase()}</a></div>`).join('')}
+                    </div>
+                </div>
+            `;
+            recommendationsSection.innerHTML += artistsHtml;
+        }
+        
+    })();
+    </script>
+    
+    <br /><br /><br />
+    {% include footer.html %}
+</body>
+</html>
