@@ -1,0 +1,742 @@
+---
+layout: null
+permalink: /content/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    <meta name="rating" content="RTA-5042-1996-1400-1577-RTA">
+    
+    <title id="dynamic-title">[ARCHIVE.DB] // VAULT OF RECORDS // v2.4</title>
+    <meta id="dynamic-description" name="description" content="Interactive database interface. Explore, collect, and discover. Inventory management system v2.4.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Share+Tech+Mono&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'VT323', monospace;
+            background: #0a0e1a;
+            color: #9bcd6c;
+            line-height: 1.5;
+            background-image: 
+                linear-gradient(rgba(0, 255, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 0, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        /* Game UI Container */
+        .game-wrapper {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Status Bar */
+        .status-bar {
+            background: #0a0e1a;
+            border: 2px solid #2a3a2a;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.6rem;
+            box-shadow: 0 0 0 1px #1a2a1a;
+        }
+        
+        .status-item {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .status-label {
+            color: #5a7a5a;
+        }
+        
+        .status-value {
+            color: #9bcd6c;
+        }
+        
+        /* Main Container - Game Window */
+        .game-window {
+            background: #0f1320;
+            border: 3px solid #2a3a2a;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5), 0 0 0 2px #1a2a1a;
+            padding: 24px;
+            position: relative;
+        }
+        
+        .window-title {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #0f1320;
+            padding: 0 12px;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.6rem;
+            color: #9bcd6c;
+            border: 1px solid #2a3a2a;
+            border-bottom: none;
+        }
+        
+        /* Typography - Game Style */
+        h1 { 
+            font-size: 1.6rem; 
+            font-weight: normal;
+            line-height: 1.3;
+            font-family: 'Press Start 2P', monospace;
+            color: #9bcd6c;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 0 #2a5a2a;
+            letter-spacing: 1px;
+        }
+        
+        h2 { 
+            font-size: 0.9rem; 
+            font-weight: normal;
+            margin: 32px 0 16px 0;
+            font-family: 'Press Start 2P', monospace;
+            color: #7abd5c;
+            border-left: 4px solid #9bcd6c;
+            padding-left: 12px;
+            letter-spacing: 1px;
+        }
+        
+        h3 { 
+            font-size: 0.8rem; 
+            font-weight: normal;
+            margin: 16px 0 8px 0;
+            font-family: 'Press Start 2P', monospace;
+            color: #9bcd6c;
+        }
+        
+        /* Links - Hyperlink Style */
+        a { 
+            color: #7abd5c; 
+            text-decoration: none;
+            border-bottom: 1px dotted #3a5a3a;
+            transition: all 0.1s;
+            font-family: 'VT323', monospace;
+            font-size: 1rem;
+        }
+        
+        a:hover { 
+            color: #cdff9c;
+            border-bottom-color: #9bcd6c;
+            text-shadow: 0 0 3px #9bcd6c;
+        }
+        
+        /* Breadcrumb - Directory Path */
+        .breadcrumb { 
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.7rem;
+            color: #4a6a4a;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #2a3a2a;
+        }
+        
+        .breadcrumb a { color: #7abd5c; border-bottom: none; }
+        
+        /* Grid - Inventory Slots */
+        .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        @media (max-width: 1024px) { .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+        
+        /* Card - Item Slot */
+        .item-slot {
+            background: #0a0e1a;
+            border: 2px solid #2a3a2a;
+            padding: 16px;
+            transition: all 0.1s;
+            position: relative;
+        }
+        
+        .item-slot::before {
+            content: "[ITEM]";
+            position: absolute;
+            top: -10px;
+            left: 8px;
+            background: #0a0e1a;
+            padding: 0 6px;
+            font-size: 0.5rem;
+            font-family: 'Press Start 2P', monospace;
+            color: #5a7a5a;
+        }
+        
+        .item-slot:hover {
+            border-color: #9bcd6c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(155,205,108,0.2);
+        }
+        
+        .item-slot h3 { margin-top: 8px; font-size: 0.7rem; }
+        
+        /* Stats Panel - Character Stats */
+        .stats-panel {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin: 24px 0;
+            padding: 16px;
+            background: #0a0e1a;
+            border: 2px solid #2a3a2a;
+        }
+        
+        .stat {
+            flex: 1;
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: normal;
+            font-family: 'Press Start 2P', monospace;
+            color: #9bcd6c;
+            display: block;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #5a7a5a;
+            margin-top: 6px;
+            font-family: 'Press Start 2P', monospace;
+        }
+        
+        /* Quest Log Style */
+        .quest-log {
+            margin: 24px 0;
+            padding: 16px;
+            background: #0a0e1a;
+            border: 2px solid #2a3a2a;
+        }
+        
+        .quest-entry {
+            display: flex;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid #1a2a1a;
+        }
+        
+        .quest-icon {
+            color: #9bcd6c;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.7rem;
+        }
+        
+        /* Tag System - Item Tags */
+        .item-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 16px 0;
+        }
+        
+        .item-tag {
+            background: #0a0e1a;
+            border: 1px solid #2a3a2a;
+            padding: 2px 10px;
+            font-size: 0.6rem;
+            font-family: 'Share Tech Mono', monospace;
+            transition: all 0.1s;
+        }
+        
+        .item-tag a {
+            border-bottom: none;
+            font-size: 0.6rem;
+        }
+        
+        .item-tag:hover {
+            border-color: #9bcd6c;
+            background: #1a2a1a;
+        }
+        
+        /* Achievement Grid */
+        .achievement-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0;
+        }
+        
+        .achievement {
+            background: #0a0e1a;
+            border: 1px solid #2a3a2a;
+            padding: 6px 14px;
+            font-size: 0.6rem;
+            font-family: 'Press Start 2P', monospace;
+        }
+        
+        /* FAQ - Help Menu */
+        .help-menu {
+            margin: 24px 0;
+            padding: 16px;
+            background: #0a0e1a;
+            border: 2px solid #2a3a2a;
+        }
+        
+        .help-item {
+            margin: 16px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid #1a2a1a;
+        }
+        
+        .help-question {
+            color: #9bcd6c;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.6rem;
+            margin-bottom: 8px;
+        }
+        
+        .help-answer {
+            font-size: 0.85rem;
+            color: #8aac7a;
+        }
+        
+        hr { 
+            border: none; 
+            border-top: 2px dashed #2a3a2a; 
+            margin: 32px 0; 
+        }
+        
+        .hidden { display: none; }
+        .query-placeholder { color: #cdff9c; background: #1a2a1a; padding: 2px 6px; font-family: monospace; }
+        .default-content.active { display: block; }
+        .default-content { display: none; }
+        #query-content { display: none; }
+        
+        .item-rarity {
+            display: inline-block;
+            font-size: 0.5rem;
+            background: #2a5a2a;
+            padding: 2px 6px;
+            margin-bottom: 8px;
+            font-family: 'Press Start 2P', monospace;
+        }
+        
+        .hp-bar {
+            height: 4px;
+            background: #2a3a2a;
+            margin-top: 12px;
+        }
+        
+        .hp-fill {
+            width: 100%;
+            height: 100%;
+            background: #9bcd6c;
+        }
+        
+        @media (max-width: 768px) {
+            .game-wrapper { padding: 12px; }
+            .game-window { padding: 20px; }
+            h1 { font-size: 1.2rem; }
+        }
+        
+        /* Blinking cursor effect */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 14px;
+            background: #9bcd6c;
+            animation: blink 1s step-end infinite;
+            margin-left: 4px;
+        }
+    </style>
+    {% include head.html %}
+</head>
+<body>
+    <div class="game-wrapper">
+        <!-- STATUS BAR -->
+        <div class="status-bar">
+            <div class="status-item"><span class="status-label">[HP]</span><span class="status-value">██████████ 100%</span></div>
+            <div class="status-item"><span class="status-label">[XP]</span><span class="status-value">LVL.7 // 8472/10000</span></div>
+            <div class="status-item"><span class="status-label">[INV]</span><span class="status-value">15,247/50,000 SLOTS</span></div>
+            <div class="status-item"><span class="status-label">[CONN]</span><span class="status-value">STABLE</span></div>
+        </div>
+        
+        <!-- MAIN GAME WINDOW -->
+        <div class="game-window">
+            <div class="window-title">> ARCHIVE.DB v2.4</div>
+            
+            <!-- DEFAULT CONTENT - GAME START MENU -->
+            <div id="default-content" class="default-content active">
+                <h1>╔══════════════════════╗<br>║  VAULT OF RECORDS   ║<br>║     [DATABASE]      ║<br>╚══════════════════════╝</h1>
+                <p style="font-size: 1rem; margin: 16px 0;">> Accessing main database...<span class="cursor"></span></p>
+                <p style="color: #6a8e5a;">> Welcome, Explorer. 15,247 items discovered. 3,892 video records. 9,456 image files.</p>
+                
+                <div class="stats-panel">
+                    <div class="stat"><span class="stat-number">15.2K</span><span class="stat-label">TOTAL ITEMS</span></div>
+                    <div class="stat"><span class="stat-number">3.9K</span><span class="stat-label">VIDEO DATA</span></div>
+                    <div class="stat"><span class="stat-number">9.5K</span><span class="stat-label">IMAGE DATA</span></div>
+                    <div class="stat"><span class="stat-number">1.9K</span><span class="stat-label">TEXT DATA</span></div>
+                </div>
+                
+                <!-- MAIN MENU OPTIONS -->
+                <h2>> MAIN MENU</h2>
+                <div class="grid-3">
+                    <div class="item-slot">
+                        <div class="item-rarity">[COMMON]</div>
+                        <h3>VISUAL DATABASE</h3>
+                        <p style="font-size:0.8rem;">Image records • Photographic data</p>
+                        <div style="margin-top: 12px;"><a href="/content/?q=visual database">[ACCESS] →</a></div>
+                    </div>
+                    <div class="item-slot">
+                        <div class="item-rarity">[COMMON]</div>
+                        <h3>VIDEO DATABASE</h3>
+                        <p style="font-size:0.8rem;">Motion records • Time-based data</p>
+                        <div style="margin-top: 12px;"><a href="/content/?q=video database">[ACCESS] →</a></div>
+                    </div>
+                    <div class="item-slot">
+                        <div class="item-rarity">[RARE]</div>
+                        <h3>EXCLUSIVE VAULT</h3>
+                        <p style="font-size:0.8rem;">Restricted items • Rare finds</p>
+                        <div style="margin-top: 12px;"><a href="/content/?q=exclusive vault">[ACCESS] →</a></div>
+                    </div>
+                </div>
+                
+                <!-- QUEST LOG - SUGGESTED QUERIES -->
+                <h2>> ACTIVE QUESTS</h2>
+                <div class="quest-log">
+                    <div class="quest-entry">
+                        <div class="quest-icon">[!]</div>
+                        <div class="quest-text">Explore <a href="/content/?q=celebrity database">CELEBRITY DATABASE</a> • 847 items</div>
+                    </div>
+                    <div class="quest-entry">
+                        <div class="quest-icon">[!]</div>
+                        <div class="quest-text">Investigate <a href="/content/?q=rare collection">RARE COLLECTION</a> • 203 items</div>
+                    </div>
+                    <div class="quest-entry">
+                        <div class="quest-icon">[!]</div>
+                        <div class="quest-text">Complete <a href="/content/?q=deleted content">DELETED CONTENT</a> • 1,247 items</div>
+                    </div>
+                    <div class="quest-entry">
+                        <div class="quest-icon">[!]</div>
+                        <div class="quest-text">Unlock <a href="/content/?q=exclusive items">EXCLUSIVE ITEMS</a> • 892 items</div>
+                    </div>
+                </div>
+                
+                <!-- PLATFORM LOCATIONS -->
+                <h2>> LOCATIONS / PLATFORMS</h2>
+                <div class="item-tags">
+                    <div class="item-tag"><a href="/content/?q=instagram archive">INSTAGRAM</a></div>
+                    <div class="item-tag"><a href="/content/?q=twitter archive">TWITTER</a></div>
+                    <div class="item-tag"><a href="/content/?q=tiktok archive">TIKTOK</a></div>
+                    <div class="item-tag"><a href="/content/?q=facebook archive">FACEBOOK</a></div>
+                    <div class="item-tag"><a href="/content/?q=discord archive">DISCORD</a></div>
+                    <div class="item-tag"><a href="/content/?q=telegram archive">TELEGRAM</a></div>
+                    <div class="item-tag"><a href="/content/?q=snapchat archive">SNAPCHAT</a></div>
+                </div>
+                
+                <!-- ACHIEVEMENTS -->
+                <h2>> ACHIEVEMENTS</h2>
+                <div class="achievement-grid">
+                    <div class="achievement">🏆 DATA COLLECTOR</div>
+                    <div class="achievement">🏆 ARCHIVE MASTER</div>
+                    <div class="achievement">🏆 RARE HUNTER</div>
+                    <div class="achievement">🏆 COMPLETIONIST</div>
+                </div>
+                
+                <hr>
+                
+                <div class="help-menu" style="text-align: center;">
+                    <p style="color: #9bcd6c;">> ENTER COMMAND: <span style="color:#7abd5c;">[SEARCH] [NAME] [ITEM] [LOCATION]</span><span class="cursor"></span></p>
+                    <p style="margin-top: 12px; font-size:0.7rem;">> Type any name in the search bar to begin exploration.</p>
+                </div>
+                
+                <div class="hp-bar"><div class="hp-fill"></div></div>
+            </div>
+            
+            <!-- QUERY-BASED CONTENT - ENTITY DATABASE ENTRY -->
+            <div id="query-content" style="display: none;">
+                <div class="breadcrumb">
+                    > ROOT/ARCHIVE.DB/<span id="breadcrumb-name"></span>/ENTITY_DATA
+                </div>
+                
+                <h1 id="main-heading"></h1>
+                <p id="entity-id" style="font-size: 0.7rem; color: #5a7a5a; margin-bottom: 16px;"></p>
+                
+                <!-- ENTITY STATS -->
+                <div class="stats-panel" id="entity-stats"></div>
+                
+                <!-- ITEM DESCRIPTION -->
+                <div class="quest-log" id="item-description"></div>
+                
+                <!-- ============================================
+                     INVENTORY SLOTS - AUTO GENERATED LINKS
+                     ============================================ -->
+                <h2>> INVENTORY</h2>
+                <div id="inventory-slots" class="grid-2"></div>
+                
+                <!-- ============================================
+                     LOCATION TAGS - AUTO GENERATED
+                     ============================================ -->
+                <h2>> LOCATIONS / PLATFORMS</h2>
+                <div id="location-tags" class="item-tags"></div>
+                
+                <!-- ============================================
+                     RELATED ITEMS - AUTO GENERATED
+                     ============================================ -->
+                <h2>> RELATED ITEMS</h2>
+                <div id="related-items" class="item-tags"></div>
+                
+                <!-- ============================================
+                     QUEST LOG ENTRIES - AUTO GENERATED
+                     ============================================ -->
+                <h2>> ACTIVE QUESTS</h2>
+                <div id="quest-entries" class="quest-log"></div>
+                
+                <!-- ============================================
+                     ACHIEVEMENTS - AUTO GENERATED
+                     ============================================ -->
+                <h2>> ACHIEVEMENTS</h2>
+                <div id="achievements-list" class="achievement-grid"></div>
+                
+                <!-- ============================================
+                     HELP MENU (FAQ) - AUTO GENERATED
+                     ============================================ -->
+                <h2>> HELP MENU</h2>
+                <div id="help-menu" class="help-menu"></div>
+                
+                <hr />
+                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>  
+                
+                <div class="hp-bar"><div class="hp-fill" style="width: 100%;"></div></div>
+                <div style="margin-top: 16px; font-size:0.6rem; text-align: center; color: #4a6a4a;">
+                    > DATABASE v2.4 // ENTITY LOADED // PRESS [SEARCH] FOR NEW QUERY
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            return;
+        }
+        
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        
+        // Format display name - game entity style
+        function getDisplayName(q) {
+            const removeTerms = ['database', 'vault', 'items', 'records', 'data', 'archive'];
+            let name = q.toLowerCase();
+            removeTerms.forEach(term => {
+                name = name.replace(new RegExp('\\s*' + term + '\\s*$', 'i'), '');
+            });
+            return name.trim().split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || q;
+        }
+        
+        const displayName = getDisplayName(query);
+        const entityCode = displayName.substring(0, 4).toUpperCase() + Math.floor(Math.random() * 9000 + 1000);
+        
+        // Update title
+        document.title = `[${displayName.toUpperCase()}] // ARCHIVE.DB // ENTITY LOADED`;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            `Database entity: ${displayName}. ${Math.floor(Math.random() * 500) + 200} items discovered. Explore and collect.`);
+        
+        // Breadcrumb
+        document.getElementById('breadcrumb-name').textContent = displayName.toLowerCase().replace(/ /g, '_');
+        
+        // Main heading
+        document.getElementById('main-heading').innerHTML = `> ENTITY: ${displayName.toUpperCase()}<br><span style="font-size:0.8rem;">[DATA SLOT ${entityCode}]</span>`;
+        document.getElementById('entity-id').innerHTML = `ID: ${entityCode} | RARITY: ${['COMMON', 'UNCOMMON', 'RARE', 'EPIC'][Math.floor(Math.random() * 4)]} | LVL: ${Math.floor(Math.random() * 50 + 10)}`;
+        
+        // Random item counts
+        const itemCount = Math.floor(Math.random() * 600) + 200;
+        const videoCount = Math.floor(Math.random() * 120) + 30;
+        const imageCount = Math.floor(Math.random() * 500) + 150;
+        const textCount = Math.floor(Math.random() * 70) + 15;
+        
+        // Entity stats
+        document.getElementById('entity-stats').innerHTML = `
+            <div class="stat"><span class="stat-number">${itemCount}</span><span class="stat-label">TOTAL ITEMS</span></div>
+            <div class="stat"><span class="stat-number">${videoCount}</span><span class="stat-label">VIDEO DATA</span></div>
+            <div class="stat"><span class="stat-number">${imageCount}</span><span class="stat-label">IMAGE DATA</span></div>
+            <div class="stat"><span class="stat-number">${textCount}</span><span class="stat-label">TEXT DATA</span></div>
+        `;
+        
+        // Item description
+        const descriptions = [
+            `[ITEM DESCRIPTION] ${displayName} data set contains ${itemCount} verified items across multiple categories. Rarity rating: ${['C', 'B', 'A', 'S'][Math.floor(Math.random() * 4)]} tier.`,
+            `[DATALOG] ${displayName} entity discovered in Archive.DB v2.4. Total items: ${itemCount}. Condition: VERIFIED.`,
+            `[RECORD] Complete ${displayName} database entry. ${itemCount} items cataloged. ${videoCount} video files. ${imageCount} image files.`
+        ];
+        document.getElementById('item-description').innerHTML = `<div class="quest-entry"><div class="quest-icon">[i]</div><div class="quest-text">${descriptions[Math.floor(Math.random() * descriptions.length)]}</div></div>`;
+        
+        // ============================================
+        // 1. INVENTORY SLOTS - AUTO GENERATED LINKS
+        // ============================================
+        const inventoryItems = [
+            { label: "VISUAL DATA", query: "visual data", count: imageCount, rarity: "COMMON" },
+            { label: "VIDEO DATA", query: "video data", count: videoCount, rarity: "COMMON" },
+            { label: "TEXT DATA", query: "text data", count: textCount, rarity: "UNCOMMON" },
+            { label: "EXCLUSIVE ITEMS", query: "exclusive items", count: Math.floor(Math.random() * 50) + 10, rarity: "RARE" },
+            { label: "RARE FINDS", query: "rare finds", count: Math.floor(Math.random() * 30) + 5, rarity: "EPIC" },
+            { label: "LEGENDARY DATA", query: "legendary", count: Math.floor(Math.random() * 10) + 1, rarity: "LEGENDARY" }
+        ];
+        
+        document.getElementById('inventory-slots').innerHTML = inventoryItems.map(item => `
+            <div class="item-slot">
+                <div class="item-rarity">[${item.rarity}]</div>
+                <h3>${item.label}</h3>
+                <p style="font-size:0.7rem;">${item.count} items • ${item.rarity} tier</p>
+                <div style="margin-top: 12px;"><a href="/content/?q=${encodeURIComponent(displayName + ' ' + item.query)}">[VIEW ITEMS] →</a></div>
+                <div class="hp-bar" style="margin-top: 12px;"><div class="hp-fill" style="width: ${Math.min(100, (item.count / 500) * 100)}%"></div></div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 2. LOCATION TAGS - AUTO GENERATED PLATFORM LINKS
+        // ============================================
+        const locations = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube', 'Reddit'];
+        
+        document.getElementById('location-tags').innerHTML = locations.map(loc => `
+            <div class="item-tag"><a href="/content/?q=${encodeURIComponent(displayName + ' ' + loc.toLowerCase() + ' location')}">${loc.toUpperCase()}</a></div>
+        `).join('');
+        
+        // ============================================
+        // 3. RELATED ITEMS - AUTO GENERATED
+        // ============================================
+        const relatedQueries = [
+            'full collection', 'complete set', 'master database', 'all items',
+            'rare variants', 'exclusive drops', 'unlocked content', 'hidden data'
+        ];
+        
+        document.getElementById('related-items').innerHTML = relatedQueries.map(rel => `
+            <div class="item-tag"><a href="/content/?q=${encodeURIComponent(displayName + ' ' + rel)}">${rel.toUpperCase()}</a></div>
+        `).join('');
+        
+        // ============================================
+        // 4. QUEST ENTRIES - AUTO GENERATED
+        // ============================================
+        const quests = [
+            { icon: "[!]", text: `Collect all ${itemCount} ${displayName} items`, progress: "0/100%" },
+            { icon: "[?]", text: `Discover rare ${displayName} variants`, progress: "0/12" },
+            { icon: "[★]", text: `Complete ${displayName} database entry`, progress: "IN PROGRESS" },
+            { icon: "[✨]", text: `Unlock exclusive ${displayName} content`, progress: "LOCKED" }
+        ];
+        
+        document.getElementById('quest-entries').innerHTML = quests.map(quest => `
+            <div class="quest-entry">
+                <div class="quest-icon">${quest.icon}</div>
+                <div class="quest-text">${quest.text} • ${quest.progress}</div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 5. ACHIEVEMENTS - AUTO GENERATED
+        // ============================================
+        const achievements = [
+            `🏆 DATA COLLECTOR: ${displayName} Explorer`,
+            `🏆 ARCHIVE MASTER: ${displayName} Completionist`,
+            `🏆 RARE HUNTER: ${displayName} Rare Items`,
+            `🏆 VAULT KEEPER: ${displayName} Guardian`
+        ];
+        
+        document.getElementById('achievements-list').innerHTML = achievements.map(ach => `
+            <div class="achievement">${ach}</div>
+        `).join('');
+        
+        // ============================================
+        // 6. HELP MENU (FAQ) - AUTO GENERATED
+        // ============================================
+        const helpItems = [
+            { q: `How to collect ${displayName} items?`, 
+              a: `Use SEARCH command with item type. Example: "${displayName} visual data". `,
+              links: ['visual data', 'video data'] },
+            { q: `What is ${displayName} rarity tier?`, 
+              a: `Current tier: ${['C', 'B', 'A', 'S'][Math.floor(Math.random() * 4)]}. Higher tiers contain exclusive items. `,
+              links: ['rare finds', 'exclusive items'] },
+            { q: `How to unlock more ${displayName} content?`, 
+              a: `Complete quests and achievements to unlock additional inventory slots. `,
+              links: ['complete collection', 'unlock content'] },
+            { q: `Where to find ${displayName} items?`, 
+              a: `Items spawn across multiple platform locations. Check location tags above. `,
+              links: ['instagram location', 'twitter location'] }
+        ];
+        
+        document.getElementById('help-menu').innerHTML = helpItems.map(help => {
+            const linkHtml = help.links.map(link => 
+                `<a href="/content/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
+            ).join(' • ');
+            return `
+                <div class="help-item">
+                    <div class="help-question">> ${help.q}</div>
+                    <div class="help-answer">${help.a}</div>
+                    ${linkHtml ? `<div style="margin-top: 8px; font-size:0.6rem;">> RELATED: ${linkHtml}</div>` : ''}
+                </div>
+            `;
+        }).join('');
+        
+        // ============================================
+        // EXTRA: Add additional inventory info
+        // ============================================
+        const extraItems = [
+            'discovery log', 'collection status', 'completion rate', 'item tracker'
+        ];
+        
+        const statsPanel = document.getElementById('entity-stats');
+        if (statsPanel) {
+            let extraHtml = `
+                <div style="margin-top: 16px; width: 100%; border-top: 1px solid #2a3a2a; padding-top: 16px;">
+                    <div style="font-size:0.55rem; color:#5a7a5a; margin-bottom: 8px;">> QUICK COMMANDS:</div>
+                    <div class="item-tags" style="margin-top: 0;">
+                        ${extraItems.map(item => `<div class="item-tag"><a href="/content/?q=${encodeURIComponent(displayName + ' ' + item)}">${item.toUpperCase()}</a></div>`).join('')}
+                    </div>
+                </div>
+            `;
+            statsPanel.innerHTML += extraHtml;
+        }
+        
+        // Add completion progress bar
+        const completionRate = Math.floor(Math.random() * 100);
+        const descriptionDiv = document.getElementById('item-description');
+        if (descriptionDiv) {
+            descriptionDiv.innerHTML += `
+                <div style="margin-top: 12px;">
+                    <div style="font-size:0.6rem; color:#5a7a5a;">> COLLECTION PROGRESS: ${completionRate}%</div>
+                    <div class="hp-bar" style="margin-top: 4px;"><div class="hp-fill" style="width: ${completionRate}%;"></div></div>
+                </div>
+            `;
+        }
+        
+    })();
+    </script>
+    
+    <br /><br /><br />
+    {% include footer.html %}
+</body>
+</html>
