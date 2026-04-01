@@ -1,0 +1,738 @@
+---
+layout: null
+permalink: /media/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    
+    <title id="dynamic-title">ARCHIVAL | The Fashion Vault</title>
+    <meta id="dynamic-description" name="description" content="The Fashion Vault - Curating rare editorial content, archival fashion moments, and exclusive visual collections from the world's most iconic figures.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Montserrat', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+        
+        /* Luxury Header */
+        .luxury-header {
+            background: #ffffff;
+            padding: 32px 0;
+            border-bottom: 1px solid #e8e5e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(8px);
+        }
+        
+        .luxury-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            color: #1a1a1a;
+        }
+        
+        .logo-sub {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: #9c8e7c;
+            margin-top: 4px;
+        }
+        
+        .header-tagline {
+            text-align: right;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: #9c8e7c;
+        }
+        
+        main { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 48px;
+        }
+        
+        .container {
+            background: transparent;
+            padding: 0;
+        }
+        
+        /* Typography - Editorial */
+        h1 { 
+            font-size: 3rem; 
+            font-weight: 400; 
+            line-height: 1.2;
+            font-family: 'Cormorant Garamond', serif;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+        
+        h2 { 
+            font-size: 1.6rem; 
+            font-weight: 400; 
+            margin: 56px 0 24px 0;
+            font-family: 'Cormorant Garamond', serif;
+            color: #1a1a1a;
+            letter-spacing: -0.3px;
+            border-bottom: 1px solid #e8e5e0;
+            padding-bottom: 8px;
+        }
+        
+        h3 { 
+            font-size: 1rem; 
+            font-weight: 500; 
+            margin: 20px 0 12px 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #9c8e7c;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        /* Links - Understated Elegance */
+        a { 
+            color: #1a1a1a; 
+            text-decoration: none;
+            border-bottom: 1px solid #e8e5e0;
+            transition: all 0.2s;
+        }
+        
+        a:hover { 
+            color: #9c8e7c;
+            border-bottom-color: #9c8e7c;
+        }
+        
+        /* Breadcrumb - Editorial Path */
+        .breadcrumb { 
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: #bcb6ab;
+            margin-bottom: 48px;
+            text-transform: uppercase;
+        }
+        
+        .breadcrumb a { color: #9c8e7c; border-bottom: none; }
+        
+        /* Grid - Editorial Layout */
+        .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 32px;
+            margin: 40px 0;
+        }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        @media (max-width: 1024px) { .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+        
+        /* Card - Editorial Feature */
+        .editorial-card {
+            background: #ffffff;
+            border: none;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .editorial-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .card-image-placeholder {
+            background: #f5f3f0;
+            aspect-ratio: 3/4;
+            margin-bottom: 16px;
+        }
+        
+        .editorial-card h3 { margin-top: 0; }
+        
+        .card-meta {
+            font-size: 0.7rem;
+            color: #bcb6ab;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        /* Stats - Archive Metrics */
+        .archive-metrics {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+            margin: 48px 0;
+            padding: 32px 0;
+            border-top: 1px solid #e8e5e0;
+            border-bottom: 1px solid #e8e5e0;
+        }
+        
+        .metric {
+            flex: 1;
+            min-width: 100px;
+        }
+        
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 400;
+            font-family: 'Cormorant Garamond', serif;
+            color: #1a1a1a;
+            display: block;
+            line-height: 1;
+        }
+        
+        .metric-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #bcb6ab;
+            margin-top: 8px;
+        }
+        
+        /* Editorial Quote */
+        .editorial-quote {
+            margin: 56px 0;
+            padding: 48px 64px;
+            background: #faf8f5;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #4a4238;
+            text-align: center;
+        }
+        
+        /* Collection Tags */
+        .collection-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 24px 0;
+        }
+        
+        .collection-tag {
+            border: 1px solid #e8e5e0;
+            padding: 6px 18px;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.2s;
+            background: #ffffff;
+        }
+        
+        .collection-tag a {
+            border-bottom: none;
+            color: #1a1a1a;
+        }
+        
+        .collection-tag:hover {
+            border-color: #9c8e7c;
+            background: #faf8f5;
+        }
+        
+        /* Timeline - Editorial Chronology */
+        .editorial-chronology {
+            margin: 48px 0;
+        }
+        
+        .chrono-entry {
+            display: flex;
+            gap: 32px;
+            padding: 24px 0;
+            border-bottom: 1px solid #e8e5e0;
+        }
+        
+        .chrono-year {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #9c8e7c;
+            min-width: 100px;
+        }
+        
+        /* Lookbook Grid */
+        .lookbook-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 32px 0;
+        }
+        
+        .lookbook-item {
+            flex: 1;
+            min-width: 180px;
+            background: #faf8f5;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        
+        .lookbook-item:hover {
+            background: #f5f3f0;
+        }
+        
+        /* FAQ - Editorial Q&A */
+        .editorial-faq {
+            margin: 48px 0;
+        }
+        
+        .faq-entry {
+            margin: 28px 0;
+            padding: 20px 0;
+            border-bottom: 1px solid #e8e5e0;
+        }
+        
+        .faq-question {
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+        
+        .faq-answer {
+            color: #5a5348;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        hr { 
+            border: none; 
+            border-top: 1px solid #e8e5e0; 
+            margin: 64px 0; 
+        }
+        
+        .hidden { display: none; }
+        .query-placeholder { font-weight: 500; background: #faf8f5; padding: 2px 8px; font-style: italic; }
+        .default-content.active { display: block; }
+        .default-content { display: none; }
+        #query-content { display: none; }
+        
+        .vault-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            color: #9c8e7c;
+            border: 1px solid #e8e5e0;
+            padding: 4px 12px;
+            margin-bottom: 32px;
+        }
+        
+        .footer-credit {
+            font-size: 0.7rem;
+            color: #bcb6ab;
+            text-align: center;
+            margin-top: 64px;
+            padding-top: 32px;
+            border-top: 1px solid #e8e5e0;
+        }
+        
+        @media (max-width: 768px) {
+            main { padding: 32px 24px; }
+            h1 { font-size: 2rem; }
+            .editorial-quote { padding: 32px 24px; font-size: 1.2rem; }
+            .chrono-entry { flex-direction: column; gap: 8px; }
+        }
+    </style>
+    {% include head.html %}
+</head>
+<body>
+    <div class="luxury-header">
+        <div class="luxury-container">
+            <div class="header-content">
+                <div>
+                    <div class="logo">THE FASHION VAULT</div>
+                    <div class="logo-sub">ARCHIVAL EDITORIAL COLLECTION</div>
+                </div>
+                <div class="header-tagline">
+                    EST. MMXIX<br>
+                    CURATED EDITIONS
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <main>
+        <div class="container">
+            <!-- DEFAULT CONTENT - VAULT HOME -->
+            <div id="default-content" class="default-content active">
+                <div class="vault-badge">ARCHIVAL EDITION VOL. VII</div>
+                <h1>The Fashion Vault<br>Curating Rare Editorial Moments</h1>
+                <p style="font-size: 1.1rem; color: #5a5348; margin: 16px 0 32px 0; max-width: 700px;">A curated archive of exceptional editorial content, archival fashion moments, and exclusive visual collections from the world's most iconic figures.</p>
+                
+                <div class="archive-metrics">
+                    <div class="metric"><span class="metric-number">15,247</span><span class="metric-label">ARCHIVAL PIECES</span></div>
+                    <div class="metric"><span class="metric-number">3,892</span><span class="metric-label">EDITORIAL FILMS</span></div>
+                    <div class="metric"><span class="metric-number">9,456</span><span class="metric-label">PHOTOGRAPHIC WORKS</span></div>
+                    <div class="metric"><span class="metric-number">1,899</span><span class="metric-label">ARCHIVAL DOCUMENTS</span></div>
+                </div>
+                
+                <div class="editorial-quote">
+                    “Fashion is ephemeral. True style, however, leaves an indelible mark. The Fashion Vault exists to preserve these moments of cultural significance.”
+                    <div style="margin-top: 16px; font-size: 0.8rem;">— The Curatorial Team</div>
+                </div>
+                
+                <!-- COLLECTION CATEGORIES -->
+                <h2>Collection Categories</h2>
+                <div class="grid-3">
+                    <div class="editorial-card">
+                        <div class="card-image-placeholder" style="background: #e8e5e0;"></div>
+                        <div class="card-meta">PHOTOGRAPHIC ARCHIVE</div>
+                        <h3>Visual Collections</h3>
+                        <p style="font-size: 0.85rem; color: #5a5348;">Curated photographic works, editorial shoots, and rare imagery.</p>
+                        <div style="margin-top: 16px;"><a href="/media/?q=photographic archive">Explore collection →</a></div>
+                    </div>
+                    <div class="editorial-card">
+                        <div class="card-image-placeholder" style="background: #e8e5e0;"></div>
+                        <div class="card-meta">MOVING IMAGE ARCHIVE</div>
+                        <h3>Editorial Films</h3>
+                        <p style="font-size: 0.85rem; color: #5a5348;">Curated film works, fashion editorials, and time-based media.</p>
+                        <div style="margin-top: 16px;"><a href="/media/?q=editorial films">Explore collection →</a></div>
+                    </div>
+                    <div class="editorial-card">
+                        <div class="card-image-placeholder" style="background: #e8e5e0;"></div>
+                        <div class="card-meta">ARCHIVAL READINGS</div>
+                        <h3>Document Collection</h3>
+                        <p style="font-size: 0.85rem; color: #5a5348;">Curated documents, personal archives, and historical records.</p>
+                        <div style="margin-top: 16px;"><a href="/media/?q=archival readings">Explore collection →</a></div>
+                    </div>
+                </div>
+                
+                <!-- FEATURED COLLECTIONS -->
+                <h2>Featured Collections</h2>
+                <div class="collection-tags">
+                    <div class="collection-tag"><a href="/media/?q=private collection">PRIVATE COLLECTION</a></div>
+                    <div class="collection-tag"><a href="/media/?q=editorial archive">EDITORIAL ARCHIVE</a></div>
+                    <div class="collection-tag"><a href="/media/?q=rare works">RARE WORKS</a></div>
+                    <div class="collection-tag"><a href="/media/?q=exclusive edition">EXCLUSIVE EDITION</a></div>
+                    <div class="collection-tag"><a href="/media/?q=complete works">COMPLETE WORKS</a></div>
+                    <div class="collection-tag"><a href="/media/?q=behind the lens">BEHIND THE LENS</a></div>
+                </div>
+                
+                <!-- PLATFORM ARCHIVES -->
+                <h2>Platform Archives</h2>
+                <div class="collection-tags">
+                    <div class="collection-tag"><a href="/media/?q=instagram archive">INSTAGRAM ARCHIVE</a></div>
+                    <div class="collection-tag"><a href="/media/?q=twitter archive">TWITTER ARCHIVE</a></div>
+                    <div class="collection-tag"><a href="/media/?q=tiktok archive">TIKTOK ARCHIVE</a></div>
+                    <div class="collection-tag"><a href="/media/?q=facebook archive">FACEBOOK ARCHIVE</a></div>
+                    <div class="collection-tag"><a href="/media/?q=discord archive">DISCORD ARCHIVE</a></div>
+                    <div class="collection-tag"><a href="/media/?q=telegram archive">TELEGRAM ARCHIVE</a></div>
+                </div>
+                
+                <hr>
+                
+                <div class="editorial-quote" style="text-align: center; background: transparent; padding: 40px 0;">
+                    <p style="color: #9c8e7c;">↓ Begin your exploration. Search for a name, a collection, or an editorial theme. ↓</p>
+                </div>
+                
+                <div class="footer-credit">
+                    THE FASHION VAULT • CURATED EDITORIAL ARCHIVE • ALL WORKS PRESERVED FOR CULTURAL DOCUMENTATION
+                </div>
+            </div>
+            
+            <!-- QUERY-BASED CONTENT - SUBJECT ARCHIVE -->
+            <div id="query-content" style="display: none;">
+                <div class="breadcrumb">
+                    <a href="/">VAULT</a> / <a href="/media/">EDITORIAL ARCHIVE</a> / <span id="breadcrumb-name"></span>
+                </div>
+                
+                <div class="vault-badge" id="edition-badge"></div>
+                <h1 id="main-heading"></h1>
+                <p id="archival-id" style="font-size: 0.7rem; color: #bcb6ab; margin-bottom: 24px; letter-spacing: 1px;"></p>
+                
+                <!-- ARCHIVE METRICS -->
+                <div class="archive-metrics" id="archive-metrics"></div>
+                
+                <!-- CURATORIAL NOTE -->
+                <div class="editorial-quote" id="curatorial-note"></div>
+                
+                <!-- ============================================
+                     EDITORIAL COLLECTIONS - AUTO GENERATED LINKS
+                     ============================================ -->
+                <h2>Editorial Collections</h2>
+                <div id="editorial-collections" class="grid-2"></div>
+                
+                <!-- ============================================
+                     PLATFORM ARCHIVES - AUTO GENERATED
+                     ============================================ -->
+                <h2>Platform Archives</h2>
+                <div id="platform-archives" class="collection-tags"></div>
+                
+                <!-- ============================================
+                     RELATED COLLECTIONS - AUTO GENERATED
+                     ============================================ -->
+                <h2>Related Collections</h2>
+                <div id="related-collections" class="collection-tags"></div>
+                
+                <!-- ============================================
+                     ARCHIVAL TIMELINE - AUTO GENERATED
+                     ============================================ -->
+                <h2>Archival Timeline</h2>
+                <div id="archival-timeline" class="editorial-chronology"></div>
+                
+                <!-- ============================================
+                     LOOKBOOK / GALLERY LINKS - AUTO GENERATED
+                     ============================================ -->
+                <h2>Curated Galleries</h2>
+                <div id="curated-galleries" class="lookbook-grid"></div>
+                
+                <!-- ============================================
+                     EDITORIAL Q&A - AUTO GENERATED
+                     ============================================ -->
+                <h2>About the Archive</h2>
+                <div id="editorial-faq" class="editorial-faq"></div>
+                
+                <hr />
+                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>  
+                
+                <div class="footer-credit">
+                    <span id="collection-credit"></span> • THE FASHION VAULT • ARCHIVAL EDITION
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            return;
+        }
+        
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        
+        // Format display name - editorial style
+        function getDisplayName(q) {
+            const removeTerms = ['archive', 'collection', 'vault', 'works', 'edition', 'gallery'];
+            let name = q.toLowerCase();
+            removeTerms.forEach(term => {
+                name = name.replace(new RegExp('\\s*' + term + '\\s*$', 'i'), '');
+            });
+            return name.trim().split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || q;
+        }
+        
+        const displayName = getDisplayName(query);
+        const editionNumber = Math.floor(Math.random() * 50) + 1;
+        const archivalCode = displayName.substring(0, 3).toUpperCase() + new Date().getFullYear();
+        
+        // Update title
+        document.title = `${displayName} | Editorial Archive | The Fashion Vault`;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            `The Fashion Vault presents: ${displayName} editorial archive. Curated collection of ${Math.floor(Math.random() * 500) + 200} archival pieces.`);
+        
+        // Breadcrumb
+        document.getElementById('breadcrumb-name').textContent = displayName.toLowerCase().replace(/ /g, '-');
+        
+        // Edition badge
+        document.getElementById('edition-badge').innerHTML = `ARCHIVAL EDITION NO. ${editionNumber} | ${displayName.toUpperCase()} COLLECTION`;
+        
+        // Main heading
+        document.getElementById('main-heading').innerHTML = `${displayName}<br><span style="font-size: 1rem;">Curated Editorial Archive</span>`;
+        document.getElementById('archival-id').innerHTML = `ARCHIVAL REF: ${archivalCode} • ACQUIRED MMXXIV • PERMANENT COLLECTION`;
+        
+        // Random counts
+        const photoCount = Math.floor(Math.random() * 600) + 200;
+        const videoCount = Math.floor(Math.random() * 120) + 30;
+        const docCount = Math.floor(Math.random() * 70) + 15;
+        
+        // Archive metrics
+        document.getElementById('archive-metrics').innerHTML = `
+            <div class="metric"><span class="metric-number">${photoCount}</span><span class="metric-label">PHOTOGRAPHIC WORKS</span></div>
+            <div class="metric"><span class="metric-number">${videoCount}</span><span class="metric-label">EDITORIAL FILMS</span></div>
+            <div class="metric"><span class="metric-number">${docCount}</span><span class="metric-label">ARCHIVAL DOCUMENTS</span></div>
+            <div class="metric"><span class="metric-number">${Math.floor(Math.random() * 30) + 12}</span><span class="metric-label">CURATED EDITIONS</span></div>
+        `;
+        
+        // Curatorial note
+        const curatorialNotes = [
+            `The ${displayName} editorial archive represents a significant body of work — ${photoCount} photographic pieces, ${videoCount} editorial films, and ${docCount} archival documents. Each piece has been carefully preserved for its cultural and artistic significance.`,
+            `This curated collection features ${displayName}'s most exceptional editorial moments. From rare photographic works to exclusive film content, the archive documents a distinctive creative journey.`,
+            `The Fashion Vault is honored to present the complete ${displayName} editorial archive. This collection of ${photoCount + videoCount + docCount} works represents a unique moment in contemporary visual culture.`
+        ];
+        document.getElementById('curatorial-note').innerHTML = `“${curatorialNotes[Math.floor(Math.random() * curatorialNotes.length)]}”<div style="margin-top: 16px; font-size: 0.8rem;">— The Curatorial Department</div>`;
+        
+        // ============================================
+        // 1. EDITORIAL COLLECTIONS - AUTO GENERATED LINKS
+        // ============================================
+        const editorialCollections = [
+            { label: "Photographic Works", query: "photographic works", desc: `${photoCount} archival images`, category: "VISUAL" },
+            { label: "Editorial Films", query: "editorial films", desc: `${videoCount} moving image pieces`, category: "FILM" },
+            { label: "Archival Documents", query: "archival documents", desc: `${docCount} personal archives`, category: "TEXT" },
+            { label: "Exclusive Edition", query: "exclusive edition", desc: "Rare and limited works", category: "EXCLUSIVE" },
+            { label: "Complete Works", query: "complete works", desc: "Full collection archive", category: "ARCHIVE" },
+            { label: "Behind the Lens", query: "behind the lens", desc: "Behind-the-scenes documentation", category: "BTS" }
+        ];
+        
+        document.getElementById('editorial-collections').innerHTML = editorialCollections.map(col => `
+            <div class="editorial-card">
+                <div class="card-meta">${col.category}</div>
+                <h3>${col.label}</h3>
+                <p style="font-size: 0.85rem; color: #5a5348;">${col.desc}</p>
+                <div style="margin-top: 16px;"><a href="/media/?q=${encodeURIComponent(displayName + ' ' + col.query)}">Explore →</a></div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 2. PLATFORM ARCHIVES - AUTO GENERATED
+        // ============================================
+        const platforms = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube'];
+        
+        document.getElementById('platform-archives').innerHTML = platforms.map(p => `
+            <div class="collection-tag"><a href="/media/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' archive')}">${p.toUpperCase()} ARCHIVE</a></div>
+        `).join('');
+        
+        // ============================================
+        // 3. RELATED COLLECTIONS - AUTO GENERATED
+        // ============================================
+        const relatedTerms = [
+            'complete collection', 'full archive', 'original works', 'master edition',
+            'rare pieces', 'exclusive content', 'limited release', 'archival series'
+        ];
+        
+        document.getElementById('related-collections').innerHTML = relatedTerms.map(term => `
+            <div class="collection-tag"><a href="/media/?q=${encodeURIComponent(displayName + ' ' + term)}">${term.toUpperCase()}</a></div>
+        `).join('');
+        
+        // ============================================
+        // 4. ARCHIVAL TIMELINE - AUTO GENERATED
+        // ============================================
+        const timelineEntries = [
+            { year: "2023", event: `Initial ${displayName} works acquired for archival collection` },
+            { year: "2024", event: `Digital preservation and cataloging of ${photoCount + videoCount} pieces` },
+            { year: "2025", event: `Complete ${displayName} editorial archive established` },
+            { year: "2026", event: `Permanent exhibition in The Fashion Vault, Edition No. ${editionNumber}` }
+        ];
+        
+        document.getElementById('archival-timeline').innerHTML = timelineEntries.map(entry => `
+            <div class="chrono-entry">
+                <div class="chrono-year">${entry.year}</div>
+                <div class="chrono-desc">${entry.event}</div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 5. CURATED GALLERIES - AUTO GENERATED
+        // ============================================
+        const galleryTypes = [
+            'Editorial Portraits', 'Studio Sessions', 'Candid Moments', 
+            'Behind the Scenes', 'Archival Outtakes', 'Rare Editions'
+        ];
+        
+        document.getElementById('curated-galleries').innerHTML = galleryTypes.map(gallery => `
+            <div class="lookbook-item">
+                <div style="font-size: 1.2rem; margin-bottom: 8px;">📷</div>
+                <div style="font-size: 0.8rem; font-weight: 500;">${gallery}</div>
+                <div style="margin-top: 12px;"><a href="/media/?q=${encodeURIComponent(displayName + ' ' + gallery.toLowerCase())}" style="font-size: 0.7rem;">View →</a></div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 6. EDITORIAL FAQ - AUTO GENERATED
+        // ============================================
+        const editorialFAQ = [
+            {
+                q: `What is the ${displayName} editorial archive?`,
+                a: `This curated collection preserves ${photoCount + videoCount + docCount} works spanning photographic, film, and documentary materials. `,
+                links: ['collection overview', 'archival scope']
+            },
+            {
+                q: `How are works selected for The Fashion Vault?`,
+                a: `Each piece undergoes curatorial review for artistic and cultural significance. The ${displayName} archive represents a complete collection. `,
+                links: ['curatorial process', 'selection criteria']
+            },
+            {
+                q: `Can I access the complete ${displayName} collection?`,
+                a: `The full editorial archive is available for viewing through our digital exhibition space. Curated galleries organized by theme and medium. `,
+                links: ['complete collection', 'digital exhibition']
+            },
+            {
+                q: `How is this archive preserved?`,
+                a: `All works are digitally preserved using archival standards, ensuring long-term accessibility for research and appreciation. `,
+                links: ['preservation methods', 'archival standards']
+            }
+        ];
+        
+        document.getElementById('editorial-faq').innerHTML = editorialFAQ.map(faq => {
+            const linkHtml = faq.links.map(link => 
+                `<a href="/media/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
+            ).join(' • ');
+            return `
+                <div class="faq-entry">
+                    <div class="faq-question">${faq.q}</div>
+                    <div class="faq-answer">${faq.a}</div>
+                    ${linkHtml ? `<div style="margin-top: 12px; font-size:0.7rem; color:#bcb6ab;">RELATED: ${linkHtml}</div>` : ''}
+                </div>
+            `;
+        }).join('');
+        
+        // ============================================
+        // 7. COLLECTION CREDIT
+        // ============================================
+        document.getElementById('collection-credit').innerHTML = `${displayName} Editorial Archive • ${photoCount + videoCount + docCount} Works • Acquired MMXXIII–MMXXVI`;
+        
+        // ============================================
+        // EXTRA: Related Icons/Figures
+        // ============================================
+        const relatedIcons = [
+            'kendall jenner', 'hailey bieber', 'gigi hadid', 'bella hadid',
+            'emma watson', 'scarlett johansson', 'zendaya', 'margot robbie'
+        ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 8);
+        
+        const faqSection = document.getElementById('editorial-faq');
+        if (faqSection) {
+            let iconsHtml = `
+                <div style="margin-top: 48px; padding-top: 32px; border-top: 1px solid #e8e5e0;">
+                    <div style="font-size:0.7rem; color:#bcb6ab; margin-bottom: 16px;">RELATED ICONS IN THE VAULT</div>
+                    <div class="collection-tags">
+                        ${relatedIcons.map(icon => `<div class="collection-tag"><a href="/media/?q=${encodeURIComponent(icon)}">${icon.toUpperCase()}</a></div>`).join('')}
+                    </div>
+                </div>
+            `;
+            faqSection.innerHTML += iconsHtml;
+        }
+        
+        // Add archival stamp
+        const metricsDiv = document.getElementById('archive-metrics');
+        if (metricsDiv) {
+            metricsDiv.innerHTML += `
+                <div class="metric"><span class="metric-number">✓</span><span class="metric-label">VERIFIED ARCHIVE</span></div>
+            `;
+        }
+        
+    })();
+    </script>
+    
+    <br /><br /><br />
+    {% include footer.html %}
+</body>
+</html>
