@@ -10,7 +10,7 @@
 <li>blog</li>
 <li>docs</li>
 <li>model</li>
-<li>page</li><br />
+<li>page</li>
   <li>file</li>
   <li>gallery</li>
   <li>folder</li>
@@ -18,4 +18,18 @@
   <li>form</li>
   <li>tab</li>
   <li>pop</li>
+  <br />
+  <li>content</li>
+  <li>media</li>
+  <li>library</li>
+  <li>catalog</li>
+  <li>record</li>
+  <li>bio</li>
+  <li>list</li>
+  <li>data</li>
+  <li>note</li>
+  <li>visual</li>
+  <li>special</li>
+  <li>rare</li>
+  <li>item</li>
 </ol>
