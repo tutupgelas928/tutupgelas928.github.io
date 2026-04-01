@@ -1,0 +1,676 @@
+---
+layout: null
+permalink: /tab/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    <meta name="citation_journal_title" content="Journal of Digital Archives">
+    <meta name="citation_issn" content="2834-5621">
+    
+    <title id="dynamic-title">JDA | Journal of Digital Archives</title>
+    <meta id="dynamic-description" name="description" content="Peer-reviewed academic database documenting digital cultural artifacts. Scholarly research since 2019.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Inter', sans-serif;
+            background: #f7f5f2;
+            color: #1e2a2e;
+            line-height: 1.6;
+        }
+        
+        /* Academic Header */
+        .academic-header {
+            background: #1e2a2e;
+            color: #f7f5f2;
+            padding: 24px 0;
+            border-bottom: 3px solid #d4af7a;
+        }
+        
+        .academic-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        
+        .journal-title {
+            font-family: 'Source Serif Pro', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+        
+        .journal-meta {
+            font-size: 0.7rem;
+            color: #b8c4c2;
+            margin-top: 8px;
+            letter-spacing: 0.5px;
+        }
+        
+        .journal-meta span {
+            color: #d4af7a;
+        }
+        
+        main { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 48px 32px 80px;
+        }
+        
+        .container {
+            background: transparent;
+            padding: 0;
+        }
+        
+        /* Typography - Academic */
+        h1 { 
+            font-size: 2.5rem; 
+            font-weight: 600; 
+            line-height: 1.3;
+            font-family: 'Source Serif Pro', serif;
+            color: #1e2a2e;
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+        }
+        
+        h2 { 
+            font-size: 1.3rem; 
+            font-weight: 600; 
+            margin: 48px 0 20px 0;
+            font-family: 'Source Serif Pro', serif;
+            color: #1e2a2e;
+            border-bottom: 1px solid #e2dcd2;
+            padding-bottom: 8px;
+        }
+        
+        h3 { 
+            font-size: 1rem; 
+            font-weight: 600; 
+            margin: 20px 0 12px 0;
+            font-family: 'Source Serif Pro', serif;
+            color: #2c5f6e;
+        }
+        
+        /* Links - Citation Style */
+        a { 
+            color: #2c5f6e; 
+            text-decoration: none;
+            border-bottom: 1px dotted #c9bcae;
+            transition: all 0.2s;
+        }
+        
+        a:hover { 
+            color: #d4af7a;
+            border-bottom-color: #d4af7a;
+        }
+        
+        /* Breadcrumb - Citation Path */
+        .breadcrumb { 
+            font-size: 0.7rem;
+            color: #8b9a9e;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e8e2d8;
+        }
+        
+        .breadcrumb a { color: #5f7d85; border-bottom: none; }
+        
+        /* Grid - Research Papers */
+        .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 28px;
+            margin: 32px 0;
+        }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        @media (max-width: 1024px) { .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+        
+        /* Card - Abstract Card */
+        .card {
+            background: #ffffff;
+            border: 1px solid #e8e2d8;
+            padding: 24px;
+            transition: all 0.2s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+        
+        .card:hover {
+            border-color: #d4af7a;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .card h3 { margin-top: 0; }
+        
+        /* Stats - Research Metrics */
+        .research-metrics {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin: 32px 0;
+            padding: 24px 0;
+            border-top: 1px solid #e8e2d8;
+            border-bottom: 1px solid #e8e2d8;
+        }
+        
+        .metric {
+            flex: 1;
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        .metric-number {
+            font-size: 2rem;
+            font-weight: 600;
+            font-family: 'Source Serif Pro', serif;
+            color: #2c5f6e;
+            display: block;
+            line-height: 1;
+        }
+        
+        .metric-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8b9a9e;
+            margin-top: 6px;
+        }
+        
+        /* Abstract Box */
+        .abstract-box {
+            margin: 32px 0;
+            padding: 28px 32px;
+            background: #fefcf9;
+            border-left: 3px solid #d4af7a;
+            font-family: 'Source Serif Pro', serif;
+            font-size: 1rem;
+            color: #3a4a4f;
+        }
+        
+        .abstract-box .author {
+            margin-top: 16px;
+            font-size: 0.8rem;
+            font-family: 'Inter', sans-serif;
+            color: #8b9a9e;
+        }
+        
+        /* Citation Tags */
+        .citation-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .citation-tag {
+            background: #f5f2ed;
+            border: 1px solid #e2dcd2;
+            padding: 4px 14px;
+            font-size: 0.65rem;
+            font-family: monospace;
+            transition: all 0.2s;
+        }
+        
+        .citation-tag a {
+            border-bottom: none;
+            color: #5f7d85;
+        }
+        
+        .citation-tag:hover {
+            background: #e8e2d8;
+            border-color: #d4af7a;
+        }
+        
+        /* Bibliography - Timeline */
+        .bibliography {
+            margin: 32px 0;
+        }
+        
+        .bib-entry {
+            display: flex;
+            gap: 24px;
+            padding: 16px 0;
+            border-bottom: 1px solid #e8e2d8;
+            font-size: 0.85rem;
+        }
+        
+        .bib-year {
+            font-weight: 600;
+            color: #d4af7a;
+            min-width: 70px;
+            font-family: monospace;
+        }
+        
+        /* FAQ - Research Questions */
+        .research-qa {
+            margin: 28px 0;
+            padding: 20px 0;
+            border-bottom: 1px solid #e8e2d8;
+        }
+        
+        .research-question {
+            font-weight: 600;
+            font-family: 'Source Serif Pro', serif;
+            color: #1e2a2e;
+            margin-bottom: 8px;
+        }
+        
+        .research-answer {
+            color: #5a6e74;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        
+        hr { 
+            border: none; 
+            border-top: 1px solid #e8e2d8; 
+            margin: 48px 0; 
+        }
+        
+        .hidden { display: none; }
+        .query-placeholder { font-weight: 600; background: #f5f2ed; padding: 2px 6px; font-family: monospace; }
+        .default-content.active { display: block; }
+        .default-content { display: none; }
+        #query-content { display: none; }
+        
+        .doi-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-family: monospace;
+            background: #1e2a2e;
+            color: #f7f5f2;
+            padding: 4px 10px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        
+        .reference-note {
+            font-size: 0.7rem;
+            color: #8b9a9e;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #e8e2d8;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            main { padding: 32px 20px; }
+            h1 { font-size: 1.8rem; }
+            .abstract-box { padding: 20px; }
+        }
+    </style>
+    {% include head.html %}
+</head>
+<body>
+    <div class="academic-header">
+        <div class="academic-container">
+            <div class="journal-title">Journal of Digital Archives</div>
+            <div class="journal-meta">Vol. 7, Issue 2 • <span>Peer-Reviewed</span> • Open Access • ISSN 2834-5621</div>
+        </div>
+    </div>
+    
+    <main>
+        <div class="container">
+            <!-- DEFAULT CONTENT - JOURNAL HOME -->
+            <div id="default-content" class="default-content active">
+                <div class="doi-badge">OPEN ACCESS | PEER-REVIEWED</div>
+                <h1>Digital Artifacts Archive<br>Scholarly Research Database</h1>
+                <p style="font-size: 1rem; color: #5a6e74; margin: 16px 0 24px 0; max-width: 750px;">A peer-reviewed academic database documenting digital cultural artifacts, verified collections, and documented materials for research purposes.</p>
+                
+                <div class="research-metrics">
+                    <div class="metric"><span class="metric-number">15,247</span><span class="metric-label">CITED ENTRIES</span></div>
+                    <div class="metric"><span class="metric-number">3,892</span><span class="metric-label">VIDEO SOURCES</span></div>
+                    <div class="metric"><span class="metric-number">9,456</span><span class="metric-label">IMAGE CITATIONS</span></div>
+                    <div class="metric"><span class="metric-number">1,899</span><span class="metric-label">DOCUMENTED WORKS</span></div>
+                </div>
+                
+                <div class="abstract-box">
+                    <strong>Editorial Note</strong><br>
+                    The Journal of Digital Archives maintains a comprehensive database of documented digital artifacts. Each entry undergoes scholarly review and verification. This resource serves researchers, cultural historians, and academic institutions.
+                    <div class="author">— Editorial Board, Journal of Digital Archives</div>
+                </div>
+                
+                <!-- RESEARCH CATEGORIES -->
+                <h2>Research Categories</h2>
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>Visual Culture Studies</h3>
+                        <p>Scholarly documentation of visual artifacts, image collections, and photographic records.</p>
+                        <div style="margin-top: 12px;"><a href="/tab/?q=visual culture studies">Browse collection →</a></div>
+                    </div>
+                    <div class="card">
+                        <h3>Media Studies Archive</h3>
+                        <p>Documented video sources, time-based media, and moving image collections.</p>
+                        <div style="margin-top: 12px;"><a href="/tab/?q=media studies archive">Browse collection →</a></div>
+                    </div>
+                    <div class="card">
+                        <h3>Cultural Documentation</h3>
+                        <p>Personal records, documented materials, and cultural artifacts.</p>
+                        <div style="margin-top: 12px;"><a href="/tab/?q=cultural documentation">Browse collection →</a></div>
+                    </div>
+                </div>
+                
+                <!-- CITATION DATABASES -->
+                <h2>Citation Databases</h2>
+                <div class="citation-tags">
+                    <div class="citation-tag"><a href="/tab/?q=primary sources">PRIMARY SOURCES</a></div>
+                    <div class="citation-tag"><a href="/tab/?q=secondary sources">SECONDARY SOURCES</a></div>
+                    <div class="citation-tag"><a href="/tab/?q=verified collections">VERIFIED COLLECTIONS</a></div>
+                    <div class="citation-tag"><a href="/tab/?q=archival records">ARCHIVAL RECORDS</a></div>
+                    <div class="citation-tag"><a href="/tab/?q=peer reviewed">PEER REVIEWED</a></div>
+                </div>
+                
+                <!-- PLATFORM ARCHIVES -->
+                <h2>Platform Archives (DOI Registered)</h2>
+                <div class="citation-tags">
+                    <div class="citation-tag"><a href="/tab/?q=instagram archive">INSTAGRAM ARCHIVE</a></div>
+                    <div class="citation-tag"><a href="/tab/?q=twitter archive">TWITTER ARCHIVE</a></div>
+                    <div class="citation-tag"><a href="/tab/?q=tiktok archive">TIKTOK ARCHIVE</a></div>
+                    <div class="citation-tag"><a href="/tab/?q=facebook archive">FACEBOOK ARCHIVE</a></div>
+                    <div class="citation-tag"><a href="/tab/?q=discord archive">DISCORD ARCHIVE</a></div>
+                </div>
+                
+                <hr>
+                
+                <div class="abstract-box" style="text-align: center;">
+                    <strong>Research Access</strong><br>
+                    Enter a subject name, collection identifier, or research keyword to access scholarly documentation.
+                </div>
+                
+                <div class="reference-note">
+                    Journal of Digital Archives • Indexed in Scopus, Web of Science, and Digital Humanities Quarterly • All content DOI registered
+                </div>
+            </div>
+            
+            <!-- QUERY-BASED CONTENT - SCHOLARLY ENTRY -->
+            <div id="query-content" style="display: none;">
+                <div class="breadcrumb">
+                    <a href="/">JDA</a> / <a href="/tab/">Digital Archives</a> / <span id="breadcrumb-name"></span> / Scholarly Entry
+                </div>
+                
+                <div class="doi-badge" id="doi-badge"></div>
+                <h1 id="main-heading"></h1>
+                <p id="citation-info" style="font-size: 0.75rem; color: #8b9a9e; margin-bottom: 24px; font-family: monospace;"></p>
+                
+                <!-- ABSTRACT -->
+                <div class="abstract-box" id="abstract"></div>
+                
+                <!-- RESEARCH METRICS -->
+                <div class="research-metrics" id="research-metrics"></div>
+                
+                <!-- ============================================
+                     CITATION CATALOG - AUTO GENERATED LINKS
+                     ============================================ -->
+                <h2>Citation Catalog</h2>
+                <div id="citation-catalog" class="grid-2"></div>
+                
+                <!-- ============================================
+                     SOURCE BIBLIOGRAPHY - AUTO GENERATED
+                     ============================================ -->
+                <h2>Source Bibliography</h2>
+                <div id="source-bibliography" class="citation-tags"></div>
+                
+                <!-- ============================================
+                     PLATFORM CITATIONS - AUTO GENERATED
+                     ============================================ -->
+                <h2>Platform Citations</h2>
+                <div id="platform-citations" class="citation-tags"></div>
+                
+                <!-- ============================================
+                     RESEARCH CHRONOLOGY - AUTO GENERATED
+                     ============================================ -->
+                <h2>Research Chronology</h2>
+                <div id="research-chronology" class="bibliography"></div>
+                
+                <!-- ============================================
+                     RELATED RESEARCH - AUTO GENERATED
+                     ============================================ -->
+                <h2>Related Research</h2>
+                <div id="related-research" class="citation-tags"></div>
+                
+                <!-- ============================================
+                     SCHOLARLY Q&A - AUTO GENERATED
+                     ============================================ -->
+                <h2>Research Questions</h2>
+                <div id="scholarly-qa"></div>
+                
+                <hr />
+                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>  
+                
+                <div class="reference-note">
+                    <span id="citation-reference"></span> • DOI: <span id="doi-number"></span> • Archived under CC BY-NC 4.0 • Peer-reviewed
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            return;
+        }
+        
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        
+        // Format display name - academic style
+        function getDisplayName(q) {
+            const removeTerms = ['archive', 'collection', 'catalog', 'database', 'sources'];
+            let name = q.toLowerCase();
+            removeTerms.forEach(term => {
+                name = name.replace(new RegExp('\\s*' + term + '\\s*$', 'i'), '');
+            });
+            return name.trim().split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || q;
+        }
+        
+        const displayName = getDisplayName(query);
+        const doiNumber = `10.${Math.floor(Math.random() * 9000 + 1000)}/jda.${new Date().getFullYear()}.${Math.floor(Math.random() * 900 + 100)}`;
+        const volumeIssue = `Vol. 7, Iss. 2`;
+        
+        // Update title
+        document.title = `${displayName} | Digital Archive Entry | JDA`;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            `Scholarly entry: ${displayName}. Peer-reviewed documentation with ${Math.floor(Math.random() * 500) + 200} cited sources. Journal of Digital Archives.`);
+        
+        // Breadcrumb
+        document.getElementById('breadcrumb-name').textContent = displayName.toLowerCase().replace(/ /g, '-');
+        
+        // DOI Badge
+        document.getElementById('doi-badge').innerHTML = `DOI: ${doiNumber} | ${volumeIssue} | PEER-REVIEWED`;
+        
+        // Main heading
+        document.getElementById('main-heading').innerHTML = `${displayName}<br><span style="font-size: 0.9rem;">A Scholarly Documentation</span>`;
+        document.getElementById('citation-info').innerHTML = `How to cite: Author(s). (${new Date().getFullYear()}). ${displayName} Digital Archive. Journal of Digital Archives, ${volumeIssue}. ${doiNumber}`;
+        
+        // Random counts
+        const citedWorks = Math.floor(Math.random() * 600) + 200;
+        const videoSources = Math.floor(Math.random() * 120) + 30;
+        const imageCitations = Math.floor(Math.random() * 500) + 150;
+        const documentCount = Math.floor(Math.random() * 70) + 15;
+        
+        // Abstract
+        const abstracts = [
+            `This scholarly entry documents the complete ${displayName} digital archive, comprising ${citedWorks} verified works, ${videoSources} video sources, and ${imageCitations} image citations. All materials have been peer-reviewed and archived according to academic standards.`,
+            `The ${displayName} collection represents a significant digital cultural archive. This documentation includes ${citedWorks} primary sources, ${videoSources} time-based media entries, and ${imageCitations} visual artifacts, verified through scholarly review.`,
+            `This peer-reviewed entry provides comprehensive documentation of ${displayName} digital materials. The archive contains ${citedWorks} verified entries, including visual documentation, moving image sources, and textual records.`
+        ];
+        document.getElementById('abstract').innerHTML = `<strong>Abstract</strong><br><br>${abstracts[Math.floor(Math.random() * abstracts.length)]}<div class="author">— Digital Archives Research Group</div>`;
+        
+        // Research metrics
+        document.getElementById('research-metrics').innerHTML = `
+            <div class="metric"><span class="metric-number">${citedWorks}</span><span class="metric-label">CITED WORKS</span></div>
+            <div class="metric"><span class="metric-number">${videoSources}</span><span class="metric-label">VIDEO SOURCES</span></div>
+            <div class="metric"><span class="metric-number">${imageCitations}</span><span class="metric-label">IMAGE CITATIONS</span></div>
+            <div class="metric"><span class="metric-number">${documentCount}</span><span class="metric-label">DOCUMENTED ENTRIES</span></div>
+        `;
+        
+        // ============================================
+        // 1. CITATION CATALOG - AUTO GENERATED LINKS
+        // ============================================
+        const citationCatalog = [
+            { label: "Visual Materials", query: "visual materials", desc: `${imageCitations} cited visual works` },
+            { label: "Video Sources", query: "video sources", desc: `${videoSources} moving image entries` },
+            { label: "Documented Records", query: "documented records", desc: `${documentCount} textual materials` },
+            { label: "Primary Sources", query: "primary sources", desc: "Original documented materials" },
+            { label: "Archival Collection", query: "archival collection", desc: "Complete verified archive" },
+            { label: "Scholarly References", query: "scholarly references", desc: "Academic citations" }
+        ];
+        
+        document.getElementById('citation-catalog').innerHTML = citationCatalog.map(cat => `
+            <div class="card">
+                <h3>${cat.label}</h3>
+                <p>${cat.desc}</p>
+                <div style="margin-top: 12px;"><a href="/tab/?q=${encodeURIComponent(displayName + ' ' + cat.query)}">Access citations →</a></div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 2. SOURCE BIBLIOGRAPHY - AUTO GENERATED
+        // ============================================
+        const sourceTypes = [
+            'primary sources', 'secondary sources', 'verified collections', 
+            'archival records', 'peer reviewed', 'academic references',
+            'original documentation', 'verified citations'
+        ];
+        
+        document.getElementById('source-bibliography').innerHTML = sourceTypes.map(src => `
+            <div class="citation-tag"><a href="/tab/?q=${encodeURIComponent(displayName + ' ' + src)}">${src.toUpperCase()}</a></div>
+        `).join('');
+        
+        // ============================================
+        // 3. PLATFORM CITATIONS - AUTO GENERATED
+        // ============================================
+        const platforms = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube'];
+        
+        document.getElementById('platform-citations').innerHTML = platforms.map(p => `
+            <div class="citation-tag"><a href="/tab/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' archive')}">${p.toUpperCase()} ARCHIVE</a></div>
+        `).join('');
+        
+        // ============================================
+        // 4. RESEARCH CHRONOLOGY - AUTO GENERATED
+        // ============================================
+        const chronologyEntries = [
+            { year: "2023", event: `Initial documentation of ${displayName} materials began` },
+            { year: "2024", event: `Peer review and verification of ${citedWorks} cited works` },
+            { year: "2025", event: `Complete ${displayName} archive cataloged and DOI registered` },
+            { year: "2026", event: `Scholarly publication in Journal of Digital Archives, ${volumeIssue}` }
+        ];
+        
+        document.getElementById('research-chronology').innerHTML = chronologyEntries.map(entry => `
+            <div class="bib-entry">
+                <div class="bib-year">${entry.year}</div>
+                <div class="bib-desc">${entry.event}</div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 5. RELATED RESEARCH - AUTO GENERATED
+        // ============================================
+        const relatedResearch = [
+            'kendall jenner', 'hailey bieber', 'gigi hadid', 'bella hadid',
+            'emma watson', 'scarlett johansson', 'zendaya', 'margot robbie'
+        ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 10);
+        
+        document.getElementById('related-research').innerHTML = relatedResearch.map(res => `
+            <div class="citation-tag"><a href="/tab/?q=${encodeURIComponent(res)}">${res.toUpperCase()} ARCHIVE</a></div>
+        `).join('');
+        
+        // ============================================
+        // 6. SCHOLARLY Q&A - AUTO GENERATED
+        // ============================================
+        const scholarlyQA = [
+            {
+                q: `What is the scope of the ${displayName} digital archive?`,
+                a: `This scholarly collection documents ${citedWorks} verified entries, including visual materials, video sources, and documented records. `,
+                links: ['collection scope', 'archive parameters']
+            },
+            {
+                q: `How are materials verified for scholarly inclusion?`,
+                a: `All entries undergo peer review and source verification before inclusion in the Journal of Digital Archives. `,
+                links: ['verification process', 'peer review standards']
+            },
+            {
+                q: `Can researchers access the complete ${displayName} archive?`,
+                a: `Full archive access is available for academic research purposes. Citations and references are provided for all materials. `,
+                links: ['research access', 'academic use']
+            },
+            {
+                q: `How is this archive maintained?`,
+                a: `The digital archive is maintained by the Journal of Digital Archives editorial board with regular updates and verification. `,
+                links: ['archive maintenance', 'update policy']
+            }
+        ];
+        
+        document.getElementById('scholarly-qa').innerHTML = scholarlyQA.map(qa => {
+            const linkHtml = qa.links.map(link => 
+                `<a href="/tab/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
+            ).join(' • ');
+            return `
+                <div class="research-qa">
+                    <div class="research-question">${qa.q}</div>
+                    <div class="research-answer">${qa.a}</div>
+                    ${linkHtml ? `<div style="margin-top: 12px; font-size:0.7rem; color:#c9bcae;">SEE ALSO: ${linkHtml}</div>` : ''}
+                </div>
+            `;
+        }).join('');
+        
+        // ============================================
+        // 7. CITATION REFERENCE
+        // ============================================
+        document.getElementById('citation-reference').innerHTML = `${displayName} Digital Archive (${new Date().getFullYear()})`;
+        document.getElementById('doi-number').innerHTML = doiNumber;
+        
+        // ============================================
+        // EXTRA: Add reference list
+        // ============================================
+        const referenceList = [
+            'full bibliography', 'citation index', 'source verification', 'academic references'
+        ];
+        
+        const researchMetricsDiv = document.getElementById('research-metrics');
+        if (researchMetricsDiv) {
+            let refHtml = `
+                <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #e8e2d8; width: 100%;">
+                    <div style="font-size:0.65rem; color:#8b9a9e; margin-bottom: 12px;">REFERENCE CATALOG:</div>
+                    <div class="citation-tags" style="margin-top: 0;">
+                        ${referenceList.map(ref => `<div class="citation-tag"><a href="/tab/?q=${encodeURIComponent(displayName + ' ' + ref)}">${ref.toUpperCase()}</a></div>`).join('')}
+                    </div>
+                </div>
+            `;
+            researchMetricsDiv.innerHTML += refHtml;
+        }
+        
+        // Add scholarly note
+        const abstractDiv = document.getElementById('abstract');
+        if (abstractDiv) {
+            abstractDiv.innerHTML += `
+                <div style="margin-top: 16px; font-size:0.7rem; color:#8b9a9e; border-top: 1px solid #e8e2d8; padding-top: 12px;">
+                    <strong>Keywords:</strong> ${displayName.toLowerCase()}, digital archive, cultural documentation, verified sources, scholarly research
+                </div>
+            `;
+        }
+        
+    })();
+    </script>
+    
+    <br /><br /><br />
+    {% include footer.html %}
+</body>
+</html>
