@@ -18,7 +18,6 @@
   <li>form</li>
   <li>tab</li>
   <li>pop</li>
-  <br />
   <li>content</li>
   <li>media</li>
   <li>library</li>
@@ -32,4 +31,24 @@
   <li>special</li>
   <li>rare</li>
   <li>item</li>
+  <li>personal</li>
+<li>session</li>
+<li>section</li>
+<li>studio</li>
+<li>view</li>
+<li>preview</li>
+<li>topic</li>
+<li>about</li>
+<li>edition</li>
+<li>photo</li>
+<li>video</li>
+<li>explore</li>
+<li>image</li>
+<li>movie</li>
+<li>limited</li>
+<li>vault</li>
+  <li>git</li>
+  <li>hub</li>
+  <li>beta</li>
+  <li>fokus</li>
 </ol>
