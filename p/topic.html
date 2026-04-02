@@ -10,8 +10,8 @@ permalink: /topic/
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
-    <title id="dynamic-title">LeakQuora · Questions & Answers About Leaked Content</title>
-    <meta id="dynamic-description" name="description" content="The biggest Q&A platform for leaked influencer content. Ask questions, get answers, and explore leaked content archives.">
+    <title id="dynamic-title">LeakPin · Leaked Content Gallery Board</title>
+    <meta id="dynamic-description" name="description" content="Discover leaked content from influencers, TikTokers, and OnlyFans creators. Save and share leaked photos and videos.">
     <link id="dynamic-canonical" rel="canonical" href="https://example.com/topic/">
     <style>
         * {
@@ -21,360 +21,297 @@ permalink: /topic/
         }
 
         body {
-            background: #f7f9fc;
+            background: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            color: #1a1a2e;
+            color: #111111;
         }
 
-        .quora-container {
-            max-width: 1000px;
+        .pinterest-container {
+            max-width: 1400px;
             margin: 0 auto;
-            background: #fff;
-            min-height: 100vh;
+            padding: 0 1rem;
         }
 
-        /* header ala Quora */
-        .quora-header {
-            background: #fff;
-            border-bottom: 1px solid #e2e6e9;
-            padding: 1rem 1.5rem;
+        /* header ala Pinterest */
+        .pinterest-header {
             position: sticky;
             top: 0;
-            z-index: 10;
-            background: #fff;
+            background: #ffffff;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e2e2e2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            z-index: 100;
         }
 
         .logo {
             font-size: 1.3rem;
-            font-weight: 600;
-            color: #b92b27;
+            font-weight: 700;
+            background: linear-gradient(135deg, #e60023, #b8001f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        .logo span {
-            color: #1a1a2e;
+        .search-bar {
+            background: #efefef;
+            border-radius: 40px;
+            padding: 0.5rem 1rem;
+            width: 300px;
+            font-size: 0.8rem;
+            color: #767676;
         }
 
         /* breadcrumb */
         .breadcrumb {
-            padding: 0.75rem 1.5rem;
+            padding: 0.75rem 0;
             font-size: 0.7rem;
-            color: #6a737c;
-            background: #fafafc;
-            border-bottom: 1px solid #e2e6e9;
+            color: #767676;
         }
 
         .breadcrumb a {
-            color: #b92b27;
+            color: #e60023;
             text-decoration: none;
         }
 
-        /* stat bar */
-        .stat-bar {
-            display: flex;
-            gap: 1.5rem;
-            padding: 0.75rem 1.5rem;
-            background: #fafafc;
-            border-bottom: 1px solid #e2e6e9;
-            font-size: 0.7rem;
-            color: #6a737c;
+        /* board info */
+        .board-header {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e2e2;
+            margin-bottom: 1.5rem;
         }
 
-        /* question card */
-        .question-card {
-            border-bottom: 1px solid #e2e6e9;
-            padding: 1.25rem 1.5rem;
-            transition: background 0.1s;
-        }
-
-        .question-card:hover {
-            background: #fafafc;
-        }
-
-        .vote-section {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            margin-right: 1rem;
-            float: left;
-        }
-
-        .vote-up, .vote-down {
-            font-size: 1.2rem;
-            cursor: default;
-            color: #6a737c;
-        }
-
-        .vote-count {
-            font-size: 0.8rem;
+        .board-title {
+            font-size: 1.8rem;
             font-weight: 600;
-            margin: 0.2rem 0;
         }
 
-        .question-content {
-            margin-left: 48px;
+        .board-stats {
+            font-size: 0.75rem;
+            color: #767676;
+            margin-top: 0.25rem;
         }
 
-        .question-title {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+        /* masonry grid */
+        .masonry-grid {
+            column-count: 5;
+            column-gap: 1.25rem;
+            margin: 1rem 0;
         }
 
-        .question-title a {
-            color: #1a1a2e;
-            text-decoration: none;
+        .pin-card {
+            break-inside: avoid;
+            margin-bottom: 1.25rem;
+            border-radius: 32px;
+            overflow: hidden;
+            background: #ffffff;
+            border: 1px solid #e2e2e2;
+            transition: all 0.2s;
+            position: relative;
         }
 
-        .question-title a:hover {
-            color: #b92b27;
+        .pin-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
-        .question-meta {
-            font-size: 0.7rem;
-            color: #6a737c;
-            margin-bottom: 0.5rem;
-        }
-
-        .question-stats {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.65rem;
-            color: #6a737c;
-        }
-
-        .answer-preview {
-            background: #f7f9fc;
-            padding: 0.75rem;
-            border-radius: 8px;
-            margin-top: 0.75rem;
-            font-size: 0.8rem;
-            border-left: 3px solid #b92b27;
-        }
-
-        /* answer card (untuk query page) */
-        .answer-card {
-            border-bottom: 1px solid #e2e6e9;
-            padding: 1.25rem 1.5rem;
-        }
-
-        .answer-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .answer-avatar {
-            width: 32px;
-            height: 32px;
-            background: #e2e6e9;
-            border-radius: 50%;
+        .pin-image {
+            background: linear-gradient(145deg, #f0f0f0, #e0e0e0);
+            aspect-ratio: 3/4;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
+            font-size: 3rem;
+            position: relative;
         }
 
-        .answer-author {
-            font-weight: 600;
-            font-size: 0.8rem;
+        .pin-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.6rem;
+            color: #fff;
         }
 
-        .answer-time {
-            font-size: 0.65rem;
-            color: #6a737c;
+        .pin-content {
+            padding: 0.75rem;
         }
 
-        .answer-content {
-            font-size: 0.85rem;
-            line-height: 1.5;
-            margin-bottom: 0.75rem;
-        }
-
-        .answer-actions {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.65rem;
-            color: #6a737c;
-        }
-
-        /* related questions */
-        .related-section {
-            background: #fafafc;
-            padding: 1rem 1.5rem;
-            border-bottom: 1px solid #e2e6e9;
-        }
-
-        .related-title {
+        .pin-title {
             font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.25rem;
         }
 
-        .related-list {
-            list-style: none;
-        }
-
-        .related-list li {
+        .pin-desc {
+            font-size: 0.7rem;
+            color: #767676;
             margin-bottom: 0.5rem;
         }
 
-        .related-list a {
-            color: #1a1a2e;
-            text-decoration: none;
-            font-size: 0.8rem;
-        }
-
-        /* tag cloud */
-        .topic-tags {
+        .pin-stats {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            padding: 1rem 1.5rem;
-            border-bottom: 1px solid #e2e6e9;
+            gap: 0.75rem;
+            font-size: 0.65rem;
+            color: #767676;
+            margin-bottom: 0.5rem;
         }
 
-        .topic-tag {
-            background: #e2e6e9;
-            padding: 0.2rem 0.7rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            color: #1a1a2e;
+        .save-btn {
+            display: inline-block;
+            background: #e60023;
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            font-weight: 600;
             text-decoration: none;
         }
 
-        hr {
-            border: none;
-            border-top: 1px solid #e2e6e9;
-        }
-
+        /* footer */
         .footer {
-            padding: 1rem;
+            padding: 2rem;
             text-align: center;
             font-size: 0.6rem;
-            color: #6a737c;
-            border-top: 1px solid #e2e6e9;
+            color: #767676;
+            border-top: 1px solid #e2e2e2;
+            margin-top: 2rem;
         }
 
         .hidden {
             display: none;
         }
 
-        .default-quora {
+        .default-pin {
             display: block;
         }
 
-        .query-quora {
+        .query-pin {
             display: none;
         }
 
-        @media (max-width: 640px) {
-            .question-content { margin-left: 40px; }
-            .vote-section { margin-right: 0.5rem; }
-            .quora-header, .breadcrumb, .stat-bar { padding-left: 1rem; padding-right: 1rem; }
-            .question-card, .answer-card { padding: 1rem; }
+        @media (max-width: 1200px) {
+            .masonry-grid { column-count: 4; }
+        }
+        @media (max-width: 900px) {
+            .masonry-grid { column-count: 3; }
+        }
+        @media (max-width: 600px) {
+            .masonry-grid { column-count: 2; }
+            .board-title { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
-<div class="quora-container">
-    <!-- DEFAULT QUORA (homepage) -->
-    <div id="default-quora" class="default-quora">
-        <div class="quora-header">
-            <div class="logo">Leak<span>Quora</span></div>
+<div class="pinterest-container">
+    <!-- DEFAULT PINTEREST (home) -->
+    <div id="default-pin" class="default-pin">
+        <div class="pinterest-header">
+            <div class="logo">LeakPin</div>
+            <div class="search-bar">🔍 Search leaked content...</div>
+            <div style="display: flex; gap: 1rem;">
+                <span>🔔</span>
+                <span>👤</span>
+            </div>
         </div>
         <div class="breadcrumb">
-            <a href="/">Home</a> / LeakQuora
-        </div>
-        <div class="stat-bar">
-            <span>📊 2.4M followers</span>
-            <span>❓ 15K+ questions</span>
-            <span>✍️ 45K+ answers</span>
-            <span>🔥 trending daily</span>
+            <a href="/">Home</a> / Explore Leaks
         </div>
 
-        <!-- Featured Question -->
-        <div class="question-card">
-            <div class="vote-section"><div class="vote-up">▲</div><div class="vote-count">2.3k</div><div class="vote-down">▼</div></div>
-            <div class="question-content">
-                <div class="question-title"><a href="/topic/?q=where+to+find+leaked+tiktok+videos">Where can I find leaked TikTok videos from popular creators?</a></div>
-                <div class="question-meta">Asked by @leakhunter · 2 days ago · 🔥 trending</div>
-                <div class="answer-preview">Top answer: The best place to find leaked TikTok videos is through Telegram channels and Discord servers. Here's a complete guide to access leaked content...</div>
-                <div class="question-stats"><span>👍 456 upvotes</span><span>💬 89 answers</span><span>👁️ 23K views</span></div>
+        <div class="board-header">
+            <div class="board-title">🔥 Trending Leaked Content</div>
+            <div class="board-stats">1.2M saves · Updated daily</div>
+        </div>
+
+        <div class="masonry-grid">
+            <!-- PIN 1 -->
+            <div class="pin-card">
+                <div class="pin-image">🎬 <span class="pin-badge">VIDEO</span></div>
+                <div class="pin-content">
+                    <div class="pin-title">TikTok Star Leaked Compilation</div>
+                    <div class="pin-desc">200+ leaked videos · Viral clips</div>
+                    <div class="pin-stats">❤️ 23K saves · 💬 1.2K</div>
+                    <a href="/topic/?q=tiktok+star+leaked+video+compilation" class="save-btn">Save</a>
+                </div>
             </div>
-        </div>
-
-        <div class="question-card">
-            <div class="vote-section"><div class="vote-up">▲</div><div class="vote-count">1.8k</div><div class="vote-down">▼</div></div>
-            <div class="question-content">
-                <div class="question-title"><a href="/topic/?q=leaked+onlyfans+content+archive+access">How to access leaked OnlyFans content archive?</a></div>
-                <div class="question-meta">Asked by @ofresearcher · 5 days ago · 💎 exclusive</div>
-                <div class="answer-preview">Top answer: There are several Telegram channels that archive OnlyFans leaks. Here are the most reliable sources for leaked OnlyFans content...</div>
-                <div class="question-stats"><span>👍 987 upvotes</span><span>💬 234 answers</span><span>👁️ 45K views</span></div>
+            <!-- PIN 2 -->
+            <div class="pin-card">
+                <div class="pin-image">🔞 <span class="pin-badge">EXCLUSIVE</span></div>
+                <div class="pin-content">
+                    <div class="pin-title">OnlyFans Leaked Complete Set</div>
+                    <div class="pin-desc">500+ files · Private archive</div>
+                    <div class="pin-stats">❤️ 18K saves · 💬 987</div>
+                    <a href="/topic/?q=onlyfans+creator+leaked+complete+set" class="save-btn">Save</a>
+                </div>
             </div>
-        </div>
-
-        <div class="question-card">
-            <div class="vote-section"><div class="vote-up">▲</div><div class="vote-count">1.2k</div><div class="vote-down">▼</div></div>
-            <div class="question-content">
-                <div class="question-title"><a href="/topic/?q=instagram+leaked+photos+private+account">How do Instagram leaked photos from private accounts get out?</a></div>
-                <div class="question-meta">Asked by @privacydive · 1 week ago · 📸 hot</div>
-                <div class="answer-preview">Top answer: Instagram leaks typically come from compromised accounts, screenshots, or deleted stories that get preserved...</div>
-                <div class="question-stats"><span>👍 654 upvotes</span><span>💬 156 answers</span><span>👁️ 34K views</span></div>
+            <!-- PIN 3 -->
+            <div class="pin-card">
+                <div class="pin-image">📸 <span class="pin-badge">PHOTO</span></div>
+                <div class="pin-content">
+                    <div class="pin-title">Instagram Influencer Leaked Gallery</div>
+                    <div class="pin-desc">80+ private photos · Deleted stories</div>
+                    <div class="pin-stats">❤️ 12K saves · 💬 654</div>
+                    <a href="/topic/?q=instagram+influencer+leaked+private+gallery" class="save-btn">Save</a>
+                </div>
             </div>
-        </div>
-
-        <div class="topic-tags">
-            <a href="/topic/?q=leaked+tiktok+questions" class="topic-tag">#LeakedTikTok</a>
-            <a href="/topic/?q=leaked+onlyfans+questions" class="topic-tag">#LeakedOnlyFans</a>
-            <a href="/topic/?q=leaked+instagram+questions" class="topic-tag">#LeakedInstagram</a>
-            <a href="/topic/?q=leaked+telegram+questions" class="topic-tag">#LeakedTelegram</a>
+            <!-- PIN 4 -->
+            <div class="pin-card">
+                <div class="pin-image">💬 <span class="pin-badge">TELEGRAM</span></div>
+                <div class="pin-content">
+                    <div class="pin-title">Telegram Leaked Channel Archive</div>
+                    <div class="pin-desc">Full channel dump · 50K+ members</div>
+                    <div class="pin-stats">❤️ 8.5K saves · 💬 432</div>
+                    <a href="/topic/?q=telegram+leaked+channel+archive" class="save-btn">Save</a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- QUERY-BASED QUORA (dinamis per influencer) -->
-    <div id="query-quora" class="query-quora">
-        <div class="quora-header">
-            <div class="logo">Leak<span>Quora</span></div>
+    <!-- QUERY-BASED PINTEREST (dinamis per influencer) -->
+    <div id="query-pin" class="query-pin">
+        <div class="pinterest-header">
+            <div class="logo">LeakPin</div>
+            <div class="search-bar">🔍 Search leaked content...</div>
+            <div style="display: flex; gap: 1rem;">
+                <span>🔔</span>
+                <span>👤</span>
+            </div>
         </div>
         <div class="breadcrumb">
-            <a href="/">Home</a> / <a href="/topic/">LeakQuora</a> / <span id="bc-name"></span>
-        </div>
-        <div class="stat-bar" id="stat-bar-dynamic"></div>
-
-        <!-- PROFILE / TOPIC HEADER -->
-        <div style="padding: 1rem 1.5rem; background: #fafafc; border-bottom: 1px solid #e2e6e9;">
-            <h1 id="topic-title" style="font-size: 1.3rem; font-weight: 600;"></h1>
-            <p id="topic-desc" style="font-size: 0.8rem; color: #6a737c; margin-top: 0.25rem;"></p>
+            <a href="/">Home</a> / <a href="/topic/">LeakPin</a> / <span id="bc-name"></span>
         </div>
 
-        <!-- MAIN QUESTION (FEATURED) -->
-        <div id="main-question"></div>
-
-        <!-- TOP ANSWERS SECTION (PANJANG) -->
-        <div style="padding: 0.75rem 1.5rem; background: #fafafc; border-bottom: 1px solid #e2e6e9;">
-            <span style="font-size: 0.8rem; font-weight: 600;">📌 Top Answers</span>
-            <span style="font-size: 0.7rem; color: #6a737c; margin-left: 0.5rem;">sorted by upvotes</span>
-        </div>
-        <div id="answers-section"></div>
-
-        <!-- RELATED QUESTIONS -->
-        <div class="related-section">
-            <div class="related-title">❓ Related Questions You Might Like</div>
-            <ul class="related-list" id="related-questions"></ul>
+        <div class="board-header">
+            <div class="board-title" id="board-title"></div>
+            <div class="board-stats" id="board-stats"></div>
         </div>
 
-        <!-- TOPIC TAGS -->
-        <div class="topic-tags" id="topic-tags"></div>
+        <!-- CATEGORY CHIPS -->
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+            <span class="save-btn" style="background:#efefef; color:#111;" id="all-btn">All</span>
+            <span class="save-btn" style="background:#efefef; color:#111;">Videos</span>
+            <span class="save-btn" style="background:#efefef; color:#111;">Photos</span>
+            <span class="save-btn" style="background:#efefef; color:#111;">Exclusive</span>
+            <span class="save-btn" style="background:#efefef; color:#111;">Telegram</span>
+        </div>
 
-        <!-- MORE FROM COMMUNITY -->
-        <div class="related-section">
-            <div class="related-title">👥 More from the LeakQuora Community</div>
-            <ul class="related-list" id="community-links"></ul>
+        <!-- MASONRY GRID (PANJANG) -->
+        <div class="masonry-grid" id="pin-grid"></div>
+
+        <!-- MORE BOARDS SECTION -->
+        <div style="margin: 2rem 0 1rem;">
+            <div style="font-weight: 600; margin-bottom: 1rem;">📌 More boards you might like</div>
+            <div class="masonry-grid" id="more-boards"></div>
         </div>
 
         <div class="footer" id="footer">
-            LeakQuora · Follow for daily leaked content updates
+            LeakPin · Save leaked content · Updated daily
         </div>
     </div>
 </div>
@@ -384,8 +321,8 @@ permalink: /topic/
     const urlParams = new URLSearchParams(window.location.search);
     let query = urlParams.get('q');
 
-    const defaultDiv = document.getElementById('default-quora');
-    const queryDiv = document.getElementById('query-quora');
+    const defaultDiv = document.getElementById('default-pin');
+    const queryDiv = document.getElementById('query-pin');
 
     if (!query) {
         defaultDiv.style.display = 'block';
@@ -399,7 +336,7 @@ permalink: /topic/
     query = decodeURIComponent(query.replace(/\+/g, ' '));
     
     // extract nama influencer
-    const removeTerms = ['leaked', 'leak', 'leaks', 'archive', 'collection', 'dump', 'vault', 'pack', 'bundle', 'gallery', 'content', 'media', 'videos', 'photos', 'pics', 'onlyfans', 'tiktok', 'instagram', 'twitter', 'telegram', 'discord', 'trending', 'viral', 'exclusive', 'private', 'premium', '2024', '2025', '2026', 'full', 'complete', 'hot', 'new', 'watch', 'view', 'access', 'quora', 'question', 'answer', 'ask', 'community'];
+    const removeTerms = ['leaked', 'leak', 'leaks', 'archive', 'collection', 'dump', 'vault', 'pack', 'bundle', 'gallery', 'content', 'media', 'videos', 'photos', 'pics', 'onlyfans', 'tiktok', 'instagram', 'twitter', 'telegram', 'discord', 'trending', 'viral', 'exclusive', 'private', 'premium', '2024', '2025', '2026', 'full', 'complete', 'hot', 'new', 'watch', 'view', 'access', 'pinterest', 'pin', 'board', 'save'];
     let baseRaw = query.toLowerCase();
     removeTerms.forEach(term => {
         const regex = new RegExp('\\b' + term + '\\b', 'gi');
@@ -416,178 +353,77 @@ permalink: /topic/
     const displayLower = displayName.toLowerCase();
 
     // random numbers
-    const followers = Math.floor(Math.random() * 500) + 50;
-    const questions = Math.floor(Math.random() * 30) + 10;
-    const answers = Math.floor(Math.random() * 80) + 30;
+    const savesCount = Math.floor(Math.random() * 50000) + 10000;
+    const pinsCount = Math.floor(Math.random() * 80) + 30;
+    const followersCount = Math.floor(Math.random() * 5000) + 500;
     
     // SEO
-    let pageTitle = `${displayName} Leaked Content · Questions & Answers | LeakQuora`;
-    let pageDesc = `Top questions and answers about ${displayName} leaked content. ${answers}+ answers from the community. Find leaked videos and photos.`;
+    let pageTitle = `${displayName} Leaked Content · Pinterest Board | LeakPin`;
+    let pageDesc = `Save and discover ${displayName} leaked content. ${pinsCount}+ pins of leaked videos and photos. Updated daily.`;
     document.title = pageTitle;
     const metaTag = document.getElementById('dynamic-description');
     if (metaTag) metaTag.setAttribute('content', pageDesc);
     
     document.getElementById('bc-name').innerText = displayName;
-    document.getElementById('topic-title').innerHTML = `${displayName} <span style="font-size:0.7rem; color:#b92b27;">· Leaked Content</span>`;
-    document.getElementById('topic-desc').innerHTML = `${followers} followers · ${questions} questions · ${answers} answers about ${displayName} leaked content`;
+    document.getElementById('board-title').innerHTML = `${displayName} · Leaked Content`;
+    document.getElementById('board-stats').innerHTML = `${pinsCount} pins · ${savesCount.toLocaleString()} saves · ${followersCount} followers`;
     
-    document.getElementById('stat-bar-dynamic').innerHTML = `
-        <span>👥 ${followers} followers</span>
-        <span>❓ ${questions} questions</span>
-        <span>✍️ ${answers} answers</span>
-        <span>🔥 trending topic</span>
-    `;
-    
-    // helper: make question card
-    function makeQuestionCard(title, variant, votes, answersCount, views, timeAgo, hasPreview) {
+    // helper: membuat pin card
+    function makePin(icon, badge, title, desc, saves, comments, variant, isVideo = false) {
         const newQ = `${displayLower} ${variant}`;
         return `
-            <div class="question-card">
-                <div class="vote-section"><div class="vote-up">▲</div><div class="vote-count">${votes}</div><div class="vote-down">▼</div></div>
-                <div class="question-content">
-                    <div class="question-title"><a href="/topic/?q=${encodeURIComponent(newQ)}">${title}</a></div>
-                    <div class="question-meta">Asked by @${displayLower}_asker · ${timeAgo} · 🔥 trending</div>
-                    ${hasPreview ? `<div class="answer-preview">Top answer: The complete ${displayName} leaked content archive can be accessed through the links below. Here's what you need to know...</div>` : ''}
-                    <div class="question-stats"><span>👍 ${Math.floor(votes * 0.4)} upvotes</span><span>💬 ${answersCount} answers</span><span>👁️ ${views}K views</span></div>
+            <div class="pin-card">
+                <div class="pin-image">${icon} <span class="pin-badge">${badge}</span></div>
+                <div class="pin-content">
+                    <div class="pin-title">${title}</div>
+                    <div class="pin-desc">${desc}</div>
+                    <div class="pin-stats">❤️ ${saves.toLocaleString()} saves · 💬 ${comments}</div>
+                    <a href="/topic/?q=${encodeURIComponent(newQ)}" class="save-btn">Save</a>
                 </div>
             </div>
         `;
     }
     
-    // helper: make answer card
-    function makeAnswerCard(author, authorBadge, content, upvotes, timeAgo, linkVariant, linkText) {
-        const newQLink = `${displayLower} ${linkVariant}`;
-        return `
-            <div class="answer-card">
-                <div class="answer-header">
-                    <div class="answer-avatar">${author.charAt(0)}</div>
-                    <div class="answer-author">${author}</div>
-                    <div class="answer-time">${authorBadge}</div>
-                    <div class="answer-time">· ${timeAgo}</div>
-                </div>
-                <div class="answer-content">
-                    ${content}
-                    <div style="margin-top: 0.5rem;"><a href="/topic/?q=${encodeURIComponent(newQLink)}" style="color:#b92b27;">${linkText}</a></div>
-                </div>
-                <div class="answer-actions">
-                    <span>▲ ${upvotes} upvotes</span>
-                    <span>💬 Reply</span>
-                    <span>🔗 Share</span>
-                    <span>⭐ Follow</span>
-                </div>
+    // PINS (10-12 pins panjang)
+    const pins = [
+        { icon: '🎬', badge: 'VIDEO', title: `Full ${displayName} Leaked Video Compilation`, desc: `Complete video archive · ${Math.floor(Math.random() * 200) + 100}+ clips`, saves: Math.floor(Math.random() * 15000) + 5000, comments: Math.floor(Math.random() * 1000) + 200, variant: 'leaked video full compilation' },
+        { icon: '🔞', badge: 'EXCLUSIVE', title: `${displayName} Leaked OnlyFans Set`, desc: `Full OnlyFans archive · Exclusive content`, saves: Math.floor(Math.random() * 12000) + 4000, comments: Math.floor(Math.random() * 800) + 150, variant: 'leaked onlyfans content' },
+        { icon: '📸', badge: 'PHOTO', title: `${displayName} Leaked Photo Gallery`, desc: `Private Instagram photos · Deleted stories`, saves: Math.floor(Math.random() * 10000) + 3000, comments: Math.floor(Math.random() * 600) + 100, variant: 'leaked photos full gallery' },
+        { icon: '💬', badge: 'TELEGRAM', title: `${displayName} Telegram Leak Channel`, desc: `Original source · Full channel archive`, saves: Math.floor(Math.random() * 8000) + 2000, comments: Math.floor(Math.random() * 500) + 80, variant: 'leaked telegram channel' },
+        { icon: '🎮', badge: 'DISCORD', title: `${displayName} Discord Leak Server`, desc: `Private server dump · Exclusive content`, saves: Math.floor(Math.random() * 7000) + 1500, comments: Math.floor(Math.random() * 400) + 60, variant: 'leaked discord server' },
+        { icon: '🐦', badge: 'TWITTER', title: `${displayName} Leaked Twitter Threads`, desc: `Viral tweets · Deleted threads archive`, saves: Math.floor(Math.random() * 6000) + 1000, comments: Math.floor(Math.random() * 300) + 50, variant: 'leaked twitter threads' },
+        { icon: '🔴', badge: 'REDDIT', title: `${displayName} Reddit Leak Archive`, desc: `Community discussions · Preserved posts`, saves: Math.floor(Math.random() * 5000) + 800, comments: Math.floor(Math.random() * 250) + 40, variant: 'leaked reddit posts' },
+        { icon: '💎', badge: 'RARE', title: `${displayName} Exclusive Leak Vault`, desc: `Rare content · Limited access`, saves: Math.floor(Math.random() * 4000) + 600, comments: Math.floor(Math.random() * 200) + 30, variant: 'exclusive leaked vault' },
+        { icon: '⚡', badge: 'VIRAL', title: `${displayName} Viral Leaked Moments`, desc: `Most shared clips · Trending`, saves: Math.floor(Math.random() * 9000) + 2500, comments: Math.floor(Math.random() * 700) + 120, variant: 'leaked viral moments' },
+        { icon: '📁', badge: 'MEGA', title: `${displayName} Complete Leak Archive`, desc: `Everything in one place · Full dump`, saves: Math.floor(Math.random() * 11000) + 3500, comments: Math.floor(Math.random() * 900) + 180, variant: 'complete leaked archive' }
+    ];
+    
+    document.getElementById('pin-grid').innerHTML = pins.map(pin => 
+        makePin(pin.icon, pin.badge, pin.title, pin.desc, pin.saves, pin.comments, pin.variant)
+    ).join('');
+    
+    // MORE BOARDS (related creators)
+    const moreBoards = [
+        { name: 'Similar Influencer Leaks', icon: '🔥', variant: 'similar leaked creators', pinCount: Math.floor(Math.random() * 50) + 20 },
+        { name: 'Trending Leaks This Week', icon: '⚡', variant: 'trending leaks this week', pinCount: Math.floor(Math.random() * 40) + 15 },
+        { name: 'Telegram Leak Archive', icon: '💬', variant: 'telegram leak archive', pinCount: Math.floor(Math.random() * 60) + 25 },
+        { name: 'OnlyFans Leak Collection', icon: '🔞', variant: 'onlyfans leak collection', pinCount: Math.floor(Math.random() * 55) + 22 }
+    ];
+    document.getElementById('more-boards').innerHTML = moreBoards.map(board => `
+        <div class="pin-card">
+            <div class="pin-image" style="aspect-ratio: 1/1;">${board.icon}</div>
+            <div class="pin-content">
+                <div class="pin-title">${board.name}</div>
+                <div class="pin-desc">${board.pinCount} pins · Leaked content</div>
+                <a href="/topic/?q=${encodeURIComponent(displayLower + ' ' + board.variant)}" class="save-btn">View Board</a>
             </div>
-        `;
-    }
-    
-    // MAIN QUESTION
-    const mainQuestionVotes = Math.floor(Math.random() * 3000) + 1000;
-    const mainQuestionAnswers = Math.floor(Math.random() * 60) + 20;
-    const mainQuestionViews = Math.floor(Math.random() * 80) + 30;
-    document.getElementById('main-question').innerHTML = makeQuestionCard(
-        `What is the complete ${displayName} leaked content archive and where can I find it?`,
-        'complete leaked archive guide',
-        mainQuestionVotes,
-        mainQuestionAnswers,
-        mainQuestionViews,
-        '3 days ago',
-        true
-    );
-    
-    // ANSWERS SECTION (4-5 answers panjang)
-    const answers = [
-        {
-            author: 'LeakArchiveExpert',
-            badge: 'Top Leak Contributor · 50K answers',
-            content: `I've been tracking ${displayName} leaked content for the past year. The most comprehensive archive includes ${Math.floor(Math.random() * 200) + 50} leaked videos and ${Math.floor(Math.random() * 300) + 100} leaked photos. Here's the complete breakdown of where to find everything:`,
-            upvotes: Math.floor(Math.random() * 800) + 300,
-            timeAgo: '2 days ago',
-            linkVariant: 'complete leaked archive database',
-            linkText: '📁 Access Complete ${displayName} Leaked Archive →'
-        },
-        {
-            author: 'TelegramLeakHunter',
-            badge: 'Telegram Archive Specialist',
-            content: `The best source for ${displayName} leaked content is Telegram. There are several channels that have been archiving everything since the first leaks appeared. I've compiled a list of the most reliable Telegram channels for ${displayName} leaks:`,
-            upvotes: Math.floor(Math.random() * 600) + 200,
-            timeAgo: '3 days ago',
-            linkVariant: 'leaked telegram channel archive',
-            linkText: '💬 Join ${displayName} Leaked Telegram Channel →'
-        },
-        {
-            author: 'DiscordDataMiner',
-            badge: 'Discord Archive Expert',
-            content: `Discord has been a major source for ${displayName} leaked content. Private servers have been preserving everything. Here's a guide to accessing the Discord archives:`,
-            upvotes: Math.floor(Math.random() * 500) + 150,
-            timeAgo: '4 days ago',
-            linkVariant: 'leaked discord server dump',
-            linkText: '🎮 Access ${displayName} Leaked Discord Archive →'
-        },
-        {
-            author: 'ViralContentTracker',
-            badge: 'Viral Trends Analyst',
-            content: `Based on my analysis, ${displayName} leaked content went viral primarily through Twitter threads. Here's the complete Twitter archive including deleted tweets and viral moments:`,
-            upvotes: Math.floor(Math.random() * 400) + 100,
-            timeAgo: '5 days ago',
-            linkVariant: 'leaked twitter threads archive',
-            linkText: '🐦 View ${displayName} Leaked Twitter Archive →'
-        },
-        {
-            author: 'PhotoLeakCollector',
-            badge: 'Image Archive Specialist',
-            content: `I've collected over ${Math.floor(Math.random() * 300) + 100} ${displayName} leaked photos including private Instagram stories, deleted posts, and exclusive content. Here's the full gallery:`,
-            upvotes: Math.floor(Math.random() * 350) + 80,
-            timeAgo: '1 week ago',
-            linkVariant: 'leaked photos full gallery',
-            linkText: '📸 Browse ${displayName} Leaked Photo Gallery →'
-        }
-    ];
-    
-    document.getElementById('answers-section').innerHTML = answers.map(ans => 
-        makeAnswerCard(ans.author, ans.badge, ans.content, ans.upvotes, ans.timeAgo, ans.linkVariant, ans.linkText)
-    ).join('');
-    
-    // RELATED QUESTIONS (8 questions)
-    const relatedQuestions = [
-        { title: `Where can I find ${displayName} leaked OnlyFans content?`, variant: 'leaked onlyfans content guide', votes: '1.2k' },
-        { title: `How did ${displayName} leaked photos first appear online?`, variant: 'leak origin story', votes: '987' },
-        { title: `What is the best Telegram channel for ${displayName} leaks?`, variant: 'best telegram leak channel', votes: '876' },
-        { title: `Are there any Discord servers with ${displayName} leaked content?`, variant: 'discord leak server guide', votes: '765' },
-        { title: `How to download ${displayName} leaked video compilation?`, variant: 'leaked video download guide', votes: '654' },
-        { title: `What's the viral ${displayName} leaked moment everyone is talking about?`, variant: 'viral leaked moment', votes: '543' },
-        { title: `Where do ${displayName} Instagram leaked photos come from?`, variant: 'instagram leak sources', votes: '432' },
-        { title: `Is there a complete ${displayName} leaked archive mega pack?`, variant: 'mega leak pack', votes: '321' }
-    ];
-    document.getElementById('related-questions').innerHTML = relatedQuestions.map(q => `
-        <li>
-            <a href="/topic/?q=${encodeURIComponent(displayLower + ' ' + q.variant)}">❓ ${q.title}</a>
-            <span style="font-size:0.65rem; color:#6a737c; margin-left:0.5rem;">${q.votes} upvotes</span>
-        </li>
-    `).join('');
-    
-    // TOPIC TAGS (8 tags)
-    const topicTags = [
-        'leaked videos', 'leaked photos', 'onlyfans leaks', 'instagram leaks',
-        'tiktok leaks', 'telegram archive', 'discord dump', 'twitter threads'
-    ];
-    document.getElementById('topic-tags').innerHTML = topicTags.map(tag => 
-        `<a href="/topic/?q=${encodeURIComponent(displayLower + ' ' + tag)}" class="topic-tag">#${tag.replace(/ /g, '')}</a>`
-    ).join('');
-    
-    // COMMUNITY LINKS
-    const communityLinks = [
-        { label: 'Ask a question about this leaked content', variant: 'ask question about leaks' },
-        { label: 'Follow this topic for updates', variant: 'follow leak updates' },
-        { label: 'Report outdated leaked content links', variant: 'report outdated leaks' },
-        { label: 'Suggest new leaked content to add', variant: 'suggest new leaks' }
-    ];
-    document.getElementById('community-links').innerHTML = communityLinks.map(link => `
-        <li><a href="/topic/?q=${encodeURIComponent(displayLower + ' ' + link.variant)}">🔗 ${link.label}</a></li>
+        </div>
     `).join('');
     
     // footer
     const today = new Date();
     const dateStr = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-    document.getElementById('footer').innerHTML = `LeakQuora · ${followers} followers · Last activity ${dateStr} · Join the discussion about ${displayName} leaked content`;
+    document.getElementById('footer').innerHTML = `LeakPin · ${pinsCount} pins · ${savesCount.toLocaleString()} total saves · Updated ${dateStr}`;
     
     // canonical
     const canonical = document.getElementById('dynamic-canonical');
