@@ -1,0 +1,616 @@
+---
+layout: null
+permalink: /view/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <title id="dynamic-title">Leakpedia · Complete Leaked Content Database</title>
+    <meta id="dynamic-description" name="description" content="The most comprehensive leaked content database. 15,000+ leaked files from influencers, TikTokers, and OnlyFans creators. Updated daily.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/view/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f5f0;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .wiki-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+
+        /* header ala Wikipedia */
+        .wiki-header {
+            background: #fff;
+            padding: 1.5rem 2rem 0.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .wiki-header h1 {
+            font-size: 2.2rem;
+            font-weight: normal;
+            font-family: 'Georgia', serif;
+        }
+
+        .wiki-subtitle {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+
+        /* breadcrumb */
+        .breadcrumb {
+            padding: 0.75rem 2rem;
+            font-size: 0.7rem;
+            color: #666;
+            background: #f9f9f5;
+            border-bottom: 1px solid #eee;
+        }
+
+        .breadcrumb a {
+            color: #0645ad;
+            text-decoration: none;
+        }
+
+        /* table of contents */
+        .toc {
+            background: #f9f9f5;
+            border: 1px solid #ddd;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 2rem;
+            width: 280px;
+            float: right;
+            clear: right;
+            font-size: 0.8rem;
+        }
+
+        .toc h3 {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.25rem;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            margin: 0.4rem 0;
+        }
+
+        .toc a {
+            color: #0645ad;
+            text-decoration: none;
+        }
+
+        /* main content */
+        .wiki-content {
+            padding: 1.5rem 2rem;
+            overflow: hidden;
+        }
+
+        /* sections */
+        .wiki-section {
+            margin-bottom: 2rem;
+            clear: both;
+        }
+
+        .wiki-section h2 {
+            font-size: 1.5rem;
+            font-weight: normal;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.25rem;
+            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .wiki-section h3 {
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem;
+            color: #222;
+        }
+
+        .wiki-section p {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        /* stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            background: #f0f0eb;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0645ad;
+        }
+
+        /* leak list */
+        .leak-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .leak-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .leak-list a {
+            color: #0645ad;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .leak-list small {
+            color: #666;
+            font-size: 0.7rem;
+            margin-left: 0.5rem;
+        }
+
+        /* two column list */
+        .two-col-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 1.5rem;
+            margin: 1rem 0;
+        }
+
+        /* table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+        }
+
+        .data-table th {
+            background: #f0f0eb;
+            padding: 0.5rem;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .data-table td {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+        }
+
+        /* tag cloud besar */
+        .tag-cloud-large {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+
+        .wiki-tag {
+            background: #eef2f5;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            color: #0645ad;
+            text-decoration: none;
+        }
+
+        /* footer */
+        .wiki-footer {
+            background: #f9f9f5;
+            padding: 1.5rem 2rem;
+            border-top: 1px solid #ddd;
+            font-size: 0.7rem;
+            color: #666;
+            text-align: center;
+        }
+
+        hr {
+            margin: 1.5rem 0;
+            border: none;
+            border-top: 1px solid #eee;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .default-wiki {
+            display: block;
+        }
+
+        .query-wiki {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .toc {
+                float: none;
+                width: auto;
+                margin: 1rem;
+            }
+            .wiki-content { padding: 1rem; }
+            .wiki-header { padding: 1rem; }
+            .two-col-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="wiki-container">
+    <!-- DEFAULT WIKI (homepage) -->
+    <div id="default-wiki" class="default-wiki">
+        <div class="wiki-header">
+            <h1>Leakpedia</h1>
+            <div class="wiki-subtitle">The Free Leaked Content Encyclopedia</div>
+        </div>
+        <div class="breadcrumb">
+            <a href="/">Home</a> / Leakpedia
+        </div>
+
+        <div class="wiki-content">
+            <div class="stats-grid">
+                <div class="stat-item"><div class="stat-number">15,234</div><div>leaked files</div></div>
+                <div class="stat-item"><div class="stat-number">847</div><div>creators</div></div>
+                <div class="stat-item"><div class="stat-number">24/7</div><div>updates</div></div>
+                <div class="stat-item"><div class="stat-number">2.4M</div><div>monthly visitors</div></div>
+            </div>
+
+            <div class="wiki-section">
+                <h2>About Leakpedia</h2>
+                <p>Leakpedia is the internet's most comprehensive database of leaked content from influencers, TikTokers, OnlyFans creators, and public figures. Our mission is to preserve digital culture and provide researchers with access to archived material.</p>
+            </div>
+
+            <div class="wiki-section">
+                <h2>Browse by Category</h2>
+                <div class="two-col-list">
+                    <a href="/view/?q=leaked+tiktok+videos+archive" class="wiki-tag">🎵 Leaked TikTok Videos</a>
+                    <a href="/view/?q=leaked+onlyfans+content+database" class="wiki-tag">🔞 Leaked OnlyFans Content</a>
+                    <a href="/view/?q=leaked+instagram+photos+gallery" class="wiki-tag">📸 Leaked Instagram Photos</a>
+                    <a href="/view/?q=leaked+telegram+channel+archive" class="wiki-tag">💬 Leaked Telegram Channels</a>
+                    <a href="/view/?q=leaked+discord+server+dump" class="wiki-tag">🎮 Leaked Discord Servers</a>
+                    <a href="/view/?q=leaked+twitter+threads+viral" class="wiki-tag">🐦 Leaked Twitter Threads</a>
+                </div>
+            </div>
+
+            <div class="wiki-section">
+                <h2>Trending Leaks This Week</h2>
+                <ul class="leak-list">
+                    <li><a href="/view/?q=tiktok+star+leaked+video+compilation">🔥 TikTok Star Leaked Video Compilation</a> <small>2.3M views</small></li>
+                    <li><a href="/view/?q=onlyfans+creator+leaked+complete+set">💎 OnlyFans Creator Leaked Complete Set</a> <small>1.8M views</small></li>
+                    <li><a href="/view/?q=instagram+influencer+leaked+private+gallery">📸 Instagram Influencer Leaked Private Gallery</a> <small>987K views</small></li>
+                    <li><a href="/view/?q=telegram+leaked+channel+mega+dump">💬 Telegram Leaked Channel Mega Dump</a> <small>756K views</small></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wiki-footer">Leakpedia · Updated daily · 15,000+ leaked files</div>
+    </div>
+
+    <!-- QUERY-BASED WIKI (LONG-FORM, BANYAK KONTEN) -->
+    <div id="query-wiki" class="query-wiki">
+        <div class="wiki-header">
+            <h1 id="main-title"></h1>
+            <div class="wiki-subtitle" id="subtitle"></div>
+        </div>
+        <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/view/">Leakpedia</a> / <span id="bc-name"></span>
+        </div>
+
+        <!-- TABLE OF CONTENTS (untuk navigasi internal page) -->
+        <div class="toc">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#section-summary">1. Summary</a></li>
+                <li><a href="#section-leaked-videos">2. Leaked Videos</a></li>
+                <li><a href="#section-leaked-photos">3. Leaked Photos</a></li>
+                <li><a href="#section-platform-sources">4. Platform Sources</a></li>
+                <li><a href="#section-timeline">5. Leak Timeline</a></li>
+                <li><a href="#section-related">6. Related Leaks</a></li>
+                <li><a href="#section-faq">7. FAQ</a></li>
+                <li><a href="#section-statistics">8. Statistics</a></li>
+                <li><a href="#section-references">9. References</a></li>
+            </ul>
+        </div>
+
+        <div class="wiki-content">
+            <!-- SUMMARY SECTION -->
+            <div class="wiki-section" id="section-summary">
+                <h2>1. Summary · Leaked Content Archive</h2>
+                <p id="summary-text"></p>
+                <div class="stats-grid" id="summary-stats"></div>
+            </div>
+
+            <!-- LEAKED VIDEOS SECTION (LONG) -->
+            <div class="wiki-section" id="section-leaked-videos">
+                <h2>2. Leaked Videos · Complete Collection</h2>
+                <p id="videos-intro"></p>
+                <ul class="leak-list" id="videos-list"></ul>
+            </div>
+
+            <!-- LEAKED PHOTOS SECTION (LONG) -->
+            <div class="wiki-section" id="section-leaked-photos">
+                <h2>3. Leaked Photos · Full Gallery</h2>
+                <p id="photos-intro"></p>
+                <ul class="leak-list" id="photos-list"></ul>
+            </div>
+
+            <!-- PLATFORM SOURCES SECTION -->
+            <div class="wiki-section" id="section-platform-sources">
+                <h2>4. Platform Sources · Where Leaks Originated</h2>
+                <p>These are the original platforms where leaked content first appeared and spread across the internet.</p>
+                <div class="two-col-list" id="platform-list"></div>
+            </div>
+
+            <!-- TIMELINE SECTION -->
+            <div class="wiki-section" id="section-timeline">
+                <h2>5. Leak Timeline · Chronological Events</h2>
+                <table class="data-table" id="timeline-table">
+                    <thead><tr><th>Date</th><th>Event</th><th>Leaked Content</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <!-- RELATED LEAKS SECTION (BANYAK LINK) -->
+            <div class="wiki-section" id="section-related">
+                <h2>6. Related Leaks · Similar Content</h2>
+                <p>You might also be interested in these leaked content archives:</p>
+                <div class="tag-cloud-large" id="related-tags"></div>
+            </div>
+
+            <!-- FAQ SECTION (LONG) -->
+            <div class="wiki-section" id="section-faq">
+                <h2>7. Frequently Asked Questions</h2>
+                <div id="faq-list"></div>
+            </div>
+
+            <!-- STATISTICS SECTION -->
+            <div class="wiki-section" id="section-statistics">
+                <h2>8. Leak Statistics & Metrics</h2>
+                <table class="data-table" id="stats-table">
+                    <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <!-- REFERENCES -->
+            <div class="wiki-section" id="section-references">
+                <h2>9. References & Sources</h2>
+                <ul class="leak-list" id="references-list"></ul>
+            </div>
+
+            <hr />
+            <div style="font-size:0.7rem; color:#666; text-align:center; padding:1rem;">
+                Leakpedia · Last updated <span id="update-date"></span> · Page generated for research purposes
+            </div>
+        </div>
+
+        <div class="wiki-footer" id="wiki-footer">
+            Leakpedia · Complete leaked content database · 15,000+ files archived
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let query = urlParams.get('q');
+
+    const defaultDiv = document.getElementById('default-wiki');
+    const queryDiv = document.getElementById('query-wiki');
+
+    if (!query) {
+        defaultDiv.style.display = 'block';
+        queryDiv.style.display = 'none';
+        return;
+    }
+
+    defaultDiv.style.display = 'none';
+    queryDiv.style.display = 'block';
+
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    
+    // extract nama influencer
+    const removeTerms = ['leaked', 'leak', 'leaks', 'archive', 'collection', 'dump', 'vault', 'pack', 'bundle', 'gallery', 'content', 'media', 'videos', 'photos', 'pics', 'onlyfans', 'tiktok', 'instagram', 'twitter', 'telegram', 'discord', 'trending', 'viral', 'exclusive', 'private', 'premium', '2024', '2025', '2026', 'full', 'complete', 'hot', 'new', 'watch', 'view', 'access', 'wiki', 'database', 'pedia'];
+    let baseRaw = query.toLowerCase();
+    removeTerms.forEach(term => {
+        const regex = new RegExp('\\b' + term + '\\b', 'gi');
+        baseRaw = baseRaw.replace(regex, '');
+    });
+    baseRaw = baseRaw.replace(/\s+/g, ' ').trim();
+    let baseName = baseRaw || query;
+    if (baseName.length < 2) baseName = query;
+    
+    function formatName(str) {
+        return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    }
+    const displayName = formatName(baseName);
+    const displayLower = displayName.toLowerCase();
+
+    // random numbers untuk statistik
+    const totalVideos = Math.floor(Math.random() * 80) + 30;
+    const totalPhotos = Math.floor(Math.random() * 200) + 100;
+    const totalFiles = totalVideos + totalPhotos;
+    const totalViews = Math.floor(Math.random() * 5000) + 1000;
+    const totalSources = Math.floor(Math.random() * 15) + 8;
+    
+    // SEO
+    let pageTitle = `${displayName} · Complete Leaked Content Database | Leakpedia`;
+    let pageDesc = `Complete ${displayName} leaked content archive. ${totalFiles}+ leaked files including videos and photos. Updated daily with new leaks.`;
+    document.title = pageTitle;
+    const metaTag = document.getElementById('dynamic-description');
+    if (metaTag) metaTag.setAttribute('content', pageDesc);
+    
+    document.getElementById('main-title').innerHTML = `${displayName} <span style="font-size:0.9rem;">· Leaked Content Archive</span>`;
+    document.getElementById('subtitle').innerHTML = `From Leakpedia, the free leaked content encyclopedia`;
+    document.getElementById('bc-name').innerText = displayName;
+    
+    // SUMMARY TEXT
+    document.getElementById('summary-text').innerHTML = `This page contains the complete documented archive of <strong>${displayName} leaked content</strong>. The archive includes <strong>${totalVideos}+ leaked videos</strong>, <strong>${totalPhotos}+ leaked photos</strong>, and <strong>${totalSources}+ source references</strong> from Telegram, Discord, Twitter, and other platforms. All content is preserved for research and documentation purposes.`;
+    
+    document.getElementById('summary-stats').innerHTML = `
+        <div class="stat-item"><div class="stat-number">${totalFiles}+</div><div>total leaked files</div></div>
+        <div class="stat-item"><div class="stat-number">${totalVideos}</div><div>leaked videos</div></div>
+        <div class="stat-item"><div class="stat-number">${totalPhotos}</div><div>leaked photos</div></div>
+        <div class="stat-item"><div class="stat-number">${totalViews}K</div><div>total views</div></div>
+    `;
+    
+    // VIDEOS INTRO & LIST
+    document.getElementById('videos-intro').innerHTML = `Below is the complete list of ${displayName} leaked video collections. Each compilation contains multiple clips.`;
+    
+    const videoItems = [
+        { variant: 'leaked video full compilation', title: 'Full Leaked Video Compilation', desc: 'Complete collection of all leaked videos', count: Math.floor(totalVideos * 0.5) },
+        { variant: 'leaked private clips', title: 'Private Leaked Clips', desc: 'Exclusive private footage', count: Math.floor(totalVideos * 0.25) },
+        { variant: 'leaked viral moments', title: 'Viral Leaked Moments', desc: 'Most shared clips on social media', count: Math.floor(totalVideos * 0.15) },
+        { variant: 'leaked deleted tiktok videos', title: 'Deleted TikTok Videos', desc: 'Removed content preserved', count: Math.floor(totalVideos * 0.1) }
+    ];
+    
+    document.getElementById('videos-list').innerHTML = videoItems.map(item => 
+        `<li><a href="/view/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}">🎬 ${item.title}</a> <small>${item.count}+ files · ${item.desc}</small></li>`
+    ).join('');
+    
+    // PHOTOS INTRO & LIST
+    document.getElementById('photos-intro').innerHTML = `Below is the complete ${displayName} leaked photo gallery collection.`;
+    
+    const photoItems = [
+        { variant: 'leaked photos full gallery', title: 'Full Leaked Photo Gallery', desc: 'Complete image collection', count: Math.floor(totalPhotos * 0.4) },
+        { variant: 'leaked private instagram photos', title: 'Private Instagram Photos', desc: 'Deleted stories and posts', count: Math.floor(totalPhotos * 0.3) },
+        { variant: 'leaked exclusive photo set', title: 'Exclusive Leaked Photo Set', desc: 'Rare and limited images', count: Math.floor(totalPhotos * 0.2) },
+        { variant: 'leaked candid photos', title: 'Candid Leaked Photos', desc: 'Unposed private moments', count: Math.floor(totalPhotos * 0.1) }
+    ];
+    
+    document.getElementById('photos-list').innerHTML = photoItems.map(item => 
+        `<li><a href="/view/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}">📸 ${item.title}</a> <small>${item.count}+ images · ${item.desc}</small></li>`
+    ).join('');
+    
+    // PLATFORM LIST (2 kolom)
+    const platformItems = [
+        { variant: 'leaked telegram channel', label: '💬 Telegram Leaked Channel' },
+        { variant: 'leaked discord server', label: '🎮 Discord Leaked Server' },
+        { variant: 'leaked twitter threads', label: '🐦 Twitter Leaked Threads' },
+        { variant: 'leaked reddit posts', label: '🔴 Reddit Leaked Posts' },
+        { variant: 'leaked instagram archive', label: '📸 Instagram Leaked Archive' },
+        { variant: 'leaked tiktok archive', label: '🎵 TikTok Leaked Archive' }
+    ];
+    
+    document.getElementById('platform-list').innerHTML = platformItems.map(item => 
+        `<a href="/view/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}" class="wiki-tag">${item.label}</a>`
+    ).join('');
+    
+    // TIMELINE TABLE
+    const timelineEvents = [
+        { date: 'Q1 2024', event: 'First leaks appear', content: 'Initial leaked photos surface' },
+        { date: 'Q2 2024', event: 'Viral spread on Telegram', content: 'Leaked videos begin circulating' },
+        { date: 'Q3 2024', event: 'Discord server leaks', content: 'Private server content dumped' },
+        { date: 'Q4 2024', event: 'Twitter viral moment', content: 'Leaked clips go viral' },
+        { date: 'Q1 2025', event: 'Complete archive compilation', content: 'Full leak archive assembled' },
+        { date: 'Present', event: 'Ongoing preservation', content: 'New leaks added regularly' }
+    ];
+    
+    document.querySelector('#timeline-table tbody').innerHTML = timelineEvents.map(event => `
+        <tr><td>${event.date}</td><td>${event.event}</td><td><a href="/view/?q=${encodeURIComponent(displayLower + ' ' + event.content.toLowerCase().replace(/ /g, '+'))}">${event.content}</a></td></tr>
+    `).join('');
+    
+    // RELATED TAGS (BANYAK)
+    const relatedVariants = [
+        `${displayLower} leaked onlyfans content`,
+        `${displayLower} leaked instagram photos`,
+        `${displayLower} leaked tiktok videos`,
+        `${displayLower} leaked telegram channel`,
+        `${displayLower} exclusive leaked vault`,
+        `similar to ${displayLower} leaked`,
+        `${displayLower} complete leak archive`,
+        `${displayLower} viral leaked moments`,
+        `${displayLower} private leaked content`,
+        `leaked content database ${displayLower}`
+    ];
+    
+    document.getElementById('related-tags').innerHTML = relatedVariants.map(v => 
+        `<a href="/view/?q=${encodeURIComponent(v)}" class="wiki-tag">🔥 ${v.replace(/_/g, ' ').substring(0, 40)}</a>`
+    ).join('');
+    
+    // FAQ (LONG)
+    const faqItems = [
+        { q: `What is included in the ${displayName} leak archive?`, a: `The archive includes ${totalFiles}+ leaked files: ${totalVideos} videos and ${totalPhotos} photos from various sources including Telegram, Discord, and Twitter.` },
+        { q: `How often is this archive updated?`, a: `New leaked content is added daily as it surfaces across preservation networks. Last update included ${Math.floor(Math.random() * 20) + 5} new files.` },
+        { q: `Where do these leaks come from?`, a: `Sources include private Telegram channels, Discord servers, Reddit archives, and viral Twitter threads. All content is documented for research.` },
+        { q: `Are these the complete leaks?`, a: `Yes, this archive contains the most complete collection of ${displayName} leaked content available on the internet.` },
+        { q: `How can I access specific leaked content?`, a: `Click any of the links above to access specific leaked video compilations, photo galleries, or platform archives.` }
+    ];
+    
+    document.getElementById('faq-list').innerHTML = faqItems.map(item => `
+        <h3>❓ ${item.q}</h3>
+        <p>${item.a}</p>
+    `).join('');
+    
+    // STATISTICS TABLE
+    const statsRows = [
+        { metric: 'Total Leaked Files', value: `${totalFiles}+` },
+        { metric: 'Leaked Videos', value: `${totalVideos}+ clips` },
+        { metric: 'Leaked Photos', value: `${totalPhotos}+ images` },
+        { metric: 'Source Platforms', value: `${totalSources}+ platforms` },
+        { metric: 'Total Views (estimated)', value: `${totalViews}K+` },
+        { metric: 'Archive Size', value: `${Math.floor(totalFiles * 15)} MB` },
+        { metric: 'First Leak Date', value: 'Q1 2024' },
+        { metric: 'Last Update', value: new Date().toLocaleDateString() }
+    ];
+    
+    document.querySelector('#stats-table tbody').innerHTML = statsRows.map(row => `
+        <tr><td>${row.metric}</td><td><strong>${row.value}</strong></td></tr>
+    `).join('');
+    
+    // REFERENCES
+    const referenceItems = [
+        { label: 'Telegram Leak Archive Documentation', variant: 'telegram leak documentation' },
+        { label: 'Discord Server Preservation Record', variant: 'discord preservation record' },
+        { label: 'Twitter Viral Thread Archive', variant: 'twitter viral thread archive' },
+        { label: 'Reddit Leak Community References', variant: 'reddit leak references' },
+        { label: 'Leak Preservation Project Notes', variant: 'leak preservation notes' }
+    ];
+    
+    document.getElementById('references-list').innerHTML = referenceItems.map(item => 
+        `<li><a href="/view/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}">📄 ${item.label}</a> <small>source documentation</small></li>`
+    ).join('');
+    
+    // update date
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    document.getElementById('update-date').innerText = dateStr;
+    
+    document.getElementById('wiki-footer').innerHTML = `Leakpedia · Complete ${displayName} leaked content database · ${totalFiles}+ files archived · Last updated ${dateStr}`;
+    
+    // canonical
+    const canonical = document.getElementById('dynamic-canonical');
+    if (canonical) {
+        canonical.setAttribute('href', window.location.href.split('?')[0]);
+    }
+})();
+</script>
+
+{% include footer.html %}
+</body>
+</html>

@@ -1,0 +1,622 @@
+---
+layout: null
+permalink: /preview/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <title id="dynamic-title">LeakInsights · Leaked Content Analytics Dashboard</title>
+    <meta id="dynamic-description" name="description" content="Analytics dashboard for leaked influencer content. Real-time metrics, trends, and complete archives. 15,000+ leaked files analyzed.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/preview/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0e17;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #e2e8f0;
+        }
+
+        .dashboard {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* header */
+        .dashboard-header {
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #fff, #3b82f6, #ec489a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .dashboard-header p {
+            color: #8ca3ba;
+            font-size: 0.85rem;
+        }
+
+        /* breadcrumb */
+        .breadcrumb {
+            font-size: 0.7rem;
+            color: #5b6e8c;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        /* KPI grid */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .kpi-card {
+            background: #111827;
+            border-radius: 16px;
+            padding: 1rem;
+            border: 1px solid #1f2a3a;
+        }
+
+        .kpi-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #8ca3ba;
+            letter-spacing: 1px;
+        }
+
+        .kpi-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 0.25rem;
+        }
+
+        .kpi-trend {
+            font-size: 0.65rem;
+            color: #10b981;
+            margin-top: 0.25rem;
+        }
+
+        /* section header */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1.5rem 0 1rem;
+            border-bottom: 1px solid #1f2a3a;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* chart placeholder (CSS-only bar chart) */
+        .chart-container {
+            background: #111827;
+            border-radius: 16px;
+            padding: 1rem;
+            border: 1px solid #1f2a3a;
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-title {
+            font-size: 0.8rem;
+            color: #8ca3ba;
+            margin-bottom: 1rem;
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .bar-label {
+            width: 100px;
+            font-size: 0.7rem;
+        }
+
+        .bar-fill {
+            flex: 1;
+            height: 24px;
+            background: #1f2a3a;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .bar-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #ec489a);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            font-size: 0.6rem;
+            color: #fff;
+        }
+
+        /* data grid */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .insight-card {
+            background: #111827;
+            border-radius: 16px;
+            padding: 1rem;
+            border: 1px solid #1f2a3a;
+            transition: all 0.15s;
+        }
+
+        .insight-card:hover {
+            border-color: #3b82f6;
+        }
+
+        .insight-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .insight-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .insight-desc {
+            font-size: 0.7rem;
+            color: #8ca3ba;
+            margin-bottom: 0.75rem;
+        }
+
+        .insight-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 0.7rem;
+        }
+
+        /* table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #111827;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 0.75rem;
+            background: #1a2535;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #8ca3ba;
+        }
+
+        .data-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #1f2a3a;
+            font-size: 0.8rem;
+        }
+
+        .data-table a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        /* trending list */
+        .trending-list {
+            background: #111827;
+            border-radius: 16px;
+            padding: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .trending-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            border-bottom: 1px solid #1f2a3a;
+        }
+
+        .trending-item:last-child {
+            border-bottom: none;
+        }
+
+        .trending-rank {
+            font-weight: 700;
+            color: #3b82f6;
+            width: 30px;
+        }
+
+        .trending-name {
+            flex: 1;
+            font-size: 0.8rem;
+        }
+
+        .trending-value {
+            font-size: 0.7rem;
+            color: #10b981;
+        }
+
+        /* tag cloud */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .dashboard-tag {
+            background: #1a2535;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #1f2a3a;
+            margin: 1.5rem 0;
+        }
+
+        .footer {
+            font-size: 0.6rem;
+            color: #5b6e8c;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .default-dash {
+            display: block;
+        }
+
+        .query-dash {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard { padding: 1rem; }
+            .kpi-value { font-size: 1.5rem; }
+            .bar-label { width: 80px; }
+        }
+    </style>
+</head>
+<body>
+<div class="dashboard">
+    <!-- DEFAULT DASHBOARD (home) -->
+    <div id="default-dash" class="default-dash">
+        <div class="dashboard-header">
+            <h1>LeakInsights 📊</h1>
+            <p>Analytics dashboard for leaked influencer content · Real-time metrics</p>
+        </div>
+
+        <div class="kpi-grid">
+            <div class="kpi-card"><div class="kpi-label">Total Leaked Files</div><div class="kpi-value">15,234</div><div class="kpi-trend">↑ +12% this week</div></div>
+            <div class="kpi-card"><div class="kpi-label">Active Creators</div><div class="kpi-value">847</div><div class="kpi-trend">↑ +23 new</div></div>
+            <div class="kpi-card"><div class="kpi-label">Monthly Views</div><div class="kpi-value">2.4M</div><div class="kpi-trend">↑ +18%</div></div>
+            <div class="kpi-card"><div class="kpi-label">Platform Sources</div><div class="kpi-value">12</div><div class="kpi-trend">active</div></div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-title">📈 Trending Leaked Content (Last 7 Days)</div>
+            <div class="bar-chart">
+                <div class="bar-item"><div class="bar-label">TikTok Leaks</div><div class="bar-fill"><div class="bar-progress" style="width: 89%">89%</div></div></div>
+                <div class="bar-item"><div class="bar-label">OnlyFans Leaks</div><div class="bar-fill"><div class="bar-progress" style="width: 76%">76%</div></div></div>
+                <div class="bar-item"><div class="bar-label">Instagram Leaks</div><div class="bar-fill"><div class="bar-progress" style="width: 62%">62%</div></div></div>
+                <div class="bar-item"><div class="bar-label">Telegram Leaks</div><div class="bar-fill"><div class="bar-progress" style="width: 54%">54%</div></div></div>
+            </div>
+        </div>
+
+        <div class="section-header"><h2>🔥 Top Trending Leaks This Week</h2></div>
+        <div class="trending-list">
+            <div class="trending-item"><div class="trending-rank">1</div><div class="trending-name">TikTok Star Leaked Video Compilation</div><div class="trending-value">2.3M views</div><a href="/preview/?q=tiktok+star+leaked+video+compilation" style="color:#3b82f6;">→</a></div>
+            <div class="trending-item"><div class="trending-rank">2</div><div class="trending-name">OnlyFans Creator Leaked Complete Set</div><div class="trending-value">1.8M views</div><a href="/preview/?q=onlyfans+creator+leaked+complete+set" style="color:#3b82f6;">→</a></div>
+            <div class="trending-item"><div class="trending-rank">3</div><div class="trending-name">Instagram Influencer Leaked Gallery</div><div class="trending-value">987K views</div><a href="/preview/?q=instagram+influencer+leaked+gallery" style="color:#3b82f6;">→</a></div>
+        </div>
+    </div>
+
+    <!-- QUERY-BASED DASHBOARD (LONG-FORM ANALYTICS) -->
+    <div id="query-dash" class="query-dash">
+        <div class="breadcrumb">
+            <a href="/">Dashboard</a> / <a href="/preview/">LeakInsights</a> / <span id="bc-name"></span>
+        </div>
+
+        <div class="dashboard-header">
+            <h1 id="main-title"></h1>
+            <p id="subtitle"></p>
+        </div>
+
+        <!-- KPI SECTION -->
+        <div class="kpi-grid" id="kpi-grid"></div>
+
+        <!-- TREND CHART SECTION -->
+        <div class="chart-container">
+            <div class="chart-title">📈 Leaked Content Performance Metrics</div>
+            <div class="bar-chart" id="trend-chart"></div>
+        </div>
+
+        <!-- LEAKED MEDIA INSIGHTS -->
+        <div class="section-header"><h2>📁 Leaked Media Archives</h2><span id="media-count"></span></div>
+        <div class="data-grid" id="media-grid"></div>
+
+        <!-- PLATFORM DISTRIBUTION -->
+        <div class="section-header"><h2>🌐 Platform Source Distribution</h2></div>
+        <div class="data-grid" id="platform-grid"></div>
+
+        <!-- TOP TRENDING TABLE -->
+        <div class="section-header"><h2>🔥 Top Trending Leaked Content</h2></div>
+        <table class="data-table" id="trending-table">
+            <thead><tr><th>Rank</th><th>Leaked Content</th><th>Views</th><th>Growth</th></tr></thead>
+            <tbody></tbody>
+        </table>
+
+        <!-- COMPLETE LEAK INDEX (PANJANG) -->
+        <div class="section-header"><h2>📋 Complete Leak Index · A-Z</h2></div>
+        <div class="tag-cloud" id="leak-index"></div>
+
+        <!-- RELATED INSIGHTS -->
+        <div class="section-header"><h2>🔗 Related Leak Insights</h2></div>
+        <div class="data-grid" id="related-insights"></div>
+
+        <!-- FREQUENCY TIMELINE -->
+        <div class="section-header"><h2>📅 Leak Frequency Timeline</h2></div>
+        <table class="data-table" id="timeline-table">
+            <thead><tr><th>Period</th><th>Leaked Files</th><th>Top Platform</th><th>Archive Link</th></tr></thead>
+            <tbody></tbody>
+        </table>
+
+        <!-- FAQ ANALYTICS -->
+        <div class="section-header"><h2>❓ Analytics FAQ</h2></div>
+        <div id="analytics-faq"></div>
+
+        <hr />
+        <div class="footer">
+            LeakInsights Dashboard · Data updated <span id="update-date"></span> · Real-time analytics
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let query = urlParams.get('q');
+
+    const defaultDiv = document.getElementById('default-dash');
+    const queryDiv = document.getElementById('query-dash');
+
+    if (!query) {
+        defaultDiv.style.display = 'block';
+        queryDiv.style.display = 'none';
+        return;
+    }
+
+    defaultDiv.style.display = 'none';
+    queryDiv.style.display = 'block';
+
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    
+    // extract nama influencer
+    const removeTerms = ['leaked', 'leak', 'leaks', 'archive', 'collection', 'dump', 'vault', 'pack', 'bundle', 'gallery', 'content', 'media', 'videos', 'photos', 'pics', 'onlyfans', 'tiktok', 'instagram', 'twitter', 'telegram', 'discord', 'trending', 'viral', 'exclusive', 'private', 'premium', '2024', '2025', '2026', 'full', 'complete', 'hot', 'new', 'watch', 'view', 'access', 'dashboard', 'analytics', 'insights', 'metrics'];
+    let baseRaw = query.toLowerCase();
+    removeTerms.forEach(term => {
+        const regex = new RegExp('\\b' + term + '\\b', 'gi');
+        baseRaw = baseRaw.replace(regex, '');
+    });
+    baseRaw = baseRaw.replace(/\s+/g, ' ').trim();
+    let baseName = baseRaw || query;
+    if (baseName.length < 2) baseName = query;
+    
+    function formatName(str) {
+        return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    }
+    const displayName = formatName(baseName);
+    const displayLower = displayName.toLowerCase();
+
+    // random metrics
+    const totalFiles = Math.floor(Math.random() * 300) + 100;
+    const totalVideos = Math.floor(totalFiles * 0.4);
+    const totalPhotos = totalFiles - totalVideos;
+    const weeklyGrowth = Math.floor(Math.random() * 25) + 5;
+    const viralScore = Math.floor(Math.random() * 95) + 5;
+    const platformCount = Math.floor(Math.random() * 8) + 5;
+    
+    // SEO
+    let pageTitle = `${displayName} · Leaked Content Analytics Dashboard | LeakInsights`;
+    let pageDesc = `Analytics dashboard for ${displayName} leaked content. ${totalFiles}+ files analyzed. Real-time metrics and trends.`;
+    document.title = pageTitle;
+    const metaTag = document.getElementById('dynamic-description');
+    if (metaTag) metaTag.setAttribute('content', pageDesc);
+    
+    document.getElementById('main-title').innerHTML = `${displayName} <span style="font-size:0.8rem;">· Leak Analytics</span>`;
+    document.getElementById('subtitle').innerHTML = `Real-time dashboard · ${totalFiles} leaked files analyzed · Updated hourly`;
+    document.getElementById('bc-name').innerText = displayName;
+    
+    // KPI GRID
+    document.getElementById('kpi-grid').innerHTML = `
+        <div class="kpi-card"><div class="kpi-label">Total Leaked Files</div><div class="kpi-value">${totalFiles}</div><div class="kpi-trend">↑ +${weeklyGrowth}% this week</div></div>
+        <div class="kpi-card"><div class="kpi-label">Leaked Videos</div><div class="kpi-value">${totalVideos}</div><div class="kpi-trend">${Math.floor(totalVideos/totalFiles*100)}% of total</div></div>
+        <div class="kpi-card"><div class="kpi-label">Leaked Photos</div><div class="kpi-value">${totalPhotos}</div><div class="kpi-trend">${Math.floor(totalPhotos/totalFiles*100)}% of total</div></div>
+        <div class="kpi-card"><div class="kpi-label">Viral Score</div><div class="kpi-value">${viralScore}</div><div class="kpi-trend">/100 · trending</div></div>
+    `;
+    
+    // TREND CHART (bar chart)
+    const chartData = [
+        { label: 'Video Leaks', percent: Math.floor(totalVideos/totalFiles * 100) },
+        { label: 'Photo Leaks', percent: Math.floor(totalPhotos/totalFiles * 100) },
+        { label: 'Exclusive Content', percent: Math.floor(Math.random() * 40) + 20 },
+        { label: 'Viral Potential', percent: viralScore }
+    ];
+    document.getElementById('trend-chart').innerHTML = chartData.map(data => `
+        <div class="bar-item"><div class="bar-label">${data.label}</div><div class="bar-fill"><div class="bar-progress" style="width: ${data.percent}%">${data.percent}%</div></div></div>
+    `).join('');
+    
+    // MEDIA GRID
+    const mediaItems = [
+        { variant: 'leaked video full compilation', title: 'Full Leaked Video Compilation', desc: 'Complete video archive', icon: '🎬', count: totalVideos },
+        { variant: 'leaked private clips', title: 'Private Leaked Clips', desc: 'Exclusive footage', icon: '🔞', count: Math.floor(totalVideos * 0.3) },
+        { variant: 'leaked viral moments', title: 'Viral Leaked Moments', desc: 'Most shared clips', icon: '⚡', count: Math.floor(totalVideos * 0.25) },
+        { variant: 'leaked photos full gallery', title: 'Full Leaked Photo Gallery', desc: 'Complete image set', icon: '📸', count: totalPhotos },
+        { variant: 'leaked exclusive photo set', title: 'Exclusive Leaked Photos', desc: 'Rare images', icon: '💎', count: Math.floor(totalPhotos * 0.3) }
+    ];
+    document.getElementById('media-grid').innerHTML = mediaItems.map(item => `
+        <div class="insight-card">
+            <div class="insight-icon">${item.icon}</div>
+            <div class="insight-title">${item.title}</div>
+            <div class="insight-desc">${item.desc} · ${item.count}+ files</div>
+            <a href="/preview/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}" class="insight-link">Access Archive →</a>
+        </div>
+    `).join('');
+    document.getElementById('media-count').innerHTML = `<span class="kpi-trend">${mediaItems.length} archives</span>`;
+    
+    // PLATFORM GRID
+    const platformItems = [
+        { variant: 'leaked telegram channel', label: 'Telegram', desc: 'Primary source', icon: '💬' },
+        { variant: 'leaked discord server', label: 'Discord', desc: 'Private server', icon: '🎮' },
+        { variant: 'leaked twitter threads', label: 'Twitter/X', desc: 'Viral threads', icon: '🐦' },
+        { variant: 'leaked reddit posts', label: 'Reddit', desc: 'Community archive', icon: '🔴' },
+        { variant: 'leaked instagram archive', label: 'Instagram', desc: 'Deleted stories', icon: '📸' },
+        { variant: 'leaked tiktok archive', label: 'TikTok', desc: 'Removed videos', icon: '🎵' }
+    ];
+    document.getElementById('platform-grid').innerHTML = platformItems.map(item => `
+        <div class="insight-card">
+            <div class="insight-icon">${item.icon}</div>
+            <div class="insight-title">${item.label}</div>
+            <div class="insight-desc">${item.desc}</div>
+            <a href="/preview/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}" class="insight-link">View Leaks →</a>
+        </div>
+    `).join('');
+    
+    // TRENDING TABLE (5 items)
+    const trendingData = [
+        { rank: 1, title: 'Full Leaked Video Compilation', views: Math.floor(Math.random() * 500) + 300, growth: '+23%', variant: 'leaked video full compilation' },
+        { rank: 2, title: 'Leaked Private Clips', views: Math.floor(Math.random() * 400) + 200, growth: '+18%', variant: 'leaked private clips' },
+        { rank: 3, title: 'Viral Leaked Moments', views: Math.floor(Math.random() * 350) + 150, growth: '+15%', variant: 'leaked viral moments' },
+        { rank: 4, title: 'Full Leaked Photo Gallery', views: Math.floor(Math.random() * 300) + 120, growth: '+12%', variant: 'leaked photos full gallery' },
+        { rank: 5, title: 'Exclusive Leaked Set', views: Math.floor(Math.random() * 200) + 80, growth: '+9%', variant: 'leaked exclusive photo set' }
+    ];
+    document.querySelector('#trending-table tbody').innerHTML = trendingData.map(item => `
+        <tr>
+            <td>${item.rank}</td>
+            <td><a href="/preview/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}">${item.title}</a></td>
+            <td>${item.views}K views</td>
+            <td style="color:#10b981">${item.growth}</td>
+        </tr>
+    `).join('');
+    
+    // LEAK INDEX (A-Z tags - BANYAK)
+    const alphabetLeaks = [
+        'complete leaked archive', 'deleted tiktok leaks', 'exclusive leaked vault', 'full leaked compilation',
+        'instagram leaked photos', 'leaked behind the scenes', 'leaked candid moments', 'leaked dm screenshots',
+        'leaked live stream', 'leaked private story', 'mega leaked pack', 'onlyfans leaked content',
+        'patreon leaked content', 'rare leaked files', 'snapchat leaked', 'telegram leaked channel',
+        'twitter leaked thread', 'uncensored leaked', 'viral leaked clips', 'youtube leaked video'
+    ];
+    document.getElementById('leak-index').innerHTML = alphabetLeaks.map(leak => 
+        `<a href="/preview/?q=${encodeURIComponent(displayLower + ' ' + leak)}" class="dashboard-tag">📁 ${leak}</a>`
+    ).join('');
+    
+    // RELATED INSIGHTS
+    const relatedInsights = [
+        { variant: 'similar leaked creators', title: 'Similar Leaked Creators', desc: 'Related content archives', icon: '🔗' },
+        { variant: 'trending leaks this month', title: 'Trending Leaks This Month', desc: 'Most viewed content', icon: '🔥' },
+        { variant: 'platform comparison', title: 'Platform Comparison', desc: 'Source analytics', icon: '📊' },
+        { variant: 'leak preservation report', title: 'Leak Preservation Report', desc: 'Archive status', icon: '📄' }
+    ];
+    document.getElementById('related-insights').innerHTML = relatedInsights.map(item => `
+        <div class="insight-card">
+            <div class="insight-icon">${item.icon}</div>
+            <div class="insight-title">${item.title}</div>
+            <div class="insight-desc">${item.desc}</div>
+            <a href="/preview/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}" class="insight-link">View Insights →</a>
+        </div>
+    `).join('');
+    
+    // TIMELINE TABLE
+    const timelineData = [
+        { period: 'Q1 2024', files: Math.floor(totalFiles * 0.1), platform: 'Telegram', variant: 'early leaks archive' },
+        { period: 'Q2 2024', files: Math.floor(totalFiles * 0.15), platform: 'Discord', variant: 'q2 leaks archive' },
+        { period: 'Q3 2024', files: Math.floor(totalFiles * 0.2), platform: 'Twitter', variant: 'q3 leaks archive' },
+        { period: 'Q4 2024', files: Math.floor(totalFiles * 0.25), platform: 'Multiple', variant: 'q4 leaks archive' },
+        { period: 'Q1 2025', files: Math.floor(totalFiles * 0.2), platform: 'Telegram', variant: 'q1 2025 leaks' },
+        { period: 'Present', files: Math.floor(totalFiles * 0.1), platform: 'All platforms', variant: 'recent leaks' }
+    ];
+    document.querySelector('#timeline-table tbody').innerHTML = timelineData.map(item => `
+        <tr>
+            <td>${item.period}</td>
+            <td>${item.files}+ files</td>
+            <td>${item.platform}</td>
+            <td><a href="/preview/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}">View Archive →</a></td>
+        </tr>
+    `).join('');
+    
+    // ANALYTICS FAQ
+    const analyticsFaq = [
+        { q: 'How is viral score calculated?', a: 'Based on view velocity, share count, and platform cross-reference data.' },
+        { q: 'How often is this dashboard updated?', a: 'Real-time updates with new leaked content added within hours of detection.' },
+        { q: 'What platforms are tracked?', a: 'Telegram, Discord, Twitter, Reddit, Instagram, TikTok, and private communities.' },
+        { q: 'Can I export this data?', a: 'Click any archive link above to access complete leaked content collections.' }
+    ];
+    document.getElementById('analytics-faq').innerHTML = analyticsFaq.map(item => `
+        <div class="insight-card" style="margin-bottom:0.75rem;">
+            <div class="insight-title">❓ ${item.q}</div>
+            <div class="insight-desc">${item.a}</div>
+        </div>
+    `).join('');
+    
+    // update date
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    document.getElementById('update-date').innerText = dateStr;
+    
+    // canonical
+    const canonical = document.getElementById('dynamic-canonical');
+    if (canonical) {
+        canonical.setAttribute('href', window.location.href.split('?')[0]);
+    }
+})();
+</script>
+
+{% include footer.html %}
+</body>
+</html>

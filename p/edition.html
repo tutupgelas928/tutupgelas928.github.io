@@ -1,0 +1,541 @@
+---
+layout: null
+permalink: /edition/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <title id="dynamic-title">LeakTube · Viral Leaked Videos</title>
+    <meta id="dynamic-description" name="description" content="Watch leaked videos from influencers, TikTokers, and OnlyFans creators. Trending leaked content updated daily.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0f0f0f;
+            font-family: 'YouTube Sans', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #f1f1f1;
+        }
+
+        .youtube-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+        }
+
+        /* header ala YouTube */
+        .yt-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #272727;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: #ff0000;
+        }
+
+        .trend-badge {
+            background: #272727;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+        }
+
+        /* breadcrumb */
+        .breadcrumb {
+            font-size: 0.7rem;
+            color: #aaa;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: #fff;
+        }
+
+        /* channel header */
+        .channel-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #272727;
+        }
+
+        .channel-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .channel-info h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .channel-stats {
+            font-size: 0.7rem;
+            color: #aaa;
+        }
+
+        .subscribe-btn {
+            background: #ff0000;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #fff;
+            display: inline-block;
+        }
+
+        /* video grid ala YouTube */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .video-card {
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        .video-card:hover {
+            transform: scale(0.98);
+        }
+
+        .thumbnail {
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            border-radius: 12px;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .duration {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0,0,0,0.8);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.65rem;
+        }
+
+        .video-title {
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0.5rem 0 0.2rem;
+            line-height: 1.3;
+        }
+
+        .video-meta {
+            font-size: 0.7rem;
+            color: #aaa;
+        }
+
+        /* sidebar / trending section */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .trending-list {
+            background: #121212;
+            border-radius: 16px;
+            padding: 1rem;
+        }
+
+        .trending-item {
+            display: flex;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #272727;
+        }
+
+        .trending-item:last-child {
+            border-bottom: none;
+        }
+
+        .trending-number {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ff0000;
+            min-width: 30px;
+        }
+
+        .trending-info h4 {
+            font-size: 0.8rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .trending-info p {
+            font-size: 0.65rem;
+            color: #aaa;
+        }
+
+        .trending-link {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* tag cloud ala YouTube chips */
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .chip {
+            background: #272727;
+            padding: 0.4rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .chip:hover {
+            background: #3f3f3f;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #272727;
+            margin: 1.5rem 0;
+        }
+
+        .footer {
+            font-size: 0.6rem;
+            color: #606060;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .default-yt {
+            display: block;
+        }
+
+        .query-yt {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .youtube-container { padding: 0.75rem; }
+            .two-columns { grid-template-columns: 1fr; }
+            .video-grid { grid-template-columns: 1fr; }
+            .channel-header { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+<div class="youtube-container">
+    <!-- DEFAULT HOMEPAGE (YouTube style) -->
+    <div id="default-yt" class="default-yt">
+        <div class="yt-header">
+            <div class="logo">
+                <div class="logo-icon">📺</div>
+                <div class="logo-text">Leak<span>Tube</span></div>
+            </div>
+            <div class="trend-badge">🔥 Trending Leaks · 2.4M subscribers</div>
+        </div>
+
+        <div class="chips">
+            <a href="/edition/?q=leaked+videos+trending" class="chip">🔥 Trending Leaks</a>
+            <a href="/edition/?q=leaked+tiktok+videos" class="chip">🎵 TikTok Leaks</a>
+            <a href="/edition/?q=leaked+onlyfans+videos" class="chip">🔞 OnlyFans Leaks</a>
+            <a href="/edition/?q=leaked+instagram+videos" class="chip">📸 Instagram Leaks</a>
+        </div>
+
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="thumbnail">🎬 <span class="duration">12:34</span></div>
+                <div class="video-title">🔥 Trending: TikTok Star Leaked Video Compilation</div>
+                <div class="video-meta">2.3M views · 2 days ago</div>
+                <a href="/edition/?q=tiktok+star+leaked+video+compilation" style="color:#ff0000; font-size:0.7rem;">Watch leaked video →</a>
+            </div>
+            <div class="video-card">
+                <div class="thumbnail">🔞 <span class="duration">08:21</span></div>
+                <div class="video-title">💎 Exclusive: OnlyFans Creator Leaked Full Set</div>
+                <div class="video-meta">1.8M views · 5 days ago</div>
+                <a href="/edition/?q=onlyfans+creator+leaked+full+set" style="color:#ff0000; font-size:0.7rem;">Watch leaked content →</a>
+            </div>
+            <div class="video-card">
+                <div class="thumbnail">📸 <span class="duration">05:47</span></div>
+                <div class="video-title">📸 Instagram Influencer Leaked Private Gallery</div>
+                <div class="video-meta">987K views · 1 week ago</div>
+                <a href="/edition/?q=instagram+influencer+leaked+private+gallery" style="color:#ff0000; font-size:0.7rem;">View leaked photos →</a>
+            </div>
+        </div>
+
+        <div class="two-columns">
+            <div class="video-grid" style="margin:0">
+                <div class="video-card">
+                    <div class="thumbnail">💬 <span class="duration">45:12</span></div>
+                    <div class="video-title">Telegram Leaked Channel: Complete Dump</div>
+                    <div class="video-meta">456K views · 3 days ago</div>
+                    <a href="/edition/?q=telegram+leaked+channel+complete+dump" style="color:#ff0000; font-size:0.7rem;">Access leak →</a>
+                </div>
+                <div class="video-card">
+                    <div class="thumbnail">🎮 <span class="duration">1:23:45</span></div>
+                    <div class="video-title">Discord Leaked Server: Private Archive</div>
+                    <div class="video-meta">234K views · 1 week ago</div>
+                    <a href="/edition/?q=discord+leaked+server+private+archive" style="color:#ff0000; font-size:0.7rem;">View archive →</a>
+                </div>
+            </div>
+            <div class="trending-list">
+                <h3 style="font-size:0.8rem; margin-bottom:0.5rem;">🔥 Trending Leaks</h3>
+                <div class="trending-item"><div class="trending-number">1</div><div class="trending-info"><h4>TikTok Leaked Video Pack</h4><p>1.2M views</p></div><a href="/edition/?q=tiktok+leaked+video+pack" style="margin-left:auto;">▶</a></div>
+                <div class="trending-item"><div class="trending-number">2</div><div class="trending-info"><h4>OnlyFans Leaked Archive</h4><p>987K views</p></div><a href="/edition/?q=onlyfans+leaked+archive" style="margin-left:auto;">▶</a></div>
+                <div class="trending-item"><div class="trending-number">3</div><div class="trending-info"><h4>Instagram Leaked Gallery</h4><p>765K views</p></div><a href="/edition/?q=instagram+leaked+gallery" style="margin-left:auto;">▶</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- QUERY-BASED (YouTube channel style) -->
+    <div id="query-yt" class="query-yt">
+        <div class="breadcrumb">
+            <a href="/">LeakTube</a> / <a href="/edition/">Leaks</a> / <span id="bc-name"></span>
+        </div>
+
+        <!-- Channel Header -->
+        <div class="channel-header">
+            <div class="channel-avatar" id="channel-avatar">🎬</div>
+            <div class="channel-info">
+                <h1 id="channel-name"></h1>
+                <div class="channel-stats" id="channel-stats"></div>
+                <div class="subscribe-btn" id="sub-btn">🔥 SUBSCRIBE FOR LEAKS</div>
+            </div>
+        </div>
+
+        <!-- Chips / Categories -->
+        <div class="chips" id="dynamic-chips"></div>
+
+        <!-- Video Grid (leaked content) -->
+        <h3 style="font-size:0.8rem; margin:1rem 0 0.5rem;">🔥 LEAKED VIDEOS · FULL PLAYLIST</h3>
+        <div class="video-grid" id="video-grid"></div>
+
+        <!-- Two columns: more videos + trending leaks -->
+        <div class="two-columns">
+            <div class="video-grid" id="more-videos" style="margin:0"></div>
+            <div class="trending-list" id="trending-sidebar"></div>
+        </div>
+
+        <!-- Chips footer (related leaks) -->
+        <div class="chips" id="related-chips"></div>
+
+        <hr />
+        <div class="footer">
+            🔥 LeakTube · Leaked content archive · Updated <span id="update-date"></span>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let query = urlParams.get('q');
+
+    const defaultDiv = document.getElementById('default-yt');
+    const queryDiv = document.getElementById('query-yt');
+
+    if (!query) {
+        defaultDiv.style.display = 'block';
+        queryDiv.style.display = 'none';
+        return;
+    }
+
+    defaultDiv.style.display = 'none';
+    queryDiv.style.display = 'block';
+
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    
+    // extract nama influencer
+    const removeTerms = ['leaked', 'leak', 'leaks', 'archive', 'collection', 'dump', 'vault', 'pack', 'bundle', 'gallery', 'content', 'media', 'videos', 'photos', 'pics', 'onlyfans', 'tiktok', 'instagram', 'twitter', 'telegram', 'discord', 'trending', 'viral', 'exclusive', 'private', 'premium', '2024', '2025', '2026', 'full', 'complete', 'hot', 'new', 'watch', 'view', 'access'];
+    let baseRaw = query.toLowerCase();
+    removeTerms.forEach(term => {
+        const regex = new RegExp('\\b' + term + '\\b', 'gi');
+        baseRaw = baseRaw.replace(regex, '');
+    });
+    baseRaw = baseRaw.replace(/\s+/g, ' ').trim();
+    let baseName = baseRaw || query;
+    if (baseName.length < 2) baseName = query;
+    
+    function formatName(str) {
+        return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    }
+    const displayName = formatName(baseName);
+    const displayLower = displayName.toLowerCase();
+
+    // random views & subscribers
+    const subCount = Math.floor(Math.random() * 500) + 50;
+    const totalViews = Math.floor(Math.random() * 2000) + 500;
+    
+    // SEO
+    let pageTitle = `${displayName} Leaked Videos · Full Playlist | LeakTube`;
+    let pageDesc = `Watch ${displayName} leaked videos. Full playlist of leaked content including private clips and viral moments. ${totalViews}+ views this week.`;
+    document.title = pageTitle;
+    const metaTag = document.getElementById('dynamic-description');
+    if (metaTag) metaTag.setAttribute('content', pageDesc);
+    
+    document.getElementById('channel-name').innerHTML = `${displayName} <span style="font-size:0.7rem; color:#ff0000;">· LEAKED CONTENT</span>`;
+    document.getElementById('channel-stats').innerHTML = `${subCount}K subscribers · ${totalViews}K views this month`;
+    document.getElementById('bc-name').innerText = displayName;
+    document.getElementById('channel-avatar').innerHTML = displayName.charAt(0).toUpperCase();
+    
+    // helper: make video card
+    function makeVideoCard(variant, title, views, timeAgo, duration, icon) {
+        const newQ = `${displayLower} ${variant}`;
+        return `
+            <div class="video-card">
+                <div class="thumbnail">${icon} <span class="duration">${duration}</span></div>
+                <div class="video-title">${title}</div>
+                <div class="video-meta">${views} views · ${timeAgo}</div>
+                <a href="/edition/?q=${encodeURIComponent(newQ)}" style="color:#ff0000; font-size:0.7rem;">▶ WATCH LEAKED VIDEO</a>
+            </div>
+        `;
+    }
+    
+    function makeSmallVideoCard(variant, title, views, timeAgo) {
+        const newQ = `${displayLower} ${variant}`;
+        return `
+            <div class="video-card">
+                <div class="thumbnail" style="height:100px;">🎬</div>
+                <div class="video-title" style="font-size:0.75rem;">${title}</div>
+                <div class="video-meta">${views} views · ${timeAgo}</div>
+                <a href="/edition/?q=${encodeURIComponent(newQ)}" style="color:#ff0000; font-size:0.65rem;">WATCH →</a>
+            </div>
+        `;
+    }
+    
+    // DYNAMIC CHIPS
+    const chips = [
+        { variant: 'leaked videos playlist', label: '🔥 LEAKED VIDEOS' },
+        { variant: 'leaked photos gallery', label: '📸 LEAKED PHOTOS' },
+        { variant: 'exclusive leaked vault', label: '💎 EXCLUSIVE LEAKS' }
+    ];
+    document.getElementById('dynamic-chips').innerHTML = chips.map(chip => 
+        `<a href="/edition/?q=${encodeURIComponent(displayLower + ' ' + chip.variant)}" class="chip">${chip.label}</a>`
+    ).join('');
+    
+    // VIDEO GRID (4 cards)
+    const videoGridItems = [
+        { variant: 'full leaked video compilation', title: `🔥 ${displayName} - Full Leaked Video Compilation`, views: Math.floor(Math.random() * 500) + 200, timeAgo: '2 days ago', duration: '24:37', icon: '🎬' },
+        { variant: 'private leaked clips', title: `🔞 ${displayName} - Private Leaked Clips (Uncensored)`, views: Math.floor(Math.random() * 400) + 150, timeAgo: '5 days ago', duration: '18:22', icon: '🔞' },
+        { variant: 'viral leaked moments', title: `⚡ ${displayName} - Viral Leaked Moments Compilation`, views: Math.floor(Math.random() * 600) + 300, timeAgo: '1 week ago', duration: '32:15', icon: '⚡' },
+        { variant: 'complete leaked archive', title: `📁 ${displayName} - Complete Leaked Archive (All Content)`, views: Math.floor(Math.random() * 300) + 100, timeAgo: '2 weeks ago', duration: '1:45:23', icon: '📁' }
+    ];
+    document.getElementById('video-grid').innerHTML = videoGridItems.map(item => 
+        makeVideoCard(item.variant, item.title, item.views, item.timeAgo, item.duration, item.icon)
+    ).join('');
+    
+    // MORE VIDEOS (2 cards)
+    const moreVideos = [
+        { variant: 'telegram channel leak', title: `💬 ${displayName} - Telegram Channel Leak`, views: Math.floor(Math.random() * 200) + 80, timeAgo: '3 days ago' },
+        { variant: 'discord server dump', title: `🎮 ${displayName} - Discord Server Dump`, views: Math.floor(Math.random() * 150) + 60, timeAgo: '1 week ago' }
+    ];
+    document.getElementById('more-videos').innerHTML = moreVideos.map(item => 
+        makeSmallVideoCard(item.variant, item.title, item.views, item.timeAgo)
+    ).join('');
+    
+    // TRENDING SIDEBAR
+    const trendingItems = [
+        { variant: 'leaked onlyfans pack', title: `${displayName} - Leaked OnlyFans Pack`, views: '234K' },
+        { variant: 'leaked instagram gallery', title: `${displayName} - Leaked Instagram Gallery`, views: '187K' },
+        { variant: 'leaked tiktok compilation', title: `${displayName} - Leaked TikTok Compilation`, views: '156K' },
+        { variant: 'rare leaked content', title: `${displayName} - Rare Leaked Content`, views: '98K' }
+    ];
+    document.getElementById('trending-sidebar').innerHTML = `
+        <h3 style="font-size:0.8rem; margin-bottom:0.5rem;">🔥 TRENDING LEAKS</h3>
+        ${trendingItems.map((item, idx) => `
+            <div class="trending-item">
+                <div class="trending-number">${idx + 1}</div>
+                <div class="trending-info">
+                    <h4>${item.title}</h4>
+                    <p>${item.views} views</p>
+                </div>
+                <a href="/edition/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}" style="margin-left:auto; color:#ff0000;">▶</a>
+            </div>
+        `).join('')}
+    `;
+    
+    // RELATED CHIPS (FOMO)
+    const relatedVariants = [
+        `${displayLower} leaked onlyfans full video`,
+        `${displayLower} leaked instagram private story`,
+        `${displayLower} leaked tiktok deleted clips`,
+        `similar to ${displayLower} leaked content`,
+        `${displayLower} exclusive leaked pack download`
+    ];
+    document.getElementById('related-chips').innerHTML = relatedVariants.map(v => 
+        `<a href="/edition/?q=${encodeURIComponent(v)}" class="chip">🔥 ${v.substring(0, 35)}...</a>`
+    ).join('');
+    
+    // update date
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    document.getElementById('update-date').innerText = dateStr;
+    
+    // canonical
+    const canonical = document.getElementById('dynamic-canonical');
+    if (canonical) {
+        canonical.setAttribute('href', window.location.href.split('?')[0]);
+    }
+})();
+</script>
+
+{% include footer.html %}
+</body>
+</html>

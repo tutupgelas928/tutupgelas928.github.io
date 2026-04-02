@@ -1,0 +1,522 @@
+---
+layout: null
+permalink: /video/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <title id="dynamic-title">Telegram Leaks Channel · Influencer Content Archive</title>
+    <meta id="dynamic-description" name="description" content="Telegram-style leak channel. Daily leaked content from influencers, TikTokers, and OnlyFans creators. Join 500K+ members.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/video/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0f0f11;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            color: #e8e8ed;
+        }
+
+        .tg-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #0f0f11;
+            min-height: 100vh;
+        }
+
+        /* header ala Telegram Channel */
+        .tg-header {
+            background: #1e1e24;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid #2a2a30;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .tg-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #2a6b5e, #1e4a6b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .tg-info h2 {
+            font-size: 1rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .tg-info p {
+            font-size: 0.65rem;
+            color: #8e8e93;
+        }
+
+        .tg-badge {
+            background: #2a2a30;
+            padding: 0.2rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.6rem;
+            margin-left: auto;
+        }
+
+        /* breadcrumb mini */
+        .breadcrumb {
+            padding: 0.5rem 1rem;
+            font-size: 0.6rem;
+            color: #5e5e66;
+            background: #0a0a0c;
+            border-bottom: 1px solid #1e1e24;
+        }
+
+        .breadcrumb a {
+            color: #2a6b5e;
+            text-decoration: none;
+        }
+
+        /* chat area */
+        .chat-area {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* message bubble */
+        .message {
+            display: flex;
+            flex-direction: column;
+            max-width: 90%;
+        }
+
+        .message-out {
+            align-self: flex-end;
+        }
+
+        .message-in {
+            align-self: flex-start;
+        }
+
+        .bubble {
+            padding: 0.75rem 1rem;
+            border-radius: 18px;
+            position: relative;
+        }
+
+        .bubble-out {
+            background: #2a6b5e;
+            border-bottom-right-radius: 4px;
+        }
+
+        .bubble-in {
+            background: #1e1e24;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message-sender {
+            font-size: 0.6rem;
+            color: #6e6e77;
+            margin-bottom: 0.2rem;
+            margin-left: 0.5rem;
+        }
+
+        .message-text {
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .message-text a {
+            color: #4a9eff;
+            text-decoration: none;
+        }
+
+        .message-time {
+            font-size: 0.55rem;
+            color: #6e6e77;
+            margin-top: 0.2rem;
+            margin-left: 0.5rem;
+        }
+
+        /* media preview */
+        .media-preview {
+            background: #1a1a20;
+            border-radius: 12px;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .media-icon {
+            font-size: 1.5rem;
+        }
+
+        .media-info {
+            font-size: 0.7rem;
+        }
+
+        /* pinned message */
+        .pinned-message {
+            background: #1a1a20;
+            border-left: 3px solid #2a6b5e;
+            padding: 0.5rem 1rem;
+            margin: 0 1rem;
+            border-radius: 8px;
+            font-size: 0.7rem;
+        }
+
+        /* channel stats */
+        .channel-stats {
+            display: flex;
+            gap: 1rem;
+            padding: 0.5rem 1rem;
+            background: #1a1a20;
+            font-size: 0.65rem;
+            color: #8e8e93;
+            border-top: 1px solid #2a2a30;
+            border-bottom: 1px solid #2a2a30;
+        }
+
+        /* footer */
+        .tg-footer {
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.55rem;
+            color: #5e5e66;
+            border-top: 1px solid #1e1e24;
+            margin-top: 1rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .default-tg {
+            display: block;
+        }
+
+        .query-tg {
+            display: none;
+        }
+
+        @media (max-width: 640px) {
+            .message { max-width: 95%; }
+            .bubble { padding: 0.6rem 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="tg-container">
+    <!-- DEFAULT TELEGRAM CHANNEL (home) -->
+    <div id="default-tg" class="default-tg">
+        <div class="tg-header">
+            <div class="tg-avatar">📡</div>
+            <div class="tg-info">
+                <h2>LeakHub Channel</h2>
+                <p>@leakhub_official · 500K members</p>
+            </div>
+            <div class="tg-badge">🔞 18+</div>
+        </div>
+
+        <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/video/">Channels</a> / @leakhub
+        </div>
+
+        <div class="channel-stats">
+            <span>📁 15K+ leaked files</span>
+            <span>👥 500K members</span>
+            <span>⚡ updated hourly</span>
+        </div>
+
+        <div class="pinned-message">
+            📌 <strong>Pinned message:</strong> Welcome to LeakHub! Use search @leakhub_bot or click links below. <a href="/video/?q=how+to+access+leaks">How to access leaks →</a>
+        </div>
+
+        <div class="chat-area">
+            <div class="message message-in">
+                <div class="message-sender">@leakhub_bot · admin</div>
+                <div class="bubble bubble-in">
+                    <div class="message-text">🔥 <strong>HOT LEAK</strong> — TikTok star leaked video compilation just dropped!<br><br>📁 200+ files · 2.3M views this week<br><br>👉 <a href="/video/?q=tiktok+star+leaked+video+compilation">CLICK TO ACCESS LEAKED CONTENT</a></div>
+                    <div class="media-preview"><span class="media-icon">🎬</span><div class="media-info">Leaked Video Pack · 2.3GB</div></div>
+                </div>
+                <div class="message-time">10:42 AM · 🔥 trending</div>
+            </div>
+
+            <div class="message message-in">
+                <div class="message-sender">@leakhub_bot · admin</div>
+                <div class="bubble bubble-in">
+                    <div class="message-text">💎 <strong>EXCLUSIVE VAULT</strong> — OnlyFans creator leaked complete set<br><br>🔞 500+ files · Limited time access<br><br>👉 <a href="/video/?q=onlyfans+creator+leaked+complete+set">ACCESS EXCLUSIVE LEAKS →</a></div>
+                </div>
+                <div class="message-time">Yesterday at 8:15 PM · 💎 exclusive</div>
+            </div>
+
+            <div class="message message-in">
+                <div class="message-sender">@leakhub_bot · admin</div>
+                <div class="bubble bubble-in">
+                    <div class="message-text">📸 <strong>NEW LEAK</strong> — Instagram influencer private gallery leaked<br><br>🖼️ 80+ deleted photos · 987K views<br><br>👉 <a href="/video/?q=instagram+influencer+leaked+private+gallery">VIEW LEAKED PHOTOS →</a></div>
+                </div>
+                <div class="message-time">Yesterday at 2:30 PM · 📸 new</div>
+            </div>
+
+            <div class="message message-out">
+                <div class="message-sender">you · member</div>
+                <div class="bubble bubble-out">
+                    <div class="message-text">Where can I find more leaks like this?</div>
+                </div>
+                <div class="message-time">Yesterday at 2:32 PM</div>
+            </div>
+
+            <div class="message message-in">
+                <div class="message-sender">@leakhub_bot · admin</div>
+                <div class="bubble bubble-in">
+                    <div class="message-text">Check our related channels:<br><br>🔗 <a href="/video/?q=telegram+leaked+channel+archive">Telegram Leaked Archive</a><br>🔗 <a href="/video/?q=discord+leaked+server+dump">Discord Leaked Server</a><br>🔗 <a href="/video/?q=twitter+leaked+threads">Twitter Leaked Threads</a></div>
+                </div>
+                <div class="message-time">Yesterday at 2:33 PM</div>
+            </div>
+        </div>
+
+        <div class="tg-footer">
+            🔒 Private channel · Invite only · 500K members online
+        </div>
+    </div>
+
+    <!-- QUERY-BASED TELEGRAM CHANNEL (dinamis per influencer) -->
+    <div id="query-tg" class="query-tg">
+        <div class="tg-header">
+            <div class="tg-avatar" id="tg-avatar">📡</div>
+            <div class="tg-info">
+                <h2 id="channel-name">LeakHub Channel</h2>
+                <p id="channel-handle">@leakhub · <span id="member-count"></span> members</p>
+            </div>
+            <div class="tg-badge">🔞 18+</div>
+        </div>
+
+        <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/video/">Channels</a> / <span id="bc-name"></span>
+        </div>
+
+        <div class="channel-stats" id="channel-stats"></div>
+
+        <div class="pinned-message" id="pinned-message">
+            📌 <strong>Pinned message:</strong> Full <span id="pinned-name"></span> leak archive below. Click any link to access leaked content.
+        </div>
+
+        <div class="chat-area" id="chat-area">
+            <!-- messages akan diisi JavaScript -->
+        </div>
+
+        <div class="tg-footer" id="tg-footer">
+            🔒 Private channel · Invite only · Updated hourly
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let query = urlParams.get('q');
+
+    const defaultDiv = document.getElementById('default-tg');
+    const queryDiv = document.getElementById('query-tg');
+
+    if (!query) {
+        defaultDiv.style.display = 'block';
+        queryDiv.style.display = 'none';
+        return;
+    }
+
+    defaultDiv.style.display = 'none';
+    queryDiv.style.display = 'block';
+
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    
+    // extract nama influencer
+    const removeTerms = ['leaked', 'leak', 'leaks', 'archive', 'collection', 'dump', 'vault', 'pack', 'bundle', 'gallery', 'content', 'media', 'videos', 'photos', 'pics', 'onlyfans', 'tiktok', 'instagram', 'twitter', 'telegram', 'discord', 'trending', 'viral', 'exclusive', 'private', 'premium', '2024', '2025', '2026', 'full', 'complete', 'hot', 'new', 'watch', 'view', 'access', 'telegram', 'channel', 'dm', 'chat'];
+    let baseRaw = query.toLowerCase();
+    removeTerms.forEach(term => {
+        const regex = new RegExp('\\b' + term + '\\b', 'gi');
+        baseRaw = baseRaw.replace(regex, '');
+    });
+    baseRaw = baseRaw.replace(/\s+/g, ' ').trim();
+    let baseName = baseRaw || query;
+    if (baseName.length < 2) baseName = query;
+    
+    function formatName(str) {
+        return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    }
+    const displayName = formatName(baseName);
+    const displayLower = displayName.toLowerCase();
+
+    // random numbers
+    const memberCount = Math.floor(Math.random() * 200) + 50;
+    const fileCount = Math.floor(Math.random() * 300) + 80;
+    const viewCount = Math.floor(Math.random() * 800) + 200;
+    
+    // SEO
+    let pageTitle = `${displayName} Leaked Content · Telegram Channel`;
+    let pageDesc = `Join our Telegram channel for ${displayName} leaked content. ${fileCount}+ leaked files, ${memberCount}K members. Updated daily.`;
+    document.title = pageTitle;
+    const metaTag = document.getElementById('dynamic-description');
+    if (metaTag) metaTag.setAttribute('content', pageDesc);
+    
+    document.getElementById('channel-name').innerHTML = `${displayName} Leaks`;
+    document.getElementById('channel-handle').innerHTML = `@${displayLower}_leaks · ${memberCount}K members`;
+    document.getElementById('bc-name').innerText = displayName;
+    document.getElementById('pinned-name').innerHTML = displayName;
+    document.getElementById('member-count').innerHTML = `${memberCount}K`;
+    
+    document.getElementById('channel-stats').innerHTML = `
+        <span>📁 ${fileCount}+ leaked files</span>
+        <span>👥 ${memberCount}K members</span>
+        <span>⚡ updated hourly</span>
+    `;
+    
+    // helper: membuat message bubble (incoming message dari admin/bot)
+    function makeInMessage(title, desc, variant, btnText, timeAgo, badge, mediaIcon, fileSize) {
+        const newQ = `${displayLower} ${variant}`;
+        return `
+            <div class="message message-in">
+                <div class="message-sender">@${displayLower}_leaks · admin</div>
+                <div class="bubble bubble-in">
+                    <div class="message-text">${badge} <strong>${title}</strong><br><br>${desc}<br><br>👉 <a href="/video/?q=${encodeURIComponent(newQ)}">${btnText}</a></div>
+                    <div class="media-preview"><span class="media-icon">${mediaIcon}</span><div class="media-info">${fileSize}</div></div>
+                </div>
+                <div class="message-time">${timeAgo}</div>
+            </div>
+        `;
+    }
+    
+    // helper: make outgoing message (opsional, untuk interaksi)
+    function makeOutMessage(text, timeAgo) {
+        return `
+            <div class="message message-out">
+                <div class="message-sender">you · member</div>
+                <div class="bubble bubble-out">
+                    <div class="message-text">${text}</div>
+                </div>
+                <div class="message-time">${timeAgo}</div>
+            </div>
+        `;
+    }
+    
+    // helper: make reply message
+    function makeReplyMessage(text, links) {
+        const linksHtml = links.map(l => `<a href="/video/?q=${encodeURIComponent(displayLower + ' ' + l.variant)}">${l.label}</a>`).join(' · ');
+        return `
+            <div class="message message-in">
+                <div class="message-sender">@${displayLower}_leaks · admin</div>
+                <div class="bubble bubble-in">
+                    <div class="message-text">${text}<br><br>${linksHtml}</div>
+                </div>
+                <div class="message-time">Just now</div>
+            </div>
+        `;
+    }
+    
+    // MESSAGES
+    const messages = [
+        makeInMessage(
+            `🔥 HOT LEAK — ${displayName} Video Compilation`, 
+            `Full leaked video archive. ${Math.floor(fileCount * 0.6)}+ clips. Viral moments and private footage.`, 
+            'leaked video full compilation', 
+            '🎬 WATCH LEAKED VIDEOS →', 
+            '10:42 AM · 🔥 trending', 
+            '🔥', 
+            '🎬', 
+            `${Math.floor(fileCount * 0.6)}+ files · 2.3GB`
+        ),
+        makeInMessage(
+            `💎 EXCLUSIVE VAULT — ${displayName} Private Content`, 
+            `Complete ${displayName} leaked exclusive set. Rare material not available elsewhere.`, 
+            'exclusive leaked vault', 
+            '💎 ACCESS EXCLUSIVE LEAKS →', 
+            'Yesterday at 8:15 PM · 💎 exclusive', 
+            '💎', 
+            '🔞', 
+            `${Math.floor(fileCount * 0.3)}+ files · Limited`
+        ),
+        makeInMessage(
+            `📸 ${displayName} Leaked Photo Gallery`, 
+            `Full ${displayName} leaked photo set. Private Instagram photos, deleted stories.`, 
+            'leaked photos full gallery', 
+                            '📸 VIEW LEAKED PHOTOS →', 
+            'Yesterday at 2:30 PM · 📸 new', 
+            '📸', 
+            '🖼️', 
+            `${Math.floor(fileCount * 0.5)}+ images · 800MB`
+        ),
+        makeInMessage(
+            `🌐 ${displayName} — Platform Leaks`, 
+            `Where ${displayName} leaked content originated. Telegram, Discord, Twitter archives.`, 
+            'leaked platform sources', 
+            '🔍 EXPLORE LEAK SOURCES →', 
+            'Yesterday at 11:15 AM', 
+            '🌐', 
+            '📡', 
+            'Multi-source archive'
+        )
+    ];
+    
+    // tambahin outgoing message
+    messages.push(makeOutMessage('Are there more leaks from this creator?', 'Yesterday at 2:32 PM'));
+    
+    // tambahin reply message dengan multiple links
+    messages.push(makeReplyMessage(
+        'Yes! Check these related leak channels:', 
+        [
+            { variant: 'leaked onlyfans pack', label: '🔞 OnlyFans Leaks' },
+            { variant: 'leaked instagram stories', label: '📸 IG Leaks' },
+            { variant: 'leaked tiktok deleted', label: '🎵 TikTok Leaks' },
+            { variant: 'leaked telegram archive', label: '💬 Telegram Archive' }
+        ]
+    ));
+    
+    // tambahin satu lagi incoming message
+    messages.push(makeInMessage(
+        `📁 ${displayName} Complete Archive Dump`, 
+        `Everything leaked about ${displayName} in one place. Full mega pack.`, 
+        'complete leaked archive dump', 
+                        '📁 DOWNLOAD COMPLETE LEAKED ARCHIVE →', 
+        '2 hours ago · 🔥 mega', 
+                        '🔥', 
+                        '📦', 
+                        `${fileCount}+ total files · 4.1GB`
+    ));
+    
+    document.getElementById('chat-area').innerHTML = messages.join('');
+    
+    // footer update
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    document.getElementById('tg-footer').innerHTML = `🔒 Private channel · ${memberCount}K members online · Last leak update: ${dateStr}`;
+    
+    // avatar dinamis
+    document.getElementById('tg-avatar').innerHTML = displayName.charAt(0).toUpperCase();
+    
+    // canonical
+    const canonical = document.getElementById('dynamic-canonical');
+    if (canonical) {
+        canonical.setAttribute('href', window.location.href.split('?')[0]);
+    }
+})();
+</script>
+
+{% include footer.html %}
+</body>
+</html>

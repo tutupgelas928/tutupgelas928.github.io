@@ -1,0 +1,519 @@
+---
+layout: null
+permalink: /photo/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <title id="dynamic-title">Leak Vault · Exclusive Influencer Leaks</title>
+    <meta id="dynamic-description" name="description" content="Premium leak vault featuring exclusive leaked content from top influencers, TikTokers, and OnlyFans creators. Updated hourly.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/photo/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0b0b10;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #e8e8f0;
+        }
+
+        .vault {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* premium header */
+        .premium-header {
+            background: linear-gradient(135deg, #0f0f18 0%, #1a0a2e 100%);
+            border-radius: 24px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            position: relative;
+        }
+
+        .premium-badge {
+            display: inline-block;
+            background: #ec489a;
+            font-size: 0.6rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .premium-header h1 {
+            font-size: 2rem;
+            margin: 0.5rem 0;
+            background: linear-gradient(135deg, #fff, #ec489a, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* breadcrumb */
+        .breadcrumb {
+            font-size: 0.7rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb a {
+            color: #ec489a;
+            text-decoration: none;
+        }
+
+        /* stat bar premium */
+        .premium-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            background: rgba(236, 72, 153, 0.08);
+            border-radius: 20px;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            font-size: 0.7rem;
+        }
+
+        /* dashboard grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .vault-card {
+            background: #0f0f18;
+            border-radius: 20px;
+            border: 1px solid #1f1f2e;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        .vault-card:hover {
+            border-color: #ec489a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.2);
+        }
+
+        .card-ribbon {
+            background: #ec489a;
+            padding: 0.25rem 1rem;
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            margin: 0.75rem 0 0 1rem;
+            border-radius: 20px;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            padding: 0.5rem 1rem 0;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 0.25rem 1rem;
+            color: #fff;
+        }
+
+        .card-desc {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            padding: 0.25rem 1rem;
+            line-height: 1.4;
+        }
+
+        .card-urgency {
+            display: flex;
+            gap: 1rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.65rem;
+            color: #ec489a;
+        }
+
+        .card-button {
+            display: block;
+            background: #1a1a2a;
+            margin: 0.75rem 1rem 1rem;
+            padding: 0.6rem;
+            text-align: center;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #ec489a;
+            text-decoration: none;
+            border: 1px solid #2a2a3e;
+            transition: all 0.15s;
+        }
+
+        .card-button:hover {
+            background: #ec489a;
+            color: #fff;
+            border-color: #ec489a;
+        }
+
+        /* hot list */
+        .hot-list {
+            background: #0f0f18;
+            border-radius: 20px;
+            border: 1px solid #1f1f2e;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .hot-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #1a1a2a;
+            transition: all 0.1s;
+        }
+
+        .hot-item:last-child {
+            border-bottom: none;
+        }
+
+        .hot-item:hover {
+            background: #14141f;
+        }
+
+        .hot-item a {
+            color: #ec489a;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .hot-badge {
+            font-size: 0.6rem;
+            background: #ec489a20;
+            padding: 0.2rem 0.5rem;
+            border-radius: 20px;
+            color: #ec489a;
+        }
+
+        /* tag cloud */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .vault-tag {
+            background: #1a1a2a;
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            color: #ec489a;
+            text-decoration: none;
+            border: 1px solid #2a2a3e;
+            transition: all 0.1s;
+        }
+
+        .vault-tag:hover {
+            background: #ec489a;
+            color: #fff;
+            border-color: #ec489a;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #1f1f2e;
+            margin: 1.5rem 0;
+        }
+
+        .footer {
+            font-size: 0.6rem;
+            color: #4a4a5a;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .default-vault {
+            display: block;
+        }
+
+        .query-vault {
+            display: none;
+        }
+
+        @media (max-width: 640px) {
+            .vault { padding: 1rem; }
+            .premium-header h1 { font-size: 1.4rem; }
+            .dashboard-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="vault">
+    <!-- DEFAULT VAULT (homepage) -->
+    <div id="default-vault" class="default-vault">
+        <div class="premium-header">
+            <span class="premium-badge">🔥 EXCLUSIVE VAULT 🔥</span>
+            <h1>Leak Vault Premium</h1>
+            <p style="color: #9ca3af;">The internet's most complete leaked content archive. Updated hourly.</p>
+        </div>
+
+        <div class="premium-stats">
+            <span>🔥 <strong>2.4M+</strong> monthly visitors</span>
+            <span>📁 <strong>18k+</strong> leaked files</span>
+            <span>⚡ <strong>hourly</strong> updates</span>
+            <span>👤 <strong>900+</strong> creators</span>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="vault-card">
+                <span class="card-ribbon">🔥 TRENDING NOW</span>
+                <div class="card-icon">🎬</div>
+                <div class="card-title">TikTok Leaked Video Pack</div>
+                <div class="card-desc">Full collection of deleted TikTok videos that went viral this week.</div>
+                <div class="card-urgency">⏳ 1,234 people viewed today</div>
+                <a href="/photo/?q=tiktok+leaked+video+pack+full" class="card-button">ACCESS LEAKED PACK →</a>
+            </div>
+            <div class="vault-card">
+                <span class="card-ribbon">💎 EXCLUSIVE</span>
+                <div class="card-icon">🔞</div>
+                <div class="card-title">OnlyFans Leaked Archive</div>
+                <div class="card-desc">Complete leaked OnlyFans content from top creators.</div>
+                <div class="card-urgency">⭐ Rare content · Limited access</div>
+                <a href="/photo/?q=onlyfans+leaked+archive+complete" class="card-button">VIEW LEAKED ARCHIVE →</a>
+            </div>
+            <div class="vault-card">
+                <span class="card-ribbon">📸 NEW</span>
+                <div class="card-icon">🖼️</div>
+                <div class="card-title">Instagram Leaked Gallery</div>
+                <div class="card-desc">Recently leaked private Instagram photos and stories.</div>
+                <div class="card-urgency">🆕 Added 2 hours ago</div>
+                <a href="/photo/?q=instagram+leaked+gallery+new" class="card-button">SEE LEAKED PHOTOS →</a>
+            </div>
+        </div>
+
+        <div class="hot-list">
+            <div class="hot-item"><span>🔥 <strong>Telegram Leaked Channel</strong> - Full dump</span><a href="/photo/?q=telegram+leaked+channel+full+dump">View →</a></div>
+            <div class="hot-item"><span>💬 <strong>Discord Leaked Server</strong> - Private archive</span><a href="/photo/?q=discord+leaked+server+private+archive">View →</a></div>
+            <div class="hot-item"><span>🐦 <strong>Twitter Leaked Threads</strong> - Viral tweets</span><a href="/photo/?q=twitter+leaked+threads+viral">View →</a></div>
+        </div>
+
+        <div class="tag-cloud">
+            <a href="/photo/?q=leaked+tiktok+influencer+vault" class="vault-tag">#LeakedTikTokVault</a>
+            <a href="/photo/?q=leaked+onlyfans+premium+archive" class="vault-tag">#LeakedOnlyFans</a>
+            <a href="/photo/?q=exclusive+leaked+content+vault" class="vault-tag">#ExclusiveLeakedVault</a>
+            <a href="/photo/?q=viral+leaked+content+hub" class="vault-tag">#ViralLeakedHub</a>
+        </div>
+    </div>
+
+    <!-- QUERY-BASED VAULT (dinamis dengan urgency + FOMO) -->
+    <div id="query-vault" class="query-vault">
+        <div class="breadcrumb">
+            <a href="/">Vault</a> / <a href="/photo/">Leaks</a> / <span id="bc-name"></span>
+        </div>
+
+        <div class="premium-header" style="margin-bottom: 1rem;">
+            <span class="premium-badge" id="vault-badge">🔥 EXCLUSIVE LEAK VAULT</span>
+            <h1 id="main-heading"></h1>
+            <p id="urgency-line" style="color: #ec489a; font-size: 0.7rem;"></p>
+        </div>
+
+        <div class="premium-stats" id="premium-stats-dynamic"></div>
+
+        <!-- INTRO dengan FOMO -->
+        <div id="fomo-box" style="background: linear-gradient(145deg, #1a0a2e, #0f0f18); border-radius: 20px; padding: 1rem; margin-bottom: 1.5rem; border: 1px solid #ec489a40;">
+            <p id="intro-text" style="font-size: 0.85rem;"></p>
+        </div>
+
+        <!-- SECTION: LEAKED VAULT CARDS (dengan urgency) -->
+        <h3 style="font-size: 0.7rem; color: #ec489a; margin-bottom: 0.5rem;">🎯 HOT LEAKED CONTENT · LIMITED ACCESS</h3>
+        <div class="dashboard-grid" id="vault-cards"></div>
+
+        <!-- SECTION: PLATFORM LEAKS (hot list style) -->
+        <h3 style="font-size: 0.7rem; color: #ec489a; margin: 1rem 0 0.5rem;">🌐 LEAK SOURCES · ORIGINAL CHANNELS</h3>
+        <div class="hot-list" id="platform-hotlist"></div>
+
+        <!-- SECTION: SIMILAR LEAKS (FOMO tags) -->
+        <h3 style="font-size: 0.7rem; color: #ec489a; margin: 1rem 0 0.5rem;">🔍 DON'T MISS THESE LEAKS</h3>
+        <div class="tag-cloud" id="fomo-tags"></div>
+
+        <!-- SECTION: VAULT INFO -->
+        <h3 style="font-size: 0.7rem; color: #ec489a; margin: 1rem 0 0.5rem;">📌 LEAK VAULT INFORMATION</h3>
+        <div class="hot-list" id="vault-info"></div>
+
+        <hr />
+        <div class="footer">
+            🔥 Leak Vault Premium · Updated <span id="update-date"></span> · Exclusive content
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let query = urlParams.get('q');
+
+    const defaultDiv = document.getElementById('default-vault');
+    const queryDiv = document.getElementById('query-vault');
+
+    if (!query) {
+        defaultDiv.style.display = 'block';
+        queryDiv.style.display = 'none';
+        return;
+    }
+
+    defaultDiv.style.display = 'none';
+    queryDiv.style.display = 'block';
+
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    
+    // extract nama influencer
+    const removeTerms = ['leaked', 'leak', 'leaks', 'archive', 'collection', 'dump', 'vault', 'pack', 'bundle', 'gallery', 'content', 'media', 'videos', 'photos', 'pics', 'onlyfans', 'tiktok', 'instagram', 'twitter', 'telegram', 'discord', 'trending', 'viral', 'exclusive', 'private', 'premium', '2024', '2025', '2026', 'full', 'complete', 'hot', 'new'];
+    let baseRaw = query.toLowerCase();
+    removeTerms.forEach(term => {
+        const regex = new RegExp('\\b' + term + '\\b', 'gi');
+        baseRaw = baseRaw.replace(regex, '');
+    });
+    baseRaw = baseRaw.replace(/\s+/g, ' ').trim();
+    let baseName = baseRaw || query;
+    if (baseName.length < 2) baseName = query;
+    
+    function formatName(str) {
+        return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    }
+    const displayName = formatName(baseName);
+    const displayLower = displayName.toLowerCase();
+
+    // random viewer count untuk FOMO
+    const randomViewers = Math.floor(Math.random() * 2000) + 500;
+    const randomFileCount = Math.floor(Math.random() * 150) + 50;
+    
+    // SEO
+    let pageTitle = `🔥 ${displayName} Leaked Content · Exclusive Vault`;
+    let pageDesc = `Access the complete ${displayName} leaked content vault. ${randomFileCount}+ leaked photos and videos. Trending now with ${randomViewers}+ views today.`;
+    document.title = pageTitle;
+    const metaTag = document.getElementById('dynamic-description');
+    if (metaTag) metaTag.setAttribute('content', pageDesc);
+    
+    document.getElementById('main-heading').innerHTML = `${displayName} <span style="font-size:0.7rem;">· Leaked Vault</span>`;
+    document.getElementById('urgency-line').innerHTML = `🔥 ${randomViewers}+ people viewed this vault today · Limited access 🔥`;
+    document.getElementById('bc-name').innerText = displayName;
+    document.getElementById('vault-badge').innerHTML = '🔥 EXCLUSIVE LEAK VAULT 🔥';
+    
+    // intro FOMO
+    const introEl = document.getElementById('intro-text');
+    introEl.innerHTML = `⚠️ <strong>URGENT: ${displayName} leaked content</strong> is spreading fast across Telegram and Discord. This vault contains <strong>${randomFileCount}+ leaked files</strong> including private photos and deleted videos. Access is limited. ⚠️`;
+    
+    // helper: membuat vault card dengan urgency
+    function makeVaultCard(variant, title, desc, badge, icon, urgency) {
+        const newQ = `${displayLower} ${variant}`;
+        return `
+            <div class="vault-card">
+                <span class="card-ribbon">${badge}</span>
+                <div class="card-icon">${icon}</div>
+                <div class="card-title">${title}</div>
+                <div class="card-desc">${desc}</div>
+                <div class="card-urgency">${urgency}</div>
+                <a href="/photo/?q=${encodeURIComponent(newQ)}" class="card-button">ACCESS LEAKED CONTENT →</a>
+            </div>
+        `;
+    }
+    
+    // VAULT CARDS
+    const vaultCards = [
+        { variant: 'leaked photos full private gallery', title: `📸 ${displayName} Leaked Photos`, desc: `Full private gallery of ${displayName} leaked images. Deleted Instagram stories and exclusive content.`, badge: '📸 HOT LEAK', icon: '📸', urgency: `🖼️ ${Math.floor(randomFileCount * 0.6)}+ images available` },
+        { variant: 'leaked videos complete collection', title: `🎬 ${displayName} Leaked Videos`, desc: `Complete ${displayName} leaked video collection. Viral clips and private footage.`, badge: '🎬 VIRAL', icon: '🎬', urgency: `🎥 ${Math.floor(randomFileCount * 0.4)}+ video files` },
+        { variant: 'exclusive leaked content vault', title: `💎 ${displayName} Exclusive Vault`, desc: `Rare ${displayName} leaked material not found anywhere else.`, badge: '💎 EXCLUSIVE', icon: '💎', urgency: `⭐ Limited release · High demand` },
+        { variant: 'full leaked archive dump', title: `📁 ${displayName} Complete Archive`, desc: `Everything leaked about ${displayName} in one download.`, badge: '🔥 COMPLETE', icon: '📁', urgency: `📦 ${randomFileCount}+ total files` }
+    ];
+    document.getElementById('vault-cards').innerHTML = vaultCards.map(card => 
+        makeVaultCard(card.variant, card.title, card.desc, card.badge, card.icon, card.urgency)
+    ).join('');
+    
+    // PLATFORM HOTLIST
+    const platformItems = [
+        { variant: 'telegram leaked channel archive', label: '💬 Telegram Leaked Channel', desc: 'Original source dump', hotCount: '1.2k views' },
+        { variant: 'discord leaked server dump', label: '🎮 Discord Leaked Server', desc: 'Private server archive', hotCount: '890 views' },
+        { variant: 'twitter leaked threads', label: '🐦 Twitter Leaked Threads', desc: 'Viral tweet compilation', hotCount: '2.1k views' },
+        { variant: 'reddit leaked posts', label: '🔴 Reddit Leaked Posts', desc: 'Archived threads', hotCount: '567 views' }
+    ];
+    document.getElementById('platform-hotlist').innerHTML = platformItems.map(item => {
+        const newQ = `${displayLower} ${item.variant}`;
+        return `
+            <div class="hot-item">
+                <span><strong>${item.label}</strong><br><small style="font-size:0.6rem;">${item.desc}</small></span>
+                <span><span class="hot-badge">🔥 ${item.hotCount}</span> <a href="/photo/?q=${encodeURIComponent(newQ)}" style="margin-left:0.5rem;">Access →</a></span>
+            </div>
+        `;
+    }).join('');
+    
+    // FOMO TAGS (semua mengandung 'leaked')
+    const fomoVariants = [
+        `${displayLower} leaked onlyfans premium`,
+        `${displayLower} leaked instagram private`,
+        `${displayLower} leaked tiktok viral`,
+        `leaked content like ${displayLower}`,
+        `${displayLower} exclusive leaked pack`,
+        `viral leaked archive ${displayLower}`
+    ];
+    document.getElementById('fomo-tags').innerHTML = fomoVariants.map(v => 
+        `<a href="/photo/?q=${encodeURIComponent(v)}" class="vault-tag">🔥 ${v.replace(/_/g, ' ').toUpperCase()}</a>`
+    ).join('');
+    
+    // VAULT INFO
+    const infoItems = [
+        { variant: 'leaked vault preservation info', label: '📖 About This Leak Vault' },
+        { variant: 'leaked content update log', label: '🔄 Recent Leak Updates (Hourly)' },
+        { variant: 'leaked source documentation', label: '🔍 Where These Leaks Originated' }
+    ];
+    document.getElementById('vault-info').innerHTML = infoItems.map(item => {
+        const newQ = `${displayLower} ${item.variant}`;
+        return `
+            <div class="hot-item">
+                <span>${item.label}</span>
+                <a href="/photo/?q=${encodeURIComponent(newQ)}">View →</a>
+            </div>
+        `;
+    }).join('');
+    
+    // dynamic stats
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    const timeStr = today.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    document.getElementById('update-date').innerText = `${dateStr} · ${timeStr}`;
+    
+    const statsDiv = document.getElementById('premium-stats-dynamic');
+    statsDiv.innerHTML = `
+        <span>🔥 <strong>${randomViewers}+</strong> views today</span>
+        <span>📁 <strong>${randomFileCount}+</strong> leaked files</span>
+        <span>⚡ <strong>viral</strong> status</span>
+        <span>🕒 updated ${timeStr}</span>
+    `;
+    
+    // canonical
+    const canonical = document.getElementById('dynamic-canonical');
+    if (canonical) {
+        canonical.setAttribute('href', window.location.href.split('?')[0]);
+    }
+})();
+</script>
+
+{% include footer.html %}
+</body>
+</html>

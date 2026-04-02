@@ -1,0 +1,491 @@
+---
+layout: null
+permalink: /explore/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <title id="dynamic-title">r/LeakedHub · Influencer Leaks Forum</title>
+    <meta id="dynamic-description" name="description" content="The biggest Reddit-style forum for leaked influencer content. TikTok leaks, OnlyFans leaks, and viral content archives.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/explore/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1a1a1b;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+            color: #d7dadc;
+        }
+
+        .forum-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        /* header ala Reddit */
+        .reddit-header {
+            background: #1e1e1f;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border: 1px solid #343536;
+        }
+
+        .subreddit-info h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .subreddit-info p {
+            font-size: 0.7rem;
+            color: #818384;
+        }
+
+        .join-btn {
+            background: #d93900;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* breadcrumb */
+        .breadcrumb {
+            font-size: 0.7rem;
+            color: #818384;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb a {
+            color: #818384;
+            text-decoration: none;
+        }
+
+        .breadcrumb span:last-child {
+            color: #d7dadc;
+        }
+
+        /* sort bar */
+        .sort-bar {
+            display: flex;
+            gap: 1rem;
+            border-bottom: 1px solid #343536;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.75rem;
+        }
+
+        .sort-active {
+            color: #d93900;
+            font-weight: 600;
+        }
+
+        /* post card */
+        .post-card {
+            background: #1e1e1f;
+            border: 1px solid #343536;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            padding: 0.75rem;
+            transition: all 0.1s;
+        }
+
+        .post-card:hover {
+            border-color: #565758;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            color: #818384;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .subreddit {
+            color: #d93900;
+            font-weight: 600;
+        }
+
+        .post-author {
+            font-weight: 500;
+        }
+
+        .post-time {
+            font-size: 0.65rem;
+        }
+
+        .post-title {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #d7dadc;
+        }
+
+        .post-title a {
+            color: #d7dadc;
+            text-decoration: none;
+        }
+
+        .post-title a:hover {
+            text-decoration: underline;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.65rem;
+            color: #818384;
+            margin-bottom: 0.5rem;
+        }
+
+        .flair {
+            display: inline-block;
+            background: #1a3e4c;
+            padding: 0.15rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: #9efff0;
+            margin-right: 0.5rem;
+        }
+
+        .flair-leak {
+            background: #4c1a2e;
+            color: #ff9ec4;
+        }
+
+        .flair-exclusive {
+            background: #3e2e1a;
+            color: #ffd79e;
+        }
+
+        .flair-mega {
+            background: #1a4c2e;
+            color: #9effb0;
+        }
+
+        .vote-section {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .vote-arrow {
+            font-size: 1rem;
+            cursor: default;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+            font-size: 0.65rem;
+        }
+
+        .action-btn {
+            color: #818384;
+            text-decoration: none;
+        }
+
+        /* sidebar */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 1rem;
+        }
+
+        .sidebar-card {
+            background: #1e1e1f;
+            border: 1px solid #343536;
+            border-radius: 8px;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #343536;
+            padding-bottom: 0.25rem;
+        }
+
+        .trending-topic {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #2a2a2b;
+            font-size: 0.7rem;
+        }
+
+        .trending-topic a {
+            color: #d7dadc;
+            text-decoration: none;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #343536;
+            margin: 1rem 0;
+        }
+
+        .footer {
+            font-size: 0.6rem;
+            color: #5a5b5c;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .default-forum {
+            display: block;
+        }
+
+        .query-forum {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .two-col { grid-template-columns: 1fr; }
+            .forum-container { padding: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="forum-container">
+    <!-- DEFAULT FORUM (homepage) -->
+    <div id="default-forum" class="default-forum">
+        <div class="reddit-header">
+            <div class="subreddit-info">
+                <h2>r/LeakedHub</h2>
+                <p>🔞 The biggest leaked content archive on Reddit · 2.4M members</p>
+            </div>
+            <div class="join-btn">+ JOIN</div>
+        </div>
+
+        <div class="sort-bar">
+            <span class="sort-active">🔥 Hot</span>
+            <span>New</span>
+            <span>Top</span>
+            <span>Rising</span>
+        </div>
+
+        <!-- POSTS -->
+        <div class="post-card">
+            <div class="post-header">
+                <span class="subreddit">r/LeakedHub</span>
+                <span class="post-author">u/leakarchiver</span>
+                <span class="post-time">• 2 hours ago</span>
+            </div>
+            <div class="post-title"><a href="/explore/?q=tiktok+star+leaked+video+mega+thread">🔥 [MEGA] TikTok Star Leaked Video - Full Archive (2025)</a></div>
+            <div class="post-meta"><span class="flair flair-leak">LEAK</span><span class="flair flair-mega">MEGA</span></div>
+            <div class="vote-section"><span class="vote-arrow">⬆️</span> 2.3k <span class="vote-arrow">⬇️</span></div>
+            <div class="action-buttons"><a href="/explore/?q=tiktok+star+leaked+video+mega+thread" class="action-btn">💬 234 comments</a><a href="/explore/?q=tiktok+star+leaked+video+mega+thread" class="action-btn">🔗 Share</a><a href="/explore/?q=tiktok+star+leaked+video+mega+thread" class="action-btn">🔖 Save</a></div>
+        </div>
+
+        <div class="post-card">
+            <div class="post-header"><span class="subreddit">r/LeakedHub</span><span class="post-author">u/exclusivevault</span><span class="post-time">• 5 hours ago</span></div>
+            <div class="post-title"><a href="/explore/?q=onlyfans+creator+leaked+complete+set">💎 [EXCLUSIVE] OnlyFans Creator Leaked Complete Set (300+ files)</a></div>
+            <div class="post-meta"><span class="flair flair-exclusive">EXCLUSIVE</span><span class="flair flair-leak">LEAK</span></div>
+            <div class="vote-section"><span class="vote-arrow">⬆️</span> 1.8k <span class="vote-arrow">⬇️</span></div>
+            <div class="action-buttons"><a href="/explore/?q=onlyfans+creator+leaked+complete+set" class="action-btn">💬 567 comments</a></div>
+        </div>
+
+        <div class="post-card">
+            <div class="post-header"><span class="subreddit">r/LeakedHub</span><span class="post-author">u/igleakmaster</span><span class="post-time">• 1 day ago</span></div>
+            <div class="post-title"><a href="/explore/?q=instagram+influencer+leaked+private+gallery">📸 Instagram Influencer Leaked Private Gallery (Deleted Stories)</a></div>
+            <div class="post-meta"><span class="flair flair-leak">LEAK</span></div>
+            <div class="vote-section"><span class="vote-arrow">⬆️</span> 987 <span class="vote-arrow">⬇️</span></div>
+            <div class="action-buttons"><a href="/explore/?q=instagram+influencer+leaked+private+gallery" class="action-btn">💬 234 comments</a></div>
+        </div>
+
+        <!-- SIDEBAR di dalam default -->
+        <div class="sidebar-card">
+            <div class="sidebar-title">🔥 TRENDING LEAKS</div>
+            <div class="trending-topic"><a href="/explore/?q=tiktok+leaked+video+compilation">1. TikTok Leaked Video Compilation</a></div>
+            <div class="trending-topic"><a href="/explore/?q=onlyfans+leaked+archive">2. OnlyFans Leaked Archive</a></div>
+            <div class="trending-topic"><a href="/explore/?q=instagram+leaked+gallery">3. Instagram Leaked Gallery</a></div>
+            <div class="trending-topic"><a href="/explore/?q=telegram+leaked+channel">4. Telegram Leaked Channel</a></div>
+        </div>
+    </div>
+
+    <!-- QUERY-BASED FORUM (search results style) -->
+    <div id="query-forum" class="query-forum">
+        <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/explore/">r/LeakedHub</a> / search: <span id="bc-name"></span>
+        </div>
+
+        <div class="reddit-header">
+            <div class="subreddit-info">
+                <h2>r/LeakedHub · search results</h2>
+                <p id="result-count">🔍 Showing leaked content for <span id="search-term"></span></p>
+            </div>
+            <div class="join-btn">+ JOIN</div>
+        </div>
+
+        <div class="sort-bar">
+            <span class="sort-active">🔥 Relevance</span>
+            <span>Newest</span>
+            <span>Most upvoted</span>
+        </div>
+
+        <!-- POSTS RESULTS (dinamis) -->
+        <div id="search-results"></div>
+
+        <!-- SIDEBAR -->
+        <div class="sidebar-card">
+            <div class="sidebar-title">🔥 SIMILAR LEAKS</div>
+            <div id="similar-leaks-sidebar"></div>
+        </div>
+
+        <hr />
+        <div class="footer">
+            r/LeakedHub · Independent leak archive · Updated <span id="update-date"></span>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let query = urlParams.get('q');
+
+    const defaultDiv = document.getElementById('default-forum');
+    const queryDiv = document.getElementById('query-forum');
+
+    if (!query) {
+        defaultDiv.style.display = 'block';
+        queryDiv.style.display = 'none';
+        return;
+    }
+
+    defaultDiv.style.display = 'none';
+    queryDiv.style.display = 'block';
+
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    
+    // extract nama influencer
+    const removeTerms = ['leaked', 'leak', 'leaks', 'archive', 'collection', 'dump', 'vault', 'pack', 'bundle', 'gallery', 'content', 'media', 'videos', 'photos', 'pics', 'onlyfans', 'tiktok', 'instagram', 'twitter', 'telegram', 'discord', 'trending', 'viral', 'exclusive', 'private', 'premium', '2024', '2025', '2026', 'full', 'complete', 'hot', 'new', 'watch', 'view', 'access', 'reddit', 'forum', 'thread'];
+    let baseRaw = query.toLowerCase();
+    removeTerms.forEach(term => {
+        const regex = new RegExp('\\b' + term + '\\b', 'gi');
+        baseRaw = baseRaw.replace(regex, '');
+    });
+    baseRaw = baseRaw.replace(/\s+/g, ' ').trim();
+    let baseName = baseRaw || query;
+    if (baseName.length < 2) baseName = query;
+    
+    function formatName(str) {
+        return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    }
+    const displayName = formatName(baseName);
+    const displayLower = displayName.toLowerCase();
+
+    // random upvotes
+    const upvotes1 = Math.floor(Math.random() * 3000) + 500;
+    const upvotes2 = Math.floor(Math.random() * 2000) + 300;
+    const upvotes3 = Math.floor(Math.random() * 1500) + 200;
+    const upvotes4 = Math.floor(Math.random() * 1000) + 100;
+    const comments1 = Math.floor(upvotes1 / 8);
+    const comments2 = Math.floor(upvotes2 / 8);
+    const comments3 = Math.floor(upvotes3 / 8);
+    const comments4 = Math.floor(upvotes4 / 8);
+    
+    // SEO
+    let pageTitle = `${displayName} leaked content · r/LeakedHub search results`;
+    let pageDesc = `${displayName} leaked content archive. ${upvotes1}+ upvotes. Trending leak discussion on Reddit.`;
+    document.title = pageTitle;
+    const metaTag = document.getElementById('dynamic-description');
+    if (metaTag) metaTag.setAttribute('content', pageDesc);
+    
+    document.getElementById('bc-name').innerText = displayName;
+    document.getElementById('search-term').innerHTML = displayName;
+    document.getElementById('result-count').innerHTML = `🔍 Showing leaked content for <strong>${displayName}</strong> · 4 results`;
+    
+    // helper: membuat post card
+    function makePostCard(variant, title, flair1, flair2, upvotes, comments, timeAgo, author) {
+        const newQ = `${displayLower} ${variant}`;
+        return `
+            <div class="post-card">
+                <div class="post-header">
+                    <span class="subreddit">r/LeakedHub</span>
+                    <span class="post-author">u/${author}</span>
+                    <span class="post-time">• ${timeAgo}</span>
+                </div>
+                <div class="post-title"><a href="/explore/?q=${encodeURIComponent(newQ)}">${title}</a></div>
+                <div class="post-meta">
+                    ${flair1 ? `<span class="flair ${flair1 === 'LEAK' ? 'flair-leak' : flair1 === 'EXCLUSIVE' ? 'flair-exclusive' : 'flair-mega'}">${flair1}</span>` : ''}
+                    ${flair2 ? `<span class="flair ${flair2 === 'LEAK' ? 'flair-leak' : flair2 === 'EXCLUSIVE' ? 'flair-exclusive' : 'flair-mega'}">${flair2}</span>` : ''}
+                </div>
+                <div class="vote-section"><span class="vote-arrow">⬆️</span> ${upvotes.toLocaleString()} <span class="vote-arrow">⬇️</span></div>
+                <div class="action-buttons">
+                    <a href="/explore/?q=${encodeURIComponent(newQ)}" class="action-btn">💬 ${comments} comments</a>
+                    <a href="/explore/?q=${encodeURIComponent(newQ)}" class="action-btn">🔗 Share</a>
+                    <a href="/explore/?q=${encodeURIComponent(newQ)}" class="action-btn">🔖 Save</a>
+                </div>
+            </div>
+        `;
+    }
+    
+    // POST RESULTS
+    const posts = [
+        { variant: 'leaked video full compilation', title: `🔥 [MEGA] ${displayName} Leaked Video - Full Compilation (2025)`, flair1: 'LEAK', flair2: 'MEGA', upvotes: upvotes1, comments: comments1, timeAgo: '2 hours ago', author: 'leakmaster' },
+        { variant: 'leaked private photos gallery', title: `📸 [EXCLUSIVE] ${displayName} Leaked Private Photos - Full Gallery`, flair1: 'LEAK', flair2: 'EXCLUSIVE', upvotes: upvotes2, comments: comments2, timeAgo: '5 hours ago', author: 'exclusivevault' },
+        { variant: 'leaked onlyfans complete set', title: `🔞 ${displayName} OnlyFans Leaked - Complete Set (300+ files)`, flair1: 'LEAK', flair2: '', upvotes: upvotes3, comments: comments3, timeAgo: '1 day ago', author: 'ofleakarchiver' },
+        { variant: 'leaked telegram channel archive', title: `💬 [SOURCE] ${displayName} Leaked Telegram Channel - Full Archive`, flair1: 'LEAK', flair2: 'MEGA', upvotes: upvotes4, comments: comments4, timeAgo: '2 days ago', author: 'telegramdump' }
+    ];
+    
+    document.getElementById('search-results').innerHTML = posts.map(post => 
+        makePostCard(post.variant, post.title, post.flair1, post.flair2, post.upvotes, post.comments, post.timeAgo, post.author)
+    ).join('');
+    
+    // SIMILAR LEAKS SIDEBAR
+    const similarLeaks = [
+        { variant: 'leaked onlyfans pack', label: `${displayName} - Leaked OnlyFans Pack` },
+        { variant: 'leaked instagram stories', label: `${displayName} - Leaked Instagram Stories` },
+        { variant: 'leaked tiktok deleted', label: `${displayName} - Leaked TikTok Deleted Clips` },
+        { variant: 'leaked discord server', label: `${displayName} - Leaked Discord Server` }
+    ];
+    
+    document.getElementById('similar-leaks-sidebar').innerHTML = similarLeaks.map(leak => 
+        `<div class="trending-topic"><a href="/explore/?q=${encodeURIComponent(displayLower + ' ' + leak.variant)}">🔥 ${leak.label}</a></div>`
+    ).join('');
+    
+    // update date
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    document.getElementById('update-date').innerText = dateStr;
+    
+    // canonical
+    const canonical = document.getElementById('dynamic-canonical');
+    if (canonical) {
+        canonical.setAttribute('href', window.location.href.split('?')[0]);
+    }
+})();
+</script>
+
+{% include footer.html %}
+</body>
+</html>
