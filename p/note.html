@@ -1,0 +1,709 @@
+---
+layout: null
+permalink: /note/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="description" content="Digital time capsule preserving cultural moments, digital footprints, and internet history. Explore comprehensive archives of influential figures.">
+    
+    <title>Digital Time Capsule | Internet Culture Archive</title>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Text', system-ui, sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+        
+        /* Vintage archive aesthetic */
+        .archive-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 25% 50%, rgba(203, 213, 225, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 60px 32px;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(0px);
+            border-radius: 32px;
+            padding: 56px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.02);
+            border: 1px solid #eef2ff;
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #0f172a 0%, #334155 50%, #475569 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin: 48px 0 24px 0;
+            color: #0f172a;
+            letter-spacing: -0.01em;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0 0 12px 0;
+            color: #1e293b;
+        }
+        
+        /* Links & Interactive */
+        a {
+            color: #4f46e5;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            border-bottom: 1px dotted #c7d2fe;
+        }
+        
+        a:hover {
+            color: #6366f1;
+            border-bottom-color: #6366f1;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 0 0 24px 0;
+            margin-bottom: 32px;
+            border-bottom: 1px solid #eef2ff;
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+        
+        .breadcrumb a {
+            color: #64748b;
+            border-bottom: none;
+        }
+        
+        .breadcrumb a:hover {
+            color: #4f46e5;
+        }
+        
+        .breadcrumb span {
+            color: #4f46e5;
+            font-weight: 600;
+        }
+        
+        /* Grid Systems */
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin: 32px 0; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin: 32px 0; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin: 32px 0; }
+        
+        @media (max-width: 1024px) {
+            .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            .container { padding: 32px 24px; }
+            h1 { font-size: 2.25rem; }
+        }
+        
+        /* Cards - Minimalist archive style */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 24px;
+            border: 1px solid #f1f5f9;
+            transition: all 0.25s ease;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+        }
+        
+        .card:hover {
+            border-color: #e0e7ff;
+            box-shadow: 0 8px 20px -12px rgba(79, 70, 229, 0.12);
+            transform: translateY(-2px);
+        }
+        
+        .card h3 {
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+        
+        .card p {
+            color: #475569;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+        
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            background: #f8fafc;
+            padding: 28px;
+            border-radius: 24px;
+            margin: 32px 0;
+            border: 1px solid #eef2ff;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #4f46e5;
+            display: block;
+            line-height: 1.2;
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        /* Query Pills / Tags */
+        .topic-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 28px 0 20px 0;
+        }
+        
+        .topic-pill {
+            background: #f1f5f9;
+            border-radius: 100px;
+            padding: 8px 20px;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .topic-pill a {
+            color: #334155;
+            border-bottom: none;
+            font-weight: 500;
+        }
+        
+        .topic-pill:hover {
+            background: #eef2ff;
+            border-color: #c7d2fe;
+            transform: translateY(-1px);
+        }
+        
+        /* Keyword Tags */
+        .keyword-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 16px 0;
+        }
+        
+        .keyword {
+            background: transparent;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            border: 1px solid #e2e8f0;
+            transition: all 0.15s;
+        }
+        
+        .keyword a {
+            color: #475569;
+            border-bottom: none;
+        }
+        
+        .keyword:hover {
+            border-color: #818cf8;
+            background: #eef2ff;
+        }
+        
+        /* Feature Block */
+        .feature-block {
+            background: linear-gradient(135deg, #fef9e3 0%, #ffffff 100%);
+            border-left: 4px solid #eab308;
+            padding: 28px 32px;
+            border-radius: 20px;
+            margin: 32px 0;
+            border: 1px solid #fef3c7;
+        }
+        
+        .insight-box {
+            background: #f1f5f9;
+            padding: 20px 28px;
+            border-radius: 20px;
+            margin: 24px 0;
+            border-left: 3px solid #4f46e5;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #eef2ff;
+            margin: 48px 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #eef2ff;
+            color: #4f46e5;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        
+        .divider {
+            background: linear-gradient(90deg, #e2e8f0 0%, transparent 100%);
+            height: 1px;
+            margin: 32px 0;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .default-content.active {
+            display: block;
+        }
+        
+        .default-content {
+            display: none;
+        }
+        
+        #query-content {
+            display: none;
+        }
+        
+        .query-name {
+            font-weight: 700;
+            color: #4f46e5;
+            background: #eef2ff;
+            padding: 2px 8px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+    </style>
+    {% include head.html %}
+</head>
+<body>
+<div class="archive-bg"></div>
+<main>
+    <div class="container">
+        
+        <!-- ============================================
+             DEFAULT HOMEPAGE - DIGITAL TIME CAPSULE
+             ============================================ -->
+        <div id="default-content" class="default-content active">
+            <div class="badge">📀 DIGITAL TIME CAPSULE · EST. 2024</div>
+            <h1>Preserving Digital Culture<br>One Archive at a Time</h1>
+            <p style="font-size: 1.2rem; color: #334155; margin: 16px 0 24px 0; max-width: 780px;">
+                A curated collection of internet history — moments, personalities, and digital footprints 
+                that shaped online culture. Explore comprehensive archives below.
+            </p>
+            
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat"><span class="stat-number">12.4K+</span><span class="stat-label">Archived Items</span></div>
+                <div class="stat"><span class="stat-number">2.8K+</span><span class="stat-label">Profiles</span></div>
+                <div class="stat"><span class="stat-number">847+</span><span class="stat-label">Collections</span></div>
+                <div class="stat"><span class="stat-number">2019</span><span class="stat-label">Since</span></div>
+            </div>
+            
+            <!-- Dynamic Topic Cloud - Auto Internal Links -->
+            <h2>Explore Digital Archives</h2>
+            <div class="topic-cloud" id="home-topic-cloud">
+                <!-- Dynamically populated with trending topics -->
+            </div>
+            
+            <!-- Category Cards -->
+            <div class="grid-3" id="home-category-cards">
+                <!-- Dynamic category cards -->
+            </div>
+            
+            <!-- Featured Insight -->
+            <div class="feature-block">
+                <div class="badge">📖 WHAT IS THIS ARCHIVE?</div>
+                <p style="margin-top: 16px; font-size: 1rem;">
+                    This is a digital time capsule — preserving cultural moments, public archives, and 
+                    digital footprints that tell stories of influence, creativity, and internet evolution. 
+                    Every entry is documented, verified, and presented for educational and historical context.
+                </p>
+            </div>
+            
+            <!-- Popular Search Suggestions -->
+            <h2>Trending Archives</h2>
+            <div class="keyword-strip" id="trending-searches">
+                <!-- Dynamic trending links -->
+            </div>
+            
+            <!-- Platform Collections -->
+            <h2>By Platform</h2>
+            <div class="grid-4" id="platform-collections">
+                <!-- Dynamic platform links -->
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="insight-box">
+                <p style="margin: 0; text-align: center; color: #475569;">
+                    🔍 <strong>Looking for something specific?</strong> Type any name, username, or topic in the search bar above 
+                    to explore our complete archives.
+                </p>
+            </div>
+        </div>
+        
+        <!-- ============================================
+             QUERY CONTENT - FULLY DYNAMIC WITH AUTO LINKS
+             ============================================ -->
+        <div id="query-content" style="display: none;">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="/">Time Capsule</a> › 
+                <a href="/note/">Archives</a> › 
+                <span id="breadcrumb-name"></span>
+                <span class="badge" style="margin-left: 12px;">Digital Archive</span>
+            </div>
+            
+            <!-- Dynamic H1 -->
+            <h1 id="main-heading"></h1>
+            
+            <!-- Dynamic Description Block -->
+            <div id="description-block" class="insight-box"></div>
+            
+            <!-- ============================================
+                 SECTION 1: ARCHIVE NAVIGATION (20+ Internal Links)
+                 ============================================ -->
+            <h2>📚 Archive Navigation</h2>
+            <div id="archive-nav" class="topic-cloud"></div>
+            
+            <!-- ============================================
+                 SECTION 2: CONTENT CATEGORIES
+                 ============================================ -->
+            <h2>🗂️ Content Categories</h2>
+            <div id="content-categories" class="grid-3"></div>
+            
+            <!-- ============================================
+                 SECTION 3: PLATFORM ARCHIVES
+                 ============================================ -->
+            <h2>🌐 Platform Archives</h2>
+            <div id="platform-archives" class="grid-4"></div>
+            
+            <!-- ============================================
+                 SECTION 4: MEDIA TYPES
+                 ============================================ -->
+            <h2>🎨 Media Types</h2>
+            <div id="media-types" class="keyword-strip"></div>
+            
+            <!-- ============================================
+                 SECTION 5: RELATED PROFILES
+                 ============================================ -->
+            <h2>👥 Related Profiles</h2>
+            <div id="related-profiles" class="topic-cloud"></div>
+            
+            <!-- ============================================
+                 SECTION 6: EXCLUSIVE COLLECTIONS
+                 ============================================ -->
+            <h2>✨ Special Collections</h2>
+            <div id="special-collections" class="grid-2"></div>
+            
+            <!-- ============================================
+                 SECTION 7: YEAR & TIMELINE ARCHIVES
+                 ============================================ -->
+            <h2>📅 Timeline Archives</h2>
+            <div id="timeline-archives" class="keyword-strip"></div>
+            
+            <!-- ============================================
+                 SECTION 8: FAQ WITH INTERNAL LINKS
+                 ============================================ -->
+            <h2>💭 Frequently Explored</h2>
+            <div id="faq-links" class="grid-2"></div>
+            
+            <!-- ============================================
+                 SECTION 9: DEEP DIVE SUGGESTIONS
+                 ============================================ -->
+            <h2>🔍 Deep Dive</h2>
+            <div id="deep-dive" class="topic-cloud"></div>
+            
+            <hr />
+            <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>  
+            <hr />
+        </div>
+        
+    </div>
+    {% include footer.html %}
+</main>
+
+<script>
+(function() {
+    // ============================================
+    // CONFIGURATION & HELPER FUNCTIONS
+    // ============================================
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    let query = urlParams.get('q');
+    
+    // Default content if no query
+    if (!query) {
+        document.getElementById('default-content').classList.add('active');
+        populateHomepageDynamicLinks();
+        return;
+    }
+    
+    // Show query content
+    document.getElementById('default-content').classList.remove('active');
+    document.getElementById('default-content').style.display = 'none';
+    document.getElementById('query-content').style.display = 'block';
+    
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    
+    // Clean base name function
+    function getCleanBaseName(input) {
+        const removePatterns = ['archive', 'collection', 'photos', 'videos', 'profile', 'bio', 'leak', 'exclusive', 'rare'];
+        let cleaned = input.toLowerCase();
+        removePatterns.forEach(pattern => {
+            cleaned = cleaned.replace(new RegExp('\\s*' + pattern + '\\s*$', 'i'), '');
+            cleaned = cleaned.replace(new RegExp('^' + pattern + '\\s*', 'i'), '');
+        });
+        return cleaned.trim() || input;
+    }
+    
+    const baseName = getCleanBaseName(query);
+    const displayName = baseName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    
+    // Update metadata
+    document.title = `${displayName} | Digital Archive | Time Capsule`;
+    document.querySelector('meta[name="description"]').setAttribute('content', 
+        `Explore the complete ${displayName} digital archive — curated collection of public moments, cultural footprint, and comprehensive documentation.`);
+    
+    // Update breadcrumb & H1
+    document.getElementById('breadcrumb-name').innerHTML = displayName;
+    document.getElementById('main-heading').innerHTML = `${displayName}<br><span style="font-size: 1.2rem; color: #64748b; display: block; margin-top: 8px;">Digital Archive · Complete Documentation</span>`;
+    
+    // Dynamic description block
+    const descriptionBlock = document.getElementById('description-block');
+    const descriptions = [
+        `This archive documents the digital footprint of <strong class="query-name">${displayName}</strong> — a comprehensive collection of public moments, creative works, and cultural impact. Every entry is preserved for historical and educational context.`,
+        `Explore the complete digital archive of <strong class="query-name">${displayName}</strong>. From early beginnings to cultural milestones, this collection captures the journey and evolution of an influential figure in digital culture.`,
+        `<strong class="query-name">${displayName}</strong> has left a significant mark on internet culture. This archive preserves the key moments, creative outputs, and documented history for researchers, fans, and cultural historians.`
+    ];
+    descriptionBlock.innerHTML = `<p>${descriptions[Math.floor(Math.random() * descriptions.length)]}</p>`;
+    
+    // ============================================
+    // DYNAMIC LINK GENERATORS
+    // ============================================
+    
+    // Generate internal link URL
+    function makeLink(suffix) {
+        return `/note/?q=${encodeURIComponent(baseName + ' ' + suffix)}`;
+    }
+    
+    // SECTION 1: Archive Navigation (15+ variants)
+    const archiveNavTerms = [
+        'complete archive', 'full collection', 'master index', 'digital footprint',
+        'cultural impact', 'timeline', 'biography archive', 'career highlights',
+        'public appearances', 'social media presence', 'creative works',
+        'documented history', 'archival records', 'verified collection', 'definitive archive'
+    ];
+    
+    document.getElementById('archive-nav').innerHTML = archiveNavTerms.map(term => 
+        `<div class="topic-pill"><a href="${makeLink(term)}">📁 ${term}</a></div>`
+    ).join('');
+    
+    // SECTION 2: Content Categories
+    const contentCategories = [
+        { name: 'Visual Archive', desc: 'Photographs, captures, and visual documentation', suffix: 'visual archive' },
+        { name: 'Video Collection', desc: 'Recorded moments and video documentation', suffix: 'video collection' },
+        { name: 'Written Records', desc: 'Articles, interviews, and written content', suffix: 'written records' },
+        { name: 'Social Archive', desc: 'Social media presence and interactions', suffix: 'social archive' },
+        { name: 'Media Coverage', desc: 'Press features and media appearances', suffix: 'media coverage' },
+        { name: 'Public Records', desc: 'Verified public documentation', suffix: 'public records' }
+    ];
+    
+    document.getElementById('content-categories').innerHTML = contentCategories.map(cat => 
+        `<div class="card">
+            <h3>${cat.name}</h3>
+            <p>${cat.desc}</p>
+            <a href="${makeLink(cat.suffix)}">Explore →</a>
+        </div>`
+    ).join('');
+    
+    // SECTION 3: Platform Archives
+    const platforms = [
+        'Instagram', 'Twitter', 'TikTok', 'YouTube',
+        'Facebook', 'Discord', 'Twitch', 'Reddit'
+    ];
+    
+    document.getElementById('platform-archives').innerHTML = platforms.map(platform => 
+        `<div class="card">
+            <h3>${platform} Archive</h3>
+            <p>Preserved ${platform} content and interactions</p>
+            <a href="${makeLink(platform.toLowerCase() + ' archive')}">Browse →</a>
+        </div>`
+    ).join('');
+    
+    // SECTION 4: Media Types
+    const mediaTypes = [
+        'photographs', 'video footage', 'screenshots', 'audio recordings',
+        'interviews', 'live streams', 'documentaries', 'press features'
+    ];
+    
+    document.getElementById('media-types').innerHTML = mediaTypes.map(type => 
+        `<div class="keyword"><a href="${makeLink(type)}">${type}</a></div>`
+    ).join('');
+    
+    // SECTION 5: Related Profiles (dynamic suggestions)
+    const relatedList = [
+        'cultural figures', 'digital creators', 'influential personalities',
+        'trendsetters', 'public figures', 'media personalities'
+    ];
+    
+    document.getElementById('related-profiles').innerHTML = relatedList.map(related => 
+        `<div class="topic-pill"><a href="/note/?q=${encodeURIComponent(related)}">👥 ${related}</a></div>`
+    ).join('');
+    
+    // SECTION 6: Special Collections
+    const specialCollections = [
+        { name: 'Rare Documentation', desc: 'Hard-to-find archival materials', suffix: 'rare documentation' },
+        { name: 'Complete Visual History', desc: 'Full visual timeline', suffix: 'visual history' },
+        { name: 'Behind the Scenes', desc: 'Exclusive behind-the-scenes content', suffix: 'behind the scenes archive' },
+        { name: 'Cultural Impact Study', desc: 'Analysis and cultural context', suffix: 'cultural impact' }
+    ];
+    
+    document.getElementById('special-collections').innerHTML = specialCollections.map(col => 
+        `<div class="card">
+            <h3>✨ ${col.name}</h3>
+            <p>${col.desc}</p>
+            <a href="${makeLink(col.suffix)}">Access →</a>
+        </div>`
+    ).join('');
+    
+    // SECTION 7: Timeline Archives
+    const years = ['early years', 'career beginnings', 'rise to prominence', 'peak years', 'recent activity', 'full timeline'];
+    
+    document.getElementById('timeline-archives').innerHTML = years.map(year => 
+        `<div class="keyword"><a href="${makeLink(year)}">📅 ${year}</a></div>`
+    ).join('');
+    
+    // SECTION 8: FAQ with Internal Links
+    const faqItems = [
+        { q: 'What makes this archive comprehensive?', suffix: 'complete documentation', link: 'complete archive' },
+        { q: 'How is content verified?', suffix: 'verification process', link: 'verified collection' },
+        { q: 'Where can I find more context?', suffix: 'cultural context', link: 'cultural analysis' },
+        { q: 'What related archives exist?', suffix: 'related archives', link: 'similar profiles' }
+    ];
+    
+    document.getElementById('faq-links').innerHTML = faqItems.map(faq => 
+        `<div class="card">
+            <h3>❓ ${faq.q}</h3>
+            <p><a href="${makeLink(faq.suffix)}">${faq.link} →</a></p>
+        </div>`
+    ).join('');
+    
+    // SECTION 9: Deep Dive Suggestions
+    const deepDiveTerms = [
+        'cultural significance', 'digital legacy', 'impact analysis',
+        'archival research', 'historical context', 'complete retrospective'
+    ];
+    
+    document.getElementById('deep-dive').innerHTML = deepDiveTerms.map(term => 
+        `<div class="topic-pill"><a href="${makeLink(term)}">🔍 ${term}</a></div>`
+    ).join('');
+    
+    // ============================================
+    // HOMEPAGE DYNAMIC LINKS (for default view)
+    // ============================================
+    function populateHomepageDynamicLinks() {
+        // Topic Cloud
+        const topics = ['digital culture', 'internet history', 'cultural moments', 'influential figures', 'digital footprints', 'media archives'];
+        const topicCloud = document.getElementById('home-topic-cloud');
+        if (topicCloud) {
+            topicCloud.innerHTML = topics.map(topic => 
+                `<div class="topic-pill"><a href="/note/?q=${encodeURIComponent(topic)}">📌 ${topic}</a></div>`
+            ).join('');
+        }
+        
+        // Category Cards
+        const categories = [
+            { name: 'Visual Archives', desc: 'Photographs, screenshots, visual documentation', q: 'visual archives' },
+            { name: 'Video Archives', desc: 'Recorded moments and video documentation', q: 'video archives' },
+            { name: 'Profile Archives', desc: 'Comprehensive individual profiles', q: 'profile archives' },
+            { name: 'Cultural Moments', desc: 'Significant cultural events', q: 'cultural moments' }
+        ];
+        const categoryCards = document.getElementById('home-category-cards');
+        if (categoryCards) {
+            categoryCards.innerHTML = categories.map(cat => 
+                `<div class="card">
+                    <h3>${cat.name}</h3>
+                    <p>${cat.desc}</p>
+                    <a href="/note/?q=${encodeURIComponent(cat.q)}">Explore →</a>
+                </div>`
+            ).join('');
+        }
+        
+        // Trending Searches
+        const trending = ['digital footprint', 'cultural impact', 'online presence', 'media history', 'influencer culture'];
+        const trendingEl = document.getElementById('trending-searches');
+        if (trendingEl) {
+            trendingEl.innerHTML = trending.map(t => 
+                `<div class="keyword"><a href="/note/?q=${encodeURIComponent(t)}">🔥 ${t}</a></div>`
+            ).join('');
+        }
+        
+        // Platform Collections
+        const homePlatforms = ['Instagram', 'Twitter', 'YouTube', 'TikTok'];
+        const platformEl = document.getElementById('platform-collections');
+        if (platformEl) {
+            platformEl.innerHTML = homePlatforms.map(p => 
+                `<div class="card">
+                    <h3>${p} Archive</h3>
+                    <p>Preserved ${p} history and content</p>
+                    <a href="/note/?q=${encodeURIComponent(p.toLowerCase() + ' archive')}">Browse →</a>
+                </div>`
+            ).join('');
+        }
+    }
+    
+})();
+</script>
+</body>
+</html>

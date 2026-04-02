@@ -1,0 +1,759 @@
+---
+layout: null
+permalink: /data/
+---
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    
+    <title id="dynamic-title">CHRONOS | Digital Time Capsule</title>
+    <meta id="dynamic-description" name="description" content="Interactive digital chronicle documenting cultural moments. A time-based archive of documented events and verified materials.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0a0c12;
+            color: #e2e8f0;
+            line-height: 1.5;
+        }
+        
+        /* Time-themed Header */
+        .time-header {
+            background: linear-gradient(135deg, #0a0c12 0%, #141824 100%);
+            border-bottom: 1px solid #2d3748;
+            padding: 32px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .time-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #fbbf24, #ec489a, #3b82f6, #fbbf24);
+            background-size: 200% 100%;
+            animation: timeShift 4s linear infinite;
+        }
+        
+        @keyframes timeShift {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+        
+        .time-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 32px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .chronos-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #fbbf24, #ec489a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        
+        .chronos-tagline {
+            font-size: 0.7rem;
+            color: #94a3b8;
+            letter-spacing: 2px;
+            margin-top: 4px;
+        }
+        
+        main { 
+            max-width: 1300px; 
+            margin: 0 auto; 
+            padding: 48px 32px 80px;
+        }
+        
+        .container {
+            background: transparent;
+            padding: 0;
+        }
+        
+        /* Typography */
+        h1 { 
+            font-size: 2.8rem; 
+            font-weight: 700; 
+            line-height: 1.2;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+        
+        h2 { 
+            font-size: 1.3rem; 
+            font-weight: 600; 
+            margin: 56px 0 24px 0;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #fbbf24;
+            letter-spacing: -0.3px;
+            border-left: 3px solid #ec489a;
+            padding-left: 16px;
+        }
+        
+        h3 { 
+            font-size: 1rem; 
+            font-weight: 600; 
+            margin: 20px 0 12px 0;
+            color: #fbbf24;
+        }
+        
+        /* Links - Timeline Style */
+        a { 
+            color: #94a3b8; 
+            text-decoration: none;
+            transition: all 0.2s;
+            border-bottom: 1px dashed #2d3748;
+        }
+        
+        a:hover { 
+            color: #fbbf24;
+            border-bottom-color: #fbbf24;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb { 
+            font-size: 0.7rem;
+            color: #4a5568;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #1e293b;
+            font-family: monospace;
+        }
+        
+        .breadcrumb a { color: #64748b; border-bottom: none; }
+        
+        /* Grid */
+        .grid-2, .grid-3, .grid-4 {
+            display: grid;
+            gap: 24px;
+            margin: 32px 0;
+        }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        @media (max-width: 1024px) { .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+        
+        /* Timeline Card */
+        .timeline-card {
+            background: #0f1219;
+            border: 1px solid #1e293b;
+            padding: 24px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .timeline-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #fbbf24, #ec489a);
+            transform: scaleY(0);
+            transition: transform 0.3s;
+        }
+        
+        .timeline-card:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .timeline-card:hover {
+            border-color: #fbbf24;
+            transform: translateY(-2px);
+        }
+        
+        /* Stats - Time Metrics */
+        .time-metrics {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin: 32px 0;
+            padding: 24px;
+            background: #0f1219;
+            border: 1px solid #1e293b;
+            border-radius: 8px;
+        }
+        
+        .metric {
+            flex: 1;
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        .metric-number {
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: 'Space Grotesk', monospace;
+            color: #fbbf24;
+            display: block;
+            line-height: 1;
+        }
+        
+        .metric-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #64748b;
+            margin-top: 6px;
+        }
+        
+        /* Timeline Visual */
+        .visual-timeline {
+            margin: 40px 0;
+            padding: 24px;
+            background: #0f1219;
+            border-left: 4px solid #fbbf24;
+            position: relative;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            left: -2px;
+            top: 0;
+            width: 8px;
+            height: 8px;
+            background: #ec489a;
+            border-radius: 50%;
+        }
+        
+        /* Chrono Links - Massive Link Collection */
+        .chrono-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 20px 0;
+        }
+        
+        .chrono-link {
+            background: #0f1219;
+            border: 1px solid #1e293b;
+            padding: 4px 12px;
+            font-size: 0.65rem;
+            font-family: monospace;
+            transition: all 0.2s;
+        }
+        
+        .chrono-link a {
+            border-bottom: none;
+        }
+        
+        .chrono-link:hover {
+            border-color: #fbbf24;
+            background: #1a1f2a;
+        }
+        
+        /* Era Sections */
+        .era-section {
+            margin: 32px 0;
+        }
+        
+        .era-header {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #ec489a;
+            margin: 24px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #1e293b;
+        }
+        
+        .era-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+        
+        /* FAQ - Time Capsule Questions */
+        .time-question {
+            margin: 24px 0;
+            padding: 20px;
+            background: #0f1219;
+            border: 1px solid #1e293b;
+        }
+        
+        .time-question .q {
+            font-weight: 600;
+            color: #fbbf24;
+            margin-bottom: 8px;
+        }
+        
+        hr { 
+            border: none; 
+            border-top: 1px solid #1e293b; 
+            margin: 48px 0; 
+        }
+        
+        .hidden { display: none; }
+        .query-placeholder { color: #fbbf24; font-weight: 600; background: #1e293b; padding: 2px 6px; border-radius: 4px; }
+        .default-content.active { display: block; }
+        .default-content { display: none; }
+        #query-content { display: none; }
+        
+        .time-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-family: monospace;
+            background: #ec489a20;
+            border: 1px solid #ec489a;
+            color: #ec489a;
+            padding: 4px 12px;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+        
+        .timestamp {
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: #64748b;
+        }
+        
+        @media (max-width: 768px) {
+            main { padding: 32px 20px; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+    {% include head.html %}
+</head>
+<body>
+    <div class="time-header">
+        <div class="time-container">
+            <div class="chronos-logo">CHRONOS</div>
+            <div class="chronos-tagline">DIGITAL TIME CAPSULE • ARCHIVING CULTURAL MOMENTS SINCE 2019</div>
+        </div>
+    </div>
+    
+    <main>
+        <div class="container">
+            <!-- DEFAULT CONTENT - TIMELINE ENTRANCE -->
+            <div id="default-content" class="default-content active">
+                <div class="time-badge">◉ LIVE TIMELINE • UPDATED MOMENT BY MOMENT</div>
+                <h1>The Digital Chronicle<br>Preserving What Time Erases</h1>
+                <p style="font-size: 1rem; color: #94a3b8; margin: 16px 0 24px 0;">An interactive timeline documenting cultural moments, digital artifacts, and documented events across the digital landscape.</p>
+                
+                <div class="time-metrics">
+                    <div class="metric"><span class="metric-number">15,247</span><span class="metric-label">TIMESTAMPED EVENTS</span></div>
+                    <div class="metric"><span class="metric-number">3,892</span><span class="metric-label">MOMENTS CAPTURED</span></div>
+                    <div class="metric"><span class="metric-number">9,456</span><span class="metric-label">VISUAL RECORDS</span></div>
+                    <div class="metric"><span class="metric-number">1,899</span><span class="metric-label">DOCUMENTED ENTRIES</span></div>
+                </div>
+                
+                <div class="visual-timeline">
+                    <div class="timeline-marker"></div>
+                    <strong style="color: #fbbf24;">◉ CURRENT ERA</strong><br>
+                    Digital documentation continues. Every moment adds to the chronicle. Browse by subject, era, or cultural movement.
+                </div>
+                
+                <!-- ERA NAVIGATION -->
+                <h2>◉ NAVIGATE BY ERA</h2>
+                <div class="chrono-links">
+                    <div class="chrono-link"><a href="/data/?q=era 2023">ERA 2023</a></div>
+                    <div class="chrono-link"><a href="/data/?q=era 2024">ERA 2024</a></div>
+                    <div class="chrono-link"><a href="/data/?q=era 2025">ERA 2025</a></div>
+                    <div class="chrono-link"><a href="/data/?q=era 2026">ERA 2026</a></div>
+                    <div class="chrono-link"><a href="/data/?q=early era">EARLY ERA</a></div>
+                    <div class="chrono-link"><a href="/data/?q=current era">CURRENT ERA</a></div>
+                </div>
+                
+                <!-- CONTENT CATEGORIES -->
+                <h2>◉ CONTENT CATEGORIES</h2>
+                <div class="grid-3">
+                    <div class="timeline-card">
+                        <h3>📸 VISUAL TIMELINE</h3>
+                        <p>Photographic records, image archives, visual documentation.</p>
+                        <div class="chrono-links" style="margin-top: 12px;">
+                            <div class="chrono-link"><a href="/data/?q=visual timeline">EXPLORE →</a></div>
+                        </div>
+                    </div>
+                    <div class="timeline-card">
+                        <h3>🎬 MOTION TIMELINE</h3>
+                        <p>Video archives, moving image documentation, recorded moments.</p>
+                        <div class="chrono-links" style="margin-top: 12px;">
+                            <div class="chrono-link"><a href="/data/?q=motion timeline">EXPLORE →</a></div>
+                        </div>
+                    </div>
+                    <div class="timeline-card">
+                        <h3>📄 DOCUMENT TIMELINE</h3>
+                        <p>Written records, personal archives, documented materials.</p>
+                        <div class="chrono-links" style="margin-top: 12px;">
+                            <div class="chrono-link"><a href="/data/?q=document timeline">EXPLORE →</a></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PLATFORM TIMELINES -->
+                <h2>◉ PLATFORM TIMELINES</h2>
+                <div class="chrono-links">
+                    <div class="chrono-link"><a href="/data/?q=instagram timeline">INSTAGRAM TIMELINE</a></div>
+                    <div class="chrono-link"><a href="/data/?q=twitter timeline">TWITTER TIMELINE</a></div>
+                    <div class="chrono-link"><a href="/data/?q=tiktok timeline">TIKTOK TIMELINE</a></div>
+                    <div class="chrono-link"><a href="/data/?q=facebook timeline">FACEBOOK TIMELINE</a></div>
+                    <div class="chrono-link"><a href="/data/?q=discord timeline">DISCORD TIMELINE</a></div>
+                    <div class="chrono-link"><a href="/data/?q=telegram timeline">TELEGRAM TIMELINE</a></div>
+                    <div class="chrono-link"><a href="/data/?q=youtube timeline">YOUTUBE TIMELINE</a></div>
+                    <div class="chrono-link"><a href="/data/?q=snapchat timeline">SNAPCHAT TIMELINE</a></div>
+                </div>
+                
+                <hr>
+                
+                <div class="visual-timeline" style="text-align: center;">
+                    <strong>◉ BEGIN YOUR JOURNEY THROUGH TIME</strong><br>
+                    Enter any subject name to view their complete digital timeline.
+                </div>
+                
+                <div class="timestamp" style="text-align: center; margin-top: 24px;">
+                    CHRONOS v3.0 • Continuous Documentation • Timestamp: ${new Date().toLocaleString()}
+                </div>
+            </div>
+            
+            <!-- QUERY-BASED CONTENT - PERSONAL TIMELINE -->
+            <div id="query-content" style="display: none;">
+                <div class="breadcrumb">
+                    <a href="/">CHRONOS</a> / <a href="/data/">TIMELINE ARCHIVE</a> / <span id="breadcrumb-name"></span> / COMPLETE CHRONICLE
+                </div>
+                
+                <div class="time-badge" id="time-badge"></div>
+                <h1 id="main-heading"></h1>
+                <p id="timeline-range" style="font-size: 0.75rem; color: #64748b; margin-bottom: 24px; font-family: monospace;"></p>
+                
+                <!-- TIMELINE METRICS -->
+                <div class="time-metrics" id="timeline-metrics"></div>
+                
+                <!-- TIMELINE INTRODUCTION -->
+                <div class="visual-timeline" id="timeline-intro"></div>
+                
+                <!-- ============================================
+                     ERA SECTIONS - MASSIVE AUTO-GENERATED LINKS
+                     ============================================ -->
+                <div id="era-sections"></div>
+                
+                <!-- ============================================
+                     CONTENT TIMELINES - AUTO GENERATED
+                     ============================================ -->
+                <h2>◉ CONTENT TIMELINES</h2>
+                <div id="content-timelines" class="grid-2"></div>
+                
+                <!-- ============================================
+                     PLATFORM TIMELINES - AUTO GENERATED
+                     ============================================ -->
+                <h2>◉ PLATFORM TIMELINES</h2>
+                <div id="platform-timelines" class="chrono-links"></div>
+                
+                <!-- ============================================
+                     CHRONOLOGICAL MILESTONES - AUTO GENERATED
+                     ============================================ -->
+                <h2>◉ CHRONOLOGICAL MILESTONES</h2>
+                <div id="chronological-milestones" class="era-section"></div>
+                
+                <!-- ============================================
+                     RELATED TIMELINES - AUTO GENERATED
+                     ============================================ -->
+                <h2>◉ RELATED TIMELINES</h2>
+                <div id="related-timelines" class="chrono-links"></div>
+                
+                <!-- ============================================
+                     TIME CAPSULE FAQ - AUTO GENERATED
+                     ============================================ -->
+                <h2>◉ TIME CAPSULE INQUIRIES</h2>
+                <div id="time-capsule-faq"></div>
+                
+                <hr />
+                <center>{% include /ads/gobloggugel/nanouturfs.html %}</center>  
+                
+                <div class="timestamp" style="text-align: center; margin-top: 24px;" id="archive-timestamp">
+                    CHRONOS • Complete Timeline • Preserved for Posterity
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            return;
+        }
+        
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        
+        // Format display name
+        function getDisplayName(q) {
+            const removeTerms = ['timeline', 'chronicle', 'era', 'archive', 'history'];
+            let name = q.toLowerCase();
+            removeTerms.forEach(term => {
+                name = name.replace(new RegExp('\\s*' + term + '\\s*$', 'i'), '');
+            });
+            return name.trim().split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || q;
+        }
+        
+        const displayName = getDisplayName(query);
+        const startYear = 2023;
+        const currentYear = new Date().getFullYear();
+        
+        // Update title
+        document.title = `${displayName} | Digital Timeline | CHRONOS Archive`;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            `Complete digital timeline for ${displayName}. Documented moments from ${startYear} to present. ${Math.floor(Math.random() * 500) + 200}+ timestamped events.`);
+        
+        // Breadcrumb
+        document.getElementById('breadcrumb-name').textContent = displayName.toLowerCase().replace(/ /g, '-');
+        
+        // Time badge
+        document.getElementById('time-badge').innerHTML = `◉ TIMELINE: ${displayName.toUpperCase()} • ${startYear} — PRESENT • COMPLETE CHRONICLE`;
+        
+        // Main heading
+        document.getElementById('main-heading').innerHTML = `${displayName}<br><span style="font-size: 1rem;">Digital Timeline • Complete Chronicle</span>`;
+        document.getElementById('timeline-range').innerHTML = `TIMESPAN: ${startYear} — ${currentYear} | LAST ENTRY: ${new Date().toLocaleDateString()} | STATUS: ACTIVE`;
+        
+        // Random counts
+        const totalEvents = Math.floor(Math.random() * 600) + 200;
+        const visualEvents = Math.floor(Math.random() * 400) + 150;
+        const motionEvents = Math.floor(Math.random() * 120) + 30;
+        const documentEvents = Math.floor(Math.random() * 70) + 15;
+        
+        // Timeline metrics
+        document.getElementById('timeline-metrics').innerHTML = `
+            <div class="metric"><span class="metric-number">${totalEvents}</span><span class="metric-label">TIMESTAMPED EVENTS</span></div>
+            <div class="metric"><span class="metric-number">${visualEvents}</span><span class="metric-label">VISUAL MOMENTS</span></div>
+            <div class="metric"><span class="metric-number">${motionEvents}</span><span class="metric-label">MOTION RECORDS</span></div>
+            <div class="metric"><span class="metric-number">${documentEvents}</span><span class="metric-label">DOCUMENTED ENTRIES</span></div>
+        `;
+        
+        // Timeline intro
+        const timelineIntros = [
+            `The complete ${displayName} timeline spans ${startYear} to present, documenting ${totalEvents} verified events across digital platforms. Each moment preserved in chronological order.`,
+            `This timeline chronicles ${displayName}'s documented digital presence from ${startYear} through ${currentYear}. ${totalEvents} timestamped entries capture the complete arc.`,
+            `Beginning in ${startYear}, the ${displayName} chronicle documents ${totalEvents} moments, ${visualEvents} visual records, and ${motionEvents} motion captures.`
+        ];
+        document.getElementById('timeline-intro').innerHTML = `<div class="timeline-marker"></div><strong style="color: #fbbf24;">◉ TIMELINE OVERVIEW</strong><br>${timelineIntros[Math.floor(Math.random() * timelineIntros.length)]}`;
+        
+        // ============================================
+        // 1. ERA SECTIONS - MASSIVE AUTO-GENERATED LINKS
+        // ============================================
+        const eras = [
+            { name: "EARLY ERA", years: "2023 — 2024", events: Math.floor(totalEvents * 0.3) },
+            { name: "MID ERA", years: "2024 — 2025", events: Math.floor(totalEvents * 0.4) },
+            { name: "CURRENT ERA", years: "2025 — Present", events: Math.floor(totalEvents * 0.3) }
+        ];
+        
+        const eraSectionHtml = eras.map(era => `
+            <div class="era-section">
+                <div class="era-header">◉ ${era.name} • ${era.years} • ${era.events} Events</div>
+                <div class="era-grid" id="era-${era.name.replace(/ /g, '-')}"></div>
+            </div>
+        `).join('');
+        
+        document.getElementById('era-sections').innerHTML = eraSectionHtml;
+        
+        // Populate each era with auto-generated links
+        const eraLinkCategories = [
+            'beginning', 'early moments', 'first records', 'initial documentation',
+            'mid period', 'peak moments', 'transition phase', 'key events',
+            'recent events', 'latest documentation', 'current records', 'ongoing timeline'
+        ];
+        
+        eras.forEach((era, idx) => {
+            const eraId = `era-${era.name.replace(/ /g, '-')}`;
+            const eraDiv = document.getElementById(eraId);
+            if (eraDiv) {
+                const startIdx = idx * 4;
+                const eraLinks = eraLinkCategories.slice(startIdx, startIdx + 4);
+                eraDiv.innerHTML = eraLinks.map(link => `
+                    <div class="chrono-link"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + era.name.toLowerCase() + ' ' + link)}">${link.toUpperCase()}</a></div>
+                `).join('');
+            }
+        });
+        
+        // ============================================
+        // 2. CONTENT TIMELINES - AUTO GENERATED
+        // ============================================
+        const contentTimelines = [
+            { label: "VISUAL TIMELINE", query: "visual timeline", desc: `${visualEvents} documented visual moments` },
+            { label: "MOTION TIMELINE", query: "motion timeline", desc: `${motionEvents} moving image records` },
+            { label: "DOCUMENT TIMELINE", query: "document timeline", desc: `${documentEvents} documented entries` },
+            { label: "COMPLETE TIMELINE", query: "complete chronicle", desc: `${totalEvents} total events` },
+            { label: "EXCLUSIVE MOMENTS", query: "exclusive timeline", desc: "Rare documented events" },
+            { label: "UNCENSORED RECORDS", query: "complete records", desc: "Full documentation" }
+        ];
+        
+        document.getElementById('content-timelines').innerHTML = contentTimelines.map(ct => `
+            <div class="timeline-card">
+                <h3>◉ ${ct.label}</h3>
+                <p>${ct.desc}</p>
+                <div class="chrono-links" style="margin-top: 12px;">
+                    <div class="chrono-link"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + ct.query)}">VIEW TIMELINE →</a></div>
+                </div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 3. PLATFORM TIMELINES - AUTO GENERATED (MASSIVE)
+        // ============================================
+        const platforms = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube', 'Reddit', 'Twitch', 'Pinterest', 'LinkedIn'];
+        
+        document.getElementById('platform-timelines').innerHTML = platforms.map(p => `
+            <div class="chrono-link"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' timeline')}">${p.toUpperCase()} TIMELINE</a></div>
+        `).join('');
+        
+        // ============================================
+        // 4. CHRONOLOGICAL MILESTONES - AUTO GENERATED
+        // ============================================
+        const milestones = [
+            { year: "2023", event: `Initial ${displayName} documentation begins` },
+            { year: "2024", event: `${Math.floor(totalEvents * 0.3)} events documented in first year` },
+            { year: "2025", event: `Peak documentation period with ${Math.floor(totalEvents * 0.4)} recorded events` },
+            { year: "2026", event: `Complete ${displayName} timeline established and verified` }
+        ];
+        
+        document.getElementById('chronological-milestones').innerHTML = milestones.map(m => `
+            <div class="timeline-card" style="margin-bottom: 16px;">
+                <div class="timestamp" style="margin-bottom: 8px;">◉ ${m.year}</div>
+                <p>${m.event}</p>
+                <div class="chrono-links" style="margin-top: 12px;">
+                    <div class="chrono-link"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + m.year + ' timeline')}">VIEW ${m.year} TIMELINE →</a></div>
+                    <div class="chrono-link"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + m.year + ' events')}">${m.year} EVENTS →</a></div>
+                </div>
+            </div>
+        `).join('');
+        
+        // ============================================
+        // 5. RELATED TIMELINES - AUTO GENERATED (MASSIVE)
+        // ============================================
+        const relatedSubjects = [
+            'kendall jenner', 'hailey bieber', 'gigi hadid', 'bella hadid', 'emma watson',
+            'scarlett johansson', 'zendaya', 'margot robbie', 'ariana grande', 'selena gomez',
+            'kim kardashian', 'kylie jenner', 'rihanna', 'beyonce', 'taylor swift'
+        ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 25);
+        
+        document.getElementById('related-timelines').innerHTML = relatedSubjects.map(sub => `
+            <div class="chrono-link"><a href="/data/?q=${encodeURIComponent(sub)}">${sub.toUpperCase()} TIMELINE</a></div>
+        `).join('');
+        
+        // ============================================
+        // 6. TIME CAPSULE FAQ - AUTO GENERATED WITH MASSIVE LINKS
+        // ============================================
+        const timeFaqs = [
+            {
+                q: `When does the ${displayName} timeline begin?`,
+                a: `The documented timeline begins in ${startYear}, with initial records established. `,
+                links: ['early timeline', 'origin records', 'beginning era']
+            },
+            {
+                q: `How many events are documented?`,
+                a: `Currently ${totalEvents} timestamped events across ${platforms.length} platform sources. `,
+                links: ['complete timeline', 'event catalog', 'full documentation']
+            },
+            {
+                q: `What is the most documented period?`,
+                a: `The period between 2024-2025 represents the most active documentation phase. `,
+                links: ['peak period', 'most active timeline', 'key era']
+            },
+            {
+                q: `How is the timeline maintained?`,
+                a: `Continuous documentation updates ensure the timeline remains current. `,
+                links: ['timeline updates', 'new events', 'latest additions']
+            }
+        ];
+        
+        document.getElementById('time-capsule-faq').innerHTML = timeFaqs.map(faq => {
+            const linkHtml = faq.links.map(link => 
+                `<div class="chrono-link" style="display: inline-block; margin: 4px 4px 0 0;"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + link)}">${link.toUpperCase()}</a></div>`
+            ).join('');
+            return `
+                <div class="time-question">
+                    <div class="q">◉ ${faq.q}</div>
+                    <div class="a" style="color: #94a3b8; font-size: 0.85rem;">${faq.a}</div>
+                    <div style="margin-top: 12px;" class="chrono-links">${linkHtml}</div>
+                </div>
+            `;
+        }).join('');
+        
+        // ============================================
+        // 7. EXTRA: ADDITIONAL MASSIVE LINK SECTIONS
+        // ============================================
+        
+        // Add monthly breakdown section
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        const monthlySection = document.createElement('div');
+        monthlySection.innerHTML = `<h2>◉ MONTHLY BREAKDOWN</h2><div class="chrono-links" id="monthly-links"></div>`;
+        
+        const monthlyLinksHtml = months.map(month => 
+            `<div class="chrono-link"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + month + ' timeline')}">${month.toUpperCase()}</a></div>`
+        ).join('');
+        
+        monthlySection.querySelector('#monthly-links').innerHTML = monthlyLinksHtml;
+        
+        // Add quarterly breakdown section
+        const quarters = ['Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024', 'Q1 2025', 'Q2 2025', 'Q3 2025', 'Q4 2025', 'Q1 2026'];
+        const quarterlySection = document.createElement('div');
+        quarterlySection.innerHTML = `<h2>◉ QUARTERLY ARCHIVES</h2><div class="chrono-links" id="quarterly-links"></div>`;
+        
+        const quarterlyLinksHtml = quarters.map(q => 
+            `<div class="chrono-link"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + q.toLowerCase() + ' archive')}">${q}</a></div>`
+        ).join('');
+        
+        quarterlySection.querySelector('#quarterly-links').innerHTML = quarterlyLinksHtml;
+        
+        // Add content type breakdown section
+        const contentTypes = ['photographs', 'video recordings', 'documents', 'screenshots', 'archives', 'original files', 'verified records', 'exclusive materials'];
+        const contentTypeSection = document.createElement('div');
+        contentTypeSection.innerHTML = `<h2>◉ CONTENT TYPE BREAKDOWN</h2><div class="chrono-links" id="content-type-links"></div>`;
+        
+        const contentTypeLinksHtml = contentTypes.map(type => 
+            `<div class="chrono-link"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + type)}">${type.toUpperCase()}</a></div>`
+        ).join('');
+        
+        contentTypeSection.querySelector('#content-type-links').innerHTML = contentTypeLinksHtml;
+        
+        // Insert all extra sections before FAQ
+        const faqSection = document.getElementById('time-capsule-faq').closest('div');
+        const hrElement = document.querySelector('#query-content hr');
+        
+        if (faqSection && hrElement) {
+            hrElement.parentNode.insertBefore(monthlySection, faqSection);
+            hrElement.parentNode.insertBefore(quarterlySection, faqSection);
+            hrElement.parentNode.insertBefore(contentTypeSection, faqSection);
+        }
+        
+        // Add timestamp
+        document.getElementById('archive-timestamp').innerHTML = `CHRONOS • ${displayName} Complete Timeline • ${totalEvents} Events Documented • Last Updated: ${new Date().toLocaleString()}`;
+        
+    })();
+    </script>
+    
+    <br /><br /><br />
+    {% include footer.html %}
+</body>
+</html>
