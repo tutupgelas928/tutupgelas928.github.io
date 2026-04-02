@@ -34,7 +34,7 @@
 <li><a href="https://nengmaya538.github.io/personal/">personal</a></li>
 <li><a href="https://nengmaya538.github.io/session/">session</a></li>
 <li><a href="https://nengmaya538.github.io/section/">section</a></li>
-<li><a href="https://nengmaya538.github.io/studio/">studio</a></li><br />
+<li><a href="https://nengmaya538.github.io/studio/">studio</a></li>
 <li><a href="https://nengmaya538.github.io/view/">view</a></li>
 <li><a href="https://nengmaya538.github.io/preview/">preview</a></li>
 <li><a href="https://nengmaya538.github.io/topic/">topic</a></li>
@@ -43,7 +43,7 @@
 <li><a href="https://nengmaya538.github.io/photo/">photo</a></li>
 <li><a href="https://nengmaya538.github.io/video/">video</a></li>
 <li><a href="https://nengmaya538.github.io/explore/">explore</a></li>
-<li><a href="https://nengmaya538.github.io/image/">image</a></li>
+<li><a href="https://nengmaya538.github.io/image/">image</a></li><br>
 <li><a href="https://nengmaya538.github.io/movie/">movie</a></li>
 <li><a href="https://nengmaya538.github.io/limited/">limited</a></li>
 <li><a href="https://nengmaya538.github.io/vault/">vault</a></li>
