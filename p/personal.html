@@ -1,0 +1,494 @@
+---
+layout: null
+permalink: /personal/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <title id="dynamic-title">Directory · Public Figures Database</title>
+    <meta id="dynamic-description" name="description" content="Searchable database of public figures, digital creators, and online personalities. Structured directory for research and reference.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/personal/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0c1117;
+            font-family: 'SF Mono', 'Inter', 'Fira Code', monospace, system-ui;
+            color: #e2e8f0;
+            line-height: 1.5;
+        }
+
+        .app {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* header */
+        .header {
+            border-bottom: 1px solid #1e2a3a;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #5b8caf;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+            color: #f1f5f9;
+            margin-top: 0.25rem;
+        }
+
+        .badge {
+            background: #1e2a3a;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-family: monospace;
+        }
+
+        /* breadcrumb */
+        .breadcrumb {
+            font-size: 0.7rem;
+            font-family: monospace;
+            color: #5b8caf;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            color: #5b8caf;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: #8bb4d4;
+            text-decoration: underline;
+        }
+
+        /* stat panel */
+        .stat-panel {
+            background: #111827;
+            border: 1px solid #1e2a3a;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            font-size: 0.75rem;
+            font-family: monospace;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-label {
+            color: #5b8caf;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+
+        /* table style */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.8rem;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 0.75rem 0.5rem;
+            border-bottom: 1px solid #1e2a3a;
+            color: #5b8caf;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table td {
+            padding: 0.75rem 0.5rem;
+            border-bottom: 1px solid #1a2430;
+            vertical-align: top;
+        }
+
+        .data-table tr:hover {
+            background: #0f1722;
+        }
+
+        /* card grid alternatif */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .data-card {
+            background: #111827;
+            border: 1px solid #1e2a3a;
+            border-radius: 6px;
+            padding: 1rem;
+            transition: all 0.15s;
+        }
+
+        .data-card:hover {
+            border-color: #2d4a6e;
+            background: #131c2a;
+        }
+
+        .data-card .type {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #5b8caf;
+            letter-spacing: 1px;
+        }
+
+        .data-card h4 {
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            color: #f1f5f9;
+        }
+
+        .data-card p {
+            font-size: 0.7rem;
+            color: #8ca3ba;
+        }
+
+        .link-mono {
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: #5b8caf;
+            text-decoration: none;
+        }
+
+        .link-mono:hover {
+            color: #8bb4d4;
+            text-decoration: underline;
+        }
+
+        .tag-cluster {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tag-mono {
+            font-family: monospace;
+            font-size: 0.7rem;
+            background: #1a2430;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            color: #8ca3ba;
+            text-decoration: none;
+        }
+
+        .tag-mono:hover {
+            background: #253545;
+            color: #e2e8f0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #1e2a3a;
+            margin: 2rem 0;
+        }
+
+        .footer-note {
+            font-size: 0.65rem;
+            font-family: monospace;
+            color: #4a5a6e;
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #1e2a3a;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .default-view {
+            display: block;
+        }
+
+        .query-view {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .app { padding: 1rem; }
+            .data-table th, .data-table td { padding: 0.5rem 0.25rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="app">
+    <!-- DEFAULT DIRECTORY (home) -->
+    <div id="default-view" class="default-view">
+        <div class="header">
+            <div>
+                <div class="logo">DIR /ROOT</div>
+                <h1>public figures.db</h1>
+            </div>
+            <div class="badge">v.2026.04 · stable</div>
+        </div>
+
+        <div class="stat-panel">
+            <div class="stat-item"><span class="stat-label">ENTRIES</span><span class="stat-value">15.2k</span></div>
+            <div class="stat-item"><span class="stat-label">CATEGORIES</span><span class="stat-value">8</span></div>
+            <div class="stat-item"><span class="stat-label">LAST SCAN</span><span class="stat-value">weekly</span></div>
+            <div class="stat-item"><span class="stat-label">FORMAT</span><span class="stat-value">structured</span></div>
+        </div>
+
+        <div class="card-grid">
+            <div class="data-card"><div class="type">CATALOG</div><h4>Biographical Registry</h4><p>Profiles, backgrounds, career data</p><a href="/personal/?q=bio+registry" class="link-mono">browse →</a></div>
+            <div class="data-card"><div class="type">CATALOG</div><h4>Media Index</h4><p>Curated image & video references</p><a href="/personal/?q=media+index" class="link-mono">browse →</a></div>
+            <div class="data-card"><div class="type">CATALOG</div><h4>Platform Directory</h4><p>Social media presence mapping</p><a href="/personal/?q=platform+directory" class="link-mono">browse →</a></div>
+            <div class="data-card"><div class="type">CATALOG</div><h4>Cross References</h4><p>Related entities & networks</p><a href="/personal/?q=cross+reference" class="link-mono">browse →</a></div>
+        </div>
+
+        <div class="tag-cluster">
+            <a href="/personal/?q=digital+creators" class="tag-mono">#digital_creators</a>
+            <a href="/personal/?q=online+personalities" class="tag-mono">#online_personalities</a>
+            <a href="/personal/?q=public+figures" class="tag-mono">#public_figures</a>
+            <a href="/personal/?q=internet+culture" class="tag-mono">#internet_culture</a>
+            <a href="/personal/?q=research+dataset" class="tag-mono">#research_dataset</a>
+        </div>
+    </div>
+
+    <!-- QUERY-BASED DIRECTORY VIEW -->
+    <div id="query-view" class="query-view">
+        <div class="breadcrumb">
+            <a href="/">root</a> / <a href="/personal/">index</a> / <span id="bc-entity"></span>
+        </div>
+
+        <div class="header" style="border-bottom: none; margin-bottom: 0;">
+            <div>
+                <div class="logo">ENTRY /<span id="entry-type-tag"> general</span></div>
+                <h1 id="main-heading-db"></h1>
+            </div>
+            <div class="badge" id="entry-badge">active</div>
+        </div>
+
+        <div class="stat-panel" id="stat-panel-dynamic"></div>
+
+        <!-- INTRO SECTION (compact) -->
+        <div id="intro-db" style="background: #0f1722; padding: 0.75rem 1rem; border-left: 3px solid #2d4a6e; margin-bottom: 1.5rem; font-size: 0.8rem;">
+            <p id="intro-db-text"></p>
+        </div>
+
+        <!-- TABLE 1: BIOGRAPHY DATA -->
+        <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #5b8caf; margin: 1.5rem 0 0.5rem;">📋 BIOGRAPHICAL DATA</h3>
+        <table class="data-table" id="bio-table">
+            <thead><tr><th>Field</th><th>Reference</th></tr></thead>
+            <tbody></tbody>
+        </table>
+
+        <!-- TABLE 2: MEDIA ENTRIES -->
+        <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #5b8caf; margin: 1.5rem 0 0.5rem;">🖼️ MEDIA ENTRIES</h3>
+        <table class="data-table" id="media-table">
+            <thead><tr><th>Collection</th><th>Format</th><th>Link</th></tr></thead>
+            <tbody></tbody>
+        </table>
+
+        <!-- TABLE 3: PLATFORM PRESENCE -->
+        <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #5b8caf; margin: 1.5rem 0 0.5rem;">🌐 PLATFORM PRESENCE</h3>
+        <table class="data-table" id="platform-table">
+            <thead><tr><th>Platform</th><th>Documentation</th><th>Reference</th></tr></thead>
+            <tbody></tbody>
+        </table>
+
+        <!-- RELATED ENTITIES -->
+        <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #5b8caf; margin: 1.5rem 0 0.5rem;">🔗 RELATED ENTITIES</h3>
+        <div class="tag-cluster" id="related-entities"></div>
+
+        <hr />
+        <div class="footer-note">
+            structured data · indexed <span id="index-date"></span> · public figures database
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let query = urlParams.get('q');
+
+    const defaultView = document.getElementById('default-view');
+    const queryView = document.getElementById('query-view');
+
+    if (!query) {
+        defaultView.style.display = 'block';
+        queryView.style.display = 'none';
+        return;
+    }
+
+    defaultView.style.display = 'none';
+    queryView.style.display = 'block';
+
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    
+    // clean entity name
+    const removeList = ['registry', 'index', 'directory', 'database', 'catalog', 'bio', 'media', 'platform', 'figure', 'personality', 'creator', '2024', '2025', '2026', 'archive', 'research', 'reference', 'data', 'entry'];
+    let entityRaw = query.toLowerCase();
+    removeList.forEach(term => {
+        const regex = new RegExp('\\b' + term + '\\b', 'gi');
+        entityRaw = entityRaw.replace(regex, '');
+    });
+    entityRaw = entityRaw.replace(/\s+/g, ' ').trim();
+    const entityName = entityRaw || query;
+    
+    function formatEntity(str) {
+        return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    }
+    const displayEntity = formatEntity(entityName);
+    const entityLower = displayEntity.toLowerCase();
+
+    // detect record type
+    const qLow = query.toLowerCase();
+    let recordType = 'general';
+    if (qLow.includes('bio') || qLow.includes('biography') || qLow.includes('profile')) recordType = 'bio';
+    else if (qLow.includes('media') || qLow.includes('photo') || qLow.includes('video') || qLow.includes('image') || qLow.includes('gallery')) recordType = 'media';
+    else if (qLow.includes('platform') || qLow.includes('instagram') || qLow.includes('twitter') || qLow.includes('tiktok') || qLow.includes('youtube')) recordType = 'platform';
+    
+    // update title & meta
+    let docTitle = '';
+    let docDesc = '';
+    if (recordType === 'bio') {
+        docTitle = `${displayEntity} · Biography · Public Figures DB`;
+        docDesc = `Structured biographical data for ${displayEntity}. Professional background, timeline, and public presence.`;
+    } else if (recordType === 'media') {
+        docTitle = `${displayEntity} · Media Index · Public Figures DB`;
+        docDesc = `Curated media references for ${displayEntity}. Image and video documentation.`;
+    } else if (recordType === 'platform') {
+        docTitle = `${displayEntity} · Platform Data · Public Figures DB`;
+        docDesc = `Platform presence mapping for ${displayEntity}. Social media and content platform documentation.`;
+    } else {
+        docTitle = `${displayEntity} · Directory Entry · Public Figures DB`;
+        docDesc = `Complete directory entry for ${displayEntity}. Biographical, media, and platform data.`;
+    }
+    document.title = docTitle;
+    const metaTag = document.getElementById('dynamic-description');
+    if (metaTag) metaTag.setAttribute('content', docDesc);
+    
+    document.getElementById('main-heading-db').innerHTML = `${displayEntity} <span style="font-size:0.7rem; font-weight:normal;">/entry</span>`;
+    document.getElementById('bc-entity').innerText = displayEntity;
+    document.getElementById('entry-type-tag').innerHTML = ` /${recordType}`;
+    
+    // intro text
+    const introEl = document.getElementById('intro-db-text');
+    if (recordType === 'bio') {
+        introEl.innerHTML = `Structured biographical record for <strong>${displayEntity}</strong>. Data compiled from publicly documented sources.`;
+    } else if (recordType === 'media') {
+        introEl.innerHTML = `Media reference index for <strong>${displayEntity}</strong>. Includes curated image and video documentation.`;
+    } else if (recordType === 'platform') {
+        introEl.innerHTML = `Platform presence mapping for <strong>${displayEntity}</strong>. Documented across major social and content networks.`;
+    } else {
+        introEl.innerHTML = `Complete directory entry for <strong>${displayEntity}</strong>. Sections include biographical data, media references, and platform presence.`;
+    }
+    
+    // helper untuk membuat link dinamis
+    function makeEntryLink(variant, label) {
+        const newQ = `${entityLower} ${variant}`;
+        return `<a href="/personal/?q=${encodeURIComponent(newQ)}" class="link-mono">${label}</a>`;
+    }
+    
+    // BIO TABLE
+    const bioRows = [
+        { field: 'Full Name / Alias', variant: 'full name', label: 'view reference' },
+        { field: 'Primary Occupation', variant: 'career', label: 'career data' },
+        { field: 'Known For', variant: 'known for', label: 'public recognition' },
+        { field: 'Active Period', variant: 'active years', label: 'timeline' },
+        { field: 'Nationality / Origin', variant: 'origin', label: 'background' }
+    ];
+    document.querySelector('#bio-table tbody').innerHTML = bioRows.map(row => `
+        <tr><td>${row.field}</td><td>${makeEntryLink(row.variant, row.label)}</td></tr>
+    `).join('');
+    
+    // MEDIA TABLE
+    const mediaRows = [
+        { collection: 'Photo Archive', format: 'image set', variant: 'photo archive' },
+        { collection: 'Video Collection', format: 'video index', variant: 'video archive' },
+        { collection: 'Full Gallery', format: 'mixed media', variant: 'gallery' },
+        { collection: 'Editorial Features', format: 'press', variant: 'editorial' }
+    ];
+    document.querySelector('#media-table tbody').innerHTML = mediaRows.map(row => `
+        <tr><td>${row.collection}</td><td>${row.format}</td><td>${makeEntryLink(row.variant, 'access')}</td></tr>
+    `).join('');
+    
+    // PLATFORM TABLE
+    const platformRows = [
+        { platform: 'Instagram', variant: 'instagram', label: 'presence data' },
+        { platform: 'Twitter / X', variant: 'twitter', label: 'activity index' },
+        { platform: 'TikTok', variant: 'tiktok', label: 'content archive' },
+        { platform: 'YouTube', variant: 'youtube', label: 'channel ref' },
+        { platform: 'Other platforms', variant: 'social media', label: 'aggregated' }
+    ];
+    document.querySelector('#platform-table tbody').innerHTML = platformRows.map(row => `
+        <tr><td>${row.platform}</td><td>documentation</td><td>${makeEntryLink(row.variant, row.label)}</td></tr>
+    `).join('');
+    
+    // RELATED ENTITIES (variasi luas)
+    const relatedVariants = [
+        `${entityLower} biography`, `${entityLower} career`, `${entityLower} social media`,
+        `${entityLower} photos`, `${entityLower} videos`, `similar personalities`,
+        `related public figures`, `digital creator index`, `online personality database`
+    ];
+    document.getElementById('related-entities').innerHTML = relatedVariants.map(v => 
+        `<a href="/personal/?q=${encodeURIComponent(v)}" class="tag-mono">#${v.replace(/ /g, '_')}</a>`
+    ).join('');
+    
+    // dynamic stat panel
+    const today = new Date();
+    const idxDate = today.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    document.getElementById('index-date').innerText = idxDate;
+    
+    const statPanel = document.getElementById('stat-panel-dynamic');
+    statPanel.innerHTML = `
+        <div class="stat-item"><span class="stat-label">ENTRY ID</span><span class="stat-value">${entityLower.substring(0,10)}</span></div>
+        <div class="stat-item"><span class="stat-label">TYPE</span><span class="stat-value">${recordType}</span></div>
+        <div class="stat-item"><span class="stat-label">INDEXED</span><span class="stat-value">${idxDate}</span></div>
+        <div class="stat-item"><span class="stat-label">SCHEMA</span><span class="stat-value">v3.1</span></div>
+    `;
+    
+    // canonical
+    const canonical = document.getElementById('dynamic-canonical');
+    if (canonical) {
+        canonical.setAttribute('href', window.location.href.split('?')[0]);
+    }
+})();
+</script>
+
+{% include footer.html %}
+</body>
+</html>

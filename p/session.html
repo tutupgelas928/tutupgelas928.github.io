@@ -1,0 +1,479 @@
+---
+layout: null
+permalink: /session/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <title id="dynamic-title">Leak Archive · Internet Preservation Project</title>
+    <meta id="dynamic-description" name="description" content="Independent digital preservation archive documenting viral content, deleted media, and internet culture history.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/session/">
+    <style>
+        /* reset & base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fefefe;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2rem 1.25rem;
+        }
+
+        /* typography - clean & readable */
+        .site-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            color: #111;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0 0 0.25rem;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* breadcrumb */
+        .breadcrumb {
+            font-size: 0.7rem;
+            color: #888;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            color: #888;
+        }
+
+        .breadcrumb span:last-child {
+            color: #333;
+        }
+
+        /* stat bar minimal */
+        .stat-bar {
+            background: #f5f5f5;
+            padding: 0.5rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            color: #555;
+            margin: 1rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* cards - compact */
+        .card-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+
+        .entry-card {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            transition: all 0.15s;
+        }
+
+        .entry-card:hover {
+            border-color: #ccc;
+            background: #fafafa;
+        }
+
+        .entry-card .tag {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #888;
+            letter-spacing: 0.5px;
+        }
+
+        .entry-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 0.25rem 0;
+        }
+
+        .entry-card p {
+            font-size: 0.75rem;
+            color: #666;
+            margin: 0.25rem 0 0;
+        }
+
+        /* tag cloud */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .pill {
+            background: #f0f0f0;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: #333;
+        }
+
+        .pill:hover {
+            background: #e0e0e0;
+            text-decoration: none;
+        }
+
+        /* faq compact */
+        .faq-compact {
+            margin: 1rem 0;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin: 0.75rem 0 0.25rem;
+        }
+
+        .faq-a {
+            font-size: 0.75rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        hr {
+            margin: 2rem 0;
+            border: none;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-note {
+            font-size: 0.65rem;
+            color: #aaa;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .default-home {
+            display: block;
+        }
+
+        .query-page {
+            display: none;
+        }
+
+        @media (max-width: 560px) {
+            .page { padding: 1.25rem; }
+            h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- DEFAULT HOMEPAGE -->
+    <div id="default-home" class="default-home">
+        <div class="site-title">LEAK ARCHIVE · v4</div>
+        <h1>Internet Preservation<br>Leak Archive</h1>
+        <p style="color: #555; margin-bottom: 1rem;">Documenting viral content, deleted media, and ephemeral internet culture since 2022.</p>
+
+        <div class="stat-bar">
+            <span>📁 <strong>14.2k</strong> entries</span>
+            <span>🌐 <strong>800+</strong> sources</span>
+            <span>🔄 <strong>daily</strong> updates</span>
+        </div>
+
+        <div class="card-list">
+            <div class="entry-card">
+                <div class="tag">TRENDING ARCHIVE</div>
+                <h4>Viral Content Index</h4>
+                <p>Most referenced leaked content this month across preservation networks.</p>
+                <a href="/session/?q=viral+leak+archive">Explore →</a>
+            </div>
+            <div class="entry-card">
+                <div class="tag">MEDIA PRESERVATION</div>
+                <h4>Deleted Video Archive</h4>
+                <p>Preserved clips that were removed from major platforms.</p>
+                <a href="/session/?q=deleted+video+archive">Watch archive →</a>
+            </div>
+            <div class="entry-card">
+                <div class="tag">IMAGE PRESERVATION</div>
+                <h4>Ephemeral Photo Collection</h4>
+                <p>Images that circulated briefly before disappearing.</p>
+                <a href="/session/?q=ephemeral+photo+archive">Browse →</a>
+            </div>
+            <div class="entry-card">
+                <div class="tag">DEEP ARCHIVE</div>
+                <h4>Underground Preservation Vault</h4>
+                <p>Hard-to-find content from private preservation circles.</p>
+                <a href="/session/?q=deep+preservation+vault">Enter vault →</a>
+            </div>
+        </div>
+
+        <div class="tag-cloud">
+            <a href="/session/?q=instagram+preservation" class="pill">#InstagramPreservation</a>
+            <a href="/session/?q=tiktok+archive" class="pill">#TikTokArchive</a>
+            <a href="/session/?q=deleted+content" class="pill">#DeletedContent</a>
+            <a href="/session/?q=telegram+archive" class="pill">#TelegramArchive</a>
+            <a href="/session/?q=discord+preservation" class="pill">#DiscordPreservation</a>
+            <a href="/session/?q=viral+history" class="pill">#ViralHistory</a>
+        </div>
+    </div>
+
+    <!-- QUERY-BASED PAGE (leak-focused) -->
+    <div id="query-page" class="query-page">
+        <div class="site-title">LEAK ARCHIVE / <span id="breadcrumb-type">preservation</span></div>
+        <div class="breadcrumb">
+            <a href="/">home</a> / <a href="/session/">archive</a> / <span id="bc-name"></span>
+        </div>
+
+        <h1 id="main-title"></h1>
+
+        <div class="stat-bar" id="stat-dynamic"></div>
+
+        <!-- INTRO BOX (preservation tone) -->
+        <div id="intro-preserve" style="background: #f9f9f9; padding: 0.75rem 1rem; border-radius: 12px; margin: 1rem 0; font-size: 0.8rem; border-left: 3px solid #0066cc;">
+            <p id="intro-text"></p>
+        </div>
+
+        <!-- SECTION: LEAK ORIGIN -->
+        <h2>?? Origin & Context</h2>
+        <div class="card-list" id="origin-list"></div>
+
+        <!-- SECTION: PRESERVED MEDIA -->
+        <h2>📦 Preserved Media</h2>
+        <div class="card-list" id="media-list"></div>
+
+        <!-- SECTION: PLATFORM FOOTPRINT -->
+        <h2>🌍 Platform Footprint</h2>
+        <div class="card-list" id="platform-list"></div>
+
+        <!-- SECTION: RELATED PRESERVATIONS -->
+        <h2>🔗 Related Preservation Entries</h2>
+        <div class="tag-cloud" id="related-tags"></div>
+
+        <!-- SECTION: PRESERVATION NOTES -->
+        <h2>📌 Preservation Notes</h2>
+        <div class="faq-compact" id="preservation-notes"></div>
+
+        <hr />
+        <div class="footer-note">
+            Internet preservation project · Archived <span id="archive-date"></span>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const params = new URLSearchParams(window.location.search);
+    let query = params.get('q');
+
+    const defaultDiv = document.getElementById('default-home');
+    const queryDiv = document.getElementById('query-page');
+
+    if (!query) {
+        defaultDiv.style.display = 'block';
+        queryDiv.style.display = 'none';
+        return;
+    }
+
+    defaultDiv.style.display = 'none';
+    queryDiv.style.display = 'block';
+
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    
+    // clean base name (preserve 'leak' keyword context)
+    const removeTerms = ['archive', 'preservation', 'index', 'collection', 'vault', '2024', '2025', '2026', 'content', 'media', 'viral', 'deleted', 'ephemeral'];
+    let baseRaw = query.toLowerCase();
+    removeTerms.forEach(term => {
+        const regex = new RegExp('\\b' + term + '\\b', 'gi');
+        baseRaw = baseRaw.replace(regex, '');
+    });
+    baseRaw = baseRaw.replace(/\s+/g, ' ').trim();
+    let baseName = baseRaw || query;
+    
+    // jika baseName masih kosong atau terlalu pendek, pakai query asli
+    if (baseName.length < 2) baseName = query;
+    
+    function formatName(str) {
+        return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    }
+    const displayName = formatName(baseName);
+    const displayLower = displayName.toLowerCase();
+
+    // detect leak context type
+    const qLow = query.toLowerCase();
+    let leakType = 'general';
+    if (qLow.includes('video') || qLow.includes('clip') || qLow.includes('footage')) leakType = 'video';
+    else if (qLow.includes('photo') || qLow.includes('image') || qLow.includes('picture') || qLow.includes('gallery')) leakType = 'photo';
+    else if (qLow.includes('instagram') || qLow.includes('tiktok') || qLow.includes('telegram') || qLow.includes('discord') || qLow.includes('twitter')) leakType = 'platform';
+    else if (qLow.includes('bio') || qLow.includes('profile') || qLow.includes('background')) leakType = 'bio';
+    
+    // SEO title & description (leak-focused tapi preservation tone)
+    let pageTitle = '';
+    let metaDesc = '';
+    if (leakType === 'video') {
+        pageTitle = `${displayName} · Deleted Video Preservation · Leak Archive`;
+        metaDesc = `Preserved video archive of ${displayName}. Documenting deleted content and viral clips for internet history purposes.`;
+    } else if (leakType === 'photo') {
+        pageTitle = `${displayName} · Ephemeral Photo Archive · Leak Preservation`;
+        metaDesc = `Preserved image collection of ${displayName}. Documenting deleted and viral photos. Internet preservation project.`;
+    } else if (leakType === 'platform') {
+        pageTitle = `${displayName} · Platform Preservation · Social Media Archive`;
+        metaDesc = `Cross-platform preservation of ${displayName}. Documenting deleted posts and viral content across social media.`;
+    } else if (leakType === 'bio') {
+        pageTitle = `${displayName} · Profile · Digital Preservation Archive`;
+        metaDesc = `Background and context for ${displayName} within the internet preservation archive.`;
+    } else {
+        pageTitle = `${displayName} · Complete Preservation Archive · Leak Documentation`;
+        metaDesc = `Complete preservation archive of ${displayName}. Documenting deleted media, viral content, and internet ephemera.`;
+    }
+    document.title = pageTitle;
+    const metaTag = document.getElementById('dynamic-description');
+    if (metaTag) metaTag.setAttribute('content', metaDesc);
+    
+    document.getElementById('main-title').innerHTML = `${displayName} <span style="font-size:0.8rem; font-weight:normal;">· preservation archive</span>`;
+    document.getElementById('bc-name').innerText = displayName;
+    document.getElementById('breadcrumb-type').innerText = leakType;
+    
+    // intro text (preservation tone)
+    const introEl = document.getElementById('intro-text');
+    if (leakType === 'video') {
+        introEl.innerHTML = `This preservation entry documents deleted and viral video content associated with <strong>${displayName}</strong>. All materials are archived for internet history and research purposes.`;
+    } else if (leakType === 'photo') {
+        introEl.innerHTML = `Preserved image collection for <strong>${displayName}</strong>. Includes ephemeral and deleted photos that circulated on social platforms. Part of the independent internet archive.`;
+    } else if (leakType === 'platform') {
+        introEl.innerHTML = `Platform preservation record for <strong>${displayName}</strong>. Documents deleted posts, viral threads, and preserved content from major social networks.`;
+    } else if (leakType === 'bio') {
+        introEl.innerHTML = `Contextual background for <strong>${displayName}</strong> within the preservation archive. Understanding the origin and impact of associated viral content.`;
+    } else {
+        introEl.innerHTML = `Complete preservation archive for <strong>${displayName}</strong>. Includes preserved media, platform documentation, and contextual background. Maintained for internet history reference.`;
+    }
+    
+    // helper: internal link generator
+    function makeLink(variant, label) {
+        const newQuery = `${displayLower} ${variant}`;
+        return `<a href="/session/?q=${encodeURIComponent(newQuery)}">${label}</a>`;
+    }
+    
+    // ORIGIN LIST
+    const originItems = [
+        { variant: 'origin source', label: 'Origin & First Appearance', desc: 'Where this content first emerged' },
+        { variant: 'viral timeline', label: 'Viral Timeline', desc: 'How it spread across platforms' },
+        { variant: 'preservation context', label: 'Preservation Context', desc: 'Why this was archived' }
+    ];
+    document.getElementById('origin-list').innerHTML = originItems.map(item => `
+        <div class="entry-card"><div class="tag">📡 CONTEXT</div><h4>${item.label}</h4><p>${item.desc}</p>${makeLink(item.variant, 'View context →')}</div>
+    `).join('');
+    
+    // MEDIA LIST
+    const mediaItems = [
+        { variant: 'video preservation', label: 'Video Preservation Set', desc: 'Archived video content' },
+        { variant: 'photo preservation', label: 'Photo Preservation Set', desc: 'Archived image collection' },
+        { variant: 'full media dump', label: 'Complete Media Archive', desc: 'All preserved files' },
+        { variant: 'rare finds', label: 'Rare / Hard-to-Find', desc: 'Limited circulation content' }
+    ];
+    document.getElementById('media-list').innerHTML = mediaItems.map(item => `
+        <div class="entry-card"><div class="tag">📦 MEDIA</div><h4>${item.label}</h4><p>${item.desc}</p>${makeLink(item.variant, 'Access archive →')}</div>
+    `).join('');
+    
+    // PLATFORM LIST
+    const platformItems = [
+        { variant: 'instagram preservation', label: 'Instagram Archive', desc: 'Deleted stories & posts' },
+        { variant: 'tiktok preservation', label: 'TikTok Archive', desc: 'Removed videos' },
+        { variant: 'telegram archive', label: 'Telegram Preservation', desc: 'Channel archives' },
+        { variant: 'discord preservation', label: 'Discord Archive', desc: 'Server preservation' },
+        { variant: 'twitter archive', label: 'Twitter/X Archive', desc: 'Deleted threads & tweets' }
+    ];
+    document.getElementById('platform-list').innerHTML = platformItems.map(item => `
+        <div class="entry-card"><div class="tag">🌍 PLATFORM</div><h4>${item.label}</h4><p>${item.desc}</p>${makeLink(item.variant, 'View →')}</div>
+    `).join('');
+    
+    // RELATED TAGS (variasi luas dengan keyword leak)
+    const relatedQueries = [
+        `${displayLower} viral leak`, `${displayLower} deleted content`, `${displayLower} preservation`,
+        `${displayLower} internet archive`, `viral content history`, `deleted media archive`,
+        `ephemeral content`, `internet preservation project`, `digital ephemera`
+    ];
+    document.getElementById('related-tags').innerHTML = relatedQueries.map(q => 
+        `<a href="/session/?q=${encodeURIComponent(q)}" class="pill">#${q.replace(/ /g, '_')}</a>`
+    ).join('');
+    
+    // PRESERVATION NOTES (FAQ style)
+    const notes = [
+        { q: `Why is ${displayName} in this archive?`, a: `This entry is preserved as part of an independent effort to document viral internet culture and deleted media for research and historical reference.` },
+        { q: `How is content verified?`, a: `All preserved materials are cross-referenced from documented sources. This is a reference archive, not a hosting service.` },
+        { q: `Can content be removed?`, a: `This is a static preservation project. For inquiries, refer to the project documentation.` }
+    ];
+    document.getElementById('preservation-notes').innerHTML = notes.map(n => `
+        <div class="faq-q">❓ ${n.q}</div>
+        <div class="faq-a">${n.a}</div>
+    `).join('');
+    
+    // dynamic stat bar
+    const today = new Date();
+    const archiveDate = today.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    document.getElementById('archive-date').innerText = archiveDate;
+    
+    const statDiv = document.getElementById('stat-dynamic');
+    statDiv.innerHTML = `
+        <span>📁 <strong>entry</strong> ${displayLower.substring(0,12)}</span>
+        <span>🏷️ <strong>type</strong> ${leakType}</span>
+        <span>📅 <strong>archived</strong> ${archiveDate}</span>
+        <span>🔍 <strong>status</strong> preserved</span>
+    `;
+    
+    // canonical link
+    const canonical = document.getElementById('dynamic-canonical');
+    if (canonical) {
+        canonical.setAttribute('href', window.location.href.split('?')[0]);
+    }
+})();
+</script>
+
+{% include footer.html %}
+</body>
+</html>

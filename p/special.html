@@ -1,0 +1,513 @@
+---
+layout: null
+permalink: /index/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <title id="dynamic-title">LeakDiscovery · Viral Influencer Leaks</title>
+    <meta id="dynamic-description" name="description" content="Discover the latest leaked content from influencers, TikTokers, and OnlyFans creators. Updated daily with exclusive leaked photos and videos.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/index/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0e;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #ededef;
+        }
+
+        .app {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem;
+        }
+
+        /* header viral */
+        .viral-header {
+            background: linear-gradient(145deg, #0f0f17, #050508);
+            border-radius: 28px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .viral-header::before {
+            content: "🔥 TRENDING 🔥";
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background: #a855f7;
+            color: #fff;
+            font-size: 0.6rem;
+            padding: 0.2rem 2rem;
+            transform: rotate(45deg);
+            font-weight: bold;
+        }
+
+        .logo {
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            color: #a855f7;
+        }
+
+        .viral-header h1 {
+            font-size: 1.8rem;
+            margin: 0.5rem 0 0.25rem;
+        }
+
+        /* breadcrumb */
+        .breadcrumb {
+            font-size: 0.7rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb a {
+            color: #c084fc;
+            text-decoration: none;
+        }
+
+        /* stat bar viral */
+        .viral-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            background: #111118;
+            border-radius: 20px;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.7rem;
+            border: 1px solid #1f1f2a;
+        }
+
+        /* feed style - seperti timeline sosial media */
+        .viral-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .feed-item {
+            background: #111118;
+            border-radius: 20px;
+            padding: 1rem;
+            border: 1px solid #1f1f2a;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .feed-item:hover {
+            border-color: #a855f7;
+            background: #14141f;
+            transform: translateX(4px);
+        }
+
+        .feed-badge {
+            display: inline-block;
+            font-size: 0.55rem;
+            background: #a855f7;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .feed-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .feed-desc {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+        }
+
+        .feed-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.6rem;
+            color: #6b7280;
+            margin-bottom: 0.75rem;
+        }
+
+        .feed-link {
+            display: inline-block;
+            background: #1f1f2e;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #c084fc;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .feed-link:hover {
+            background: #a855f7;
+            color: #fff;
+        }
+
+        /* grid untuk kategori */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+
+        .cat-card {
+            background: #111118;
+            border-radius: 16px;
+            padding: 0.75rem;
+            text-align: center;
+            border: 1px solid #1f1f2a;
+            transition: all 0.15s;
+        }
+
+        .cat-card:hover {
+            border-color: #a855f7;
+            transform: scale(0.98);
+        }
+
+        .cat-card a {
+            color: #c084fc;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* tag cloud */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .click-tag {
+            background: #111118;
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            color: #c084fc;
+            text-decoration: none;
+            border: 1px solid #1f1f2a;
+            transition: all 0.1s;
+        }
+
+        .click-tag:hover {
+            background: #a855f7;
+            color: #fff;
+            border-color: #a855f7;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #1f1f2a;
+            margin: 1.5rem 0;
+        }
+
+        .footer {
+            font-size: 0.6rem;
+            color: #4a4a5a;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .default-view {
+            display: block;
+        }
+
+        .query-view {
+            display: none;
+        }
+
+        @media (max-width: 640px) {
+            .app { padding: 0.75rem; }
+            .viral-header h1 { font-size: 1.3rem; }
+            .feed-item { padding: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="app">
+    <!-- DEFAULT HOME (viral discovery) -->
+    <div id="default-view" class="default-view">
+        <div class="viral-header">
+            <div class="logo">LEAKDISCOVERY.IO</div>
+            <h1>Viral Leak Feed</h1>
+            <p style="color: #9ca3af; font-size: 0.8rem;">Discover leaked content from influencers, TikTokers & OnlyFans creators</p>
+        </div>
+
+        <div class="viral-stats">
+            <span>🔥 <strong>2.4M+</strong> searches this month</span>
+            <span>📸 <strong>15k+</strong> leaked files</span>
+            <span>⚡ <strong>daily</strong> viral drops</span>
+        </div>
+
+        <div class="viral-feed">
+            <div class="feed-item">
+                <span class="feed-badge">🔥 VIRAL THIS WEEK</span>
+                <div class="feed-title">TikTok Star Leaked Video Bundle</div>
+                <div class="feed-desc">Full collection of deleted TikTok videos that went viral on Twitter and Telegram.</div>
+                <div class="feed-meta"><span>📁 200+ clips</span><span>⚡ #1 trending</span></div>
+                <a href="/index/?q=tiktok+star+leaked+video+bundle" class="feed-link">View Leaked Bundle →</a>
+            </div>
+            <div class="feed-item">
+                <span class="feed-badge">💎 EXCLUSIVE</span>
+                <div class="feed-title">OnlyFans Creator Leaked Archive</div>
+                <div class="feed-desc">Complete leaked OnlyFans content pack including private photos and videos.</div>
+                <div class="feed-meta"><span>🔞 500+ files</span><span>⭐ rare content</span></div>
+                <a href="/index/?q=onlyfans+creator+leaked+archive" class="feed-link">Access Leaks →</a>
+            </div>
+            <div class="feed-item">
+                <span class="feed-badge">📸 NEW</span>
+                <div class="feed-title">Instagram Influencer Leaked Gallery</div>
+                <div class="feed-desc">Recently leaked private Instagram photos that were deleted within hours.</div>
+                <div class="feed-meta"><span>🖼️ 80+ images</span><span>🆕 added today</span></div>
+                <a href="/index/?q=instagram+influencer+leaked+gallery" class="feed-link">See Leaked Photos →</a>
+            </div>
+        </div>
+
+        <div class="category-grid">
+            <div class="cat-card"><a href="/index/?q=trending+leaked+tiktok+videos">🔥 Trending Leaked TikTok Videos</a></div>
+            <div class="cat-card"><a href="/index/?q=viral+leaked+onlyfans+content">💎 Viral Leaked OnlyFans Content</a></div>
+            <div class="cat-card"><a href="/index/?q=leaked+instagram+private+photos">📸 Leaked Instagram Private Photos</a></div>
+            <div class="cat-card"><a href="/index/?q=telegram+leaked+channel+dump">💬 Telegram Leaked Channel Dump</a></div>
+        </div>
+
+        <div class="tag-cloud">
+            <a href="/index/?q=leaked+tiktok+influencer" class="click-tag">#LeakedTikTokInfluencer</a>
+            <a href="/index/?q=leaked+onlyfans+creator" class="click-tag">#LeakedOnlyFansCreator</a>
+            <a href="/index/?q=viral+leaked+content" class="click-tag">#ViralLeakedContent</a>
+            <a href="/index/?q=exclusive+leaked+dump" class="click-tag">#ExclusiveLeakedDump</a>
+        </div>
+    </div>
+
+    <!-- QUERY-BASED VIEW (dinamis dengan curiosity-driven links) -->
+    <div id="query-view" class="query-view">
+        <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/index/">LeakFeed</a> / <span id="bc-name"></span>
+        </div>
+
+        <div class="viral-header" style="margin-bottom: 1rem;">
+            <div class="logo">LEAKDISCOVERY.IO</div>
+            <h1 id="main-heading"></h1>
+            <p id="sub-line" style="color: #c084fc; font-size: 0.7rem;"></p>
+        </div>
+
+        <div class="viral-stats" id="viral-stats-dynamic"></div>
+
+        <!-- INTRO (curiosity-driven) -->
+        <div id="intro-box" style="background: #1a1a2a; border-radius: 20px; padding: 1rem; margin-bottom: 1.5rem; border-left: 4px solid #ec489a;">
+            <p id="intro-text" style="font-size: 0.85rem;"></p>
+        </div>
+
+        <!-- SECTION: LEAKED MEDIA (dengan phrasing menggoda) -->
+        <h3 style="font-size: 0.7rem; color: #a855f7; margin-bottom: 0.5rem;">🔥 MUST-SEE LEAKED CONTENT</h3>
+        <div class="viral-feed" id="media-feed"></div>
+
+        <!-- SECTION: PLATFORM LEAKS -->
+        <h3 style="font-size: 0.7rem; color: #a855f7; margin: 1rem 0 0.5rem;">🌐 WHERE THESE LEAKS CAME FROM</h3>
+        <div class="category-grid" id="platform-grid"></div>
+
+        <!-- SECTION: YOU MIGHT ALSO WANT -->
+        <h3 style="font-size: 0.7rem; color: #a855f7; margin: 1rem 0 0.5rem;">🔍 YOU MIGHT ALSO WANT TO SEE</h3>
+        <div class="tag-cloud" id="related-tags"></div>
+
+        <!-- SECTION: LEAK INFO -->
+        <h3 style="font-size: 0.7rem; color: #a855f7; margin: 1rem 0 0.5rem;">📌 LEAK ARCHIVE INFO</h3>
+        <div class="category-grid" id="info-grid"></div>
+
+        <hr />
+        <div class="footer">
+            🔥 LeakDiscovery.io · Updated <span id="update-date"></span>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let query = urlParams.get('q');
+
+    const defaultDiv = document.getElementById('default-view');
+    const queryDiv = document.getElementById('query-view');
+
+    if (!query) {
+        defaultDiv.style.display = 'block';
+        queryDiv.style.display = 'none';
+        return;
+    }
+
+    defaultDiv.style.display = 'none';
+    queryDiv.style.display = 'block';
+
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    
+    // extract nama influencer/creator
+    const removeTerms = ['leaked', 'leak', 'leaks', 'archive', 'collection', 'dump', 'vault', 'bundle', 'gallery', 'content', 'media', 'videos', 'photos', 'pics', 'onlyfans', 'tiktok', 'instagram', 'twitter', 'telegram', 'discord', 'trending', 'viral', 'exclusive', 'private', '2024', '2025', '2026', 'bundle', 'pack', 'set', 'compilation', 'feed'];
+    let baseRaw = query.toLowerCase();
+    removeTerms.forEach(term => {
+        const regex = new RegExp('\\b' + term + 'b', 'gi');
+        baseRaw = baseRaw.replace(regex, '');
+    });
+    baseRaw = baseRaw.replace(/\s+/g, ' ').trim();
+    let baseName = baseRaw || query;
+    if (baseName.length < 2) baseName = query;
+    
+    function formatName(str) {
+        return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    }
+    const displayName = formatName(baseName);
+    const displayLower = displayName.toLowerCase();
+
+    // detect leak category
+    const qLow = query.toLowerCase();
+    let leakCategory = 'general';
+    if (qLow.includes('video') || qLow.includes('clip')) leakCategory = 'video';
+    else if (qLow.includes('photo') || qLow.includes('image') || qLow.includes('gallery')) leakCategory = 'photo';
+    else if (qLow.includes('onlyfans')) leakCategory = 'onlyfans';
+    else if (qLow.includes('tiktok')) leakCategory = 'tiktok';
+    else if (qLow.includes('instagram')) leakCategory = 'instagram';
+    else if (qLow.includes('telegram')) leakCategory = 'telegram';
+    
+    // SEO
+    let pageTitle = '';
+    let pageDesc = '';
+    if (leakCategory === 'video') {
+        pageTitle = `${displayName} Leaked Videos · Full Viral Collection`;
+        pageDesc = `Watch ${displayName} leaked videos. Complete archive of viral clips and deleted content. Updated daily.`;
+    } else if (leakCategory === 'photo') {
+        pageTitle = `${displayName} Leaked Photos · Private Gallery`;
+        pageDesc = `View ${displayName} leaked photos. Full private gallery including deleted and exclusive images.`;
+    } else if (leakCategory === 'onlyfans') {
+        pageTitle = `${displayName} OnlyFans Leaks · Complete Archive`;
+        pageDesc = `${displayName} OnlyFans leaked content. All exclusive photos and videos preserved.`;
+    } else {
+        pageTitle = `${displayName} Leaked Content · Complete Archive`;
+        pageDesc = `Complete ${displayName} leaked content archive. Photos, videos, and exclusive material. Trending now.`;
+    }
+    document.title = pageTitle;
+    const metaTag = document.getElementById('dynamic-description');
+    if (metaTag) metaTag.setAttribute('content', pageDesc);
+    
+    document.getElementById('main-heading').innerHTML = `${displayName} <span style="font-size:0.7rem;">· Leaked Content</span>`;
+    document.getElementById('sub-line').innerHTML = `🔥 Trending now · ${Math.floor(Math.random() * 500) + 100}+ people viewed this today`;
+    document.getElementById('bc-name').innerText = displayName;
+    
+    // intro curiosity-driven
+    const introEl = document.getElementById('intro-text');
+    introEl.innerHTML = `⚠️ <strong>${displayName}</strong> leaked content has been circulating across Telegram, Discord, and Twitter. This complete archive includes <strong>leaked photos, leaked videos, and exclusive material</strong> that you won't find anywhere else. Click below to access. ⚠️`;
+    
+    // helper: membuat link dengan phrasing menggoda
+    function makeClickLink(variant, title, desc, badge = '🔥 LEAK') {
+        const newQ = `${displayLower} ${variant}`;
+        return `
+            <div class="feed-item">
+                <span class="feed-badge">${badge}</span>
+                <div class="feed-title">${title}</div>
+                <div class="feed-desc">${desc}</div>
+                <div class="feed-meta"><span>📁 available now</span><span>⚡ viral</span></div>
+                <a href="/index/?q=${encodeURIComponent(newQ)}" class="feed-link">Access Leaked Content →</a>
+            </div>
+        `;
+    }
+    
+    // MEDIA FEED (curiosity-driven phrasing)
+    const mediaFeedItems = [
+        { variant: 'leaked photos full private gallery', title: '📸 Full Leaked Photo Gallery', desc: `All ${displayName} leaked photos in one place. Private images that were deleted.`, badge: '📸 LEAKED PHOTOS' },
+        { variant: 'leaked videos complete collection', title: '🎬 Complete Leaked Video Collection', desc: `Every ${displayName} leaked video. Viral clips and private footage.`, badge: '🎬 LEAKED VIDEOS' },
+        { variant: 'exclusive leaked content vault', title: '💎 Exclusive Leaked Content Vault', desc: `Rare ${displayName} material not available anywhere else.`, badge: '💎 EXCLUSIVE' },
+        { variant: 'full leaked archive dump', title: '📁 Full Leaked Archive Dump', desc: `Complete ${displayName} leak pack. All content in one download.`, badge: '🔥 COMPLETE' }
+    ];
+    document.getElementById('media-feed').innerHTML = mediaFeedItems.map(item => 
+        makeClickLink(item.variant, item.title, item.desc, item.badge)
+    ).join('');
+    
+    // PLATFORM GRID (phrasing menggoda)
+    const platformItems = [
+        { variant: 'leaked telegram channel archive', label: '💬 Telegram Leaked Archive', desc: 'Original source' },
+        { variant: 'leaked discord server dump', label: '🎮 Discord Leaked Dump', desc: 'Private server' },
+        { variant: 'leaked twitter threads', label: '🐦 Twitter Leaked Threads', desc: 'Viral tweets' },
+        { variant: 'leaked reddit posts', label: '🔴 Reddit Leaked Posts', desc: 'Archived' }
+    ];
+    document.getElementById('platform-grid').innerHTML = platformItems.map(item => {
+        const newQ = `${displayLower} ${item.variant}`;
+        return `
+            <div class="cat-card">
+                <a href="/index/?q=${encodeURIComponent(newQ)}">${item.label}<br><small style="color:#6b7280;">${item.desc}</small></a>
+            </div>
+        `;
+    }).join('');
+    
+    // RELATED TAGS (semua mengandung 'leaked')
+    const relatedVariants = [
+        `${displayLower} leaked onlyfans content`,
+        `${displayLower} leaked instagram photos`,
+        `${displayLower} leaked tiktok videos`,
+        `leaked content similar to ${displayLower}`,
+        `viral leaked archive ${displayLower}`,
+        `${displayLower} exclusive leaked pack`
+    ];
+    document.getElementById('related-tags').innerHTML = relatedVariants.map(v => 
+        `<a href="/index/?q=${encodeURIComponent(v)}" class="click-tag">🔥 ${v.replace(/_/g, ' ')}</a>`
+    ).join('');
+    
+    // INFO GRID
+    const infoItems = [
+        { variant: 'leaked content preservation info', label: '📖 About This Leak Archive' },
+        { variant: 'leaked content update log', label: '🔄 Recent Leak Updates' },
+        { variant: 'leaked source documentation', label: '🔍 Where These Leaks Came From' }
+    ];
+    document.getElementById('info-grid').innerHTML = infoItems.map(item => {
+        const newQ = `${displayLower} ${item.variant}`;
+        return `
+            <div class="cat-card">
+                <a href="/index/?q=${encodeURIComponent(newQ)}">${item.label}</a>
+            </div>
+        `;
+    }).join('');
+    
+    // dynamic stats
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    document.getElementById('update-date').innerText = dateStr;
+    
+    const statsDiv = document.getElementById('viral-stats-dynamic');
+    statsDiv.innerHTML = `
+        <span>🔥 <strong>${Math.floor(Math.random() * 300) + 100}+</strong> views today</span>
+        <span>📁 <strong>${Math.floor(Math.random() * 80) + 30}+</strong> leaked files</span>
+        <span>⚡ <strong>viral</strong> status</span>
+        <span>📅 added ${dateStr}</span>
+    `;
+    
+    // canonical
+    const canonical = document.getElementById('dynamic-canonical');
+    if (canonical) {
+        canonical.setAttribute('href', window.location.href.split('?')[0]);
+    }
+})();
+</script>
+
+{% include footer.html %}
+</body>
+</html>

@@ -1,0 +1,480 @@
+---
+layout: null
+permalink: /section/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <title id="dynamic-title">Leaked Content Portal · Influencer Leaks Database</title>
+    <meta id="dynamic-description" name="description" content="Searchable database of leaked influencer content. TikTok leaks, OnlyFans leaks, Instagram leaks, and viral content archive.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/section/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #e5e7eb;
+        }
+
+        .portal {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* header */
+        .portal-header {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 100%);
+            border-radius: 24px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #2a1a4e;
+        }
+
+        .portal-badge {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #a855f7;
+        }
+
+        .portal-header h1 {
+            font-size: 2rem;
+            margin: 0.5rem 0;
+            background: linear-gradient(135deg, #fff, #c084fc, #ec489a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* breadcrumb */
+        .breadcrumb {
+            font-size: 0.7rem;
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            color: #a855f7;
+            text-decoration: none;
+        }
+
+        /* quick stats */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: #0f0f1a;
+            border-radius: 16px;
+            padding: 0.75rem;
+            text-align: center;
+            border: 1px solid #1f1f2e;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #c084fc;
+        }
+
+        /* mega grid */
+        .mega-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .leak-panel {
+            background: #0a0a0f;
+            border-radius: 20px;
+            border: 1px solid #1f1f2e;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        .leak-panel:hover {
+            border-color: #a855f7;
+            transform: translateY(-2px);
+        }
+
+        .panel-header {
+            background: #12121c;
+            padding: 1rem;
+            border-bottom: 1px solid #1f1f2e;
+        }
+
+        .panel-header h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #c084fc;
+        }
+
+        .panel-header p {
+            font-size: 0.7rem;
+            color: #8b8b9b;
+            margin-top: 0.25rem;
+        }
+
+        .link-list {
+            padding: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .leak-link {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            background: #12121c;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .leak-link:hover {
+            background: #1a1a2e;
+            color: #c084fc;
+            padding-left: 1rem;
+        }
+
+        .leak-link small {
+            font-size: 0.65rem;
+            color: #a855f7;
+            display: block;
+            margin-top: 0.2rem;
+        }
+
+        /* tag cloud */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .leak-tag {
+            background: #12121c;
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            color: #c084fc;
+            text-decoration: none;
+            border: 1px solid #1f1f2e;
+        }
+
+        .leak-tag:hover {
+            background: #1a1a2e;
+            border-color: #a855f7;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #1f1f2e;
+            margin: 2rem 0;
+        }
+
+        .footer {
+            font-size: 0.6rem;
+            color: #4a4a5a;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .default-portal {
+            display: block;
+        }
+
+        .query-portal {
+            display: none;
+        }
+
+        @media (max-width: 640px) {
+            .portal { padding: 1rem; }
+            .mega-grid { grid-template-columns: 1fr; }
+            .portal-header h1 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="portal">
+    <!-- DEFAULT PORTAL (homepage) -->
+    <div id="default-portal" class="default-portal">
+        <div class="portal-header">
+            <div class="portal-badge">LEAKED DATABASE v4.0</div>
+            <h1>Influencer Leaks Portal</h1>
+            <p style="color: #9ca3af;">The most complete archive of leaked content from TikTokers, OnlyFans creators, and influencers.</p>
+        </div>
+
+        <div class="quick-stats">
+            <div class="stat-card"><div class="stat-number">15k+</div><div>leaked files</div></div>
+            <div class="stat-card"><div class="stat-number">800+</div><div>creators</div></div>
+            <div class="stat-card"><div class="stat-number">daily</div><div>updates</div></div>
+            <div class="stat-card"><div class="stat-number">#1</div><div>leak archive</div></div>
+        </div>
+
+        <div class="mega-grid">
+            <div class="leak-panel">
+                <div class="panel-header"><h3>🔥 Trending Leaks</h3><p>Most requested this week</p></div>
+                <div class="link-list">
+                    <a href="/section/?q=trending+tiktok+leaked+videos" class="leak-link">TikTok Leaked Videos <small>viral this week</small></a>
+                    <a href="/section/?q=trending+onlyfans+leaked+content" class="leak-link">OnlyFans Leaked Content <small>exclusive drops</small></a>
+                    <a href="/section/?q=trending+instagram+leaked+photos" class="leak-link">Instagram Leaked Photos <small>deleted stories</small></a>
+                </div>
+            </div>
+            <div class="leak-panel">
+                <div class="panel-header"><h3>🎬 Video Leaks</h3><p>Preserved clips & footage</p></div>
+                <div class="link-list">
+                    <a href="/section/?q=tiktok+leaked+video+archive" class="leak-link">TikTok Leaked Video Archive</a>
+                    <a href="/section/?q=onlyfans+leaked+video+collection" class="leak-link">OnlyFans Leaked Video Collection</a>
+                    <a href="/section/?q=private+leaked+video+dump" class="leak-link">Private Leaked Video Dump</a>
+                </div>
+            </div>
+            <div class="leak-panel">
+                <div class="panel-header"><h3>📸 Photo Leaks</h3><p>Image galleries & dumps</p></div>
+                <div class="link-list">
+                    <a href="/section/?q=instagram+leaked+photo+gallery" class="leak-link">Instagram Leaked Photo Gallery</a>
+                    <a href="/section/?q=onlyfans+leaked+photo+set" class="leak-link">OnlyFans Leaked Photo Set</a>
+                    <a href="/section/?q=private+leaked+photo+dump" class="leak-link">Private Leaked Photo Dump</a>
+                </div>
+            </div>
+            <div class="leak-panel">
+                <div class="panel-header"><h3>💎 Exclusive Vault</h3><p>Rare & hard-to-find</p></div>
+                <div class="link-list">
+                    <a href="/section/?q=telegram+leaked+channel+archive" class="leak-link">Telegram Leaked Channel Archive</a>
+                    <a href="/section/?q=discord+leaked+server+dump" class="leak-link">Discord Leaked Server Dump</a>
+                    <a href="/section/?q=rare+leaked+influencer+content" class="leak-link">Rare Leaked Influencer Content</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="tag-cloud">
+            <a href="/section/?q=leaked+tiktok+influencer" class="leak-tag">#LeakedTikTokInfluencer</a>
+            <a href="/section/?q=leaked+onlyfans+creator" class="leak-tag">#LeakedOnlyFansCreator</a>
+            <a href="/section/?q=leaked+instagram+model" class="leak-tag">#LeakedInstagramModel</a>
+            <a href="/section/?q=viral+leaked+content" class="leak-tag">#ViralLeakedContent</a>
+            <a href="/section/?q=telegram+leaked+dump" class="leak-tag">#TelegramLeakedDump</a>
+        </div>
+    </div>
+
+    <!-- QUERY-BASED PORTAL (dinamis) -->
+    <div id="query-portal" class="query-portal">
+        <div class="breadcrumb">
+            <a href="/">Portal</a> / <a href="/section/">Leaks</a> / <span id="bc-name"></span>
+        </div>
+
+        <div class="portal-header" style="margin-bottom: 1rem;">
+            <div class="portal-badge">LEAKED CONTENT ARCHIVE</div>
+            <h1 id="main-heading"></h1>
+            <p id="sub-heading" style="color: #9ca3af;"></p>
+        </div>
+
+        <div class="quick-stats" id="quick-stats-dynamic"></div>
+
+        <!-- INTRO SECTION -->
+        <div id="intro-section" style="background: #0a0a0f; border-radius: 20px; padding: 1rem 1.25rem; margin-bottom: 2rem; border-left: 3px solid #c084fc;">
+            <p id="intro-text"></p>
+        </div>
+
+        <!-- SECTION 1: LEAKED MEDIA -->
+        <div class="leak-panel" style="margin-bottom: 1.5rem;">
+            <div class="panel-header"><h3>📁 Leaked Media Collections</h3><p>Complete archives</p></div>
+            <div class="link-list" id="media-links"></div>
+        </div>
+
+        <!-- SECTION 2: PLATFORM-SPECIFIC LEAKS -->
+        <div class="leak-panel" style="margin-bottom: 1.5rem;">
+            <div class="panel-header"><h3>🌐 Platform Leaks</h3><p>Where the content spread</p></div>
+            <div class="link-list" id="platform-links"></div>
+        </div>
+
+        <!-- SECTION 3: RELATED LEAKED CONTENT -->
+        <div class="leak-panel" style="margin-bottom: 1.5rem;">
+            <div class="panel-header"><h3>🔗 Similar Leaked Content</h3><p>You might also search for</p></div>
+            <div class="tag-cloud" id="related-tags" style="padding: 0.75rem;"></div>
+        </div>
+
+        <!-- SECTION 4: LEAK INFO -->
+        <div class="leak-panel">
+            <div class="panel-header"><h3>📌 About This Leak Archive</h3><p>Preservation information</p></div>
+            <div class="link-list" id="info-links"></div>
+        </div>
+
+        <hr />
+        <div class="footer">
+            Independent leak preservation project · Updated <span id="update-date"></span>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let query = urlParams.get('q');
+
+    const defaultDiv = document.getElementById('default-portal');
+    const queryDiv = document.getElementById('query-portal');
+
+    if (!query) {
+        defaultDiv.style.display = 'block';
+        queryDiv.style.display = 'none';
+        return;
+    }
+
+    defaultDiv.style.display = 'none';
+    queryDiv.style.display = 'block';
+
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    
+    // extract influencer/creator name (bersihkan kata umum)
+    const removeTerms = ['leaked', 'leak', 'leaks', 'archive', 'collection', 'dump', 'vault', 'content', 'media', 'videos', 'photos', 'gallery', 'set', 'compilation', 'onlyfans', 'tiktok', 'instagram', 'twitter', 'telegram', 'discord', 'trending', 'viral', 'rare', 'private', 'exclusive', '2024', '2025', '2026'];
+    let baseRaw = query.toLowerCase();
+    removeTerms.forEach(term => {
+        const regex = new RegExp('\\b' + term + '\\b', 'gi');
+        baseRaw = baseRaw.replace(regex, '');
+    });
+    baseRaw = baseRaw.replace(/\s+/g, ' ').trim();
+    let baseName = baseRaw || query;
+    if (baseName.length < 2) baseName = query;
+    
+    function formatName(str) {
+        return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    }
+    const displayName = formatName(baseName);
+    const displayLower = displayName.toLowerCase();
+
+    // detect leak type
+    const qLow = query.toLowerCase();
+    let leakType = 'general';
+    if (qLow.includes('video') || qLow.includes('clip') || qLow.includes('footage')) leakType = 'video';
+    else if (qLow.includes('photo') || qLow.includes('image') || qLow.includes('picture') || qLow.includes('gallery')) leakType = 'photo';
+    else if (qLow.includes('onlyfans')) leakType = 'onlyfans';
+    else if (qLow.includes('tiktok')) leakType = 'tiktok';
+    else if (qLow.includes('instagram')) leakType = 'instagram';
+    else if (qLow.includes('telegram')) leakType = 'telegram';
+    else if (qLow.includes('discord')) leakType = 'discord';
+    
+    // SEO
+    let pageTitle = '';
+    let pageDesc = '';
+    if (leakType === 'video') {
+        pageTitle = `${displayName} Leaked Videos · Complete Archive`;
+        pageDesc = `Full archive of ${displayName} leaked videos. Preserved clips, deleted content, and viral footage.`;
+    } else if (leakType === 'photo') {
+        pageTitle = `${displayName} Leaked Photos · Full Gallery`;
+        pageDesc = `Complete ${displayName} leaked photo collection. Preserved images from private folders and deleted posts.`;
+    } else if (leakType === 'onlyfans') {
+        pageTitle = `${displayName} OnlyFans Leaks · Exclusive Archive`;
+        pageDesc = `${displayName} OnlyFans leaked content. Complete preserved collection including photos and videos.`;
+    } else {
+        pageTitle = `${displayName} Leaked Content · Complete Archive`;
+        pageDesc = `Complete ${displayName} leaked content archive. Photos, videos, and exclusive material. Updated daily.`;
+    }
+    document.title = pageTitle;
+    const metaTag = document.getElementById('dynamic-description');
+    if (metaTag) metaTag.setAttribute('content', pageDesc);
+    
+    document.getElementById('main-heading').innerHTML = `${displayName} <span style="font-size:0.9rem;">· Leaked Archive</span>`;
+    document.getElementById('sub-heading').innerHTML = `Complete collection of leaked content from ${displayName}`;
+    document.getElementById('bc-name').innerText = displayName;
+    
+    // intro text (eksplisit menyebut leaked content)
+    const introEl = document.getElementById('intro-text');
+    introEl.innerHTML = `This page contains the complete leaked content archive for <strong>${displayName}</strong>. All leaked photos, leaked videos, and exclusive material that circulated across Telegram, Discord, Twitter, and other platforms have been preserved here for documentation purposes.`;
+    
+    // helper untuk membuat link dengan keyword 'leaked'
+    function makeLeakedLink(variant, label, description = '') {
+        const newQ = `${displayLower} ${variant}`;
+        const descHtml = description ? `<small>${description}</small>` : '';
+        return `<a href="/section/?q=${encodeURIComponent(newQ)}" class="leak-link">${label} ${descHtml}</a>`;
+    }
+    
+    // MEDIA LINKS (semua mengandung 'leaked')
+    const mediaItems = [
+        { variant: 'leaked photos full gallery', label: '📸 Leaked Photos - Full Gallery', desc: '50+ images' },
+        { variant: 'leaked videos complete collection', label: '🎬 Leaked Videos - Complete Collection', desc: '20+ clips' },
+        { variant: 'leaked exclusive content vault', label: '💎 Leaked Exclusive Content Vault', desc: 'rare finds' },
+        { variant: 'leaked full archive dump', label: '📁 Leaked Full Archive Dump', desc: 'all content' }
+    ];
+    document.getElementById('media-links').innerHTML = mediaItems.map(item => 
+        makeLeakedLink(item.variant, item.label, item.desc)
+    ).join('');
+    
+    // PLATFORM LINKS (semua mengandung 'leaked')
+    const platformItems = [
+        { variant: 'leaked telegram channel archive', label: '💬 Leaked Telegram Channel Archive', desc: 'original source' },
+        { variant: 'leaked discord server dump', label: '🎮 Leaked Discord Server Dump', desc: 'private server' },
+        { variant: 'leaked twitter threads archive', label: '🐦 Leaked Twitter Threads Archive', desc: 'viral tweets' },
+        { variant: 'leaked reddit posts collection', label: '🔴 Leaked Reddit Posts Collection', desc: 'archived threads' }
+    ];
+    document.getElementById('platform-links').innerHTML = platformItems.map(item => 
+        makeLeakedLink(item.variant, item.label, item.desc)
+    ).join('');
+    
+    // RELATED TAGS (semua mengandung 'leaked')
+    const relatedVariants = [
+        `${displayLower} leaked onlyfans content`,
+        `${displayLower} leaked instagram photos`,
+        `${displayLower} leaked tiktok videos`,
+        `leaked influencer similar to ${displayLower}`,
+        `viral leaked content archive`,
+        `telegram leaked channel ${displayLower}`,
+        `${displayLower} exclusive leaked dump`
+    ];
+    document.getElementById('related-tags').innerHTML = relatedVariants.map(v => 
+        `<a href="/section/?q=${encodeURIComponent(v)}" class="leak-tag">#${v.replace(/ /g, '_')}</a>`
+    ).join('');
+    
+    // INFO LINKS
+    const infoItems = [
+        { variant: 'leaked content preservation info', label: '📖 About This Leak Archive' },
+        { variant: 'leaked content update log', label: '🔄 Recent Leak Updates' },
+        { variant: 'leaked content source documentation', label: '🔍 Leak Source Documentation' }
+    ];
+    document.getElementById('info-links').innerHTML = infoItems.map(item => 
+        makeLeakedLink(item.variant, item.label, '')
+    ).join('');
+    
+    // dynamic stats
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    document.getElementById('update-date').innerText = dateStr;
+    
+    const statsDiv = document.getElementById('quick-stats-dynamic');
+    statsDiv.innerHTML = `
+        <div class="stat-card"><div class="stat-number">${Math.floor(Math.random() * 80) + 30}+</div><div>leaked files</div></div>
+        <div class="stat-card"><div class="stat-number">🔥 viral</div><div>status</div></div>
+        <div class="stat-card"><div class="stat-number">${dateStr}</div><div>last update</div></div>
+        <div class="stat-card"><div class="stat-number">TG/Disc</div><div>sources</div></div>
+    `;
+    
+    // canonical
+    const canonical = document.getElementById('dynamic-canonical');
+    if (canonical) {
+        canonical.setAttribute('href', window.location.href.split('?')[0]);
+    }
+})();
+</script>
+
+{% include footer.html %}
+</body>
+</html>

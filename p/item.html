@@ -1,0 +1,395 @@
+---
+layout: null
+permalink: /item/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <title id="dynamic-title">Index · Digital Reference Library</title>
+    <meta id="dynamic-description" name="description" content="Reference library of digital creators, public figures, and online personalities. Research-oriented archive maintained for documentation purposes.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/item/">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --surface: #fafafa;
+            --border: #eaeef2;
+            --text: #1a1f2e;
+            --text-secondary: #5b687c;
+            --accent: #3b6ea0;
+            --accent-light: #eef3fa;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg);
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        /* typography */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: normal;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin: 2rem 0 1rem;
+            letter-spacing: -0.2px;
+            border-left: 3px solid var(--accent);
+            padding-left: 1rem;
+        }
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0 0 0.25rem;
+        }
+        a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+        }
+        a:hover {
+            color: #1f4d6e;
+            text-decoration-thickness: 2px;
+        }
+        /* breadcrumb */
+        .breadcrumb {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+        .breadcrumb a { color: var(--text-secondary); }
+        .breadcrumb span:last-child { color: var(--text); font-weight: 500; }
+        /* stat bar minimal */
+        .stat-line {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin: 1rem 0 1.5rem;
+            padding: 0.5rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        /* list style */
+        .link-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        .link-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed var(--border);
+        }
+        .link-list li:last-child { border-bottom: none; }
+        .link-list a {
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .link-list a:hover { text-decoration: underline; }
+        .link-list small {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+        }
+        /* grid sederhana */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .card-mini {
+            border: 1px solid var(--border);
+            padding: 1rem;
+            background: var(--surface);
+            border-radius: 4px;
+        }
+        .card-mini h4 { font-size: 1rem; margin-bottom: 0.25rem; }
+        .card-mini p { font-size: 0.8rem; color: var(--text-secondary); margin: 0.25rem 0 0.5rem; }
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        .tag {
+            background: var(--accent-light);
+            padding: 0.2rem 0.6rem;
+            font-size: 0.7rem;
+            text-decoration: none;
+            color: var(--accent);
+            border-radius: 12px;
+        }
+        .tag:hover { background: #e2eaf1; text-decoration: none; }
+        hr {
+            margin: 2rem 0;
+            border: none;
+            border-top: 1px solid var(--border);
+        }
+        .footnote {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+        .hidden { display: none; }
+        .default-block { display: block; }
+        .query-block { display: none; }
+        @media (max-width: 640px) {
+            .wrapper { padding: 1rem; }
+            h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <!-- DEFAULT CONTENT (homepage index) -->
+    <div id="default-block" class="default-block">
+        <h1>Digital Reference Library</h1>
+        <p style="font-size: 1.1rem; color: #3a4a5f;">Independent archive of online personalities, public figures, and digital creators. Maintained for research and documentation.</p>
+        
+        <div class="stat-line">
+            <span>📚 <strong>14k+</strong> entries</span>
+            <span>🌐 <strong>600+</strong> indexed names</span>
+            <span>🕊️ <strong>est. 2022</strong></span>
+            <span>📋 <strong>weekly</strong> curation</span>
+        </div>
+
+        <div class="grid-2">
+            <div class="card-mini"><h4>📖 Biographical Index</h4><p>Profiles, background, career timeline.</p><a href="/item/?q=biography+index">Browse →</a></div>
+            <div class="card-mini"><h4>🖼️ Media Archive</h4><p>Curated image and video collections.</p><a href="/item/?q=media+archive">View →</a></div>
+            <div class="card-mini"><h4>🌍 Platform Footprint</h4><p>Social media presence documentation.</p><a href="/item/?q=platform+presence">Explore →</a></div>
+            <div class="card-mini"><h4>🔗 Reference Links</h4><p>Related personalities and cross-references.</p><a href="/item/?q=related+figures">Discover →</a></div>
+        </div>
+
+        <div class="tag-list">
+            <a href="/item/?q=digital+creators" class="tag">digital creators</a>
+            <a href="/item/?q=online+personalities" class="tag">online personalities</a>
+            <a href="/item/?q=public+figures" class="tag">public figures</a>
+            <a href="/item/?q=internet+archive" class="tag">internet archive</a>
+            <a href="/item/?q=research+database" class="tag">research database</a>
+        </div>
+    </div>
+
+    <!-- QUERY-BASED CONTENT -->
+    <div id="query-block" class="query-block">
+        <div class="breadcrumb">
+            <a href="/">Library</a> / <a href="/item/">Index</a> / <span id="bc-name"></span>
+        </div>
+
+        <h1 id="main-title"></h1>
+        <div class="stat-line" id="stat-line-dynamic"></div>
+
+        <!-- INTRO (single variant tapi tetap dinamis) -->
+        <div id="dynamic-intro" style="background: var(--accent-light); padding: 1rem; margin: 1rem 0; border-left: 3px solid var(--accent);">
+            <p id="intro-text"></p>
+        </div>
+
+        <!-- SECTION A: BIOGRAPHY & BACKGROUND -->
+        <h2>📋 Biography & Background</h2>
+        <ul class="link-list" id="bio-list"></ul>
+
+        <!-- SECTION B: MEDIA INDEX -->
+        <h2>🖼️ Media Index</h2>
+        <ul class="link-list" id="media-list"></ul>
+
+        <!-- SECTION C: PLATFORM PRESENCE -->
+        <h2>🌐 Platform Presence</h2>
+        <ul class="link-list" id="platform-list"></ul>
+
+        <!-- SECTION D: RELATED REFERENCES -->
+        <h2>🔗 Related References</h2>
+        <div class="tag-list" id="related-list"></div>
+
+        <!-- SECTION E: RESEARCH NOTES -->
+        <h2>📌 Research Notes</h2>
+        <div id="research-notes" style="font-size: 0.85rem; color: var(--text-secondary);"></div>
+
+        <hr />
+        <div class="footnote">
+            Independent digital archive · Last indexed <span id="update-date"></span>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const params = new URLSearchParams(window.location.search);
+    let query = params.get('q');
+
+    const defaultDiv = document.getElementById('default-block');
+    const queryDiv = document.getElementById('query-block');
+
+    if (!query) {
+        defaultDiv.style.display = 'block';
+        queryDiv.style.display = 'none';
+        return;
+    }
+
+    defaultDiv.style.display = 'none';
+    queryDiv.style.display = 'block';
+
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    
+    // clean base name (hapus kata2 umum)
+    const stopWords = ['archive', 'index', 'library', 'collection', 'database', 'research', 'reference', 'bio', 'biography', 'media', 'photo', 'video', 'platform', 'social', 'digital', 'creator', 'personality', 'figure', 'online', '2024', '2025', '2026'];
+    let baseRaw = query.toLowerCase();
+    stopWords.forEach(sw => {
+        const regex = new RegExp('\\b' + sw + '\\b', 'gi');
+        baseRaw = baseRaw.replace(regex, '');
+    });
+    baseRaw = baseRaw.replace(/\s+/g, ' ').trim();
+    const baseName = baseRaw || query;
+    
+    // format display name
+    function properCase(str) {
+        return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    }
+    const displayName = properCase(baseName);
+    const displayLower = displayName.toLowerCase();
+
+    // deteksi tipe dari query asli
+    const qLow = query.toLowerCase();
+    let contentType = 'general';
+    if (qLow.includes('bio') || qLow.includes('biography') || qLow.includes('profile')) contentType = 'bio';
+    else if (qLow.includes('photo') || qLow.includes('image') || qLow.includes('gallery') || qLow.includes('picture')) contentType = 'media';
+    else if (qLow.includes('video') || qLow.includes('clip')) contentType = 'media';
+    else if (qLow.includes('instagram') || qLow.includes('twitter') || qLow.includes('tiktok') || qLow.includes('youtube') || qLow.includes('platform')) contentType = 'platform';
+    
+    // SEO: title & description
+    let titleText = '';
+    let metaDescText = '';
+    if (contentType === 'bio') {
+        titleText = `${displayName} · Biography & Profile · Digital Reference Library`;
+        metaDescText = `Complete biography of ${displayName}. Background, career timeline, and public presence. Independent research archive.`;
+    } else if (contentType === 'media') {
+        titleText = `${displayName} · Media Archive · Curated Index`;
+        metaDescText = `Curated media collection of ${displayName}. Publicly available images and video documentation. Research purposes.`;
+    } else if (contentType === 'platform') {
+        titleText = `${displayName} · Platform Presence · Social Media Footprint`;
+        metaDescText = `Cross-platform presence of ${displayName}. Documentation from Instagram, Twitter, TikTok, and more.`;
+    } else {
+        titleText = `${displayName} · Digital Archive · Reference Entry`;
+        metaDescText = `Comprehensive reference entry for ${displayName}. Biography, media, and platform documentation. Independent library.`;
+    }
+    document.title = titleText;
+    const metaDesc = document.getElementById('dynamic-description');
+    if (metaDesc) metaDesc.setAttribute('content', metaDescText);
+    
+    document.getElementById('main-title').innerHTML = `${displayName} <span style="font-size:0.9rem; font-weight:normal;">· reference entry</span>`;
+    document.getElementById('bc-name').innerText = displayName;
+    
+    // intro text dinamis
+    const introP = document.getElementById('intro-text');
+    if (contentType === 'bio') {
+        introP.innerHTML = `This page provides a structured biographical reference for <strong>${displayName}</strong>, including early life, career milestones, and documented public presence. Maintained for research purposes.`;
+    } else if (contentType === 'media') {
+        introP.innerHTML = `Below is a curated index of publicly available media related to <strong>${displayName}</strong>. All items are referenced from documented sources.`;
+    } else if (contentType === 'platform') {
+        introP.innerHTML = `Digital footprint of <strong>${displayName}</strong> across major social and content platforms. This is an independent documentation project.`;
+    } else {
+        introP.innerHTML = `<strong>${displayName}</strong> is documented in this independent digital reference library. The following sections include biographical notes, media references, and platform presence.`;
+    }
+    
+    // helper membuat link internal
+    function buildLink(variantSuffix, label, description = '') {
+        const newQuery = `${displayLower} ${variantSuffix}`;
+        const href = `/item/?q=${encodeURIComponent(newQuery)}`;
+        return `<a href="${href}">${label}</a>${description ? `<small> — ${description}</small>` : ''}`;
+    }
+    
+    // BIO LIST
+    const bioItems = [
+        { variant: 'biography', label: 'Full Biography', desc: 'complete background and timeline' },
+        { variant: 'early life', label: 'Early Life & Origins', desc: 'background and formative years' },
+        { variant: 'career', label: 'Career Timeline', desc: 'major milestones and achievements' },
+        { variant: 'public image', label: 'Public Image', desc: 'media perception and presence' },
+        { variant: 'personal life', label: 'Personal Background', desc: 'documented non-career information' }
+    ];
+    document.getElementById('bio-list').innerHTML = bioItems.map(item => 
+        `<li>${buildLink(item.variant, item.label, item.desc)}</li>`
+    ).join('');
+    
+    // MEDIA LIST
+    const mediaItems = [
+        { variant: 'photo archive', label: 'Photo Archive', desc: 'curated image collection' },
+        { variant: 'video archive', label: 'Video Index', desc: 'public video documentation' },
+        { variant: 'gallery', label: 'Full Gallery', desc: 'complete media set' },
+        { variant: 'editorial', label: 'Editorial Features', desc: 'press and magazine coverage' }
+    ];
+    document.getElementById('media-list').innerHTML = mediaItems.map(item => 
+        `<li>${buildLink(item.variant, item.label, item.desc)}</li>`
+    ).join('');
+    
+    // PLATFORM LIST
+    const platformItems = [
+        { variant: 'instagram', label: 'Instagram Presence', desc: 'archived public posts' },
+        { variant: 'twitter', label: 'Twitter/X Activity', desc: 'public interactions' },
+        { variant: 'tiktok', label: 'TikTok Archive', desc: 'video content index' },
+        { variant: 'youtube', label: 'YouTube Channel', desc: 'documented uploads' },
+        { variant: 'facebook', label: 'Facebook Page', desc: 'public profile reference' }
+    ];
+    document.getElementById('platform-list').innerHTML = platformItems.map(item => 
+        `<li>${buildLink(item.variant, item.label, item.desc)}</li>`
+    ).join('');
+    
+    // RELATED TAGS (variasi luas)
+    const relatedQueries = [
+        `${displayLower} biography`, `${displayLower} career`, `${displayLower} social media`,
+        `${displayLower} photos`, `${displayLower} videos`, `digital creators`,
+        `online personalities archive`, `public figure index`, `internet culture research`,
+        `creator database`, `influencer reference`
+    ];
+    document.getElementById('related-list').innerHTML = relatedQueries.map(q => 
+        `<a href="/item/?q=${encodeURIComponent(q)}" class="tag">#${q.replace(/ /g, '')}</a>`
+    ).join('');
+    
+    // RESEARCH NOTES (evergreen, tidak terikat waktu)
+    const researchNotes = [
+        `This entry is part of an ongoing effort to document digital public figures.`,
+        `Information is aggregated from publicly available sources and maintained for reference.`,
+        `Last content review: systematic update cycle — no external submissions.`
+    ];
+    document.getElementById('research-notes').innerHTML = `<p>${researchNotes.join(' ')}</p>`;
+    
+    // dynamic stat line
+    const today = new Date();
+    const monthYear = today.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+    document.getElementById('stat-line-dynamic').innerHTML = `
+        <span>📁 <strong>entry ID</strong> · ${displayLower.substring(0,8)}</span>
+        <span>📅 <strong>indexed</strong> ${monthYear}</span>
+        <span>🏷️ <strong>category</strong> ${contentType}</span>
+        <span>🔍 <strong>relevance</strong> primary</span>
+    `;
+    document.getElementById('update-date').innerText = monthYear;
+    
+    // canonical link update
+    const canonicalLink = document.getElementById('dynamic-canonical');
+    if (canonicalLink) {
+        canonicalLink.setAttribute('href', window.location.href.split('?')[0]);
+    }
+})();
+</script>
+
+{% include footer.html %}
+</body>
+</html>

@@ -1,0 +1,516 @@
+---
+layout: null
+permalink: /rare/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <title id="dynamic-title">Leaked Content Archive · Influencer Index</title>
+    <meta id="dynamic-description" name="description" content="Comprehensive archive of viral leaked content from influencers, TikTokers, and creators. Curated index for research and documentation.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/rare/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0b0b0f;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            color: #ededee;
+        }
+
+        .site-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* header */
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #1f1f2a;
+        }
+
+        .logo {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #a855f7;
+        }
+
+        .logo h1 {
+            font-size: 1.4rem;
+            letter-spacing: -0.5px;
+            color: #fff;
+            margin-top: 0.25rem;
+        }
+
+        .trend-badge {
+            background: #1a1a2a;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            color: #c084fc;
+        }
+
+        /* breadcrumb */
+        .breadcrumb {
+            font-size: 0.7rem;
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            color: #6b7280;
+            text-decoration: none;
+        }
+
+        .breadcrumb span:last-child {
+            color: #c084fc;
+        }
+
+        /* stat strip */
+        .stat-strip {
+            background: #11111a;
+            border-radius: 16px;
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.7rem;
+            border: 1px solid #1f1f2a;
+        }
+
+        /* gallery grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        .leak-card {
+            background: #11111a;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #1f1f2a;
+            transition: all 0.2s ease;
+        }
+
+        .leak-card:hover {
+            border-color: #a855f7;
+            transform: translateY(-3px);
+        }
+
+        .card-media {
+            height: 160px;
+            background: linear-gradient(135deg, #1a1a2a, #0f0f18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .card-content {
+            padding: 1rem;
+        }
+
+        .card-category {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #a855f7;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .card-stats {
+            display: flex;
+            gap: 0.75rem;
+            font-size: 0.65rem;
+            color: #6b7280;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-link {
+            margin-top: 0.5rem;
+        }
+
+        .card-link a {
+            color: #c084fc;
+            text-decoration: none;
+            font-size: 0.75rem;
+        }
+
+        /* tag cloud */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .tag {
+            background: #1a1a2a;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            color: #c084fc;
+            text-decoration: none;
+        }
+
+        .tag:hover {
+            background: #2a2a3a;
+        }
+
+        /* featured section */
+        .featured-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+
+        .featured-item {
+            background: #11111a;
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border: 1px solid #1f1f2a;
+        }
+
+        /* footer */
+        hr {
+            border: none;
+            border-top: 1px solid #1f1f2a;
+            margin: 2rem 0;
+        }
+
+        .footer-note {
+            font-size: 0.6rem;
+            color: #4a4a5a;
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .default-home {
+            display: block;
+        }
+
+        .query-results {
+            display: none;
+        }
+
+        @media (max-width: 640px) {
+            .site-wrapper { padding: 1rem; }
+            .gallery-grid { gap: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="site-wrapper">
+    <!-- DEFAULT HOMEPAGE -->
+    <div id="default-home" class="default-home">
+        <div class="site-header">
+            <div class="logo">
+                <div>LEAKED INDEX</div>
+                <h1>Influencer Content Archive</h1>
+            </div>
+            <div class="trend-badge">🔥 2,400+ archived entries</div>
+        </div>
+
+        <div class="stat-strip">
+            <span>📸 <strong>15k+</strong> media files</span>
+            <span>👤 <strong>600+</strong> creators</span>
+            <span>🔄 <strong>daily</strong> updates</span>
+            <span>📁 <strong>viral</strong> collection</span>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="leak-card">
+                <div class="card-media">🔥</div>
+                <div class="card-content">
+                    <div class="card-category">TRENDING</div>
+                    <div class="card-title">Viral Leak Drops</div>
+                    <div class="card-stats"><span>📁 200+ files</span><span>⚡ #1 this week</span></div>
+                    <div class="card-link"><a href="/rare/?q=trending+leak+drops">View collection →</a></div>
+                </div>
+            </div>
+            <div class="leak-card">
+                <div class="card-media">🎬</div>
+                <div class="card-content">
+                    <div class="card-category">VIDEO</div>
+                    <div class="card-title">TikTok Leaks Archive</div>
+                    <div class="card-stats"><span>🎥 500+ clips</span><span>📱 deleted content</span></div>
+                    <div class="card-link"><a href="/rare/?q=tiktok+leaks+archive">Watch archive →</a></div>
+                </div>
+            </div>
+            <div class="leak-card">
+                <div class="card-media">📸</div>
+                <div class="card-content">
+                    <div class="card-category">PHOTO</div>
+                    <div class="card-title">OnlyFans Leaks</div>
+                    <div class="card-stats"><span>🖼️ 1k+ images</span><span>🔞 exclusive</span></div>
+                    <div class="card-link"><a href="/rare/?q=onlyfans+leaks+gallery">Browse →</a></div>
+                </div>
+            </div>
+            <div class="leak-card">
+                <div class="card-media">💎</div>
+                <div class="card-content">
+                    <div class="card-category">EXCLUSIVE</div>
+                    <div class="card-title">Rare Leak Vault</div>
+                    <div class="card-stats"><span>🔒 private</span><span>⭐ limited</span></div>
+                    <div class="card-link"><a href="/rare/?q=rare+leak+vault">Enter vault →</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tag-cloud">
+            <a href="/rare/?q=instagram+leaks" class="tag">#InstagramLeaks</a>
+            <a href="/rare/?q=tiktok+leaks" class="tag">#TikTokLeaks</a>
+            <a href="/rare/?q=onlyfans+leaks" class="tag">#OnlyFansLeaks</a>
+            <a href="/rare/?q=twitter+leaks" class="tag">#TwitterLeaks</a>
+            <a href="/rare/?q=telegram+leaks" class="tag">#TelegramLeaks</a>
+            <a href="/rare/?q=discord+leaks" class="tag">#DiscordLeaks</a>
+            <a href="/rare/?q=influencer+leaks" class="tag">#InfluencerLeaks</a>
+        </div>
+
+        <div class="featured-row">
+            <div class="featured-item"><span>🔥 Most requested this month</span><a href="/rare/?q=most+requested+leaks">View →</a></div>
+            <div class="featured-item"><span>🎬 New video leaks added today</span><a href="/rare/?q=new+video+leaks">See new →</a></div>
+            <div class="featured-item"><span>📸 Telegram channel archives</span><a href="/rare/?q=telegram+leak+archives">Browse →</a></div>
+        </div>
+    </div>
+
+    <!-- QUERY-BASED RESULTS -->
+    <div id="query-results" class="query-results">
+        <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/rare/">Leaks</a> / <span id="bc-name"></span>
+        </div>
+
+        <div class="site-header" style="border-bottom: none; margin-bottom: 0;">
+            <div class="logo">
+                <div>LEAKED ARCHIVE</div>
+                <h1 id="main-heading"></h1>
+            </div>
+            <div class="trend-badge" id="trend-badge-dynamic">🔥 trending</div>
+        </div>
+
+        <div class="stat-strip" id="stat-strip-dynamic"></div>
+
+        <!-- INTRO -->
+        <div id="intro-box" style="background: #11111a; border-radius: 16px; padding: 1rem; margin-bottom: 1.5rem; border-left: 3px solid #a855f7;">
+            <p id="intro-text"></p>
+        </div>
+
+        <!-- SECTION: LEAKED MEDIA GALLERY -->
+        <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #a855f7; margin-bottom: 0.75rem;">📁 LEAKED MEDIA COLLECTIONS</h3>
+        <div class="gallery-grid" id="media-gallery"></div>
+
+        <!-- SECTION: PLATFORM SOURCES -->
+        <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #a855f7; margin: 1.5rem 0 0.75rem;">🌐 WHERE THESE LEAKS SPREAD</h3>
+        <div class="featured-row" id="platform-sources"></div>
+
+        <!-- SECTION: RELATED LEAKS -->
+        <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #a855f7; margin: 1.5rem 0 0.75rem;">🔗 SIMILAR LEAKED CONTENT</h3>
+        <div class="tag-cloud" id="related-leaks"></div>
+
+        <!-- SECTION: FAQ -->
+        <h3 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #a855f7; margin: 1.5rem 0 0.75rem;">❓ ABOUT THIS ARCHIVE</h3>
+        <div id="faq-content" style="font-size: 0.75rem; color: #9ca3af;"></div>
+
+        <hr />
+        <div class="footer-note">
+            Independent leak archive · Preserved for documentation · Updated <span id="update-date"></span>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let query = urlParams.get('q');
+
+    const defaultDiv = document.getElementById('default-home');
+    const queryDiv = document.getElementById('query-results');
+
+    if (!query) {
+        defaultDiv.style.display = 'block';
+        queryDiv.style.display = 'none';
+        return;
+    }
+
+    defaultDiv.style.display = 'none';
+    queryDiv.style.display = 'block';
+
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    
+    // extract influencer/creator name
+    const removeTerms = ['leaks', 'leaked', 'leak', 'archive', 'collection', 'gallery', 'vault', 'drops', 'content', 'media', 'videos', 'photos', 'onlyfans', 'tiktok', 'instagram', 'twitter', 'telegram', 'discord', 'trending', 'new', 'rare', 'exclusive', 'viral', '2024', '2025', '2026'];
+    let baseRaw = query.toLowerCase();
+    removeTerms.forEach(term => {
+        const regex = new RegExp('\\b' + term + '\\b', 'gi');
+        baseRaw = baseRaw.replace(regex, '');
+    });
+    baseRaw = baseRaw.replace(/\s+/g, ' ').trim();
+    let baseName = baseRaw || query;
+    if (baseName.length < 2) baseName = query;
+    
+    function formatName(str) {
+        return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    }
+    const displayName = formatName(baseName);
+    const displayLower = displayName.toLowerCase();
+
+    // detect content type
+    const qLow = query.toLowerCase();
+    let contentType = 'general';
+    if (qLow.includes('video') || qLow.includes('clip')) contentType = 'video';
+    else if (qLow.includes('photo') || qLow.includes('image') || qLow.includes('gallery')) contentType = 'photo';
+    else if (qLow.includes('onlyfans')) contentType = 'onlyfans';
+    else if (qLow.includes('tiktok')) contentType = 'tiktok';
+    else if (qLow.includes('instagram')) contentType = 'instagram';
+    else if (qLow.includes('twitter')) contentType = 'twitter';
+    else if (qLow.includes('telegram')) contentType = 'telegram';
+    
+    // SEO
+    let pageTitle = '';
+    let pageDesc = '';
+    if (contentType === 'video') {
+        pageTitle = `${displayName} · Leaked Videos Archive`;
+        pageDesc = `Full archive of leaked videos from ${displayName}. Preserved viral clips and deleted content.`;
+    } else if (contentType === 'photo') {
+        pageTitle = `${displayName} · Leaked Photos Gallery`;
+        pageDesc = `Complete leaked photo collection of ${displayName}. Preserved images from private folders.`;
+    } else if (contentType === 'onlyfans') {
+        pageTitle = `${displayName} · OnlyFans Leaks Archive`;
+        pageDesc = `${displayName} OnlyFans leaked content archive. Complete preserved collection.`;
+    } else if (contentType === 'tiktok') {
+        pageTitle = `${displayName} · TikTok Leaks Archive`;
+        pageDesc = `TikTok leaks from ${displayName}. Deleted videos and viral clips preserved.`;
+    } else {
+        pageTitle = `${displayName} · Complete Leaked Content Archive`;
+        pageDesc = `Complete leaked content archive of ${displayName}. Photos, videos, and exclusive material preserved for documentation.`;
+    }
+    document.title = pageTitle;
+    const metaTag = document.getElementById('dynamic-description');
+    if (metaTag) metaTag.setAttribute('content', pageDesc);
+    
+    document.getElementById('main-heading').innerHTML = `${displayName} <span style="font-size:0.8rem; font-weight:normal;">· leaked archive</span>`;
+    document.getElementById('bc-name').innerText = displayName;
+    
+    // intro text
+    const introEl = document.getElementById('intro-text');
+    introEl.innerHTML = `Complete leaked content archive for <strong>${displayName}</strong>. This collection includes preserved photos, videos, and exclusive material that circulated across Telegram, Discord, Twitter, and other platforms. Part of the independent internet preservation project.`;
+    
+    // helper
+    function makeLeakLink(variant, label) {
+        const newQ = `${displayLower} ${variant}`;
+        return `<a href="/rare/?q=${encodeURIComponent(newQ)}" style="color:#c084fc;">${label}</a>`;
+    }
+    
+    // MEDIA GALLERY (4 cards)
+    const mediaCards = [
+        { icon: '📸', category: 'PHOTO', title: 'Full Leaked Photo Set', stats: '🖼️ 50+ images', variant: 'leaked photos', label: 'View gallery' },
+        { icon: '🎬', category: 'VIDEO', title: 'Leaked Video Compilation', stats: '🎥 20+ clips', variant: 'leaked videos', label: 'Watch archive' },
+        { icon: '💎', category: 'EXCLUSIVE', title: 'Rare / Unseen Content', stats: '⭐ limited circulation', variant: 'rare leaks', label: 'Access vault' },
+        { icon: '📁', category: 'COMPLETE', title: 'Full Archive Dump', stats: '📦 all content', variant: 'full archive', label: 'Download index' }
+    ];
+    document.getElementById('media-gallery').innerHTML = mediaCards.map(card => `
+        <div class="leak-card">
+            <div class="card-media">${card.icon}</div>
+            <div class="card-content">
+                <div class="card-category">${card.category}</div>
+                <div class="card-title">${card.title}</div>
+                <div class="card-stats">${card.stats}</div>
+                <div class="card-link">${makeLeakLink(card.variant, card.label)}</div>
+            </div>
+        </div>
+    `).join('');
+    
+    // PLATFORM SOURCES
+    const platformItems = [
+        { name: 'Telegram Channels', variant: 'telegram leaks', label: 'View source' },
+        { name: 'Discord Servers', variant: 'discord leaks', label: 'Explore' },
+        { name: 'Twitter / X', variant: 'twitter leaks', label: 'See threads' },
+        { name: 'Reddit Archives', variant: 'reddit leaks', label: 'Browse' }
+    ];
+    document.getElementById('platform-sources').innerHTML = platformItems.map(item => `
+        <div class="featured-item">
+            <span>📱 ${item.name}</span>
+            ${makeLeakLink(item.variant, item.label)}
+        </div>
+    `).join('');
+    
+    // RELATED LEAKS (tags)
+    const relatedVariants = [
+        `${displayLower} onlyfans leaks`, `${displayLower} instagram leaks`, `${displayLower} tiktok leaks`,
+        `similar influencers leaks`, `trending leaked content`, `viral leak archive`,
+        `${displayLower} exclusive content`, `${displayLower} private leaks`
+    ];
+    document.getElementById('related-leaks').innerHTML = relatedVariants.map(v => 
+        `<a href="/rare/?q=${encodeURIComponent(v)}" class="tag">#${v.replace(/ /g, '_')}</a>`
+    ).join('');
+    
+    // FAQ
+    const faqHtml = `
+        <p><strong>What's included in this ${displayName} leak archive?</strong><br>Complete collection of leaked photos, videos, and exclusive content from Telegram, Discord, and Twitter archives.</p>
+        <p style="margin-top:0.75rem;"><strong>How often is this updated?</strong><br>New leaks are added as they surface across preservation networks.</p>
+        <p style="margin-top:0.75rem;"><strong>Where do these leaks come from?</strong><br>Sources include private Telegram channels, Discord servers, and viral Twitter threads.</p>
+    `;
+    document.getElementById('faq-content').innerHTML = faqHtml;
+    
+    // dynamic stat strip
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    document.getElementById('update-date').innerText = dateStr;
+    
+    const statStrip = document.getElementById('stat-strip-dynamic');
+    statStrip.innerHTML = `
+        <span>📸 <strong>${Math.floor(Math.random() * 100) + 50}+</strong> media files</span>
+        <span>🔥 <strong>viral</strong> status</span>
+        <span>📅 <strong>added</strong> ${dateStr}</span>
+        <span>🔗 <strong>source</strong> multi-platform</span>
+    `;
+    
+    // trending badge dynamic
+    const badge = document.getElementById('trend-badge-dynamic');
+    badge.innerHTML = '🔥 viral archive';
+    
+    // canonical
+    const canonical = document.getElementById('dynamic-canonical');
+    if (canonical) {
+        canonical.setAttribute('href', window.location.href.split('?')[0]);
+    }
+})();
+</script>
+
+{% include footer.html %}
+</body>
+</html>

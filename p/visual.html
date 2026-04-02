@@ -1,0 +1,474 @@
+---
+layout: null
+permalink: /visual/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <title id="dynamic-title">Timeline · Digital Culture Archive</title>
+    <meta id="dynamic-description" name="description" content="Visual timeline of digital culture events, viral moments, and internet history. Chronological archive for research and reference.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/visual/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #050a12;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #eef2ff;
+            overflow-x: hidden;
+        }
+
+        /* horizontal scroll container */
+        .timeline-container {
+            min-height: 100vh;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            cursor: grab;
+        }
+
+        .timeline-container:active {
+            cursor: grabbing;
+        }
+
+        .timeline-track {
+            display: flex;
+            flex-direction: row;
+            gap: 1.5rem;
+            padding: 2rem 3rem;
+            width: max-content;
+            min-height: 100vh;
+            align-items: stretch;
+        }
+
+        /* timeline card */
+        .timeline-card {
+            width: 380px;
+            flex-shrink: 0;
+            background: linear-gradient(145deg, #0f172a 0%, #0a0f1c 100%);
+            border-radius: 24px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            overflow: hidden;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-year {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #3b82f6;
+            padding: 1rem 1.25rem 0.25rem;
+            text-transform: uppercase;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            padding: 0 1.25rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            padding: 0.5rem 1.25rem;
+            color: #f1f5f9;
+        }
+
+        .card-desc {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            padding: 0 1.25rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .card-link {
+            padding: 1rem 1.25rem;
+            border-top: 1px solid rgba(59, 130, 246, 0.15);
+            margin-top: 0.75rem;
+        }
+
+        .card-link a {
+            color: #60a5fa;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .card-link a:hover {
+            color: #93c5fd;
+            text-decoration: underline;
+        }
+
+        /* navigation buttons */
+        .nav-buttons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 0.75rem;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 40px;
+            padding: 0.6rem 1rem;
+            cursor: pointer;
+            color: #94a3b8;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: #2d3a4e;
+            color: #f1f5f9;
+            border-color: #3b82f6;
+        }
+
+        /* header untuk default view */
+        .default-header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: #0f172a;
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid #1e293b;
+        }
+
+        .breadcrumb {
+            font-size: 0.7rem;
+            color: #5b6e8c;
+            padding: 1rem 2rem;
+            background: #0a0f1c;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .breadcrumb a {
+            color: #5b6e8c;
+            text-decoration: none;
+        }
+
+        .timeline-header {
+            padding: 1rem 2rem 0.5rem;
+            background: #0a0f1c;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .timeline-header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .default-view {
+            display: block;
+        }
+
+        .timeline-view {
+            display: none;
+        }
+
+        @media (max-width: 640px) {
+            .timeline-card { width: 300px; }
+            .hero h1 { font-size: 2rem; }
+            .nav-buttons { bottom: 1rem; right: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- DEFAULT VIEW (home) -->
+    <div id="default-view" class="default-view">
+        <div class="default-header">
+            <div class="hero">
+                <h1>Digital Culture<br>Timeline Archive</h1>
+                <p style="color: #94a3b8; margin-top: 1rem;">Chronological documentation of viral moments, internet history, and digital ephemera.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card"><span style="font-size: 2rem;">📅</span><h3>Timeline View</h3><p>Scroll through internet history chronologically</p><a href="/visual/?q=timeline+explore" style="color:#60a5fa;">Explore →</a></div>
+                <div class="feature-card"><span style="font-size: 2rem;">🔥</span><h3>Viral Moments</h3><p>Most significant digital events</p><a href="/visual/?q=viral+moments+timeline" style="color:#60a5fa;">View →</a></div>
+                <div class="feature-card"><span style="font-size: 2rem;">📀</span><h3>Preserved Media</h3><p>Archived content by era</p><a href="/visual/?q=media+timeline" style="color:#60a5fa;">Browse →</a></div>
+            </div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <a href="/visual/?q=2025+timeline" class="feature-card" style="padding: 0.5rem 1rem; background:#1e293b;">2025</a>
+                <a href="/visual/?q=2024+timeline" class="feature-card" style="padding: 0.5rem 1rem; background:#1e293b;">2024</a>
+                <a href="/visual/?q=instagram+history" class="feature-card" style="padding: 0.5rem 1rem; background:#1e293b;">Instagram Archive</a>
+                <a href="/visual/?q=tiktok+timeline" class="feature-card" style="padding: 0.5rem 1rem; background:#1e293b;">TikTok Era</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- TIMELINE VIEW (query-based) -->
+    <div id="timeline-view" class="timeline-view">
+        <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/visual/">Archive</a> / <span id="bc-name"></span>
+        </div>
+        <div class="timeline-header">
+            <h1 id="timeline-title"></h1>
+            <p id="timeline-subtitle" style="color: #94a3b8; font-size: 0.8rem; margin-top: 0.25rem;"></p>
+        </div>
+
+        <div class="timeline-container" id="timeline-container">
+            <div class="timeline-track" id="timeline-track">
+                <!-- cards akan diisi JavaScript -->
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <button class="nav-btn" id="scroll-left">← Prev</button>
+            <button class="nav-btn" id="scroll-right">Next →</button>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+
+        const defaultDiv = document.getElementById('default-view');
+        const timelineDiv = document.getElementById('timeline-view');
+
+        if (!query) {
+            defaultDiv.style.display = 'block';
+            timelineDiv.style.display = 'none';
+            return;
+        }
+
+        defaultDiv.style.display = 'none';
+        timelineDiv.style.display = 'block';
+
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        
+        // extract entity name
+        const removeTerms = ['timeline', 'archive', 'history', 'era', 'moments', 'media', '2024', '2025', '2026', 'viral', 'preserved', 'explore', 'view', 'browse'];
+        let entityRaw = query.toLowerCase();
+        removeTerms.forEach(term => {
+            const regex = new RegExp('\\b' + term + '\\b', 'gi');
+            entityRaw = entityRaw.replace(regex, '');
+        });
+        entityRaw = entityRaw.replace(/\s+/g, ' ').trim();
+        let entityName = entityRaw || query;
+        if (entityName.length < 2) entityName = query;
+        
+        function toTitle(str) {
+            return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+        }
+        const displayEntity = toTitle(entityName);
+        const entityLower = displayEntity.toLowerCase();
+
+        // detect timeline type
+        const qLow = query.toLowerCase();
+        let timelineType = 'general';
+        if (qLow.includes('video') || qLow.includes('clip')) timelineType = 'video';
+        else if (qLow.includes('photo') || qLow.includes('image') || qLow.includes('gallery')) timelineType = 'photo';
+        else if (qLow.includes('instagram') || qLow.includes('tiktok') || qLow.includes('twitter')) timelineType = 'platform';
+        else if (qLow.includes('bio') || qLow.includes('profile')) timelineType = 'bio';
+        else if (qLow.includes('2024')) timelineType = 'year2024';
+        else if (qLow.includes('2025')) timelineType = 'year2025';
+        
+        // SEO
+        let pageTitle = '';
+        let pageDesc = '';
+        if (timelineType === 'video') {
+            pageTitle = `${displayEntity} · Video Timeline · Digital Archive`;
+            pageDesc = `Chronological timeline of video content related to ${displayEntity}. Documenting digital media history.`;
+        } else if (timelineType === 'photo') {
+            pageTitle = `${displayEntity} · Image Timeline · Visual Archive`;
+            pageDesc = `Visual timeline of images and galleries related to ${displayEntity}. Preserved for research.`;
+        } else if (timelineType === 'platform') {
+            pageTitle = `${displayEntity} · Platform Timeline · Social Media History`;
+            pageDesc = `Chronological documentation of ${displayEntity} across social platforms. Internet history archive.`;
+        } else {
+            pageTitle = `${displayEntity} · Timeline Archive · Digital Culture`;
+            pageDesc = `Complete timeline of ${displayEntity}. Chronological documentation of digital events and preserved content.`;
+        }
+        document.title = pageTitle;
+        const metaDesc = document.getElementById('dynamic-description');
+        if (metaDesc) metaDesc.setAttribute('content', pageDesc);
+        
+        document.getElementById('timeline-title').innerHTML = `${displayEntity} <span style="font-size:0.8rem; font-weight:normal;">· chronological timeline</span>`;
+        document.getElementById('timeline-subtitle').innerHTML = `Horizontal scroll timeline · ${new Date().getFullYear()} archive`;
+        document.getElementById('bc-name').innerText = displayEntity;
+        
+        // helper: generate dynamic link
+        function makeTimelineLink(variant, label) {
+            const newQ = `${entityLower} ${variant}`;
+            return `<a href="/visual/?q=${encodeURIComponent(newQ)}">${label}</a>`;
+        }
+        
+        // generate timeline cards berdasarkan type
+        let timelineCards = [];
+        
+        if (timelineType === 'video') {
+            timelineCards = [
+                { year: '2023', icon: '🎬', title: 'Early Video Archive', desc: 'Initial documented video content', linkVariant: 'early videos', linkLabel: 'View early archive' },
+                { year: '2024', icon: '📹', title: 'Peak Viral Period', desc: 'Most circulated video content', linkVariant: 'viral videos', linkLabel: 'Explore peak era' },
+                { year: '2025', icon: '🎥', title: 'Preserved Clips', desc: 'Archived and documented footage', linkVariant: 'preserved videos', linkLabel: 'Access archive' },
+                { year: '2026', icon: '📀', title: 'Recent Additions', desc: 'Latest documented content', linkVariant: 'recent videos', linkLabel: 'View recent' }
+            ];
+        } else if (timelineType === 'photo') {
+            timelineCards = [
+                { year: '2022-2023', icon: '📸', title: 'Early Image Set', desc: 'First documented galleries', linkVariant: 'early photos', linkLabel: 'Browse' },
+                { year: '2024', icon: '🖼️', title: 'Expansion Period', desc: 'Most referenced images', linkVariant: 'popular photos', linkLabel: 'View collection' },
+                { year: '2025', icon: '🎞️', title: 'Full Gallery Archive', desc: 'Complete preserved sets', linkVariant: 'full gallery', linkLabel: 'Access archive' },
+                { year: '2026', icon: '📷', title: 'Recent Updates', desc: 'Newly documented images', linkVariant: 'recent photos', linkLabel: 'See new' }
+            ];
+        } else if (timelineType === 'platform') {
+            timelineCards = [
+                { year: '2023', icon: '📱', title: 'Early Platform Presence', desc: 'Initial social media footprint', linkVariant: 'early presence', linkLabel: 'View timeline' },
+                { year: '2024', icon: '🔥', title: 'Viral Expansion', desc: 'Cross-platform spread', linkVariant: 'viral spread', linkLabel: 'Explore' },
+                { year: '2025', icon: '🌐', title: 'Platform Documentation', desc: 'Archived posts and interactions', linkVariant: 'platform archive', linkLabel: 'Access' },
+                { year: '2026', icon: '📊', title: 'Current Status', desc: 'Recent platform activity', linkVariant: 'current presence', linkLabel: 'View' }
+            ];
+        } else if (timelineType === 'bio') {
+            timelineCards = [
+                { year: 'Early', icon: '👤', title: 'Background & Origins', desc: 'Early life and career start', linkVariant: 'early life', linkLabel: 'Read' },
+                { year: 'Rise', icon: '📈', title: 'Career Milestones', desc: 'Key achievements and recognition', linkVariant: 'career', linkLabel: 'View timeline' },
+                { year: 'Present', icon: '⭐', title: 'Current Profile', desc: 'Recent developments', linkVariant: 'current bio', linkLabel: 'See profile' }
+            ];
+        } else if (timelineType === 'year2024') {
+            timelineCards = [
+                { year: 'Q1 2024', icon: '📅', title: 'Early 2024 Archive', desc: 'January - March documented events', linkVariant: 'q1 2024', linkLabel: 'View' },
+                { year: 'Q2 2024', icon: '📅', title: 'Spring Period', desc: 'April - June content', linkVariant: 'q2 2024', linkLabel: 'Explore' },
+                { year: 'Q3 2024', icon: '📅', title: 'Summer Archive', desc: 'July - September documentation', linkVariant: 'q3 2024', linkLabel: 'Browse' },
+                { year: 'Q4 2024', icon: '📅', title: 'Year End', desc: 'October - December preserved content', linkVariant: 'q4 2024', linkLabel: 'Access' }
+            ];
+        } else if (timelineType === 'year2025') {
+            timelineCards = [
+                { year: 'Q1 2025', icon: '📅', title: 'Early 2025', desc: 'First quarter documentation', linkVariant: 'q1 2025', linkLabel: 'View' },
+                { year: 'Q2 2025', icon: '📅', title: 'Mid Year', desc: 'Spring and early summer', linkVariant: 'q2 2025', linkLabel: 'Explore' },
+                { year: 'Q3 2025', icon: '📅', title: 'Late Year', desc: 'Third quarter events', linkVariant: 'q3 2025', linkLabel: 'Browse' },
+                { year: 'Q4 2025', icon: '📅', title: 'Year End Summary', desc: 'Complete 2025 archive', linkVariant: 'q4 2025', linkLabel: 'Access' }
+            ];
+        } else {
+            // general timeline
+            timelineCards = [
+                { year: 'Origin', icon: '🌱', title: 'First Appearance', desc: 'Initial documentation and emergence', linkVariant: 'origin', linkLabel: 'View origin' },
+                { year: 'Growth', icon: '📈', title: 'Development Period', desc: 'Key milestones and spread', linkVariant: 'development', linkLabel: 'Explore growth' },
+                { year: 'Peak', icon: '🔥', title: 'Viral Moment', desc: 'Peak circulation and attention', linkVariant: 'peak', linkLabel: 'See peak' },
+                { year: 'Archive', icon: '📀', title: 'Preservation Status', desc: 'Current archived state', linkVariant: 'archive status', linkLabel: 'Access archive' }
+            ];
+        }
+        
+        // render timeline cards
+        const track = document.getElementById('timeline-track');
+        track.innerHTML = timelineCards.map(card => `
+            <div class="timeline-card">
+                <div class="card-year">${card.year}</div>
+                <div class="card-icon">${card.icon}</div>
+                <div class="card-title">${card.title}</div>
+                <div class="card-desc">${card.desc}</div>
+                <div class="card-link">
+                    ${makeTimelineLink(card.linkVariant, card.linkLabel)}
+                </div>
+            </div>
+        `).join('');
+        
+        // tambahkan card "Related" di akhir
+        const relatedCard = `
+            <div class="timeline-card">
+                <div class="card-year">🔗 RELATED</div>
+                <div class="card-icon">🔍</div>
+                <div class="card-title">More Like This</div>
+                <div class="card-desc">Explore similar timeline entries and related archives.</div>
+                <div class="card-link">
+                    <a href="/visual/?q=${encodeURIComponent(entityLower + ' similar entries')}">Discover related →</a>
+                </div>
+            </div>
+        `;
+        track.insertAdjacentHTML('beforeend', relatedCard);
+        
+        // horizontal scroll functionality
+        const container = document.getElementById('timeline-container');
+        const leftBtn = document.getElementById('scroll-left');
+        const rightBtn = document.getElementById('scroll-right');
+        
+        leftBtn.addEventListener('click', () => {
+            container.scrollBy({ left: -400, behavior: 'smooth' });
+        });
+        
+        rightBtn.addEventListener('click', () => {
+            container.scrollBy({ left: 400, behavior: 'smooth' });
+        });
+        
+        // drag to scroll
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        container.addEventListener('mousedown', (e) => {
+            isDown = true;
+            container.style.cursor = 'grabbing';
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+        });
+        
+        container.addEventListener('mouseleave', () => {
+            isDown = false;
+            container.style.cursor = 'grab';
+        });
+        
+        container.addEventListener('mouseup', () => {
+            isDown = false;
+            container.style.cursor = 'grab';
+        });
+        
+        container.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            container.scrollLeft = scrollLeft - walk;
+        });
+        
+        // canonical link
+        const canonical = document.getElementById('dynamic-canonical');
+        if (canonical) {
+            canonical.setAttribute('href', window.location.href.split('?')[0]);
+        }
+    })();
+    </script>
+
+    {% include footer.html %}
+</body>
+</html>

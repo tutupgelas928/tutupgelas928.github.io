@@ -1,0 +1,481 @@
+---
+layout: null
+permalink: /studio/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <title id="dynamic-title">Digital Archive Hub</title>
+    <meta id="dynamic-description" name="description" content="Independent digital archive. Curated collections of public figures, creators, and online personalities. Research and preservation purpose.">
+    <link rel="canonical" id="dynamic-canonical" href="https://example.com/studio/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f8fafc;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            color: #0f172a;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* typography */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            color: #0f172a;
+        }
+
+        h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem;
+            color: #1e293b;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #1d4ed8;
+        }
+
+        /* breadcrumb */
+        .breadcrumb {
+            font-size: 0.875rem;
+            color: #475569;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb a {
+            color: #475569;
+        }
+
+        .breadcrumb span:last-child {
+            color: #0f172a;
+            font-weight: 500;
+        }
+
+        /* cards grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.25rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
+        }
+
+        .card:hover {
+            border-color: #94a3b8;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .card .tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        /* stats bar */
+        .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            background: #f1f5f9;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            margin: 1.5rem 0;
+            font-size: 0.875rem;
+            color: #334155;
+        }
+
+        .stats-row strong {
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        /* tag cloud */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .pill {
+            background: #e2e8f0;
+            color: #1e293b;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+
+        .pill:hover {
+            background: #cbd5e1;
+            text-decoration: none;
+        }
+
+        /* faq */
+        .faq-item {
+            margin: 1rem 0;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .faq-item summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: #0f172a;
+        }
+
+        .faq-item p {
+            margin-top: 0.5rem;
+            color: #334155;
+        }
+
+        /* intro box */
+        .intro-box {
+            background: #f1f5f9;
+            border-left: 4px solid #3b82f6;
+            padding: 1.25rem 1.5rem;
+            border-radius: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        hr {
+            margin: 2rem 0;
+            border: none;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .default-content, .query-content {
+            display: block;
+        }
+
+        .query-content {
+            display: none;
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 1rem; }
+            h1 { font-size: 1.8rem; }
+            .grid { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- ========== DEFAULT CONTENT (no query) ========== -->
+    <div id="default-content">
+        <h1>Digital Index · Creator Archive</h1>
+        <p style="font-size: 1.2rem; color: #334155; margin-bottom: 1.5rem;">Independent research library of online personalities, digital creators, and public figures. Curated for documentation and reference.</p>
+        
+        <div class="stats-row">
+            <span><strong>📚 12k+</strong> indexed entries</span>
+            <span><strong>🌐 400+</strong> creators</span>
+            <span><strong>🔄 weekly</strong> updates</span>
+            <span><strong>📁 research</strong> purpose</span>
+        </div>
+
+        <div class="grid">
+            <div class="card"><span class="tag">📖 trending</span><h3>Popular Figures</h3><p>Most researched public personalities this month.</p><a href="/studio/?q=popular+creators">Explore →</a></div>
+            <div class="card"><span class="tag">🎥 video index</span><h3>Video Archives</h3><p>Curated video collections from various platforms.</p><a href="/studio/?q=video+archive">Browse →</a></div>
+            <div class="card"><span class="tag">📸 photo library</span><h3>Image Collections</h3><p>Publicly available image galleries and portfolios.</p><a href="/studio/?q=photo+archive">View →</a></div>
+            <div class="card"><span class="tag">📋 biography</span><h3>Creator Profiles</h3><p>Background, career, and digital footprint.</p><a href="/studio/?q=creator+bio">Read →</a></div>
+        </div>
+
+        <div class="tag-cloud">
+            <a href="/studio/?q=digital+creators" class="pill">#DigitalCreators</a>
+            <a href="/studio/?q=online+personalities" class="pill">#OnlinePersonalities</a>
+            <a href="/studio/?q=social+media+archive" class="pill">#SocialMediaArchive</a>
+            <a href="/studio/?q=internet+culture" class="pill">#InternetCulture</a>
+            <a href="/studio/?q=creator+research" class="pill">#CreatorResearch</a>
+        </div>
+    </div>
+
+    <!-- ========== QUERY CONTENT (dinamis) ========== -->
+    <div id="query-content" class="query-content">
+        <div class="breadcrumb">
+            <a href="/">Home</a> › <a href="/studio/">Index</a> › <span id="breadcrumb-name"></span>
+        </div>
+
+        <h1 id="main-heading"></h1>
+
+        <div class="stats-row" id="stats-row">
+            <span><strong>📁 entries</strong> 150+ items</span>
+            <span><strong>📅 indexed</strong> March 2026</span>
+            <span><strong>🔍 relevance</strong> high</span>
+        </div>
+
+        <!-- intro variants -->
+        <div id="intro-general" class="intro-box">
+            <p><strong id="intro-general-text"></strong> This independent archive contains curated documentation of <strong class="query-placeholder"></strong> — including public-facing content, biographical information, and indexed media references. Maintained for research and preservation purposes.</p>
+            <div class="tag-cloud" style="margin-top: 1rem;">
+                <span class="pill">#DigitalArchive</span>
+                <span class="pill">#PublicFigures</span>
+                <span class="pill">#ResearchLibrary</span>
+            </div>
+        </div>
+
+        <div id="intro-bio" class="intro-box hidden">
+            <p>Biographical profile of <strong class="query-placeholder"></strong> — comprehensive background including early life, career timeline, public presence, and digital footprint. Updated quarterly.</p>
+        </div>
+
+        <div id="intro-media" class="intro-box hidden">
+            <p>Media collection for <strong class="query-placeholder"></strong> — curated index of publicly available images and video content from official and archival sources.</p>
+        </div>
+
+        <div id="intro-platform" class="intro-box hidden">
+            <p>Cross-platform presence of <strong class="query-placeholder"></strong> — aggregated from major social and content platforms. Documentation only.</p>
+        </div>
+
+        <!-- SECTION 1: overview -->
+        <h2>📋 Overview · Key Information</h2>
+        <div class="grid" id="overview-grid"></div>
+
+        <!-- SECTION 2: media index -->
+        <h2>🖼️ Media Index · Curated Collections</h2>
+        <div class="grid" id="media-grid"></div>
+
+        <!-- SECTION 3: platform presence -->
+        <h2>🌐 Platform Presence · Digital Footprint</h2>
+        <div class="grid" id="platform-grid"></div>
+
+        <!-- SECTION 4: related entries -->
+        <h2>🔗 Related Public Figures</h2>
+        <div class="tag-cloud" id="related-tags"></div>
+
+        <!-- SECTION 5: FAQ -->
+        <h2>❓ Frequently Asked Questions</h2>
+        <div id="faq-container"></div>
+
+        <hr>
+        <div class="intro-box">
+            <p><strong>About this archive</strong> — Independent digital preservation project. All indexed content is publicly available or properly referenced. Last updated: <span id="update-date"></span>.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let query = urlParams.get('q');
+
+    const defaultDiv = document.getElementById('default-content');
+    const queryDiv = document.getElementById('query-content');
+
+    if (!query) {
+        defaultDiv.style.display = 'block';
+        queryDiv.style.display = 'none';
+        return;
+    }
+
+    defaultDiv.style.display = 'none';
+    queryDiv.style.display = 'block';
+
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    const originalQuery = query;
+
+    // clean base name
+    const removeTerms = ['2025', '2024', 'archive', 'index', 'collection', 'leak', 'leaks', 'leaked', 'influencer', 'video', 'photo', 'bio', 'profile', 'media'];
+    let baseName = query.toLowerCase();
+    removeTerms.forEach(term => {
+        const regex = new RegExp('\\b' + term + '\\s*', 'gi');
+        baseName = baseName.replace(regex, '');
+    });
+    baseName = baseName.trim() || query;
+
+    // capitalize first letter of each word
+    function toTitleCase(str) {
+        return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+    }
+    const displayName = toTitleCase(baseName);
+    const displayNameLower = displayName.toLowerCase();
+
+    // detect type
+    const qLower = query.toLowerCase();
+    let pageType = 'general';
+    if (qLower.includes('bio') || qLower.includes('biography') || qLower.includes('profile') || qLower.includes('background')) pageType = 'bio';
+    else if (qLower.includes('photo') || qLower.includes('image') || qLower.includes('gallery') || qLower.includes('picture')) pageType = 'media';
+    else if (qLower.includes('video') || qLower.includes('clip') || qLower.includes('footage')) pageType = 'media';
+    else if (qLower.includes('instagram') || qLower.includes('twitter') || qLower.includes('tiktok') || qLower.includes('youtube') || qLower.includes('platform')) pageType = 'platform';
+
+    // dynamic title & description
+    let pageTitle = '';
+    let metaDesc = '';
+    if (pageType === 'bio') {
+        pageTitle = `${displayName} · Biography & Profile | Digital Archive`;
+        metaDesc = `Complete biography of ${displayName}. Early life, career timeline, public presence, and digital footprint. Independent research archive.`;
+    } else if (pageType === 'media') {
+        pageTitle = `${displayName} · Media Index | Curated Archive`;
+        metaDesc = `Curated media collection of ${displayName}. Publicly available images and video documentation. Research purpose only.`;
+    } else if (pageType === 'platform') {
+        pageTitle = `${displayName} · Platform Presence | Social Media Archive`;
+        metaDesc = `Cross-platform digital footprint of ${displayName}. Aggregated from Instagram, Twitter, TikTok, YouTube. Independent documentation.`;
+    } else {
+        pageTitle = `${displayName} · Complete Archive | Digital Index`;
+        metaDesc = `Comprehensive digital archive of ${displayName}. Biography, media collection, platform presence, and research materials. Updated regularly.`;
+    }
+    document.title = pageTitle;
+    const metaDescTag = document.getElementById('dynamic-description');
+    if (metaDescTag) metaDescTag.setAttribute('content', metaDesc);
+    document.getElementById('main-heading').innerHTML = `${displayName} <span style="font-size:1rem; font-weight:normal;">· Digital Archive</span>`;
+    document.getElementById('breadcrumb-name').innerText = displayName;
+
+    // update placeholders
+    document.querySelectorAll('.query-placeholder').forEach(el => el.innerText = displayName);
+
+    // update intro visibility
+    document.querySelectorAll('.intro-box').forEach(el => el.classList.add('hidden'));
+    if (pageType === 'bio') document.getElementById('intro-bio').classList.remove('hidden');
+    else if (pageType === 'media') document.getElementById('intro-media').classList.remove('hidden');
+    else if (pageType === 'platform') document.getElementById('intro-platform').classList.remove('hidden');
+    else document.getElementById('intro-general').classList.remove('hidden');
+
+    if (pageType === 'general') {
+        document.getElementById('intro-general-text').innerHTML = `${displayName} is documented in this independent digital archive.`;
+    }
+
+    // helper: generate dynamic links
+    function makeLink(variant, text) {
+        return `<a href="/studio/?q=${encodeURIComponent(displayNameLower + ' ' + variant)}">${text}</a>`;
+    }
+
+    // overview grid
+    const overviewItems = [
+        { variant: 'biography', label: '📋 Full Biography', desc: 'Complete background and career timeline' },
+        { variant: 'early life', label: '🌟 Early Life', desc: 'Background and origins' },
+        { variant: 'career', label: '💼 Career Highlights', desc: 'Major milestones and achievements' },
+        { variant: 'public presence', label: '📊 Public Presence', desc: 'Digital footprint and influence' }
+    ];
+    document.getElementById('overview-grid').innerHTML = overviewItems.map(item => `
+        <div class="card"><span class="tag">📘 reference</span><h3>${item.label}</h3><p>${item.desc}</p>${makeLink(item.variant, 'Access →')}</div>
+    `).join('');
+
+    // media grid
+    const mediaItems = [
+        { variant: 'photo collection', label: '🖼️ Photo Archive', desc: 'Curated image gallery' },
+        { variant: 'video archive', label: '🎥 Video Index', desc: 'Public video documentation' },
+        { variant: 'gallery', label: '📸 Full Gallery', desc: 'Complete media set' },
+        { variant: 'high resolution', label: '✨ High Quality', desc: 'Original resolution where available' }
+    ];
+    document.getElementById('media-grid').innerHTML = mediaItems.map(item => `
+        <div class="card"><span class="tag">📷 media</span><h3>${item.label}</h3><p>${item.desc}</p>${makeLink(item.variant, 'Browse →')}</div>
+    `).join('');
+
+    // platform grid
+    const platformItems = [
+        { variant: 'instagram', label: '📸 Instagram', desc: 'Archived posts and presence' },
+        { variant: 'twitter', label: '🐦 Twitter/X', desc: 'Public interactions' },
+        { variant: 'tiktok', label: '🎵 TikTok', desc: 'Video content index' },
+        { variant: 'youtube', label: '▶️ YouTube', desc: 'Channel documentation' },
+        { variant: 'facebook', label: '📘 Facebook', desc: 'Public page archive' },
+        { variant: 'linkedin', label: '🔗 LinkedIn', desc: 'Professional background' }
+    ];
+    document.getElementById('platform-grid').innerHTML = platformItems.map(item => `
+        <div class="card"><span class="tag">🌍 platform</span><h3>${item.label}</h3><p>${item.desc}</p>${makeLink(item.variant, 'View →')}</div>
+    `).join('');
+
+    // related tags (variasi link)
+    const relatedQueries = [
+        `${baseName} biography`, `${baseName} career`, `${baseName} social media`,
+        `${baseName} photos`, `${baseName} videos`, `digital creators`,
+        `online personalities`, `creator archive`, `public figures index`
+    ];
+    document.getElementById('related-tags').innerHTML = relatedQueries.map(q => 
+        `<a href="/studio/?q=${encodeURIComponent(q)}" class="pill">#${q.replace(/ /g, '')}</a>`
+    ).join('');
+
+    // dynamic FAQ
+    const faqs = [
+        { q: `What is included in the ${displayName} archive?`, a: `The archive contains publicly available biographical information, indexed media references, and cross-platform presence documentation for ${displayName}. All materials are curated for research purposes.` },
+        { q: `How often is this archive updated?`, a: `Archives are reviewed and updated on a weekly basis to ensure accuracy and completeness of publicly available information.` },
+        { q: `Where does this information come from?`, a: `Sources include official public profiles, media appearances, and documented digital footprints. This is an independent preservation project.` },
+        { q: `Can I request additions or corrections?`, a: `This is a static research archive. For inquiries, please refer to the contact information in the footer.` }
+    ];
+    document.getElementById('faq-container').innerHTML = faqs.map(f => `
+        <div class="faq-item">
+            <details><summary>${f.q}</summary><p>${f.a}</p></details>
+        </div>
+    `).join('');
+
+    // update date (evergreen: dynamic based on current date)
+    const today = new Date();
+    const options = { year: 'numeric', month: 'long' };
+    document.getElementById('update-date').innerText = today.toLocaleDateString('en-US', options);
+
+    // stats row update dinamis
+    const statsDiv = document.getElementById('stats-row');
+    if (statsDiv) {
+        statsDiv.innerHTML = `
+            <span><strong>📁 entries</strong> ${Math.floor(Math.random() * 100) + 100}+ items</span>
+            <span><strong>📅 indexed</strong> ${today.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</span>
+            <span><strong>🔍 relevance</strong> high</span>
+            <span><strong>🏷️ category</strong> ${pageType}</span>
+        `;
+    }
+
+    // update all internal dynamic links (including those already generated)
+    function refreshAllDynamicLinks() {
+        document.querySelectorAll('.card a, .tag-cloud a, .faq-item a').forEach(link => {
+            if (link.href && link.href.includes('/studio/?q=')) {
+                // already encoded correctly from makeLink
+            }
+        });
+    }
+    refreshAllDynamicLinks();
+
+})();
+</script>
+
+{% include footer.html %}
+</body>
+</html>
