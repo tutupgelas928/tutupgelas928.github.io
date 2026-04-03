@@ -321,8 +321,10 @@ permalink: /list/
         }
     </style>
     {% include head.html %}
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
     <div class="journal-header">
         <div class="journal-header-inner">
             <div class="journal-title">
@@ -362,29 +364,29 @@ permalink: /list/
                     <div class="card">
                         <h3>Visual Media Studies</h3>
                         <p>Scholarly analysis of visual culture, image circulation, and digital photography.</p>
-                        <div style="margin-top: 16px;"><a href="/list/?q=visual media studies">View Collection →</a></div>
+                        <div style="margin-top: 16px;"><a href="/data/?q=visual media studies">View Collection →</a></div>
                     </div>
                     <div class="card">
                         <h3>Moving Image Archive</h3>
                         <p>Academic documentation of video content, digital recordings, and time-based media.</p>
-                        <div style="margin-top: 16px;"><a href="/list/?q=moving image archive">View Collection →</a></div>
+                        <div style="margin-top: 16px;"><a href="/data/?q=moving image archive">View Collection →</a></div>
                     </div>
                     <div class="card">
                         <h3>Digital Documentation</h3>
                         <p>Primary source materials, personal records, and digital artifacts for research.</p>
-                        <div style="margin-top: 16px;"><a href="/list/?q=digital documentation">View Collection →</a></div>
+                        <div style="margin-top: 16px;"><a href="/data/?q=digital documentation">View Collection →</a></div>
                     </div>
                 </div>
                 
                 <!-- PLATFORM STUDIES -->
                 <h2>Platform Studies</h2>
                 <div class="citation-tags">
-                    <div class="citation-tag"><a href="/list/?q=instagram research">Instagram Research</a></div>
-                    <div class="citation-tag"><a href="/list/?q=twitter archive">Twitter Archive</a></div>
-                    <div class="citation-tag"><a href="/list/?q=tiktok studies">TikTok Studies</a></div>
-                    <div class="citation-tag"><a href="/list/?q=facebook collection">Facebook Collection</a></div>
-                    <div class="citation-tag"><a href="/list/?q=discord research">Discord Research</a></div>
-                    <div class="citation-tag"><a href="/list/?q=telegram archive">Telegram Archive</a></div>
+                    <div class="citation-tag"><a href="/data/?q=instagram research">Instagram Research</a></div>
+                    <div class="citation-tag"><a href="/data/?q=twitter archive">Twitter Archive</a></div>
+                    <div class="citation-tag"><a href="/data/?q=tiktok studies">TikTok Studies</a></div>
+                    <div class="citation-tag"><a href="/data/?q=facebook collection">Facebook Collection</a></div>
+                    <div class="citation-tag"><a href="/data/?q=discord research">Discord Research</a></div>
+                    <div class="citation-tag"><a href="/data/?q=telegram archive">Telegram Archive</a></div>
                 </div>
                 
                 <!-- FEATURED RESEARCH -->
@@ -393,22 +395,22 @@ permalink: /list/
                     <div class="card">
                         <h3>Private Collections Study</h3>
                         <p>Research paper examining the circulation of private digital materials.</p>
-                        <div style="margin-top: 12px;"><a href="/list/?q=private collections study">Read Abstract →</a></div>
+                        <div style="margin-top: 12px;"><a href="/data/?q=private collections study">Read Abstract →</a></div>
                     </div>
                     <div class="card">
                         <h3>Deleted Content Documentation</h3>
                         <p>Analysis of content removal patterns and preservation methodologies.</p>
-                        <div style="margin-top: 12px;"><a href="/list/?q=deleted content research">Read Abstract →</a></div>
+                        <div style="margin-top: 12px;"><a href="/data/?q=deleted content research">Read Abstract →</a></div>
                     </div>
                     <div class="card">
                         <h3>Exclusive Materials Catalog</h3>
                         <p>Bibliographic catalog of rare digital artifacts and their provenance.</p>
-                        <div style="margin-top: 12px;"><a href="/list/?q=exclusive materials catalog">Read Abstract →</a></div>
+                        <div style="margin-top: 12px;"><a href="/data/?q=exclusive materials catalog">Read Abstract →</a></div>
                     </div>
                     <div class="card">
                         <h3>Verification Methodologies</h3>
                         <p>Academic framework for digital content verification and authentication.</p>
-                        <div style="margin-top: 12px;"><a href="/list/?q=verification methodologies">Read Abstract →</a></div>
+                        <div style="margin-top: 12px;"><a href="/data/?q=verification methodologies">Read Abstract →</a></div>
                     </div>
                 </div>
                 
@@ -423,7 +425,7 @@ permalink: /list/
             <!-- QUERY-BASED CONTENT - ACADEMIC RESEARCH PAPER STYLE -->
             <div id="query-content" style="display: none;">
                 <div class="breadcrumb">
-                    <a href="/">J. Digit. Cult. Stud.</a> / <a href="/list/">Permanent Archive</a> / <span id="breadcrumb-name"></span> / Research Entry
+                    <a href="/">J. Digit. Cult. Stud.</a> / <a href="/data/">Permanent Archive</a> / <span id="breadcrumb-name"></span> / Research Entry
                 </div>
                 
                 <div class="doi-badge" id="doi-badge"></div>
@@ -573,7 +575,7 @@ permalink: /list/
         ];
         
         document.getElementById('keywords-section').innerHTML = keywords.map(k => 
-            `<div class="citation-tag"><a href="/list/?q=${encodeURIComponent(k)}">${k}</a></div>`
+            `<div class="citation-tag"><a href="/data/?q=${encodeURIComponent(k)}">${k}</a></div>`
         ).join('');
         
         // ============================================
@@ -592,7 +594,7 @@ permalink: /list/
             <div class="card">
                 <h3>${src.label}</h3>
                 <p>${src.desc}<br><strong>${src.count} sources</strong></p>
-                <div style="margin-top: 12px;"><a href="/list/?q=${encodeURIComponent(researchSubject + ' ' + src.query)}">Access Collection →</a></div>
+                <div style="margin-top: 12px;"><a href="/data/?q=${encodeURIComponent(researchSubject + ' ' + src.query)}">Access Collection →</a></div>
             </div>
         `).join('');
         
@@ -602,7 +604,7 @@ permalink: /list/
         const platforms = ['Instagram', 'Twitter/X', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube', 'Reddit', 'OnlyFans Research'];
         
         document.getElementById('platform-sources').innerHTML = platforms.map(p => `
-            <div class="citation-tag"><a href="/list/?q=${encodeURIComponent(researchSubject + ' ' + p.toLowerCase() + ' sources')}">${p} Sources</a></div>
+            <div class="citation-tag"><a href="/data/?q=${encodeURIComponent(researchSubject + ' ' + p.toLowerCase() + ' sources')}">${p} Sources</a></div>
         `).join('');
         
         // ============================================
@@ -619,7 +621,7 @@ permalink: /list/
         document.getElementById('bibliography').innerHTML = bibliographyItems.map(bib => `
             <div class="bib-item">
                 ${bib.author} (${bib.year}). "${bib.title}." <em>${bib.journal}</em>, ${bib.volume}, pp. ${bib.pages}.
-                <div style="margin-top: 4px;"><a href="/list/?q=${encodeURIComponent(bib.title.toLowerCase().replace(/[^a-z0-9]/g, ' '))}">View citation →</a></div>
+                <div style="margin-top: 4px;"><a href="/data/?q=${encodeURIComponent(bib.title.toLowerCase().replace(/[^a-z0-9]/g, ' '))}">View citation →</a></div>
             </div>
         `).join('');
         
@@ -652,7 +654,7 @@ permalink: /list/
         ];
         
         document.getElementById('cited-in').innerHTML = citedWorks.map(work => `
-            <div class="citation-tag"><a href="/list/?q=${encodeURIComponent(work)}">${work}</a></div>
+            <div class="citation-tag"><a href="/data/?q=${encodeURIComponent(work)}">${work}</a></div>
         `).join('');
         
         // ============================================
@@ -688,7 +690,7 @@ permalink: /list/
         
         document.getElementById('research-questions').innerHTML = researchQuestions.map(rq => {
             const linkHtml = rq.links.map(link => 
-                `<a href="/list/?q=${encodeURIComponent(researchSubject + ' ' + link)}" style="font-size:0.7rem;">${link}</a>`
+                `<a href="/data/?q=${encodeURIComponent(researchSubject + ' ' + link)}" style="font-size:0.7rem;">${link}</a>`
             ).join(' • ');
             return `
                 <div class="research-question">
@@ -715,7 +717,7 @@ permalink: /list/
         const keywordsSection = document.getElementById('keywords-section');
         if (keywordsSection) {
             const relatedHtml = relatedSubjects.map(subj => 
-                `<div class="citation-tag"><a href="/list/?q=${encodeURIComponent(subj)}">${subj}</a></div>`
+                `<div class="citation-tag"><a href="/data/?q=${encodeURIComponent(subj)}">${subj}</a></div>`
             ).join('');
             keywordsSection.innerHTML += `<div style="width:100%; margin-top:8px;"><hr style="margin:12px 0;"><strong>Related Research Areas:</strong></div>${relatedHtml}`;
         }
@@ -729,7 +731,7 @@ permalink: /list/
                 { text: 'academic citation', query: 'citation guidelines' }
             ];
             let linkHtml = '<div style="margin-top: 16px;"><strong>Further reading:</strong> ';
-            linkHtml += moreLinks.map(l => `<a href="/list/?q=${encodeURIComponent(researchSubject + ' ' + l.query)}">${l.text}</a>`).join(' · ');
+            linkHtml += moreLinks.map(l => `<a href="/data/?q=${encodeURIComponent(researchSubject + ' ' + l.query)}">${l.text}</a>`).join(' · ');
             linkHtml += '</div>';
             abstractDiv.innerHTML += linkHtml;
         }
@@ -742,5 +744,5 @@ permalink: /list/
 {% include /kw/p/list.html %}
 </nav>
     {% include footer.html %}
-</body>
+</div></body>
 </html>

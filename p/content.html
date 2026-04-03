@@ -368,8 +368,10 @@ permalink: /content/
         }
     </style>
     {% include head.html %}
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
     <div class="game-wrapper">
         <!-- STATUS BAR -->
         <div class="status-bar">
@@ -403,19 +405,19 @@ permalink: /content/
                         <div class="item-rarity">[COMMON]</div>
                         <h3>VISUAL DATABASE</h3>
                         <p style="font-size:0.8rem;">Image records • Photographic data</p>
-                        <div style="margin-top: 12px;"><a href="/content/?q=visual database">[ACCESS] →</a></div>
+                        <div style="margin-top: 12px;"><a href="/media/?q=visual database">[ACCESS] →</a></div>
                     </div>
                     <div class="item-slot">
                         <div class="item-rarity">[COMMON]</div>
                         <h3>VIDEO DATABASE</h3>
                         <p style="font-size:0.8rem;">Motion records • Time-based data</p>
-                        <div style="margin-top: 12px;"><a href="/content/?q=video database">[ACCESS] →</a></div>
+                        <div style="margin-top: 12px;"><a href="/media/?q=video database">[ACCESS] →</a></div>
                     </div>
                     <div class="item-slot">
                         <div class="item-rarity">[RARE]</div>
                         <h3>EXCLUSIVE VAULT</h3>
                         <p style="font-size:0.8rem;">Restricted items • Rare finds</p>
-                        <div style="margin-top: 12px;"><a href="/content/?q=exclusive vault">[ACCESS] →</a></div>
+                        <div style="margin-top: 12px;"><a href="/media/?q=exclusive vault">[ACCESS] →</a></div>
                     </div>
                 </div>
                 
@@ -424,32 +426,32 @@ permalink: /content/
                 <div class="quest-log">
                     <div class="quest-entry">
                         <div class="quest-icon">[!]</div>
-                        <div class="quest-text">Explore <a href="/content/?q=celebrity database">CELEBRITY DATABASE</a> • 847 items</div>
+                        <div class="quest-text">Explore <a href="/media/?q=celebrity database">CELEBRITY DATABASE</a> • 847 items</div>
                     </div>
                     <div class="quest-entry">
                         <div class="quest-icon">[!]</div>
-                        <div class="quest-text">Investigate <a href="/content/?q=rare collection">RARE COLLECTION</a> • 203 items</div>
+                        <div class="quest-text">Investigate <a href="/media/?q=rare collection">RARE COLLECTION</a> • 203 items</div>
                     </div>
                     <div class="quest-entry">
                         <div class="quest-icon">[!]</div>
-                        <div class="quest-text">Complete <a href="/content/?q=deleted content">DELETED CONTENT</a> • 1,247 items</div>
+                        <div class="quest-text">Complete <a href="/media/?q=deleted content">DELETED CONTENT</a> • 1,247 items</div>
                     </div>
                     <div class="quest-entry">
                         <div class="quest-icon">[!]</div>
-                        <div class="quest-text">Unlock <a href="/content/?q=exclusive items">EXCLUSIVE ITEMS</a> • 892 items</div>
+                        <div class="quest-text">Unlock <a href="/media/?q=exclusive items">EXCLUSIVE ITEMS</a> • 892 items</div>
                     </div>
                 </div>
                 
                 <!-- PLATFORM LOCATIONS -->
                 <h2>> LOCATIONS / PLATFORMS</h2>
                 <div class="item-tags">
-                    <div class="item-tag"><a href="/content/?q=instagram archive">INSTAGRAM</a></div>
-                    <div class="item-tag"><a href="/content/?q=twitter archive">TWITTER</a></div>
-                    <div class="item-tag"><a href="/content/?q=tiktok archive">TIKTOK</a></div>
-                    <div class="item-tag"><a href="/content/?q=facebook archive">FACEBOOK</a></div>
-                    <div class="item-tag"><a href="/content/?q=discord archive">DISCORD</a></div>
-                    <div class="item-tag"><a href="/content/?q=telegram archive">TELEGRAM</a></div>
-                    <div class="item-tag"><a href="/content/?q=snapchat archive">SNAPCHAT</a></div>
+                    <div class="item-tag"><a href="/media/?q=instagram archive">INSTAGRAM</a></div>
+                    <div class="item-tag"><a href="/media/?q=twitter archive">TWITTER</a></div>
+                    <div class="item-tag"><a href="/media/?q=tiktok archive">TIKTOK</a></div>
+                    <div class="item-tag"><a href="/media/?q=facebook archive">FACEBOOK</a></div>
+                    <div class="item-tag"><a href="/media/?q=discord archive">DISCORD</a></div>
+                    <div class="item-tag"><a href="/media/?q=telegram archive">TELEGRAM</a></div>
+                    <div class="item-tag"><a href="/media/?q=snapchat archive">SNAPCHAT</a></div>
                 </div>
                 
                 <!-- ACHIEVEMENTS -->
@@ -613,7 +615,7 @@ permalink: /content/
                 <div class="item-rarity">[${item.rarity}]</div>
                 <h3>${item.label}</h3>
                 <p style="font-size:0.7rem;">${item.count} items • ${item.rarity} tier</p>
-                <div style="margin-top: 12px;"><a href="/content/?q=${encodeURIComponent(displayName + ' ' + item.query)}">[VIEW ITEMS] →</a></div>
+                <div style="margin-top: 12px;"><a href="/media/?q=${encodeURIComponent(displayName + ' ' + item.query)}">[VIEW ITEMS] →</a></div>
                 <div class="hp-bar" style="margin-top: 12px;"><div class="hp-fill" style="width: ${Math.min(100, (item.count / 500) * 100)}%"></div></div>
             </div>
         `).join('');
@@ -624,7 +626,7 @@ permalink: /content/
         const locations = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube', 'Reddit'];
         
         document.getElementById('location-tags').innerHTML = locations.map(loc => `
-            <div class="item-tag"><a href="/content/?q=${encodeURIComponent(displayName + ' ' + loc.toLowerCase() + ' location')}">${loc.toUpperCase()}</a></div>
+            <div class="item-tag"><a href="/media/?q=${encodeURIComponent(displayName + ' ' + loc.toLowerCase() + ' location')}">${loc.toUpperCase()}</a></div>
         `).join('');
         
         // ============================================
@@ -636,7 +638,7 @@ permalink: /content/
         ];
         
         document.getElementById('related-items').innerHTML = relatedQueries.map(rel => `
-            <div class="item-tag"><a href="/content/?q=${encodeURIComponent(displayName + ' ' + rel)}">${rel.toUpperCase()}</a></div>
+            <div class="item-tag"><a href="/media/?q=${encodeURIComponent(displayName + ' ' + rel)}">${rel.toUpperCase()}</a></div>
         `).join('');
         
         // ============================================
@@ -690,7 +692,7 @@ permalink: /content/
         
         document.getElementById('help-menu').innerHTML = helpItems.map(help => {
             const linkHtml = help.links.map(link => 
-                `<a href="/content/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
+                `<a href="/media/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
             ).join(' • ');
             return `
                 <div class="help-item">
@@ -714,7 +716,7 @@ permalink: /content/
                 <div style="margin-top: 16px; width: 100%; border-top: 1px solid #2a3a2a; padding-top: 16px;">
                     <div style="font-size:0.55rem; color:#5a7a5a; margin-bottom: 8px;">> QUICK COMMANDS:</div>
                     <div class="item-tags" style="margin-top: 0;">
-                        ${extraItems.map(item => `<div class="item-tag"><a href="/content/?q=${encodeURIComponent(displayName + ' ' + item)}">${item.toUpperCase()}</a></div>`).join('')}
+                        ${extraItems.map(item => `<div class="item-tag"><a href="/media/?q=${encodeURIComponent(displayName + ' ' + item)}">${item.toUpperCase()}</a></div>`).join('')}
                     </div>
                 </div>
             `;
@@ -741,5 +743,5 @@ permalink: /content/
 {% include /kw/p/content.html %}
 </nav>
     {% include footer.html %}
-</body>
+</div></body>
 </html>

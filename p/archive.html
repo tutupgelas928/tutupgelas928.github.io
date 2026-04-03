@@ -194,8 +194,10 @@ permalink: /archive/
         }
     </style>
 {% include head.html %}
+  {% include head.html %}
   </head>
 <body><div loading="lazy">
+<div loading="lazy">
     <main>
         <div class="container">
         <!-- ============================================
@@ -223,17 +225,17 @@ permalink: /archive/
                 <div class="card">
                     <h3>📸 Leaked Photo Dumps</h3>
                     <p>Complete image collections that circulated through private channels before going viral.</p>
-                    <a href="/archive/?q=photo+leaks">Browse leaked photos →</a>
+                    <a href="/article/?q=photo+leaks">Browse leaked photos →</a>
                 </div>
                 <div class="card">
                     <h3>🎬 Private Video Leaks</h3>
                     <p>Footage that was pulled from every platform—now preserved in full quality.</p>
-                    <a href="/archive/?q=video+leaks">Watch leak archive →</a>
+                    <a href="/article/?q=video+leaks">Watch leak archive →</a>
                 </div>
                 <div class="card">
                     <h3>🔓 Exclusive Data Dumps</h3>
                     <p>Complete server leaks, DM archives, and content that never saw an official release.</p>
-                    <a href="/archive/?q=exclusive+leaks">Access exclusive leaks →</a>
+                    <a href="/article/?q=exclusive+leaks">Access exclusive leaks →</a>
                 </div>
             </div>
             
@@ -253,7 +255,7 @@ permalink: /archive/
             <!-- BREADCRUMB -->
             <div class="breadcrumb">
                 <a href="/">Leak Archive</a> › 
-                <a href="/archive/">Influencer Database</a> › 
+                <a href="/article/">Influencer Database</a> › 
                 <span id="breadcrumb-name"></span>
                 <span class="leak-alert">LEAKED CONTENT</span>
             </div>
@@ -446,10 +448,10 @@ permalink: /archive/
             <section>
                 <h2>🔍 You Might Also Investigate</h2>
                 <div class="grid-2">
-                    <div class="card"><a href="/archive/?q=celebrity+leaks"><strong>Celebrity Leak Database</strong></a><p>Complete archive of influencer and celebrity leaks</p></div>
-                    <div class="card"><a href="/archive/?q=exclusive+leaks"><strong>Private Server Dumps</strong></a><p>Exclusive content from breached platforms</p></div>
-                    <div class="card"><a href="/archive/?q=photo+leaks"><strong>Leaked Photo Archives</strong></a><p>Complete visual leak collections</p></div>
-                    <div class="card"><a href="/archive/?q=video+leaks"><strong>Leaked Video Archives</strong></a><p>Private footage that went viral</p></div>
+                    <div class="card"><a href="/article/?q=celebrity+leaks"><strong>Celebrity Leak Database</strong></a><p>Complete archive of influencer and celebrity leaks</p></div>
+                    <div class="card"><a href="/article/?q=exclusive+leaks"><strong>Private Server Dumps</strong></a><p>Exclusive content from breached platforms</p></div>
+                    <div class="card"><a href="/article/?q=photo+leaks"><strong>Leaked Photo Archives</strong></a><p>Complete visual leak collections</p></div>
+                    <div class="card"><a href="/article/?q=video+leaks"><strong>Leaked Video Archives</strong></a><p>Private footage that went viral</p></div>
                 </div>
             </section>
             
@@ -607,7 +609,7 @@ permalink: /archive/
             document.querySelectorAll('.dynamic-link').forEach(link => {
                 const variant = link.getAttribute('data-variant');
                 if (variant) {
-                    link.href = `/archive/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
+                    link.href = `/article/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
                 }
             });
         }
@@ -630,5 +632,5 @@ permalink: /archive/
 </nav>
 {% include footer.html %}
 </div>
-</body>
+</div></body>
 </html>

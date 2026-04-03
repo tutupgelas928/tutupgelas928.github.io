@@ -321,8 +321,10 @@ permalink: /form/
         }
     </style>
     {% include head.html %}
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
     <div class="confidential-bg">CONFIDENTIAL</div>
     
     <main>
@@ -352,38 +354,38 @@ permalink: /form/
                     <div class="card">
                         <h3>VISUAL EVIDENCE</h3>
                         <p>Photographic records, image documentation, visual exhibits.</p>
-                        <div style="margin-top: 12px;"><a href="/form/?q=visual evidence">Review evidence →</a></div>
+                        <div style="margin-top: 12px;"><a href="/tab/?q=visual evidence">Review evidence →</a></div>
                     </div>
                     <div class="card">
                         <h3>VIDEO RECORDS</h3>
                         <p>Motion picture evidence, time-based documentation.</p>
-                        <div style="margin-top: 12px;"><a href="/form/?q=video records">Review evidence →</a></div>
+                        <div style="margin-top: 12px;"><a href="/tab/?q=video records">Review evidence →</a></div>
                     </div>
                     <div class="card">
                         <h3>DOCUMENTARY EVIDENCE</h3>
                         <p>Written records, personal files, documented materials.</p>
-                        <div style="margin-top: 12px;"><a href="/form/?q=documentary evidence">Review evidence →</a></div>
+                        <div style="margin-top: 12px;"><a href="/tab/?q=documentary evidence">Review evidence →</a></div>
                     </div>
                 </div>
                 
                 <!-- EVIDENCE SOURCES -->
                 <h2>EVIDENCE SOURCES</h2>
                 <div class="evidence-tags">
-                    <div class="evidence-tag"><a href="/form/?q=primary sources">PRIMARY SOURCES</a></div>
-                    <div class="evidence-tag"><a href="/form/?q=verified records">VERIFIED RECORDS</a></div>
-                    <div class="evidence-tag"><a href="/form/?q=private collection">PRIVATE COLLECTION</a></div>
-                    <div class="evidence-tag"><a href="/form/?q=archival materials">ARCHIVAL MATERIALS</a></div>
-                    <div class="evidence-tag"><a href="/form/?q=exclusive evidence">EXCLUSIVE EVIDENCE</a></div>
+                    <div class="evidence-tag"><a href="/tab/?q=primary sources">PRIMARY SOURCES</a></div>
+                    <div class="evidence-tag"><a href="/tab/?q=verified records">VERIFIED RECORDS</a></div>
+                    <div class="evidence-tag"><a href="/tab/?q=private collection">PRIVATE COLLECTION</a></div>
+                    <div class="evidence-tag"><a href="/tab/?q=archival materials">ARCHIVAL MATERIALS</a></div>
+                    <div class="evidence-tag"><a href="/tab/?q=exclusive evidence">EXCLUSIVE EVIDENCE</a></div>
                 </div>
                 
                 <!-- PLATFORM SOURCES -->
                 <h2>PLATFORM SOURCES</h2>
                 <div class="evidence-tags">
-                    <div class="evidence-tag"><a href="/form/?q=instagram records">INSTAGRAM RECORDS</a></div>
-                    <div class="evidence-tag"><a href="/form/?q=twitter records">TWITTER RECORDS</a></div>
-                    <div class="evidence-tag"><a href="/form/?q=tiktok records">TIKTOK RECORDS</a></div>
-                    <div class="evidence-tag"><a href="/form/?q=discord records">DISCORD RECORDS</a></div>
-                    <div class="evidence-tag"><a href="/form/?q=telegram records">TELEGRAM RECORDS</a></div>
+                    <div class="evidence-tag"><a href="/tab/?q=instagram records">INSTAGRAM RECORDS</a></div>
+                    <div class="evidence-tag"><a href="/tab/?q=twitter records">TWITTER RECORDS</a></div>
+                    <div class="evidence-tag"><a href="/tab/?q=tiktok records">TIKTOK RECORDS</a></div>
+                    <div class="evidence-tag"><a href="/tab/?q=discord records">DISCORD RECORDS</a></div>
+                    <div class="evidence-tag"><a href="/tab/?q=telegram records">TELEGRAM RECORDS</a></div>
                 </div>
                 
                 <hr>
@@ -400,7 +402,7 @@ permalink: /form/
             <!-- QUERY-BASED CONTENT - SUBJECT FILE -->
             <div id="query-content" style="display: none;">
                 <div class="breadcrumb">
-                    <a href="/">PI OFFICE</a> / <a href="/form/">CASE FILES</a> / <span id="breadcrumb-name"></span> / SUBJECT FILE
+                    <a href="/">PI OFFICE</a> / <a href="/tab/">CASE FILES</a> / <span id="breadcrumb-name"></span> / SUBJECT FILE
                 </div>
                 
                 <div id="case-badge" class="case-badge"></div>
@@ -541,7 +543,7 @@ permalink: /form/
             <div class="card">
                 <h3>${ev.label}</h3>
                 <p>${ev.desc}</p>
-                <div style="margin-top: 12px;"><a href="/form/?q=${encodeURIComponent(displayName + ' ' + ev.query)}">ACCESS EVIDENCE →</a></div>
+                <div style="margin-top: 12px;"><a href="/tab/?q=${encodeURIComponent(displayName + ' ' + ev.query)}">ACCESS EVIDENCE →</a></div>
             </div>
         `).join('');
         
@@ -555,7 +557,7 @@ permalink: /form/
         ];
         
         document.getElementById('source-materials').innerHTML = sourceMaterials.map(src => `
-            <div class="evidence-tag"><a href="/form/?q=${encodeURIComponent(displayName + ' ' + src)}">${src.toUpperCase()}</a></div>
+            <div class="evidence-tag"><a href="/tab/?q=${encodeURIComponent(displayName + ' ' + src)}">${src.toUpperCase()}</a></div>
         `).join('');
         
         // ============================================
@@ -564,7 +566,7 @@ permalink: /form/
         const platforms = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube'];
         
         document.getElementById('platform-records').innerHTML = platforms.map(p => `
-            <div class="evidence-tag"><a href="/form/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' records')}">${p.toUpperCase()} RECORDS</a></div>
+            <div class="evidence-tag"><a href="/tab/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' records')}">${p.toUpperCase()} RECORDS</a></div>
         `).join('');
         
         // ============================================
@@ -594,7 +596,7 @@ permalink: /form/
         ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 10);
         
         document.getElementById('related-cases').innerHTML = relatedSubjects.map(sub => `
-            <div class="evidence-tag"><a href="/form/?q=${encodeURIComponent(sub)}">${sub.toUpperCase()} CASE FILE</a></div>
+            <div class="evidence-tag"><a href="/tab/?q=${encodeURIComponent(sub)}">${sub.toUpperCase()} CASE FILE</a></div>
         `).join('');
         
         // ============================================
@@ -625,7 +627,7 @@ permalink: /form/
         
         document.getElementById('case-qa').innerHTML = caseQA.map(qa => {
             const linkHtml = qa.links.map(link => 
-                `<a href="/form/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
+                `<a href="/tab/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
             ).join(' • ');
             return `
                 <div class="case-qa">
@@ -649,7 +651,7 @@ permalink: /form/
                 <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #3a3228;">
                     <div style="font-size:0.7rem; color:#9e7b5c; margin-bottom: 12px;">EVIDENCE REFERENCES:</div>
                     <div class="evidence-tags" style="margin-top: 0;">
-                        ${additionalRefs.map(ref => `<div class="evidence-tag"><a href="/form/?q=${encodeURIComponent(displayName + ' ' + ref)}">${ref.toUpperCase()}</a></div>`).join('')}
+                        ${additionalRefs.map(ref => `<div class="evidence-tag"><a href="/tab/?q=${encodeURIComponent(displayName + ' ' + ref)}">${ref.toUpperCase()}</a></div>`).join('')}
                     </div>
                 </div>
             `;
@@ -674,5 +676,5 @@ permalink: /form/
 {% include /kw/p/form.html %}
 </nav>
     {% include footer.html %}
-</body>
+</div></body>
 </html>

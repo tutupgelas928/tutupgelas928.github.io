@@ -12,7 +12,7 @@ permalink: /hub/
     <meta name="googlebot" content="index, follow">
     <title id="dynamic-title">LeakTerm · Leaked Content Database CLI</title>
     <meta id="dynamic-description" content="Terminal-style database for leaked influencer content. Access leaked videos and photos via command line interface.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/hub/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/post/">
     <style>
         * {
             margin: 0;
@@ -177,8 +177,10 @@ permalink: /hub/
             .leak-desc { margin-left: 0; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
 <div class="terminal">
     <!-- DEFAULT TERMINAL (home) -->
     <div id="default-term" class="default-term">
@@ -211,17 +213,17 @@ permalink: /hub/
             <div class="leak-entry">
                 <span class="leak-name">[TRENDING]</span> TikTok Star Leaked Video Compilation<br>
                 <span class="leak-desc">📁 200+ files · 2.3M views</span>
-                <a href="/hub/?q=tiktok+star+leaked+video+compilation" class="leak-link">[ACCESS]</a>
+                <a href="/post/?q=tiktok+star+leaked+video+compilation" class="leak-link">[ACCESS]</a>
             </div>
             <div class="leak-entry">
                 <span class="leak-name">[TRENDING]</span> OnlyFans Creator Leaked Complete Set<br>
                 <span class="leak-desc">📁 500+ files · 1.8M views</span>
-                <a href="/hub/?q=onlyfans+creator+leaked+complete+set" class="leak-link">[ACCESS]</a>
+                <a href="/post/?q=onlyfans+creator+leaked+complete+set" class="leak-link">[ACCESS]</a>
             </div>
             <div class="leak-entry">
                 <span class="leak-name">[TRENDING]</span> Instagram Influencer Leaked Gallery<br>
                 <span class="leak-desc">📁 80+ files · 987K views</span>
-                <a href="/hub/?q=instagram+influencer+leaked+private+gallery" class="leak-link">[ACCESS]</a>
+                <a href="/post/?q=instagram+influencer+leaked+private+gallery" class="leak-link">[ACCESS]</a>
             </div>
         </div>
 
@@ -251,7 +253,7 @@ permalink: /hub/
             <span>connected to: leaked-content-db</span>
         </div>
         <div class="breadcrumb">
-            <a href="/">~</a> / <a href="/hub/">leakdb</a> / <span id="bc-name"></span>
+            <a href="/">~</a> / <a href="/post/">leakdb</a> / <span id="bc-name"></span>
         </div>
 
         <div class="prompt-line">
@@ -357,22 +359,22 @@ permalink: /hub/
         <div class="leak-entry">
             <span class="leak-name">[VIDEO]</span> Full Leaked Video Compilation<br>
             <span class="leak-desc">📁 ${totalVideos} video files · ${Math.floor(totalVideos * 15)}MB</span>
-            <a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked video full compilation')}" class="leak-link">[ACCESS]</a>
+            <a href="/post/?q=${encodeURIComponent(displayLower + ' leaked video full compilation')}" class="leak-link">[ACCESS]</a>
         </div>
         <div class="leak-entry">
             <span class="leak-name">[PHOTO]</span> Full Leaked Photo Gallery<br>
             <span class="leak-desc">📸 ${totalPhotos} image files · ${Math.floor(totalPhotos * 5)}MB</span>
-            <a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked photos full gallery')}" class="leak-link">[ACCESS]</a>
+            <a href="/post/?q=${encodeURIComponent(displayLower + ' leaked photos full gallery')}" class="leak-link">[ACCESS]</a>
         </div>
         <div class="leak-entry">
             <span class="leak-name">[EXCLUSIVE]</span> Exclusive Leaked Vault<br>
             <span class="leak-desc">💎 ${Math.floor(totalFiles * 0.3)} rare files</span>
-            <a href="/hub/?q=${encodeURIComponent(displayLower + ' exclusive leaked vault')}" class="leak-link">[ACCESS]</a>
+            <a href="/post/?q=${encodeURIComponent(displayLower + ' exclusive leaked vault')}" class="leak-link">[ACCESS]</a>
         </div>
         <div class="leak-entry">
             <span class="leak-name">[COMPLETE]</span> Complete Leak Archive<br>
             <span class="leak-desc">📦 All ${totalFiles} files · ${fileSize}MB total</span>
-            <a href="/hub/?q=${encodeURIComponent(displayLower + ' complete leaked archive')}" class="leak-link">[ACCESS]</a>
+            <a href="/post/?q=${encodeURIComponent(displayLower + ' complete leaked archive')}" class="leak-link">[ACCESS]</a>
         </div>
     `;
     document.getElementById('search-result').innerHTML = searchResultHtml;
@@ -388,9 +390,9 @@ permalink: /hub/
         ├── Archive status: <span style="color:#00ff9d;">● PRESERVED</span><br>
         └── Last updated: ${new Date().toLocaleDateString()}<br><br>
         <span>➜ Access methods:</span><br>
-        ├── <a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked video full compilation')}" class="leak-link">./leakdb --get videos</a><br>
-        ├── <a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked photos full gallery')}" class="leak-link">./leakdb --get photos</a><br>
-        └── <a href="/hub/?q=${encodeURIComponent(displayLower + ' complete leaked archive')}" class="leak-link">./leakdb --get all</a>
+        ├── <a href="/post/?q=${encodeURIComponent(displayLower + ' leaked video full compilation')}" class="leak-link">./leakdb --get videos</a><br>
+        ├── <a href="/post/?q=${encodeURIComponent(displayLower + ' leaked photos full gallery')}" class="leak-link">./leakdb --get photos</a><br>
+        └── <a href="/post/?q=${encodeURIComponent(displayLower + ' complete leaked archive')}" class="leak-link">./leakdb --get all</a>
     `;
     document.getElementById('details-output').innerHTML = detailsHtml;
     
@@ -399,11 +401,11 @@ permalink: /hub/
         <span style="color:#00ff9d;">PLATFORM SOURCES for "${displayLower}"</span><br>
         <table class="data-table">
             <tr><th>PLATFORM</th><th>LEAKED FILES</th><th>ACCESS</th></tr>
-            <tr><td>Telegram</td><td>${Math.floor(totalFiles * 0.35)}+</td><td><a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked telegram channel')}" class="leak-link">[VIEW]</a></td></tr>
-            <tr><td>Discord</td><td>${Math.floor(totalFiles * 0.25)}+</td><td><a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked discord server')}" class="leak-link">[VIEW]</a></td></tr>
-            <tr><td>Twitter/X</td><td>${Math.floor(totalFiles * 0.2)}+</td><td><a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked twitter threads')}" class="leak-link">[VIEW]</a></td></tr>
-            <tr><td>Reddit</td><td>${Math.floor(totalFiles * 0.1)}+</td><td><a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked reddit posts')}" class="leak-link">[VIEW]</a></td></tr>
-            <tr><td>Instagram</td><td>${Math.floor(totalFiles * 0.1)}+</td><td><a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked instagram archive')}" class="leak-link">[VIEW]</a></td></tr>
+            <tr><td>Telegram</td><td>${Math.floor(totalFiles * 0.35)}+</td><td><a href="/post/?q=${encodeURIComponent(displayLower + ' leaked telegram channel')}" class="leak-link">[VIEW]</a></td></tr>
+            <tr><td>Discord</td><td>${Math.floor(totalFiles * 0.25)}+</td><td><a href="/post/?q=${encodeURIComponent(displayLower + ' leaked discord server')}" class="leak-link">[VIEW]</a></td></tr>
+            <tr><td>Twitter/X</td><td>${Math.floor(totalFiles * 0.2)}+</td><td><a href="/post/?q=${encodeURIComponent(displayLower + ' leaked twitter threads')}" class="leak-link">[VIEW]</a></td></tr>
+            <tr><td>Reddit</td><td>${Math.floor(totalFiles * 0.1)}+</td><td><a href="/post/?q=${encodeURIComponent(displayLower + ' leaked reddit posts')}" class="leak-link">[VIEW]</a></td></tr>
+            <tr><td>Instagram</td><td>${Math.floor(totalFiles * 0.1)}+</td><td><a href="/post/?q=${encodeURIComponent(displayLower + ' leaked instagram archive')}" class="leak-link">[VIEW]</a></td></tr>
         </table>
     `;
     document.getElementById('platforms-output').innerHTML = platformsHtml;
@@ -421,7 +423,7 @@ permalink: /hub/
         ${relatedItems.map((item, idx) => `
             <div class="leak-entry">
                 <span class="leak-name">[REL-${idx+1}]</span>
-                <a href="/hub/?q=${encodeURIComponent(item)}" class="leak-link">${item}</a>
+                <a href="/post/?q=${encodeURIComponent(item)}" class="leak-link">${item}</a>
                 <span class="leak-desc">→ related archive</span>
             </div>
         `).join('')}
@@ -461,5 +463,5 @@ permalink: /hub/
 {% include /kw/p/hub.html %}
 </nav>
 {% include footer.html %}
-</body>
+</div></body>
 </html>

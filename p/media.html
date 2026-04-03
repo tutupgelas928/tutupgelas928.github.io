@@ -357,8 +357,10 @@ permalink: /media/
         }
     </style>
     {% include head.html %}
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
     <div class="luxury-header">
         <div class="luxury-container">
             <div class="header-content">
@@ -402,44 +404,44 @@ permalink: /media/
                         <div class="card-meta">PHOTOGRAPHIC ARCHIVE</div>
                         <h3>Visual Collections</h3>
                         <p style="font-size: 0.85rem; color: #5a5348;">Curated photographic works, editorial shoots, and rare imagery.</p>
-                        <div style="margin-top: 16px;"><a href="/media/?q=photographic archive">Explore collection →</a></div>
+                        <div style="margin-top: 16px;"><a href="/library/?q=photographic archive">Explore collection →</a></div>
                     </div>
                     <div class="editorial-card">
                         <div class="card-image-placeholder" style="background: #e8e5e0;"></div>
                         <div class="card-meta">MOVING IMAGE ARCHIVE</div>
                         <h3>Editorial Films</h3>
                         <p style="font-size: 0.85rem; color: #5a5348;">Curated film works, fashion editorials, and time-based media.</p>
-                        <div style="margin-top: 16px;"><a href="/media/?q=editorial films">Explore collection →</a></div>
+                        <div style="margin-top: 16px;"><a href="/library/?q=editorial films">Explore collection →</a></div>
                     </div>
                     <div class="editorial-card">
                         <div class="card-image-placeholder" style="background: #e8e5e0;"></div>
                         <div class="card-meta">ARCHIVAL READINGS</div>
                         <h3>Document Collection</h3>
                         <p style="font-size: 0.85rem; color: #5a5348;">Curated documents, personal archives, and historical records.</p>
-                        <div style="margin-top: 16px;"><a href="/media/?q=archival readings">Explore collection →</a></div>
+                        <div style="margin-top: 16px;"><a href="/library/?q=archival readings">Explore collection →</a></div>
                     </div>
                 </div>
                 
                 <!-- FEATURED COLLECTIONS -->
                 <h2>Featured Collections</h2>
                 <div class="collection-tags">
-                    <div class="collection-tag"><a href="/media/?q=private collection">PRIVATE COLLECTION</a></div>
-                    <div class="collection-tag"><a href="/media/?q=editorial archive">EDITORIAL ARCHIVE</a></div>
-                    <div class="collection-tag"><a href="/media/?q=rare works">RARE WORKS</a></div>
-                    <div class="collection-tag"><a href="/media/?q=exclusive edition">EXCLUSIVE EDITION</a></div>
-                    <div class="collection-tag"><a href="/media/?q=complete works">COMPLETE WORKS</a></div>
-                    <div class="collection-tag"><a href="/media/?q=behind the lens">BEHIND THE LENS</a></div>
+                    <div class="collection-tag"><a href="/library/?q=private collection">PRIVATE COLLECTION</a></div>
+                    <div class="collection-tag"><a href="/library/?q=editorial archive">EDITORIAL ARCHIVE</a></div>
+                    <div class="collection-tag"><a href="/library/?q=rare works">RARE WORKS</a></div>
+                    <div class="collection-tag"><a href="/library/?q=exclusive edition">EXCLUSIVE EDITION</a></div>
+                    <div class="collection-tag"><a href="/library/?q=complete works">COMPLETE WORKS</a></div>
+                    <div class="collection-tag"><a href="/library/?q=behind the lens">BEHIND THE LENS</a></div>
                 </div>
                 
                 <!-- PLATFORM ARCHIVES -->
                 <h2>Platform Archives</h2>
                 <div class="collection-tags">
-                    <div class="collection-tag"><a href="/media/?q=instagram archive">INSTAGRAM ARCHIVE</a></div>
-                    <div class="collection-tag"><a href="/media/?q=twitter archive">TWITTER ARCHIVE</a></div>
-                    <div class="collection-tag"><a href="/media/?q=tiktok archive">TIKTOK ARCHIVE</a></div>
-                    <div class="collection-tag"><a href="/media/?q=facebook archive">FACEBOOK ARCHIVE</a></div>
-                    <div class="collection-tag"><a href="/media/?q=discord archive">DISCORD ARCHIVE</a></div>
-                    <div class="collection-tag"><a href="/media/?q=telegram archive">TELEGRAM ARCHIVE</a></div>
+                    <div class="collection-tag"><a href="/library/?q=instagram archive">INSTAGRAM ARCHIVE</a></div>
+                    <div class="collection-tag"><a href="/library/?q=twitter archive">TWITTER ARCHIVE</a></div>
+                    <div class="collection-tag"><a href="/library/?q=tiktok archive">TIKTOK ARCHIVE</a></div>
+                    <div class="collection-tag"><a href="/library/?q=facebook archive">FACEBOOK ARCHIVE</a></div>
+                    <div class="collection-tag"><a href="/library/?q=discord archive">DISCORD ARCHIVE</a></div>
+                    <div class="collection-tag"><a href="/library/?q=telegram archive">TELEGRAM ARCHIVE</a></div>
                 </div>
                 
                 <hr>
@@ -456,7 +458,7 @@ permalink: /media/
             <!-- QUERY-BASED CONTENT - SUBJECT ARCHIVE -->
             <div id="query-content" style="display: none;">
                 <div class="breadcrumb">
-                    <a href="/">VAULT</a> / <a href="/media/">EDITORIAL ARCHIVE</a> / <span id="breadcrumb-name"></span>
+                    <a href="/">VAULT</a> / <a href="/library/">EDITORIAL ARCHIVE</a> / <span id="breadcrumb-name"></span>
                 </div>
                 
                 <div class="vault-badge" id="edition-badge"></div>
@@ -598,7 +600,7 @@ permalink: /media/
                 <div class="card-meta">${col.category}</div>
                 <h3>${col.label}</h3>
                 <p style="font-size: 0.85rem; color: #5a5348;">${col.desc}</p>
-                <div style="margin-top: 16px;"><a href="/media/?q=${encodeURIComponent(displayName + ' ' + col.query)}">Explore →</a></div>
+                <div style="margin-top: 16px;"><a href="/library/?q=${encodeURIComponent(displayName + ' ' + col.query)}">Explore →</a></div>
             </div>
         `).join('');
         
@@ -608,7 +610,7 @@ permalink: /media/
         const platforms = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube'];
         
         document.getElementById('platform-archives').innerHTML = platforms.map(p => `
-            <div class="collection-tag"><a href="/media/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' archive')}">${p.toUpperCase()} ARCHIVE</a></div>
+            <div class="collection-tag"><a href="/library/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' archive')}">${p.toUpperCase()} ARCHIVE</a></div>
         `).join('');
         
         // ============================================
@@ -620,7 +622,7 @@ permalink: /media/
         ];
         
         document.getElementById('related-collections').innerHTML = relatedTerms.map(term => `
-            <div class="collection-tag"><a href="/media/?q=${encodeURIComponent(displayName + ' ' + term)}">${term.toUpperCase()}</a></div>
+            <div class="collection-tag"><a href="/library/?q=${encodeURIComponent(displayName + ' ' + term)}">${term.toUpperCase()}</a></div>
         `).join('');
         
         // ============================================
@@ -652,7 +654,7 @@ permalink: /media/
             <div class="lookbook-item">
                 <div style="font-size: 1.2rem; margin-bottom: 8px;">📷</div>
                 <div style="font-size: 0.8rem; font-weight: 500;">${gallery}</div>
-                <div style="margin-top: 12px;"><a href="/media/?q=${encodeURIComponent(displayName + ' ' + gallery.toLowerCase())}" style="font-size: 0.7rem;">View →</a></div>
+                <div style="margin-top: 12px;"><a href="/library/?q=${encodeURIComponent(displayName + ' ' + gallery.toLowerCase())}" style="font-size: 0.7rem;">View →</a></div>
             </div>
         `).join('');
         
@@ -684,7 +686,7 @@ permalink: /media/
         
         document.getElementById('editorial-faq').innerHTML = editorialFAQ.map(faq => {
             const linkHtml = faq.links.map(link => 
-                `<a href="/media/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
+                `<a href="/library/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
             ).join(' • ');
             return `
                 <div class="faq-entry">
@@ -714,7 +716,7 @@ permalink: /media/
                 <div style="margin-top: 48px; padding-top: 32px; border-top: 1px solid #e8e5e0;">
                     <div style="font-size:0.7rem; color:#bcb6ab; margin-bottom: 16px;">RELATED ICONS IN THE VAULT</div>
                     <div class="collection-tags">
-                        ${relatedIcons.map(icon => `<div class="collection-tag"><a href="/media/?q=${encodeURIComponent(icon)}">${icon.toUpperCase()}</a></div>`).join('')}
+                        ${relatedIcons.map(icon => `<div class="collection-tag"><a href="/library/?q=${encodeURIComponent(icon)}">${icon.toUpperCase()}</a></div>`).join('')}
                     </div>
                 </div>
             `;
@@ -737,5 +739,5 @@ permalink: /media/
 {% include /kw/p/media.html %}
 </nav>
     {% include footer.html %}
-</body>
+</div></body>
 </html>

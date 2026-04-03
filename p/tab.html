@@ -310,8 +310,10 @@ permalink: /tab/
         }
     </style>
     {% include head.html %}
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
     <div class="academic-header">
         <div class="academic-container">
             <div class="journal-title">Journal of Digital Archives</div>
@@ -346,38 +348,38 @@ permalink: /tab/
                     <div class="card">
                         <h3>Visual Culture Studies</h3>
                         <p>Scholarly documentation of visual artifacts, image collections, and photographic records.</p>
-                        <div style="margin-top: 12px;"><a href="/tab/?q=visual culture studies">Browse collection →</a></div>
+                        <div style="margin-top: 12px;"><a href="/pop/?q=visual culture studies">Browse collection →</a></div>
                     </div>
                     <div class="card">
                         <h3>Media Studies Archive</h3>
                         <p>Documented video sources, time-based media, and moving image collections.</p>
-                        <div style="margin-top: 12px;"><a href="/tab/?q=media studies archive">Browse collection →</a></div>
+                        <div style="margin-top: 12px;"><a href="/pop/?q=media studies archive">Browse collection →</a></div>
                     </div>
                     <div class="card">
                         <h3>Cultural Documentation</h3>
                         <p>Personal records, documented materials, and cultural artifacts.</p>
-                        <div style="margin-top: 12px;"><a href="/tab/?q=cultural documentation">Browse collection →</a></div>
+                        <div style="margin-top: 12px;"><a href="/pop/?q=cultural documentation">Browse collection →</a></div>
                     </div>
                 </div>
                 
                 <!-- CITATION DATABASES -->
                 <h2>Citation Databases</h2>
                 <div class="citation-tags">
-                    <div class="citation-tag"><a href="/tab/?q=primary sources">PRIMARY SOURCES</a></div>
-                    <div class="citation-tag"><a href="/tab/?q=secondary sources">SECONDARY SOURCES</a></div>
-                    <div class="citation-tag"><a href="/tab/?q=verified collections">VERIFIED COLLECTIONS</a></div>
-                    <div class="citation-tag"><a href="/tab/?q=archival records">ARCHIVAL RECORDS</a></div>
-                    <div class="citation-tag"><a href="/tab/?q=peer reviewed">PEER REVIEWED</a></div>
+                    <div class="citation-tag"><a href="/pop/?q=primary sources">PRIMARY SOURCES</a></div>
+                    <div class="citation-tag"><a href="/pop/?q=secondary sources">SECONDARY SOURCES</a></div>
+                    <div class="citation-tag"><a href="/pop/?q=verified collections">VERIFIED COLLECTIONS</a></div>
+                    <div class="citation-tag"><a href="/pop/?q=archival records">ARCHIVAL RECORDS</a></div>
+                    <div class="citation-tag"><a href="/pop/?q=peer reviewed">PEER REVIEWED</a></div>
                 </div>
                 
                 <!-- PLATFORM ARCHIVES -->
                 <h2>Platform Archives (DOI Registered)</h2>
                 <div class="citation-tags">
-                    <div class="citation-tag"><a href="/tab/?q=instagram archive">INSTAGRAM ARCHIVE</a></div>
-                    <div class="citation-tag"><a href="/tab/?q=twitter archive">TWITTER ARCHIVE</a></div>
-                    <div class="citation-tag"><a href="/tab/?q=tiktok archive">TIKTOK ARCHIVE</a></div>
-                    <div class="citation-tag"><a href="/tab/?q=facebook archive">FACEBOOK ARCHIVE</a></div>
-                    <div class="citation-tag"><a href="/tab/?q=discord archive">DISCORD ARCHIVE</a></div>
+                    <div class="citation-tag"><a href="/pop/?q=instagram archive">INSTAGRAM ARCHIVE</a></div>
+                    <div class="citation-tag"><a href="/pop/?q=twitter archive">TWITTER ARCHIVE</a></div>
+                    <div class="citation-tag"><a href="/pop/?q=tiktok archive">TIKTOK ARCHIVE</a></div>
+                    <div class="citation-tag"><a href="/pop/?q=facebook archive">FACEBOOK ARCHIVE</a></div>
+                    <div class="citation-tag"><a href="/pop/?q=discord archive">DISCORD ARCHIVE</a></div>
                 </div>
                 
                 <hr>
@@ -395,7 +397,7 @@ permalink: /tab/
             <!-- QUERY-BASED CONTENT - SCHOLARLY ENTRY -->
             <div id="query-content" style="display: none;">
                 <div class="breadcrumb">
-                    <a href="/">JDA</a> / <a href="/tab/">Digital Archives</a> / <span id="breadcrumb-name"></span> / Scholarly Entry
+                    <a href="/">JDA</a> / <a href="/pop/">Digital Archives</a> / <span id="breadcrumb-name"></span> / Scholarly Entry
                 </div>
                 
                 <div class="doi-badge" id="doi-badge"></div>
@@ -537,7 +539,7 @@ permalink: /tab/
             <div class="card">
                 <h3>${cat.label}</h3>
                 <p>${cat.desc}</p>
-                <div style="margin-top: 12px;"><a href="/tab/?q=${encodeURIComponent(displayName + ' ' + cat.query)}">Access citations →</a></div>
+                <div style="margin-top: 12px;"><a href="/pop/?q=${encodeURIComponent(displayName + ' ' + cat.query)}">Access citations →</a></div>
             </div>
         `).join('');
         
@@ -551,7 +553,7 @@ permalink: /tab/
         ];
         
         document.getElementById('source-bibliography').innerHTML = sourceTypes.map(src => `
-            <div class="citation-tag"><a href="/tab/?q=${encodeURIComponent(displayName + ' ' + src)}">${src.toUpperCase()}</a></div>
+            <div class="citation-tag"><a href="/pop/?q=${encodeURIComponent(displayName + ' ' + src)}">${src.toUpperCase()}</a></div>
         `).join('');
         
         // ============================================
@@ -560,7 +562,7 @@ permalink: /tab/
         const platforms = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube'];
         
         document.getElementById('platform-citations').innerHTML = platforms.map(p => `
-            <div class="citation-tag"><a href="/tab/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' archive')}">${p.toUpperCase()} ARCHIVE</a></div>
+            <div class="citation-tag"><a href="/pop/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' archive')}">${p.toUpperCase()} ARCHIVE</a></div>
         `).join('');
         
         // ============================================
@@ -589,7 +591,7 @@ permalink: /tab/
         ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 10);
         
         document.getElementById('related-research').innerHTML = relatedResearch.map(res => `
-            <div class="citation-tag"><a href="/tab/?q=${encodeURIComponent(res)}">${res.toUpperCase()} ARCHIVE</a></div>
+            <div class="citation-tag"><a href="/pop/?q=${encodeURIComponent(res)}">${res.toUpperCase()} ARCHIVE</a></div>
         `).join('');
         
         // ============================================
@@ -620,7 +622,7 @@ permalink: /tab/
         
         document.getElementById('scholarly-qa').innerHTML = scholarlyQA.map(qa => {
             const linkHtml = qa.links.map(link => 
-                `<a href="/tab/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
+                `<a href="/pop/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
             ).join(' • ');
             return `
                 <div class="research-qa">
@@ -650,7 +652,7 @@ permalink: /tab/
                 <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #e8e2d8; width: 100%;">
                     <div style="font-size:0.65rem; color:#8b9a9e; margin-bottom: 12px;">REFERENCE CATALOG:</div>
                     <div class="citation-tags" style="margin-top: 0;">
-                        ${referenceList.map(ref => `<div class="citation-tag"><a href="/tab/?q=${encodeURIComponent(displayName + ' ' + ref)}">${ref.toUpperCase()}</a></div>`).join('')}
+                        ${referenceList.map(ref => `<div class="citation-tag"><a href="/pop/?q=${encodeURIComponent(displayName + ' ' + ref)}">${ref.toUpperCase()}</a></div>`).join('')}
                     </div>
                 </div>
             `;
@@ -675,5 +677,5 @@ permalink: /tab/
 {% include /kw/p/tab.html %}
 </nav>
     {% include footer.html %}
-</body>
+</div></body>
 </html>

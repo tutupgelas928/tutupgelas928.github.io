@@ -344,8 +344,10 @@ permalink: /catalog/
         }
     </style>
     {% include head.html %}
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
     <div class="luxury-header">
         <div class="luxury-container">
             <div class="logo">
@@ -383,42 +385,42 @@ permalink: /catalog/
                         <div class="collection-tag">ROOM I</div>
                         <h3>Visual Archive</h3>
                         <p style="font-size:0.8rem; color:#6a6358;">Photographic editorials • Rare prints • Limited editions</p>
-                        <div style="margin-top: 16px;"><a href="/catalog/?q=visual archive">VIEW COLLECTION →</a></div>
+                        <div style="margin-top: 16px;"><a href="/record/?q=visual archive">VIEW COLLECTION →</a></div>
                     </div>
                     <div class="lookbook-card">
                         <div class="collection-tag">ROOM II</div>
                         <h3>Moving Image Gallery</h3>
                         <p style="font-size:0.8rem; color:#6a6358;">Film editorials • Time-based works • Screen tests</p>
-                        <div style="margin-top: 16px;"><a href="/catalog/?q=moving image gallery">VIEW COLLECTION →</a></div>
+                        <div style="margin-top: 16px;"><a href="/record/?q=moving image gallery">VIEW COLLECTION →</a></div>
                     </div>
                     <div class="lookbook-card">
                         <div class="collection-tag">ROOM III</div>
                         <h3>Archive Library</h3>
                         <p style="font-size:0.8rem; color:#6a6358;">Personal records • Historical documents • Provenance</p>
-                        <div style="margin-top: 16px;"><a href="/catalog/?q=archive library">VIEW COLLECTION →</a></div>
+                        <div style="margin-top: 16px;"><a href="/record/?q=archive library">VIEW COLLECTION →</a></div>
                     </div>
                 </div>
                 
                 <!-- SPECIAL COLLECTIONS -->
                 <h2>SPECIAL COLLECTIONS</h2>
                 <div class="collection-tags">
-                    <div class="collection-tag-item"><a href="/catalog/?q=private collection">PRIVATE COLLECTION</a></div>
-                    <div class="collection-tag-item"><a href="/catalog/?q=rare editorials">RARE EDITORIALS</a></div>
-                    <div class="collection-tag-item"><a href="/catalog/?q=limited edition">LIMITED EDITION</a></div>
-                    <div class="collection-tag-item"><a href="/catalog/?q=archival pieces">ARCHIVAL PIECES</a></div>
-                    <div class="collection-tag-item"><a href="/catalog/?q=master copies">MASTER COPIES</a></div>
-                    <div class="collection-tag-item"><a href="/catalog/?q=uncut series">UNCUT SERIES</a></div>
+                    <div class="collection-tag-item"><a href="/record/?q=private collection">PRIVATE COLLECTION</a></div>
+                    <div class="collection-tag-item"><a href="/record/?q=rare editorials">RARE EDITORIALS</a></div>
+                    <div class="collection-tag-item"><a href="/record/?q=limited edition">LIMITED EDITION</a></div>
+                    <div class="collection-tag-item"><a href="/record/?q=archival pieces">ARCHIVAL PIECES</a></div>
+                    <div class="collection-tag-item"><a href="/record/?q=master copies">MASTER COPIES</a></div>
+                    <div class="collection-tag-item"><a href="/record/?q=uncut series">UNCUT SERIES</a></div>
                 </div>
                 
                 <!-- PLATFORM ARCHIVES -->
                 <h2>DIGITAL PLATFORM ARCHIVES</h2>
                 <div class="collection-tags">
-                    <div class="collection-tag-item"><a href="/catalog/?q=instagram archive">INSTAGRAM</a></div>
-                    <div class="collection-tag-item"><a href="/catalog/?q=twitter archive">TWITTER</a></div>
-                    <div class="collection-tag-item"><a href="/catalog/?q=tiktok archive">TIKTOK</a></div>
-                    <div class="collection-tag-item"><a href="/catalog/?q=facebook archive">FACEBOOK</a></div>
-                    <div class="collection-tag-item"><a href="/catalog/?q=discord archive">DISCORD</a></div>
-                    <div class="collection-tag-item"><a href="/catalog/?q=telegram archive">TELEGRAM</a></div>
+                    <div class="collection-tag-item"><a href="/record/?q=instagram archive">INSTAGRAM</a></div>
+                    <div class="collection-tag-item"><a href="/record/?q=twitter archive">TWITTER</a></div>
+                    <div class="collection-tag-item"><a href="/record/?q=tiktok archive">TIKTOK</a></div>
+                    <div class="collection-tag-item"><a href="/record/?q=facebook archive">FACEBOOK</a></div>
+                    <div class="collection-tag-item"><a href="/record/?q=discord archive">DISCORD</a></div>
+                    <div class="collection-tag-item"><a href="/record/?q=telegram archive">TELEGRAM</a></div>
                 </div>
                 
                 <hr>
@@ -436,7 +438,7 @@ permalink: /catalog/
             <!-- QUERY-BASED CONTENT - PRIVATE COLLECTION ENTRY -->
             <div id="query-content" style="display: none;">
                 <div class="breadcrumb">
-                    <a href="/">MAISON</a> / <a href="/catalog/">PRIVATE COLLECTION</a> / <span id="breadcrumb-name"></span>
+                    <a href="/">MAISON</a> / <a href="/record/">PRIVATE COLLECTION</a> / <span id="breadcrumb-name"></span>
                 </div>
                 
                 <div class="private-badge" id="collection-badge">PRIVATE COLLECTION</div>
@@ -573,7 +575,7 @@ permalink: /catalog/
                 <div class="collection-tag">${room.room}</div>
                 <h3>${room.label}</h3>
                 <p style="font-size:0.75rem; color:#6a6358;">${room.count} pieces • Archival quality</p>
-                <div style="margin-top: 16px;"><a href="/catalog/?q=${encodeURIComponent(displayName + ' ' + room.query)}">VIEW COLLECTION →</a></div>
+                <div style="margin-top: 16px;"><a href="/record/?q=${encodeURIComponent(displayName + ' ' + room.query)}">VIEW COLLECTION →</a></div>
             </div>
         `).join('');
         
@@ -583,7 +585,7 @@ permalink: /catalog/
         const platforms = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube'];
         
         document.getElementById('digital-archives').innerHTML = platforms.map(p => `
-            <div class="collection-tag-item"><a href="/catalog/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' archive')}">${p.toUpperCase()} ARCHIVE</a></div>
+            <div class="collection-tag-item"><a href="/record/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' archive')}">${p.toUpperCase()} ARCHIVE</a></div>
         `).join('');
         
         // ============================================
@@ -595,7 +597,7 @@ permalink: /catalog/
         ];
         
         document.getElementById('related-collections').innerHTML = relatedCollections.map(rel => `
-            <div class="collection-tag-item"><a href="/catalog/?q=${encodeURIComponent(displayName + ' ' + rel)}">${rel.toUpperCase()}</a></div>
+            <div class="collection-tag-item"><a href="/record/?q=${encodeURIComponent(displayName + ' ' + rel)}">${rel.toUpperCase()}</a></div>
         `).join('');
         
         // ============================================
@@ -636,7 +638,7 @@ permalink: /catalog/
         
         document.getElementById('atelier-notes').innerHTML = atelierNotes.map(note => {
             const linkHtml = note.links.map(link => 
-                `<a href="/catalog/?q=${encodeURIComponent(displayName + ' ' + link)}" style="font-size:0.7rem;">${link}</a>`
+                `<a href="/record/?q=${encodeURIComponent(displayName + ' ' + link)}" style="font-size:0.7rem;">${link}</a>`
             ).join(' • ');
             return `
                 <div class="atelier-note">
@@ -666,7 +668,7 @@ permalink: /catalog/
                 <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #e8dfd3;">
                     <div style="font-size:0.7rem; color:#c9b28b; margin-bottom: 16px; letter-spacing: 1px;">RELATED PRIVATE COLLECTIONS</div>
                     <div class="collection-tags" style="margin-top: 0;">
-                        ${relatedArtists.map(artist => `<div class="collection-tag-item"><a href="/catalog/?q=${encodeURIComponent(artist)}">${artist.toUpperCase()} COLLECTION</a></div>`).join('')}
+                        ${relatedArtists.map(artist => `<div class="collection-tag-item"><a href="/record/?q=${encodeURIComponent(artist)}">${artist.toUpperCase()} COLLECTION</a></div>`).join('')}
                     </div>
                 </div>
             `;
@@ -691,5 +693,5 @@ permalink: /catalog/
 {% include /kw/p/catalog.html %}
 </nav>
     {% include footer.html %}
-</body>
+</div></body>
 </html>

@@ -12,7 +12,7 @@ permalink: /video/
     <meta name="googlebot" content="index, follow">
     <title id="dynamic-title">Telegram Leaks Channel · Influencer Content Archive</title>
     <meta id="dynamic-description" name="description" content="Telegram-style leak channel. Daily leaked content from influencers, TikTokers, and OnlyFans creators. Join 500K+ members.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/video/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/explore/">
     <style>
         * {
             margin: 0;
@@ -220,8 +220,10 @@ permalink: /video/
             .bubble { padding: 0.6rem 0.8rem; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
 <div class="tg-container">
     <!-- DEFAULT TELEGRAM CHANNEL (home) -->
     <div id="default-tg" class="default-tg">
@@ -235,7 +237,7 @@ permalink: /video/
         </div>
 
         <div class="breadcrumb">
-            <a href="/">Home</a> / <a href="/video/">Channels</a> / @leakhub
+            <a href="/">Home</a> / <a href="/explore/">Channels</a> / @leakhub
         </div>
 
         <div class="channel-stats">
@@ -245,14 +247,14 @@ permalink: /video/
         </div>
 
         <div class="pinned-message">
-            📌 <strong>Pinned message:</strong> Welcome to LeakHub! Use search @leakhub_bot or click links below. <a href="/video/?q=how+to+access+leaks">How to access leaks →</a>
+            📌 <strong>Pinned message:</strong> Welcome to LeakHub! Use search @leakhub_bot or click links below. <a href="/explore/?q=how+to+access+leaks">How to access leaks →</a>
         </div>
 
         <div class="chat-area">
             <div class="message message-in">
                 <div class="message-sender">@leakhub_bot · admin</div>
                 <div class="bubble bubble-in">
-                    <div class="message-text">🔥 <strong>HOT LEAK</strong> — TikTok star leaked video compilation just dropped!<br><br>📁 200+ files · 2.3M views this week<br><br>👉 <a href="/video/?q=tiktok+star+leaked+video+compilation">CLICK TO ACCESS LEAKED CONTENT</a></div>
+                    <div class="message-text">🔥 <strong>HOT LEAK</strong> — TikTok star leaked video compilation just dropped!<br><br>📁 200+ files · 2.3M views this week<br><br>👉 <a href="/explore/?q=tiktok+star+leaked+video+compilation">CLICK TO ACCESS LEAKED CONTENT</a></div>
                     <div class="media-preview"><span class="media-icon">🎬</span><div class="media-info">Leaked Video Pack · 2.3GB</div></div>
                 </div>
                 <div class="message-time">10:42 AM · 🔥 trending</div>
@@ -261,7 +263,7 @@ permalink: /video/
             <div class="message message-in">
                 <div class="message-sender">@leakhub_bot · admin</div>
                 <div class="bubble bubble-in">
-                    <div class="message-text">💎 <strong>EXCLUSIVE VAULT</strong> — OnlyFans creator leaked complete set<br><br>🔞 500+ files · Limited time access<br><br>👉 <a href="/video/?q=onlyfans+creator+leaked+complete+set">ACCESS EXCLUSIVE LEAKS →</a></div>
+                    <div class="message-text">💎 <strong>EXCLUSIVE VAULT</strong> — OnlyFans creator leaked complete set<br><br>🔞 500+ files · Limited time access<br><br>👉 <a href="/explore/?q=onlyfans+creator+leaked+complete+set">ACCESS EXCLUSIVE LEAKS →</a></div>
                 </div>
                 <div class="message-time">Yesterday at 8:15 PM · 💎 exclusive</div>
             </div>
@@ -269,7 +271,7 @@ permalink: /video/
             <div class="message message-in">
                 <div class="message-sender">@leakhub_bot · admin</div>
                 <div class="bubble bubble-in">
-                    <div class="message-text">📸 <strong>NEW LEAK</strong> — Instagram influencer private gallery leaked<br><br>🖼️ 80+ deleted photos · 987K views<br><br>👉 <a href="/video/?q=instagram+influencer+leaked+private+gallery">VIEW LEAKED PHOTOS →</a></div>
+                    <div class="message-text">📸 <strong>NEW LEAK</strong> — Instagram influencer private gallery leaked<br><br>🖼️ 80+ deleted photos · 987K views<br><br>👉 <a href="/explore/?q=instagram+influencer+leaked+private+gallery">VIEW LEAKED PHOTOS →</a></div>
                 </div>
                 <div class="message-time">Yesterday at 2:30 PM · 📸 new</div>
             </div>
@@ -285,7 +287,7 @@ permalink: /video/
             <div class="message message-in">
                 <div class="message-sender">@leakhub_bot · admin</div>
                 <div class="bubble bubble-in">
-                    <div class="message-text">Check our related channels:<br><br>🔗 <a href="/video/?q=telegram+leaked+channel+archive">Telegram Leaked Archive</a><br>🔗 <a href="/video/?q=discord+leaked+server+dump">Discord Leaked Server</a><br>🔗 <a href="/video/?q=twitter+leaked+threads">Twitter Leaked Threads</a></div>
+                    <div class="message-text">Check our related channels:<br><br>🔗 <a href="/explore/?q=telegram+leaked+channel+archive">Telegram Leaked Archive</a><br>🔗 <a href="/explore/?q=discord+leaked+server+dump">Discord Leaked Server</a><br>🔗 <a href="/explore/?q=twitter+leaked+threads">Twitter Leaked Threads</a></div>
                 </div>
                 <div class="message-time">Yesterday at 2:33 PM</div>
             </div>
@@ -308,7 +310,7 @@ permalink: /video/
         </div>
 
         <div class="breadcrumb">
-            <a href="/">Home</a> / <a href="/video/">Channels</a> / <span id="bc-name"></span>
+            <a href="/">Home</a> / <a href="/explore/">Channels</a> / <span id="bc-name"></span>
         </div>
 
         <div class="channel-stats" id="channel-stats"></div>
@@ -394,7 +396,7 @@ permalink: /video/
             <div class="message message-in">
                 <div class="message-sender">@${displayLower}_leaks · admin</div>
                 <div class="bubble bubble-in">
-                    <div class="message-text">${badge} <strong>${title}</strong><br><br>${desc}<br><br>👉 <a href="/video/?q=${encodeURIComponent(newQ)}">${btnText}</a></div>
+                    <div class="message-text">${badge} <strong>${title}</strong><br><br>${desc}<br><br>👉 <a href="/explore/?q=${encodeURIComponent(newQ)}">${btnText}</a></div>
                     <div class="media-preview"><span class="media-icon">${mediaIcon}</span><div class="media-info">${fileSize}</div></div>
                 </div>
                 <div class="message-time">${timeAgo}</div>
@@ -417,7 +419,7 @@ permalink: /video/
     
     // helper: make reply message
     function makeReplyMessage(text, links) {
-        const linksHtml = links.map(l => `<a href="/video/?q=${encodeURIComponent(displayLower + ' ' + l.variant)}">${l.label}</a>`).join(' · ');
+        const linksHtml = links.map(l => `<a href="/explore/?q=${encodeURIComponent(displayLower + ' ' + l.variant)}">${l.label}</a>`).join(' · ');
         return `
             <div class="message message-in">
                 <div class="message-sender">@${displayLower}_leaks · admin</div>
@@ -456,7 +458,7 @@ permalink: /video/
             `Full ${displayName} leaked photo set. Private Instagram photos, deleted stories.`, 
             'leaked photos full gallery', 
                             '📸 VIEW LEAKED PHOTOS →', 
-            'Yesterday at 2:30 PM · 📸 new', 
+            'Yesterday at 2:30 PM · ?? new', 
             '📸', 
             '🖼️', 
             `${Math.floor(fileCount * 0.5)}+ images · 800MB`
@@ -520,5 +522,5 @@ permalink: /video/
 {% include /kw/p/video.html %}
 </nav>
 {% include footer.html %}
-</body>
+</div></body>
 </html>

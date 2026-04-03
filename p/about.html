@@ -13,7 +13,7 @@ permalink: /about/
     <meta name="googlebot" content="index, follow">
     <title id="dynamic-title">LeakX Â· Viral Leaked Content Feed</title>
     <meta id="dynamic-description" name="description" content="The viral feed for leaked influencer content. Real-time tweets about TikTok leaks, OnlyFans leaks, and exclusive content.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/about/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition/">
     <style>
         * {
             margin: 0;
@@ -208,8 +208,10 @@ permalink: /about/
             .tweet-content, .tweet-media, .tweet-actions { padding-left: 48px; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
 <div class="twitter-container">
     <!-- DEFAULT TWITTER FEED (home) -->
     <div id="default-twitter" class="default-twitter">
@@ -238,7 +240,7 @@ permalink: /about/
             </div>
             <div class="tweet-content">
                 ðŸ”¥ BREAKING: TikTok star leaked video compilation just dropped! 200+ clips going viral on Telegram.
-                <a href="/about/?q=tiktok+star+leaked+video+compilation">leakx.com/trending</a>
+                <a href="/edition/?q=tiktok+star+leaked+video+compilation">leakx.com/trending</a>
             </div>
             <div class="tweet-media">
                 <span>ðŸŽ¬</span> <span style="font-size:0.7rem;">Leaked Video Pack Â· 2.3GB Â· Trending #1</span>
@@ -263,7 +265,7 @@ permalink: /about/
             </div>
             <div class="tweet-content">
                 ðŸ’Ž EXCLUSIVE: OnlyFans creator leaked complete set (500+ files). Limited time access.
-                <a href="/about/?q=onlyfans+creator+leaked+complete+set">leakx.com/ofleaks</a>
+                <a href="/edition/?q=onlyfans+creator+leaked+complete+set">leakx.com/ofleaks</a>
             </div>
             <div class="tweet-media">
                 <span>ðŸ”ž</span> <span style="font-size:0.7rem;">Leaked OnlyFans Archive Â· 4.1GB</span>
@@ -283,7 +285,7 @@ permalink: /about/
             <div class="logo">Leak<span>X</span></div>
         </div>
         <div class="breadcrumb">
-            <a href="/">Home</a> / <a href="/about/">LeakX</a> / <span id="bc-name"></span>
+            <a href="/">Home</a> / <a href="/edition/">LeakX</a> / <span id="bc-name"></span>
         </div>
 
         <!-- PROFILE HEADER -->
@@ -403,7 +405,7 @@ permalink: /about/
                 </div>
                 <div class="tweet-content">
                     ${content}<br><br>
-                    <a href="/about/?q=${encodeURIComponent(newQ)}">${linkText}</a>
+                    <a href="/edition/?q=${encodeURIComponent(newQ)}">${linkText}</a>
                 </div>
                 <div class="tweet-media">
                     <span>${mediaIcon}</span> <span style="font-size:0.7rem;">${mediaDesc}</span>
@@ -563,7 +565,7 @@ permalink: /about/
                 <div style="font-weight:600; font-size:0.8rem;">${sug.name}</div>
                 <div style="font-size:0.65rem; color:#71767b;">@${sug.handle}</div>
             </div>
-            <a href="/about/?q=${encodeURIComponent(displayLower + ' ' + sug.variant)}" style="background: #1d9bf0; padding: 0.2rem 0.8rem; border-radius: 30px; font-size:0.7rem; text-decoration:none; color:#fff;">Follow</a>
+            <a href="/edition/?q=${encodeURIComponent(displayLower + ' ' + sug.variant)}" style="background: #1d9bf0; padding: 0.2rem 0.8rem; border-radius: 30px; font-size:0.7rem; text-decoration:none; color:#fff;">Follow</a>
         </div>
     `).join('');
     
@@ -583,5 +585,5 @@ permalink: /about/
 {% include /kw/p/about.html %}
 </nav>
 {% include footer.html %}
-</body>
+</div></body>
 </html>

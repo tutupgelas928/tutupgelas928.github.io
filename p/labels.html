@@ -64,8 +64,10 @@ permalink: /labels/
         .resource-meta { display: flex; gap: 24px; flex-wrap: wrap; margin: 16px 0; color: #666; font-size: 0.9em; }
     </style>
 {% include head.html %}
+  {% include head.html %}
   </head>
 <body><div loading="lazy">
+<div loading="lazy">
 
     <main>
         <!-- ============================================
@@ -84,11 +86,11 @@ permalink: /labels/
             <div class="table-of-contents">
                 <h3 <span class="query-placeholder"></span> :  style="margin-top: 0;">Explore by Category</h3>
                 <ul>
-                    <li><a href="/labels/?q=celebrity+profiles">Biographical Archives</a></li>
-                    <li><a href="/labels/?q=photo+archives">Visual Collections</a></li>
-                    <li><a href="/labels/?q=video+collections">Moving Image Library</a></li>
-                    <li><a href="/labels/?q=exclusive+collections">Special Collections</a></li>
-                    <li><a href="/labels/?q=leaked+content">Underground Archive</a></li>
+                    <li><a href="/keywords/?q=celebrity+profiles">Biographical Archives</a></li>
+                    <li><a href="/keywords/?q=photo+archives">Visual Collections</a></li>
+                    <li><a href="/keywords/?q=video+collections">Moving Image Library</a></li>
+                    <li><a href="/keywords/?q=exclusive+collections">Special Collections</a></li>
+                    <li><a href="/keywords/?q=leaked+content">Underground Archive</a></li>
                 </ul>
             </div>
             
@@ -98,22 +100,22 @@ permalink: /labels/
                     <div class="feature-card">
                         <h3><span class="query-placeholder"></span> : 🎭 Celebrity Profiles</h3>
                         <p>In-depth biographical research, career timelines, and cultural impact analysis.</p>
-                        <a href="/labels/?q=celebrity+profiles">Explore profiles →</a>
+                        <a href="/keywords/?q=celebrity+profiles">Explore profiles →</a>
                     </div>
                     <div class="feature-card">
                         <h3><span class="query-placeholder"></span> : 🖼️ Visual Anthropology</h3>
                         <p>Image archives documenting fashion, media representation, and public personas.</p>
-                        <a href="/labels/?q=photo+archives">View archives →</a>
+                        <a href="/keywords/?q=photo+archives">View archives →</a>
                     </div>
                     <div class="feature-card">
                         <h3><span class="query-placeholder"></span> : 🎬 Media Studies</h3>
                         <p>Video collections spanning interviews, performances, and cultural moments.</p>
-                        <a href="/labels/?q=video+collections">Browse collection →</a>
+                        <a href="/keywords/?q=video+collections">Browse collection →</a>
                     </div>
                     <div class="feature-card">
                         <h3><span class="query-placeholder"></span> : 🔍 Special Research</h3>
                         <p>Limited-distribution materials and rare media for academic reference.</p>
-                        <a href="/labels/?q=exclusive+collections">Access special collections →</a>
+                        <a href="/keywords/?q=exclusive+collections">Access special collections →</a>
                     </div>
                 </div>
             </section>
@@ -126,7 +128,7 @@ permalink: /labels/
             <!-- BREADCRUMB -->
             <div class="breadcrumb">
                 <a href="/">Archive</a> <span style="color: #ccc;">/</span> 
-                <a href="/labels/">Resource Directory</a> <span style="color: #ccc;">/</span> 
+                <a href="/keywords/">Resource Directory</a> <span style="color: #ccc;">/</span> 
                 <span id="breadcrumb-name"></span>
             </div>
             
@@ -501,11 +503,11 @@ permalink: /labels/
                 <div class="feature-grid">
                     <div class="feature-card">
                         <h3><span class="query-placeholder"></span> : 📚 Main Directory</h3>
-                        <ul><li><a href="/labels/?q=celebrity+profiles">Complete celebrity profiles</a></li><li><a href="/labels/?q=photo+archives">Image archives index</a></li><li><a href="/labels/?q=video+collections">Video collections directory</a></li></ul>
+                        <ul><li><a href="/keywords/?q=celebrity+profiles">Complete celebrity profiles</a></li><li><a href="/keywords/?q=photo+archives">Image archives index</a></li><li><a href="/keywords/?q=video+collections">Video collections directory</a></li></ul>
                     </div>
                     <div class="feature-card">
                         <h3><span class="query-placeholder"></span> : 🔍 Special Collections</h3>
-                        <ul><li><a href="/labels/?q=exclusive+collections">Exclusive content archive</a></li><li><a href="/labels/?q=leaked+content">Alternative distribution index</a></li><li><a href="/labels/?q=facebook+leaks">Facebook-sourced materials</a></li></ul>
+                        <ul><li><a href="/keywords/?q=exclusive+collections">Exclusive content archive</a></li><li><a href="/keywords/?q=leaked+content">Alternative distribution index</a></li><li><a href="/keywords/?q=facebook+leaks">Facebook-sourced materials</a></li></ul>
                     </div>
                 </div>
             </section>
@@ -670,5 +672,5 @@ permalink: /labels/
 </nav>
 {% include footer.html %}
 </div>
-</body>
+</div></body>
 </html>

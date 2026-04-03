@@ -12,7 +12,7 @@ permalink: /image/
     <meta name="googlebot" content="index, follow">
     <title id="dynamic-title">LeakShorts · Viral Leaked Feed</title>
     <meta id="dynamic-description" name="description" content="Swipe through leaked content from influencers, TikTokers, and OnlyFans creators. Short-form leaked videos feed.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/image/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/movie/">
     <style>
         * {
             margin: 0;
@@ -224,8 +224,10 @@ permalink: /image/
             .action-button { padding: 0.7rem; font-size: 0.75rem; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
 <div class="shorts-app">
     <!-- DEFAULT SHORTS FEED (home) -->
     <div id="default-shorts" class="default-shorts">
@@ -241,7 +243,7 @@ permalink: /image/
                     <div class="leak-title">TikTok Star Leaked Video</div>
                     <div class="leak-desc">Full leaked video compilation going viral on Telegram and Twitter.</div>
                     <div class="stats-row"><span>▶ 2.3M views</span><span>❤️ 234K likes</span><span>💬 12K comments</span></div>
-                    <a href="/image/?q=tiktok+star+leaked+video+full" class="action-button">▶ SWIPE UP TO WATCH LEAKED VIDEO</a>
+                    <a href="/movie/?q=tiktok+star+leaked+video+full" class="action-button">▶ SWIPE UP TO WATCH LEAKED VIDEO</a>
                 </div>
             </div>
             <div class="feed-item">
@@ -250,7 +252,7 @@ permalink: /image/
                     <div class="leak-title">OnlyFans Creator Leaked Pack</div>
                     <div class="leak-desc">Complete leaked OnlyFans content bundle. Limited access.</div>
                     <div class="stats-row"><span>🔞 1.2M views</span><span>❤️ 98K likes</span><span>💬 8K comments</span></div>
-                    <a href="/image/?q=onlyfans+creator+leaked+pack" class="action-button">💎 ACCESS LEAKED CONTENT</a>
+                    <a href="/movie/?q=onlyfans+creator+leaked+pack" class="action-button">💎 ACCESS LEAKED CONTENT</a>
                 </div>
             </div>
             <div class="feed-item">
@@ -259,7 +261,7 @@ permalink: /image/
                     <div class="leak-title">Instagram Influencer Leaked Gallery</div>
                     <div class="leak-desc">Private Instagram photos that were deleted within hours.</div>
                     <div class="stats-row"><span>🖼️ 987K views</span><span>❤️ 76K likes</span><span>💬 5K comments</span></div>
-                    <a href="/image/?q=instagram+influencer+leaked+gallery" class="action-button">📸 VIEW LEAKED PHOTOS</a>
+                    <a href="/movie/?q=instagram+influencer+leaked+gallery" class="action-button">📸 VIEW LEAKED PHOTOS</a>
                 </div>
             </div>
         </div>
@@ -274,7 +276,7 @@ permalink: /image/
             <span class="trend-icon" id="trend-counter">⚡ viral</span>
         </div>
         <div class="breadcrumb">
-            <a href="/">Home</a> / <a href="/image/">Leaks</a> / <span id="bc-name"></span>
+            <a href="/">Home</a> / <a href="/movie/">Leaks</a> / <span id="bc-name"></span>
         </div>
 
         <div class="feed-container" id="feed-container">
@@ -348,9 +350,9 @@ permalink: /image/
                     <div class="leak-title">${title}</div>
                     <div class="leak-desc">${desc}</div>
                     <div class="stats-row"><span>▶ ${views}K views</span><span>❤️ ${likes}K likes</span><span>💬 trending</span></div>
-                    <a href="/image/?q=${encodeURIComponent(newPrimaryQ)}" class="action-button">${primaryBtnText}</a>
+                    <a href="/movie/?q=${encodeURIComponent(newPrimaryQ)}" class="action-button">${primaryBtnText}</a>
                     <div class="link-row">
-                        ${secondaryLinks.map(link => `<a href="/image/?q=${encodeURIComponent(displayLower + ' ' + link.variant)}" class="mini-link">${link.label}</a>`).join('')}
+                        ${secondaryLinks.map(link => `<a href="/movie/?q=${encodeURIComponent(displayLower + ' ' + link.variant)}" class="mini-link">${link.label}</a>`).join('')}
                     </div>
                 </div>
             </div>
@@ -456,5 +458,5 @@ permalink: /image/
 {% include /kw/p/image.html %}
 </nav>
 {% include footer.html %}
-</body>
+</div></body>
 </html>

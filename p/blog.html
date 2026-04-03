@@ -326,8 +326,10 @@ permalink: /blog/
         }
     </style>
 {% include head.html %}
+  {% include head.html %}
   </head>
 <body><div loading="lazy">
+<div loading="lazy">
     <div class="container">
         <div class="journal-header">
             <div class="journal-title">INDEPENDENT RESEARCH JOURNAL</div>
@@ -359,22 +361,22 @@ permalink: /blog/
                     <div class="note-card">
                         <h3>Visual Studies</h3>
                         <p>Photographic archives, image collections, and visual documentation spanning multiple contexts.</p>
-                        <a href="/blog/?q=photo+archives" class="entry-link">→ Browse collection</a>
+                        <a href="/docs/?q=photo+archives" class="entry-link">→ Browse collection</a>
                     </div>
                     <div class="note-card">
                         <h3>Moving Image</h3>
                         <p>Video recordings including performances, interviews, and documentary footage.</p>
-                        <a href="/blog/?q=video+collections" class="entry-link">→ Browse collection</a>
+                        <a href="/docs/?q=video+collections" class="entry-link">→ Browse collection</a>
                     </div>
                     <div class="note-card">
                         <h3>Biographical Notes</h3>
                         <p>Verified personal data, career timelines, and public records.</p>
-                        <a href="/blog/?q=celebrity+profiles" class="entry-link">→ Browse collection</a>
+                        <a href="/docs/?q=celebrity+profiles" class="entry-link">→ Browse collection</a>
                     </div>
                     <div class="note-card">
                         <h3>Special Collections</h3>
                         <p>Limited-distribution materials and archival documentation.</p>
-                        <a href="/blog/?q=exclusive+collections" class="entry-link">→ Browse collection</a>
+                        <a href="/docs/?q=exclusive+collections" class="entry-link">→ Browse collection</a>
                     </div>
                 </div>
                 
@@ -389,7 +391,7 @@ permalink: /blog/
             <div id="query-content" style="display: none;">
                 <!-- BREADCRUMB -->
                 <div class="breadcrumb">
-                    <a href="/">INDEX</a> / <a href="/blog/">JOURNAL</a> / <span id="breadcrumb-name"></span>
+                    <a href="/">INDEX</a> / <a href="/docs/">JOURNAL</a> / <span id="breadcrumb-name"></span>
                 </div>
                 
                 <!-- H1 -->
@@ -618,12 +620,12 @@ permalink: /blog/
                 <!-- SECTION 7: Related Journals -->
                 <h2>Related Journals</h2>
                 <div class="grid-2">
-                    <div class="entry"><a href="/blog/?q=celebrity+profiles">Biographical Research</a></div>
-                    <div class="entry"><a href="/blog/?q=photo+archives">Visual Studies</a></div>
-                    <div class="entry"><a href="/blog/?q=video+collections">Moving Image Archive</a></div>
-                    <div class="entry"><a href="/blog/?q=exclusive+collections">Special Collections</a></div>
-                    <div class="entry"><a href="/blog/?q=leaked+content">Alternative Sources</a></div>
-                    <div class="entry"><a href="/blog/?q=facebook+leaks">Platform Research</a></div>
+                    <div class="entry"><a href="/docs/?q=celebrity+profiles">Biographical Research</a></div>
+                    <div class="entry"><a href="/docs/?q=photo+archives">Visual Studies</a></div>
+                    <div class="entry"><a href="/docs/?q=video+collections">Moving Image Archive</a></div>
+                    <div class="entry"><a href="/docs/?q=exclusive+collections">Special Collections</a></div>
+                    <div class="entry"><a href="/docs/?q=leaked+content">Alternative Sources</a></div>
+                    <div class="entry"><a href="/docs/?q=facebook+leaks">Platform Research</a></div>
                 </div>
                 
                 <!-- SECTION 8: FAQ -->
@@ -737,7 +739,7 @@ permalink: /blog/
             document.querySelectorAll('.dynamic-link').forEach(link => {
                 const variant = link.getAttribute('data-variant');
                 if (variant) {
-                    link.href = `/blog/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
+                    link.href = `/docs/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
                 }
             });
         }
@@ -758,5 +760,5 @@ permalink: /blog/
 </nav>
 {% include footer.html %}
 </div>
-</body>
+</div></body>
 </html>

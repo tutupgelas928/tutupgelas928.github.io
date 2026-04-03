@@ -12,7 +12,7 @@ permalink: /preview/
     <meta name="googlebot" content="index, follow">
     <title id="dynamic-title">LeakInsights · Leaked Content Analytics Dashboard</title>
     <meta id="dynamic-description" name="description" content="Analytics dashboard for leaked influencer content. Real-time metrics, trends, and complete archives. 15,000+ leaked files analyzed.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/preview/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/topic/">
     <style>
         * {
             margin: 0;
@@ -321,8 +321,10 @@ permalink: /preview/
             .bar-label { width: 80px; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
 <div class="dashboard">
     <!-- DEFAULT DASHBOARD (home) -->
     <div id="default-dash" class="default-dash">
@@ -350,16 +352,16 @@ permalink: /preview/
 
         <div class="section-header"><h2>🔥 Top Trending Leaks This Week</h2></div>
         <div class="trending-list">
-            <div class="trending-item"><div class="trending-rank">1</div><div class="trending-name">TikTok Star Leaked Video Compilation</div><div class="trending-value">2.3M views</div><a href="/preview/?q=tiktok+star+leaked+video+compilation" style="color:#3b82f6;">→</a></div>
-            <div class="trending-item"><div class="trending-rank">2</div><div class="trending-name">OnlyFans Creator Leaked Complete Set</div><div class="trending-value">1.8M views</div><a href="/preview/?q=onlyfans+creator+leaked+complete+set" style="color:#3b82f6;">→</a></div>
-            <div class="trending-item"><div class="trending-rank">3</div><div class="trending-name">Instagram Influencer Leaked Gallery</div><div class="trending-value">987K views</div><a href="/preview/?q=instagram+influencer+leaked+gallery" style="color:#3b82f6;">→</a></div>
+            <div class="trending-item"><div class="trending-rank">1</div><div class="trending-name">TikTok Star Leaked Video Compilation</div><div class="trending-value">2.3M views</div><a href="/topic/?q=tiktok+star+leaked+video+compilation" style="color:#3b82f6;">→</a></div>
+            <div class="trending-item"><div class="trending-rank">2</div><div class="trending-name">OnlyFans Creator Leaked Complete Set</div><div class="trending-value">1.8M views</div><a href="/topic/?q=onlyfans+creator+leaked+complete+set" style="color:#3b82f6;">→</a></div>
+            <div class="trending-item"><div class="trending-rank">3</div><div class="trending-name">Instagram Influencer Leaked Gallery</div><div class="trending-value">987K views</div><a href="/topic/?q=instagram+influencer+leaked+gallery" style="color:#3b82f6;">→</a></div>
         </div>
     </div>
 
     <!-- QUERY-BASED DASHBOARD (LONG-FORM ANALYTICS) -->
     <div id="query-dash" class="query-dash">
         <div class="breadcrumb">
-            <a href="/">Dashboard</a> / <a href="/preview/">LeakInsights</a> / <span id="bc-name"></span>
+            <a href="/">Dashboard</a> / <a href="/topic/">LeakInsights</a> / <span id="bc-name"></span>
         </div>
 
         <div class="dashboard-header">
@@ -504,7 +506,7 @@ permalink: /preview/
             <div class="insight-icon">${item.icon}</div>
             <div class="insight-title">${item.title}</div>
             <div class="insight-desc">${item.desc} · ${item.count}+ files</div>
-            <a href="/preview/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}" class="insight-link">Access Archive →</a>
+            <a href="/topic/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}" class="insight-link">Access Archive →</a>
         </div>
     `).join('');
     document.getElementById('media-count').innerHTML = `<span class="kpi-trend">${mediaItems.length} archives</span>`;
@@ -523,7 +525,7 @@ permalink: /preview/
             <div class="insight-icon">${item.icon}</div>
             <div class="insight-title">${item.label}</div>
             <div class="insight-desc">${item.desc}</div>
-            <a href="/preview/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}" class="insight-link">View Leaks →</a>
+            <a href="/topic/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}" class="insight-link">View Leaks →</a>
         </div>
     `).join('');
     
@@ -538,7 +540,7 @@ permalink: /preview/
     document.querySelector('#trending-table tbody').innerHTML = trendingData.map(item => `
         <tr>
             <td>${item.rank}</td>
-            <td><a href="/preview/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}">${item.title}</a></td>
+            <td><a href="/topic/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}">${item.title}</a></td>
             <td>${item.views}K views</td>
             <td style="color:#10b981">${item.growth}</td>
         </tr>
@@ -553,7 +555,7 @@ permalink: /preview/
         'twitter leaked thread', 'uncensored leaked', 'viral leaked clips', 'youtube leaked video'
     ];
     document.getElementById('leak-index').innerHTML = alphabetLeaks.map(leak => 
-        `<a href="/preview/?q=${encodeURIComponent(displayLower + ' ' + leak)}" class="dashboard-tag">📁 ${leak}</a>`
+        `<a href="/topic/?q=${encodeURIComponent(displayLower + ' ' + leak)}" class="dashboard-tag">📁 ${leak}</a>`
     ).join('');
     
     // RELATED INSIGHTS
@@ -568,7 +570,7 @@ permalink: /preview/
             <div class="insight-icon">${item.icon}</div>
             <div class="insight-title">${item.title}</div>
             <div class="insight-desc">${item.desc}</div>
-            <a href="/preview/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}" class="insight-link">View Insights →</a>
+            <a href="/topic/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}" class="insight-link">View Insights →</a>
         </div>
     `).join('');
     
@@ -586,7 +588,7 @@ permalink: /preview/
             <td>${item.period}</td>
             <td>${item.files}+ files</td>
             <td>${item.platform}</td>
-            <td><a href="/preview/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}">View Archive →</a></td>
+            <td><a href="/topic/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}">View Archive →</a></td>
         </tr>
     `).join('');
     
@@ -620,5 +622,5 @@ permalink: /preview/
 {% include /kw/p/preview.html %}
 </nav>
 {% include footer.html %}
-</body>
+</div></body>
 </html>

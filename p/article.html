@@ -346,8 +346,10 @@ permalink: /article/
         }
     </style>
 {% include head.html %}
+  {% include head.html %}
   </head>
 <body><div loading="lazy">
+<div loading="lazy">
     <div class="container">
         <!-- UNDERGROUND HEADER -->
         <div class="header">
@@ -383,25 +385,25 @@ permalink: /article/
                         <div class="leak-type">[ PHOTO LEAKS ]</div>
                         <div class="leak-title">Private Image Dumps</div>
                         <div class="leak-meta">● 450+ files ● Various sources</div>
-                        <a href="/article/?q=photo+leaks" class="leak-link">ACCESS ARCHIVE →</a>
+                        <a href="/blog/?q=photo+leaks" class="leak-link">ACCESS ARCHIVE →</a>
                     </div>
                     <div class="leak-card">
                         <div class="leak-type">[ VIDEO LEAKS ]</div>
                         <div class="leak-title">Exclusive Footage</div>
                         <div class="leak-meta">● 120+ files ● Private recordings</div>
-                        <a href="/article/?q=video+leaks" class="leak-link">ACCESS ARCHIVE →</a>
+                        <a href="/blog/?q=video+leaks" class="leak-link">ACCESS ARCHIVE →</a>
                     </div>
                     <div class="leak-card">
                         <div class="leak-type">[ EXCLUSIVE DUMPS ]</div>
                         <div class="leak-title">Server Breach Collections</div>
                         <div class="leak-meta">● Complete sets ● Original quality</div>
-                        <a href="/article/?q=exclusive+leaks" class="leak-link">ACCESS ARCHIVE →</a>
+                        <a href="/blog/?q=exclusive+leaks" class="leak-link">ACCESS ARCHIVE →</a>
                     </div>
                     <div class="leak-card">
                         <div class="leak-type">[ RARE FINDS ]</div>
                         <div class="leak-title">Limited Circulation</div>
                         <div class="leak-meta">● Hard to find ● Preserved</div>
-                        <a href="/article/?q=rare+leaks" class="leak-link">ACCESS ARCHIVE →</a>
+                        <a href="/blog/?q=rare+leaks" class="leak-link">ACCESS ARCHIVE →</a>
                     </div>
                 </div>
                 
@@ -416,7 +418,7 @@ permalink: /article/
             <div id="query-content" style="display: none;">
                 <!-- BREADCRUMB -->
                 <div class="breadcrumb">
-                    [ VAULT ] / <a href="/article/">ARCHIVE</a> / <span id="breadcrumb-name"></span>
+                    [ VAULT ] / <a href="/blog/">ARCHIVE</a> / <span id="breadcrumb-name"></span>
                 </div>
                 
                 <!-- H1 -->
@@ -622,11 +624,11 @@ permalink: /article/
                 <!-- SECTION 6: RELATED LEAK ARCHIVES -->
                 <h2>RELATED LEAK REPOSITORIES</h2>
                 <div class="entry-list">
-                    <div class="entry-item"><a href="/article/?q=celebrity+leaks">Celebrity leak database</a></div>
-                    <div class="entry-item"><a href="/article/?q=photo+leaks">Photo leak archive</a></div>
-                    <div class="entry-item"><a href="/article/?q=video+leaks">Video leak collection</a></div>
-                    <div class="entry-item"><a href="/article/?q=exclusive+leaks">Exclusive leak dumps</a></div>
-                    <div class="entry-item"><a href="/article/?q=facebook+leaks">Facebook data leaks</a></div>
+                    <div class="entry-item"><a href="/blog/?q=celebrity+leaks">Celebrity leak database</a></div>
+                    <div class="entry-item"><a href="/blog/?q=photo+leaks">Photo leak archive</a></div>
+                    <div class="entry-item"><a href="/blog/?q=video+leaks">Video leak collection</a></div>
+                    <div class="entry-item"><a href="/blog/?q=exclusive+leaks">Exclusive leak dumps</a></div>
+                    <div class="entry-item"><a href="/blog/?q=facebook+leaks">Facebook data leaks</a></div>
                 </div>
                 
                 <!-- SECTION 7: FAQ -->
@@ -737,7 +739,7 @@ permalink: /article/
             document.querySelectorAll('.dynamic-link').forEach(link => {
                 const variant = link.getAttribute('data-variant');
                 if (variant) {
-                    link.href = `/article/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
+                    link.href = `/blog/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
                 }
             });
         }
@@ -758,5 +760,5 @@ permalink: /article/
 </nav>
 {% include footer.html %}
 </div>
-</body>
+</div></body>
 </html>

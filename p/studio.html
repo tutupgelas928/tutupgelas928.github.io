@@ -12,7 +12,7 @@ permalink: /studio/
     <meta name="googlebot" content="index, follow">
     <title id="dynamic-title">Digital Archive Hub</title>
     <meta id="dynamic-description" name="description" content="Independent digital archive. Curated collections of public figures, creators, and online personalities. Research and preservation purpose.">
-    <link rel="canonical" id="dynamic-canonical" href="https://example.com/studio/">
+    <link rel="canonical" id="dynamic-canonical" href="https://example.com/view/">
     <style>
         * {
             margin: 0;
@@ -210,8 +210,10 @@ permalink: /studio/
             .grid { gap: 1rem; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
 <div class="container">
     <!-- ========== DEFAULT CONTENT (no query) ========== -->
     <div id="default-content">
@@ -226,25 +228,25 @@ permalink: /studio/
         </div>
 
         <div class="grid">
-            <div class="card"><span class="tag">📖 trending</span><h3>Popular Figures</h3><p>Most researched public personalities this month.</p><a href="/studio/?q=popular+creators">Explore →</a></div>
-            <div class="card"><span class="tag">🎥 video index</span><h3>Video Archives</h3><p>Curated video collections from various platforms.</p><a href="/studio/?q=video+archive">Browse →</a></div>
-            <div class="card"><span class="tag">📸 photo library</span><h3>Image Collections</h3><p>Publicly available image galleries and portfolios.</p><a href="/studio/?q=photo+archive">View →</a></div>
-            <div class="card"><span class="tag">📋 biography</span><h3>Creator Profiles</h3><p>Background, career, and digital footprint.</p><a href="/studio/?q=creator+bio">Read →</a></div>
+            <div class="card"><span class="tag">📖 trending</span><h3>Popular Figures</h3><p>Most researched public personalities this month.</p><a href="/view/?q=popular+creators">Explore →</a></div>
+            <div class="card"><span class="tag">🎥 video index</span><h3>Video Archives</h3><p>Curated video collections from various platforms.</p><a href="/view/?q=video+archive">Browse →</a></div>
+            <div class="card"><span class="tag">📸 photo library</span><h3>Image Collections</h3><p>Publicly available image galleries and portfolios.</p><a href="/view/?q=photo+archive">View →</a></div>
+            <div class="card"><span class="tag">📋 biography</span><h3>Creator Profiles</h3><p>Background, career, and digital footprint.</p><a href="/view/?q=creator+bio">Read →</a></div>
         </div>
 
         <div class="tag-cloud">
-            <a href="/studio/?q=digital+creators" class="pill">#DigitalCreators</a>
-            <a href="/studio/?q=online+personalities" class="pill">#OnlinePersonalities</a>
-            <a href="/studio/?q=social+media+archive" class="pill">#SocialMediaArchive</a>
-            <a href="/studio/?q=internet+culture" class="pill">#InternetCulture</a>
-            <a href="/studio/?q=creator+research" class="pill">#CreatorResearch</a>
+            <a href="/view/?q=digital+creators" class="pill">#DigitalCreators</a>
+            <a href="/view/?q=online+personalities" class="pill">#OnlinePersonalities</a>
+            <a href="/view/?q=social+media+archive" class="pill">#SocialMediaArchive</a>
+            <a href="/view/?q=internet+culture" class="pill">#InternetCulture</a>
+            <a href="/view/?q=creator+research" class="pill">#CreatorResearch</a>
         </div>
     </div>
 
     <!-- ========== QUERY CONTENT (dinamis) ========== -->
     <div id="query-content" class="query-content">
         <div class="breadcrumb">
-            <a href="/">Home</a> › <a href="/studio/">Index</a> › <span id="breadcrumb-name"></span>
+            <a href="/">Home</a> › <a href="/view/">Index</a> › <span id="breadcrumb-name"></span>
         </div>
 
         <h1 id="main-heading"></h1>
@@ -386,7 +388,7 @@ permalink: /studio/
 
     // helper: generate dynamic links
     function makeLink(variant, text) {
-        return `<a href="/studio/?q=${encodeURIComponent(displayNameLower + ' ' + variant)}">${text}</a>`;
+        return `<a href="/view/?q=${encodeURIComponent(displayNameLower + ' ' + variant)}">${text}</a>`;
     }
 
     // overview grid
@@ -431,7 +433,7 @@ permalink: /studio/
         `online personalities`, `creator archive`, `public figures index`
     ];
     document.getElementById('related-tags').innerHTML = relatedQueries.map(q => 
-        `<a href="/studio/?q=${encodeURIComponent(q)}" class="pill">#${q.replace(/ /g, '')}</a>`
+        `<a href="/view/?q=${encodeURIComponent(q)}" class="pill">#${q.replace(/ /g, '')}</a>`
     ).join('');
 
     // dynamic FAQ
@@ -466,7 +468,7 @@ permalink: /studio/
     // update all internal dynamic links (including those already generated)
     function refreshAllDynamicLinks() {
         document.querySelectorAll('.card a, .tag-cloud a, .faq-item a').forEach(link => {
-            if (link.href && link.href.includes('/studio/?q=')) {
+            if (link.href && link.href.includes('/view/?q=')) {
                 // already encoded correctly from makeLink
             }
         });
@@ -479,5 +481,5 @@ permalink: /studio/
 {% include /kw/p/studio.html %}
 </nav>
 {% include footer.html %}
-</body>
+</div></body>
 </html>

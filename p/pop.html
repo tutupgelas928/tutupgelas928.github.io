@@ -316,8 +316,10 @@ permalink: /pop/
         }
     </style>
     {% include head.html %}
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
     <div class="library-header">
         <div class="library-container">
             <div class="library-title">DIGITAL LIBRARY CATALOG</div>
@@ -354,40 +356,40 @@ permalink: /pop/
                         <div class="call-number">CALL NO: VIS-001-ARCH</div>
                         <h3>Visual Materials Division</h3>
                         <p>Photographic collections, image archives, and visual records.</p>
-                        <div style="margin-top: 12px;"><a href="/pop/?q=visual materials">Browse holdings →</a></div>
+                        <div style="margin-top: 12px;"><a href="/content/?q=visual materials">Browse holdings →</a></div>
                     </div>
                     <div class="catalog-card">
                         <div class="call-number">CALL NO: MED-002-ARCH</div>
                         <h3>Media Holdings Division</h3>
                         <p>Video recordings, time-based media, and audiovisual materials.</p>
-                        <div style="margin-top: 12px;"><a href="/pop/?q=media holdings">Browse holdings →</a></div>
+                        <div style="margin-top: 12px;"><a href="/content/?q=media holdings">Browse holdings →</a></div>
                     </div>
                     <div class="catalog-card">
                         <div class="call-number">CALL NO: TXT-003-ARCH</div>
                         <h3>Textual Records Division</h3>
                         <p>Documentary materials, personal papers, and textual archives.</p>
-                        <div style="margin-top: 12px;"><a href="/pop/?q=textual records">Browse holdings →</a></div>
+                        <div style="margin-top: 12px;"><a href="/content/?q=textual records">Browse holdings →</a></div>
                     </div>
                 </div>
                 
                 <!-- SUBJECT HEADINGS -->
                 <h2>Subject Headings (LCSH)</h2>
                 <div class="subject-tags">
-                    <div class="subject-tag"><a href="/pop/?q=primary sources">PRIMARY SOURCES</a></div>
-                    <div class="subject-tag"><a href="/pop/?q=archival materials">ARCHIVAL MATERIALS</a></div>
-                    <div class="subject-tag"><a href="/pop/?q=special collections">SPECIAL COLLECTIONS</a></div>
-                    <div class="subject-tag"><a href="/pop/?q=digital archives">DIGITAL ARCHIVES</a></div>
-                    <div class="subject-tag"><a href="/pop/?q=rare materials">RARE MATERIALS</a></div>
+                    <div class="subject-tag"><a href="/content/?q=primary sources">PRIMARY SOURCES</a></div>
+                    <div class="subject-tag"><a href="/content/?q=archival materials">ARCHIVAL MATERIALS</a></div>
+                    <div class="subject-tag"><a href="/content/?q=special collections">SPECIAL COLLECTIONS</a></div>
+                    <div class="subject-tag"><a href="/content/?q=digital archives">DIGITAL ARCHIVES</a></div>
+                    <div class="subject-tag"><a href="/content/?q=rare materials">RARE MATERIALS</a></div>
                 </div>
                 
                 <!-- PLATFORM HOLDINGS -->
                 <h2>Platform Holdings</h2>
                 <div class="subject-tags">
-                    <div class="subject-tag"><a href="/pop/?q=instagram holdings">INSTAGRAM HOLDINGS</a></div>
-                    <div class="subject-tag"><a href="/pop/?q=twitter holdings">TWITTER HOLDINGS</a></div>
-                    <div class="subject-tag"><a href="/pop/?q=tiktok holdings">TIKTOK HOLDINGS</a></div>
-                    <div class="subject-tag"><a href="/pop/?q=facebook holdings">FACEBOOK HOLDINGS</a></div>
-                    <div class="subject-tag"><a href="/pop/?q=discord holdings">DISCORD HOLDINGS</a></div>
+                    <div class="subject-tag"><a href="/content/?q=instagram holdings">INSTAGRAM HOLDINGS</a></div>
+                    <div class="subject-tag"><a href="/content/?q=twitter holdings">TWITTER HOLDINGS</a></div>
+                    <div class="subject-tag"><a href="/content/?q=tiktok holdings">TIKTOK HOLDINGS</a></div>
+                    <div class="subject-tag"><a href="/content/?q=facebook holdings">FACEBOOK HOLDINGS</a></div>
+                    <div class="subject-tag"><a href="/content/?q=discord holdings">DISCORD HOLDINGS</a></div>
                 </div>
                 
                 <hr>
@@ -405,7 +407,7 @@ permalink: /pop/
             <!-- QUERY-BASED CONTENT - BIBLIOGRAPHIC RECORD -->
             <div id="query-content" style="display: none;">
                 <div class="breadcrumb">
-                    <a href="/">LIBRARY CATALOG</a> / <a href="/pop/">ARCHIVE COLLECTION</a> / <span id="breadcrumb-name"></span> / BIBLIOGRAPHIC RECORD
+                    <a href="/">LIBRARY CATALOG</a> / <a href="/content/">ARCHIVE COLLECTION</a> / <span id="breadcrumb-name"></span> / BIBLIOGRAPHIC RECORD
                 </div>
                 
                 <div class="dewey-badge" id="dewey-badge"></div>
@@ -549,7 +551,7 @@ permalink: /pop/
                 <div class="call-number">CALL NO: ${div.label.substring(0, 3).toUpperCase()}-${Math.floor(Math.random() * 900 + 100)}</div>
                 <h3>${div.label}</h3>
                 <p>${div.desc}</p>
-                <div style="margin-top: 12px;"><a href="/pop/?q=${encodeURIComponent(displayName + ' ' + div.query)}">View holdings →</a></div>
+                <div style="margin-top: 12px;"><a href="/content/?q=${encodeURIComponent(displayName + ' ' + div.query)}">View holdings →</a></div>
             </div>
         `).join('');
         
@@ -563,7 +565,7 @@ permalink: /pop/
         ];
         
         document.getElementById('subject-headings').innerHTML = subjectHeadings.map(subj => `
-            <div class="subject-tag"><a href="/pop/?q=${encodeURIComponent(displayName + ' ' + subj)}">${subj.toUpperCase()}</a></div>
+            <div class="subject-tag"><a href="/content/?q=${encodeURIComponent(displayName + ' ' + subj)}">${subj.toUpperCase()}</a></div>
         `).join('');
         
         // ============================================
@@ -572,7 +574,7 @@ permalink: /pop/
         const platforms = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube'];
         
         document.getElementById('platform-holdings').innerHTML = platforms.map(p => `
-            <div class="subject-tag"><a href="/pop/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' holdings')}">${p.toUpperCase()} HOLDINGS</a></div>
+            <div class="subject-tag"><a href="/content/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' holdings')}">${p.toUpperCase()} HOLDINGS</a></div>
         `).join('');
         
         // ============================================
@@ -601,7 +603,7 @@ permalink: /pop/
         ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 10);
         
         document.getElementById('related-entries').innerHTML = relatedEntries.map(entry => `
-            <div class="subject-tag"><a href="/pop/?q=${encodeURIComponent(entry)}">${entry.toUpperCase()} COLLECTION</a></div>
+            <div class="subject-tag"><a href="/content/?q=${encodeURIComponent(entry)}">${entry.toUpperCase()} COLLECTION</a></div>
         `).join('');
         
         // ============================================
@@ -632,7 +634,7 @@ permalink: /pop/
         
         document.getElementById('patron-questions').innerHTML = patronQuestions.map(pq => {
             const linkHtml = pq.links.map(link => 
-                `<a href="/pop/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
+                `<a href="/content/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
             ).join(' • ');
             return `
                 <div class="patron-question">
@@ -662,7 +664,7 @@ permalink: /pop/
                 <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #e0d6c8; width: 100%;">
                     <div style="font-size:0.6rem; color:#8faa99; margin-bottom: 10px;">CATALOG REFERENCES:</div>
                     <div class="subject-tags" style="margin-top: 0;">
-                        ${holdingsRefs.map(ref => `<div class="subject-tag"><a href="/pop/?q=${encodeURIComponent(displayName + ' ' + ref)}">${ref.toUpperCase()}</a></div>`).join('')}
+                        ${holdingsRefs.map(ref => `<div class="subject-tag"><a href="/content/?q=${encodeURIComponent(displayName + ' ' + ref)}">${ref.toUpperCase()}</a></div>`).join('')}
                     </div>
                 </div>
             `;
@@ -687,5 +689,5 @@ permalink: /pop/
 {% include /kw/p/pop.html %}
 </nav>
     {% include footer.html %}
-</body>
+</div></body>
 </html>

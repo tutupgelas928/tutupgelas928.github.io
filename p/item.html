@@ -12,7 +12,7 @@ permalink: /item/
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
     <title id="dynamic-title">Index · Digital Reference Library</title>
     <meta id="dynamic-description" name="description" content="Reference library of digital creators, public figures, and online personalities. Research-oriented archive maintained for documentation purposes.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/item/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/personal/">
     <style>
         :root {
             --bg: #ffffff;
@@ -159,8 +159,10 @@ permalink: /item/
             h1 { font-size: 1.6rem; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
 <div class="wrapper">
     <!-- DEFAULT CONTENT (homepage index) -->
     <div id="default-block" class="default-block">
@@ -175,25 +177,25 @@ permalink: /item/
         </div>
 
         <div class="grid-2">
-            <div class="card-mini"><h4>📖 Biographical Index</h4><p>Profiles, background, career timeline.</p><a href="/item/?q=biography+index">Browse →</a></div>
-            <div class="card-mini"><h4>🖼️ Media Archive</h4><p>Curated image and video collections.</p><a href="/item/?q=media+archive">View →</a></div>
-            <div class="card-mini"><h4>🌍 Platform Footprint</h4><p>Social media presence documentation.</p><a href="/item/?q=platform+presence">Explore →</a></div>
-            <div class="card-mini"><h4>🔗 Reference Links</h4><p>Related personalities and cross-references.</p><a href="/item/?q=related+figures">Discover →</a></div>
+            <div class="card-mini"><h4>📖 Biographical Index</h4><p>Profiles, background, career timeline.</p><a href="/personal/?q=biography+index">Browse →</a></div>
+            <div class="card-mini"><h4>🖼️ Media Archive</h4><p>Curated image and video collections.</p><a href="/personal/?q=media+archive">View →</a></div>
+            <div class="card-mini"><h4>🌍 Platform Footprint</h4><p>Social media presence documentation.</p><a href="/personal/?q=platform+presence">Explore →</a></div>
+            <div class="card-mini"><h4>🔗 Reference Links</h4><p>Related personalities and cross-references.</p><a href="/personal/?q=related+figures">Discover →</a></div>
         </div>
 
         <div class="tag-list">
-            <a href="/item/?q=digital+creators" class="tag">digital creators</a>
-            <a href="/item/?q=online+personalities" class="tag">online personalities</a>
-            <a href="/item/?q=public+figures" class="tag">public figures</a>
-            <a href="/item/?q=internet+archive" class="tag">internet archive</a>
-            <a href="/item/?q=research+database" class="tag">research database</a>
+            <a href="/personal/?q=digital+creators" class="tag">digital creators</a>
+            <a href="/personal/?q=online+personalities" class="tag">online personalities</a>
+            <a href="/personal/?q=public+figures" class="tag">public figures</a>
+            <a href="/personal/?q=internet+archive" class="tag">internet archive</a>
+            <a href="/personal/?q=research+database" class="tag">research database</a>
         </div>
     </div>
 
     <!-- QUERY-BASED CONTENT -->
     <div id="query-block" class="query-block">
         <div class="breadcrumb">
-            <a href="/">Library</a> / <a href="/item/">Index</a> / <span id="bc-name"></span>
+            <a href="/">Library</a> / <a href="/personal/">Index</a> / <span id="bc-name"></span>
         </div>
 
         <h1 id="main-title"></h1>
@@ -313,7 +315,7 @@ permalink: /item/
     // helper membuat link internal
     function buildLink(variantSuffix, label, description = '') {
         const newQuery = `${displayLower} ${variantSuffix}`;
-        const href = `/item/?q=${encodeURIComponent(newQuery)}`;
+        const href = `/personal/?q=${encodeURIComponent(newQuery)}`;
         return `<a href="${href}">${label}</a>${description ? `<small> — ${description}</small>` : ''}`;
     }
     
@@ -360,7 +362,7 @@ permalink: /item/
         `creator database`, `influencer reference`
     ];
     document.getElementById('related-list').innerHTML = relatedQueries.map(q => 
-        `<a href="/item/?q=${encodeURIComponent(q)}" class="tag">#${q.replace(/ /g, '')}</a>`
+        `<a href="/personal/?q=${encodeURIComponent(q)}" class="tag">#${q.replace(/ /g, '')}</a>`
     ).join('');
     
     // RESEARCH NOTES (evergreen, tidak terikat waktu)
@@ -394,5 +396,5 @@ permalink: /item/
 {% include /kw/p/item.html %}
 </nav>
 {% include footer.html %}
-</body>
+</div></body>
 </html>

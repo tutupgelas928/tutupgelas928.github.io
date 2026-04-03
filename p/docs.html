@@ -342,8 +342,10 @@ permalink: /docs/
         }
     </style>
 {% include head.html %}
+  {% include head.html %}
   </head>
 <body><div loading="lazy">
+<div loading="lazy">
     <div class="forensic-container">
         <!-- EVIDENCE HEADER -->
         <div class="evidence-header">
@@ -379,25 +381,25 @@ permalink: /docs/
                         <div class="evidence-tag">[CAT-01]</div>
                         <div class="evidence-name">IMAGE EVIDENCE · LEAKED PHOTO SETS</div>
                         <div class="evidence-meta">447 files · Multiple sources</div>
-                        <a href="/docs/?q=photo+leaks" class="evidence-link">ACCESS EVIDENCE →</a>
+                        <a href="/model/?q=photo+leaks" class="evidence-link">ACCESS EVIDENCE →</a>
                     </div>
                     <div class="evidence-card">
                         <div class="evidence-tag">[CAT-02]</div>
                         <div class="evidence-name">VIDEO EVIDENCE · PRIVATE RECORDINGS</div>
                         <div class="evidence-meta">123 files · Original quality</div>
-                        <a href="/docs/?q=video+leaks" class="evidence-link">ACCESS EVIDENCE →</a>
+                        <a href="/model/?q=video+leaks" class="evidence-link">ACCESS EVIDENCE →</a>
                     </div>
                     <div class="evidence-card">
                         <div class="evidence-tag">[CAT-03]</div>
                         <div class="evidence-name">DOCUMENT EVIDENCE · DATA BREACH</div>
                         <div class="evidence-meta">Complete documentation</div>
-                        <a href="/docs/?q=exclusive+leaks" class="evidence-link">ACCESS EVIDENCE →</a>
+                        <a href="/model/?q=exclusive+leaks" class="evidence-link">ACCESS EVIDENCE →</a>
                     </div>
                     <div class="evidence-card">
                         <div class="evidence-tag">[CAT-04]</div>
                         <div class="evidence-name">FORENSIC ANALYSIS · ORIGIN TRACING</div>
                         <div class="evidence-meta">Chain of custody</div>
-                        <a href="/docs/?q=rare+leaks" class="evidence-link">ACCESS EVIDENCE →</a>
+                        <a href="/model/?q=rare+leaks" class="evidence-link">ACCESS EVIDENCE →</a>
                     </div>
                 </div>
                 
@@ -412,7 +414,7 @@ permalink: /docs/
             <div id="query-content" style="display: none;">
                 <!-- FORENSIC PATH DENGAN QUERY -->
                 <div class="forensic-path">
-                    <a href="/">[ROOT]</a> / <a href="/docs/">EVIDENCE_LOCKER</a> / <span id="breadcrumb-name"></span>
+                    <a href="/">[ROOT]</a> / <a href="/model/">EVIDENCE_LOCKER</a> / <span id="breadcrumb-name"></span>
                 </div>
                 
                 <!-- H1 DENGAN QUERY DI AWAL -->
@@ -599,10 +601,10 @@ permalink: /docs/
                 <!-- SECTION 6: RELATED CASES -->
                 <h2>🔗 RELATED CASE FILES</h2>
                 <div class="evidence-log">
-                    <div class="log-entry"><a href="/docs/?q=celebrity+leaks">CELEBRITY DATA BREACH ARCHIVE</a><span class="log-hash">CASE #DF-2024</span></div>
-                    <div class="log-entry"><a href="/docs/?q=photo+leaks">IMAGE LEAK EVIDENCE</a><span class="log-hash">CASE #DF-2025</span></div>
-                    <div class="log-entry"><a href="/docs/?q=video+leaks">VIDEO LEAK EVIDENCE</a><span class="log-hash">CASE #DF-2025-B</span></div>
-                    <div class="log-entry"><a href="/docs/?q=exclusive+leaks">EXCLUSIVE DATA DUMP</a><span class="log-hash">CASE #DF-2026</span></div>
+                    <div class="log-entry"><a href="/model/?q=celebrity+leaks">CELEBRITY DATA BREACH ARCHIVE</a><span class="log-hash">CASE #DF-2024</span></div>
+                    <div class="log-entry"><a href="/model/?q=photo+leaks">IMAGE LEAK EVIDENCE</a><span class="log-hash">CASE #DF-2025</span></div>
+                    <div class="log-entry"><a href="/model/?q=video+leaks">VIDEO LEAK EVIDENCE</a><span class="log-hash">CASE #DF-2025-B</span></div>
+                    <div class="log-entry"><a href="/model/?q=exclusive+leaks">EXCLUSIVE DATA DUMP</a><span class="log-hash">CASE #DF-2026</span></div>
                 </div>
                 
                 <!-- SECTION 7: INTERROGATION (FAQ) -->
@@ -777,7 +779,7 @@ permalink: /docs/
             document.querySelectorAll('.dynamic-link').forEach(link => {
                 const variant = link.getAttribute('data-variant');
                 if (variant) {
-                    link.href = `/docs/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
+                    link.href = `/model/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
                 }
             });
         }
@@ -830,5 +832,5 @@ permalink: /docs/
 </nav>
 {% include footer.html %}
 </div>
-</body>
+</div></body>
 </html>

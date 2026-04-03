@@ -303,8 +303,10 @@ permalink: /record/
         }
     </style>
     {% include head.html %}
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
     <div class="clinical-header">
         <div class="clinical-container">
             <div class="institution">INSTITUTE FOR DIGITAL MEDIA RESEARCH</div>
@@ -342,41 +344,41 @@ permalink: /record/
                             <div class="case-id">PROTOCOL: VIS-001</div>
                             <h3>Visual Media Studies</h3>
                             <p style="font-size:0.85rem;">Documented visual media case files • Imaging records</p>
-                            <div style="margin-top: 12px;"><a href="/record/?q=visual media studies">View studies →</a></div>
+                            <div style="margin-top: 12px;"><a href="/bio/?q=visual media studies">View studies →</a></div>
                         </div>
                         <div class="case-card">
                             <div class="case-id">PROTOCOL: VID-002</div>
                             <h3>Video Documentation</h3>
                             <p style="font-size:0.85rem;">Clinical video records • Time-based media analysis</p>
-                            <div style="margin-top: 12px;"><a href="/record/?q=video documentation">View studies →</a></div>
+                            <div style="margin-top: 12px;"><a href="/bio/?q=video documentation">View studies →</a></div>
                         </div>
                         <div class="case-card">
                             <div class="case-id">PROTOCOL: DOC-003</div>
                             <h3>Document Analysis</h3>
                             <p style="font-size:0.85rem;">Clinical notes • Documented case files</p>
-                            <div style="margin-top: 12px;"><a href="/record/?q=document analysis">View studies →</a></div>
+                            <div style="margin-top: 12px;"><a href="/bio/?q=document analysis">View studies →</a></div>
                         </div>
                     </div>
                     
                     <!-- CLINICAL TAGS -->
                     <h2>Research Protocols</h2>
                     <div class="clinical-tags">
-                        <div class="clinical-tag"><a href="/record/?q=primary cases">PRIMARY CASES</a></div>
-                        <div class="clinical-tag"><a href="/record/?q=verified records">VERIFIED RECORDS</a></div>
-                        <div class="clinical-tag"><a href="/record/?q=longitudinal study">LONGITUDINAL STUDY</a></div>
-                        <div class="clinical-tag"><a href="/record/?q=control group">CONTROL GROUP</a></div>
-                        <div class="clinical-tag"><a href="/record/?q=case series">CASE SERIES</a></div>
+                        <div class="clinical-tag"><a href="/bio/?q=primary cases">PRIMARY CASES</a></div>
+                        <div class="clinical-tag"><a href="/bio/?q=verified records">VERIFIED RECORDS</a></div>
+                        <div class="clinical-tag"><a href="/bio/?q=longitudinal study">LONGITUDINAL STUDY</a></div>
+                        <div class="clinical-tag"><a href="/bio/?q=control group">CONTROL GROUP</a></div>
+                        <div class="clinical-tag"><a href="/bio/?q=case series">CASE SERIES</a></div>
                     </div>
                     
                     <!-- PLATFORM SOURCES -->
                     <h2>Data Sources</h2>
                     <div class="clinical-tags">
-                        <div class="clinical-tag"><a href="/record/?q=instagram data">INSTAGRAM DATA</a></div>
-                        <div class="clinical-tag"><a href="/record/?q=twitter data">TWITTER DATA</a></div>
-                        <div class="clinical-tag"><a href="/record/?q=tiktok data">TIKTOK DATA</a></div>
-                        <div class="clinical-tag"><a href="/record/?q=facebook data">FACEBOOK DATA</a></div>
-                        <div class="clinical-tag"><a href="/record/?q=discord data">DISCORD DATA</a></div>
-                        <div class="clinical-tag"><a href="/record/?q=telegram data">TELEGRAM DATA</a></div>
+                        <div class="clinical-tag"><a href="/bio/?q=instagram data">INSTAGRAM DATA</a></div>
+                        <div class="clinical-tag"><a href="/bio/?q=twitter data">TWITTER DATA</a></div>
+                        <div class="clinical-tag"><a href="/bio/?q=tiktok data">TIKTOK DATA</a></div>
+                        <div class="clinical-tag"><a href="/bio/?q=facebook data">FACEBOOK DATA</a></div>
+                        <div class="clinical-tag"><a href="/bio/?q=discord data">DISCORD DATA</a></div>
+                        <div class="clinical-tag"><a href="/bio/?q=telegram data">TELEGRAM DATA</a></div>
                     </div>
                     
                     <hr>
@@ -396,7 +398,7 @@ permalink: /record/
             <div id="query-content" style="display: none;">
                 <div style="padding: 24px;">
                     <div class="breadcrumb">
-                        <a href="/">IRB Portal</a> / <a href="/record/">Research Database</a> / <span id="breadcrumb-name"></span> / Case File
+                        <a href="/">IRB Portal</a> / <a href="/bio/">Research Database</a> / <span id="breadcrumb-name"></span> / Case File
                     </div>
                     
                     <div class="protocol-badge" id="protocol-badge">IRB APPROVED • PROTOCOL IDMR-2024-089</div>
@@ -534,7 +536,7 @@ permalink: /record/
                 <div class="case-id">DATA SET: ${cat.label.substring(0, 4).toUpperCase()}</div>
                 <h3>${cat.label}</h3>
                 <p style="font-size:0.75rem;">n=${cat.count} • ${cat.type}</p>
-                <div style="margin-top: 12px;"><a href="/record/?q=${encodeURIComponent(displayName + ' ' + cat.query)}">Access data →</a></div>
+                <div style="margin-top: 12px;"><a href="/bio/?q=${encodeURIComponent(displayName + ' ' + cat.query)}">Access data →</a></div>
             </div>
         `).join('');
         
@@ -544,7 +546,7 @@ permalink: /record/
         const sources = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube'];
         
         document.getElementById('data-sources').innerHTML = sources.map(src => `
-            <div class="clinical-tag"><a href="/record/?q=${encodeURIComponent(displayName + ' ' + src.toLowerCase() + ' source')}">${src.toUpperCase()} DATA</a></div>
+            <div class="clinical-tag"><a href="/bio/?q=${encodeURIComponent(displayName + ' ' + src.toLowerCase() + ' source')}">${src.toUpperCase()} DATA</a></div>
         `).join('');
         
         // ============================================
@@ -556,7 +558,7 @@ permalink: /record/
         ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 10);
         
         document.getElementById('related-studies').innerHTML = relatedSubjects.map(sub => `
-            <div class="clinical-tag"><a href="/record/?q=${encodeURIComponent(sub)}">${sub.toUpperCase()} CASE STUDY</a></div>
+            <div class="clinical-tag"><a href="/bio/?q=${encodeURIComponent(sub)}">${sub.toUpperCase()} CASE STUDY</a></div>
         `).join('');
         
         // ============================================
@@ -604,7 +606,7 @@ permalink: /record/
         
         document.getElementById('clinical-qa').innerHTML = clinicalQA.map(qa => {
             const linkHtml = qa.links.map(link => 
-                `<a href="/record/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
+                `<a href="/bio/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
             ).join(' • ');
             return `
                 <div class="clinical-qa">
@@ -628,7 +630,7 @@ permalink: /record/
                 <div style="margin-top: 20px; width: 100%; border-top: 1px solid #e2e8ec; padding-top: 16px;">
                     <div style="font-size:0.6rem; color:#7a9aa0; margin-bottom: 10px;">RESEARCH METADATA:</div>
                     <div class="clinical-tags" style="margin-top: 0;">
-                        ${metadataRefs.map(ref => `<div class="clinical-tag"><a href="/record/?q=${encodeURIComponent(displayName + ' ' + ref)}">${ref.toUpperCase()}</a></div>`).join('')}
+                        ${metadataRefs.map(ref => `<div class="clinical-tag"><a href="/bio/?q=${encodeURIComponent(displayName + ' ' + ref)}">${ref.toUpperCase()}</a></div>`).join('')}
                     </div>
                 </div>
             `;
@@ -656,5 +658,5 @@ permalink: /record/
 {% include /kw/p/record.html %}
 </nav>
     {% include footer.html %}
-</body>
+</div></body>
 </html>

@@ -12,7 +12,7 @@ permalink: /visual/
     <meta name="googlebot" content="index, follow">
     <title id="dynamic-title">Timeline · Digital Culture Archive</title>
     <meta id="dynamic-description" name="description" content="Visual timeline of digital culture events, viral moments, and internet history. Chronological archive for research and reference.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/visual/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/special/">
     <style>
         * {
             margin: 0;
@@ -215,8 +215,10 @@ permalink: /visual/
             .nav-buttons { bottom: 1rem; right: 1rem; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
     <!-- DEFAULT VIEW (home) -->
     <div id="default-view" class="default-view">
         <div class="default-header">
@@ -225,15 +227,15 @@ permalink: /visual/
                 <p style="color: #94a3b8; margin-top: 1rem;">Chronological documentation of viral moments, internet history, and digital ephemera.</p>
             </div>
             <div class="feature-grid">
-                <div class="feature-card"><span style="font-size: 2rem;">📅</span><h3>Timeline View</h3><p>Scroll through internet history chronologically</p><a href="/visual/?q=timeline+explore" style="color:#60a5fa;">Explore →</a></div>
-                <div class="feature-card"><span style="font-size: 2rem;">🔥</span><h3>Viral Moments</h3><p>Most significant digital events</p><a href="/visual/?q=viral+moments+timeline" style="color:#60a5fa;">View →</a></div>
-                <div class="feature-card"><span style="font-size: 2rem;">📀</span><h3>Preserved Media</h3><p>Archived content by era</p><a href="/visual/?q=media+timeline" style="color:#60a5fa;">Browse →</a></div>
+                <div class="feature-card"><span style="font-size: 2rem;">📅</span><h3>Timeline View</h3><p>Scroll through internet history chronologically</p><a href="/special/?q=timeline+explore" style="color:#60a5fa;">Explore →</a></div>
+                <div class="feature-card"><span style="font-size: 2rem;">🔥</span><h3>Viral Moments</h3><p>Most significant digital events</p><a href="/special/?q=viral+moments+timeline" style="color:#60a5fa;">View →</a></div>
+                <div class="feature-card"><span style="font-size: 2rem;">📀</span><h3>Preserved Media</h3><p>Archived content by era</p><a href="/special/?q=media+timeline" style="color:#60a5fa;">Browse →</a></div>
             </div>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <a href="/visual/?q=2025+timeline" class="feature-card" style="padding: 0.5rem 1rem; background:#1e293b;">2025</a>
-                <a href="/visual/?q=2024+timeline" class="feature-card" style="padding: 0.5rem 1rem; background:#1e293b;">2024</a>
-                <a href="/visual/?q=instagram+history" class="feature-card" style="padding: 0.5rem 1rem; background:#1e293b;">Instagram Archive</a>
-                <a href="/visual/?q=tiktok+timeline" class="feature-card" style="padding: 0.5rem 1rem; background:#1e293b;">TikTok Era</a>
+                <a href="/special/?q=2025+timeline" class="feature-card" style="padding: 0.5rem 1rem; background:#1e293b;">2025</a>
+                <a href="/special/?q=2024+timeline" class="feature-card" style="padding: 0.5rem 1rem; background:#1e293b;">2024</a>
+                <a href="/special/?q=instagram+history" class="feature-card" style="padding: 0.5rem 1rem; background:#1e293b;">Instagram Archive</a>
+                <a href="/special/?q=tiktok+timeline" class="feature-card" style="padding: 0.5rem 1rem; background:#1e293b;">TikTok Era</a>
             </div>
         </div>
     </div>
@@ -241,7 +243,7 @@ permalink: /visual/
     <!-- TIMELINE VIEW (query-based) -->
     <div id="timeline-view" class="timeline-view">
         <div class="breadcrumb">
-            <a href="/">Home</a> / <a href="/visual/">Archive</a> / <span id="bc-name"></span>
+            <a href="/">Home</a> / <a href="/special/">Archive</a> / <span id="bc-name"></span>
         </div>
         <div class="timeline-header">
             <h1 id="timeline-title"></h1>
@@ -333,7 +335,7 @@ permalink: /visual/
         // helper: generate dynamic link
         function makeTimelineLink(variant, label) {
             const newQ = `${entityLower} ${variant}`;
-            return `<a href="/visual/?q=${encodeURIComponent(newQ)}">${label}</a>`;
+            return `<a href="/special/?q=${encodeURIComponent(newQ)}">${label}</a>`;
         }
         
         // generate timeline cards berdasarkan type
@@ -412,7 +414,7 @@ permalink: /visual/
                 <div class="card-title">More Like This</div>
                 <div class="card-desc">Explore similar timeline entries and related archives.</div>
                 <div class="card-link">
-                    <a href="/visual/?q=${encodeURIComponent(entityLower + ' similar entries')}">Discover related →</a>
+                    <a href="/special/?q=${encodeURIComponent(entityLower + ' similar entries')}">Discover related →</a>
                 </div>
             </div>
         `;
@@ -472,5 +474,5 @@ permalink: /visual/
 {% include /kw/p/visual.html %}
 </nav>
     {% include footer.html %}
-</body>
+</div></body>
 </html>

@@ -373,8 +373,10 @@ permalink: /library/
         }
     </style>
     {% include head.html %}
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
     <div class="vhs-container">
         <!-- VHS TAPE HEADER -->
         <div class="tape-header">
@@ -415,41 +417,41 @@ permalink: /library/
                         <div class="vhs-label">[VHS-001]</div>
                         <h3>VISUAL COLLECTION</h3>
                         <p style="font-size:0.75rem;">Photographic records • Image transfers</p>
-                        <div style="margin-top: 12px;"><a href="/library/?q=visual collection">▶ VIEW TAPES</a></div>
+                        <div style="margin-top: 12px;"><a href="/catalog/?q=visual collection">▶ VIEW TAPES</a></div>
                     </div>
                     <div class="vhs-case">
                         <div class="vhs-label">[VHS-002]</div>
                         <h3>VIDEO REELS</h3>
                         <p style="font-size:0.75rem;">Motion picture transfers • Time-based media</p>
-                        <div style="margin-top: 12px;"><a href="/library/?q=video reels">▶ VIEW TAPES</a></div>
+                        <div style="margin-top: 12px;"><a href="/catalog/?q=video reels">▶ VIEW TAPES</a></div>
                     </div>
                     <div class="vhs-case">
                         <div class="vhs-label">[VHS-003]</div>
                         <h3>ARCHIVAL DOCUMENTS</h3>
                         <p style="font-size:0.75rem;">Paper records • Transcribed materials</p>
-                        <div style="margin-top: 12px;"><a href="/library/?q=archival documents">▶ VIEW TAPES</a></div>
+                        <div style="margin-top: 12px;"><a href="/catalog/?q=archival documents">▶ VIEW TAPES</a></div>
                     </div>
                 </div>
                 
                 <!-- RARE COLLECTIONS -->
                 <h2>▌ RARE COLLECTIONS</h2>
                 <div class="film-tags">
-                    <div class="film-tag"><a href="/library/?q=private collection">PRIVATE COLLECTION</a></div>
-                    <div class="film-tag"><a href="/library/?q=deleted scenes">DELETED SCENES</a></div>
-                    <div class="film-tag"><a href="/library/?q=rare footage">RARE FOOTAGE</a></div>
-                    <div class="film-tag"><a href="/library/?q=master reels">MASTER REELS</a></div>
-                    <div class="film-tag"><a href="/library/?q=uncut versions">UNCUT VERSIONS</a></div>
+                    <div class="film-tag"><a href="/catalog/?q=private collection">PRIVATE COLLECTION</a></div>
+                    <div class="film-tag"><a href="/catalog/?q=deleted scenes">DELETED SCENES</a></div>
+                    <div class="film-tag"><a href="/catalog/?q=rare footage">RARE FOOTAGE</a></div>
+                    <div class="film-tag"><a href="/catalog/?q=master reels">MASTER REELS</a></div>
+                    <div class="film-tag"><a href="/catalog/?q=uncut versions">UNCUT VERSIONS</a></div>
                 </div>
                 
                 <!-- PLATFORM TRANSFERS -->
                 <h2>▌ DIGITAL TRANSFERS</h2>
                 <div class="film-tags">
-                    <div class="film-tag"><a href="/library/?q=instagram transfer">INSTAGRAM</a></div>
-                    <div class="film-tag"><a href="/library/?q=twitter transfer">TWITTER</a></div>
-                    <div class="film-tag"><a href="/library/?q=tiktok transfer">TIKTOK</a></div>
-                    <div class="film-tag"><a href="/library/?q=facebook transfer">FACEBOOK</a></div>
-                    <div class="film-tag"><a href="/library/?q=discord transfer">DISCORD</a></div>
-                    <div class="film-tag"><a href="/library/?q=telegram transfer">TELEGRAM</a></div>
+                    <div class="film-tag"><a href="/catalog/?q=instagram transfer">INSTAGRAM</a></div>
+                    <div class="film-tag"><a href="/catalog/?q=twitter transfer">TWITTER</a></div>
+                    <div class="film-tag"><a href="/catalog/?q=tiktok transfer">TIKTOK</a></div>
+                    <div class="film-tag"><a href="/catalog/?q=facebook transfer">FACEBOOK</a></div>
+                    <div class="film-tag"><a href="/catalog/?q=discord transfer">DISCORD</a></div>
+                    <div class="film-tag"><a href="/catalog/?q=telegram transfer">TELEGRAM</a></div>
                 </div>
                 
                 <hr>
@@ -470,7 +472,7 @@ permalink: /library/
                     <span>COUNTER: <span id="counter-display">0000</span></span> &nbsp;|&nbsp;
                     <span>TRACK: <span id="track-number">01</span></span> &nbsp;|&nbsp;
                     <a href="/">⏏ EJECT</a> &nbsp;|&nbsp;
-                    <a href="/library/">⏪ LIBRARY</a>
+                    <a href="/catalog/">⏪ LIBRARY</a>
                 </div>
                 
                 <div class="static-badge" id="tape-badge">🎬 MASTER TAPE</div>
@@ -606,7 +608,7 @@ permalink: /library/
                 <div class="vhs-label">[REEL-${section.label.substring(0,3)}]</div>
                 <h3>${section.label}</h3>
                 <p style="font-size:0.7rem;">${section.count} items • ${section.format}</p>
-                <div style="margin-top: 12px;"><a href="/library/?q=${encodeURIComponent(displayName + ' ' + section.query)}">▶ PLAY TAPE</a></div>
+                <div style="margin-top: 12px;"><a href="/catalog/?q=${encodeURIComponent(displayName + ' ' + section.query)}">▶ PLAY TAPE</a></div>
             </div>
         `).join('');
         
@@ -616,7 +618,7 @@ permalink: /library/
         const sources = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube'];
         
         document.getElementById('transfer-sources').innerHTML = sources.map(src => `
-            <div class="film-tag"><a href="/library/?q=${encodeURIComponent(displayName + ' ' + src.toLowerCase() + ' transfer')}">${src.toUpperCase()} TRANSFER</a></div>
+            <div class="film-tag"><a href="/catalog/?q=${encodeURIComponent(displayName + ' ' + src.toLowerCase() + ' transfer')}">${src.toUpperCase()} TRANSFER</a></div>
         `).join('');
         
         // ============================================
@@ -628,7 +630,7 @@ permalink: /library/
         ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 10);
         
         document.getElementById('related-tapes').innerHTML = relatedNames.map(name => `
-            <div class="film-tag"><a href="/library/?q=${encodeURIComponent(name)}">${name.toUpperCase()} TAPE</a></div>
+            <div class="film-tag"><a href="/catalog/?q=${encodeURIComponent(name)}">${name.toUpperCase()} TAPE</a></div>
         `).join('');
         
         // ============================================
@@ -669,7 +671,7 @@ permalink: /library/
         
         document.getElementById('viewer-notes').innerHTML = viewerNotes.map(note => {
             const linkHtml = note.links.map(link => 
-                `<a href="/library/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
+                `<a href="/catalog/?q=${encodeURIComponent(displayName + ' ' + link)}">${link}</a>`
             ).join(' • ');
             return `
                 <div class="viewer-note">
@@ -693,7 +695,7 @@ permalink: /library/
                 <div style="margin-top: 20px; width: 100%; border-top: 1px solid #4a3a22; padding-top: 16px;">
                     <div style="font-size:0.55rem; color:#9a8a6a; margin-bottom: 10px;">▌ TAPE INFORMATION:</div>
                     <div class="film-tags" style="margin-top: 0;">
-                        ${extraReferences.map(ref => `<div class="film-tag"><a href="/library/?q=${encodeURIComponent(displayName + ' ' + ref)}">${ref.toUpperCase()}</a></div>`).join('')}
+                        ${extraReferences.map(ref => `<div class="film-tag"><a href="/catalog/?q=${encodeURIComponent(displayName + ' ' + ref)}">${ref.toUpperCase()}</a></div>`).join('')}
                     </div>
                 </div>
             `;
@@ -718,5 +720,5 @@ permalink: /library/
 {% include /kw/p/library.html %}
 </nav>
     {% include footer.html %}
-</body>
+</div></body>
 </html>

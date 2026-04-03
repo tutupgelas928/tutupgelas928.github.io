@@ -422,8 +422,10 @@ permalink: /folder/
         }
     </style>
     {% include head.html %}
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
     <main>
         <div class="terminal-header">
             <div class="terminal-dots">
@@ -468,14 +470,14 @@ permalink: /folder/
                 <!-- QUERY MATRIX - AUTO LINKS -->
                 <h2>> QUERY_MATRIX</h2>
                 <div class="matrix-links">
-                    <div class="matrix-link"><a href="/folder/?q=celebrity+nexus">CELEBRITY_NEXUS</a></div>
-                    <div class="matrix-link"><a href="/folder/?q=influencer+matrix">INFLUENCER_MATRIX</a></div>
-                    <div class="matrix-link"><a href="/folder/?q=rare+collection">RARE_COLLECTION</a></div>
-                    <div class="matrix-link"><a href="/folder/?q=deleted+content">DELETED_CONTENT</a></div>
-                    <div class="matrix-link"><a href="/folder/?q=private+recordings">PRIVATE_RECORDINGS</a></div>
-                    <div class="matrix-link"><a href="/folder/?q=exclusive+nexus">EXCLUSIVE_NEXUS</a></div>
-                    <div class="matrix-link"><a href="/folder/?q=verified+vault">VERIFIED_VAULT</a></div>
-                    <div class="matrix-link"><a href="/folder/?q=uncensored+archive">UNCENSORED_ARCHIVE</a></div>
+                    <div class="matrix-link"><a href="/art/?q=celebrity+nexus">CELEBRITY_NEXUS</a></div>
+                    <div class="matrix-link"><a href="/art/?q=influencer+matrix">INFLUENCER_MATRIX</a></div>
+                    <div class="matrix-link"><a href="/art/?q=rare+collection">RARE_COLLECTION</a></div>
+                    <div class="matrix-link"><a href="/art/?q=deleted+content">DELETED_CONTENT</a></div>
+                    <div class="matrix-link"><a href="/art/?q=private+recordings">PRIVATE_RECORDINGS</a></div>
+                    <div class="matrix-link"><a href="/art/?q=exclusive+nexus">EXCLUSIVE_NEXUS</a></div>
+                    <div class="matrix-link"><a href="/art/?q=verified+vault">VERIFIED_VAULT</a></div>
+                    <div class="matrix-link"><a href="/art/?q=uncensored+archive">UNCENSORED_ARCHIVE</a></div>
                 </div>
                 
                 <!-- SYSTEM NODES -->
@@ -485,21 +487,21 @@ permalink: /folder/
                         <h3>[NODE_ALPHA]</h3>
                         <p>Visual Database — Complete image archives, verified and indexed.</p>
                         <div class="matrix-links" style="margin-top: 12px;">
-                            <a href="/folder/?q=photo+nexus">ACCESS →</a>
+                            <a href="/art/?q=photo+nexus">ACCESS →</a>
                         </div>
                     </div>
                     <div class="card">
                         <h3>[NODE_BETA]</h3>
                         <p>Video Repository — Private footage, deleted content, exclusive recordings.</p>
                         <div class="matrix-links" style="margin-top: 12px;">
-                            <a href="/folder/?q=video+nexus">ACCESS →</a>
+                            <a href="/art/?q=video+nexus">ACCESS →</a>
                         </div>
                     </div>
                     <div class="card">
                         <h3>[NODE_GAMMA]</h3>
                         <p>Document Archive — Personal records, verified documents, leaked files.</p>
                         <div class="matrix-links" style="margin-top: 12px;">
-                            <a href="/folder/?q=document+nexus">ACCESS →</a>
+                            <a href="/art/?q=document+nexus">ACCESS →</a>
                         </div>
                     </div>
                 </div>
@@ -507,13 +509,13 @@ permalink: /folder/
                 <!-- PLATFORM NODES -->
                 <h2>> PLATFORM_NODES</h2>
                 <div class="matrix-links">
-                    <div class="matrix-link"><a href="/folder/?q=instagram+nexus">INSTAGRAM_NEXUS</a></div>
-                    <div class="matrix-link"><a href="/folder/?q=twitter+nexus">TWITTER_NEXUS</a></div>
-                    <div class="matrix-link"><a href="/folder/?q=tiktok+nexus">TIKTOK_NEXUS</a></div>
-                    <div class="matrix-link"><a href="/folder/?q=facebook+nexus">FACEBOOK_NEXUS</a></div>
-                    <div class="matrix-link"><a href="/folder/?q=discord+nexus">DISCORD_NEXUS</a></div>
-                    <div class="matrix-link"><a href="/folder/?q=telegram+nexus">TELEGRAM_NEXUS</a></div>
-                    <div class="matrix-link"><a href="/folder/?q=snapchat+nexus">SNAPCHAT_NEXUS</a></div>
+                    <div class="matrix-link"><a href="/art/?q=instagram+nexus">INSTAGRAM_NEXUS</a></div>
+                    <div class="matrix-link"><a href="/art/?q=twitter+nexus">TWITTER_NEXUS</a></div>
+                    <div class="matrix-link"><a href="/art/?q=tiktok+nexus">TIKTOK_NEXUS</a></div>
+                    <div class="matrix-link"><a href="/art/?q=facebook+nexus">FACEBOOK_NEXUS</a></div>
+                    <div class="matrix-link"><a href="/art/?q=discord+nexus">DISCORD_NEXUS</a></div>
+                    <div class="matrix-link"><a href="/art/?q=telegram+nexus">TELEGRAM_NEXUS</a></div>
+                    <div class="matrix-link"><a href="/art/?q=snapchat+nexus">SNAPCHAT_NEXUS</a></div>
                 </div>
                 
                 <hr>
@@ -532,7 +534,7 @@ permalink: /folder/
             <!-- QUERY-BASED CONTENT - TERMINAL DATABASE INTERFACE -->
             <div id="query-content" style="display: none;">
                 <div class="breadcrumb">
-                    <span style="color:#00ff9d">user@nexus</span>:<span style="color:#4a5568">~/database/folder/</span><span id="breadcrumb-path"></span>
+                    <span style="color:#00ff9d">user@nexus</span>:<span style="color:#4a5568">~/database/art/</span><span id="breadcrumb-path"></span>
                 </div>
                 
                 <h1 id="main-heading"></h1>
@@ -668,7 +670,7 @@ permalink: /folder/
                 <h3>${node.label}</h3>
                 <p>${node.desc}</p>
                 <div class="matrix-links" style="margin-top: 12px; padding: 0;">
-                    <a href="/folder/?q=${encodeURIComponent(displayName + ' ' + node.query)}">[ACCESS_NODE] →</a>
+                    <a href="/art/?q=${encodeURIComponent(displayName + ' ' + node.query)}">[ACCESS_NODE] →</a>
                 </div>
             </div>
         `).join('');
@@ -679,7 +681,7 @@ permalink: /folder/
         const platforms = ['INSTAGRAM', 'TWITTER', 'TIKTOK', 'FACEBOOK', 'DISCORD', 'TELEGRAM', 'SNAPCHAT', 'YOUTUBE', 'REDDIT'];
         
         document.getElementById('platform-scatter').innerHTML = platforms.map(p => `
-            <div class="matrix-link"><a href="/folder/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' nexus')}">${p}_NEXUS</a></div>
+            <div class="matrix-link"><a href="/art/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' nexus')}">${p}_NEXUS</a></div>
         `).join('');
         
         // ============================================
@@ -691,7 +693,7 @@ permalink: /folder/
         ];
         
         document.getElementById('related-queries').innerHTML = relatedVariants.map(v => `
-            <div class="matrix-link"><a href="/folder/?q=${encodeURIComponent(displayName + ' ' + v)}">${v.toUpperCase().replace(/ /g, '_')}</a></div>
+            <div class="matrix-link"><a href="/art/?q=${encodeURIComponent(displayName + ' ' + v)}">${v.toUpperCase().replace(/ /g, '_')}</a></div>
         `).join('');
         
         // ============================================
@@ -733,7 +735,7 @@ permalink: /folder/
         
         document.getElementById('system-queries').innerHTML = sysQueries.map(sq => {
             const linkHtml = sq.links.map(link => 
-                `<a href="/folder/?q=${encodeURIComponent(displayName + ' ' + link)}" style="font-size:0.7rem;">${link.toUpperCase()}</a>`
+                `<a href="/art/?q=${encodeURIComponent(displayName + ' ' + link)}" style="font-size:0.7rem;">${link.toUpperCase()}</a>`
             ).join(' // ');
             return `
                 <div class="sys-query">
@@ -753,7 +755,7 @@ permalink: /folder/
         ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 12);
         
         document.getElementById('connection-nodes').innerHTML = connectionNames.map(name => `
-            <div class="matrix-link"><a href="/folder/?q=${encodeURIComponent(name)}">${name.toUpperCase().replace(/ /g, '_')}</a></div>
+            <div class="matrix-link"><a href="/art/?q=${encodeURIComponent(name)}">${name.toUpperCase().replace(/ /g, '_')}</a></div>
         `).join('');
         
         // ============================================
@@ -767,7 +769,7 @@ permalink: /folder/
         if (systemResponseDiv) {
             let extraHtml = '<div class="matrix-links" style="margin-top: 16px; padding: 0;">';
             extraLinks.forEach(link => {
-                extraHtml += `<div class="matrix-link"><a href="/folder/?q=${encodeURIComponent(displayName + ' ' + link)}">${link.toUpperCase().replace(/ /g, '_')}</a></div>`;
+                extraHtml += `<div class="matrix-link"><a href="/art/?q=${encodeURIComponent(displayName + ' ' + link)}">${link.toUpperCase().replace(/ /g, '_')}</a></div>`;
             });
             extraHtml += '</div>';
             systemResponseDiv.innerHTML += extraHtml;
@@ -781,5 +783,5 @@ permalink: /folder/
 {% include /kw/p/folder.html %}
 </nav>
     {% include footer.html %}
-</body>
+</div></body>
 </html>

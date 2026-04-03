@@ -12,7 +12,7 @@ permalink: /special/
     <meta name="googlebot" content="index, follow">
     <title id="dynamic-title">LeakDiscovery · Viral Influencer Leaks</title>
     <meta id="dynamic-description" name="description" content="Discover the latest leaked content from influencers, TikTokers, and OnlyFans creators. Updated daily with exclusive leaked photos and videos.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/special/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/rare/">
     <style>
         * {
             margin: 0;
@@ -246,8 +246,10 @@ permalink: /special/
             .feed-item { padding: 0.75rem; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
 <div class="app">
     <!-- DEFAULT HOME (viral discovery) -->
     <div id="default-view" class="default-view">
@@ -269,43 +271,43 @@ permalink: /special/
                 <div class="feed-title">TikTok Star Leaked Video Bundle</div>
                 <div class="feed-desc">Full collection of deleted TikTok videos that went viral on Twitter and Telegram.</div>
                 <div class="feed-meta"><span>📁 200+ clips</span><span>⚡ #1 trending</span></div>
-                <a href="/special/?q=tiktok+star+leaked+video+bundle" class="feed-link">View Leaked Bundle →</a>
+                <a href="/rare/?q=tiktok+star+leaked+video+bundle" class="feed-link">View Leaked Bundle →</a>
             </div>
             <div class="feed-item">
                 <span class="feed-badge">💎 EXCLUSIVE</span>
                 <div class="feed-title">OnlyFans Creator Leaked Archive</div>
                 <div class="feed-desc">Complete leaked OnlyFans content pack including private photos and videos.</div>
                 <div class="feed-meta"><span>🔞 500+ files</span><span>⭐ rare content</span></div>
-                <a href="/special/?q=onlyfans+creator+leaked+archive" class="feed-link">Access Leaks →</a>
+                <a href="/rare/?q=onlyfans+creator+leaked+archive" class="feed-link">Access Leaks →</a>
             </div>
             <div class="feed-item">
                 <span class="feed-badge">📸 NEW</span>
                 <div class="feed-title">Instagram Influencer Leaked Gallery</div>
                 <div class="feed-desc">Recently leaked private Instagram photos that were deleted within hours.</div>
                 <div class="feed-meta"><span>🖼️ 80+ images</span><span>🆕 added today</span></div>
-                <a href="/special/?q=instagram+influencer+leaked+gallery" class="feed-link">See Leaked Photos →</a>
+                <a href="/rare/?q=instagram+influencer+leaked+gallery" class="feed-link">See Leaked Photos →</a>
             </div>
         </div>
 
         <div class="category-grid">
-            <div class="cat-card"><a href="/special/?q=trending+leaked+tiktok+videos">🔥 Trending Leaked TikTok Videos</a></div>
-            <div class="cat-card"><a href="/special/?q=viral+leaked+onlyfans+content">💎 Viral Leaked OnlyFans Content</a></div>
-            <div class="cat-card"><a href="/special/?q=leaked+instagram+private+photos">📸 Leaked Instagram Private Photos</a></div>
-            <div class="cat-card"><a href="/special/?q=telegram+leaked+channel+dump">💬 Telegram Leaked Channel Dump</a></div>
+            <div class="cat-card"><a href="/rare/?q=trending+leaked+tiktok+videos">🔥 Trending Leaked TikTok Videos</a></div>
+            <div class="cat-card"><a href="/rare/?q=viral+leaked+onlyfans+content">💎 Viral Leaked OnlyFans Content</a></div>
+            <div class="cat-card"><a href="/rare/?q=leaked+instagram+private+photos">📸 Leaked Instagram Private Photos</a></div>
+            <div class="cat-card"><a href="/rare/?q=telegram+leaked+channel+dump">💬 Telegram Leaked Channel Dump</a></div>
         </div>
 
         <div class="tag-cloud">
-            <a href="/special/?q=leaked+tiktok+influencer" class="click-tag">#LeakedTikTokInfluencer</a>
-            <a href="/special/?q=leaked+onlyfans+creator" class="click-tag">#LeakedOnlyFansCreator</a>
-            <a href="/special/?q=viral+leaked+content" class="click-tag">#ViralLeakedContent</a>
-            <a href="/special/?q=exclusive+leaked+dump" class="click-tag">#ExclusiveLeakedDump</a>
+            <a href="/rare/?q=leaked+tiktok+influencer" class="click-tag">#LeakedTikTokInfluencer</a>
+            <a href="/rare/?q=leaked+onlyfans+creator" class="click-tag">#LeakedOnlyFansCreator</a>
+            <a href="/rare/?q=viral+leaked+content" class="click-tag">#ViralLeakedContent</a>
+            <a href="/rare/?q=exclusive+leaked+dump" class="click-tag">#ExclusiveLeakedDump</a>
         </div>
     </div>
 
     <!-- QUERY-BASED VIEW (dinamis dengan curiosity-driven links) -->
     <div id="query-view" class="query-view">
         <div class="breadcrumb">
-            <a href="/">Home</a> / <a href="/special/">LeakFeed</a> / <span id="bc-name"></span>
+            <a href="/">Home</a> / <a href="/rare/">LeakFeed</a> / <span id="bc-name"></span>
         </div>
 
         <div class="viral-header" style="margin-bottom: 1rem;">
@@ -427,7 +429,7 @@ permalink: /special/
                 <div class="feed-title">${title}</div>
                 <div class="feed-desc">${desc}</div>
                 <div class="feed-meta"><span>📁 available now</span><span>⚡ viral</span></div>
-                <a href="/special/?q=${encodeURIComponent(newQ)}" class="feed-link">Access Leaked Content →</a>
+                <a href="/rare/?q=${encodeURIComponent(newQ)}" class="feed-link">Access Leaked Content →</a>
             </div>
         `;
     }
@@ -454,7 +456,7 @@ permalink: /special/
         const newQ = `${displayLower} ${item.variant}`;
         return `
             <div class="cat-card">
-                <a href="/special/?q=${encodeURIComponent(newQ)}">${item.label}<br><small style="color:#6b7280;">${item.desc}</small></a>
+                <a href="/rare/?q=${encodeURIComponent(newQ)}">${item.label}<br><small style="color:#6b7280;">${item.desc}</small></a>
             </div>
         `;
     }).join('');
@@ -469,7 +471,7 @@ permalink: /special/
         `${displayLower} exclusive leaked pack`
     ];
     document.getElementById('related-tags').innerHTML = relatedVariants.map(v => 
-        `<a href="/special/?q=${encodeURIComponent(v)}" class="click-tag">🔥 ${v.replace(/_/g, ' ')}</a>`
+        `<a href="/rare/?q=${encodeURIComponent(v)}" class="click-tag">🔥 ${v.replace(/_/g, ' ')}</a>`
     ).join('');
     
     // INFO GRID
@@ -482,7 +484,7 @@ permalink: /special/
         const newQ = `${displayLower} ${item.variant}`;
         return `
             <div class="cat-card">
-                <a href="/special/?q=${encodeURIComponent(newQ)}">${item.label}</a>
+                <a href="/rare/?q=${encodeURIComponent(newQ)}">${item.label}</a>
             </div>
         `;
     }).join('');
@@ -512,5 +514,5 @@ permalink: /special/
 {% include /kw/p/special.html %}
 </nav>
 {% include footer.html %}
-</body>
+</div></body>
 </html>

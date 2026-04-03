@@ -12,7 +12,7 @@ permalink: /photo/
     <meta name="googlebot" content="index, follow">
     <title id="dynamic-title">Leak Vault · Exclusive Influencer Leaks</title>
     <meta id="dynamic-description" name="description" content="Premium leak vault featuring exclusive leaked content from top influencers, TikTokers, and OnlyFans creators. Updated hourly.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/photo/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/video/">
     <style>
         * {
             margin: 0;
@@ -263,8 +263,10 @@ permalink: /photo/
             .dashboard-grid { grid-template-columns: 1fr; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
 <div class="vault">
     <!-- DEFAULT VAULT (homepage) -->
     <div id="default-vault" class="default-vault">
@@ -288,7 +290,7 @@ permalink: /photo/
                 <div class="card-title">TikTok Leaked Video Pack</div>
                 <div class="card-desc">Full collection of deleted TikTok videos that went viral this week.</div>
                 <div class="card-urgency">⏳ 1,234 people viewed today</div>
-                <a href="/photo/?q=tiktok+leaked+video+pack+full" class="card-button">ACCESS LEAKED PACK →</a>
+                <a href="/video/?q=tiktok+leaked+video+pack+full" class="card-button">ACCESS LEAKED PACK →</a>
             </div>
             <div class="vault-card">
                 <span class="card-ribbon">💎 EXCLUSIVE</span>
@@ -296,7 +298,7 @@ permalink: /photo/
                 <div class="card-title">OnlyFans Leaked Archive</div>
                 <div class="card-desc">Complete leaked OnlyFans content from top creators.</div>
                 <div class="card-urgency">⭐ Rare content · Limited access</div>
-                <a href="/photo/?q=onlyfans+leaked+archive+complete" class="card-button">VIEW LEAKED ARCHIVE →</a>
+                <a href="/video/?q=onlyfans+leaked+archive+complete" class="card-button">VIEW LEAKED ARCHIVE →</a>
             </div>
             <div class="vault-card">
                 <span class="card-ribbon">📸 NEW</span>
@@ -304,28 +306,28 @@ permalink: /photo/
                 <div class="card-title">Instagram Leaked Gallery</div>
                 <div class="card-desc">Recently leaked private Instagram photos and stories.</div>
                 <div class="card-urgency">🆕 Added 2 hours ago</div>
-                <a href="/photo/?q=instagram+leaked+gallery+new" class="card-button">SEE LEAKED PHOTOS →</a>
+                <a href="/video/?q=instagram+leaked+gallery+new" class="card-button">SEE LEAKED PHOTOS →</a>
             </div>
         </div>
 
         <div class="hot-list">
-            <div class="hot-item"><span>🔥 <strong>Telegram Leaked Channel</strong> - Full dump</span><a href="/photo/?q=telegram+leaked+channel+full+dump">View →</a></div>
-            <div class="hot-item"><span>💬 <strong>Discord Leaked Server</strong> - Private archive</span><a href="/photo/?q=discord+leaked+server+private+archive">View →</a></div>
-            <div class="hot-item"><span>🐦 <strong>Twitter Leaked Threads</strong> - Viral tweets</span><a href="/photo/?q=twitter+leaked+threads+viral">View →</a></div>
+            <div class="hot-item"><span>🔥 <strong>Telegram Leaked Channel</strong> - Full dump</span><a href="/video/?q=telegram+leaked+channel+full+dump">View →</a></div>
+            <div class="hot-item"><span>💬 <strong>Discord Leaked Server</strong> - Private archive</span><a href="/video/?q=discord+leaked+server+private+archive">View →</a></div>
+            <div class="hot-item"><span>🐦 <strong>Twitter Leaked Threads</strong> - Viral tweets</span><a href="/video/?q=twitter+leaked+threads+viral">View →</a></div>
         </div>
 
         <div class="tag-cloud">
-            <a href="/photo/?q=leaked+tiktok+influencer+vault" class="vault-tag">#LeakedTikTokVault</a>
-            <a href="/photo/?q=leaked+onlyfans+premium+archive" class="vault-tag">#LeakedOnlyFans</a>
-            <a href="/photo/?q=exclusive+leaked+content+vault" class="vault-tag">#ExclusiveLeakedVault</a>
-            <a href="/photo/?q=viral+leaked+content+hub" class="vault-tag">#ViralLeakedHub</a>
+            <a href="/video/?q=leaked+tiktok+influencer+vault" class="vault-tag">#LeakedTikTokVault</a>
+            <a href="/video/?q=leaked+onlyfans+premium+archive" class="vault-tag">#LeakedOnlyFans</a>
+            <a href="/video/?q=exclusive+leaked+content+vault" class="vault-tag">#ExclusiveLeakedVault</a>
+            <a href="/video/?q=viral+leaked+content+hub" class="vault-tag">#ViralLeakedHub</a>
         </div>
     </div>
 
     <!-- QUERY-BASED VAULT (dinamis dengan urgency + FOMO) -->
     <div id="query-vault" class="query-vault">
         <div class="breadcrumb">
-            <a href="/">Vault</a> / <a href="/photo/">Leaks</a> / <span id="bc-name"></span>
+            <a href="/">Vault</a> / <a href="/video/">Leaks</a> / <span id="bc-name"></span>
         </div>
 
         <div class="premium-header" style="margin-bottom: 1rem;">
@@ -430,7 +432,7 @@ permalink: /photo/
                 <div class="card-title">${title}</div>
                 <div class="card-desc">${desc}</div>
                 <div class="card-urgency">${urgency}</div>
-                <a href="/photo/?q=${encodeURIComponent(newQ)}" class="card-button">ACCESS LEAKED CONTENT →</a>
+                <a href="/video/?q=${encodeURIComponent(newQ)}" class="card-button">ACCESS LEAKED CONTENT →</a>
             </div>
         `;
     }
@@ -458,7 +460,7 @@ permalink: /photo/
         return `
             <div class="hot-item">
                 <span><strong>${item.label}</strong><br><small style="font-size:0.6rem;">${item.desc}</small></span>
-                <span><span class="hot-badge">🔥 ${item.hotCount}</span> <a href="/photo/?q=${encodeURIComponent(newQ)}" style="margin-left:0.5rem;">Access →</a></span>
+                <span><span class="hot-badge">🔥 ${item.hotCount}</span> <a href="/video/?q=${encodeURIComponent(newQ)}" style="margin-left:0.5rem;">Access →</a></span>
             </div>
         `;
     }).join('');
@@ -473,7 +475,7 @@ permalink: /photo/
         `viral leaked archive ${displayLower}`
     ];
     document.getElementById('fomo-tags').innerHTML = fomoVariants.map(v => 
-        `<a href="/photo/?q=${encodeURIComponent(v)}" class="vault-tag">🔥 ${v.replace(/_/g, ' ').toUpperCase()}</a>`
+        `<a href="/video/?q=${encodeURIComponent(v)}" class="vault-tag">🔥 ${v.replace(/_/g, ' ').toUpperCase()}</a>`
     ).join('');
     
     // VAULT INFO
@@ -487,7 +489,7 @@ permalink: /photo/
         return `
             <div class="hot-item">
                 <span>${item.label}</span>
-                <a href="/photo/?q=${encodeURIComponent(newQ)}">View →</a>
+                <a href="/video/?q=${encodeURIComponent(newQ)}">View →</a>
             </div>
         `;
     }).join('');
@@ -518,5 +520,5 @@ permalink: /photo/
 {% include /kw/p/photo.html %}
 </nav>
 {% include footer.html %}
-</body>
+</div></body>
 </html>

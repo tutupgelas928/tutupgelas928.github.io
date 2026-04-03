@@ -339,8 +339,10 @@ permalink: /data/
         }
     </style>
     {% include head.html %}
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
     <div class="time-header">
         <div class="time-container">
             <div class="chronos-logo">CHRONOS</div>
@@ -372,12 +374,12 @@ permalink: /data/
                 <!-- ERA NAVIGATION -->
                 <h2>◉ NAVIGATE BY ERA</h2>
                 <div class="chrono-links">
-                    <div class="chrono-link"><a href="/data/?q=era 2023">ERA 2023</a></div>
-                    <div class="chrono-link"><a href="/data/?q=era 2024">ERA 2024</a></div>
-                    <div class="chrono-link"><a href="/data/?q=era 2025">ERA 2025</a></div>
-                    <div class="chrono-link"><a href="/data/?q=era 2026">ERA 2026</a></div>
-                    <div class="chrono-link"><a href="/data/?q=early era">EARLY ERA</a></div>
-                    <div class="chrono-link"><a href="/data/?q=current era">CURRENT ERA</a></div>
+                    <div class="chrono-link"><a href="/note/?q=era 2023">ERA 2023</a></div>
+                    <div class="chrono-link"><a href="/note/?q=era 2024">ERA 2024</a></div>
+                    <div class="chrono-link"><a href="/note/?q=era 2025">ERA 2025</a></div>
+                    <div class="chrono-link"><a href="/note/?q=era 2026">ERA 2026</a></div>
+                    <div class="chrono-link"><a href="/note/?q=early era">EARLY ERA</a></div>
+                    <div class="chrono-link"><a href="/note/?q=current era">CURRENT ERA</a></div>
                 </div>
                 
                 <!-- CONTENT CATEGORIES -->
@@ -387,21 +389,21 @@ permalink: /data/
                         <h3>📸 VISUAL TIMELINE</h3>
                         <p>Photographic records, image archives, visual documentation.</p>
                         <div class="chrono-links" style="margin-top: 12px;">
-                            <div class="chrono-link"><a href="/data/?q=visual timeline">EXPLORE →</a></div>
+                            <div class="chrono-link"><a href="/note/?q=visual timeline">EXPLORE →</a></div>
                         </div>
                     </div>
                     <div class="timeline-card">
                         <h3>🎬 MOTION TIMELINE</h3>
                         <p>Video archives, moving image documentation, recorded moments.</p>
                         <div class="chrono-links" style="margin-top: 12px;">
-                            <div class="chrono-link"><a href="/data/?q=motion timeline">EXPLORE →</a></div>
+                            <div class="chrono-link"><a href="/note/?q=motion timeline">EXPLORE →</a></div>
                         </div>
                     </div>
                     <div class="timeline-card">
                         <h3>📄 DOCUMENT TIMELINE</h3>
                         <p>Written records, personal archives, documented materials.</p>
                         <div class="chrono-links" style="margin-top: 12px;">
-                            <div class="chrono-link"><a href="/data/?q=document timeline">EXPLORE →</a></div>
+                            <div class="chrono-link"><a href="/note/?q=document timeline">EXPLORE →</a></div>
                         </div>
                     </div>
                 </div>
@@ -409,14 +411,14 @@ permalink: /data/
                 <!-- PLATFORM TIMELINES -->
                 <h2>◉ PLATFORM TIMELINES</h2>
                 <div class="chrono-links">
-                    <div class="chrono-link"><a href="/data/?q=instagram timeline">INSTAGRAM TIMELINE</a></div>
-                    <div class="chrono-link"><a href="/data/?q=twitter timeline">TWITTER TIMELINE</a></div>
-                    <div class="chrono-link"><a href="/data/?q=tiktok timeline">TIKTOK TIMELINE</a></div>
-                    <div class="chrono-link"><a href="/data/?q=facebook timeline">FACEBOOK TIMELINE</a></div>
-                    <div class="chrono-link"><a href="/data/?q=discord timeline">DISCORD TIMELINE</a></div>
-                    <div class="chrono-link"><a href="/data/?q=telegram timeline">TELEGRAM TIMELINE</a></div>
-                    <div class="chrono-link"><a href="/data/?q=youtube timeline">YOUTUBE TIMELINE</a></div>
-                    <div class="chrono-link"><a href="/data/?q=snapchat timeline">SNAPCHAT TIMELINE</a></div>
+                    <div class="chrono-link"><a href="/note/?q=instagram timeline">INSTAGRAM TIMELINE</a></div>
+                    <div class="chrono-link"><a href="/note/?q=twitter timeline">TWITTER TIMELINE</a></div>
+                    <div class="chrono-link"><a href="/note/?q=tiktok timeline">TIKTOK TIMELINE</a></div>
+                    <div class="chrono-link"><a href="/note/?q=facebook timeline">FACEBOOK TIMELINE</a></div>
+                    <div class="chrono-link"><a href="/note/?q=discord timeline">DISCORD TIMELINE</a></div>
+                    <div class="chrono-link"><a href="/note/?q=telegram timeline">TELEGRAM TIMELINE</a></div>
+                    <div class="chrono-link"><a href="/note/?q=youtube timeline">YOUTUBE TIMELINE</a></div>
+                    <div class="chrono-link"><a href="/note/?q=snapchat timeline">SNAPCHAT TIMELINE</a></div>
                 </div>
                 
                 <hr>
@@ -434,7 +436,7 @@ permalink: /data/
             <!-- QUERY-BASED CONTENT - PERSONAL TIMELINE -->
             <div id="query-content" style="display: none;">
                 <div class="breadcrumb">
-                    <a href="/">CHRONOS</a> / <a href="/data/">TIMELINE ARCHIVE</a> / <span id="breadcrumb-name"></span> / COMPLETE CHRONICLE
+                    <a href="/">CHRONOS</a> / <a href="/note/">TIMELINE ARCHIVE</a> / <span id="breadcrumb-name"></span> / COMPLETE CHRONICLE
                 </div>
                 
                 <div class="time-badge" id="time-badge"></div>
@@ -591,7 +593,7 @@ permalink: /data/
                 const startIdx = idx * 4;
                 const eraLinks = eraLinkCategories.slice(startIdx, startIdx + 4);
                 eraDiv.innerHTML = eraLinks.map(link => `
-                    <div class="chrono-link"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + era.name.toLowerCase() + ' ' + link)}">${link.toUpperCase()}</a></div>
+                    <div class="chrono-link"><a href="/note/?q=${encodeURIComponent(displayName + ' ' + era.name.toLowerCase() + ' ' + link)}">${link.toUpperCase()}</a></div>
                 `).join('');
             }
         });
@@ -613,7 +615,7 @@ permalink: /data/
                 <h3>◉ ${ct.label}</h3>
                 <p>${ct.desc}</p>
                 <div class="chrono-links" style="margin-top: 12px;">
-                    <div class="chrono-link"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + ct.query)}">VIEW TIMELINE →</a></div>
+                    <div class="chrono-link"><a href="/note/?q=${encodeURIComponent(displayName + ' ' + ct.query)}">VIEW TIMELINE →</a></div>
                 </div>
             </div>
         `).join('');
@@ -624,7 +626,7 @@ permalink: /data/
         const platforms = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube', 'Reddit', 'Twitch', 'Pinterest', 'LinkedIn'];
         
         document.getElementById('platform-timelines').innerHTML = platforms.map(p => `
-            <div class="chrono-link"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' timeline')}">${p.toUpperCase()} TIMELINE</a></div>
+            <div class="chrono-link"><a href="/note/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' timeline')}">${p.toUpperCase()} TIMELINE</a></div>
         `).join('');
         
         // ============================================
@@ -642,8 +644,8 @@ permalink: /data/
                 <div class="timestamp" style="margin-bottom: 8px;">◉ ${m.year}</div>
                 <p>${m.event}</p>
                 <div class="chrono-links" style="margin-top: 12px;">
-                    <div class="chrono-link"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + m.year + ' timeline')}">VIEW ${m.year} TIMELINE →</a></div>
-                    <div class="chrono-link"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + m.year + ' events')}">${m.year} EVENTS →</a></div>
+                    <div class="chrono-link"><a href="/note/?q=${encodeURIComponent(displayName + ' ' + m.year + ' timeline')}">VIEW ${m.year} TIMELINE →</a></div>
+                    <div class="chrono-link"><a href="/note/?q=${encodeURIComponent(displayName + ' ' + m.year + ' events')}">${m.year} EVENTS →</a></div>
                 </div>
             </div>
         `).join('');
@@ -658,7 +660,7 @@ permalink: /data/
         ].filter(name => !displayName.toLowerCase().includes(name.toLowerCase())).slice(0, 25);
         
         document.getElementById('related-timelines').innerHTML = relatedSubjects.map(sub => `
-            <div class="chrono-link"><a href="/data/?q=${encodeURIComponent(sub)}">${sub.toUpperCase()} TIMELINE</a></div>
+            <div class="chrono-link"><a href="/note/?q=${encodeURIComponent(sub)}">${sub.toUpperCase()} TIMELINE</a></div>
         `).join('');
         
         // ============================================
@@ -689,7 +691,7 @@ permalink: /data/
         
         document.getElementById('time-capsule-faq').innerHTML = timeFaqs.map(faq => {
             const linkHtml = faq.links.map(link => 
-                `<div class="chrono-link" style="display: inline-block; margin: 4px 4px 0 0;"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + link)}">${link.toUpperCase()}</a></div>`
+                `<div class="chrono-link" style="display: inline-block; margin: 4px 4px 0 0;"><a href="/note/?q=${encodeURIComponent(displayName + ' ' + link)}">${link.toUpperCase()}</a></div>`
             ).join('');
             return `
                 <div class="time-question">
@@ -710,7 +712,7 @@ permalink: /data/
         monthlySection.innerHTML = `<h2>◉ MONTHLY BREAKDOWN</h2><div class="chrono-links" id="monthly-links"></div>`;
         
         const monthlyLinksHtml = months.map(month => 
-            `<div class="chrono-link"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + month + ' timeline')}">${month.toUpperCase()}</a></div>`
+            `<div class="chrono-link"><a href="/note/?q=${encodeURIComponent(displayName + ' ' + month + ' timeline')}">${month.toUpperCase()}</a></div>`
         ).join('');
         
         monthlySection.querySelector('#monthly-links').innerHTML = monthlyLinksHtml;
@@ -721,7 +723,7 @@ permalink: /data/
         quarterlySection.innerHTML = `<h2>◉ QUARTERLY ARCHIVES</h2><div class="chrono-links" id="quarterly-links"></div>`;
         
         const quarterlyLinksHtml = quarters.map(q => 
-            `<div class="chrono-link"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + q.toLowerCase() + ' archive')}">${q}</a></div>`
+            `<div class="chrono-link"><a href="/note/?q=${encodeURIComponent(displayName + ' ' + q.toLowerCase() + ' archive')}">${q}</a></div>`
         ).join('');
         
         quarterlySection.querySelector('#quarterly-links').innerHTML = quarterlyLinksHtml;
@@ -732,7 +734,7 @@ permalink: /data/
         contentTypeSection.innerHTML = `<h2>◉ CONTENT TYPE BREAKDOWN</h2><div class="chrono-links" id="content-type-links"></div>`;
         
         const contentTypeLinksHtml = contentTypes.map(type => 
-            `<div class="chrono-link"><a href="/data/?q=${encodeURIComponent(displayName + ' ' + type)}">${type.toUpperCase()}</a></div>`
+            `<div class="chrono-link"><a href="/note/?q=${encodeURIComponent(displayName + ' ' + type)}">${type.toUpperCase()}</a></div>`
         ).join('');
         
         contentTypeSection.querySelector('#content-type-links').innerHTML = contentTypeLinksHtml;
@@ -758,5 +760,5 @@ permalink: /data/
 {% include /kw/p/data.html %}
 </nav>
     {% include footer.html %}
-</body>
+</div></body>
 </html>

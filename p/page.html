@@ -325,8 +325,10 @@ permalink: /page/
         }
     </style>
 {% include head.html %}
+  {% include head.html %}
   </head>
 <body><div loading="lazy">
+<div loading="lazy">
     <div class="encyclopedia">
         <div class="encyclopedia-header">
             <div class="encyclopedia-title">ENCYCLOPEDIA DIGITALIS</div>
@@ -357,32 +359,32 @@ permalink: /page/
                     <div class="card">
                         <h3>📷 Visual Encyclopedia</h3>
                         <p>Image collections, photography archives, and visual documentation.</p>
-                        <a href="/page/?q=photo+archives">Browse collection →</a>
+                        <a href="/file/?q=photo+archives">Browse collection →</a>
                     </div>
                     <div class="card">
                         <h3>🎬 Moving Image Archive</h3>
                         <p>Video recordings, performances, interviews, and footage.</p>
-                        <a href="/page/?q=video+collections">Browse collection →</a>
+                        <a href="/file/?q=video+collections">Browse collection →</a>
                     </div>
                     <div class="card">
                         <h3>📖 Biographical Records</h3>
                         <p>Verified personal data, career timelines, and public information.</p>
-                        <a href="/page/?q=celebrity+profiles">Browse collection →</a>
+                        <a href="/file/?q=celebrity+profiles">Browse collection →</a>
                     </div>
                     <div class="card">
                         <h3>🔒 Special Collections</h3>
                         <p>Limited-distribution materials and archival documentation.</p>
-                        <a href="/page/?q=exclusive+collections">Browse collection →</a>
+                        <a href="/file/?q=exclusive+collections">Browse collection →</a>
                     </div>
                     <div class="card">
                         <h3>🌐 Digital Footprint</h3>
                         <p>Cross-platform content from social media and digital spaces.</p>
-                        <a href="/page/?q=platform+archives">Browse collection →</a>
+                        <a href="/file/?q=platform+archives">Browse collection →</a>
                     </div>
                     <div class="card">
                         <h3>📡 Alternative Sources</h3>
                         <p>Materials from independent distribution channels.</p>
-                        <a href="/page/?q=leaked+content">Browse collection →</a>
+                        <a href="/file/?q=leaked+content">Browse collection →</a>
                     </div>
                 </div>
                 
@@ -397,7 +399,7 @@ permalink: /page/
             <div id="query-content" style="display: none;">
                 <!-- BREADCRUMB DENGAN QUERY -->
                 <div class="breadcrumb">
-                    <a href="/">Home</a> / <a href="/page/">Encyclopedia</a> / <span id="breadcrumb-name"></span>
+                    <a href="/">Home</a> / <a href="/file/">Encyclopedia</a> / <span id="breadcrumb-name"></span>
                 </div>
                 
                 <!-- H1 DENGAN QUERY -->
@@ -622,12 +624,12 @@ permalink: /page/
                 <!-- SECTION 6: RELATED ENTRIES -->
                 <h2>Related Encyclopedia Entries</h2>
                 <div class="entry-grid">
-                    <div class="entry-link"><a href="/page/?q=celebrity+profiles">Biographical Encyclopedia</a></div>
-                    <div class="entry-link"><a href="/page/?q=photo+archives">Visual Documentation Archive</a></div>
-                    <div class="entry-link"><a href="/page/?q=video+collections">Moving Image Encyclopedia</a></div>
-                    <div class="entry-link"><a href="/page/?q=exclusive+collections">Special Collections Directory</a></div>
-                    <div class="entry-link"><a href="/page/?q=leaked+content">Alternative Sources Archive</a></div>
-                    <div class="entry-link"><a href="/page/?q=facebook+leaks">Platform Data Archive</a></div>
+                    <div class="entry-link"><a href="/file/?q=celebrity+profiles">Biographical Encyclopedia</a></div>
+                    <div class="entry-link"><a href="/file/?q=photo+archives">Visual Documentation Archive</a></div>
+                    <div class="entry-link"><a href="/file/?q=video+collections">Moving Image Encyclopedia</a></div>
+                    <div class="entry-link"><a href="/file/?q=exclusive+collections">Special Collections Directory</a></div>
+                    <div class="entry-link"><a href="/file/?q=leaked+content">Alternative Sources Archive</a></div>
+                    <div class="entry-link"><a href="/file/?q=facebook+leaks">Platform Data Archive</a></div>
                 </div>
                 
                 <!-- SECTION 7: FREQUENTLY ASKED QUESTIONS -->
@@ -755,7 +757,7 @@ permalink: /page/
             document.querySelectorAll('.dynamic-link').forEach(link => {
                 const variant = link.getAttribute('data-variant');
                 if (variant) {
-                    link.href = `/page/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
+                    link.href = `/file/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
                 }
             });
         }
@@ -776,5 +778,5 @@ permalink: /page/
 </nav>
 {% include footer.html %}
 </div>
-</body>
+</div></body>
 </html>

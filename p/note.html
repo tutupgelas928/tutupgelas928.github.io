@@ -324,8 +324,10 @@ permalink: /note/
         }
     </style>
     {% include head.html %}
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
 <div class="archive-bg"></div>
 <main>
     <div class="container">
@@ -399,7 +401,7 @@ permalink: /note/
             <!-- Breadcrumb -->
             <div class="breadcrumb">
                 <a href="/">Time Capsule</a> › 
-                <a href="/note/">Archives</a> › 
+                <a href="/visual/">Archives</a> › 
                 <span id="breadcrumb-name"></span>
                 <span class="badge" style="margin-left: 12px;">Digital Archive</span>
             </div>
@@ -534,7 +536,7 @@ permalink: /note/
     
     // Generate internal link URL
     function makeLink(suffix) {
-        return `/note/?q=${encodeURIComponent(baseName + ' ' + suffix)}`;
+        return `/visual/?q=${encodeURIComponent(baseName + ' ' + suffix)}`;
     }
     
     // SECTION 1: Archive Navigation (15+ variants)
@@ -598,7 +600,7 @@ permalink: /note/
     ];
     
     document.getElementById('related-profiles').innerHTML = relatedList.map(related => 
-        `<div class="topic-pill"><a href="/note/?q=${encodeURIComponent(related)}">👥 ${related}</a></div>`
+        `<div class="topic-pill"><a href="/visual/?q=${encodeURIComponent(related)}">👥 ${related}</a></div>`
     ).join('');
     
     // SECTION 6: Special Collections
@@ -658,7 +660,7 @@ permalink: /note/
         const topicCloud = document.getElementById('home-topic-cloud');
         if (topicCloud) {
             topicCloud.innerHTML = topics.map(topic => 
-                `<div class="topic-pill"><a href="/note/?q=${encodeURIComponent(topic)}">📌 ${topic}</a></div>`
+                `<div class="topic-pill"><a href="/visual/?q=${encodeURIComponent(topic)}">📌 ${topic}</a></div>`
             ).join('');
         }
         
@@ -675,7 +677,7 @@ permalink: /note/
                 `<div class="card">
                     <h3>${cat.name}</h3>
                     <p>${cat.desc}</p>
-                    <a href="/note/?q=${encodeURIComponent(cat.q)}">Explore →</a>
+                    <a href="/visual/?q=${encodeURIComponent(cat.q)}">Explore →</a>
                 </div>`
             ).join('');
         }
@@ -685,7 +687,7 @@ permalink: /note/
         const trendingEl = document.getElementById('trending-searches');
         if (trendingEl) {
             trendingEl.innerHTML = trending.map(t => 
-                `<div class="keyword"><a href="/note/?q=${encodeURIComponent(t)}">🔥 ${t}</a></div>`
+                `<div class="keyword"><a href="/visual/?q=${encodeURIComponent(t)}">🔥 ${t}</a></div>`
             ).join('');
         }
         
@@ -697,7 +699,7 @@ permalink: /note/
                 `<div class="card">
                     <h3>${p} Archive</h3>
                     <p>Preserved ${p} history and content</p>
-                    <a href="/note/?q=${encodeURIComponent(p.toLowerCase() + ' archive')}">Browse →</a>
+                    <a href="/visual/?q=${encodeURIComponent(p.toLowerCase() + ' archive')}">Browse →</a>
                 </div>`
             ).join('');
         }
@@ -708,5 +710,5 @@ permalink: /note/
 <nav>
 {% include /kw/p/note.html %}
 </nav>
-</body>
+</div></body>
 </html>

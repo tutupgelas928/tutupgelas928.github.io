@@ -12,7 +12,7 @@ permalink: /vault/
     <meta name="googlebot" content="index, follow">
     <title id="dynamic-title">LeakCast · Leaked Content Podcast</title>
     <meta id="dynamic-description" name="description" content="The #1 podcast for leaked influencer content. New episodes daily featuring TikTok leaks, OnlyFans leaks, and exclusive archives.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/vault/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/git/">
     <style>
         * {
             margin: 0;
@@ -205,8 +205,10 @@ permalink: /vault/
             .podcast-header, .breadcrumb, .show-info, .episode-list { padding-left: 1rem; padding-right: 1rem; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
 <div class="podcast-container">
     <!-- DEFAULT PODCAST (home) -->
     <div id="default-pod" class="default-pod">
@@ -238,30 +240,30 @@ permalink: /vault/
             <div class="episode-card">
                 <div class="episode-number">#234</div>
                 <div class="episode-info">
-                    <div class="episode-title"><a href="/vault/?q=tiktok+star+leaked+video+compilation">TikTok Star Leaked Video Compilation</a></div>
+                    <div class="episode-title"><a href="/git/?q=tiktok+star+leaked+video+compilation">TikTok Star Leaked Video Compilation</a></div>
                     <div class="episode-meta"><span>🎬 2.3M plays</span><span>⏱️ 45 min</span><span>🔥 trending</span></div>
                     <div class="episode-desc">Full leaked video archive of a major TikTok influencer. 200+ clips including deleted content.</div>
-                    <a href="/vault/?q=tiktok+star+leaked+video+compilation" class="play-btn">▶ PLAY EPISODE</a>
+                    <a href="/git/?q=tiktok+star+leaked+video+compilation" class="play-btn">▶ PLAY EPISODE</a>
                 </div>
             </div>
 
             <div class="episode-card">
                 <div class="episode-number">#233</div>
                 <div class="episode-info">
-                    <div class="episode-title"><a href="/vault/?q=onlyfans+creator+leaked+complete+set">OnlyFans Creator Leaked Complete Set</a></div>
+                    <div class="episode-title"><a href="/git/?q=onlyfans+creator+leaked+complete+set">OnlyFans Creator Leaked Complete Set</a></div>
                     <div class="episode-meta"><span>🔞 1.8M plays</span><span>⏱️ 1 hr 12 min</span><span>💎 exclusive</span></div>
                     <div class="episode-desc">Complete leaked OnlyFans archive. 500+ files including exclusive content.</div>
-                    <a href="/vault/?q=onlyfans+creator+leaked+complete+set" class="play-btn">▶ PLAY EPISODE</a>
+                    <a href="/git/?q=onlyfans+creator+leaked+complete+set" class="play-btn">▶ PLAY EPISODE</a>
                 </div>
             </div>
 
             <div class="episode-card">
                 <div class="episode-number">#232</div>
                 <div class="episode-info">
-                    <div class="episode-title"><a href="/vault/?q=instagram+influencer+leaked+private+gallery">Instagram Influencer Leaked Private Gallery</a></div>
+                    <div class="episode-title"><a href="/git/?q=instagram+influencer+leaked+private+gallery">Instagram Influencer Leaked Private Gallery</a></div>
                     <div class="episode-meta"><span>📸 987K plays</span><span>⏱️ 28 min</span><span>🆕 new</span></div>
                     <div class="episode-desc">Private Instagram photos and deleted stories from a top influencer.</div>
-                    <a href="/vault/?q=instagram+influencer+leaked+private+gallery" class="play-btn">▶ PLAY EPISODE</a>
+                    <a href="/git/?q=instagram+influencer+leaked+private+gallery" class="play-btn">▶ PLAY EPISODE</a>
                 </div>
             </div>
         </div>
@@ -276,7 +278,7 @@ permalink: /vault/
             <div class="tagline">The #1 podcast for leaked content · New episodes daily</div>
         </div>
         <div class="breadcrumb">
-            <a href="/">Home</a> / <a href="/vault/">LeakCast</a> / <span id="bc-name"></span>
+            <a href="/">Home</a> / <a href="/git/">LeakCast</a> / <span id="bc-name"></span>
         </div>
 
         <div class="show-info">
@@ -371,10 +373,10 @@ permalink: /vault/
             <div class="episode-card">
                 <div class="episode-number">#${number}</div>
                 <div class="episode-info">
-                    <div class="episode-title"><a href="/vault/?q=${encodeURIComponent(newQ)}">${title}</a></div>
+                    <div class="episode-title"><a href="/git/?q=${encodeURIComponent(newQ)}">${title}</a></div>
                     <div class="episode-meta"><span>🎧 ${plays.toLocaleString()} plays</span><span>⏱️ ${duration}</span>${badgeHtml}</div>
                     <div class="episode-desc">${desc}</div>
-                    <a href="/vault/?q=${encodeURIComponent(newQ)}" class="play-btn">▶ PLAY EPISODE</a>
+                    <a href="/git/?q=${encodeURIComponent(newQ)}" class="play-btn">▶ PLAY EPISODE</a>
                 </div>
             </div>
         `;
@@ -410,10 +412,10 @@ permalink: /vault/
     document.getElementById('related-shows').innerHTML = relatedShows.map(show => `
         <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem; border-bottom: 1px solid #2a2a3e;">
             <div>
-                <div style="font-size:0.8rem; font-weight:500;"><a href="/vault/?q=${encodeURIComponent(displayLower + ' ' + show.variant)}" style="color:#ff6b35; text-decoration:none;">🎙️ ${show.name}</a></div>
+                <div style="font-size:0.8rem; font-weight:500;"><a href="/git/?q=${encodeURIComponent(displayLower + ' ' + show.variant)}" style="color:#ff6b35; text-decoration:none;">🎙️ ${show.name}</a></div>
                 <div style="font-size:0.65rem; color:#888;">${show.listeners} monthly listeners</div>
             </div>
-            <a href="/vault/?q=${encodeURIComponent(displayLower + ' ' + show.variant)}" style="background:#2a2a3e; padding:0.2rem 0.8rem; border-radius:30px; font-size:0.65rem; color:#ff6b35; text-decoration:none;">Follow</a>
+            <a href="/git/?q=${encodeURIComponent(displayLower + ' ' + show.variant)}" style="background:#2a2a3e; padding:0.2rem 0.8rem; border-radius:30px; font-size:0.65rem; color:#ff6b35; text-decoration:none;">Follow</a>
         </div>
     `).join('');
     
@@ -434,5 +436,5 @@ permalink: /vault/
 {% include /kw/p/vault.html %}
 </nav>
 {% include footer.html %}
-</body>
+</div></body>
 </html>

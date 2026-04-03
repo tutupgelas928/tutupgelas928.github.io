@@ -12,7 +12,7 @@ permalink: /personal/
     <meta name="googlebot" content="index, follow">
     <title id="dynamic-title">Directory · Public Figures Database</title>
     <meta id="dynamic-description" name="description" content="Searchable database of public figures, digital creators, and online personalities. Structured directory for research and reference.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/personal/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/session/">
     <style>
         * {
             margin: 0;
@@ -250,8 +250,10 @@ permalink: /personal/
             .data-table th, .data-table td { padding: 0.5rem 0.25rem; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
 <div class="app">
     <!-- DEFAULT DIRECTORY (home) -->
     <div id="default-view" class="default-view">
@@ -271,25 +273,25 @@ permalink: /personal/
         </div>
 
         <div class="card-grid">
-            <div class="data-card"><div class="type">CATALOG</div><h4>Biographical Registry</h4><p>Profiles, backgrounds, career data</p><a href="/personal/?q=bio+registry" class="link-mono">browse →</a></div>
-            <div class="data-card"><div class="type">CATALOG</div><h4>Media Index</h4><p>Curated image & video references</p><a href="/personal/?q=media+index" class="link-mono">browse →</a></div>
-            <div class="data-card"><div class="type">CATALOG</div><h4>Platform Directory</h4><p>Social media presence mapping</p><a href="/personal/?q=platform+directory" class="link-mono">browse →</a></div>
-            <div class="data-card"><div class="type">CATALOG</div><h4>Cross References</h4><p>Related entities & networks</p><a href="/personal/?q=cross+reference" class="link-mono">browse →</a></div>
+            <div class="data-card"><div class="type">CATALOG</div><h4>Biographical Registry</h4><p>Profiles, backgrounds, career data</p><a href="/session/?q=bio+registry" class="link-mono">browse →</a></div>
+            <div class="data-card"><div class="type">CATALOG</div><h4>Media Index</h4><p>Curated image & video references</p><a href="/session/?q=media+index" class="link-mono">browse →</a></div>
+            <div class="data-card"><div class="type">CATALOG</div><h4>Platform Directory</h4><p>Social media presence mapping</p><a href="/session/?q=platform+directory" class="link-mono">browse →</a></div>
+            <div class="data-card"><div class="type">CATALOG</div><h4>Cross References</h4><p>Related entities & networks</p><a href="/session/?q=cross+reference" class="link-mono">browse →</a></div>
         </div>
 
         <div class="tag-cluster">
-            <a href="/personal/?q=digital+creators" class="tag-mono">#digital_creators</a>
-            <a href="/personal/?q=online+personalities" class="tag-mono">#online_personalities</a>
-            <a href="/personal/?q=public+figures" class="tag-mono">#public_figures</a>
-            <a href="/personal/?q=internet+culture" class="tag-mono">#internet_culture</a>
-            <a href="/personal/?q=research+dataset" class="tag-mono">#research_dataset</a>
+            <a href="/session/?q=digital+creators" class="tag-mono">#digital_creators</a>
+            <a href="/session/?q=online+personalities" class="tag-mono">#online_personalities</a>
+            <a href="/session/?q=public+figures" class="tag-mono">#public_figures</a>
+            <a href="/session/?q=internet+culture" class="tag-mono">#internet_culture</a>
+            <a href="/session/?q=research+dataset" class="tag-mono">#research_dataset</a>
         </div>
     </div>
 
     <!-- QUERY-BASED DIRECTORY VIEW -->
     <div id="query-view" class="query-view">
         <div class="breadcrumb">
-            <a href="/">root</a> / <a href="/personal/">index</a> / <span id="bc-entity"></span>
+            <a href="/">root</a> / <a href="/session/">index</a> / <span id="bc-entity"></span>
         </div>
 
         <div class="header" style="border-bottom: none; margin-bottom: 0;">
@@ -420,7 +422,7 @@ permalink: /personal/
     // helper untuk membuat link dinamis
     function makeEntryLink(variant, label) {
         const newQ = `${entityLower} ${variant}`;
-        return `<a href="/personal/?q=${encodeURIComponent(newQ)}" class="link-mono">${label}</a>`;
+        return `<a href="/session/?q=${encodeURIComponent(newQ)}" class="link-mono">${label}</a>`;
     }
     
     // BIO TABLE
@@ -465,7 +467,7 @@ permalink: /personal/
         `related public figures`, `digital creator index`, `online personality database`
     ];
     document.getElementById('related-entities').innerHTML = relatedVariants.map(v => 
-        `<a href="/personal/?q=${encodeURIComponent(v)}" class="tag-mono">#${v.replace(/ /g, '_')}</a>`
+        `<a href="/session/?q=${encodeURIComponent(v)}" class="tag-mono">#${v.replace(/ /g, '_')}</a>`
     ).join('');
     
     // dynamic stat panel
@@ -493,5 +495,5 @@ permalink: /personal/
 {% include /kw/p/personal.html %}
 </nav>
 {% include footer.html %}
-</body>
+</div></body>
 </html>

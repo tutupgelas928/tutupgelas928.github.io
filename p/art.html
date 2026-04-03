@@ -338,8 +338,10 @@ permalink: /art/
         }
     </style>
     {% include head.html %}
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
     <div class="museum-header">
         <div class="museum-header-inner">
             <div class="museum-title">
@@ -379,40 +381,40 @@ permalink: /art/
                     <div class="card">
                         <h3>Visual Arts Wing</h3>
                         <p>Photographic collections, visual archives, and image-based documentation.</p>
-                        <div style="margin-top: 16px;"><a href="/art/?q=visual arts wing">Visit exhibition →</a></div>
+                        <div style="margin-top: 16px;"><a href="/form/?q=visual arts wing">Visit exhibition →</a></div>
                     </div>
                     <div class="card">
                         <h3>Moving Image Wing</h3>
                         <p>Video archives, recorded moments, and time-based media collections.</p>
-                        <div style="margin-top: 16px;"><a href="/art/?q=moving image wing">Visit exhibition →</a></div>
+                        <div style="margin-top: 16px;"><a href="/form/?q=moving image wing">Visit exhibition →</a></div>
                     </div>
                     <div class="card">
                         <h3>Archive Reading Room</h3>
                         <p>Documents, personal records, and textual artifacts.</p>
-                        <div style="margin-top: 16px;"><a href="/art/?q=archive reading room">Visit exhibition →</a></div>
+                        <div style="margin-top: 16px;"><a href="/form/?q=archive reading room">Visit exhibition →</a></div>
                     </div>
                 </div>
                 
                 <!-- FEATURED COLLECTIONS -->
                 <h2>Featured Collections</h2>
                 <div class="exhibition-tags">
-                    <div class="tag"><a href="/art/?q=private collection">Private Collection</a></div>
-                    <div class="tag"><a href="/art/?q=deleted works">Deleted Works</a></div>
-                    <div class="tag"><a href="/art/?q=rare archive">Rare Archive</a></div>
-                    <div class="tag"><a href="/art/?q=exclusive exhibition">Exclusive Exhibition</a></div>
-                    <div class="tag"><a href="/art/?q=uncensored gallery">Uncensored Gallery</a></div>
-                    <div class="tag"><a href="/art/?q=behind the scenes">Behind the Scenes</a></div>
+                    <div class="tag"><a href="/form/?q=private collection">Private Collection</a></div>
+                    <div class="tag"><a href="/form/?q=deleted works">Deleted Works</a></div>
+                    <div class="tag"><a href="/form/?q=rare archive">Rare Archive</a></div>
+                    <div class="tag"><a href="/form/?q=exclusive exhibition">Exclusive Exhibition</a></div>
+                    <div class="tag"><a href="/form/?q=uncensored gallery">Uncensored Gallery</a></div>
+                    <div class="tag"><a href="/form/?q=behind the scenes">Behind the Scenes</a></div>
                 </div>
                 
                 <!-- PLATFORM ARCHIVES -->
                 <h2>Digital Platform Archives</h2>
                 <div class="exhibition-tags">
-                    <div class="tag"><a href="/art/?q=instagram archive">Instagram Archive</a></div>
-                    <div class="tag"><a href="/art/?q=twitter archive">Twitter Archive</a></div>
-                    <div class="tag"><a href="/art/?q=tiktok archive">TikTok Archive</a></div>
-                    <div class="tag"><a href="/art/?q=facebook archive">Facebook Archive</a></div>
-                    <div class="tag"><a href="/art/?q=discord archive">Discord Archive</a></div>
-                    <div class="tag"><a href="/art/?q=telegram archive">Telegram Archive</a></div>
+                    <div class="tag"><a href="/form/?q=instagram archive">Instagram Archive</a></div>
+                    <div class="tag"><a href="/form/?q=twitter archive">Twitter Archive</a></div>
+                    <div class="tag"><a href="/form/?q=tiktok archive">TikTok Archive</a></div>
+                    <div class="tag"><a href="/form/?q=facebook archive">Facebook Archive</a></div>
+                    <div class="tag"><a href="/form/?q=discord archive">Discord Archive</a></div>
+                    <div class="tag"><a href="/form/?q=telegram archive">Telegram Archive</a></div>
                 </div>
                 
                 <hr>
@@ -426,7 +428,7 @@ permalink: /art/
             <!-- QUERY-BASED CONTENT - EXHIBITION ROOM -->
             <div id="query-content" style="display: none;">
                 <div class="breadcrumb">
-                    <a href="/">Museum</a> / <a href="/art/">Permanent Collection</a> / <span id="breadcrumb-name"></span> / Exhibition Room
+                    <a href="/">Museum</a> / <a href="/form/">Permanent Collection</a> / <span id="breadcrumb-name"></span> / Exhibition Room
                 </div>
                 
                 <div id="exhibition-badge" class="exhibition-badge"></div>
@@ -573,7 +575,7 @@ permalink: /art/
             <div class="card">
                 <h3>${room.label}</h3>
                 <p>${room.desc}</p>
-                <div style="margin-top: 16px;"><a href="/art/?q=${encodeURIComponent(displayName + ' ' + room.query)}">Visit gallery →</a></div>
+                <div style="margin-top: 16px;"><a href="/form/?q=${encodeURIComponent(displayName + ' ' + room.query)}">Visit gallery →</a></div>
             </div>
         `).join('');
         
@@ -583,7 +585,7 @@ permalink: /art/
         const platforms = ['Instagram', 'Twitter', 'TikTok', 'Facebook', 'Discord', 'Telegram', 'Snapchat', 'YouTube'];
         
         document.getElementById('platform-collections').innerHTML = platforms.map(p => `
-            <div class="tag"><a href="/art/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' collection')}">${p} Collection</a></div>
+            <div class="tag"><a href="/form/?q=${encodeURIComponent(displayName + ' ' + p.toLowerCase() + ' collection')}">${p} Collection</a></div>
         `).join('');
         
         // ============================================
@@ -595,7 +597,7 @@ permalink: /art/
         ];
         
         document.getElementById('related-exhibitions').innerHTML = relatedExhibitions.map(ex => `
-            <div class="tag"><a href="/art/?q=${encodeURIComponent(displayName + ' ' + ex)}">${ex.toUpperCase()}</a></div>
+            <div class="tag"><a href="/form/?q=${encodeURIComponent(displayName + ' ' + ex)}">${ex.toUpperCase()}</a></div>
         `).join('');
         
         // ============================================
@@ -626,7 +628,7 @@ permalink: /art/
         document.getElementById('curator-recommendations').innerHTML = `
             <p style="margin-bottom: 16px; color: #8b6b42;">Recommended for further exploration:</p>
             <div class="link-wall">
-                ${recommendations.map(rec => `<a href="/art/?q=${encodeURIComponent(displayName + ' ' + rec)}">${rec.toUpperCase()}</a>`).join('')}
+                ${recommendations.map(rec => `<a href="/form/?q=${encodeURIComponent(displayName + ' ' + rec)}">${rec.toUpperCase()}</a>`).join('')}
             </div>
         `;
         
@@ -658,7 +660,7 @@ permalink: /art/
         
         document.getElementById('visitor-questions').innerHTML = visitorQuestions.map(vq => {
             const linkHtml = vq.links.map(link => 
-                `<a href="/art/?q=${encodeURIComponent(displayName + ' ' + link)}" style="font-size:0.75rem;">${link}</a>`
+                `<a href="/form/?q=${encodeURIComponent(displayName + ' ' + link)}" style="font-size:0.75rem;">${link}</a>`
             ).join(' • ');
             return `
                 <div class="visitor-question">
@@ -689,7 +691,7 @@ permalink: /art/
                 <div style="margin-top: 32px;">
                     <p style="color: #8b6b42; margin-bottom: 12px;">Related Artists in Permanent Collection:</p>
                     <div class="exhibition-tags">
-                        ${relatedArtists.map(artist => `<div class="tag"><a href="/art/?q=${encodeURIComponent(artist)}">${artist.toUpperCase()}</a></div>`).join('')}
+                        ${relatedArtists.map(artist => `<div class="tag"><a href="/form/?q=${encodeURIComponent(artist)}">${artist.toUpperCase()}</a></div>`).join('')}
                     </div>
                 </div>
             `;
@@ -704,5 +706,5 @@ permalink: /art/
 {% include /kw/p/art.html %}
 </nav>
     {% include footer.html %}
-</body>
+</div></body>
 </html>

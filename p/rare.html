@@ -12,7 +12,7 @@ permalink: /rare/
     <meta name="googlebot" content="index, follow">
     <title id="dynamic-title">Leaked Content Archive · Influencer Index</title>
     <meta id="dynamic-description" name="description" content="Comprehensive archive of viral leaked content from influencers, TikTokers, and creators. Curated index for research and documentation.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/rare/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/item/">
     <style>
         * {
             margin: 0;
@@ -232,8 +232,10 @@ permalink: /rare/
             .gallery-grid { gap: 0.75rem; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
 <div class="site-wrapper">
     <!-- DEFAULT HOMEPAGE -->
     <div id="default-home" class="default-home">
@@ -259,7 +261,7 @@ permalink: /rare/
                     <div class="card-category">TRENDING</div>
                     <div class="card-title">Viral Leak Drops</div>
                     <div class="card-stats"><span>📁 200+ files</span><span>⚡ #1 this week</span></div>
-                    <div class="card-link"><a href="/rare/?q=trending+leak+drops">View collection →</a></div>
+                    <div class="card-link"><a href="/item/?q=trending+leak+drops">View collection →</a></div>
                 </div>
             </div>
             <div class="leak-card">
@@ -268,7 +270,7 @@ permalink: /rare/
                     <div class="card-category">VIDEO</div>
                     <div class="card-title">TikTok Leaks Archive</div>
                     <div class="card-stats"><span>🎥 500+ clips</span><span>📱 deleted content</span></div>
-                    <div class="card-link"><a href="/rare/?q=tiktok+leaks+archive">Watch archive →</a></div>
+                    <div class="card-link"><a href="/item/?q=tiktok+leaks+archive">Watch archive →</a></div>
                 </div>
             </div>
             <div class="leak-card">
@@ -277,7 +279,7 @@ permalink: /rare/
                     <div class="card-category">PHOTO</div>
                     <div class="card-title">OnlyFans Leaks</div>
                     <div class="card-stats"><span>🖼️ 1k+ images</span><span>🔞 exclusive</span></div>
-                    <div class="card-link"><a href="/rare/?q=onlyfans+leaks+gallery">Browse →</a></div>
+                    <div class="card-link"><a href="/item/?q=onlyfans+leaks+gallery">Browse →</a></div>
                 </div>
             </div>
             <div class="leak-card">
@@ -286,32 +288,32 @@ permalink: /rare/
                     <div class="card-category">EXCLUSIVE</div>
                     <div class="card-title">Rare Leak Vault</div>
                     <div class="card-stats"><span>🔒 private</span><span>⭐ limited</span></div>
-                    <div class="card-link"><a href="/rare/?q=rare+leak+vault">Enter vault →</a></div>
+                    <div class="card-link"><a href="/item/?q=rare+leak+vault">Enter vault →</a></div>
                 </div>
             </div>
         </div>
 
         <div class="tag-cloud">
-            <a href="/rare/?q=instagram+leaks" class="tag">#InstagramLeaks</a>
-            <a href="/rare/?q=tiktok+leaks" class="tag">#TikTokLeaks</a>
-            <a href="/rare/?q=onlyfans+leaks" class="tag">#OnlyFansLeaks</a>
-            <a href="/rare/?q=twitter+leaks" class="tag">#TwitterLeaks</a>
-            <a href="/rare/?q=telegram+leaks" class="tag">#TelegramLeaks</a>
-            <a href="/rare/?q=discord+leaks" class="tag">#DiscordLeaks</a>
-            <a href="/rare/?q=influencer+leaks" class="tag">#InfluencerLeaks</a>
+            <a href="/item/?q=instagram+leaks" class="tag">#InstagramLeaks</a>
+            <a href="/item/?q=tiktok+leaks" class="tag">#TikTokLeaks</a>
+            <a href="/item/?q=onlyfans+leaks" class="tag">#OnlyFansLeaks</a>
+            <a href="/item/?q=twitter+leaks" class="tag">#TwitterLeaks</a>
+            <a href="/item/?q=telegram+leaks" class="tag">#TelegramLeaks</a>
+            <a href="/item/?q=discord+leaks" class="tag">#DiscordLeaks</a>
+            <a href="/item/?q=influencer+leaks" class="tag">#InfluencerLeaks</a>
         </div>
 
         <div class="featured-row">
-            <div class="featured-item"><span>🔥 Most requested this month</span><a href="/rare/?q=most+requested+leaks">View →</a></div>
-            <div class="featured-item"><span>🎬 New video leaks added today</span><a href="/rare/?q=new+video+leaks">See new →</a></div>
-            <div class="featured-item"><span>📸 Telegram channel archives</span><a href="/rare/?q=telegram+leak+archives">Browse →</a></div>
+            <div class="featured-item"><span>🔥 Most requested this month</span><a href="/item/?q=most+requested+leaks">View →</a></div>
+            <div class="featured-item"><span>🎬 New video leaks added today</span><a href="/item/?q=new+video+leaks">See new →</a></div>
+            <div class="featured-item"><span>📸 Telegram channel archives</span><a href="/item/?q=telegram+leak+archives">Browse →</a></div>
         </div>
     </div>
 
     <!-- QUERY-BASED RESULTS -->
     <div id="query-results" class="query-results">
         <div class="breadcrumb">
-            <a href="/">Home</a> / <a href="/rare/">Leaks</a> / <span id="bc-name"></span>
+            <a href="/">Home</a> / <a href="/item/">Leaks</a> / <span id="bc-name"></span>
         </div>
 
         <div class="site-header" style="border-bottom: none; margin-bottom: 0;">
@@ -432,7 +434,7 @@ permalink: /rare/
     // helper
     function makeLeakLink(variant, label) {
         const newQ = `${displayLower} ${variant}`;
-        return `<a href="/rare/?q=${encodeURIComponent(newQ)}" style="color:#c084fc;">${label}</a>`;
+        return `<a href="/item/?q=${encodeURIComponent(newQ)}" style="color:#c084fc;">${label}</a>`;
     }
     
     // MEDIA GALLERY (4 cards)
@@ -475,7 +477,7 @@ permalink: /rare/
         `${displayLower} exclusive content`, `${displayLower} private leaks`
     ];
     document.getElementById('related-leaks').innerHTML = relatedVariants.map(v => 
-        `<a href="/rare/?q=${encodeURIComponent(v)}" class="tag">#${v.replace(/ /g, '_')}</a>`
+        `<a href="/item/?q=${encodeURIComponent(v)}" class="tag">#${v.replace(/ /g, '_')}</a>`
     ).join('');
     
     // FAQ
@@ -515,5 +517,5 @@ permalink: /rare/
 {% include /kw/p/rare.html %}
 </nav>
 {% include footer.html %}
-</body>
+</div></body>
 </html>

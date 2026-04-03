@@ -12,7 +12,7 @@ permalink: /topic/
     <meta name="googlebot" content="index, follow">
     <title id="dynamic-title">LeakPin · Leaked Content Gallery Board</title>
     <meta id="dynamic-description" name="description" content="Discover leaked content from influencers, TikTokers, and OnlyFans creators. Save and share leaked photos and videos.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/topic/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/about/">
     <style>
         * {
             margin: 0;
@@ -207,8 +207,10 @@ permalink: /topic/
             .board-title { font-size: 1.2rem; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
 <div class="pinterest-container">
     <!-- DEFAULT PINTEREST (home) -->
     <div id="default-pin" class="default-pin">
@@ -237,7 +239,7 @@ permalink: /topic/
                     <div class="pin-title">TikTok Star Leaked Compilation</div>
                     <div class="pin-desc">200+ leaked videos · Viral clips</div>
                     <div class="pin-stats">❤️ 23K saves · 💬 1.2K</div>
-                    <a href="/topic/?q=tiktok+star+leaked+video+compilation" class="save-btn">Save</a>
+                    <a href="/about/?q=tiktok+star+leaked+video+compilation" class="save-btn">Save</a>
                 </div>
             </div>
             <!-- PIN 2 -->
@@ -247,7 +249,7 @@ permalink: /topic/
                     <div class="pin-title">OnlyFans Leaked Complete Set</div>
                     <div class="pin-desc">500+ files · Private archive</div>
                     <div class="pin-stats">❤️ 18K saves · 💬 987</div>
-                    <a href="/topic/?q=onlyfans+creator+leaked+complete+set" class="save-btn">Save</a>
+                    <a href="/about/?q=onlyfans+creator+leaked+complete+set" class="save-btn">Save</a>
                 </div>
             </div>
             <!-- PIN 3 -->
@@ -257,7 +259,7 @@ permalink: /topic/
                     <div class="pin-title">Instagram Influencer Leaked Gallery</div>
                     <div class="pin-desc">80+ private photos · Deleted stories</div>
                     <div class="pin-stats">❤️ 12K saves · 💬 654</div>
-                    <a href="/topic/?q=instagram+influencer+leaked+private+gallery" class="save-btn">Save</a>
+                    <a href="/about/?q=instagram+influencer+leaked+private+gallery" class="save-btn">Save</a>
                 </div>
             </div>
             <!-- PIN 4 -->
@@ -267,7 +269,7 @@ permalink: /topic/
                     <div class="pin-title">Telegram Leaked Channel Archive</div>
                     <div class="pin-desc">Full channel dump · 50K+ members</div>
                     <div class="pin-stats">❤️ 8.5K saves · 💬 432</div>
-                    <a href="/topic/?q=telegram+leaked+channel+archive" class="save-btn">Save</a>
+                    <a href="/about/?q=telegram+leaked+channel+archive" class="save-btn">Save</a>
                 </div>
             </div>
         </div>
@@ -284,7 +286,7 @@ permalink: /topic/
             </div>
         </div>
         <div class="breadcrumb">
-            <a href="/">Home</a> / <a href="/topic/">LeakPin</a> / <span id="bc-name"></span>
+            <a href="/">Home</a> / <a href="/about/">LeakPin</a> / <span id="bc-name"></span>
         </div>
 
         <div class="board-header">
@@ -378,7 +380,7 @@ permalink: /topic/
                     <div class="pin-title">${title}</div>
                     <div class="pin-desc">${desc}</div>
                     <div class="pin-stats">❤️ ${saves.toLocaleString()} saves · 💬 ${comments}</div>
-                    <a href="/topic/?q=${encodeURIComponent(newQ)}" class="save-btn">Save</a>
+                    <a href="/about/?q=${encodeURIComponent(newQ)}" class="save-btn">Save</a>
                 </div>
             </div>
         `;
@@ -394,7 +396,7 @@ permalink: /topic/
         { icon: '🐦', badge: 'TWITTER', title: `${displayName} Leaked Twitter Threads`, desc: `Viral tweets · Deleted threads archive`, saves: Math.floor(Math.random() * 6000) + 1000, comments: Math.floor(Math.random() * 300) + 50, variant: 'leaked twitter threads' },
         { icon: '🔴', badge: 'REDDIT', title: `${displayName} Reddit Leak Archive`, desc: `Community discussions · Preserved posts`, saves: Math.floor(Math.random() * 5000) + 800, comments: Math.floor(Math.random() * 250) + 40, variant: 'leaked reddit posts' },
         { icon: '💎', badge: 'RARE', title: `${displayName} Exclusive Leak Vault`, desc: `Rare content · Limited access`, saves: Math.floor(Math.random() * 4000) + 600, comments: Math.floor(Math.random() * 200) + 30, variant: 'exclusive leaked vault' },
-        { icon: '⚄1�7', badge: 'VIRAL', title: `${displayName} Viral Leaked Moments`, desc: `Most shared clips · Trending`, saves: Math.floor(Math.random() * 9000) + 2500, comments: Math.floor(Math.random() * 700) + 120, variant: 'leaked viral moments' },
+        { icon: '⚄1�71ￄ1�77', badge: 'VIRAL', title: `${displayName} Viral Leaked Moments`, desc: `Most shared clips · Trending`, saves: Math.floor(Math.random() * 9000) + 2500, comments: Math.floor(Math.random() * 700) + 120, variant: 'leaked viral moments' },
         { icon: '📁', badge: 'MEGA', title: `${displayName} Complete Leak Archive`, desc: `Everything in one place · Full dump`, saves: Math.floor(Math.random() * 11000) + 3500, comments: Math.floor(Math.random() * 900) + 180, variant: 'complete leaked archive' }
     ];
     
@@ -405,7 +407,7 @@ permalink: /topic/
     // MORE BOARDS (related creators)
     const moreBoards = [
         { name: 'Similar Influencer Leaks', icon: '🔥', variant: 'similar leaked creators', pinCount: Math.floor(Math.random() * 50) + 20 },
-        { name: 'Trending Leaks This Week', icon: '⚄1�7', variant: 'trending leaks this week', pinCount: Math.floor(Math.random() * 40) + 15 },
+        { name: 'Trending Leaks This Week', icon: '⚄1�71ￄ1�77', variant: 'trending leaks this week', pinCount: Math.floor(Math.random() * 40) + 15 },
         { name: 'Telegram Leak Archive', icon: '💬', variant: 'telegram leak archive', pinCount: Math.floor(Math.random() * 60) + 25 },
         { name: 'OnlyFans Leak Collection', icon: '🔞', variant: 'onlyfans leak collection', pinCount: Math.floor(Math.random() * 55) + 22 }
     ];
@@ -415,7 +417,7 @@ permalink: /topic/
             <div class="pin-content">
                 <div class="pin-title">${board.name}</div>
                 <div class="pin-desc">${board.pinCount} pins · Leaked content</div>
-                <a href="/topic/?q=${encodeURIComponent(displayLower + ' ' + board.variant)}" class="save-btn">View Board</a>
+                <a href="/about/?q=${encodeURIComponent(displayLower + ' ' + board.variant)}" class="save-btn">View Board</a>
             </div>
         </div>
     `).join('');
@@ -437,5 +439,5 @@ permalink: /topic/
 {% include /kw/p/topic.html %}
 </nav>
 {% include footer.html %}
-</body>
+</div></body>
 </html>

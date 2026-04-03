@@ -68,8 +68,10 @@ permalink: /model/
         @media (max-width: 768px) { h1 { font-size: 2rem; } main { padding: 20px 16px; } .hero-stats { gap: 16px; } }
     </style>
 {% include head.html %}
+  {% include head.html %}
   </head>
 <body><div loading="lazy">
+<div loading="lazy">
     <main>
         <!-- ============================================
              DEFAULT CONTENT (tampil jika tidak ada query)
@@ -90,35 +92,35 @@ permalink: /model/
                     <span class="badge">TRENDING 🔥</span>
                     <h4>Viral Leak Drops</h4>
                     <p>Most talked-about leaked content this week across Twitter, Reddit, and Telegram.</p>
-                    <a href="/model/?q=trending+leaks">Explore trending →</a>
+                    <a href="/page/?q=trending+leaks">Explore trending →</a>
                 </div>
                 <div class="trend-card">
                     <span class="badge">🎬 EXCLUSIVE</span>
                     <h4>Video Leak Archives</h4>
                     <p>Private clips, deleted TikToks, and footage that disappeared from the web.</p>
-                    <a href="/model/?q=video+leaks">Watch archive →</a>
+                    <a href="/page/?q=video+leaks">Watch archive →</a>
                 </div>
                 <div class="trend-card">
                     <span class="badge">📸 LEAKED</span>
                     <h4>Photo Dumps</h4>
                     <p>Full galleries, private folders, and images that broke the internet.</p>
-                    <a href="/model/?q=photo+leaks">Browse leaks →</a>
+                    <a href="/page/?q=photo+leaks">Browse leaks →</a>
                 </div>
                 <div class="trend-card">
                     <span class="badge">💎 RARE</span>
                     <h4>Underground Vault</h4>
                     <p>Hard-to-find leaks from private Discord servers and Telegram channels.</p>
-                    <a href="/model/?q=rare+leaks">Enter vault →</a>
+                    <a href="/page/?q=rare+leaks">Enter vault →</a>
                 </div>
             </div>
             
             <div class="tag-cloud">
-                <a href="/model/?q=instagram+leaks" class="tag">#InstagramLeaks</a>
-                <a href="/model/?q=tiktok+leaks" class="tag">#TikTokLeaks</a>
-                <a href="/model/?q=onlyfans+leaks" class="tag">#OnlyFansLeaks</a>
-                <a href="/model/?q=twitter+leaks" class="tag">#TwitterLeaks</a>
-                <a href="/model/?q=telegram+leaks" class="tag">#TelegramLeaks</a>
-                <a href="/model/?q=discord+leaks" class="tag">#DiscordLeaks</a>
+                <a href="/page/?q=instagram+leaks" class="tag">#InstagramLeaks</a>
+                <a href="/page/?q=tiktok+leaks" class="tag">#TikTokLeaks</a>
+                <a href="/page/?q=onlyfans+leaks" class="tag">#OnlyFansLeaks</a>
+                <a href="/page/?q=twitter+leaks" class="tag">#TwitterLeaks</a>
+                <a href="/page/?q=telegram+leaks" class="tag">#TelegramLeaks</a>
+                <a href="/page/?q=discord+leaks" class="tag">#DiscordLeaks</a>
             </div>
         </div>
         
@@ -128,7 +130,7 @@ permalink: /model/
         <div id="query-content" style="display: none;">
             <!-- BREADCRUMB -->
             <div class="breadcrumb">
-                <a href="/">LeakHub</a> › <a href="/model/">Influencer Leaks</a> › <span id="breadcrumb-name"></span>
+                <a href="/">LeakHub</a> › <a href="/page/">Influencer Leaks</a> › <span id="breadcrumb-name"></span>
             </div>
             
             <!-- H1 dengan keyword leaked influencer -->
@@ -299,13 +301,13 @@ permalink: /model/
             <section>
                 <h2><span class="section-title-icon">🔗</span> You Might Also Like</h2>
                 <div class="tag-cloud">
-                    <a href="/model/?q=trending+leaks" class="tag">#TrendingLeaks</a>
-                    <a href="/model/?q=instagram+leaks" class="tag">#InstagramLeaks</a>
-                    <a href="/model/?q=tiktok+leaks" class="tag">#TikTokLeaks</a>
-                    <a href="/model/?q=telegram+leaks" class="tag">#TelegramLeaks</a>
-                    <a href="/model/?q=discord+leaks" class="tag">#DiscordLeaks</a>
-                    <a href="/model/?q=viral+leaks" class="tag">#ViralLeaks</a>
-                    <a href="/model/?q=exclusive+dumps" class="tag">#ExclusiveDumps</a>
+                    <a href="/page/?q=trending+leaks" class="tag">#TrendingLeaks</a>
+                    <a href="/page/?q=instagram+leaks" class="tag">#InstagramLeaks</a>
+                    <a href="/page/?q=tiktok+leaks" class="tag">#TikTokLeaks</a>
+                    <a href="/page/?q=telegram+leaks" class="tag">#TelegramLeaks</a>
+                    <a href="/page/?q=discord+leaks" class="tag">#DiscordLeaks</a>
+                    <a href="/page/?q=viral+leaks" class="tag">#ViralLeaks</a>
+                    <a href="/page/?q=exclusive+dumps" class="tag">#ExclusiveDumps</a>
                 </div>
             </section>
             
@@ -454,7 +456,7 @@ permalink: /model/
             document.querySelectorAll('.dynamic-link').forEach(link => {
                 const variant = link.getAttribute('data-variant');
                 if (variant) {
-                    link.href = `/model/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
+                    link.href = `/page/?q=${encodeURIComponent(baseName + ' ' + variant)}`;
                 }
             });
         }
@@ -477,5 +479,5 @@ permalink: /model/
 </nav>
 {% include footer.html %}
 </div>
-</body>
+</div></body>
 </html>

@@ -12,7 +12,7 @@ permalink: /session/
     <meta name="googlebot" content="index, follow">
     <title id="dynamic-title">Leak Archive · Internet Preservation Project</title>
     <meta id="dynamic-description" name="description" content="Independent digital preservation archive documenting viral content, deleted media, and internet culture history.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/session/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/section/">
     <style>
         /* reset & base */
         * {
@@ -211,8 +211,10 @@ permalink: /session/
             h1 { font-size: 1.6rem; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
 <div class="page">
     <!-- DEFAULT HOMEPAGE -->
     <div id="default-home" class="default-home">
@@ -231,35 +233,35 @@ permalink: /session/
                 <div class="tag">TRENDING ARCHIVE</div>
                 <h4>Viral Content Index</h4>
                 <p>Most referenced leaked content this month across preservation networks.</p>
-                <a href="/session/?q=viral+leak+archive">Explore →</a>
+                <a href="/section/?q=viral+leak+archive">Explore →</a>
             </div>
             <div class="entry-card">
                 <div class="tag">MEDIA PRESERVATION</div>
                 <h4>Deleted Video Archive</h4>
                 <p>Preserved clips that were removed from major platforms.</p>
-                <a href="/session/?q=deleted+video+archive">Watch archive →</a>
+                <a href="/section/?q=deleted+video+archive">Watch archive →</a>
             </div>
             <div class="entry-card">
                 <div class="tag">IMAGE PRESERVATION</div>
                 <h4>Ephemeral Photo Collection</h4>
                 <p>Images that circulated briefly before disappearing.</p>
-                <a href="/session/?q=ephemeral+photo+archive">Browse →</a>
+                <a href="/section/?q=ephemeral+photo+archive">Browse →</a>
             </div>
             <div class="entry-card">
                 <div class="tag">DEEP ARCHIVE</div>
                 <h4>Underground Preservation Vault</h4>
                 <p>Hard-to-find content from private preservation circles.</p>
-                <a href="/session/?q=deep+preservation+vault">Enter vault →</a>
+                <a href="/section/?q=deep+preservation+vault">Enter vault →</a>
             </div>
         </div>
 
         <div class="tag-cloud">
-            <a href="/session/?q=instagram+preservation" class="pill">#InstagramPreservation</a>
-            <a href="/session/?q=tiktok+archive" class="pill">#TikTokArchive</a>
-            <a href="/session/?q=deleted+content" class="pill">#DeletedContent</a>
-            <a href="/session/?q=telegram+archive" class="pill">#TelegramArchive</a>
-            <a href="/session/?q=discord+preservation" class="pill">#DiscordPreservation</a>
-            <a href="/session/?q=viral+history" class="pill">#ViralHistory</a>
+            <a href="/section/?q=instagram+preservation" class="pill">#InstagramPreservation</a>
+            <a href="/section/?q=tiktok+archive" class="pill">#TikTokArchive</a>
+            <a href="/section/?q=deleted+content" class="pill">#DeletedContent</a>
+            <a href="/section/?q=telegram+archive" class="pill">#TelegramArchive</a>
+            <a href="/section/?q=discord+preservation" class="pill">#DiscordPreservation</a>
+            <a href="/section/?q=viral+history" class="pill">#ViralHistory</a>
         </div>
     </div>
 
@@ -267,7 +269,7 @@ permalink: /session/
     <div id="query-page" class="query-page">
         <div class="site-title">LEAK ARCHIVE / <span id="breadcrumb-type">preservation</span></div>
         <div class="breadcrumb">
-            <a href="/">home</a> / <a href="/session/">archive</a> / <span id="bc-name"></span>
+            <a href="/">home</a> / <a href="/section/">archive</a> / <span id="bc-name"></span>
         </div>
 
         <h1 id="main-title"></h1>
@@ -396,7 +398,7 @@ permalink: /session/
     // helper: internal link generator
     function makeLink(variant, label) {
         const newQuery = `${displayLower} ${variant}`;
-        return `<a href="/session/?q=${encodeURIComponent(newQuery)}">${label}</a>`;
+        return `<a href="/section/?q=${encodeURIComponent(newQuery)}">${label}</a>`;
     }
     
     // ORIGIN LIST
@@ -439,7 +441,7 @@ permalink: /session/
         `ephemeral content`, `internet preservation project`, `digital ephemera`
     ];
     document.getElementById('related-tags').innerHTML = relatedQueries.map(q => 
-        `<a href="/session/?q=${encodeURIComponent(q)}" class="pill">#${q.replace(/ /g, '_')}</a>`
+        `<a href="/section/?q=${encodeURIComponent(q)}" class="pill">#${q.replace(/ /g, '_')}</a>`
     ).join('');
     
     // PRESERVATION NOTES (FAQ style)
@@ -478,5 +480,5 @@ permalink: /session/
 <nav>
 {% include /kw/p/session.html %}
 </nav>
-</body>
+</div></body>
 </html>

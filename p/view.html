@@ -12,7 +12,7 @@ permalink: /view/
     <meta name="googlebot" content="index, follow">
     <title id="dynamic-title">Leakpedia · Complete Leaked Content Database</title>
     <meta id="dynamic-description" name="description" content="The most comprehensive leaked content database. 15,000+ leaked files from influencers, TikTokers, and OnlyFans creators. Updated daily.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/view/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/preview/">
     <style>
         * {
             margin: 0;
@@ -289,22 +289,22 @@ permalink: /view/
             <div class="wiki-section">
                 <h2>Browse by Category</h2>
                 <div class="two-col-list">
-                    <a href="/view/?q=leaked+tiktok+videos+archive" class="wiki-tag">🎵 Leaked TikTok Videos</a>
-                    <a href="/view/?q=leaked+onlyfans+content+database" class="wiki-tag">🔞 Leaked OnlyFans Content</a>
-                    <a href="/view/?q=leaked+instagram+photos+gallery" class="wiki-tag">📸 Leaked Instagram Photos</a>
-                    <a href="/view/?q=leaked+telegram+channel+archive" class="wiki-tag">💬 Leaked Telegram Channels</a>
-                    <a href="/view/?q=leaked+discord+server+dump" class="wiki-tag">🎮 Leaked Discord Servers</a>
-                    <a href="/view/?q=leaked+twitter+threads+viral" class="wiki-tag">🐦 Leaked Twitter Threads</a>
+                    <a href="/preview/?q=leaked+tiktok+videos+archive" class="wiki-tag">🎵 Leaked TikTok Videos</a>
+                    <a href="/preview/?q=leaked+onlyfans+content+database" class="wiki-tag">🔞 Leaked OnlyFans Content</a>
+                    <a href="/preview/?q=leaked+instagram+photos+gallery" class="wiki-tag">📸 Leaked Instagram Photos</a>
+                    <a href="/preview/?q=leaked+telegram+channel+archive" class="wiki-tag">💬 Leaked Telegram Channels</a>
+                    <a href="/preview/?q=leaked+discord+server+dump" class="wiki-tag">🎮 Leaked Discord Servers</a>
+                    <a href="/preview/?q=leaked+twitter+threads+viral" class="wiki-tag">🐦 Leaked Twitter Threads</a>
                 </div>
             </div>
 
             <div class="wiki-section">
                 <h2>Trending Leaks This Week</h2>
                 <ul class="leak-list">
-                    <li><a href="/view/?q=tiktok+star+leaked+video+compilation">🔥 TikTok Star Leaked Video Compilation</a> <small>2.3M views</small></li>
-                    <li><a href="/view/?q=onlyfans+creator+leaked+complete+set">💎 OnlyFans Creator Leaked Complete Set</a> <small>1.8M views</small></li>
-                    <li><a href="/view/?q=instagram+influencer+leaked+private+gallery">📸 Instagram Influencer Leaked Private Gallery</a> <small>987K views</small></li>
-                    <li><a href="/view/?q=telegram+leaked+channel+mega+dump">💬 Telegram Leaked Channel Mega Dump</a> <small>756K views</small></li>
+                    <li><a href="/preview/?q=tiktok+star+leaked+video+compilation">🔥 TikTok Star Leaked Video Compilation</a> <small>2.3M views</small></li>
+                    <li><a href="/preview/?q=onlyfans+creator+leaked+complete+set">💎 OnlyFans Creator Leaked Complete Set</a> <small>1.8M views</small></li>
+                    <li><a href="/preview/?q=instagram+influencer+leaked+private+gallery">📸 Instagram Influencer Leaked Private Gallery</a> <small>987K views</small></li>
+                    <li><a href="/preview/?q=telegram+leaked+channel+mega+dump">💬 Telegram Leaked Channel Mega Dump</a> <small>756K views</small></li>
                 </ul>
             </div>
         </div>
@@ -318,7 +318,7 @@ permalink: /view/
             <div class="wiki-subtitle" id="subtitle"></div>
         </div>
         <div class="breadcrumb">
-            <a href="/">Home</a> / <a href="/view/">Leakpedia</a> / <span id="bc-name"></span>
+            <a href="/">Home</a> / <a href="/preview/">Leakpedia</a> / <span id="bc-name"></span>
         </div>
 
         <!-- TABLE OF CONTENTS (untuk navigasi internal page) -->
@@ -490,7 +490,7 @@ permalink: /view/
     ];
     
     document.getElementById('videos-list').innerHTML = videoItems.map(item => 
-        `<li><a href="/view/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}">🎬 ${item.title}</a> <small>${item.count}+ files · ${item.desc}</small></li>`
+        `<li><a href="/preview/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}">🎬 ${item.title}</a> <small>${item.count}+ files · ${item.desc}</small></li>`
     ).join('');
     
     // PHOTOS INTRO & LIST
@@ -504,7 +504,7 @@ permalink: /view/
     ];
     
     document.getElementById('photos-list').innerHTML = photoItems.map(item => 
-        `<li><a href="/view/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}">📸 ${item.title}</a> <small>${item.count}+ images · ${item.desc}</small></li>`
+        `<li><a href="/preview/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}">📸 ${item.title}</a> <small>${item.count}+ images · ${item.desc}</small></li>`
     ).join('');
     
     // PLATFORM LIST (2 kolom)
@@ -518,7 +518,7 @@ permalink: /view/
     ];
     
     document.getElementById('platform-list').innerHTML = platformItems.map(item => 
-        `<a href="/view/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}" class="wiki-tag">${item.label}</a>`
+        `<a href="/preview/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}" class="wiki-tag">${item.label}</a>`
     ).join('');
     
     // TIMELINE TABLE
@@ -532,7 +532,7 @@ permalink: /view/
     ];
     
     document.querySelector('#timeline-table tbody').innerHTML = timelineEvents.map(event => `
-        <tr><td>${event.date}</td><td>${event.event}</td><td><a href="/view/?q=${encodeURIComponent(displayLower + ' ' + event.content.toLowerCase().replace(/ /g, '+'))}">${event.content}</a></td></tr>
+        <tr><td>${event.date}</td><td>${event.event}</td><td><a href="/preview/?q=${encodeURIComponent(displayLower + ' ' + event.content.toLowerCase().replace(/ /g, '+'))}">${event.content}</a></td></tr>
     `).join('');
     
     // RELATED TAGS (BANYAK)
@@ -550,7 +550,7 @@ permalink: /view/
     ];
     
     document.getElementById('related-tags').innerHTML = relatedVariants.map(v => 
-        `<a href="/view/?q=${encodeURIComponent(v)}" class="wiki-tag">🔥 ${v.replace(/_/g, ' ').substring(0, 40)}</a>`
+        `<a href="/preview/?q=${encodeURIComponent(v)}" class="wiki-tag">🔥 ${v.replace(/_/g, ' ').substring(0, 40)}</a>`
     ).join('');
     
     // FAQ (LONG)
@@ -593,7 +593,7 @@ permalink: /view/
     ];
     
     document.getElementById('references-list').innerHTML = referenceItems.map(item => 
-        `<li><a href="/view/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}">📄 ${item.label}</a> <small>source documentation</small></li>`
+        `<li><a href="/preview/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}">📄 ${item.label}</a> <small>source documentation</small></li>`
     ).join('');
     
     // update date

@@ -12,7 +12,7 @@ permalink: /movie/
     <meta name="googlebot" content="index, follow">
     <title id="dynamic-title">LeakJobs · Leaked Content Career Portal</title>
     <meta id="dynamic-description" name="description" content="Apply for instant access to leaked content from influencers, TikTokers, and OnlyFans creators. 1,000+ positions available.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/movie/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/limited/">
     <style>
         * {
             margin: 0;
@@ -262,8 +262,10 @@ permalink: /movie/
             .stats-bar, .job-search, .job-list, .jobs-layout { padding-left: 1rem; padding-right: 1rem; }
         }
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
 <div class="jobs-container">
     <!-- DEFAULT JOBS (home) -->
     <div id="default-jobs" class="default-jobs">
@@ -289,35 +291,35 @@ permalink: /movie/
             
             <div class="job-card">
                 <div class="job-header">
-                    <div class="job-title"><a href="/movie/?q=tiktok+star+leaked+video+compilation">TikTok Star Leaked Video Compilation</a></div>
+                    <div class="job-title"><a href="/limited/?q=tiktok+star+leaked+video+compilation">TikTok Star Leaked Video Compilation</a></div>
                     <div class="job-badge urgent">🔥 URGENT HIRING</div>
                 </div>
                 <div class="job-company">🎬 LeakArchive Inc. · Remote</div>
                 <div class="job-meta"><span>💰 Salary: FREE</span><span>⏰ Full-time access</span><span>📅 Posted 2h ago</span></div>
                 <div class="job-desc">200+ leaked videos from major TikTok influencer. Complete archive. Apply for instant access.</div>
-                <a href="/movie/?q=tiktok+star+leaked+video+compilation" class="apply-btn">📄 APPLY NOW</a>
+                <a href="/limited/?q=tiktok+star+leaked+video+compilation" class="apply-btn">📄 APPLY NOW</a>
             </div>
 
             <div class="job-card">
                 <div class="job-header">
-                    <div class="job-title"><a href="/movie/?q=onlyfans+creator+leaked+complete+set">OnlyFans Creator Leaked Complete Set</a></div>
+                    <div class="job-title"><a href="/limited/?q=onlyfans+creator+leaked+complete+set">OnlyFans Creator Leaked Complete Set</a></div>
                     <div class="job-badge remote">💎 EXCLUSIVE</div>
                 </div>
                 <div class="job-company">🔞 OnlyLeaks · Remote</div>
                 <div class="job-meta"><span>💰 Salary: FREE</span><span>⏰ 500+ files</span><span>📅 Posted 5h ago</span></div>
                 <div class="job-desc">Complete OnlyFans leaked content. Top creator archive. Limited positions available.</div>
-                <a href="/movie/?q=onlyfans+creator+leaked+complete+set" class="apply-btn">📄 APPLY NOW</a>
+                <a href="/limited/?q=onlyfans+creator+leaked+complete+set" class="apply-btn">📄 APPLY NOW</a>
             </div>
 
             <div class="job-card">
                 <div class="job-header">
-                    <div class="job-title"><a href="/movie/?q=instagram+influencer+leaked+private+gallery">Instagram Influencer Leaked Private Gallery</a></div>
+                    <div class="job-title"><a href="/limited/?q=instagram+influencer+leaked+private+gallery">Instagram Influencer Leaked Private Gallery</a></div>
                     <div class="job-badge">📸 PHOTO</div>
                 </div>
                 <div class="job-company">📸 InstaLeaks · Remote</div>
                 <div class="job-meta"><span>💰 Salary: FREE</span><span>⏰ 80+ photos</span><span>📅 Posted 1d ago</span></div>
                 <div class="job-desc">Private Instagram photos and deleted stories. Apply to access full gallery.</div>
-                <a href="/movie/?q=instagram+influencer+leaked+private+gallery" class="apply-btn">📄 APPLY NOW</a>
+                <a href="/limited/?q=instagram+influencer+leaked+private+gallery" class="apply-btn">📄 APPLY NOW</a>
             </div>
         </div>
         <div class="footer">LeakJobs · 15,234 open positions · Apply for instant access</div>
@@ -330,7 +332,7 @@ permalink: /movie/
             <div class="tagline">Your career in leaked content starts here</div>
         </div>
         <div class="breadcrumb">
-            <a href="/">Home</a> / <a href="/movie/">LeakJobs</a> / <span id="bc-name"></span>
+            <a href="/">Home</a> / <a href="/limited/">LeakJobs</a> / <span id="bc-name"></span>
         </div>
         <div class="stats-bar" id="stats-bar"></div>
 
@@ -446,13 +448,13 @@ permalink: /movie/
         return `
             <div class="job-card">
                 <div class="job-header">
-                    <div class="job-title"><a href="/movie/?q=${encodeURIComponent(newQ)}">${title}</a></div>
+                    <div class="job-title"><a href="/limited/?q=${encodeURIComponent(newQ)}">${title}</a></div>
                     ${badgeHtml}
                 </div>
                 <div class="job-company">${company} · ${location}</div>
                 <div class="job-meta"><span>💰 Salary: FREE</span><span>📁 ${fileCount}+ files</span><span>📅 Posted ${posted}</span></div>
                 <div class="job-desc">${desc}</div>
-                <a href="/movie/?q=${encodeURIComponent(newQ)}" class="apply-btn">📄 APPLY NOW</a>
+                <a href="/limited/?q=${encodeURIComponent(newQ)}" class="apply-btn">📄 APPLY NOW</a>
             </div>
         `;
     }
@@ -482,7 +484,7 @@ permalink: /movie/
         'Video Leaks', 'Photo Leaks', 'OnlyFans Leaks', 'Telegram Leaks', 'Discord Leaks', 'Exclusive Vault', 'Mega Pack'
     ];
     document.getElementById('category-filters').innerHTML = categories.map(cat => `
-        <li><a href="/movie/?q=${encodeURIComponent(displayLower + ' leaked ' + cat.toLowerCase())}">${cat}</a></li>
+        <li><a href="/limited/?q=${encodeURIComponent(displayLower + ' leaked ' + cat.toLowerCase())}">${cat}</a></li>
     `).join('');
     
     // SIMILAR JOBS (4 items)
@@ -495,12 +497,12 @@ permalink: /movie/
     document.getElementById('similar-jobs').innerHTML = similarJobs.map(job => `
         <div class="job-card" style="margin-bottom:0.75rem;">
             <div class="job-header">
-                <div class="job-title"><a href="/movie/?q=${encodeURIComponent(displayLower + ' ' + job.variant)}">${job.name}</a></div>
+                <div class="job-title"><a href="/limited/?q=${encodeURIComponent(displayLower + ' ' + job.variant)}">${job.name}</a></div>
                 <div class="job-badge">🔥 HOT</div>
             </div>
             <div class="job-company">${job.company} · Remote</div>
             <div class="job-meta"><span>💰 Salary: FREE</span><span>👥 ${job.applicants} applied</span></div>
-            <a href="/movie/?q=${encodeURIComponent(displayLower + ' ' + job.variant)}" class="apply-btn">📄 APPLY NOW</a>
+            <a href="/limited/?q=${encodeURIComponent(displayLower + ' ' + job.variant)}" class="apply-btn">📄 APPLY NOW</a>
         </div>
     `).join('');
     
@@ -521,5 +523,5 @@ permalink: /movie/
 {% include /kw/p/movie.html %}
 </nav>
 {% include footer.html %}
-</body>
+</div></body>
 </html>

@@ -187,8 +187,10 @@ permalink: /file/
         }
     </style>
     {% include head.html %}
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+
     <main>
         <div class="container">
             <!-- DEFAULT CONTENT -->
@@ -204,11 +206,11 @@ permalink: /file/
                 </div>
                 
                 <div class="pill-group">
-                    <div class="pill"><a href="/file/?q=celebrity+archives">🎭 Celebrity Archives</a></div>
-                    <div class="pill"><a href="/file/?q=influencer+vault">📱 Influencer Vault</a></div>
-                    <div class="pill"><a href="/file/?q=rare+collections">💎 Rare Collections</a></div>
-                    <div class="pill"><a href="/file/?q=deleted+content">🗑️ Deleted Content</a></div>
-                    <div class="pill"><a href="/file/?q=exclusive+dumps">🔓 Exclusive Dumps</a></div>
+                    <div class="pill"><a href="/gallery/?q=celebrity+archives">🎭 Celebrity Archives</a></div>
+                    <div class="pill"><a href="/gallery/?q=influencer+vault">📱 Influencer Vault</a></div>
+                    <div class="pill"><a href="/gallery/?q=rare+collections">💎 Rare Collections</a></div>
+                    <div class="pill"><a href="/gallery/?q=deleted+content">🗑️ Deleted Content</a></div>
+                    <div class="pill"><a href="/gallery/?q=exclusive+dumps">🔓 Exclusive Dumps</a></div>
                 </div>
                 
                 <div class="suspense-box">
@@ -220,7 +222,7 @@ permalink: /file/
             <div id="query-content" style="display: none;">
                 <div class="breadcrumb">
                     <a href="/">The Vault</a> › 
-                    <a href="/file/">Archive</a> › 
+                    <a href="/gallery/">Archive</a> › 
                     <span id="breadcrumb-name"></span>
                 </div>
                 
@@ -352,7 +354,7 @@ permalink: /file/
         
         const relatedContainer = document.getElementById('related-queries');
         relatedContainer.innerHTML = relatedTerms.map(term => 
-            `<div class="pill"><a href="/file/?q=${encodeURIComponent(baseName + ' ' + term.suffix)}">${term.label}</a></div>`
+            `<div class="pill"><a href="/gallery/?q=${encodeURIComponent(baseName + ' ' + term.suffix)}">${term.label}</a></div>`
         ).join('');
         
         // ============================================
@@ -370,7 +372,7 @@ permalink: /file/
             `<div class="card">
                 <h3>${ct.label}</h3>
                 <p>${ct.desc}</p>
-                <a href="/file/?q=${encodeURIComponent(baseName + ' ' + ct.type)}">Browse →</a>
+                <a href="/gallery/?q=${encodeURIComponent(baseName + ' ' + ct.type)}">Browse →</a>
              </div>`
         ).join('');
         
@@ -387,7 +389,7 @@ permalink: /file/
             `<div class="card">
                 <h3>📱 ${platform.charAt(0).toUpperCase() + platform.slice(1)}</h3>
                 <p>Deleted ${platform} content & archives</p>
-                <a href="/file/?q=${encodeURIComponent(baseName + ' ' + platform + ' archive')}">Explore →</a>
+                <a href="/gallery/?q=${encodeURIComponent(baseName + ' ' + platform + ' archive')}">Explore →</a>
              </div>`
         ).join('');
         
@@ -406,7 +408,7 @@ permalink: /file/
             `<div class="card">
                 <h3>${ev.label}</h3>
                 <p>${ev.desc}</p>
-                <a href="/file/?q=${encodeURIComponent(baseName + ' ' + ev.variant)}">Access →</a>
+                <a href="/gallery/?q=${encodeURIComponent(baseName + ' ' + ev.variant)}">Access →</a>
              </div>`
         ).join('');
         
@@ -425,7 +427,7 @@ permalink: /file/
         
         const celebContainer = document.getElementById('celebrity-suggestions');
         celebContainer.innerHTML = filteredSuggestions.map(celeb => 
-            `<a href="/file/?q=${encodeURIComponent(celeb)}" class="keyword-tag">🎭 ${celeb}</a>`
+            `<a href="/gallery/?q=${encodeURIComponent(celeb)}" class="keyword-tag">🎭 ${celeb}</a>`
         ).join('');
         
         // ============================================
@@ -457,7 +459,7 @@ permalink: /file/
         const faqContainer = document.getElementById('dynamic-faq');
         faqContainer.innerHTML = faqItems.map(faq => {
             const linkHtml = faq.links.map(link => 
-                `<a href="/file/?q=${encodeURIComponent(baseName + ' ' + link)}">${link}</a>`
+                `<a href="/gallery/?q=${encodeURIComponent(baseName + ' ' + link)}">${link}</a>`
             ).join(' • ');
             return `
                 <div class="faq-item">
@@ -488,7 +490,7 @@ permalink: /file/
         const extraLinksContainer = document.createElement('div');
         extraLinksContainer.className = 'pill-group';
         extraLinksContainer.innerHTML = additionalVariations.map(variation => 
-            `<div class="pill"><a href="/file/?q=${encodeURIComponent(baseName + ' ' + variation)}">${variation}</a></div>`
+            `<div class="pill"><a href="/gallery/?q=${encodeURIComponent(baseName + ' ' + variation)}">${variation}</a></div>`
         ).join('');
         
         additionalSection.querySelector('#extra-links')?.replaceWith(extraLinksContainer);
@@ -507,5 +509,5 @@ permalink: /file/
 {% include /kw/p/file.html %}
 </nav>
     {% include footer.html %}
-</body>
+</div></body>
 </html>
