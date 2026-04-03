@@ -3,6 +3,9 @@ url: ""
 baseurl: "/"
 permalink: /:title/
 
+plugins:
+  - jekyll-sitemap
+
 # Markdown
 markdown: kramdown
 kramdown:
