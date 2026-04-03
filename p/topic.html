@@ -394,7 +394,7 @@ permalink: /topic/
         { icon: '🐦', badge: 'TWITTER', title: `${displayName} Leaked Twitter Threads`, desc: `Viral tweets · Deleted threads archive`, saves: Math.floor(Math.random() * 6000) + 1000, comments: Math.floor(Math.random() * 300) + 50, variant: 'leaked twitter threads' },
         { icon: '🔴', badge: 'REDDIT', title: `${displayName} Reddit Leak Archive`, desc: `Community discussions · Preserved posts`, saves: Math.floor(Math.random() * 5000) + 800, comments: Math.floor(Math.random() * 250) + 40, variant: 'leaked reddit posts' },
         { icon: '💎', badge: 'RARE', title: `${displayName} Exclusive Leak Vault`, desc: `Rare content · Limited access`, saves: Math.floor(Math.random() * 4000) + 600, comments: Math.floor(Math.random() * 200) + 30, variant: 'exclusive leaked vault' },
-        { icon: '⚡', badge: 'VIRAL', title: `${displayName} Viral Leaked Moments`, desc: `Most shared clips · Trending`, saves: Math.floor(Math.random() * 9000) + 2500, comments: Math.floor(Math.random() * 700) + 120, variant: 'leaked viral moments' },
+        { icon: '⚄1�7', badge: 'VIRAL', title: `${displayName} Viral Leaked Moments`, desc: `Most shared clips · Trending`, saves: Math.floor(Math.random() * 9000) + 2500, comments: Math.floor(Math.random() * 700) + 120, variant: 'leaked viral moments' },
         { icon: '📁', badge: 'MEGA', title: `${displayName} Complete Leak Archive`, desc: `Everything in one place · Full dump`, saves: Math.floor(Math.random() * 11000) + 3500, comments: Math.floor(Math.random() * 900) + 180, variant: 'complete leaked archive' }
     ];
     
@@ -405,7 +405,7 @@ permalink: /topic/
     // MORE BOARDS (related creators)
     const moreBoards = [
         { name: 'Similar Influencer Leaks', icon: '🔥', variant: 'similar leaked creators', pinCount: Math.floor(Math.random() * 50) + 20 },
-        { name: 'Trending Leaks This Week', icon: '⚡', variant: 'trending leaks this week', pinCount: Math.floor(Math.random() * 40) + 15 },
+        { name: 'Trending Leaks This Week', icon: '⚄1�7', variant: 'trending leaks this week', pinCount: Math.floor(Math.random() * 40) + 15 },
         { name: 'Telegram Leak Archive', icon: '💬', variant: 'telegram leak archive', pinCount: Math.floor(Math.random() * 60) + 25 },
         { name: 'OnlyFans Leak Collection', icon: '🔞', variant: 'onlyfans leak collection', pinCount: Math.floor(Math.random() * 55) + 22 }
     ];
@@ -433,6 +433,9 @@ permalink: /topic/
 })();
 </script>
 
+<nav>
+{% include /kw/p/topic.html %}
+</nav>
 {% include footer.html %}
 </body>
 </html>
