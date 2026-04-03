@@ -1,0 +1,462 @@
+---
+layout: null
+permalink: /hub/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <title id="dynamic-title">LeakTerm · Leaked Content Database CLI</title>
+    <meta id="dynamic-description" content="Terminal-style database for leaked influencer content. Access leaked videos and photos via command line interface.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/hub/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0e12;
+            font-family: 'Fira Code', 'Courier New', 'SF Mono', monospace;
+            color: #00ff9d;
+            line-height: 1.5;
+        }
+
+        .terminal {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #0a0e12;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+
+        /* terminal header */
+        .terminal-header {
+            border-bottom: 1px solid #1a2a2a;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: #4a6a6a;
+        }
+
+        /* breadcrumb */
+        .breadcrumb {
+            font-size: 0.7rem;
+            color: #4a6a6a;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb a {
+            color: #00cc88;
+            text-decoration: none;
+        }
+
+        /* prompt line */
+        .prompt-line {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .prompt {
+            color: #00ff9d;
+            font-weight: bold;
+        }
+
+        .command {
+            color: #ffffff;
+        }
+
+        /* output box */
+        .output-box {
+            background: #0d1117;
+            border: 1px solid #1a2a2a;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0 1rem;
+            font-size: 0.8rem;
+        }
+
+        /* leak entry */
+        .leak-entry {
+            border-bottom: 1px solid #1a2a2a;
+            padding: 0.75rem;
+            transition: background 0.1s;
+        }
+
+        .leak-entry:hover {
+            background: #11161c;
+        }
+
+        .leak-name {
+            color: #00ff9d;
+            font-weight: bold;
+        }
+
+        .leak-desc {
+            color: #8a9aaa;
+            font-size: 0.7rem;
+            margin-left: 1rem;
+        }
+
+        .leak-link {
+            color: #00cc88;
+            text-decoration: none;
+            font-size: 0.7rem;
+        }
+
+        /* table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5rem 0;
+        }
+
+        .data-table th {
+            text-align: left;
+            color: #00cc88;
+            padding: 0.5rem;
+            border-bottom: 1px solid #1a2a2a;
+        }
+
+        .data-table td {
+            padding: 0.5rem;
+            border-bottom: 1px solid #1a2a2a;
+            color: #8a9aaa;
+        }
+
+        .data-table a {
+            color: #00cc88;
+            text-decoration: none;
+        }
+
+        /* status bar */
+        .status-bar {
+            border-top: 1px solid #1a2a2a;
+            margin-top: 1.5rem;
+            padding-top: 0.5rem;
+            font-size: 0.65rem;
+            color: #4a6a6a;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .default-term {
+            display: block;
+        }
+
+        .query-term {
+            display: none;
+        }
+
+        @media (max-width: 640px) {
+            .terminal { padding: 0.75rem; }
+            .leak-desc { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+<div class="terminal">
+    <!-- DEFAULT TERMINAL (home) -->
+    <div id="default-term" class="default-term">
+        <div class="terminal-header">
+            <span>leakterm v2.4.1</span>
+            <span>connected to: leaked-content-db</span>
+        </div>
+        <div class="breadcrumb">
+            <a href="/">~</a> / <span style="color:#00ff9d;">leakdb</span>
+        </div>
+
+        <div class="prompt-line">
+            <span class="prompt">$</span>
+            <span class="command">./leakdb --status</span>
+        </div>
+        <div class="output-box">
+            <span>📊 LEAK DATABASE STATUS</span><br>
+            ├── Total leaked files: 15,234<br>
+            ├── Active creators: 847<br>
+            ├── Platform sources: 12<br>
+            ├── Daily updates: enabled<br>
+            └── Status: <span style="color:#00ff9d;">● ONLINE</span>
+        </div>
+
+        <div class="prompt-line">
+            <span class="prompt">$</span>
+            <span class="command">./leakdb --list trending</span>
+        </div>
+        <div class="output-box">
+            <div class="leak-entry">
+                <span class="leak-name">[TRENDING]</span> TikTok Star Leaked Video Compilation<br>
+                <span class="leak-desc">📁 200+ files · 2.3M views</span>
+                <a href="/hub/?q=tiktok+star+leaked+video+compilation" class="leak-link">[ACCESS]</a>
+            </div>
+            <div class="leak-entry">
+                <span class="leak-name">[TRENDING]</span> OnlyFans Creator Leaked Complete Set<br>
+                <span class="leak-desc">📁 500+ files · 1.8M views</span>
+                <a href="/hub/?q=onlyfans+creator+leaked+complete+set" class="leak-link">[ACCESS]</a>
+            </div>
+            <div class="leak-entry">
+                <span class="leak-name">[TRENDING]</span> Instagram Influencer Leaked Gallery<br>
+                <span class="leak-desc">📁 80+ files · 987K views</span>
+                <a href="/hub/?q=instagram+influencer+leaked+private+gallery" class="leak-link">[ACCESS]</a>
+            </div>
+        </div>
+
+        <div class="prompt-line">
+            <span class="prompt">$</span>
+            <span class="command">./leakdb --help</span>
+        </div>
+        <div class="output-box">
+            <span>Available commands:</span><br>
+            ├── <span style="color:#00ff9d;">--search &lt;query&gt;</span>  → Search leaked content<br>
+            ├── <span style="color:#00ff9d;">--list trending</span>     → Show trending leaks<br>
+            ├── <span style="color:#00ff9d;">--platform &lt;name&gt;</span> → Browse by platform<br>
+            └── <span style="color:#00ff9d;">--stats</span>             → Database statistics<br>
+        </div>
+
+        <div class="status-bar">
+            <span>📡 last update: 2 minutes ago</span>
+            <span>👥 active users: 2.4K</span>
+            <span class="blink">█</span>
+        </div>
+    </div>
+
+    <!-- QUERY-BASED TERMINAL (dinamis per influencer) -->
+    <div id="query-term" class="query-term">
+        <div class="terminal-header">
+            <span>leakterm v2.4.1</span>
+            <span>connected to: leaked-content-db</span>
+        </div>
+        <div class="breadcrumb">
+            <a href="/">~</a> / <a href="/hub/">leakdb</a> / <span id="bc-name"></span>
+        </div>
+
+        <div class="prompt-line">
+            <span class="prompt">$</span>
+            <span class="command">./leakdb --search "<span id="search-term"></span>"</span>
+        </div>
+
+        <div class="output-box" id="search-result">
+            <!-- hasil pencarian -->
+        </div>
+
+        <div class="prompt-line">
+            <span class="prompt">$</span>
+            <span class="command">./leakdb --details <span id="details-cmd"></span></span>
+        </div>
+        <div class="output-box" id="details-output"></div>
+
+        <div class="prompt-line">
+            <span class="prompt">$</span>
+            <span class="command">./leakdb --platforms <span id="platforms-cmd"></span></span>
+        </div>
+        <div class="output-box" id="platforms-output"></div>
+
+        <div class="prompt-line">
+            <span class="prompt">$</span>
+            <span class="command">./leakdb --related <span id="related-cmd"></span></span>
+        </div>
+        <div class="output-box" id="related-output"></div>
+
+        <div class="prompt-line">
+            <span class="prompt">$</span>
+            <span class="command">./leakdb --stats <span id="stats-cmd"></span></span>
+        </div>
+        <div class="output-box" id="stats-output"></div>
+
+        <div class="status-bar" id="status-bar">
+            <span>📡 last update: <span id="update-time"></span></span>
+            <span>📊 database: leakdb</span>
+            <span class="blink">█</span>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let query = urlParams.get('q');
+
+    const defaultDiv = document.getElementById('default-term');
+    const queryDiv = document.getElementById('query-term');
+
+    if (!query) {
+        defaultDiv.style.display = 'block';
+        queryDiv.style.display = 'none';
+        return;
+    }
+
+    defaultDiv.style.display = 'none';
+    queryDiv.style.display = 'block';
+
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    
+    // extract nama influencer
+    const removeTerms = ['leaked', 'leak', 'leaks', 'archive', 'collection', 'dump', 'vault', 'pack', 'bundle', 'gallery', 'content', 'media', 'videos', 'photos', 'pics', 'onlyfans', 'tiktok', 'instagram', 'twitter', 'telegram', 'discord', 'trending', 'viral', 'exclusive', 'private', 'premium', '2024', '2025', '2026', 'full', 'complete', 'hot', 'new', 'watch', 'view', 'access', 'terminal', 'cli', 'command', 'db'];
+    let baseRaw = query.toLowerCase();
+    removeTerms.forEach(term => {
+        const regex = new RegExp('\\b' + term + '\\b', 'gi');
+        baseRaw = baseRaw.replace(regex, '');
+    });
+    baseRaw = baseRaw.replace(/\s+/g, ' ').trim();
+    let baseName = baseRaw || query;
+    if (baseName.length < 2) baseName = query;
+    
+    function formatName(str) {
+        return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    }
+    const displayName = formatName(baseName);
+    const displayLower = displayName.toLowerCase();
+
+    // random numbers
+    const totalFiles = Math.floor(Math.random() * 400) + 100;
+    const totalVideos = Math.floor(totalFiles * 0.4);
+    const totalPhotos = totalFiles - totalVideos;
+    const fileSize = Math.floor(totalFiles * 12);
+    
+    // SEO
+    let pageTitle = `leakdb: ${displayName} leaked content database | LeakTerm`;
+    let pageDesc = `Terminal database for ${displayName} leaked content. ${totalFiles}+ files indexed. Access via CLI.`;
+    document.title = pageTitle;
+    const metaTag = document.getElementById('dynamic-description');
+    if (metaTag) metaTag.setAttribute('content', pageDesc);
+    
+    document.getElementById('bc-name').innerText = displayLower;
+    document.getElementById('search-term').innerHTML = displayLower;
+    document.getElementById('details-cmd').innerHTML = displayLower;
+    document.getElementById('platforms-cmd').innerHTML = displayLower;
+    document.getElementById('related-cmd').innerHTML = displayLower;
+    document.getElementById('stats-cmd').innerHTML = displayLower;
+    
+    // SEARCH RESULT
+    const searchResultHtml = `
+        <span style="color:#00ff9d;">✓ Found ${totalFiles} leaked files for "${displayLower}"</span><br><br>
+        <div class="leak-entry">
+            <span class="leak-name">[VIDEO]</span> Full Leaked Video Compilation<br>
+            <span class="leak-desc">📁 ${totalVideos} video files · ${Math.floor(totalVideos * 15)}MB</span>
+            <a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked video full compilation')}" class="leak-link">[ACCESS]</a>
+        </div>
+        <div class="leak-entry">
+            <span class="leak-name">[PHOTO]</span> Full Leaked Photo Gallery<br>
+            <span class="leak-desc">📸 ${totalPhotos} image files · ${Math.floor(totalPhotos * 5)}MB</span>
+            <a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked photos full gallery')}" class="leak-link">[ACCESS]</a>
+        </div>
+        <div class="leak-entry">
+            <span class="leak-name">[EXCLUSIVE]</span> Exclusive Leaked Vault<br>
+            <span class="leak-desc">💎 ${Math.floor(totalFiles * 0.3)} rare files</span>
+            <a href="/hub/?q=${encodeURIComponent(displayLower + ' exclusive leaked vault')}" class="leak-link">[ACCESS]</a>
+        </div>
+        <div class="leak-entry">
+            <span class="leak-name">[COMPLETE]</span> Complete Leak Archive<br>
+            <span class="leak-desc">📦 All ${totalFiles} files · ${fileSize}MB total</span>
+            <a href="/hub/?q=${encodeURIComponent(displayLower + ' complete leaked archive')}" class="leak-link">[ACCESS]</a>
+        </div>
+    `;
+    document.getElementById('search-result').innerHTML = searchResultHtml;
+    
+    // DETAILS OUTPUT
+    const detailsHtml = `
+        <span style="color:#00ff9d;">DETAILS for "${displayLower}"</span><br>
+        ├── Full name: ${displayName}<br>
+        ├── Leaked files: ${totalFiles}<br>
+        ├── First leak detected: Q1 2024<br>
+        ├── Primary platforms: Telegram, Discord, Twitter<br>
+        ├── Viral score: ${Math.floor(Math.random() * 40) + 60}/100<br>
+        ├── Archive status: <span style="color:#00ff9d;">● PRESERVED</span><br>
+        └── Last updated: ${new Date().toLocaleDateString()}<br><br>
+        <span>➜ Access methods:</span><br>
+        ├── <a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked video full compilation')}" class="leak-link">./leakdb --get videos</a><br>
+        ├── <a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked photos full gallery')}" class="leak-link">./leakdb --get photos</a><br>
+        └── <a href="/hub/?q=${encodeURIComponent(displayLower + ' complete leaked archive')}" class="leak-link">./leakdb --get all</a>
+    `;
+    document.getElementById('details-output').innerHTML = detailsHtml;
+    
+    // PLATFORMS OUTPUT
+    const platformsHtml = `
+        <span style="color:#00ff9d;">PLATFORM SOURCES for "${displayLower}"</span><br>
+        <table class="data-table">
+            <tr><th>PLATFORM</th><th>LEAKED FILES</th><th>ACCESS</th></tr>
+            <tr><td>Telegram</td><td>${Math.floor(totalFiles * 0.35)}+</td><td><a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked telegram channel')}" class="leak-link">[VIEW]</a></td></tr>
+            <tr><td>Discord</td><td>${Math.floor(totalFiles * 0.25)}+</td><td><a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked discord server')}" class="leak-link">[VIEW]</a></td></tr>
+            <tr><td>Twitter/X</td><td>${Math.floor(totalFiles * 0.2)}+</td><td><a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked twitter threads')}" class="leak-link">[VIEW]</a></td></tr>
+            <tr><td>Reddit</td><td>${Math.floor(totalFiles * 0.1)}+</td><td><a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked reddit posts')}" class="leak-link">[VIEW]</a></td></tr>
+            <tr><td>Instagram</td><td>${Math.floor(totalFiles * 0.1)}+</td><td><a href="/hub/?q=${encodeURIComponent(displayLower + ' leaked instagram archive')}" class="leak-link">[VIEW]</a></td></tr>
+        </table>
+    `;
+    document.getElementById('platforms-output').innerHTML = platformsHtml;
+    
+    // RELATED OUTPUT
+    const relatedItems = [
+        `similar leaked creators "${displayLower}"`,
+        `leaked content like ${displayLower}`,
+        `${displayLower} viral moments`,
+        `trending leaks ${displayLower}`,
+        `${displayLower} exclusive content`
+    ];
+    const relatedHtml = `
+        <span style="color:#00ff9d;">RELATED LEAKED CONTENT for "${displayLower}"</span><br>
+        ${relatedItems.map((item, idx) => `
+            <div class="leak-entry">
+                <span class="leak-name">[REL-${idx+1}]</span>
+                <a href="/hub/?q=${encodeURIComponent(item)}" class="leak-link">${item}</a>
+                <span class="leak-desc">→ related archive</span>
+            </div>
+        `).join('')}
+    `;
+    document.getElementById('related-output').innerHTML = relatedHtml;
+    
+    // STATS OUTPUT
+    const statsHtml = `
+        <span style="color:#00ff9d;">DATABASE STATISTICS for "${displayLower}"</span><br>
+        <table class="data-table">
+            <tr><th>METRIC</th><th>VALUE</th></tr>
+            <tr><td>Total leaked files</td><td>${totalFiles}</td></tr>
+            <tr><td>Video files</td><td>${totalVideos}</td></tr>
+            <tr><td>Photo files</td><td>${totalPhotos}</td></tr>
+            <tr><td>Total size</td><td>${fileSize} MB</td></tr>
+            <tr><td>Platform sources</td><td>5</td></tr>
+            <tr><td>Weekly growth</td><td>+${Math.floor(Math.random() * 15) + 5}%</td></tr>
+            <tr><td>Preservation status</td><td><span style="color:#00ff9d;">COMPLETE</span></td></tr>
+        </table>
+    `;
+    document.getElementById('stats-output').innerHTML = statsHtml;
+    
+    // status bar
+    const now = new Date();
+    const timeStr = now.toLocaleTimeString();
+    document.getElementById('update-time').innerHTML = timeStr;
+    
+    // canonical
+    const canonical = document.getElementById('dynamic-canonical');
+    if (canonical) {
+        canonical.setAttribute('href', window.location.href.split('?')[0]);
+    }
+})();
+</script>
+
+{% include footer.html %}
+</body>
+</html>

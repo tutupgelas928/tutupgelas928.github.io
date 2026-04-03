@@ -1,0 +1,515 @@
+---
+layout: null
+permalink: /limited/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <title id="dynamic-title">LeakMagazine · Latest Leaked Content News</title>
+    <meta id="dynamic-description" name="description" content="Breaking news and complete archives of leaked influencer content. Daily updates on TikTok leaks, OnlyFans leaks, and viral moments.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/limited/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f4f0;
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+
+        .mag-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+
+        /* header ala majalah */
+        .mag-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #c00000;
+        }
+
+        .tagline {
+            font-size: 0.7rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* navigation */
+        .mag-nav {
+            display: flex;
+            gap: 1.5rem;
+            padding: 0.75rem 2rem;
+            border-bottom: 1px solid #ddd;
+            background: #fafaf5;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            flex-wrap: wrap;
+        }
+
+        .mag-nav a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        /* breadcrumb */
+        .breadcrumb {
+            padding: 0.75rem 2rem;
+            font-size: 0.7rem;
+            color: #666;
+            background: #fafaf5;
+            border-bottom: 1px solid #eee;
+        }
+
+        .breadcrumb a {
+            color: #c00000;
+            text-decoration: none;
+        }
+
+        /* hero section */
+        .hero {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .hero-main h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-meta {
+            font-size: 0.7rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .hero-excerpt {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* featured grid */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            padding: 2rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .article-card {
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 1rem;
+        }
+
+        .article-category {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: #c00000;
+            letter-spacing: 1px;
+        }
+
+        .article-title {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+
+        .article-title a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .article-excerpt {
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        /* two column layout */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-bottom: 2px solid #1a1a1a;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-list {
+            list-style: none;
+        }
+
+        .article-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .article-list a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        /* sidebar */
+        .sidebar-widget {
+            margin-bottom: 2rem;
+        }
+
+        .widget-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .trending-list {
+            list-style: none;
+        }
+
+        .trending-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.8rem;
+        }
+
+        /* footer */
+        .footer {
+            background: #1a1a1a;
+            color: #999;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.7rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .default-mag {
+            display: block;
+        }
+
+        .query-mag {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero { grid-template-columns: 1fr; }
+            .featured-grid { grid-template-columns: 1fr; }
+            .two-columns { grid-template-columns: 1fr; }
+            .mag-header, .mag-nav, .breadcrumb, .hero, .featured-grid, .two-columns { padding-left: 1rem; padding-right: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="mag-container">
+    <!-- DEFAULT MAGAZINE (home) -->
+    <div id="default-mag" class="default-mag">
+        <div class="mag-header">
+            <div class="logo">Leak<span>Magazine</span></div>
+            <div class="tagline">The latest in leaked content · est. 2024</div>
+        </div>
+        <div class="mag-nav">
+            <a href="/">HOME</a>
+            <a href="/limited/?q=latest+leaks">LATEST LEAKS</a>
+            <a href="/limited/?q=trending+leaks">TRENDING</a>
+            <a href="/limited/?q=exclusive+leaks">EXCLUSIVE</a>
+            <a href="/limited/?q=leaked+archives">ARCHIVES</a>
+        </div>
+
+        <!-- HERO -->
+        <div class="hero">
+            <div class="hero-main">
+                <div class="hero-meta">🔥 EXCLUSIVE · 2 HOURS AGO</div>
+                <h1>TikTok Star Leaked Video Compilation Goes Viral</h1>
+                <div class="hero-excerpt">The complete leaked video archive of a major TikTok influencer has surfaced on Telegram and Discord. Over 200 clips included.</div>
+                <a href="/limited/?q=tiktok+star+leaked+video+compilation" style="color:#c00000; font-weight:600;">Read Full Story →</a>
+            </div>
+            <div style="background:#f0f0e8; display:flex; align-items:center; justify-content:center; border-radius:8px;">
+                🎬 LEAKED VIDEO PACK
+            </div>
+        </div>
+
+        <!-- FEATURED GRID -->
+        <div class="featured-grid">
+            <div class="article-card">
+                <div class="article-category">💎 EXCLUSIVE</div>
+                <div class="article-title"><a href="/limited/?q=onlyfans+creator+leaked+complete+set">OnlyFans Creator Leaked Complete Set</a></div>
+                <div class="article-excerpt">500+ files including exclusive content from top creator.</div>
+            </div>
+            <div class="article-card">
+                <div class="article-category">📸 PHOTO LEAK</div>
+                <div class="article-title"><a href="/limited/?q=instagram+influencer+leaked+private+gallery">Instagram Influencer Leaked Private Gallery</a></div>
+                <div class="article-excerpt">80+ deleted photos and stories preserved.</div>
+            </div>
+            <div class="article-card">
+                <div class="article-category">💬 TELEGRAM</div>
+                <div class="article-title"><a href="/limited/?q=telegram+leaked+channel+archive">Telegram Leaked Channel Archive</a></div>
+                <div class="article-excerpt">Full channel dump with 50K+ members.</div>
+            </div>
+        </div>
+
+        <!-- TWO COLUMNS -->
+        <div class="two-columns">
+            <div>
+                <div class="section-title">Latest Leaks</div>
+                <ul class="article-list">
+                    <li><a href="/limited/?q=discord+leaked+server+dump">Discord Leaked Server Dump · Private archive surfaces</a></li>
+                    <li><a href="/limited/?q=twitter+leaked+threads+viral">Twitter Leaked Threads · Viral compilation</a></li>
+                    <li><a href="/limited/?q=reddit+leaked+posts+archive">Reddit Leaked Posts · Preserved community threads</a></li>
+                    <li><a href="/limited/?q=exclusive+leaked+vault+content">Exclusive Leaked Vault · Rare content released</a></li>
+                    <li><a href="/limited/?q=leaked+video+compilation+new">New Leaked Video Compilation · 150+ clips</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="sidebar-widget">
+                    <div class="widget-title">🔥 Trending Topics</div>
+                    <ul class="trending-list">
+                        <li><a href="/limited/?q=leaked+tiktok+videos">#LeakedTikTok</a> <span style="float:right;">23K posts</span></li>
+                        <li><a href="/limited/?q=leaked+onlyfans+content">#LeakedOnlyFans</a> <span style="float:right;">18K posts</span></li>
+                        <li><a href="/limited/?q=leaked+instagram+photos">#LeakedInstagram</a> <span style="float:right;">12K posts</span></li>
+                        <li><a href="/limited/?q=telegram+leaked+channel">#TelegramLeaks</a> <span style="float:right;">9K posts</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer">Leak Magazine · Independent journalism · Updated daily</div>
+    </div>
+
+    <!-- QUERY-BASED MAGAZINE (dinamis per influencer) -->
+    <div id="query-mag" class="query-mag">
+        <div class="mag-header">
+            <div class="logo">Leak<span>Magazine</span></div>
+            <div class="tagline">The latest in leaked content · est. 2024</div>
+        </div>
+        <div class="mag-nav">
+            <a href="/">HOME</a>
+            <a href="/limited/?q=latest+leaks">LATEST LEAKS</a>
+            <a href="/limited/?q=trending+leaks">TRENDING</a>
+            <a href="/limited/?q=exclusive+leaks">EXCLUSIVE</a>
+            <a href="/limited/?q=leaked+archives">ARCHIVES</a>
+        </div>
+        <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/limited/">Magazine</a> / <span id="bc-name"></span>
+        </div>
+
+        <!-- HERO SECTION (dinamis) -->
+        <div class="hero">
+            <div class="hero-main">
+                <div class="hero-meta" id="hero-meta"></div>
+                <h1 id="hero-title"></h1>
+                <div class="hero-excerpt" id="hero-excerpt"></div>
+                <a href="" id="hero-link" style="color:#c00000; font-weight:600;">Read Full Story →</a>
+            </div>
+            <div style="background:#f0f0e8; display:flex; align-items:center; justify-content:center; border-radius:8px; flex-direction:column; padding:1rem;">
+                <span id="hero-icon" style="font-size:3rem;">🎬</span>
+                <span id="hero-badge" style="font-size:0.7rem;">LEAKED CONTENT</span>
+            </div>
+        </div>
+
+        <!-- FEATURED ARTICLES GRID (4 articles) -->
+        <div class="featured-grid" id="featured-grid"></div>
+
+        <!-- TWO COLUMNS (LATEST + TRENDING) -->
+        <div class="two-columns">
+            <div>
+                <div class="section-title">📁 Latest Leaked Content Archives</div>
+                <ul class="article-list" id="latest-articles"></ul>
+            </div>
+            <div>
+                <div class="sidebar-widget">
+                    <div class="widget-title">🔥 Trending Related</div>
+                    <ul class="trending-list" id="trending-sidebar"></ul>
+                </div>
+                <div class="sidebar-widget">
+                    <div class="widget-title">📌 Editor's Picks</div>
+                    <ul class="trending-list" id="editors-picks"></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- MORE ARTICLES SECTION (panjang) -->
+        <div style="padding: 0 2rem 2rem;">
+            <div class="section-title">📰 More Leaked Content Coverage</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;" id="more-articles"></div>
+        </div>
+
+        <div class="footer" id="footer">
+            Leak Magazine · Independent journalism · Updated daily
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let query = urlParams.get('q');
+
+    const defaultDiv = document.getElementById('default-mag');
+    const queryDiv = document.getElementById('query-mag');
+
+    if (!query) {
+        defaultDiv.style.display = 'block';
+        queryDiv.style.display = 'none';
+        return;
+    }
+
+    defaultDiv.style.display = 'none';
+    queryDiv.style.display = 'block';
+
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    
+    // extract nama influencer
+    const removeTerms = ['leaked', 'leak', 'leaks', 'archive', 'collection', 'dump', 'vault', 'pack', 'bundle', 'gallery', 'content', 'media', 'videos', 'photos', 'pics', 'onlyfans', 'tiktok', 'instagram', 'twitter', 'telegram', 'discord', 'trending', 'viral', 'exclusive', 'private', 'premium', '2024', '2025', '2026', 'full', 'complete', 'hot', 'new', 'watch', 'view', 'access', 'magazine', 'news', 'article', 'blog'];
+    let baseRaw = query.toLowerCase();
+    removeTerms.forEach(term => {
+        const regex = new RegExp('\\b' + term + '\\b', 'gi');
+        baseRaw = baseRaw.replace(regex, '');
+    });
+    baseRaw = baseRaw.replace(/\s+/g, ' ').trim();
+    let baseName = baseRaw || query;
+    if (baseName.length < 2) baseName = query;
+    
+    function formatName(str) {
+        return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    }
+    const displayName = formatName(baseName);
+    const displayLower = displayName.toLowerCase();
+
+    // random numbers
+    const viewCount = Math.floor(Math.random() * 50000) + 10000;
+    const commentCount = Math.floor(Math.random() * 2000) + 500;
+    
+    // SEO
+    let pageTitle = `${displayName} Leaked Content · Breaking News | Leak Magazine`;
+    let pageDesc = `Latest news and complete archive of ${displayName} leaked content. ${viewCount.toLocaleString()} views this week. Full leaked videos and photos.`;
+    document.title = pageTitle;
+    const metaTag = document.getElementById('dynamic-description');
+    if (metaTag) metaTag.setAttribute('content', pageDesc);
+    
+    document.getElementById('bc-name').innerText = displayName;
+    
+    // HERO SECTION
+    const randomHours = Math.floor(Math.random() * 12) + 1;
+    document.getElementById('hero-meta').innerHTML = `🔥 EXCLUSIVE · ${randomHours} HOURS AGO · ${viewCount.toLocaleString()} views`;
+    document.getElementById('hero-title').innerHTML = `${displayName} Leaked Content Archive Complete`;
+    document.getElementById('hero-excerpt').innerHTML = `The complete ${displayName} leaked content archive has surfaced across Telegram, Discord, and Twitter. Over ${Math.floor(Math.random() * 300) + 100} leaked files including videos and photos. This is the most comprehensive leak collection to date.`;
+    document.getElementById('hero-link').href = `/limited/?q=${encodeURIComponent(displayLower + ' complete leaked archive')}`;
+    document.getElementById('hero-icon').innerHTML = displayName.charAt(0).toUpperCase();
+    document.getElementById('hero-badge').innerHTML = `${displayName} LEAKED CONTENT`;
+    
+    // FEATURED GRID (4 articles)
+    const featuredArticles = [
+        { category: '🎬 VIDEO LEAK', title: `${displayName} Full Leaked Video Compilation`, excerpt: `${Math.floor(Math.random() * 200) + 50}+ clips including viral moments.`, variant: 'leaked video full compilation' },
+        { category: '📸 PHOTO LEAK', title: `${displayName} Leaked Photo Gallery`, excerpt: `${Math.floor(Math.random() * 300) + 100}+ private images.`, variant: 'leaked photos full gallery' },
+        { category: '💎 EXCLUSIVE', title: `${displayName} Exclusive Leaked Vault`, excerpt: `Rare content not available anywhere else.`, variant: 'exclusive leaked vault' },
+        { category: '🔞 ONLYFANS', title: `${displayName} Leaked OnlyFans Set`, excerpt: `Complete archive of exclusive content.`, variant: 'leaked onlyfans content' }
+    ];
+    document.getElementById('featured-grid').innerHTML = featuredArticles.map(article => `
+        <div class="article-card">
+            <div class="article-category">${article.category}</div>
+            <div class="article-title"><a href="/limited/?q=${encodeURIComponent(displayLower + ' ' + article.variant)}">${article.title}</a></div>
+            <div class="article-excerpt">${article.excerpt}</div>
+        </div>
+    `).join('');
+    
+    // LATEST ARTICLES (8 items)
+    const latestArticles = [
+        { title: `${displayName} Telegram Leaked Channel Archive`, variant: 'leaked telegram channel', date: '2 hours ago' },
+        { title: `${displayName} Discord Leaked Server Dump`, variant: 'leaked discord server', date: '5 hours ago' },
+        { title: `${displayName} Twitter Leaked Threads Compilation`, variant: 'leaked twitter threads', date: '8 hours ago' },
+        { title: `${displayName} Reddit Leaked Posts Archive`, variant: 'leaked reddit posts', date: '1 day ago' },
+        { title: `${displayName} Viral Leaked Moments Compilation`, variant: 'leaked viral moments', date: '1 day ago' },
+        { title: `${displayName} Complete Leak Mega Pack`, variant: 'complete leaked archive', date: '2 days ago' },
+        { title: `${displayName} Private Instagram Leaked Stories`, variant: 'leaked instagram stories', date: '2 days ago' },
+        { title: `${displayName} Deleted TikTok Leaked Videos`, variant: 'deleted tiktok leaks', date: '3 days ago' }
+    ];
+    document.getElementById('latest-articles').innerHTML = latestArticles.map(article => `
+        <li><a href="/limited/?q=${encodeURIComponent(displayLower + ' ' + article.variant)}">${article.title}</a> <span style="font-size:0.65rem; color:#999;">· ${article.date}</span></li>
+    `).join('');
+    
+    // TRENDING SIDEBAR
+    const trendingTopics = [
+        { name: `#${displayLower.replace(/ /g, '')}Leaked`, count: Math.floor(Math.random() * 30) + 10 },
+        { name: `#${displayLower.replace(/ /g, '')}Videos`, count: Math.floor(Math.random() * 25) + 8 },
+        { name: `#${displayLower.replace(/ /g, '')}Photos`, count: Math.floor(Math.random() * 20) + 5 },
+        { name: `#OnlyFansLeaks`, count: Math.floor(Math.random() * 50) + 20 }
+    ];
+    document.getElementById('trending-sidebar').innerHTML = trendingTopics.map(topic => `
+        <li><a href="/limited/?q=${encodeURIComponent(topic.name.toLowerCase().replace('#', '') + ' leaked')}">${topic.name}</a> <span style="float:right;">${topic.count}K posts</span></li>
+    `).join('');
+    
+    // EDITOR'S PICKS
+    const editorsPicks = [
+        { title: `Why ${displayName} Leaked Content Went Viral`, variant: 'viral leak analysis' },
+        { title: `The Complete Timeline of ${displayName} Leaks`, variant: 'leak timeline' },
+        { title: `Where to Find ${displayName} Leaked Content`, variant: 'where to find leaks' },
+        { title: `${displayName} Leak Archive Preservation Report`, variant: 'leak preservation report' }
+    ];
+    document.getElementById('editors-picks').innerHTML = editorsPicks.map(pick => `
+        <li><a href="/limited/?q=${encodeURIComponent(displayLower + ' ' + pick.variant)}">📌 ${pick.title}</a></li>
+    `).join('');
+    
+    // MORE ARTICLES (6 items)
+    const moreArticles = [
+        { category: 'ANALYSIS', title: `How ${displayName} Leaked Content Spread Across Platforms`, variant: 'leak spread analysis', icon: '📊' },
+        { category: 'INTERVIEW', title: `Community Discussion on ${displayName} Leaks`, variant: 'community discussion', icon: '💬' },
+        { category: 'UPDATE', title: `${displayName} New Leaks Added This Week`, variant: 'new leaks added', icon: '🆕' },
+        { category: 'GUIDE', title: `How to Access ${displayName} Complete Leak Archive`, variant: 'access guide', icon: '📁' },
+        { category: 'COMPARISON', title: `${displayName} vs Other Influencer Leaks`, variant: 'leak comparison', icon: '⚖️' },
+        { category: 'PRESERVATION', title: `Preserving ${displayName} Leaked Content for History`, variant: 'preservation effort', icon: '📀' }
+    ];
+    document.getElementById('more-articles').innerHTML = moreArticles.map(article => `
+        <div class="article-card" style="border-bottom: none; border:1px solid #eee; padding:1rem; border-radius:8px;">
+            <div class="article-category">${article.icon} ${article.category}</div>
+            <div class="article-title"><a href="/limited/?q=${encodeURIComponent(displayLower + ' ' + article.variant)}">${article.title}</a></div>
+        </div>
+    `).join('');
+    
+    // footer
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    document.getElementById('footer').innerHTML = `Leak Magazine · Independent journalism · ${viewCount.toLocaleString()} monthly readers · Updated ${dateStr}`;
+    
+    // canonical
+    const canonical = document.getElementById('dynamic-canonical');
+    if (canonical) {
+        canonical.setAttribute('href', window.location.href.split('?')[0]);
+    }
+})();
+</script>
+
+{% include footer.html %}
+</body>
+</html>

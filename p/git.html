@@ -1,0 +1,521 @@
+---
+layout: null
+permalink: /git/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <title id="dynamic-title">LeakRecipe · How to Access Leaked Content</title>
+    <meta id="dynamic-description" name="description" content="Step-by-step recipes to access leaked content from influencers, TikTokers, and OnlyFans creators. 5-minute prep time.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/git/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fdf8f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #2d2d2d;
+        }
+
+        .recipe-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* header ala blog masakan */
+        .recipe-header {
+            background: #ffffff;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid #f0e6d5;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #e67e22;
+        }
+
+        .tagline {
+            font-size: 0.7rem;
+            color: #888;
+            margin-top: 0.25rem;
+        }
+
+        /* breadcrumb */
+        .breadcrumb {
+            padding: 0.75rem 2rem;
+            font-size: 0.7rem;
+            color: #888;
+            background: #fefaf5;
+            border-bottom: 1px solid #f0e6d5;
+        }
+
+        .breadcrumb a {
+            color: #e67e22;
+            text-decoration: none;
+        }
+
+        /* recipe card */
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .recipe-card {
+            background: #ffffff;
+            border: 1px solid #f0e6d5;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .recipe-image {
+            background: linear-gradient(145deg, #fdf0e0, #f5e6d5);
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .recipe-badge {
+            display: inline-block;
+            background: #e67e22;
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.6rem;
+            margin: 0.75rem 0 0 1rem;
+        }
+
+        .recipe-info {
+            padding: 1rem;
+        }
+
+        .recipe-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .recipe-title a {
+            color: #2d2d2d;
+            text-decoration: none;
+        }
+
+        .recipe-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.65rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .recipe-desc {
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 0.75rem;
+        }
+
+        .get-recipe-btn {
+            display: inline-block;
+            background: #e67e22;
+            color: #fff;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            text-decoration: none;
+        }
+
+        /* layout untuk query */
+        .recipe-layout {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .main-recipe {
+            background: #ffffff;
+            border: 1px solid #f0e6d5;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .recipe-hero {
+            background: linear-gradient(145deg, #fdf0e0, #f5e6d5);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .recipe-hero-icon {
+            font-size: 4rem;
+        }
+
+        .recipe-hero h1 {
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .recipe-meta-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+            font-size: 0.7rem;
+            color: #888;
+        }
+
+        .ingredients-section, .instructions-section {
+            padding: 1.5rem;
+            border-bottom: 1px solid #f0e6d5;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #e67e22;
+        }
+
+        .ingredients-list {
+            list-style: none;
+        }
+
+        .ingredients-list li {
+            padding: 0.4rem 0;
+            border-bottom: 1px dashed #f0e6d5;
+            font-size: 0.8rem;
+        }
+
+        .instructions-list {
+            list-style: none;
+        }
+
+        .instructions-list li {
+            padding: 0.6rem 0;
+            font-size: 0.8rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .instruction-num {
+            color: #e67e22;
+            font-weight: 700;
+            min-width: 28px;
+        }
+
+        .access-link {
+            display: block;
+            background: #e67e22;
+            color: #fff;
+            text-align: center;
+            padding: 0.8rem;
+            margin: 1rem 1.5rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .sidebar-card {
+            background: #fefaf5;
+            border: 1px solid #f0e6d5;
+            border-radius: 16px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid #f0e6d5;
+            padding-bottom: 0.5rem;
+        }
+
+        .trending-recipe {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0e6d5;
+        }
+
+        .footer {
+            background: #2d2d2d;
+            color: #aaa;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 0.6rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .default-recipe {
+            display: block;
+        }
+
+        .query-recipe {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .recipe-layout { grid-template-columns: 1fr; }
+            .recipe-grid { padding: 1rem; }
+            .recipe-hero h1 { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="recipe-container">
+    <!-- DEFAULT RECIPE BLOG (home) -->
+    <div id="default-recipe" class="default-recipe">
+        <div class="recipe-header">
+            <div class="logo">Leak<span>Recipe</span></div>
+            <div class="tagline">Step-by-step guide to leaked content · 5-minute prep</div>
+        </div>
+        <div class="breadcrumb">
+            <a href="/">Home</a> / LeakRecipe
+        </div>
+
+        <div class="recipe-grid">
+            <div class="recipe-card">
+                <div class="recipe-image">🎬</div>
+                <div class="recipe-badge">⭐ CHEF'S PICK</div>
+                <div class="recipe-info">
+                    <div class="recipe-title"><a href="/git/?q=tiktok+star+leaked+video+compilation">TikTok Star Leaked Video Compilation</a></div>
+                    <div class="recipe-meta"><span>⏱️ 5 min prep</span><span>📁 200+ servings</span><span>🔥 trending</span></div>
+                    <div class="recipe-desc">The perfect recipe for leaked TikTok videos. Full compilation ready in minutes.</div>
+                    <a href="/git/?q=tiktok+star+leaked+video+compilation" class="get-recipe-btn">🍳 GET RECIPE</a>
+                </div>
+            </div>
+            <div class="recipe-card">
+                <div class="recipe-image">🔞</div>
+                <div class="recipe-badge">💎 EXCLUSIVE</div>
+                <div class="recipe-info">
+                    <div class="recipe-title"><a href="/git/?q=onlyfans+creator+leaked+complete+set">OnlyFans Creator Leaked Complete Set</a></div>
+                    <div class="recipe-meta"><span>⏱️ 10 min prep</span><span>📁 500+ servings</span><span>🔞 adults only</span></div>
+                    <div class="recipe-desc">The ultimate OnlyFans leak recipe. Complete archive in one click.</div>
+                    <a href="/git/?q=onlyfans+creator+leaked+complete+set" class="get-recipe-btn">🍳 GET RECIPE</a>
+                </div>
+            </div>
+            <div class="recipe-card">
+                <div class="recipe-image">📸</div>
+                <div class="recipe-badge">🆕 NEW</div>
+                <div class="recipe-info">
+                    <div class="recipe-title"><a href="/git/?q=instagram+influencer+leaked+private+gallery">Instagram Influencer Leaked Gallery</a></div>
+                    <div class="recipe-meta"><span>⏱️ 3 min prep</span><span>📁 80+ servings</span><span>📸 photo</span></div>
+                    <div class="recipe-desc">Quick and easy Instagram leaked photos recipe.</div>
+                    <a href="/git/?q=instagram+influencer+leaked+private+gallery" class="get-recipe-btn">🍳 GET RECIPE</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer">LeakRecipe · 15,234 recipes available · New recipes daily</div>
+    </div>
+
+    <!-- QUERY-BASED RECIPE (dinamis per influencer) -->
+    <div id="query-recipe" class="query-recipe">
+        <div class="recipe-header">
+            <div class="logo">Leak<span>Recipe</span></div>
+            <div class="tagline">Step-by-step guide to leaked content · 5-minute prep</div>
+        </div>
+        <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/git/">LeakRecipe</a> / <span id="bc-name"></span>
+        </div>
+
+        <div class="recipe-layout">
+            <!-- MAIN RECIPE -->
+            <div class="main-recipe">
+                <div class="recipe-hero">
+                    <div class="recipe-hero-icon" id="recipe-icon">🎬</div>
+                    <h1 id="recipe-title"></h1>
+                    <div class="recipe-meta-grid" id="recipe-meta"></div>
+                </div>
+
+                <div class="ingredients-section">
+                    <div class="section-title">📋 Ingredients</div>
+                    <ul class="ingredients-list" id="ingredients-list"></ul>
+                </div>
+
+                <div class="instructions-section">
+                    <div class="section-title">👨‍🍳 Instructions</div>
+                    <ul class="instructions-list" id="instructions-list"></ul>
+                </div>
+
+                <a href="" id="access-link" class="access-link">🍳 GET THIS RECIPE → ACCESS LEAKED CONTENT</a>
+            </div>
+
+            <!-- SIDEBAR -->
+            <div>
+                <div class="sidebar-card">
+                    <div class="sidebar-title">🔥 Trending Recipes</div>
+                    <div id="trending-recipes"></div>
+                </div>
+                <div class="sidebar-card">
+                    <div class="sidebar-title">📁 You May Also Like</div>
+                    <div id="similar-recipes"></div>
+                </div>
+                <div class="sidebar-card">
+                    <div class="sidebar-title">⭐ Rating & Reviews</div>
+                    <div style="font-size:0.7rem;">★★★★★ (4.9)</div>
+                    <div style="font-size:0.6rem; color:#888;">Based on <span id="review-count"></span> reviews</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer" id="footer">
+            LeakRecipe · Step-by-step leaked content guide
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let query = urlParams.get('q');
+
+    const defaultDiv = document.getElementById('default-recipe');
+    const queryDiv = document.getElementById('query-recipe');
+
+    if (!query) {
+        defaultDiv.style.display = 'block';
+        queryDiv.style.display = 'none';
+        return;
+    }
+
+    defaultDiv.style.display = 'none';
+    queryDiv.style.display = 'block';
+
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    
+    // extract nama influencer
+    const removeTerms = ['leaked', 'leak', 'leaks', 'archive', 'collection', 'dump', 'vault', 'pack', 'bundle', 'gallery', 'content', 'media', 'videos', 'photos', 'pics', 'onlyfans', 'tiktok', 'instagram', 'twitter', 'telegram', 'discord', 'trending', 'viral', 'exclusive', 'private', 'premium', '2024', '2025', '2026', 'full', 'complete', 'hot', 'new', 'watch', 'view', 'access', 'recipe', 'cook', 'ingredients', 'instructions'];
+    let baseRaw = query.toLowerCase();
+    removeTerms.forEach(term => {
+        const regex = new RegExp('\\b' + term + '\\b', 'gi');
+        baseRaw = baseRaw.replace(regex, '');
+    });
+    baseRaw = baseRaw.replace(/\s+/g, ' ').trim();
+    let baseName = baseRaw || query;
+    if (baseName.length < 2) baseName = query;
+    
+    function formatName(str) {
+        return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    }
+    const displayName = formatName(baseName);
+    const displayLower = displayName.toLowerCase();
+
+    // random numbers
+    const prepTime = Math.floor(Math.random() * 15) + 5;
+    const servings = Math.floor(Math.random() * 300) + 100;
+    const reviewCount = Math.floor(Math.random() * 5000) + 1000;
+    const fileCountVideo = Math.floor(Math.random() * 200) + 100;
+    const fileCountPhoto = Math.floor(Math.random() * 300) + 150;
+    
+    // SEO
+    let pageTitle = `${displayName} Leaked Content Recipe | LeakRecipe`;
+    let pageDesc = `Step-by-step recipe to access ${displayName} leaked content. ${prepTime} minute prep. ${servings}+ servings. ${reviewCount.toLocaleString()} reviews.`;
+    document.title = pageTitle;
+    const metaTag = document.getElementById('dynamic-description');
+    if (metaTag) metaTag.setAttribute('content', pageDesc);
+    
+    document.getElementById('bc-name').innerText = displayName;
+    document.getElementById('recipe-icon').innerHTML = displayName.charAt(0).toUpperCase();
+    document.getElementById('recipe-title').innerHTML = `${displayName} · Leaked Content Archive`;
+    document.getElementById('recipe-meta').innerHTML = `
+        <span>⏱️ ${prepTime} min prep</span>
+        <span>📁 ${servings}+ servings</span>
+        <span>🔥 trending recipe</span>
+        <span>⭐ 4.9 (${reviewCount.toLocaleString()} reviews)</span>
+    `;
+    document.getElementById('review-count').innerHTML = reviewCount.toLocaleString();
+    document.getElementById('access-link').href = `/git/?q=${encodeURIComponent(displayLower + ' complete leaked archive')}`;
+    
+    // INGREDIENTS LIST
+    const ingredients = [
+        `1x ${displayName} Full Leaked Video Compilation (${fileCountVideo}+ clips)`,
+        `1x ${displayName} Leaked Photo Gallery (${fileCountPhoto}+ images)`,
+        `1x ${displayName} Telegram Leak Channel`,
+        `1x ${displayName} Discord Leak Server`,
+        `1x ${displayName} Twitter Leaked Threads`,
+        `Dash of exclusive content (optional)`
+    ];
+    document.getElementById('ingredients-list').innerHTML = ingredients.map(ing => `<li>🍽️ ${ing}</li>`).join('');
+    
+    // INSTRUCTIONS LIST (dengan internal links)
+    const instructions = [
+        { text: `Step 1: Access the ${displayName} Full Leaked Video Compilation`, variant: 'leaked video full compilation' },
+        { text: `Step 2: Download the ${displayName} Leaked Photo Gallery`, variant: 'leaked photos full gallery' },
+        { text: `Step 3: Join the ${displayName} Telegram Leak Channel`, variant: 'leaked telegram channel' },
+        { text: `Step 4: Explore the ${displayName} Discord Leak Server`, variant: 'leaked discord server' },
+        { text: `Step 5: View the ${displayName} Twitter Leaked Threads`, variant: 'leaked twitter threads' },
+        { text: `Step 6: Save the ${displayName} Complete Leak Archive for later`, variant: 'complete leaked archive' }
+    ];
+    document.getElementById('instructions-list').innerHTML = instructions.map(inst => `
+        <li><span class="instruction-num">➜</span> <a href="/git/?q=${encodeURIComponent(displayLower + ' ' + inst.variant)}" style="color:#e67e22; text-decoration:none;">${inst.text}</a></li>
+    `).join('');
+    
+    // TRENDING RECIPES (sidebar)
+    const trendingRecipes = [
+        { name: 'Similar Influencer Leak Bundle', variant: 'similar leaked bundle', prep: '5 min', rating: '4.8' },
+        { name: 'Trending Leaks Compilation', variant: 'trending leaks compilation', prep: '8 min', rating: '4.9' },
+        { name: 'Telegram Mega Leak Pack', variant: 'telegram mega leak pack', prep: '10 min', rating: '4.7' },
+        { name: 'Exclusive Content Vault', variant: 'exclusive content vault', prep: '15 min', rating: '4.9' }
+    ];
+    document.getElementById('trending-recipes').innerHTML = trendingRecipes.map(recipe => `
+        <div class="trending-recipe">
+            <div style="font-size:0.75rem;"><a href="/git/?q=${encodeURIComponent(displayLower + ' ' + recipe.variant)}" style="color:#2d2d2d; text-decoration:none;">🍳 ${recipe.name}</a></div>
+            <div style="font-size:0.6rem; color:#888;">⏱️ ${recipe.prep} min · ⭐ ${recipe.rating}</div>
+        </div>
+    `).join('');
+    
+    // SIMILAR RECIPES
+    const similarRecipes = [
+        { name: 'How to Access OnlyFans Leaks', variant: 'onlyfans leaks recipe', downloads: '23K' },
+        { name: 'Instagram Leaks Quick Guide', variant: 'instagram leaks recipe', downloads: '18K' },
+        { name: 'Telegram Leak Channel Tutorial', variant: 'telegram leak tutorial', downloads: '15K' }
+    ];
+    document.getElementById('similar-recipes').innerHTML = similarRecipes.map(recipe => `
+        <div class="trending-recipe">
+            <div style="font-size:0.7rem;"><a href="/git/?q=${encodeURIComponent(displayLower + ' ' + recipe.variant)}" style="color:#e67e22; text-decoration:none;">📖 ${recipe.name}</a></div>
+            <div style="font-size:0.6rem; color:#888;">${recipe.downloads} saves</div>
+        </div>
+    `).join('');
+    
+    // footer
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    document.getElementById('footer').innerHTML = `LeakRecipe · ${prepTime} minute prep · ${servings}+ servings · Updated ${dateStr}`;
+    
+    // canonical
+    const canonical = document.getElementById('dynamic-canonical');
+    if (canonical) {
+        canonical.setAttribute('href', window.location.href.split('?')[0]);
+    }
+})();
+</script>
+
+{% include footer.html %}
+</body>
+</html>

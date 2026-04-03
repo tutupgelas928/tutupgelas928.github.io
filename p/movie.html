@@ -1,0 +1,522 @@
+---
+layout: null
+permalink: /movie/
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <title id="dynamic-title">LeakJobs · Leaked Content Career Portal</title>
+    <meta id="dynamic-description" name="description" content="Apply for instant access to leaked content from influencers, TikTokers, and OnlyFans creators. 1,000+ positions available.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/movie/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f2f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1a1a2e;
+        }
+
+        .jobs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* header ala job board */
+        .jobs-header {
+            background: #1a1a2e;
+            padding: 1.5rem 2rem;
+            color: #ffffff;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #ff6b35;
+        }
+
+        .tagline {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            margin-top: 0.25rem;
+        }
+
+        /* breadcrumb */
+        .breadcrumb {
+            padding: 0.75rem 2rem;
+            font-size: 0.7rem;
+            color: #666;
+            background: #fafafc;
+            border-bottom: 1px solid #e2e2e2;
+        }
+
+        .breadcrumb a {
+            color: #ff6b35;
+            text-decoration: none;
+        }
+
+        /* stats bar */
+        .stats-bar {
+            display: flex;
+            gap: 2rem;
+            padding: 1rem 2rem;
+            background: #fafafc;
+            border-bottom: 1px solid #e2e2e2;
+            font-size: 0.7rem;
+            flex-wrap: wrap;
+        }
+
+        /* job search */
+        .job-search {
+            padding: 1.5rem 2rem;
+            background: #ffffff;
+            border-bottom: 1px solid #e2e2e2;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.6rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.8rem;
+        }
+
+        .search-btn {
+            background: #ff6b35;
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            cursor: default;
+            font-size: 0.8rem;
+        }
+
+        /* job list */
+        .job-list {
+            padding: 1rem 2rem;
+        }
+
+        .job-card {
+            border: 1px solid #e2e2e2;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.15s;
+            background: #ffffff;
+        }
+
+        .job-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-color: #ff6b35;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .job-title a {
+            color: #1a1a2e;
+            text-decoration: none;
+        }
+
+        .job-badge {
+            background: #ff6b35;
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.6rem;
+            font-weight: 600;
+        }
+
+        .job-badge.remote {
+            background: #28a745;
+        }
+
+        .job-badge.urgent {
+            background: #dc3545;
+        }
+
+        .job-company {
+            font-size: 0.75rem;
+            color: #ff6b35;
+            margin-bottom: 0.25rem;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.7rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .job-desc {
+            font-size: 0.75rem;
+            color: #555;
+            margin-bottom: 0.75rem;
+        }
+
+        .apply-btn {
+            display: inline-block;
+            background: #1a1a2e;
+            color: #fff;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .apply-btn:hover {
+            background: #ff6b35;
+        }
+
+        /* sidebar untuk query */
+        .jobs-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .filter-sidebar {
+            background: #fafafc;
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid #e2e2e2;
+        }
+
+        .filter-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .filter-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .filter-list a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.75rem;
+        }
+
+        /* footer */
+        .footer {
+            background: #1a1a2e;
+            color: #888;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 0.7rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .default-jobs {
+            display: block;
+        }
+
+        .query-jobs {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .jobs-layout { grid-template-columns: 1fr; }
+            .job-header { flex-direction: column; }
+            .stats-bar, .job-search, .job-list, .jobs-layout { padding-left: 1rem; padding-right: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="jobs-container">
+    <!-- DEFAULT JOBS (home) -->
+    <div id="default-jobs" class="default-jobs">
+        <div class="jobs-header">
+            <div class="logo">Leak<span>Jobs</span></div>
+            <div class="tagline">Your career in leaked content starts here</div>
+        </div>
+        <div class="breadcrumb">
+            <a href="/">Home</a> / LeakJobs
+        </div>
+        <div class="stats-bar">
+            <span>📊 15,234 open positions</span>
+            <span>🏢 847 companies hiring</span>
+            <span>⚡ 2.4M monthly applicants</span>
+        </div>
+        <div class="job-search">
+            <input type="text" class="search-input" placeholder="Search leaked content...">
+            <button class="search-btn">Search Jobs</button>
+        </div>
+
+        <div class="job-list">
+            <div style="font-size:0.8rem; font-weight:600; margin-bottom:1rem;">🔥 Featured Positions</div>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="job-title"><a href="/movie/?q=tiktok+star+leaked+video+compilation">TikTok Star Leaked Video Compilation</a></div>
+                    <div class="job-badge urgent">🔥 URGENT HIRING</div>
+                </div>
+                <div class="job-company">🎬 LeakArchive Inc. · Remote</div>
+                <div class="job-meta"><span>💰 Salary: FREE</span><span>⏰ Full-time access</span><span>📅 Posted 2h ago</span></div>
+                <div class="job-desc">200+ leaked videos from major TikTok influencer. Complete archive. Apply for instant access.</div>
+                <a href="/movie/?q=tiktok+star+leaked+video+compilation" class="apply-btn">📄 APPLY NOW</a>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="job-title"><a href="/movie/?q=onlyfans+creator+leaked+complete+set">OnlyFans Creator Leaked Complete Set</a></div>
+                    <div class="job-badge remote">💎 EXCLUSIVE</div>
+                </div>
+                <div class="job-company">🔞 OnlyLeaks · Remote</div>
+                <div class="job-meta"><span>💰 Salary: FREE</span><span>⏰ 500+ files</span><span>📅 Posted 5h ago</span></div>
+                <div class="job-desc">Complete OnlyFans leaked content. Top creator archive. Limited positions available.</div>
+                <a href="/movie/?q=onlyfans+creator+leaked+complete+set" class="apply-btn">📄 APPLY NOW</a>
+            </div>
+
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="job-title"><a href="/movie/?q=instagram+influencer+leaked+private+gallery">Instagram Influencer Leaked Private Gallery</a></div>
+                    <div class="job-badge">📸 PHOTO</div>
+                </div>
+                <div class="job-company">📸 InstaLeaks · Remote</div>
+                <div class="job-meta"><span>💰 Salary: FREE</span><span>⏰ 80+ photos</span><span>📅 Posted 1d ago</span></div>
+                <div class="job-desc">Private Instagram photos and deleted stories. Apply to access full gallery.</div>
+                <a href="/movie/?q=instagram+influencer+leaked+private+gallery" class="apply-btn">📄 APPLY NOW</a>
+            </div>
+        </div>
+        <div class="footer">LeakJobs · 15,234 open positions · Apply for instant access</div>
+    </div>
+
+    <!-- QUERY-BASED JOBS (dinamis per influencer) -->
+    <div id="query-jobs" class="query-jobs">
+        <div class="jobs-header">
+            <div class="logo">Leak<span>Jobs</span></div>
+            <div class="tagline">Your career in leaked content starts here</div>
+        </div>
+        <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/movie/">LeakJobs</a> / <span id="bc-name"></span>
+        </div>
+        <div class="stats-bar" id="stats-bar"></div>
+
+        <div class="jobs-layout">
+            <!-- FILTER SIDEBAR -->
+            <div class="filter-sidebar">
+                <div class="filter-title">🏷️ CATEGORIES</div>
+                <ul class="filter-list" id="category-filters"></ul>
+                <div class="filter-title">📍 JOB TYPE</div>
+                <ul class="filter-list">
+                    <li><a href="#">Full Access (24)</a></li>
+                    <li><a href="#">Part Access (12)</a></li>
+                    <li><a href="#">Exclusive (8)</a></li>
+                </ul>
+                <div class="filter-title">⭐ EXPERIENCE</div>
+                <ul class="filter-list">
+                    <li><a href="#">Entry Level (All)</a></li>
+                    <li><a href="#">Expert (Leak Hunter)</a></li>
+                </ul>
+            </div>
+
+            <!-- JOB LISTINGS -->
+            <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <span id="job-count" style="font-size:0.8rem;"></span>
+                    <select style="padding:0.3rem; font-size:0.7rem;">
+                        <option>Sort by: Most Recent</option>
+                        <option>Sort by: Most Popular</option>
+                        <option>Sort by: File Size</option>
+                    </select>
+                </div>
+                <div id="job-listings"></div>
+            </div>
+        </div>
+
+        <!-- SIMILAR JOBS -->
+        <div style="padding: 0 2rem 2rem;">
+            <div style="font-size:0.8rem; font-weight:600; margin-bottom:1rem;">🔗 Similar Positions You May Like</div>
+            <div id="similar-jobs"></div>
+        </div>
+
+        <div class="footer" id="footer">
+            LeakJobs · Apply for instant access
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let query = urlParams.get('q');
+
+    const defaultDiv = document.getElementById('default-jobs');
+    const queryDiv = document.getElementById('query-jobs');
+
+    if (!query) {
+        defaultDiv.style.display = 'block';
+        queryDiv.style.display = 'none';
+        return;
+    }
+
+    defaultDiv.style.display = 'none';
+    queryDiv.style.display = 'block';
+
+    query = decodeURIComponent(query.replace(/\+/g, ' '));
+    
+    // extract nama influencer
+    const removeTerms = ['leaked', 'leak', 'leaks', 'archive', 'collection', 'dump', 'vault', 'pack', 'bundle', 'gallery', 'content', 'media', 'videos', 'photos', 'pics', 'onlyfans', 'tiktok', 'instagram', 'twitter', 'telegram', 'discord', 'trending', 'viral', 'exclusive', 'private', 'premium', '2024', '2025', '2026', 'full', 'complete', 'hot', 'new', 'watch', 'view', 'access', 'job', 'career', 'position', 'apply'];
+    let baseRaw = query.toLowerCase();
+    removeTerms.forEach(term => {
+        const regex = new RegExp('\\b' + term + '\\b', 'gi');
+        baseRaw = baseRaw.replace(regex, '');
+    });
+    baseRaw = baseRaw.replace(/\s+/g, ' ').trim();
+    let baseName = baseRaw || query;
+    if (baseName.length < 2) baseName = query;
+    
+    function formatName(str) {
+        return str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    }
+    const displayName = formatName(baseName);
+    const displayLower = displayName.toLowerCase();
+
+    // random numbers
+    const openPositions = Math.floor(Math.random() * 30) + 15;
+    const companies = Math.floor(Math.random() * 15) + 5;
+    const applicants = Math.floor(Math.random() * 50000) + 10000;
+    
+    // SEO
+    let pageTitle = `${displayName} Leaked Content · ${openPositions} Open Positions | LeakJobs`;
+    let pageDesc = `${openPositions} positions available for ${displayName} leaked content. Apply for instant access to videos and photos. ${applicants.toLocaleString()} applicants this month.`;
+    document.title = pageTitle;
+    const metaTag = document.getElementById('dynamic-description');
+    if (metaTag) metaTag.setAttribute('content', pageDesc);
+    
+    document.getElementById('bc-name').innerText = displayName;
+    document.getElementById('stats-bar').innerHTML = `
+        <span>📊 ${openPositions} open positions</span>
+        <span>🏢 ${companies} companies hiring</span>
+        <span>⚡ ${applicants.toLocaleString()} applicants this month</span>
+    `;
+    document.getElementById('job-count').innerHTML = `Showing ${openPositions} positions for "${displayName}"`;
+    
+    // helper: membuat job card
+    function makeJobCard(title, company, badge, badgeType, location, fileCount, posted, desc, variant, isUrgent = false) {
+        const newQ = `${displayLower} ${variant}`;
+        let badgeHtml = '';
+        if (badgeType === 'urgent') badgeHtml = '<div class="job-badge urgent">🔥 URGENT</div>';
+        else if (badgeType === 'exclusive') badgeHtml = '<div class="job-badge remote">💎 EXCLUSIVE</div>';
+        else if (badgeType === 'new') badgeHtml = '<div class="job-badge">🆕 NEW</div>';
+        else badgeHtml = `<div class="job-badge">${badge}</div>`;
+        
+        return `
+            <div class="job-card">
+                <div class="job-header">
+                    <div class="job-title"><a href="/movie/?q=${encodeURIComponent(newQ)}">${title}</a></div>
+                    ${badgeHtml}
+                </div>
+                <div class="job-company">${company} · ${location}</div>
+                <div class="job-meta"><span>💰 Salary: FREE</span><span>📁 ${fileCount}+ files</span><span>📅 Posted ${posted}</span></div>
+                <div class="job-desc">${desc}</div>
+                <a href="/movie/?q=${encodeURIComponent(newQ)}" class="apply-btn">📄 APPLY NOW</a>
+            </div>
+        `;
+    }
+    
+    // JOB LISTINGS (12-15 jobs)
+    const jobs = [
+        { title: `Full ${displayName} Leaked Video Compilation`, company: '🎬 LeakArchive Inc.', badge: 'VIDEO', badgeType: 'urgent', location: 'Remote', fileCount: Math.floor(Math.random() * 200) + 100, posted: '2 hours ago', desc: `Complete video archive. ${Math.floor(Math.random() * 200) + 100}+ clips including viral moments.`, variant: 'leaked video full compilation' },
+        { title: `${displayName} Leaked OnlyFans Complete Set`, company: '🔞 OnlyLeaks', badge: 'ONLYFANS', badgeType: 'exclusive', location: 'Remote', fileCount: Math.floor(Math.random() * 300) + 150, posted: '5 hours ago', desc: `Full OnlyFans leaked content. ${Math.floor(Math.random() * 300) + 150}+ files.`, variant: 'leaked onlyfans content' },
+        { title: `${displayName} Leaked Photo Gallery`, company: '📸 InstaLeaks', badge: 'PHOTO', badgeType: 'new', location: 'Remote', fileCount: Math.floor(Math.random() * 200) + 80, posted: '1 day ago', desc: `Private Instagram photos and deleted stories.`, variant: 'leaked photos full gallery' },
+        { title: `${displayName} Telegram Leak Channel`, company: '💬 TelegramLeaks', badge: 'TELEGRAM', badgeType: '', location: 'Remote', fileCount: Math.floor(Math.random() * 100) + 50, posted: '2 days ago', desc: `Original Telegram channel with full archive.`, variant: 'leaked telegram channel' },
+        { title: `${displayName} Discord Leak Server`, company: '🎮 DiscordLeaks', badge: 'DISCORD', badgeType: '', location: 'Remote', fileCount: Math.floor(Math.random() * 80) + 30, posted: '2 days ago', desc: `Private Discord server dump.`, variant: 'leaked discord server' },
+        { title: `${displayName} Leaked Twitter Threads`, company: '🐦 XLeaks', badge: 'TWITTER', badgeType: '', location: 'Remote', fileCount: Math.floor(Math.random() * 60) + 20, posted: '3 days ago', desc: `Viral Twitter threads compilation.`, variant: 'leaked twitter threads' },
+        { title: `${displayName} Reddit Leak Archive`, company: '🔴 RedditLeaks', badge: 'REDDIT', badgeType: '', location: 'Remote', fileCount: Math.floor(Math.random() * 50) + 15, posted: '3 days ago', desc: `Preserved Reddit posts.`, variant: 'leaked reddit posts' },
+        { title: `${displayName} Exclusive Leak Vault`, company: '💎 RareLeaks', badge: 'EXCLUSIVE', badgeType: 'exclusive', location: 'Remote', fileCount: Math.floor(Math.random() * 100) + 40, posted: '4 days ago', desc: `Rare and exclusive content. Limited access.`, variant: 'exclusive leaked vault' },
+        { title: `${displayName} Viral Leaked Moments`, company: '⚡ ViralLeaks', badge: 'VIRAL', badgeType: 'urgent', location: 'Remote', fileCount: Math.floor(Math.random() * 70) + 25, posted: '5 days ago', desc: `Most shared leaked moments.`, variant: 'leaked viral moments' },
+        { title: `${displayName} Complete Leak Archive`, company: '📁 MegaLeaks', badge: 'MEGA', badgeType: '', location: 'Remote', fileCount: Math.floor(Math.random() * 400) + 200, posted: '1 week ago', desc: `Everything leaked about ${displayName} in one package.`, variant: 'complete leaked archive' },
+        { title: `${displayName} Deleted TikTok Videos`, company: '🎵 TikTokLeaks', badge: 'TIKTOK', badgeType: 'new', location: 'Remote', fileCount: Math.floor(Math.random() * 90) + 35, posted: '1 week ago', desc: `Deleted TikTok content preserved.`, variant: 'deleted tiktok leaks' },
+        { title: `${displayName} Private Instagram Stories`, company: '📸 StoryLeaks', badge: 'STORIES', badgeType: '', location: 'Remote', fileCount: Math.floor(Math.random() * 60) + 20, posted: '1 week ago', desc: `Ephemeral Instagram stories.`, variant: 'leaked instagram stories' }
+    ];
+    
+    document.getElementById('job-listings').innerHTML = jobs.map(job => 
+        makeJobCard(job.title, job.company, job.badge, job.badgeType, job.location, job.fileCount, job.posted, job.desc, job.variant)
+    ).join('');
+    
+    // CATEGORY FILTERS (sidebar)
+    const categories = [
+        'Video Leaks', 'Photo Leaks', 'OnlyFans Leaks', 'Telegram Leaks', 'Discord Leaks', 'Exclusive Vault', 'Mega Pack'
+    ];
+    document.getElementById('category-filters').innerHTML = categories.map(cat => `
+        <li><a href="/movie/?q=${encodeURIComponent(displayLower + ' leaked ' + cat.toLowerCase())}">${cat}</a></li>
+    `).join('');
+    
+    // SIMILAR JOBS (4 items)
+    const similarJobs = [
+        { name: 'Similar Influencer Leak Pack', variant: 'similar leaked pack', company: '🔥 LeakHub', applicants: '2.3K' },
+        { name: 'Trending Leaks Bundle', variant: 'trending leaks bundle', company: '⚡ ViralLeaks', applicants: '1.8K' },
+        { name: 'Telegram Leak Collection', variant: 'telegram leak collection', company: '💬 TGLeaks', applicants: '1.5K' },
+        { name: 'Exclusive Content Vault', variant: 'exclusive content vault', company: '💎 RareVault', applicants: '1.2K' }
+    ];
+    document.getElementById('similar-jobs').innerHTML = similarJobs.map(job => `
+        <div class="job-card" style="margin-bottom:0.75rem;">
+            <div class="job-header">
+                <div class="job-title"><a href="/movie/?q=${encodeURIComponent(displayLower + ' ' + job.variant)}">${job.name}</a></div>
+                <div class="job-badge">🔥 HOT</div>
+            </div>
+            <div class="job-company">${job.company} · Remote</div>
+            <div class="job-meta"><span>💰 Salary: FREE</span><span>👥 ${job.applicants} applied</span></div>
+            <a href="/movie/?q=${encodeURIComponent(displayLower + ' ' + job.variant)}" class="apply-btn">📄 APPLY NOW</a>
+        </div>
+    `).join('');
+    
+    // footer
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    document.getElementById('footer').innerHTML = `LeakJobs · ${openPositions} open positions · ${applicants.toLocaleString()} applicants this month · Updated ${dateStr}`;
+    
+    // canonical
+    const canonical = document.getElementById('dynamic-canonical');
+    if (canonical) {
+        canonical.setAttribute('href', window.location.href.split('?')[0]);
+    }
+})();
+</script>
+
+{% include footer.html %}
+</body>
+</html>
