@@ -3,6 +3,7 @@ url: ""
 baseurl: "/"
 permalink: /:title/
 
+
 plugins:
   - jekyll-sitemap
 
