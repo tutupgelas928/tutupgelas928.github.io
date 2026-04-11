@@ -1,21 +1,22 @@
 export async function onRequestGet(context) {
-  const host = context.request.headers.get("host") || "example.com";
+  const host = context.request.headers.get("host");
 
-  let sitemapList = "";
-  for (let i = 51; i <= 100; i++) {
-    const num = String(i).padStart(2, "0"); // jadi 01, 02, 03
-    sitemapList += `Sitemap: https://${host}/sitemap/01/sitemap${num}.xml\n`;
-  }
+  const sitemapList = Array.from({ length: 50 }, (_, i) => {
+    const num = String(i + 51).padStart(2, "0");
+    return `Sitemap: https://${host}/sitemap/01/sitemap${num}.xml`;
+  }).join("\n");
 
   const body = `User-agent: *
 Allow: /
 
-${sitemapList}`;
+${sitemapList}
+
+`;
 
   return new Response(body, {
     headers: {
       "Content-Type": "text/plain; charset=UTF-8",
-      "Cache-Control": "no-cache"
+      "Cache-Control": "public, max-age=2592000"
     }
   });
 }
