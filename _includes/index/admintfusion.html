@@ -731,8 +731,32 @@ permalink: /index.html
         
     })();
     </script>
+<br /><br /><br />
+<center><b>Latest Updates</b></center>
 
-{% include /ads/gobloggugel/nanouturfs.html %}</center>
+{% for post in site.posts limit:15 %}
+
+<div class="post-item">
+
+<h2>
+<a href="{{ post.url }}">
+{{ post.title }}
+</a>
+</h2>
+
+<div class="excerpt">
+{{ post.description }}
+</div>
+{% assign before_svg = post.content | split: '<p>' | first %}
+  <div class="excerpt spo">
+    {{ before_svg }}
+  </div>
+  
+</div>
+
+{% endfor %}
+<br />
+{% include /ads/gobloggugel/nanouturfs.html %}
             
 {% include footer.html %}
 </div>
