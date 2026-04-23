@@ -11,273 +11,183 @@ permalink: /edition02/
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta name="referrer" content="always">
-    <title id="dynamic-title">DeepVault · Complete Topic Archive</title>
-    <meta id="dynamic-description" name="description" content="Complete archive and collection. Permanent access. Premium quality content.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/explore/">
+    <title id="dynamic-title">Timeline · Chronological Intelligence Report</title>
+    <meta id="dynamic-description" name="description" content="Complete chronological timeline of digital content emergence across multiple platforms.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/timeline/">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0a0a0f;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#e2e2e6}
+        body{background:#f4f1ea;font-family:'Inter',sans-serif;color:#1a1a1a}
         
-        /* Style Baru: Dark Glassmorphism + Grid Layout */
-        .container{max-width:1200px;margin:0 auto;padding:20px}
+        /* Style Timeline / Chronological Report - Vintage Investigative */
+        .timeline-container{max-width:1000px;margin:0 auto;padding:32px 24px}
         
-        /* Header Neo-Brutalist */
-        .header{background:rgba(15,15,25,0.8);backdrop-filter:blur(10px);border-radius:24px;padding:16px 24px;margin-bottom:24px;border:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-        .logo{font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,#60a5fa,#c084fc);-webkit-background-clip:text;background-clip:text;color:transparent}
-        .search-area{display:flex;gap:12px;align-items:center}
-        .search-badge{background:#1e1e2a;padding:8px 16px;border-radius:40px;font-size:0.8rem;color:#a1a1aa}
-        .explore-btn{background:linear-gradient(135deg,#60a5fa,#c084fc);border:none;padding:8px 20px;border-radius:40px;color:white;font-weight:600;font-size:0.8rem;cursor:pointer}
+        /* Header Investigative */
+        .investigative-header{border-bottom:3px double #1a1a1a;padding-bottom:24px;margin-bottom:32px}
+        .report-type{font-family:'Cormorant Garamond',serif;font-size:0.7rem;letter-spacing:3px;color:#8b4513;text-transform:uppercase;margin-bottom:8px}
+        .report-title{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;letter-spacing:-0.5px;margin-bottom:12px}
+        .report-meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-top:16px;font-size:0.7rem;color:#666}
+        .case-number{font-family:monospace;background:#e8e4dd;padding:4px 12px;border-radius:4px}
+        .classification{color:#8b4513;font-weight:600}
         
-        /* Breadcrumb Modern */
-        .breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:24px;font-size:0.75rem;color:#71717a;flex-wrap:wrap}
-        .breadcrumb a{color:#60a5fa;text-decoration:none}
+        /* Subject Profile Card */
+        .subject-profile{background:#fff;border:1px solid #ddd8ce;padding:28px;margin-bottom:32px;box-shadow:0 2px 8px rgba(0,0,0,0.02)}
+        .profile-grid{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start}
+        .profile-avatar{width:80px;height:80px;background:linear-gradient(135deg,#1a1a1a,#8b4513);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;color:#fff}
+        .profile-details h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;margin-bottom:8px}
+        .profile-details .alias{font-size:0.7rem;color:#8b4513;margin-bottom:16px}
+        .profile-stats{display:flex;gap:24px;flex-wrap:wrap;margin-top:12px}
+        .profile-stat{text-align:center}
+        .profile-stat-value{font-size:1.2rem;font-weight:700;color:#1a1a1a}
+        .profile-stat-label{font-size:0.6rem;text-transform:uppercase;color:#8b4513;letter-spacing:1px}
         
-        /* Hero Section - Dynamic berdasarkan query */
-        .hero-section{background:linear-gradient(135deg,#0f0f1a 0%,#1a1a2e 100%);border-radius:32px;padding:32px;margin-bottom:32px;border:1px solid rgba(96,165,250,0.2)}
-        .hero-topic{font-size:2rem;font-weight:800;margin-bottom:12px;background:linear-gradient(135deg,#fff,#a1a1aa);-webkit-background-clip:text;background-clip:text;color:transparent}
-        .hero-desc{color:#a1a1aa;margin-bottom:20px;font-size:0.9rem;line-height:1.5}
-        .hero-stats{display:flex;gap:24px;flex-wrap:wrap}
-        .stat{background:rgba(255,255,255,0.03);border-radius:20px;padding:12px 20px}
-        .stat-value{font-size:1.3rem;font-weight:700;color:#60a5fa}
-        .stat-label{font-size:0.7rem;color:#71717a}
+        /* Executive Summary */
+        .exec-summary{background:#faf8f4;border-left:4px solid #8b4513;padding:24px;margin-bottom:32px}
+        .summary-label{font-size:0.6rem;text-transform:uppercase;letter-spacing:2px;color:#8b4513;margin-bottom:8px}
+        .summary-text{font-size:0.9rem;line-height:1.6;color:#333}
         
-        /* Filter Bar */
-        .filter-bar{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap}
-        .filter-chip{background:#1e1e2a;padding:8px 18px;border-radius:40px;font-size:0.75rem;cursor:pointer;transition:all 0.2s;border:1px solid transparent}
-        .filter-chip:hover{background:#2a2a3a;border-color:#60a5fa}
-        .filter-active{background:linear-gradient(135deg,#60a5fa20,#c084fc20);border-color:#60a5fa;color:#60a5fa}
+        /* Timeline Navigation */
+        .timeline-nav{display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap;border-bottom:1px solid #ddd8ce;padding-bottom:16px}
+        .nav-period{padding:6px 16px;border-radius:30px;font-size:0.7rem;cursor:pointer;background:#fff;border:1px solid #ddd8ce}
+        .nav-active{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
         
-        /* Main Content Grid - 2 Columns (Card Grid) */
-        .main-grid{display:grid;grid-template-columns:1fr 320px;gap:32px}
+        /* Timeline Container - Vertical Timeline */
+        .timeline{position:relative;padding-left:40px}
+        .timeline::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:2px;background:#ddd8ce}
         
-        /* Card Grid - 2 kolom card */
-        .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+        /* Timeline Item - Panjang seperti investigasi */
+        .timeline-item{position:relative;margin-bottom:48px}
+        .timeline-marker{position:absolute;left:-40px;top:0;width:32px;height:32px;background:#fff;border:2px solid #8b4513;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;z-index:1}
+        .timeline-marker::after{content:'';position:absolute;width:10px;height:10px;background:#8b4513;border-radius:50%}
+        .timeline-date{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1rem;color:#8b4513;margin-bottom:8px}
+        .timeline-card{background:#fff;border:1px solid #e8e4dd;border-radius:12px;padding:24px;transition:all 0.2s;cursor:pointer}
+        .timeline-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.05);border-color:#8b451340}
         
-        /* Card Style Baru: Glass Card dengan efek hover */
-        .topic-card{background:rgba(20,20,30,0.6);backdrop-filter:blur(5px);border-radius:24px;padding:20px;border:1px solid rgba(255,255,255,0.05);transition:all 0.3s ease;cursor:pointer}
-        .topic-card:hover{transform:translateY(-4px);border-color:#60a5fa40;background:rgba(25,25,40,0.8)}
-        .card-badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:0.65rem;font-weight:600;margin-bottom:12px}
-        .badge-archive{background:#60a5fa20;color:#60a5fa}
-        .badge-premium{background:#c084fc20;color:#c084fc}
-        .badge-complete{background:#34d39920;color:#34d399}
-        .badge-master{background:#f472b620;color:#f472b6}
-        .card-title{font-size:1rem;font-weight:700;margin-bottom:8px;line-height:1.3}
-        .card-desc{font-size:0.75rem;color:#a1a1aa;margin-bottom:16px;line-height:1.4}
-        .card-meta{display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;color:#71717a}
-        .card-size{background:#1e1e2a;padding:4px 10px;border-radius:20px}
-        .card-action{color:#60a5fa;font-weight:600;font-size:0.7rem}
+        .event-platform{display:inline-block;padding:4px 12px;border-radius:20px;font-size:0.6rem;font-weight:600;margin-bottom:12px}
+        .platform-tiktok{background:#000;color:#fff}
+        .platform-onlyfans{background:#00aff0;color:#fff}
+        .platform-instagram{background:#d62976;color:#fff}
+        .platform-twitter{background:#1da1f2;color:#fff}
+        .platform-telegram{background:#0088cc;color:#fff}
+        .platform-discord{background:#5865f2;color:#fff}
+        .platform-reddit{background:#ff4500;color:#fff}
         
-        /* Sidebar */
-        .sidebar{display:flex;flex-direction:column;gap:28px}
-        .sidebar-card{background:rgba(20,20,30,0.4);border-radius:24px;padding:20px;border:1px solid rgba(255,255,255,0.05)}
-        .sidebar-title{font-size:0.9rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+        .event-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:12px}
+        .event-description{font-size:0.8rem;line-height:1.6;color:#444;margin-bottom:16px}
         
-        .topic-list{display:flex;flex-direction:column;gap:12px}
-        .topic-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);cursor:pointer}
-        .topic-item:hover .topic-name{color:#60a5fa}
-        .topic-name{font-size:0.8rem;font-weight:500}
-        .topic-count{font-size:0.65rem;color:#71717a}
+        .event-details{background:#faf8f4;padding:16px;margin:16px 0;border-left:3px solid #8b4513}
+        .detail-row{display:flex;margin-bottom:8px;font-size:0.7rem}
+        .detail-label{width:100px;font-weight:600;color:#666}
+        .detail-value{color:#333}
         
-        .suggestion-item{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;cursor:pointer;padding:8px;border-radius:16px;transition:background 0.2s}
-        .suggestion-item:hover{background:rgba(255,255,255,0.03)}
-        .suggestion-info{flex:1}
-        .suggestion-name{font-size:0.8rem;font-weight:600}
-        .suggestion-handle{font-size:0.65rem;color:#71717a}
-        .suggestion-btn{background:transparent;border:1px solid #60a5fa;color:#60a5fa;padding:4px 12px;border-radius:30px;font-size:0.65rem;cursor:pointer}
+        .event-stats{display:flex;gap:20px;margin:16px 0;flex-wrap:wrap}
+        .event-stat{font-size:0.7rem}
+        .event-stat span{font-weight:700;color:#8b4513}
         
-        /* Footer */
-        .footer{text-align:center;padding:32px 20px;margin-top:40px;border-top:1px solid rgba(255,255,255,0.05);font-size:0.7rem;color:#71717a}
+        .event-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+        .event-tag{background:#f0ede8;padding:2px 10px;border-radius:14px;font-size:0.6rem}
         
-        /* Responsive */
-        @media(max-width:900px){.main-grid{grid-template-columns:1fr}.card-grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}.hero-topic{font-size:1.5rem}}
-        @media(max-width:600px){.container{padding:16px}.hero-section{padding:20px}.card-grid{grid-template-columns:1fr}}
+        /* Timeline Footer */
+        .timeline-footer{margin-top:40px;padding-top:24px;border-top:1px solid #ddd8ce;text-align:center;font-size:0.7rem;color:#999}
+        
+        /* Right Sidebar (untuk desktop) */
+        .sidebar-right{display:none}
+        
+        @media(min-width:1200px){
+            .timeline-container{max-width:1300px}
+            .two-col{display:grid;grid-template-columns:1fr 300px;gap:48px}
+            .sidebar-right{display:block}
+            .right-sticky{position:sticky;top:20px}
+        }
+        
+        /* Sidebar Widgets */
+        .sidebar-widget{background:#fff;border:1px solid #ddd8ce;padding:20px;margin-bottom:24px}
+        .widget-title{font-family:'Cormorant Garamond',serif;font-size:0.9rem;font-weight:700;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid #ddd8ce}
+        .platform-list{display:flex;flex-direction:column;gap:12px}
+        .platform-summary{display:flex;justify-content:space-between;align-items:center;font-size:0.7rem}
+        .platform-bar{width:120px;height:4px;background:#e8e4dd;border-radius:2px;overflow:hidden}
+        .platform-fill{height:4px;background:#8b4513;border-radius:2px}
+        
+        .related-item{padding:10px 0;border-bottom:1px solid #f0ede8;cursor:pointer;font-size:0.7rem}
+        .related-item:hover{color:#8b4513}
+        
+        @media(max-width:800px){.timeline-container{padding:20px 16px}.timeline{padding-left:30px}.timeline-marker{left:-30px;width:26px;height:26px}}
+        
+        @media(max-width:500px){.profile-grid{grid-template-columns:1fr;text-align:center}.profile-stats{justify-content:center}}
     </style>
 </head>
 <body>
-<div class="container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#71717a">⚡ Loading Archive...</div></div>
+<div class="timeline-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#999">⚡ Loading Timeline Report...</div></div>
 
 <script>
 (function(){
-    // ========== DATABASE VARIAN (100% UNIK) ==========
+    // ========== DATABASE TIMELINE STYLE (PANJANG & KRONOLOGIS) ==========
     
-    // 60 Action Types
-    const ACTIONS = [
-        "explore","discover","access","view","browse","research","study","analyze","review","examine",
-        "investigate","uncover","reveal","present","showcase","feature","highlight","curate","compile","collect",
-        "archive","preserve","document","record","catalog","index","organize","store","save","backup",
-        "retrieve","extract","obtain","acquire","secure","download","stream","watch","read","listen",
-        "learn","understand","master","comprehend","study","practice","apply","utilize","implement","execute"
+    // Platforms with config
+    const PLATFORMS = ['TikTok','OnlyFans','Instagram','Twitter/X','Telegram','Discord','Reddit','YouTube','Snapchat','Facebook'];
+    const PLATFORM_CONFIG = {
+        'TikTok': { icon: '📱', bg: '#000', class: 'platform-tiktok' },
+        'OnlyFans': { icon: '🔞', bg: '#00aff0', class: 'platform-onlyfans' },
+        'Instagram': { icon: '📸', bg: '#d62976', class: 'platform-instagram' },
+        'Twitter/X': { icon: '🐦', bg: '#1da1f2', class: 'platform-twitter' },
+        'Telegram': { icon: '✈️', bg: '#0088cc', class: 'platform-telegram' },
+        'Discord': { icon: '🎮', bg: '#5865f2', class: 'platform-discord' },
+        'Reddit': { icon: '🤖', bg: '#ff4500', class: 'platform-reddit' },
+        'YouTube': { icon: '▶️', bg: '#ff0000', class: 'platform-youtube' }
+    };
+    
+    // 60 Event Types
+    const EVENT_TYPES = [
+        "initial emergence","first detection","viral spread","mass distribution","archival preservation",
+        "secondary leak","supplemental dump","backup creation","mirror deployment","content restoration",
+        "platform removal","re-upload","cross-platform spread","telegram distribution","discord sharing",
+        "mega upload","google drive share","dropbox link","torrent release","usenet posting"
     ];
     
-    // 60 Content Types
-    const CONTENTS = [
-        "complete archive","master collection","definitive guide","ultimate resource","comprehensive database",
-        "full library","extensive catalog","detailed documentation","complete reference","ultimate compendium",
-        "master directory","full repository","complete set","ultimate collection","definitive archive",
-        "essential resource","core collection","primary source","original material","authentic content",
-        "verified data","official documentation","authoritative source","definitive reference","complete coverage",
-        "full spectrum","entire collection","total archive","absolute compilation","perfect set",
-        "premium selection","elite collection","signature series","legacy archive","heritage collection",
-        "timeless resource","evergreen content","permanent archive","classic collection","traditional set",
-        "modern compilation","contemporary archive","digital library","online resource","web archive"
+    // 50 Content Descriptors
+    const CONTENT_DESCS = [
+        "exclusive behind-the-scenes footage","private conversation screenshots","deleted social media posts","unreleased photo set","archived livestream recording",
+        "personal video compilation","restricted content collection","premium subscriber material","patreon exclusive content","members-only media",
+        "unedited raw footage","high resolution gallery","original source files","master quality assets","complete documentary evidence"
     ];
     
-    // 50 Qualifiers
-    const QUALIFIERS = [
-        "exclusive","premium","authentic","verified","original","complete","full","ultimate","definitive",
-        "essential","comprehensive","extensive","thorough","detailed","meticulous","precise","accurate",
-        "professional","master","expert","advanced","intermediate","beginner","fundamental","basic",
-        "core","primary","secondary","supplemental","additional","extra","bonus","special","limited",
-        "rare","unique","distinct","specialized","focused","targeted","specific","general","broad"
+    // 30 File Details
+    const FILE_DETAILS = [
+        "12 videos (total 4.2 GB)","45 photos (high resolution)","8 video clips (various lengths)","32 images (original quality)","1 archive file (ZIP, 2.3 GB)",
+        "15 video files (MP4, 5.1 GB)","67 screenshots (PNG)","23 video clips (1080p)","89 photos (mixed formats)","3 video sets (complete series)"
     ];
     
-    // 30 Value Descriptors
-    const VALUES = [
-        "permanent access","lifetime archive","always available","evergreen resource","timeless collection",
-        "classic reference","legacy content","heritage material","foundational resource","essential knowledge",
-        "core understanding","mastery guide","expert insight","professional reference","academic source",
-        "scholarly content","research material","study guide","learning resource","educational content",
-        "training material","development resource","growth content","improvement guide","enhancement tool"
+    // 40 Source Names (Source of leak)
+    const SOURCE_NAMES = [
+        "anonymous server","private channel","restricted group","closed community","trusted source",
+        "internal backup","cache recovery","archive retrieval","backup restoration","deleted recovery",
+        "third-party host","mirror service","alternative platform","secondary source","independent archivist"
     ];
     
-    // 30 Trigger Sentences (Evergreen - value oriented)
-    const TRIGGERS = [
-        "🏆 Highest rated collection available",
-        "💎 Premium archive - verified quality",
-        "⭐ Community favorite - top rated",
-        "📀 Complete master archive",
-        "🔒 Professional grade content",
-        "✨ Curated premium selection",
-        "📁 Full unabridged collection",
-        "🔓 Complete access unlocked",
-        "✅ Authentic verified content",
-        "🏅 Award-winning collection",
-        "📀 Crystal clear quality",
-        "💿 Original source verified",
-        "🎯 Premium featured selection",
-        "⭐ Top rated in category",
-        "📀 Professional archive",
-        "🔒 Maximum quality content",
-        "✨ Expert curated selection",
-        "🏆 Editor's choice",
-        "💎 Collector's edition",
-        "📁 Definitive master set"
+    // 40 Impact Descriptions
+    const IMPACT_TEXTS = [
+        "Content quickly spread across multiple platforms","Viewed over {views} times within first 24 hours","Generated significant discussion across social media","Archived permanently by preservation groups",
+        "Platform moderators attempted removal but copies persist","Content mirrored on {count} alternative services","Downloaded over {downloads} times globally","Shared across {platforms} major platforms"
     ];
     
-    // 10 Avatar Colors (gradients)
-    const AVATAR_STYLES = [
-        'linear-gradient(135deg,#60a5fa,#3b82f6)','linear-gradient(135deg,#c084fc,#8b5cf6)',
-        'linear-gradient(135deg,#34d399,#10b981)','linear-gradient(135deg,#f472b6,#ec489a)',
-        'linear-gradient(135deg,#fb923c,#f97316)','linear-gradient(135deg,#facc15,#eab308)',
-        'linear-gradient(135deg,#2dd4bf,#14b8a6)','linear-gradient(135deg,#818cf8,#6366f1)',
-        'linear-gradient(135deg,#f43f5e,#e11d48)','linear-gradient(135deg,#06b6d4,#0891b2)'
-    ];
-    const AVATAR_ICONS = ['📚','🏆','💎','⭐','📀','💿','📁','🔍','🎯','✨','💡','🔬','📖','🎓','🏅','🌟','💫','📌','🔑','🗂️'];
-    
-    // 50 Display Names (Professional)
-    const DISPLAY_NAMES = [
-        "ArchiveMaster","VaultKeeper","CollectionCurator","ResourceHub","KnowledgeBase",
-        "DataVault","InfoArchive","ContentCentral","MediaLibrary","DocumentDepot",
-        "RecordKeeper","FileMaster","StoragePro","DigitalVault","CyberArchive",
-        "NetRepository","WebLibrary","OnlineArchive","CloudVault","DigitalLibrary",
-        "ArchivePro","VaultExpert","CollectionPro","ResourcePro","InfoExpert",
-        "DataExpert","ContentPro","MediaExpert","DocumentPro","RecordExpert",
-        "ArchiveExpert","VaultSpecialist","CollectionMaster","ResourceMaster","KnowledgeMaster"
-    ];
-    
-    // 50 Usernames
-    const USERNAMES = [
-        "archivemaster","vaultkeeper","collectioncurator","resourcehub","knowledgebase",
-        "datavault","infoarchive","contentcentral","medialibrary","documentdepot",
-        "recordkeeper","filemaster","storagepro","digitalvault","cyberarchive",
-        "netrepository","weblibrary","onlinearchive","cloudvault","digitallibrary",
-        "archivepro","vaultexpert","collectionpro","resourcepro","infoexpert",
-        "dataexpert","contentpro","mediaexpert","documentpro","recordexpert",
-        "archiveexpert","vaultspecialist","collectionmaster","resourcemaster","knowledgemaster"
-    ];
-    
-    // 7 Badge Types
-    const BADGES = ['complete','master','premium','archive','essential','definitive','ultimate'];
-    const BADGE_LABEL = { complete:'COMPLETE', master:'MASTER', premium:'PREMIUM', archive:'ARCHIVE', essential:'ESSENTIAL', definitive:'DEFINITIVE', ultimate:'ULTIMATE' };
-    const BADGE_CLASS = { complete:'badge-complete', master:'badge-master', premium:'badge-premium', archive:'badge-archive', essential:'badge-archive', definitive:'badge-premium', ultimate:'badge-master' };
-    
-    // 30 File Sizes
-    const FILE_SIZES = ['245 MB','512 MB','789 MB','1.2 GB','1.8 GB','2.3 GB','3.1 GB','4.5 GB','5.0 GB','6.2 GB','7.5 GB','8.9 GB','10.2 GB','12.5 GB','15.0 GB','45 MB','89 MB','124 MB','256 MB','345 MB','678 MB','892 MB','1.5 GB','2.7 GB','3.9 GB'];
-    
-    // 20 View Ranges (Total accumulative)
-    const VIEW_RANGES = [
-        [15000,50000],[50000,150000],[150000,350000],[350000,700000],[700000,1200000],
-        [1200000,2000000],[2000000,3500000],[3500000,5500000],[5500000,8000000],[8000000,12000000],
-        [12000000,18000000],[18000000,25000000],[25000000,35000000],[35000000,50000000],[50000000,75000000],
-        [75000000,100000000],[100000000,150000000],[150000000,200000000],[200000000,300000000],[300000000,500000000]
-    ];
-    
-    // 15 Time Indicators (Evergreen)
-    const TIME_INDICATORS = [
-        "archived 2020","available 2021","preserved 2019","collected 2022","vaulted 2018",
-        "featured 2020","curated 2021","established 2019","active 2020","live 2021",
-        "published 2020","released 2021","added 2022","stored 2020","recorded 2019"
-    ];
-    
-    // Interaction Ranges
-    const REPLY_RANGES = [[500,1500],[1500,5000],[5000,15000],[15000,35000],[35000,75000],[75000,150000],[150000,300000],[300000,600000]];
-    const RETWEET_RANGES = [[1000,3000],[3000,10000],[10000,30000],[30000,70000],[70000,150000],[150000,350000],[350000,800000],[800000,2000000]];
-    const LIKE_RANGES = [[5000,15000],[15000,50000],[50000,150000],[150000,350000],[350000,750000],[750000,1500000],[1500000,3500000],[3500000,8000000]];
-    
-    // 20 CTA Texts
-    const CTA_TEXTS = [
-        "🔓 ACCESS ARCHIVE","📀 EXPLORE COLLECTION","💎 VIEW VAULT","📁 BROWSE RESOURCES",
-        "✨ DISCOVER CONTENT","🏆 OPEN MASTER","⭐ VIEW SIGNATURE","💿 ACCESS LIBRARY",
-        "🔑 UNLOCK VAULT","📀 BROWSE COLLECTION","💎 EXPLORE PREMIUM","📁 ACCESS ARCHIVE",
-        "✨ VIEW SELECTION","🏆 OPEN VAULT","⭐ BROWSE COLLECTION","💿 ACCESS PREMIUM",
-        "🔑 EXPLORE VAULT","📀 VIEW MASTER","💎 BROWSE ARCHIVE","📁 OPEN COLLECTION"
-    ];
-    
-    // 15 Bio Templates
-    const BIO_TEMPLATES = [
-        (n,f) => `Complete ${n} archive. Professionally curated collection. ${f.toLocaleString()}+ members.`,
-        (n,f) => `Official ${n} resource vault. Permanent access. Join ${f.toLocaleString()}+ collectors.`,
-        (n) => `${n} master archive. Premium quality collection. Updated regularly.`,
-        (n,f) => `#1 source for ${n} content. ${f.toLocaleString()}+ satisfied members.`,
-        (n) => `${n} definitive collection. The most complete archive online.`,
-        (n,f) => `Verified ${n} vault. ${f.toLocaleString()}+ collectors worldwide.`,
-        (n) => `The ultimate ${n} collection. Everything in one place.`,
-        (n,f) => `${n} central hub. ${f.toLocaleString()}+ members and counting.`,
-        (n) => `Premium ${n} archive. Collector's edition quality.`,
-        (n,f) => `Original ${n} vault. Trusted by ${f.toLocaleString()}+ fans.`,
-        (n) => `${n} master collection. Complete verified archive.`,
-        (n,f) => `${n} premium archive. ${f.toLocaleString()}+ collectors agree.`,
-        (n) => `Most comprehensive ${n} collection online. Regularly updated.`,
-        (n,f) => `Join ${f.toLocaleString()}+ others accessing ${n} exclusives.`,
-        (n) => `${n} content central. New additions every week.`
-    ];
-    
-    // 25 Handle Suffixes
-    const HANDLE_SUFFIXES = ['archive','vault','collection','library','hub','central','base','portal','depot','repository','gallery','museum','exhibit','showcase','display','curator','collector','keeper','master','prime','elite','premium','signature','legacy','heritage'];
-    
-    // 30 Topic/Collection Names
-    const TOPIC_NAMES = [
-        (n) => `${n} Master Archive`,(n) => `${n} Ultimate Collection`,(n) => `${n} Premium Vault`,
-        (n) => `${n} Signature Set`,(n) => `${n} Legacy Archive`,(n) => `${n} Collector Edition`,
-        (n) => `${n} Complete Library`,(n) => `${n} Definitive Archive`,(n) => `${n} Original Collection`,
-        (n) => `${n} Authentic Vault`,(n) => `${n} Professional Set`,() => `Premium Collections`,
-        () => `Master Archives`,() => `Vault Classics`,() => `Signature Series`,() => `Collector's Choice`,
-        () => `Editor's Pick`,() => `Curator Selection`,() => `Hall of Fame`,() => `Best of Collection`,
-        () => `Top Rated Vaults`,() => `Featured Archives`,() => `Highlighted Sets`,() => `Essential Picks`
+    // 30 Verification Notes
+    const VERIFICATION_NOTES = [
+        "Metadata analysis confirms authenticity","Timestamp verification matches claimed period","Content hash matches previously known samples","Digital forensics confirms original source",
+        "Multiple independent sources verify legitimacy","Blockchain timestamp recorded","Archive.org snapshot preserved","Wayback Machine capture confirmed"
     ];
     
     // Stop Words
     const STOP_WORDS = [
-        'archive','collection','vault','library','resource','database','compilation','set','bundle','pack',
-        'complete','full','ultimate','definitive','essential','premium','master','explore','discover','access',
-        'view','browse','research','study','analyze','review','examine','investigate','uncover','reveal'
+        'leaked','leak','leaks','archive','collection','dump','vault','content','media','video','photo',
+        'exclusive','private','premium','onlyfans','tiktok','instagram','twitter','telegram','discord',
+        'timeline','report','investigation','chronological'
     ];
     
     // ========== UTILITY ==========
     const rand = (arr) => arr[Math.floor(Math.random() * arr.length)];
     const range = (min,max) => Math.floor(Math.random() * (max - min + 1)) + min;
     
-    // ========== EKSTRAK NAMA/TOPIK ==========
+    // ========== EKSTRAK TOPIK (PUBLIC FIGURE) ==========
     const urlParams = new URLSearchParams(window.location.search);
     let rawQuery = urlParams.get('q');
     if(!rawQuery || rawQuery.trim() === ""){ window.location.href = "/"; return; }
@@ -289,88 +199,157 @@ permalink: /edition02/
     if(baseTopic.length < 2) baseTopic = rawQuery;
     
     const formatTopic = (s) => s.split(' ').map(w => w[0].toUpperCase() + w.slice(1).toLowerCase()).join(' ');
-    const displayTopic = formatTopic(baseTopic);
-    const topicLower = displayTopic.toLowerCase();
+    const displayName = formatTopic(baseTopic);
+    const nameLower = displayName.toLowerCase();
     
     // ========== GENERATE LINK ==========
     const genLink = () => {
-        let a = rand(ACTIONS), c = rand(CONTENTS), q = rand(QUALIFIERS), v = rand(VALUES);
-        let newQ = `${topicLower} ${a} ${c} ${q}`;
-        if(Math.random() > 0.3) newQ += ` ${v}`;
-        return { url:`/explore/?q=${encodeURIComponent(newQ)}`, title:`${a[0].toUpperCase()+a.slice(1)} ${c}`, qual:q, action:a, content:c };
+        let platform = rand(PLATFORMS);
+        let eventType = rand(EVENT_TYPES);
+        let newQ = `${nameLower} ${eventType} ${platform}`;
+        return { 
+            url:`/timeline/?q=${encodeURIComponent(newQ)}`, 
+            platform: platform,
+            eventType: eventType
+        };
     };
     
-    // ========== GENERATE METRIK ==========
-    const genMetrics = () => ({
-        views: range(...rand(VIEW_RANGES)), replies: range(...rand(REPLY_RANGES)),
-        retweets: range(...rand(RETWEET_RANGES)), likes: range(...rand(LIKE_RANGES)),
-        time: rand(TIME_INDICATORS), fileSize: rand(FILE_SIZES), fileCount: range(15,350)
-    });
-    
-    // ========== RENDER CARD (STYLE BARU) ==========
-    const renderCard = (link, idx) => {
-        let m = genMetrics(), trigger = rand(TRIGGERS), avatarStyle = rand(AVATAR_STYLES), avatarIcon = rand(AVATAR_ICONS);
-        let dn = rand(DISPLAY_NAMES), un = rand(USERNAMES), badge = rand(BADGES), cta = rand(CTA_TEXTS);
+    // ========== GENERATE TIMELINE EVENT (PANJANG) ==========
+    const generateTimelineEvent = (index, link) => {
+        let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        let currentYear = 2025;
+        let yearOffset = Math.floor(index / 4);
+        let monthIndex = (index * 2) % 12;
+        let day = range(1,28);
+        let year = currentYear - yearOffset;
+        let dateStr = `${months[monthIndex]} ${day}, ${year}`;
+        
+        let platform = link.platform;
+        let eventType = link.eventType;
+        let platformConfig = PLATFORM_CONFIG[platform] || { icon: '📁', bg: '#666', class: '' };
+        let contentDesc = rand(CONTENT_DESCS);
+        let fileDetail = rand(FILE_DETAILS);
+        let sourceName = rand(SOURCE_NAMES);
+        let views = range(15000, 8500000);
+        let downloads = range(500, 245000);
+        let platformsCount = range(3, 12);
+        let impactText = rand(IMPACT_TEXTS)
+            .replace('{views}', views.toLocaleString())
+            .replace('{count}', range(2,15).toString())
+            .replace('{downloads}', downloads.toLocaleString())
+            .replace('{platforms}', platformsCount.toString());
+        let verificationNote = rand(VERIFICATION_NOTES);
+        
         let fmt = (n) => n.toLocaleString();
         
         return `
-            <div class="topic-card" data-url="${link.url}">
-                <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-                    <div style="width:36px;height:36px;border-radius:50%;background:${avatarStyle};display:flex;align-items:center;justify-content:center;font-size:0.9rem">${avatarIcon}</div>
-                    <div><div style="font-size:0.75rem;font-weight:600">${dn}</div><div style="font-size:0.65rem;color:#71717a">@${un}</div></div>
-                </div>
-                <div class="card-badge ${BADGE_CLASS[badge]}">${BADGE_LABEL[badge]}</div>
-                <div class="card-title">${trigger}</div>
-                <div class="card-desc">${displayTopic} ${link.title} ${link.qual} collection. ${m.fileCount} files · ${m.fileSize}</div>
-                <div class="card-meta">
-                    <span class="card-size">📊 ${fmt(m.views)} views</span>
-                    <span class="card-action">${cta} →</span>
+            <div class="timeline-item" data-url="${link.url}">
+                <div class="timeline-marker"></div>
+                <div class="timeline-date">${dateStr}</div>
+                <div class="timeline-card">
+                    <div class="event-platform ${platformConfig.class}">${platformConfig.icon} ${platform}</div>
+                    <div class="event-title">${eventType.charAt(0).toUpperCase() + eventType.slice(1)}: ${contentDesc.substring(0, 60)}...</div>
+                    <div class="event-description">
+                        On ${dateStr}, intelligence systems detected the ${eventType} of ${displayName}'s ${contentDesc.toLowerCase()} on ${platform}. 
+                        The content consists of ${fileDetail}. Initial source traced to ${sourceName}.
+                    </div>
+                    
+                    <div class="event-details">
+                        <div class="detail-row"><span class="detail-label">Content Type:</span><span class="detail-value">${contentDesc}</span></div>
+                        <div class="detail-row"><span class="detail-label">File Details:</span><span class="detail-value">${fileDetail}</span></div>
+                        <div class="detail-row"><span class="detail-label">Source:</span><span class="detail-value">${sourceName}</span></div>
+                        <div class="detail-row"><span class="detail-label">Verification:</span><span class="detail-value">${verificationNote}</span></div>
+                    </div>
+                    
+                    <div class="event-stats">
+                        <div class="event-stat">📊 <span>${fmt(views)}</span> estimated views</div>
+                        <div class="event-stat">📥 <span>${fmt(downloads)}</span> estimated downloads</div>
+                        <div class="event-stat">🌐 <span>${platformsCount}</span> platforms affected</div>
+                    </div>
+                    
+                    <div class="event-description" style="margin-top:8px;font-size:0.75rem;color:#666">
+                        ${impactText}
+                    </div>
+                    
+                    <div class="event-tags">
+                        <span class="event-tag">${platform}</span>
+                        <span class="event-tag">${eventType.replace(/ /g,'')}</span>
+                        <span class="event-tag">${contentDesc.split(' ')[0]}</span>
+                        <span class="event-tag">#${nameLower.replace(/ /g,'')}</span>
+                        <span class="event-tag">${verificationNote.split(' ')[0]} verified</span>
+                    </div>
                 </div>
             </div>
         `;
     };
     
-    // ========== RENDER RELATED TOPICS ==========
-    const renderRelatedTopics = (links) => {
-        let items = [];
-        for(let i=0;i<8;i++){
-            let link = links[i] || genLink();
-            let topicName = rand(TOPIC_NAMES)(displayTopic);
-            let count = range(8,95);
-            items.push(`
-                <div class="topic-item" data-url="${link.url}">
-                    <div class="topic-name">${topicName}</div>
-                    <div class="topic-count">${count}K</div>
+    // ========== GENERATE PLATFORM SUMMARY FOR SIDEBAR ==========
+    const generatePlatformSummary = () => {
+        let platforms = PLATFORMS.slice(0,8);
+        let totalItems = range(450, 2850);
+        let platformStats = {};
+        platforms.forEach(p => {
+            platformStats[p] = range(25, 380);
+        });
+        let maxStat = Math.max(...Object.values(platformStats));
+        
+        return platforms.map(p => {
+            let count = platformStats[p];
+            let percentage = (count / maxStat) * 100;
+            return `
+                <div class="platform-summary">
+                    <span>${PLATFORM_CONFIG[p]?.icon || '📁'} ${p}</span>
+                    <span style="font-weight:600">${count}</span>
+                    <div class="platform-bar"><div class="platform-fill" style="width:${percentage}%"></div></div>
+                </div>
+            `;
+        }).join('');
+    };
+    
+    // ========== GENERATE RELATED TIMELINES ==========
+    const generateRelatedTimelines = () => {
+        let related = [];
+        let topics = ['Similar Cases', 'Comparative Analysis', 'Preservation Status', 'Legal Context', 'Media Coverage'];
+        for(let i=0;i<5;i++){
+            let link = genLink();
+            related.push(`
+                <div class="related-item" data-url="${link.url}">
+                    ${topics[i]} ›
                 </div>
             `);
         }
-        return items.join('');
+        return related.join('');
     };
     
-    // ========== RENDER RECOMMENDED ==========
-    const renderRecommended = () => {
-        let items = [];
-        for(let i=0;i=0.3 ? range(1,99) : '')}
-        }
-        return trendHtml;
+    // ========== GENERATE SUMMARY STATS ==========
+    const generateSummaryStats = () => {
+        let totalEvents = range(18, 45);
+        let totalPlatforms = range(6, 14);
+        let totalSize = range(45, 380);
+        let firstDetected = 2022 + range(-2, 1);
+        
+        return `
+            <div class="widget-title">📊 SUMMARY STATISTICS</div>
+            <div style="margin-bottom:12px"><span style="color:#8b4513;font-weight:700">${totalEvents}</span> recorded events</div>
+            <div style="margin-bottom:12px"><span style="color:#8b4513;font-weight:700">${totalPlatforms}</span> platforms involved</div>
+            <div style="margin-bottom:12px"><span style="color:#8b4513;font-weight:700">${totalSize}.${range(0,9)} GB</span> total content</div>
+            <div style="margin-bottom:12px"><span style="color:#8b4513;font-weight:700">${firstDetected}</span> first detected</div>
+            <div>Status: <span style="color:#8b4513;font-weight:600">ACTIVE MONITORING</span></div>
+        `;
     };
     
-    // ========== RENDER TRENDING BAR ==========
-    const renderTrendingBar = (links) => links.slice(0,10).map(l => `<span class="trending-item" data-url="${l.url}">🏆 ${l.title.split(' ').slice(0,3).join(' ')}</span>`).join('');
-    
-    // ========== SEO DINAMIS ==========
+    // ========== UPDATE SEO ==========
     const updateSEO = () => {
         let titles = [
-            `${displayTopic} · Complete Archive Collection | DeepVault`,
-            `${displayTopic} · Premium Vault & Master Collection | DeepVault`,
-            `${displayTopic} · Ultimate Resource & Definitive Guide | DeepVault`,
-            `${displayTopic} · Complete Reference & Essential Library | DeepVault`
+            `${displayName} · Complete Chronological Timeline | Intelligence Report`,
+            `${displayName} · Digital Content Emergence Timeline | Leak Investigation`,
+            `${displayName} · Platform-by-Platform Content Timeline | Full Report`,
+            `${displayName} · Chronological Intelligence Report | Digital Forensics`
         ];
         let descs = [
-            `Complete ${displayTopic} archive collection. Premium quality, permanent access. Curated professional collection.`,
-            `Access the definitive ${displayTopic} vault. Full collection, master quality, verified archive.`,
-            `${displayTopic} ultimate resource online. Complete archive, premium content, authoritative source.`,
-            `The most comprehensive ${displayTopic} collection. Professionally curated, permanent access.`
+            `Complete chronological timeline of ${displayName} digital content emergence across ${range(6,12)} platforms. ${range(20,50)} recorded events. Full investigation report.`,
+            `${displayName} content timeline from first detection to present. Detailed platform analysis and preservation status. Updated continuously.`,
+            `Chronological report of ${displayName} digital footprint. Track content emergence across TikTok, OnlyFans, Instagram, Twitter, Telegram and more.`
         ];
         document.title = rand(titles);
         let md = document.getElementById('dynamic-description'); if(md) md.setAttribute('content', rand(descs));
@@ -379,73 +358,105 @@ permalink: /edition02/
     
     // ========== RENDER PAGE ==========
     const renderPage = () => {
-        let links = Array.from({length:18}, ()=>genLink());
-        let stats = { items: range(80,750), followers: range(200,1800) };
-        let bio = rand(BIO_TEMPLATES)(displayTopic, stats.followers);
-        let handle = `${topicLower.replace(/\s/g,'')}${rand(['_','.',''])}${rand(HANDLE_SUFFIXES)}`;
-        let filterChips = ['All','Archive','Collection','Resources','Premium','Latest'];
+        let links = [];
+        for(let i=0;i<14;i++){
+            links.push(genLink());
+        }
+        
+        let totalEvents = range(24, 52);
+        let totalSize = range(48, 420);
+        let totalPlatforms = range(6, 11);
+        let firstYear = 2019 + range(-2, 3);
         let currentYear = new Date().getFullYear();
+        let caseNumber = `DF-${currentYear}-${range(1000,9999)}`;
         
         document.getElementById('app').innerHTML = `
-            <div class="header">
-                <div class="logo">Deep<span style="background:linear-gradient(135deg,#60a5fa,#c084fc);-webkit-background-clip:text;background-clip:text;color:transparent">Vault</span></div>
-                <div class="search-area">
-                    <div class="search-badge">🔍 ${displayTopic}</div>
-                    <div class="explore-btn">Explore</div>
-                </div>
-            </div>
-            
-            <div class="breadcrumb">
-                <a href="/">Home</a> <span>›</span> <a href="/explore/">Explore</a> <span>›</span> <span style="color:#60a5fa">${displayTopic}</span>
-            </div>
-            
-            <div class="hero-section">
-                <div class="hero-topic">${displayTopic}</div>
-                <div class="hero-desc">${bio}</div>
-                <div class="hero-stats">
-                    <div class="stat"><div class="stat-value">${stats.items.toLocaleString()}+</div><div class="stat-label">Archive Items</div></div>
-                    <div class="stat"><div class="stat-value">${stats.followers.toLocaleString()}</div><div class="stat-label">Collectors</div></div>
-                    <div class="stat"><div class="stat-value">24/7</div><div class="stat-label">Access</div></div>
-                </div>
-            </div>
-            
-            <div class="filter-bar">
-                ${filterChips.map((f,i) => `<div class="filter-chip ${i===0?'filter-active':''}">${f}</div>`).join('')}
-            </div>
-            
-            <div class="main-grid">
+            <div class="two-col">
                 <div>
-                    <div class="card-grid" id="cardGrid">
-                        ${links.map((l,i)=>renderCard(l,i)).join('')}
+                    <div class="investigative-header">
+                        <div class="report-type">DIGITAL FORENSICS · INTELLIGENCE REPORT</div>
+                        <div class="report-title">${displayName}</div>
+                        <div class="report-meta">
+                            <span class="case-number">Case No: ${caseNumber}</span>
+                            <span class="classification">CLASSIFICATION: ${rand(['CONFIDENTIAL','RESTRICTED','UNCLASSIFIED','FOR REVIEW'])}</span>
+                            <span>Report Date: ${new Date().toLocaleDateString()}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="subject-profile">
+                        <div class="profile-grid">
+                            <div class="profile-avatar">👤</div>
+                            <div class="profile-details">
+                                <h2>${displayName}</h2>
+                                <div class="alias">Also known as: @${nameLower.replace(/ /g,'')}_${rand(['official','real','source','original'])}</div>
+                                <div class="profile-stats">
+                                    <div class="profile-stat"><div class="profile-stat-value">${totalEvents}</div><div class="profile-stat-label">RECORDED EVENTS</div></div>
+                                    <div class="profile-stat"><div class="profile-stat-value">${totalPlatforms}</div><div class="profile-stat-label">PLATFORMS</div></div>
+                                    <div class="profile-stat"><div class="profile-stat-value">${totalSize}.${range(0,9)} GB</div><div class="profile-stat-label">TOTAL SIZE</div></div>
+                                    <div class="profile-stat"><div class="profile-stat-value">${firstYear}</div><div class="profile-stat-label">FIRST DETECTED</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="exec-summary">
+                        <div class="summary-label">EXECUTIVE SUMMARY</div>
+                        <div class="summary-text">
+                            This chronological intelligence report documents the complete digital content emergence timeline for ${displayName} across ${totalPlatforms} platforms. 
+                            Beginning in ${firstYear}, a total of ${totalEvents} discrete events have been recorded, totaling approximately ${totalSize}.${range(0,9)} GB of content. 
+                            Primary distribution channels include ${rand(['Telegram','Discord','private servers'])} with significant amplification across ${rand(['Twitter/X','Reddit','Instagram'])}. 
+                            Content preservation efforts have resulted in ${range(8,25)} permanent archival copies. Platform moderation has been ${rand(['inconsistent','reactive','delayed','proactive'])} resulting in continued availability of ${range(45,85)}% of total material. 
+                            This report will be updated as new information emerges.
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-nav">
+                        <span class="nav-period nav-active">Full Timeline</span>
+                        <span class="nav-period">${firstYear}-${firstYear+2}</span>
+                        <span class="nav-period">${firstYear+2}-${firstYear+4}</span>
+                        <span class="nav-period">${firstYear+4}-Present</span>
+                        <span class="nav-period">Critical Events</span>
+                    </div>
+                    
+                    <div class="timeline" id="timelineContainer">
+                        ${links.map((link, idx) => generateTimelineEvent(idx, link)).join('')}
+                        ${generateTimelineEvent(14, genLink())}
+                        ${generateTimelineEvent(15, genLink())}
+                    </div>
+                    
+                    <div class="timeline-footer">
+                        <p>Timeline last updated: ${new Date().toLocaleString()} · Data retrieved from ${range(12,35)} active sources</p>
+                        <p style="margin-top:8px">⚠️ This is an automated intelligence report. New events are added continuously as they are detected.</p>
                     </div>
                 </div>
                 
-                <div class="sidebar">
-                    <div class="sidebar-card">
-                        <div class="sidebar-title">📚 Related Collections</div>
-                        <div class="topic-list" id="relatedList">
-                            ${renderRelatedTopics(links)}
+                <div class="sidebar-right">
+                    <div class="right-sticky">
+                        <div class="sidebar-widget">
+                            ${generateSummaryStats()}
                         </div>
-                    </div>
-                    
-                    <div class="sidebar-card">
-                        <div class="sidebar-title">👥 Top Contributors</div>
-                        <div class="topic-list">
-                            ${renderRecommended()}
+                        
+                        <div class="sidebar-widget">
+                            <div class="widget-title">📱 PLATFORM BREAKDOWN</div>
+                            <div class="platform-list">
+                                ${generatePlatformSummary()}
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="sidebar-card">
-                        <div class="sidebar-title">📊 Archive Stats</div>
-                        <div style="display:flex;justify-content:space-between;margin-bottom:12px"><span>Total Items</span><span style="color:#60a5fa">${stats.items.toLocaleString()}</span></div>
-                        <div style="display:flex;justify-content:space-between;margin-bottom:12px"><span>Total Size</span><span style="color:#60a5fa">${range(45,250)} GB</span></div>
-                        <div style="display:flex;justify-content:space-between"><span>Last Update</span><span style="color:#60a5fa">Weekly</span></div>
+                        
+                        <div class="sidebar-widget">
+                            <div class="widget-title">🔗 RELATED INVESTIGATIONS</div>
+                            ${generateRelatedTimelines()}
+                        </div>
+                        
+                        <div class="sidebar-widget">
+                            <div class="widget-title">📋 REPORT INFORMATION</div>
+                            <div style="font-size:0.65rem;color:#666;margin-bottom:8px">Report ID: ${caseNumber}</div>
+                            <div style="font-size:0.65rem;color:#666;margin-bottom:8px">Analyst: ${rand(['DF-INTEL','TIMELINE-AI','AUTO-GENERATED'])}</div>
+                            <div style="font-size:0.65rem;color:#666;margin-bottom:8px">Data Sources: ${range(15,45)} active feeds</div>
+                            <div style="font-size:0.65rem;color:#666">Classification: ${rand(['FOR OFFICIAL USE','RESTRICTED','PUBLIC RELEASE'])}</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="footer">
-                DeepVault · ${stats.followers.toLocaleString()} collectors · Permanent Archive · ${currentYear} · Topic: ${displayTopic}
             </div>
         `;
         
@@ -453,8 +464,8 @@ permalink: /edition02/
         document.querySelectorAll('[data-url]').forEach(el => {
             el.addEventListener('click', (e) => { e.stopPropagation(); window.location.href = el.getAttribute('data-url'); });
         });
-        document.querySelectorAll('.topic-card').forEach(card => {
-            card.addEventListener('click', () => window.location.href = card.getAttribute('data-url'));
+        document.querySelectorAll('.timeline-card, .related-item, .nav-period').forEach(card => {
+            card.addEventListener('click', () => { if(card.getAttribute('data-url')) window.location.href = card.getAttribute('data-url'); });
         });
     };
     
