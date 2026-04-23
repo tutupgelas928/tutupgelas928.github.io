@@ -1,0 +1,466 @@
+---
+layout: null
+permalink: /edition02/
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="referrer" content="always">
+    <title id="dynamic-title">DeepVault · Complete Topic Archive</title>
+    <meta id="dynamic-description" name="description" content="Complete archive and collection. Permanent access. Premium quality content.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/explore/">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0a0a0f;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#e2e2e6}
+        
+        /* Style Baru: Dark Glassmorphism + Grid Layout */
+        .container{max-width:1200px;margin:0 auto;padding:20px}
+        
+        /* Header Neo-Brutalist */
+        .header{background:rgba(15,15,25,0.8);backdrop-filter:blur(10px);border-radius:24px;padding:16px 24px;margin-bottom:24px;border:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+        .logo{font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,#60a5fa,#c084fc);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .search-area{display:flex;gap:12px;align-items:center}
+        .search-badge{background:#1e1e2a;padding:8px 16px;border-radius:40px;font-size:0.8rem;color:#a1a1aa}
+        .explore-btn{background:linear-gradient(135deg,#60a5fa,#c084fc);border:none;padding:8px 20px;border-radius:40px;color:white;font-weight:600;font-size:0.8rem;cursor:pointer}
+        
+        /* Breadcrumb Modern */
+        .breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:24px;font-size:0.75rem;color:#71717a;flex-wrap:wrap}
+        .breadcrumb a{color:#60a5fa;text-decoration:none}
+        
+        /* Hero Section - Dynamic berdasarkan query */
+        .hero-section{background:linear-gradient(135deg,#0f0f1a 0%,#1a1a2e 100%);border-radius:32px;padding:32px;margin-bottom:32px;border:1px solid rgba(96,165,250,0.2)}
+        .hero-topic{font-size:2rem;font-weight:800;margin-bottom:12px;background:linear-gradient(135deg,#fff,#a1a1aa);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .hero-desc{color:#a1a1aa;margin-bottom:20px;font-size:0.9rem;line-height:1.5}
+        .hero-stats{display:flex;gap:24px;flex-wrap:wrap}
+        .stat{background:rgba(255,255,255,0.03);border-radius:20px;padding:12px 20px}
+        .stat-value{font-size:1.3rem;font-weight:700;color:#60a5fa}
+        .stat-label{font-size:0.7rem;color:#71717a}
+        
+        /* Filter Bar */
+        .filter-bar{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+        .filter-chip{background:#1e1e2a;padding:8px 18px;border-radius:40px;font-size:0.75rem;cursor:pointer;transition:all 0.2s;border:1px solid transparent}
+        .filter-chip:hover{background:#2a2a3a;border-color:#60a5fa}
+        .filter-active{background:linear-gradient(135deg,#60a5fa20,#c084fc20);border-color:#60a5fa;color:#60a5fa}
+        
+        /* Main Content Grid - 2 Columns (Card Grid) */
+        .main-grid{display:grid;grid-template-columns:1fr 320px;gap:32px}
+        
+        /* Card Grid - 2 kolom card */
+        .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+        
+        /* Card Style Baru: Glass Card dengan efek hover */
+        .topic-card{background:rgba(20,20,30,0.6);backdrop-filter:blur(5px);border-radius:24px;padding:20px;border:1px solid rgba(255,255,255,0.05);transition:all 0.3s ease;cursor:pointer}
+        .topic-card:hover{transform:translateY(-4px);border-color:#60a5fa40;background:rgba(25,25,40,0.8)}
+        .card-badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:0.65rem;font-weight:600;margin-bottom:12px}
+        .badge-archive{background:#60a5fa20;color:#60a5fa}
+        .badge-premium{background:#c084fc20;color:#c084fc}
+        .badge-complete{background:#34d39920;color:#34d399}
+        .badge-master{background:#f472b620;color:#f472b6}
+        .card-title{font-size:1rem;font-weight:700;margin-bottom:8px;line-height:1.3}
+        .card-desc{font-size:0.75rem;color:#a1a1aa;margin-bottom:16px;line-height:1.4}
+        .card-meta{display:flex;justify-content:space-between;align-items:center;font-size:0.7rem;color:#71717a}
+        .card-size{background:#1e1e2a;padding:4px 10px;border-radius:20px}
+        .card-action{color:#60a5fa;font-weight:600;font-size:0.7rem}
+        
+        /* Sidebar */
+        .sidebar{display:flex;flex-direction:column;gap:28px}
+        .sidebar-card{background:rgba(20,20,30,0.4);border-radius:24px;padding:20px;border:1px solid rgba(255,255,255,0.05)}
+        .sidebar-title{font-size:0.9rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+        
+        .topic-list{display:flex;flex-direction:column;gap:12px}
+        .topic-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);cursor:pointer}
+        .topic-item:hover .topic-name{color:#60a5fa}
+        .topic-name{font-size:0.8rem;font-weight:500}
+        .topic-count{font-size:0.65rem;color:#71717a}
+        
+        .suggestion-item{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;cursor:pointer;padding:8px;border-radius:16px;transition:background 0.2s}
+        .suggestion-item:hover{background:rgba(255,255,255,0.03)}
+        .suggestion-info{flex:1}
+        .suggestion-name{font-size:0.8rem;font-weight:600}
+        .suggestion-handle{font-size:0.65rem;color:#71717a}
+        .suggestion-btn{background:transparent;border:1px solid #60a5fa;color:#60a5fa;padding:4px 12px;border-radius:30px;font-size:0.65rem;cursor:pointer}
+        
+        /* Footer */
+        .footer{text-align:center;padding:32px 20px;margin-top:40px;border-top:1px solid rgba(255,255,255,0.05);font-size:0.7rem;color:#71717a}
+        
+        /* Responsive */
+        @media(max-width:900px){.main-grid{grid-template-columns:1fr}.card-grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}.hero-topic{font-size:1.5rem}}
+        @media(max-width:600px){.container{padding:16px}.hero-section{padding:20px}.card-grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+<div class="container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#71717a">⚡ Loading Archive...</div></div>
+
+<script>
+(function(){
+    // ========== DATABASE VARIAN (100% UNIK) ==========
+    
+    // 60 Action Types
+    const ACTIONS = [
+        "explore","discover","access","view","browse","research","study","analyze","review","examine",
+        "investigate","uncover","reveal","present","showcase","feature","highlight","curate","compile","collect",
+        "archive","preserve","document","record","catalog","index","organize","store","save","backup",
+        "retrieve","extract","obtain","acquire","secure","download","stream","watch","read","listen",
+        "learn","understand","master","comprehend","study","practice","apply","utilize","implement","execute"
+    ];
+    
+    // 60 Content Types
+    const CONTENTS = [
+        "complete archive","master collection","definitive guide","ultimate resource","comprehensive database",
+        "full library","extensive catalog","detailed documentation","complete reference","ultimate compendium",
+        "master directory","full repository","complete set","ultimate collection","definitive archive",
+        "essential resource","core collection","primary source","original material","authentic content",
+        "verified data","official documentation","authoritative source","definitive reference","complete coverage",
+        "full spectrum","entire collection","total archive","absolute compilation","perfect set",
+        "premium selection","elite collection","signature series","legacy archive","heritage collection",
+        "timeless resource","evergreen content","permanent archive","classic collection","traditional set",
+        "modern compilation","contemporary archive","digital library","online resource","web archive"
+    ];
+    
+    // 50 Qualifiers
+    const QUALIFIERS = [
+        "exclusive","premium","authentic","verified","original","complete","full","ultimate","definitive",
+        "essential","comprehensive","extensive","thorough","detailed","meticulous","precise","accurate",
+        "professional","master","expert","advanced","intermediate","beginner","fundamental","basic",
+        "core","primary","secondary","supplemental","additional","extra","bonus","special","limited",
+        "rare","unique","distinct","specialized","focused","targeted","specific","general","broad"
+    ];
+    
+    // 30 Value Descriptors
+    const VALUES = [
+        "permanent access","lifetime archive","always available","evergreen resource","timeless collection",
+        "classic reference","legacy content","heritage material","foundational resource","essential knowledge",
+        "core understanding","mastery guide","expert insight","professional reference","academic source",
+        "scholarly content","research material","study guide","learning resource","educational content",
+        "training material","development resource","growth content","improvement guide","enhancement tool"
+    ];
+    
+    // 30 Trigger Sentences (Evergreen - value oriented)
+    const TRIGGERS = [
+        "🏆 Highest rated collection available",
+        "💎 Premium archive - verified quality",
+        "⭐ Community favorite - top rated",
+        "📀 Complete master archive",
+        "🔒 Professional grade content",
+        "✨ Curated premium selection",
+        "📁 Full unabridged collection",
+        "🔓 Complete access unlocked",
+        "✅ Authentic verified content",
+        "🏅 Award-winning collection",
+        "📀 Crystal clear quality",
+        "💿 Original source verified",
+        "🎯 Premium featured selection",
+        "⭐ Top rated in category",
+        "📀 Professional archive",
+        "🔒 Maximum quality content",
+        "✨ Expert curated selection",
+        "🏆 Editor's choice",
+        "💎 Collector's edition",
+        "📁 Definitive master set"
+    ];
+    
+    // 10 Avatar Colors (gradients)
+    const AVATAR_STYLES = [
+        'linear-gradient(135deg,#60a5fa,#3b82f6)','linear-gradient(135deg,#c084fc,#8b5cf6)',
+        'linear-gradient(135deg,#34d399,#10b981)','linear-gradient(135deg,#f472b6,#ec489a)',
+        'linear-gradient(135deg,#fb923c,#f97316)','linear-gradient(135deg,#facc15,#eab308)',
+        'linear-gradient(135deg,#2dd4bf,#14b8a6)','linear-gradient(135deg,#818cf8,#6366f1)',
+        'linear-gradient(135deg,#f43f5e,#e11d48)','linear-gradient(135deg,#06b6d4,#0891b2)'
+    ];
+    const AVATAR_ICONS = ['📚','🏆','💎','⭐','📀','💿','📁','🔍','🎯','✨','💡','🔬','📖','🎓','🏅','🌟','💫','📌','🔑','🗂️'];
+    
+    // 50 Display Names (Professional)
+    const DISPLAY_NAMES = [
+        "ArchiveMaster","VaultKeeper","CollectionCurator","ResourceHub","KnowledgeBase",
+        "DataVault","InfoArchive","ContentCentral","MediaLibrary","DocumentDepot",
+        "RecordKeeper","FileMaster","StoragePro","DigitalVault","CyberArchive",
+        "NetRepository","WebLibrary","OnlineArchive","CloudVault","DigitalLibrary",
+        "ArchivePro","VaultExpert","CollectionPro","ResourcePro","InfoExpert",
+        "DataExpert","ContentPro","MediaExpert","DocumentPro","RecordExpert",
+        "ArchiveExpert","VaultSpecialist","CollectionMaster","ResourceMaster","KnowledgeMaster"
+    ];
+    
+    // 50 Usernames
+    const USERNAMES = [
+        "archivemaster","vaultkeeper","collectioncurator","resourcehub","knowledgebase",
+        "datavault","infoarchive","contentcentral","medialibrary","documentdepot",
+        "recordkeeper","filemaster","storagepro","digitalvault","cyberarchive",
+        "netrepository","weblibrary","onlinearchive","cloudvault","digitallibrary",
+        "archivepro","vaultexpert","collectionpro","resourcepro","infoexpert",
+        "dataexpert","contentpro","mediaexpert","documentpro","recordexpert",
+        "archiveexpert","vaultspecialist","collectionmaster","resourcemaster","knowledgemaster"
+    ];
+    
+    // 7 Badge Types
+    const BADGES = ['complete','master','premium','archive','essential','definitive','ultimate'];
+    const BADGE_LABEL = { complete:'COMPLETE', master:'MASTER', premium:'PREMIUM', archive:'ARCHIVE', essential:'ESSENTIAL', definitive:'DEFINITIVE', ultimate:'ULTIMATE' };
+    const BADGE_CLASS = { complete:'badge-complete', master:'badge-master', premium:'badge-premium', archive:'badge-archive', essential:'badge-archive', definitive:'badge-premium', ultimate:'badge-master' };
+    
+    // 30 File Sizes
+    const FILE_SIZES = ['245 MB','512 MB','789 MB','1.2 GB','1.8 GB','2.3 GB','3.1 GB','4.5 GB','5.0 GB','6.2 GB','7.5 GB','8.9 GB','10.2 GB','12.5 GB','15.0 GB','45 MB','89 MB','124 MB','256 MB','345 MB','678 MB','892 MB','1.5 GB','2.7 GB','3.9 GB'];
+    
+    // 20 View Ranges (Total accumulative)
+    const VIEW_RANGES = [
+        [15000,50000],[50000,150000],[150000,350000],[350000,700000],[700000,1200000],
+        [1200000,2000000],[2000000,3500000],[3500000,5500000],[5500000,8000000],[8000000,12000000],
+        [12000000,18000000],[18000000,25000000],[25000000,35000000],[35000000,50000000],[50000000,75000000],
+        [75000000,100000000],[100000000,150000000],[150000000,200000000],[200000000,300000000],[300000000,500000000]
+    ];
+    
+    // 15 Time Indicators (Evergreen)
+    const TIME_INDICATORS = [
+        "archived 2020","available 2021","preserved 2019","collected 2022","vaulted 2018",
+        "featured 2020","curated 2021","established 2019","active 2020","live 2021",
+        "published 2020","released 2021","added 2022","stored 2020","recorded 2019"
+    ];
+    
+    // Interaction Ranges
+    const REPLY_RANGES = [[500,1500],[1500,5000],[5000,15000],[15000,35000],[35000,75000],[75000,150000],[150000,300000],[300000,600000]];
+    const RETWEET_RANGES = [[1000,3000],[3000,10000],[10000,30000],[30000,70000],[70000,150000],[150000,350000],[350000,800000],[800000,2000000]];
+    const LIKE_RANGES = [[5000,15000],[15000,50000],[50000,150000],[150000,350000],[350000,750000],[750000,1500000],[1500000,3500000],[3500000,8000000]];
+    
+    // 20 CTA Texts
+    const CTA_TEXTS = [
+        "🔓 ACCESS ARCHIVE","📀 EXPLORE COLLECTION","💎 VIEW VAULT","📁 BROWSE RESOURCES",
+        "✨ DISCOVER CONTENT","🏆 OPEN MASTER","⭐ VIEW SIGNATURE","💿 ACCESS LIBRARY",
+        "🔑 UNLOCK VAULT","📀 BROWSE COLLECTION","💎 EXPLORE PREMIUM","📁 ACCESS ARCHIVE",
+        "✨ VIEW SELECTION","🏆 OPEN VAULT","⭐ BROWSE COLLECTION","💿 ACCESS PREMIUM",
+        "🔑 EXPLORE VAULT","📀 VIEW MASTER","💎 BROWSE ARCHIVE","📁 OPEN COLLECTION"
+    ];
+    
+    // 15 Bio Templates
+    const BIO_TEMPLATES = [
+        (n,f) => `Complete ${n} archive. Professionally curated collection. ${f.toLocaleString()}+ members.`,
+        (n,f) => `Official ${n} resource vault. Permanent access. Join ${f.toLocaleString()}+ collectors.`,
+        (n) => `${n} master archive. Premium quality collection. Updated regularly.`,
+        (n,f) => `#1 source for ${n} content. ${f.toLocaleString()}+ satisfied members.`,
+        (n) => `${n} definitive collection. The most complete archive online.`,
+        (n,f) => `Verified ${n} vault. ${f.toLocaleString()}+ collectors worldwide.`,
+        (n) => `The ultimate ${n} collection. Everything in one place.`,
+        (n,f) => `${n} central hub. ${f.toLocaleString()}+ members and counting.`,
+        (n) => `Premium ${n} archive. Collector's edition quality.`,
+        (n,f) => `Original ${n} vault. Trusted by ${f.toLocaleString()}+ fans.`,
+        (n) => `${n} master collection. Complete verified archive.`,
+        (n,f) => `${n} premium archive. ${f.toLocaleString()}+ collectors agree.`,
+        (n) => `Most comprehensive ${n} collection online. Regularly updated.`,
+        (n,f) => `Join ${f.toLocaleString()}+ others accessing ${n} exclusives.`,
+        (n) => `${n} content central. New additions every week.`
+    ];
+    
+    // 25 Handle Suffixes
+    const HANDLE_SUFFIXES = ['archive','vault','collection','library','hub','central','base','portal','depot','repository','gallery','museum','exhibit','showcase','display','curator','collector','keeper','master','prime','elite','premium','signature','legacy','heritage'];
+    
+    // 30 Topic/Collection Names
+    const TOPIC_NAMES = [
+        (n) => `${n} Master Archive`,(n) => `${n} Ultimate Collection`,(n) => `${n} Premium Vault`,
+        (n) => `${n} Signature Set`,(n) => `${n} Legacy Archive`,(n) => `${n} Collector Edition`,
+        (n) => `${n} Complete Library`,(n) => `${n} Definitive Archive`,(n) => `${n} Original Collection`,
+        (n) => `${n} Authentic Vault`,(n) => `${n} Professional Set`,() => `Premium Collections`,
+        () => `Master Archives`,() => `Vault Classics`,() => `Signature Series`,() => `Collector's Choice`,
+        () => `Editor's Pick`,() => `Curator Selection`,() => `Hall of Fame`,() => `Best of Collection`,
+        () => `Top Rated Vaults`,() => `Featured Archives`,() => `Highlighted Sets`,() => `Essential Picks`
+    ];
+    
+    // Stop Words
+    const STOP_WORDS = [
+        'archive','collection','vault','library','resource','database','compilation','set','bundle','pack',
+        'complete','full','ultimate','definitive','essential','premium','master','explore','discover','access',
+        'view','browse','research','study','analyze','review','examine','investigate','uncover','reveal'
+    ];
+    
+    // ========== UTILITY ==========
+    const rand = (arr) => arr[Math.floor(Math.random() * arr.length)];
+    const range = (min,max) => Math.floor(Math.random() * (max - min + 1)) + min;
+    
+    // ========== EKSTRAK NAMA/TOPIK ==========
+    const urlParams = new URLSearchParams(window.location.search);
+    let rawQuery = urlParams.get('q');
+    if(!rawQuery || rawQuery.trim() === ""){ window.location.href = "/"; return; }
+    rawQuery = decodeURIComponent(rawQuery.replace(/\+/g,' '));
+    
+    let baseTopic = rawQuery.toLowerCase();
+    STOP_WORDS.forEach(w => { baseTopic = baseTopic.replace(new RegExp('\\b'+w+'\\b','gi'),''); });
+    baseTopic = baseTopic.replace(/\s+/g,' ').trim();
+    if(baseTopic.length < 2) baseTopic = rawQuery;
+    
+    const formatTopic = (s) => s.split(' ').map(w => w[0].toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    const displayTopic = formatTopic(baseTopic);
+    const topicLower = displayTopic.toLowerCase();
+    
+    // ========== GENERATE LINK ==========
+    const genLink = () => {
+        let a = rand(ACTIONS), c = rand(CONTENTS), q = rand(QUALIFIERS), v = rand(VALUES);
+        let newQ = `${topicLower} ${a} ${c} ${q}`;
+        if(Math.random() > 0.3) newQ += ` ${v}`;
+        return { url:`/explore/?q=${encodeURIComponent(newQ)}`, title:`${a[0].toUpperCase()+a.slice(1)} ${c}`, qual:q, action:a, content:c };
+    };
+    
+    // ========== GENERATE METRIK ==========
+    const genMetrics = () => ({
+        views: range(...rand(VIEW_RANGES)), replies: range(...rand(REPLY_RANGES)),
+        retweets: range(...rand(RETWEET_RANGES)), likes: range(...rand(LIKE_RANGES)),
+        time: rand(TIME_INDICATORS), fileSize: rand(FILE_SIZES), fileCount: range(15,350)
+    });
+    
+    // ========== RENDER CARD (STYLE BARU) ==========
+    const renderCard = (link, idx) => {
+        let m = genMetrics(), trigger = rand(TRIGGERS), avatarStyle = rand(AVATAR_STYLES), avatarIcon = rand(AVATAR_ICONS);
+        let dn = rand(DISPLAY_NAMES), un = rand(USERNAMES), badge = rand(BADGES), cta = rand(CTA_TEXTS);
+        let fmt = (n) => n.toLocaleString();
+        
+        return `
+            <div class="topic-card" data-url="${link.url}">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+                    <div style="width:36px;height:36px;border-radius:50%;background:${avatarStyle};display:flex;align-items:center;justify-content:center;font-size:0.9rem">${avatarIcon}</div>
+                    <div><div style="font-size:0.75rem;font-weight:600">${dn}</div><div style="font-size:0.65rem;color:#71717a">@${un}</div></div>
+                </div>
+                <div class="card-badge ${BADGE_CLASS[badge]}">${BADGE_LABEL[badge]}</div>
+                <div class="card-title">${trigger}</div>
+                <div class="card-desc">${displayTopic} ${link.title} ${link.qual} collection. ${m.fileCount} files · ${m.fileSize}</div>
+                <div class="card-meta">
+                    <span class="card-size">📊 ${fmt(m.views)} views</span>
+                    <span class="card-action">${cta} →</span>
+                </div>
+            </div>
+        `;
+    };
+    
+    // ========== RENDER RELATED TOPICS ==========
+    const renderRelatedTopics = (links) => {
+        let items = [];
+        for(let i=0;i<8;i++){
+            let link = links[i] || genLink();
+            let topicName = rand(TOPIC_NAMES)(displayTopic);
+            let count = range(8,95);
+            items.push(`
+                <div class="topic-item" data-url="${link.url}">
+                    <div class="topic-name">${topicName}</div>
+                    <div class="topic-count">${count}K</div>
+                </div>
+            `);
+        }
+        return items.join('');
+    };
+    
+    // ========== RENDER RECOMMENDED ==========
+    const renderRecommended = () => {
+        let items = [];
+        for(let i=0;i=0.3 ? range(1,99) : '')}
+        }
+        return trendHtml;
+    };
+    
+    // ========== RENDER TRENDING BAR ==========
+    const renderTrendingBar = (links) => links.slice(0,10).map(l => `<span class="trending-item" data-url="${l.url}">🏆 ${l.title.split(' ').slice(0,3).join(' ')}</span>`).join('');
+    
+    // ========== SEO DINAMIS ==========
+    const updateSEO = () => {
+        let titles = [
+            `${displayTopic} · Complete Archive Collection | DeepVault`,
+            `${displayTopic} · Premium Vault & Master Collection | DeepVault`,
+            `${displayTopic} · Ultimate Resource & Definitive Guide | DeepVault`,
+            `${displayTopic} · Complete Reference & Essential Library | DeepVault`
+        ];
+        let descs = [
+            `Complete ${displayTopic} archive collection. Premium quality, permanent access. Curated professional collection.`,
+            `Access the definitive ${displayTopic} vault. Full collection, master quality, verified archive.`,
+            `${displayTopic} ultimate resource online. Complete archive, premium content, authoritative source.`,
+            `The most comprehensive ${displayTopic} collection. Professionally curated, permanent access.`
+        ];
+        document.title = rand(titles);
+        let md = document.getElementById('dynamic-description'); if(md) md.setAttribute('content', rand(descs));
+        let can = document.getElementById('dynamic-canonical'); if(can) can.setAttribute('href', window.location.href.split('?')[0]);
+    };
+    
+    // ========== RENDER PAGE ==========
+    const renderPage = () => {
+        let links = Array.from({length:18}, ()=>genLink());
+        let stats = { items: range(80,750), followers: range(200,1800) };
+        let bio = rand(BIO_TEMPLATES)(displayTopic, stats.followers);
+        let handle = `${topicLower.replace(/\s/g,'')}${rand(['_','.',''])}${rand(HANDLE_SUFFIXES)}`;
+        let filterChips = ['All','Archive','Collection','Resources','Premium','Latest'];
+        let currentYear = new Date().getFullYear();
+        
+        document.getElementById('app').innerHTML = `
+            <div class="header">
+                <div class="logo">Deep<span style="background:linear-gradient(135deg,#60a5fa,#c084fc);-webkit-background-clip:text;background-clip:text;color:transparent">Vault</span></div>
+                <div class="search-area">
+                    <div class="search-badge">🔍 ${displayTopic}</div>
+                    <div class="explore-btn">Explore</div>
+                </div>
+            </div>
+            
+            <div class="breadcrumb">
+                <a href="/">Home</a> <span>›</span> <a href="/explore/">Explore</a> <span>›</span> <span style="color:#60a5fa">${displayTopic}</span>
+            </div>
+            
+            <div class="hero-section">
+                <div class="hero-topic">${displayTopic}</div>
+                <div class="hero-desc">${bio}</div>
+                <div class="hero-stats">
+                    <div class="stat"><div class="stat-value">${stats.items.toLocaleString()}+</div><div class="stat-label">Archive Items</div></div>
+                    <div class="stat"><div class="stat-value">${stats.followers.toLocaleString()}</div><div class="stat-label">Collectors</div></div>
+                    <div class="stat"><div class="stat-value">24/7</div><div class="stat-label">Access</div></div>
+                </div>
+            </div>
+            
+            <div class="filter-bar">
+                ${filterChips.map((f,i) => `<div class="filter-chip ${i===0?'filter-active':''}">${f}</div>`).join('')}
+            </div>
+            
+            <div class="main-grid">
+                <div>
+                    <div class="card-grid" id="cardGrid">
+                        ${links.map((l,i)=>renderCard(l,i)).join('')}
+                    </div>
+                </div>
+                
+                <div class="sidebar">
+                    <div class="sidebar-card">
+                        <div class="sidebar-title">📚 Related Collections</div>
+                        <div class="topic-list" id="relatedList">
+                            ${renderRelatedTopics(links)}
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <div class="sidebar-title">👥 Top Contributors</div>
+                        <div class="topic-list">
+                            ${renderRecommended()}
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <div class="sidebar-title">📊 Archive Stats</div>
+                        <div style="display:flex;justify-content:space-between;margin-bottom:12px"><span>Total Items</span><span style="color:#60a5fa">${stats.items.toLocaleString()}</span></div>
+                        <div style="display:flex;justify-content:space-between;margin-bottom:12px"><span>Total Size</span><span style="color:#60a5fa">${range(45,250)} GB</span></div>
+                        <div style="display:flex;justify-content:space-between"><span>Last Update</span><span style="color:#60a5fa">Weekly</span></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer">
+                DeepVault · ${stats.followers.toLocaleString()} collectors · Permanent Archive · ${currentYear} · Topic: ${displayTopic}
+            </div>
+        `;
+        
+        // Attach event listeners
+        document.querySelectorAll('[data-url]').forEach(el => {
+            el.addEventListener('click', (e) => { e.stopPropagation(); window.location.href = el.getAttribute('data-url'); });
+        });
+        document.querySelectorAll('.topic-card').forEach(card => {
+            card.addEventListener('click', () => window.location.href = card.getAttribute('data-url'));
+        });
+    };
+    
+    updateSEO();
+    renderPage();
+})();
+</script>
+</body>
+</html>
