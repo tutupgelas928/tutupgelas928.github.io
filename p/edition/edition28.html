@@ -1,0 +1,354 @@
+---
+layout: null
+permalink: /edition28/
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    <meta name="yandex" content="index, follow">
+    <meta name="theme-color" content="#0a0a2e">
+    <title id="dynamic-title">LEAK ARCADE · Gamified Content Discovery</title>
+    <meta id="dynamic-description" name="description" content="Gamified leak discovery arcade. Find and access leaked content. Click to unlock treasures.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/discover/">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:linear-gradient(135deg,#0a0f1a,#0a0a2e);min-height:100vh;font-family:'Space Grotesk',sans-serif;color:#fff}
+        
+        /* Animated Background Scanlines */
+        body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:repeating-linear-gradient(0deg,rgba(0,255,255,0.03) 0px,rgba(0,255,255,0.03) 2px,transparent 2px,transparent 8px);pointer-events:none;z-index:0}
+        
+        .arcade-container{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:16px}
+        
+        /* Pixel Header */
+        .pixel-header{background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);border-radius:20px;padding:16px 20px;margin-bottom:20px;border:2px solid rgba(0,255,255,0.3);animation:borderPulse 2s infinite}
+        @keyframes borderPulse{0%,100%{border-color:rgba(0,255,255,0.3);box-shadow:0 0 0px rgba(0,255,255,0)}50%{border-color:#0ff;box-shadow:0 0 12px rgba(0,255,255,0.3)}}
+        .header-flex{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+        .logo{display:flex;align-items:center;gap:8px}
+        .logo-icon{font-size:24px;animation:shake 2s infinite}
+        @keyframes shake{0%,100%{transform:rotate(0deg)}25%{transform:rotate(10deg)}75%{transform:rotate(-10deg)}}
+        .logo-text{font-family:'Press Start 2P',monospace;font-size:0.7rem;color:#0ff;text-shadow:0 0 5px #0ff}
+        .score-badge{background:#ff0040;padding:6px 12px;border-radius:30px;font-size:0.6rem;font-weight:700;animation:pulseScore 1s infinite}
+        @keyframes pulseScore{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+        
+        /* Hero Arcade */
+        .hero-arcade{background:rgba(0,0,0,0.5);border-radius:24px;padding:32px 24px;margin-bottom:24px;text-align:center;border:1px solid rgba(0,255,255,0.2);animation:glowPulse 3s infinite}
+        @keyframes glowPulse{0%,100%{box-shadow:0 0 10px rgba(0,255,255,0.1)}50%{box-shadow:0 0 25px rgba(0,255,255,0.2)}}
+        .hero-badge{display:inline-block;background:#ff0040;padding:6px 16px;border-radius:30px;font-family:'Press Start 2P',monospace;font-size:0.55rem;margin-bottom:16px;animation:bounce 1s ease-in-out infinite}
+        @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+        .hero-title{font-family:'Press Start 2P',monospace;font-size:1.2rem;margin-bottom:12px;line-height:1.4}
+        .hero-title span{color:#0ff;text-shadow:0 0 8px #0ff}
+        .hero-desc{font-size:0.7rem;color:#aaa;margin-bottom:20px}
+        .hero-coins{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+        .coin{display:flex;align-items:center;gap:8px;background:rgba(0,0,0,0.5);padding:8px 16px;border-radius:40px;border:1px solid #ffcc00}
+        .coin-value{font-family:'Press Start 2P',monospace;font-size:0.8rem;color:#ffcc00}
+        
+        /* Progress Bar */
+        .leak-progress{background:rgba(0,0,0,0.5);border-radius:20px;padding:16px;margin-bottom:24px}
+        .progress-label{display:flex;justify-content:space-between;font-size:0.6rem;margin-bottom:8px}
+        .progress-bar-bg{background:#1a1a2e;border-radius:30px;height:12px;overflow:hidden}
+        .progress-fill{height:12px;background:linear-gradient(90deg,#0ff,#f0f);border-radius:30px;width:0%;animation:fillProgress 1.5s ease-out forwards}
+        @keyframes fillProgress{0%{width:0%}100%{width:var(--width)}}
+        
+        /* Leak Cards Grid - Like Game Items */
+        .leak-grid{display:flex;flex-direction:column;gap:16px;margin-bottom:32px}
+        .leak-card{background:linear-gradient(135deg,rgba(0,20,40,0.8),rgba(10,10,30,0.9));border-radius:20px;padding:20px;cursor:pointer;transition:all 0.3s cubic-bezier(0.175,0.885,0.32,1.275);border:1px solid rgba(0,255,255,0.15);position:relative;overflow:hidden;animation:cardSlide 0.5s ease-out both}
+        @keyframes cardSlide{0%{opacity:0;transform:translateX(-30px)}100%{opacity:1;transform:translateX(0)}}
+        .leak-card:active{transform:scale(0.98)}
+        .leak-card::after{content:'👆 TAP TO UNLOCK 👆';position:absolute;bottom:-30px;left:0;width:100%;text-align:center;font-size:0.55rem;color:#0ff;transition:bottom 0.3s;font-weight:700}
+        .leak-card:hover::after{bottom:12px}
+        .card-glow{position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,255,255,0.1),transparent);transition:left 0.5s}
+        .leak-card:hover .card-glow{left:100%}
+        .card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+        .card-level{font-family:'Press Start 2P',monospace;font-size:0.5rem;padding:4px 10px;border-radius:20px}
+        .level-legendary{background:#ff0040;animation:pulseRed 0.8s infinite}
+        .level-epic{background:#ff6600}
+        .level-rare{background:#0ff;color:#000}
+        @keyframes pulseRed{0%,100%{box-shadow:0 0 0px #ff0040}50%{box-shadow:0 0 12px #ff0040}}
+        .card-icon{font-size:28px;animation:iconWiggle 3s ease-in-out infinite}
+        @keyframes iconWiggle{0%,100%{transform:rotate(0deg)}25%{transform:rotate(8deg)}75%{transform:rotate(-8deg)}}
+        .card-title{font-size:0.85rem;font-weight:700;margin-bottom:8px;padding-right:40px}
+        .card-title span{color:#0ff}
+        .card-desc{font-size:0.65rem;color:#aaa;margin-bottom:12px;line-height:1.4}
+        .card-rewards{display:flex;gap:12px;margin-top:8px}
+        .reward{background:rgba(255,204,0,0.15);padding:4px 10px;border-radius:20px;font-size:0.55rem;display:flex;align-items:center;gap:4px}
+        .click-arrow{text-align:right;margin-top:8px;font-size:0.55rem;color:#0ff;animation:arrowBounce 1s infinite}
+        @keyframes arrowBounce{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+        
+        /* Treasure Feed */
+        .treasure-feed{background:rgba(0,0,0,0.5);border-radius:20px;padding:20px;margin-bottom:24px;border:1px solid rgba(255,204,0,0.3)}
+        .feed-title{font-family:'Press Start 2P',monospace;font-size:0.6rem;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+        .feed-title::before{content:'⚡';animation:blinkFast 0.8s infinite}
+        @keyframes blinkFast{0%,100%{opacity:1}50%{opacity:0}}
+        .feed-list{display:flex;flex-direction:column;gap:10px}
+        .feed-item{display:flex;align-items:center;gap:12px;padding:12px;background:rgba(0,0,0,0.3);border-radius:16px;cursor:pointer;transition:all 0.2s;animation:feedReveal 0.4s ease-out both}
+        @keyframes feedReveal{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+        .feed-item:active{transform:scale(0.97)}
+        .feed-icon{font-size:20px}
+        .feed-text{flex:1;font-size:0.65rem}
+        .feed-badge{background:#ffcc00;color:#000;padding:2px 8px;border-radius:12px;font-size:0.5rem;font-weight:700}
+        
+        /* Chest / Reward Cards */
+        .chest-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px}
+        .chest-card{background:linear-gradient(135deg,#1a1a2e,#0f0f23);border-radius:16px;padding:16px;text-align:center;cursor:pointer;transition:all 0.2s;border:1px solid rgba(255,204,0,0.2);animation:chestPop 0.4s ease-out both}
+        .chest-card:nth-child(1){animation-delay:0.05s}
+        .chest-card:nth-child(2){animation-delay:0.1s}
+        .chest-card:nth-child(3){animation-delay:0.15s}
+        .chest-card:nth-child(4){animation-delay:0.2s}
+        @keyframes chestPop{0%{opacity:0;transform:scale(0.8)}100%{opacity:1;transform:scale(1)}}
+        .chest-card:active{transform:scale(0.95)}
+        .chest-icon{font-size:32px;margin-bottom:8px;animation:chestShake 3s infinite}
+        @keyframes chestShake{0%,100%{transform:rotate(0deg)}5%{transform:rotate(5deg)}10%{transform:rotate(-5deg)}15%{transform:rotate(0deg)}}
+        .chest-title{font-size:0.7rem;font-weight:600}
+        .chest-items{font-size:0.55rem;color:#ffcc00}
+        
+        /* Footer */
+        .arcade-footer{margin-top:24px;padding:16px;text-align:center;font-size:0.55rem;color:#666;border-top:1px solid rgba(255,255,255,0.05)}
+        
+        @media(min-width:600px){.arcade-container{max-width:550px}.chest-grid{grid-template-columns:repeat(2,1fr)}}
+        @media(max-width:450px){.hero-title{font-size:0.9rem}.card-title{font-size:0.75rem}.leak-card{padding:16px}}
+    </style>
+</head>
+<body>
+<div class="arcade-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#0ff;font-family:'Press Start 2P',monospace;font-size:0.7rem">>_ LOADING ARCADE...</div></div>
+
+<script>
+(function(){
+    // ========== DATABASE GAMIFIED LEAK ARCADE ==========
+    
+    const LEAK_CARDS = [
+        { level: "LEGENDARY", icon: "🏆", title: "{name} COMPLETE LEAK — ALL CONTENT UNLOCKED", desc: "The ultimate treasure! Complete {name} archive. Everything in one place. {count}+ files. Rarest content available.", files: 0, size: 0 },
+        { level: "LEGENDARY", icon: "💎", title: "{name} ONLYFANS LEAK — FULL VAULT", desc: "{name} OnlyFans complete subscription dump. {count} videos, {photos} photos. Premium unlocked.", files: 0, size: 0 },
+        { level: "EPIC", icon: "🔥", title: "{name} TIKTOK LEAK — VIRAL PACK", desc: "{name} TikTok private content. {count} trending videos. Going viral. Limited time access.", files: 0, size: 0 },
+        { level: "EPIC", icon: "✈️", title: "{name} TELEGRAM LEAK — CHANNEL ACCESS", desc: "Secret {name} Telegram channel. {count} members already inside. Daily new content.", files: 0, size: 0 },
+        { level: "RARE", icon: "📸", title: "{name} INSTAGRAM LEAK — PRIVATE STORY", desc: "{name} Instagram private story leak. {count} unseen photos and videos.", files: 0, size: 0 },
+        { level: "EPIC", icon: "🗂️", title: "{name} MEGA ARCHIVE LEAK — COMPLETE DUMP", desc: "{name} Mega backup leak. {size} GB total. {count} files organized.", files: 0, size: 0 }
+    ];
+    
+    const TREASURES = [
+        { icon: "🔥", text: "{name} Leak went VIRAL — {count}K views", badge: "HOT" },
+        { icon: "💎", text: "New {name} OnlyFans content detected — +{count} files", badge: "NEW" },
+        { icon: "⚡", text: "{name} Telegram channel reached {count} members", badge: "TRENDING" },
+        { icon: "📱", text: "{name} TikTok leak trending #{rank} worldwide", badge: "VIRAL" },
+        { icon: "🔓", text: "{name} Mega archive unlocked — {size} GB", badge: "UNLOCKED" },
+        { icon: "⭐", text: "{name} Complete collection updated — {count} new items", badge: "UPDATE" }
+    ];
+    
+    const CHESTS = [
+        { icon: "🎁", title: "RARE CHEST", items: "25-50 files" },
+        { icon: "💎", title: "EPIC CHEST", items: "50-150 files" },
+        { icon: "🏆", title: "LEGENDARY CHEST", items: "150-500 files" },
+        { icon: "🔑", title: "VAULT KEY", items: "Unlock all" }
+    ];
+    
+    const STOP_WORDS = ['arcade','game','discover','chest','treasure','leak','unlock','access'];
+    
+    // ========== UTILITY ==========
+    const rand = (arr) => arr[Math.floor(Math.random() * arr.length)];
+    const range = (min,max) => Math.floor(Math.random() * (max - min + 1)) + min;
+    const formatNumber = (n) => n.toLocaleString();
+    
+    // ========== EKSTRAK TOPIK ==========
+    const urlParams = new URLSearchParams(window.location.search);
+    let rawQuery = urlParams.get('q');
+    if(!rawQuery || rawQuery.trim() === ""){ rawQuery = "exclusive celebrity leak"; }
+    rawQuery = decodeURIComponent(rawQuery.replace(/\+/g,' '));
+    
+    let baseTopic = rawQuery.toLowerCase();
+    STOP_WORDS.forEach(w => { baseTopic = baseTopic.replace(new RegExp('\\b'+w+'\\b','gi'),''); });
+    baseTopic = baseTopic.replace(/\s+/g,' ').trim();
+    if(baseTopic.length < 2) baseTopic = rawQuery;
+    
+    const formatTopic = (s) => s.split(' ').map(w => w[0].toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    const displayName = formatTopic(baseTopic);
+    const nameLower = displayName.toLowerCase();
+    
+    // ========== GENERATE LINK ==========
+    const genLink = (title) => {
+        let newQ = `${nameLower} ${title.toLowerCase().substring(0, 50)} leak unlocked`;
+        return { url:`/discover/?q=${encodeURIComponent(newQ)}` };
+    };
+    
+    // ========== GENERATE LEAK CARDS ==========
+    const generateLeakCards = () => {
+        return LEAK_CARDS.map((card, idx) => {
+            let count = range(45, 1850);
+            let photos = range(20, 450);
+            let size = `${range(25, 850)} GB`;
+            let title = card.title.replace('{name}', displayName);
+            let desc = card.desc
+                .replace('{name}', displayName)
+                .replace('{count}', formatNumber(count))
+                .replace('{photos}', formatNumber(photos))
+                .replace('{size}', size);
+            let levelClass = card.level === 'LEGENDARY' ? 'level-legendary' : (card.level === 'EPIC' ? 'level-epic' : 'level-rare');
+            let levelIcon = card.level === 'LEGENDARY' ? '🏆' : (card.level === 'EPIC' ? '⚡' : '⭐');
+            let rewardCount = card.level === 'LEGENDARY' ? range(150, 500) : (card.level === 'EPIC' ? range(50, 150) : range(15, 50));
+            
+            return `
+                <div class="leak-card" data-url="${genLink(card.title).url}" style="animation-delay:${0.05 + idx*0.05}s">
+                    <div class="card-glow"></div>
+                    <div class="card-header">
+                        <div class="card-level ${levelClass}">${levelIcon} ${card.level} LEAK</div>
+                        <div class="card-icon">${card.icon}</div>
+                    </div>
+                    <div class="card-title"><span>⚠️</span> ${title}</div>
+                    <div class="card-desc">${desc.substring(0, 100)}...</div>
+                    <div class="card-rewards">
+                        <div class="reward">📁 ${formatNumber(count)} files</div>
+                        <div class="reward">💾 ${size}</div>
+                        <div class="reward">🎁 +${rewardCount} rewards</div>
+                    </div>
+                    <div class="click-arrow">👆 TAP TO CLAIM →</div>
+                </div>
+            `;
+        }).join('');
+    };
+    
+    // ========== GENERATE TREASURE FEED ==========
+    const generateTreasureFeed = () => {
+        let items = [];
+        for(let i=0;i<6;i++){
+            let treasure = rand(TREASURES);
+            let text = treasure.text
+                .replace('{name}', displayName)
+                .replace('{count}', formatNumber(range(12, 285)))
+                .replace('{rank}', range(1, 20))
+                .replace('{size}', `${range(15, 450)}GB`);
+            items.push(`
+                <div class="feed-item" data-url="${genLink(treasure.text).url}" style="animation-delay:${0.03 + i*0.02}s">
+                    <div class="feed-icon">${treasure.icon}</div>
+                    <div class="feed-text">${text}</div>
+                    <div class="feed-badge">${treasure.badge}</div>
+                </div>
+            `);
+        }
+        return items.join('');
+    };
+    
+    // ========== GENERATE CHEST GRID ==========
+    const generateChestGrid = () => {
+        return CHESTS.map((chest, idx) => {
+            return `
+                <div class="chest-card" data-url="${genLink(chest.title).url}" style="animation-delay:${0.05 + idx*0.03}s">
+                    <div class="chest-icon">${chest.icon}</div>
+                    <div class="chest-title">${chest.title}</div>
+                    <div class="chest-items">${chest.items}</div>
+                </div>
+            `;
+        }).join('');
+    };
+    
+    // ========== RENDER HERO ==========
+    const renderHero = () => {
+        let totalTreasures = formatNumber(range(185, 1850));
+        let activePlayers = formatNumber(range(125, 850));
+        
+        return `
+            <div class="hero-arcade">
+                <div class="hero-badge">🎮 NEW TREASURE DROPPED! 🎮</div>
+                <div class="hero-title"><span>${displayName}</span><br>LEAK ARCADE</div>
+                <div class="hero-desc">Tap any card to unlock leaked treasures! ${totalTreasures}+ items discovered. ${activePlayers} players online.</div>
+                <div class="hero-coins">
+                    <div class="coin"><span>🪙</span><span class="coin-value">${range(125, 850)}</span></div>
+                    <div class="coin"><span>💎</span><span class="coin-value">${range(25, 120)}</span></div>
+                    <div class="coin"><span>🎁</span><span class="coin-value">${range(5, 45)}</span></div>
+                </div>
+            </div>
+        `;
+    };
+    
+    // ========== RENDER PROGRESS ==========
+    const renderProgress = () => {
+        let percent = range(45, 78);
+        return `
+            <div class="leak-progress">
+                <div class="progress-label"><span>🔥 LEAK COMPLETION</span><span>${percent}%</span></div>
+                <div class="progress-bar-bg"><div class="progress-fill" style="--width:${percent}%;width:${percent}%"></div></div>
+                <div style="font-size:0.55rem;color:#aaa;margin-top:8px;text-align:center">🎯 ${range(125, 850)} more taps to unlock MASTER VAULT</div>
+            </div>
+        `;
+    };
+    
+    // ========== UPDATE SEO ==========
+    const updateSEO = () => {
+        let titles = [
+            `${displayName} Leak Arcade — Unlock Hidden Treasures | Tap to Discover`,
+            `${displayName} Leak Game — Click to Unlock Complete Archive`,
+            `${displayName} Leak Treasure Hunt — ${range(125, 1850)}+ Items`,
+            `🎮 ${displayName} Leak Arcade — Claim Your Rewards Now`
+        ];
+        let descs = [
+            `Play ${displayName} leak arcade! Tap to unlock ${range(185, 1850)}+ leaked treasures. Complete archives, exclusive content. Click now!`,
+            `${displayName} leak discovery game. Find and unlock hidden content. ${range(45, 850)} items waiting. Tap to play!`,
+            `🎮 Gamified ${displayName} leak collection. Tap cards to unlock rewards. ${range(125, 850)} players online.`
+        ];
+        document.title = rand(titles);
+        let md = document.getElementById('dynamic-description'); if(md) md.setAttribute('content', rand(descs));
+        let can = document.getElementById('dynamic-canonical'); if(can) can.setAttribute('href', window.location.href.split('?')[0]);
+    };
+    
+    // ========== RENDER PAGE ==========
+    const renderPage = () => {
+        document.getElementById('app').innerHTML = `
+            <div class="pixel-header">
+                <div class="header-flex">
+                    <div class="logo">
+                        <div class="logo-icon">🎮</div>
+                        <div class="logo-text">LEAK<span style="color:#0ff">ARCADE</span></div>
+                    </div>
+                    <div class="score-badge">🏆 SCORE: ${range(1250, 4850)}</div>
+                </div>
+            </div>
+            
+            ${renderHero()}
+            
+            ${renderProgress()}
+            
+            <div class="leak-grid">
+                ${generateLeakCards()}
+            </div>
+            
+            <div class="treasure-feed">
+                <div class="feed-title">🎁 LIVE TREASURE FEED</div>
+                <div class="feed-list">
+                    ${generateTreasureFeed()}
+                </div>
+            </div>
+            
+            <div class="chest-grid">
+                ${generateChestGrid()}
+            </div>
+            
+            <div class="arcade-footer">
+                <span>🎮 ${range(1250, 4850)} treasures unlocked today</span>
+                <span>⚡ Tap any card to play →</span>
+            </div>
+        `;
+        
+        document.querySelectorAll('[data-url]').forEach(el => {
+            el.addEventListener('click', (e) => { e.stopPropagation(); window.location.href = el.getAttribute('data-url'); });
+            el.addEventListener('touchstart', (e) => { e.stopPropagation(); window.location.href = el.getAttribute('data-url'); });
+        });
+        document.querySelectorAll('.leak-card, .feed-item, .chest-card').forEach(card => {
+            card.addEventListener('click', () => { 
+                if(card.getAttribute('data-url')) window.location.href = card.getAttribute('data-url');
+            });
+            card.addEventListener('touchstart', () => { 
+                if(card.getAttribute('data-url')) window.location.href = card.getAttribute('data-url');
+            });
+        });
+    };
+    
+    updateSEO();
+    renderPage();
+})();
+</script>
+</body>
+</html>
