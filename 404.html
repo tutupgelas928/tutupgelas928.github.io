@@ -1,6 +1,38 @@
-<script type = "text/javascript">
-my_redirect = setTimeout(function() {
-window.location.href = 'https://crazylatchdisturbance.com/pathq6gj?key=6105988846108e4350fc8b9c0e24e898';
-}, 0);
-</script>
+---
 
+layout: default
+permalink: /404.html
+
+<div class="container" style="max-width:800px;margin:60px auto;font-family:sans-serif;line-height:1.6;">  <h1 id="page-title" style="font-size:32px;margin-bottom:10px;"></h1>  <p id="page-desc" style="color:#555;margin-bottom:30px;"></p>  <hr style="margin:30px 0;">  <h2>Latest Articles</h2>
+  <ul>
+    {% for post in site.posts limit:5 %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>  <hr style="margin:30px 0;">  <h2>Try something else</h2>
+  <p><a href="/">Go back to homepage</a></p></div><script>
+  (function() {
+    const path = window.location.pathname;
+
+    // Extract last part of URL as slug
+    let slug = path.split('/').filter(Boolean).pop();
+
+    if (!slug) slug = "page";
+
+    // Convert slug → readable English title
+    function slugToTitle(slug) {
+      return slug
+        .replace(/[-_]+/g, ' ')
+        .replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    const title = slugToTitle(slug);
+
+    // Inject content
+    document.getElementById("page-title").innerText = title;
+    document.getElementById("page-desc").innerText =
+      `We couldn't find an exact match for "${title}", but here are some useful resources and articles you might like.`;
+
+    // Update browser tab title
+    document.title = title + " | " + document.title;
+  })();
+</script>
