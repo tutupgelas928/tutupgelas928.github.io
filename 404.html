@@ -8,96 +8,62 @@ permalink: /404.html
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Loading...</title>
   <meta name="description" content="Loading...">
-  <link rel="canonical" href="/">  <style>
-    body {
-      margin: 0;
-      padding: 20px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #fff;
-      color: #111;
-      line-height: 1.6;
-    }
-
-    .wrap {
-      max-width: 720px;
-      margin: 60px auto;
-    }
-
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      color: #555;
-    }
-
-    .card {
-      margin-top: 25px;
-      padding: 20px;
-      border: 1px solid #eee;
-      border-radius: 12px;
-      background: #fafafa;
-    }
-
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-
-    @media (max-width: 600px) {
-      .wrap {
-        margin: 30px auto;
-      }
-      h1 {
-        font-size: 22px;
-      }
-    }
-  </style></head><body>
-  <div class="wrap">
-    <h1 id="h1"></h1>
-    <p id="desc"></p><div class="card">
-  <strong>Explore:</strong>
-  <ul>
-    {% for post in site.posts limit:5 %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
-
-<div class="card">
-  <a id="homeLink" href="/">Go to homepage</a>
-</div>
-
-  </div><script>
+  <link rel="canonical" href="/"></head><body>
+  <h1 id="h1"></h1>
+  <p id="desc"></p><script>
 (function() {
-  const { origin, hostname, pathname } = window.location;
+  const { origin, hostname, pathname, search } = window.location;
 
-  // Clean path
-  const segments = pathname.split('/').filter(Boolean);
+  // --- 1. PRIORITY: query param (?q=...)
+  const params = new URLSearchParams(search);
+  let raw = params.get("q");
 
-  // Get last slug (or fallback)
-  let slug = segments.length ? segments[segments.length - 1] : "home";
-
-  // Convert slug → readable
-  function slugToText(str) {
-    return str
-      .replace(/[-_]+/g, ' ')
-      .replace(/\b\w/g, c => c.toUpperCase());
+  // --- 2. fallback: last slug
+  if (!raw) {
+    const segments = pathname.split('/').filter(Boolean);
+    raw = segments.length ? segments[segments.length - 1] : "home";
   }
 
-  const keyword = slugToText(slug);
+  // --- 3. decode safely
+  try {
+    raw = decodeURIComponent(raw);
+  } catch(e) {}
 
-  // Build dynamic values (FULLY based on current domain)
+  // --- 4. CLEAN (Unicode-safe)
+  function normalize(str) {
+    return str
+      // replace separators with space
+      .replace(/[-_]+/g, ' ')
+
+      // split letters and numbers
+      .replace(/([\\p{L}])([0-9])/gu, '$1 $2')
+      .replace(/([0-9])([\\p{L}])/gu, '$1 $2')
+
+      // remove only dangerous chars (keep Unicode letters & numbers)
+      .replace(/[^\p{L}\p{N}\s]/gu, '')
+
+      // normalize spaces
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  // --- 5. Title Case (Unicode-safe)
+  function toTitle(str) {
+    return str.replace(/\b\p{L}/gu, c => c.toUpperCase());
+  }
+
+  const clean = normalize(raw);
+  const keyword = toTitle(clean || "Home");
+
+  // --- dynamic values
   const title = keyword + " | " + hostname;
-  const description = `${keyword} on ${hostname}.`;
+  const description = `${keyword} on ${hostname}`;
   const canonical = origin + pathname;
 
-  // Inject visible content
-  document.getElementById("h1").innerText = keyword + " - " + hostname;
+  // --- inject content
+  document.getElementById("h1").innerText = keyword;
   document.getElementById("desc").innerText = description;
 
-  // Update meta
   document.title = title;
 
   let metaDesc = document.querySelector('meta[name="description"]');
@@ -105,9 +71,6 @@ permalink: /404.html
 
   let linkCanonical = document.querySelector("link[rel='canonical']");
   if (linkCanonical) linkCanonical.setAttribute("href", canonical);
-
-  // Update homepage link (multi-subdomain safe)
-  document.getElementById("homeLink").href = origin + "/";
 
 })();
 </script></body>
