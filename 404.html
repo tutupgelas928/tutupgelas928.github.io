@@ -1,38 +1,115 @@
 ---
-
-layout: default
+layout: nil
 permalink: /404.html
+---
 
-<div class="container" style="max-width:800px;margin:60px auto;font-family:sans-serif;line-height:1.6;">  <h1 id="page-title" style="font-size:32px;margin-bottom:10px;"></h1>  <p id="page-desc" style="color:#555;margin-bottom:30px;"></p>  <hr style="margin:30px 0;">  <h2>Latest Articles</h2>
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Default fallback (will be replaced by JS) -->  <title>Page</title>
+  <meta name="description" content="Page">
+  <link rel="canonical" href="/">  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+      background: #ffffff;
+      color: #111;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 60px auto;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+    }
+
+    .box {
+      margin-top: 30px;
+      padding: 20px;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      background: #fafafa;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 30px auto;
+      }
+      h1 {
+        font-size: 22px;
+      }
+    }
+  </style></head><body>
+  <div class="container">
+    <h1 id="title"></h1>
+    <p id="desc"></p><div class="box">
+  <strong>Latest posts:</strong>
   <ul>
     {% for post in site.posts limit:5 %}
       <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
-  </ul>  <hr style="margin:30px 0;">  <h2>Try something else</h2>
-  <p><a href="/">Go back to homepage</a></p></div><script>
-  (function() {
-    const path = window.location.pathname;
+  </ul>
+</div>
 
-    // Extract last part of URL as slug
-    let slug = path.split('/').filter(Boolean).pop();
+<div class="box">
+  <a href="/">← Back to homepage</a>
+</div>
 
-    if (!slug) slug = "page";
+  </div><script>
+(function() {
+  const { hostname, pathname, origin } = window.location;
 
-    // Convert slug → readable English title
-    function slugToTitle(slug) {
-      return slug
-        .replace(/[-_]+/g, ' ')
-        .replace(/\b\w/g, c => c.toUpperCase());
-    }
+  // Get slug
+  let slug = pathname.split('/').filter(Boolean).pop();
+  if (!slug) slug = "home";
 
-    const title = slugToTitle(slug);
+  // Convert slug → Title Case
+  function slugToTitle(slug) {
+    return slug
+      .replace(/[-_]+/g, ' ')
+      .replace(/\b\w/g, c => c.toUpperCase());
+  }
 
-    // Inject content
-    document.getElementById("page-title").innerText = title;
-    document.getElementById("page-desc").innerText =
-      `We couldn't find an exact match for "${title}", but here are some useful resources and articles you might like.`;
+  const readable = slugToTitle(slug);
 
-    // Update browser tab title
-    document.title = title + " | " + document.title;
-  })();
-</script>
+  // Build SEO values
+  const fullTitle = readable + " | " + hostname;
+  const description = `Explore ${readable} on ${hostname}. Find related content, guides, and useful resources.`;
+  const canonical = origin + pathname;
+
+  // Inject visible content
+  document.getElementById("title").innerText = readable + " - " + hostname;
+  document.getElementById("desc").innerText = description;
+
+  // Update <title>
+  document.title = fullTitle;
+
+  // Update meta description
+  let metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.setAttribute("content", description);
+
+  // Update canonical
+  let linkCanonical = document.querySelector("link[rel='canonical']");
+  if (linkCanonical) linkCanonical.setAttribute("href", canonical);
+
+})();
+</script></body>
+</html>
