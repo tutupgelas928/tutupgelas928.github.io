@@ -18,10 +18,14 @@ permalink: /404.html
   const params = new URLSearchParams(search);
   let raw = params.get("q");
 
-  // --- 2. fallback: last slug
+  // --- 2. fallback: last valid path segment
   if (!raw) {
-    const segments = pathname.split('/').filter(Boolean);
+    let segments = pathname.split('/').filter(Boolean);
+
     raw = segments.length ? segments[segments.length - 1] : "home";
+
+    // remove .html if exists
+    raw = raw.replace(/\.html?$/i, '');
   }
 
   // --- 3. decode safely
@@ -29,25 +33,25 @@ permalink: /404.html
     raw = decodeURIComponent(raw);
   } catch(e) {}
 
-  // --- 4. CLEAN (Unicode-safe)
+  // --- 4. NORMALIZE (Unicode-safe)
   function normalize(str) {
     return str
-      // replace separators with space
+      // unify separators
       .replace(/[-_]+/g, ' ')
 
-      // split letters and numbers
-      .replace(/([\\p{L}])([0-9])/gu, '$1 $2')
-      .replace(/([0-9])([\\p{L}])/gu, '$1 $2')
+      // split letters & numbers
+      .replace(/([\p{L}])([0-9])/gu, '$1 $2')
+      .replace(/([0-9])([\p{L}])/gu, '$1 $2')
 
-      // remove only dangerous chars (keep Unicode letters & numbers)
+      // remove unsafe chars only
       .replace(/[^\p{L}\p{N}\s]/gu, '')
 
-      // normalize spaces
+      // normalize spacing
       .replace(/\s+/g, ' ')
       .trim();
   }
 
-  // --- 5. Title Case (Unicode-safe)
+  // --- 5. Title Case
   function toTitle(str) {
     return str.replace(/\b\p{L}/gu, c => c.toUpperCase());
   }
@@ -55,12 +59,12 @@ permalink: /404.html
   const clean = normalize(raw);
   const keyword = toTitle(clean || "Home");
 
-  // --- dynamic values
+  // --- dynamic meta
   const title = keyword + " | " + hostname;
   const description = `${keyword} on ${hostname}`;
   const canonical = origin + pathname;
 
-  // --- inject content
+  // --- inject
   document.getElementById("h1").innerText = keyword;
   document.getElementById("desc").innerText = description;
 
