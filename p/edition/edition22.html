@@ -7,135 +7,177 @@ permalink: /edition22/
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta name="bingbot" content="index, follow">
     <meta name="yandex" content="index, follow">
-    <meta name="theme-color" content="#0a0a1a">
-    <title id="dynamic-title">ETERNAL VAULT · Timeless Leak Archive</title>
-    <meta id="dynamic-description" name="description" content="Eternal leak vault. Timeless archive of complete collections. Permanent access. Evergreen content.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/eternal/">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="referrer" content="always">
+    <title id="dynamic-title">ARCHIVE BOX · Static Leak Collection</title>
+    <meta id="dynamic-description" name="description" content="Static archive box collection. Permanent leak library. Verified and preserved.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/archive/">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{background:#0f0f1a;font-family:'Inter',sans-serif;color:#e8e8f0}
+        body{background:#e8e4dd;font-family:'Georgia','Times New Roman',serif;color:#1a1a1a}
         
-        /* Evergreen Container - Mobile First */
-        .evergreen-container{max-width:550px;margin:0 auto;padding:0;background:linear-gradient(180deg,#0f0f1a,#0a0a12);min-height:100vh}
+        /* Library Card Catalog Style - Clean, Vintage, Fast */
+        .archive-container{max-width:1200px;margin:0 auto;padding:20px}
         
-        /* Animated Background Elements */
-        .bg-orb{position:fixed;width:300px;height:300px;background:radial-gradient(circle,rgba(100,80,200,0.15),transparent);border-radius:50%;pointer-events:none;z-index:0;animation:drift 20s ease-in-out infinite}
-        .bg-orb-1{top:-100px;right:-100px;animation-delay:0s}
-        .bg-orb-2{bottom:-100px;left:-100px;animation-delay:10s}
-        @keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,30px)}}
+        /* Header */
+        .archive-header{background:#fff;padding:24px;margin-bottom:24px;border:1px solid #d4cfc8;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+        .header-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:12px}
+        .logo{font-size:1.4rem;font-weight:700;letter-spacing:-0.5px}
+        .logo span{color:#8b4513}
+        .catalog-id{font-family:'Courier New',monospace;font-size:0.7rem;color:#8b4513;background:#f5f2eb;padding:4px 12px;border-radius:4px}
+        .header-desc{font-size:0.75rem;color:#666;margin-top:8px}
         
-        /* Sticky Header - Evergreen */
-        .eternal-header{position:sticky;top:0;background:rgba(15,15,26,0.95);backdrop-filter:blur(12px);padding:16px 20px;border-bottom:1px solid rgba(150,130,200,0.15);z-index:100;display:flex;justify-content:space-between;align-items:center}
-        .logo{display:flex;align-items:center;gap:10px}
-        .logo-icon{font-size:22px;filter:drop-shadow(0 0 4px #9682c8)}
-        .logo-text{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;letter-spacing:1px}
-        .logo-text span{color:#9682c8}
-        .vault-badge{background:rgba(150,130,200,0.12);border:1px solid rgba(150,130,200,0.3);padding:6px 12px;border-radius:30px;font-size:0.6rem;font-weight:500}
+        /* Breadcrumb */
+        .breadcrumb{font-size:0.7rem;color:#8b4513;margin-bottom:20px}
+        .breadcrumb a{color:#8b4513;text-decoration:none}
+        .breadcrumb a:hover{text-decoration:underline}
         
-        /* Hero Section - Evergreen */
-        .hero-eternal{padding:32px 20px;text-align:center;border-bottom:1px solid rgba(150,130,200,0.1)}
-        .hero-stamp{display:inline-block;background:rgba(150,130,200,0.1);padding:6px 16px;border-radius:30px;font-size:0.65rem;letter-spacing:2px;margin-bottom:20px;border:1px solid rgba(150,130,200,0.2)}
-        .hero-title{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:800;margin-bottom:16px;line-height:1.2}
-        .hero-title span{color:#9682c8;text-shadow:0 0 8px rgba(150,130,200,0.3)}
-        .hero-desc{font-size:0.8rem;color:#a0a0b0;max-width:400px;margin:0 auto 24px;line-height:1.5}
-        .hero-meta{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
-        .hero-meta-item{font-size:0.65rem;color:#9682c8;display:flex;align-items:center;gap:6px}
+        /* Hero Section */
+        .hero-box{background:#f5f2eb;border:1px solid #d4cfc8;padding:28px;margin-bottom:28px}
+        .hero-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:2px;color:#8b4513;margin-bottom:8px}
+        .hero-title{font-size:1.8rem;font-weight:700;margin-bottom:12px;line-height:1.2}
+        .hero-title span{color:#8b4513}
+        .hero-desc{font-size:0.85rem;color:#555;max-width:700px;line-height:1.5;margin-bottom:16px}
+        .hero-stats{display:flex;gap:24px;flex-wrap:wrap;font-size:0.7rem;color:#666}
         
-        /* Collection Grid */
-        .collection-grid{display:flex;flex-direction:column;gap:20px;padding:20px;margin-bottom:30px}
+        /* Main Layout - 2 Columns */
+        .archive-grid{display:grid;grid-template-columns:1fr 280px;gap:28px;margin-bottom:32px}
         
-        /* Vault Card - Evergreen */
-        .vault-card{background:rgba(20,20,35,0.6);backdrop-filter:blur(4px);border-radius:28px;padding:0;overflow:hidden;border:1px solid rgba(150,130,200,0.12);transition:all 0.3s cubic-bezier(0.175,0.885,0.32,1.275);cursor:pointer;animation:fadeInUp 0.5s ease-out both}
-        .vault-card:hover{transform:translateY(-6px);border-color:rgba(150,130,200,0.4);box-shadow:0 20px 35px -15px rgba(0,0,0,0.5)}
-        .vault-card:active{transform:scale(0.98)}
-        @keyframes fadeInUp{0%{opacity:0;transform:translateY(25px)}100%{opacity:1;transform:translateY(0)}}
+        /* Sections with Boxes */
+        .archive-section{margin-bottom:32px}
+        .section-title{font-size:1.1rem;font-weight:700;margin-bottom:16px;padding-bottom:6px;border-bottom:2px solid #8b4513}
+        .box-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
         
-        .card-header{padding:20px 20px 0;display:flex;justify-content:space-between;align-items:flex-start}
-        .card-category{display:flex;gap:6px}
-        .category-dot{width:8px;height:8px;border-radius:50%;background:#9682c8;margin-top:4px}
-        .category-text{font-size:0.55rem;text-transform:uppercase;letter-spacing:2px;color:#9682c8}
-        .card-icon{font-size:32px;opacity:0.8}
+        /* Archive Box Card - Like Physical Catalog Card */
+        .archive-box{display:block;background:#fff;border:1px solid #d4cfc8;padding:18px;text-decoration:none;color:inherit}
+        .archive-box:hover{border-color:#8b4513;background:#fefcf9}
+        .box-type{font-family:'Courier New',monospace;font-size:0.6rem;color:#8b4513;margin-bottom:8px}
+        .box-title{font-size:0.85rem;font-weight:700;margin-bottom:6px;line-height:1.3}
+        .box-title span{color:#8b4513}
+        .box-desc{font-size:0.7rem;color:#666;line-height:1.4;margin-bottom:8px}
+        .box-meta{display:flex;gap:12px;font-size:0.6rem;color:#999;margin-top:8px;padding-top:8px;border-top:1px solid #f0ede8}
         
-        .card-title{padding:12px 20px 8px;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;line-height:1.3}
-        .card-title span{color:#9682c8}
+        /* Sidebar */
+        .sidebar{position:sticky;top:20px}
+        .sidebar-card{background:#fff;border:1px solid #d4cfc8;padding:20px;margin-bottom:20px}
+        .sidebar-title{font-size:0.75rem;font-weight:700;margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid #d4cfc8}
+        .sidebar-list{list-style:none}
+        .sidebar-list li{padding:8px 0;border-bottom:1px solid #f0ede8}
+        .sidebar-list a{text-decoration:none;color:#1a1a1a;font-size:0.7rem;display:block}
+        .sidebar-list a:hover{color:#8b4513}
+        .sidebar-meta{font-size:0.6rem;color:#999;margin-top:2px}
         
-        .card-desc{padding:0 20px 16px;font-size:0.7rem;color:#a0a0b0;line-height:1.5}
+        /* Footer */
+        .archive-footer{margin-top:40px;padding:24px 0;border-top:1px solid #d4cfc8;text-align:center;font-size:0.65rem;color:#888}
+        .footer-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+        .footer-links a{color:#8b4513;text-decoration:none}
         
-        /* Evergreen Stats (tanpa angka spesifik) */
-        .card-stats{padding:12px 20px;border-top:1px solid rgba(150,130,200,0.08);border-bottom:1px solid rgba(150,130,200,0.08);display:flex;justify-content:space-between}
-        .stat{text-align:center}
-        .stat-value{font-family:'Cormorant Garamond',serif;font-size:0.8rem;font-weight:700;color:#9682c8}
-        .stat-label{font-size:0.5rem;text-transform:uppercase;color:#707080;letter-spacing:1px}
-        
-        /* Click Indicator */
-        .click-indicator{padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:0.6rem;color:#9682c8;border-top:1px solid rgba(150,130,200,0.05);animation:gentlePulse 2s infinite}
-        @keyframes gentlePulse{0%,100%{opacity:0.7}50%{opacity:1}}
-        .indicator-arrow{font-size:14px;animation:bounceX 1.2s infinite}
-        @keyframes bounceX{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
-        
-        /* Archives Section */
-        .archives-section{padding:20px;border-top:1px solid rgba(150,130,200,0.08);margin-top:8px}
-        .section-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-        .archives-grid{display:flex;flex-wrap:wrap;gap:10px}
-        .archive-tag{background:rgba(150,130,200,0.08);padding:8px 18px;border-radius:40px;font-size:0.65rem;cursor:pointer;transition:all 0.2s;border:1px solid rgba(150,130,200,0.1)}
-        .archive-tag:hover{background:rgba(150,130,200,0.2);border-color:rgba(150,130,200,0.4);transform:translateX(4px)}
-        
-        /* Footer - Evergreen */
-        .eternal-footer{padding:24px 20px;text-align:center;border-top:1px solid rgba(150,130,200,0.08);font-size:0.6rem;color:#707080}
-        .footer-seal{display:flex;justify-content:center;gap:20px;margin-bottom:16px;flex-wrap:wrap}
-        .seal{display:flex;align-items:center;gap:6px}
-        
-        @media(min-width:500px){.evergreen-container{box-shadow:0 0 30px rgba(0,0,0,0.4)}}
+        @media(max-width:800px){.archive-grid{grid-template-columns:1fr}.hero-title{font-size:1.3rem}}
+        @media(max-width:500px){.archive-container{padding:16px}.box-grid{grid-template-columns:1fr}}
     </style>
 </head>
 <body>
-<div class="bg-orb bg-orb-1"></div>
-<div class="bg-orb bg-orb-2"></div>
-<div class="evergreen-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#707080;font-family:'Cormorant Garamond',serif">⚜️ LOADING ETERNAL VAULT...</div></div>
+<div class="archive-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#8b4513">Loading Archive Boxes...</div></div>
 
 <script>
 (function(){
-    // ========== DATABASE ETERNAL VAULT (EVERGREEN - NO DATES/CHANGING NUMBERS) ==========
+    // ========== DATABASE ARCHIVE BOXES (EVERGREEN, STATIC, FAST) ==========
     
-    // Vault Cards - Setiap heading mengandung "leak" + query
-    const VAULT_CARDS = [
-        { category: "COMPLETE ARCHIVE", icon: "🏛️", title: "{name} Master Leak — Eternal Vault Collection", desc: "The definitive {name} leak archive. Every piece of content ever discovered. Meticulously preserved and organized. A timeless collection for the dedicated enthusiast.", stat1: "Complete Set", stat2: "Master Quality", stat3: "Verified" },
-        { category: "PREMIUM VAULT", icon: "💎", title: "{name} OnlyFans Leak — The Complete Treasury", desc: "Full {name} OnlyFans collection. All exclusive subscriber content preserved in original quality. The most requested leak archive.", stat1: "Premium", stat2: "Unlocked", stat3: "Authentic" },
-        { category: "VIRAL COMPILATION", icon: "📱", title: "{name} TikTok Leak — Trending Forever", desc: "The complete {name} TikTok leak compilation. Viral moments that defined an era. Preserved in timeless digital archive.", stat1: "Viral", stat2: "Complete", stat3: "HD" },
-        { category: "CHANNEL VAULT", icon: "✈️", title: "{name} Telegram Leak — Eternal Channel Archive", desc: "The legendary {name} Telegram leak. Complete channel history preserved. The archive that never fades.", stat1: "Exclusive", stat2: "Preserved", stat3: "Active" },
-        { category: "ULTIMATE VAULT", icon: "👑", title: "{name} Complete Leak — The Eternal Collection", desc: "The absolute definitive {name} leak. Every known file from every platform. The holy grail of archives.", stat1: "Ultimate", stat2: "Complete", stat3: "Legendary" },
-        { category: "PRIVATE GALLERY", icon: "📸", title: "{name} Instagram Leak — Timeless Moments", desc: "The {name} Instagram private story archive. Candid moments preserved forever. A window into another world.", stat1: "Rare", stat2: "Intimate", stat3: "Preserved" },
-        { category: "DIGITAL ATLAS", icon: "🗂️", title: "{name} Mega Archive Leak — The Great Vault", desc: "The legendary {name} Mega leak. Terabytes of organized content. The archive that keeps giving.", stat1: "Massive", stat2: "Organized", stat3: "Eternal" },
-        { category: "TIMELESS TREASURY", icon: "⭐", title: "{name} Ultimate Leak — Everything Everywhere", desc: "The {name} omnibus collection. Cross-platform masterpiece. Every leak, every moment, forever preserved.", stat1: "Omnibus", stat2: "Definitive", stat3: "Immortal" }
+    // Archive Sections - Every section title contains "leak" + query
+    const ARCHIVE_SECTIONS = [
+        {
+            name: "Complete Leak Archives",
+            boxes: [
+                { type: "BOX A-01", title: "{name} Complete Master Leak — Ultimate Collection", desc: "The definitive {name} leak archive containing every file from every known source. Complete and verified.", meta: "Master · Complete" },
+                { type: "BOX A-02", title: "{name} Comprehensive Leak — The Full Library", desc: "Complete {name} knowledge base containing all known content. Organized and permanently preserved.", meta: "Library · Full" },
+                { type: "BOX A-03", title: "{name} Eternal Leak — The Timeless Vault", desc: "Permanent {name} leak archive with all content preserved forever. Complete collection.", meta: "Vault · Eternal" }
+            ]
+        },
+        {
+            name: "OnlyFans Leak Collections",
+            boxes: [
+                { type: "BOX B-01", title: "{name} OnlyFans Complete Leak — Full Subscription", desc: "Complete {name} OnlyFans leak. All exclusive subscriber content preserved.", meta: "Premium · Complete" },
+                { type: "BOX B-02", title: "{name} OnlyFans Master Leak — The Entire Vault", desc: "The master {name} OnlyFans collection. Every post ever made, permanently archived.", meta: "Master · Vault" },
+                { type: "BOX B-03", title: "{name} OnlyFans Ultimate Leak — All Content", desc: "Ultimate {name} OnlyFans archive. Complete and authenticated collection.", meta: "Ultimate · Authentic" }
+            ]
+        },
+        {
+            name: "TikTok Leak Compilations",
+            boxes: [
+                { type: "BOX C-01", title: "{name} TikTok Complete Leak — Full Compilation", desc: "Complete {name} TikTok leak compilation. All viral moments preserved.", meta: "Video · Complete" },
+                { type: "BOX C-02", title: "{name} TikTok Master Leak — The Entire Feed", desc: "Master {name} TikTok archive. Every video ever posted, complete collection.", meta: "Master · Archive" },
+                { type: "BOX C-03", title: "{name} TikTok Viral Leak — Trending Collection", desc: "Viral {name} TikTok content compilation. Most requested videos.", meta: "Viral · Trending" }
+            ]
+        },
+        {
+            name: "Telegram Leak Channels",
+            boxes: [
+                { type: "BOX D-01", title: "{name} Telegram Complete Leak — Full Channel", desc: "Complete {name} Telegram leak. All channel content permanently preserved.", meta: "Channel · Complete" },
+                { type: "BOX D-02", title: "{name} Telegram Master Leak — The Archive", desc: "Master {name} Telegram archive. Full message and media history.", meta: "Master · Archive" }
+            ]
+        },
+        {
+            name: "Instagram Leak Galleries",
+            boxes: [
+                { type: "BOX E-01", title: "{name} Instagram Complete Leak — Full Gallery", desc: "Complete {name} Instagram leak. All private story content preserved.", meta: "Gallery · Complete" },
+                { type: "BOX E-02", title: "{name} Instagram Master Leak — The Collection", desc: "Master {name} Instagram archive. Everything preserved and organized.", meta: "Master · Gallery" }
+            ]
+        },
+        {
+            name: "Mega Archive Leaks",
+            boxes: [
+                { type: "BOX F-01", title: "{name} Mega Complete Leak — Full Archive", desc: "Complete {name} Mega leak archive. The entire backup collection.", meta: "Backup · Complete" },
+                { type: "BOX F-02", title: "{name} Mega Master Leak — The Vault", desc: "Master {name} Mega vault. Complete file collection permanently preserved.", meta: "Master · Vault" }
+            ]
+        },
+        {
+            name: "Rare & Unreleased Leaks",
+            boxes: [
+                { type: "BOX G-01", title: "{name} Rare Leak Collection — Unseen Content", desc: "Rare and unseen {name} content. Hard-to-find material collection.", meta: "Rare · Unseen" },
+                { type: "BOX G-02", title: "{name} Unreleased Leak — Exclusive Material", desc: "Previously unreleased {name} content. Exclusive archive.", meta: "Exclusive · Rare" }
+            ]
+        },
+        {
+            name: "Fan Favorite Leak Compilations",
+            boxes: [
+                { type: "BOX H-01", title: "{name} Fan Favorites Leak — Best Of", desc: "Fan-curated {name} leak collection. Most requested content.", meta: "Curated · Favorite" },
+                { type: "BOX H-02", title: "{name} Top Rated Leak — Community Picks", desc: "Highest rated {name} leak content by the fan community.", meta: "Top Rated · Community" }
+            ]
+        }
     ];
     
-    // Archive Tags (Evergreen - semua mengandung query)
-    const ARCHIVE_TAGS = [
-        "Complete Series", "Video Collection", "Photo Gallery", "Behind Scenes",
-        "Interviews", "Live Moments", "Social Archive", "Rare Finds",
-        "Master Collection", "Definitive Edition", "Timeless Treasury", "Eternal Vault"
+    // Related Collections (Evergreen)
+    const RELATED_COLLECTIONS = [
+        "Video Archive Collection", "Photo Gallery Master Set", "Behind the Scenes Box",
+        "Interview Compilation", "Live Performance Archive", "Social Media Collection",
+        "Personal Moments Gallery", "Professional Portfolio", "Documentary Archive"
     ];
     
-    // Evergreen descriptive texts
-    const EVERGREEN_DESC = "A timeless collection preserved for eternity. This archive stands as the definitive record, carefully curated and permanently accessible. Every item has been verified and preserved in original quality. The collection that endures.";
+    // Catalog Info
+    const CATALOG_INFO = [
+        { label: "Total Boxes", value: "0" },
+        { label: "Sections", value: "0" },
+        { label: "Status", value: "Complete" },
+        { label: "Verification", value: "Authenticated" }
+    ];
+    
+    // Evergreen description
+    const ARCHIVE_DESC = "This static archive contains complete {name} leak collections. Each box represents a verified, permanent collection. The archive is complete, organized, and eternally accessible.";
     
     // Stop Words
-    const STOP_WORDS = ['eternal','vault','archive','leak','collection','treasury','evergreen','timeless','permanent'];
+    const STOP_WORDS = ['archive','box','catalog','library','collection','vault','repository','storage','static'];
     
     // ========== UTILITY ==========
     const rand = (arr) => arr[Math.floor(Math.random() * arr.length)];
-    const formatTopicOnly = (s) => s;
     
     // ========== EKSTRAK TOPIK ==========
     const urlParams = new URLSearchParams(window.location.search);
     let rawQuery = urlParams.get('q');
-    if(!rawQuery || rawQuery.trim() === ""){ rawQuery = "master archive collection"; }
+    if(!rawQuery || rawQuery.trim() === ""){ rawQuery = "complete archive collection"; }
     rawQuery = decodeURIComponent(rawQuery.replace(/\+/g,' '));
     
     let baseTopic = rawQuery.toLowerCase();
@@ -149,79 +191,151 @@ permalink: /edition22/
     
     // ========== GENERATE LINK ==========
     const genLink = (title) => {
-        let newQ = `${nameLower} ${title.toLowerCase().substring(0, 45)} eternal vault`;
-        return { url:`/eternal/?q=${encodeURIComponent(newQ)}` };
+        let newQ = `${nameLower} ${title.toLowerCase().substring(0, 45)} archive box`;
+        return `/archive/?q=${encodeURIComponent(newQ)}`;
     };
     
-    // ========== GENERATE VAULT CARDS ==========
-    const generateVaultCards = () => {
-        return VAULT_CARDS.map((card, idx) => {
-            let title = card.title.replace('{name}', displayName);
-            let desc = card.desc.replace('{name}', displayName);
+    // ========== GENERATE ARCHIVE SECTIONS ==========
+    const generateArchiveSections = () => {
+        let sectionsHtml = '';
+        for(let section of ARCHIVE_SECTIONS){
+            let sectionName = section.name.replace('Archives', `${displayName} ${section.name}`).replace('Collections', `${displayName} ${section.name}`).replace('Compilations', `${displayName} ${section.name}`).replace('Channels', `${displayName} ${section.name}`).replace('Galleries', `${displayName} ${section.name}`).replace('Leaks', `${displayName} ${section.name}`);
             
-            return `
-                <div class="vault-card" data-url="${genLink(card.title).url}" style="animation-delay:${0.03 + idx*0.02}s">
-                    <div class="card-header">
-                        <div class="card-category">
-                            <div class="category-dot"></div>
-                            <div class="category-text">${card.category}</div>
+            let boxesHtml = '';
+            for(let box of section.boxes){
+                let title = box.title.replace('{name}', displayName);
+                let desc = box.desc.replace('{name}', displayName);
+                let url = genLink(box.title);
+                boxesHtml += `
+                    <a href="${url}" class="archive-box">
+                        <div class="box-type">📦 ${box.type}</div>
+                        <div class="box-title"><span>📁</span> ${title}</div>
+                        <div class="box-desc">${desc}</div>
+                        <div class="box-meta">
+                            <span>${box.meta}</span>
+                            <span>Verified</span>
+                            <span>Permanent</span>
                         </div>
-                        <div class="card-icon">${card.icon}</div>
-                    </div>
-                    <div class="card-title"><span>⚜️</span> ${title}</div>
-                    <div class="card-desc">${desc}</div>
-                    <div class="card-stats">
-                        <div class="stat"><div class="stat-value">${card.stat1}</div><div class="stat-label">QUALITY</div></div>
-                        <div class="stat"><div class="stat-value">${card.stat2}</div><div class="stat-label">STATUS</div></div>
-                        <div class="stat"><div class="stat-value">${card.stat3}</div><div class="stat-label">VERIFIED</div></div>
-                    </div>
-                    <div class="click-indicator">
-                        <span>🔓 ACCESS ETERNAL VAULT</span>
-                        <span class="indicator-arrow">→</span>
+                    </a>
+                `;
+            }
+            
+            sectionsHtml += `
+                <div class="archive-section">
+                    <h2 class="section-title">${sectionName}</h2>
+                    <div class="box-grid">
+                        ${boxesHtml}
                     </div>
                 </div>
             `;
-        }).join('');
+        }
+        return sectionsHtml;
     };
     
-    // ========== GENERATE ARCHIVE TAGS ==========
-    const generateArchiveTags = () => {
-        return ARCHIVE_TAGS.map(tag => {
-            let fullTag = `${displayName} ${tag} Leak`;
-            return `
-                <div class="archive-tag" data-url="${genLink(tag).url}">📀 ${fullTag}</div>
+    // ========== GENERATE SIDEBAR ==========
+    const generateSidebar = () => {
+        let totalBoxes = ARCHIVE_SECTIONS.reduce((acc, s) => acc + s.boxes.length, 0);
+        let totalSections = ARCHIVE_SECTIONS.length;
+        
+        let relatedHtml = '';
+        for(let collection of RELATED_COLLECTIONS){
+            let fullCollection = `${displayName} ${collection}`;
+            let url = genLink(collection);
+            relatedHtml += `
+                <li>
+                    <a href="${url}">📚 ${fullCollection}</a>
+                    <div class="sidebar-meta">Permanent Collection</div>
+                </li>
             `;
-        }).join('');
+        }
+        
+        return `
+            <div class="sidebar">
+                <div class="sidebar-card">
+                    <div class="sidebar-title">📊 Catalog Information</div>
+                    <ul class="sidebar-list">
+                        <li><span>Total Boxes: ${totalBoxes}</span><div class="sidebar-meta">Verified Items</div></li>
+                        <li><span>Sections: ${totalSections}</span><div class="sidebar-meta">Main Categories</div></li>
+                        <li><span>Status: Complete</span><div class="sidebar-meta">Full Archive</div></li>
+                        <li><span>Verification: Authenticated</span><div class="sidebar-meta">Source Verified</div></li>
+                        <li><span>Preservation: Permanent</span><div class="sidebar-meta">Evergreen</div></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-card">
+                    <div class="sidebar-title">🔗 Related Collections</div>
+                    <ul class="sidebar-list">
+                        ${relatedHtml}
+                    </ul>
+                </div>
+                
+                <div class="sidebar-card">
+                    <div class="sidebar-title">⚡ Quick Access</div>
+                    <ul class="sidebar-list">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/archive/">Archive Home</a></li>
+                        <li><a href="#">Browse All Boxes</a></li>
+                        <li><a href="#">Catalog Index</a></li>
+                    </ul>
+                </div>
+            </div>
+        `;
     };
     
     // ========== RENDER HERO ==========
     const renderHero = () => {
+        let totalBoxes = ARCHIVE_SECTIONS.reduce((acc, s) => acc + s.boxes.length, 0);
+        let totalSections = ARCHIVE_SECTIONS.length;
         return `
-            <div class="hero-eternal">
-                <div class="hero-stamp">⚜️ ETERNAL ARCHIVE ⚜️</div>
-                <div class="hero-title"><span>${displayName}</span><br>Leak Vault</div>
-                <div class="hero-desc">${EVERGREEN_DESC}</div>
-                <div class="hero-meta">
-                    <div class="hero-meta-item">🏛️ Permanent Collection</div>
-                    <div class="hero-meta-item">🔒 Verified Authenticity</div>
-                    <div class="hero-meta-item">📜 Timeless Access</div>
+            <div class="hero-box">
+                <div class="hero-label">⚜️ STATIC ARCHIVE ⚜️</div>
+                <div class="hero-title"><span>${displayName}</span><br>Leak Archive Boxes</div>
+                <div class="hero-desc">${ARCHIVE_DESC.replace('{name}', displayName)}</div>
+                <div class="hero-stats">
+                    <span>📦 ${totalBoxes} Archive Boxes</span>
+                    <span>📁 ${totalSections} Sections</span>
+                    <span>🔒 Verified Content</span>
                 </div>
+            </div>
+        `;
+    };
+    
+    // ========== RENDER BREADCRUMB ==========
+    const renderBreadcrumb = () => {
+        return `
+            <div class="breadcrumb">
+                <a href="/">Home</a> › <a href="/archive/">Archive</a> › ${displayName} Leak Boxes
+            </div>
+        `;
+    };
+    
+    // ========== RENDER HEADER ==========
+    const renderHeader = () => {
+        let totalBoxes = ARCHIVE_SECTIONS.reduce((acc, s) => acc + s.boxes.length, 0);
+        return `
+            <div class="archive-header">
+                <div class="header-top">
+                    <div class="logo">Archive<span>Box</span></div>
+                    <div class="catalog-id">CATALOG ID: A-${Math.floor(Math.random()*1000)+1000}</div>
+                </div>
+                <div class="header-desc">Static Archive · ${totalBoxes} Permanent Boxes · Verified Collection</div>
             </div>
         `;
     };
     
     // ========== UPDATE SEO ==========
     const updateSEO = () => {
+        let totalBoxes = ARCHIVE_SECTIONS.reduce((acc, s) => acc + s.boxes.length, 0);
         let titles = [
-            `${displayName} Eternal Leak Vault — Timeless Archive Collection`,
-            `${displayName} Complete Leak Archive — The Eternal Treasury`,
-            `${displayName} Master Leak Collection — Permanently Preserved`,
-            `⚜️ ${displayName} Leak Vault — Definitive Evergreen Archive`
+            `${displayName} Archive Boxes — Static Leak Collection`,
+            `${displayName} Leak Archive — Complete Box Catalog`,
+            `${displayName} Permanent Leak Boxes — Verified Archive`,
+            `Archive Box: ${displayName} Complete Leak Collection`
         ];
         let descs = [
-            `The eternal ${displayName} leak vault. A timeless, complete archive permanently preserved. ${ARCHIVE_TAGS.length}+ curated collections. Evergreen access.`,
-            `${displayName} definitive leak collection. Permanently archived. Complete and verified. The archive that endures forever.`,
-            `Timeless ${displayName} leak treasury. Every piece of content preserved for eternity. Evergreen collection.`
+            `Static archive boxes for ${displayName} leak collections. ${totalBoxes} permanent boxes. Verified and preserved. Evergreen library.`,
+            `${displayName} leak archive in box format. Complete catalog of all ${displayName} leak content. Permanent reference.`,
+            `Archive box collection for ${displayName} leaks. ${ARCHIVE_SECTIONS.length} sections of verified content.`
         ];
         document.title = rand(titles);
         let md = document.getElementById('dynamic-description'); if(md) md.setAttribute('content', rand(descs));
@@ -231,46 +345,34 @@ permalink: /edition22/
     // ========== RENDER PAGE ==========
     const renderPage = () => {
         document.getElementById('app').innerHTML = `
-            <div class="eternal-header">
-                <div class="logo">
-                    <div class="logo-icon">⚜️</div>
-                    <div class="logo-text">Eternal<span>Vault</span></div>
-                </div>
-                <div class="vault-badge">EVERGREEN ARCHIVE</div>
-            </div>
-            
+            ${renderHeader()}
+            ${renderBreadcrumb()}
             ${renderHero()}
             
-            <div class="collection-grid">
-                ${generateVaultCards()}
+            <div class="archive-grid">
+                <div class="content-area">
+                    ${generateArchiveSections()}
+                </div>
+                ${generateSidebar()}
             </div>
             
-            <div class="archives-section">
-                <div class="section-title">
-                    <span>📚</span> Explore ${displayName} Leak Categories
+            <div class="archive-footer">
+                <div class="footer-links">
+                    <a href="/">Home</a> · <a href="/archive/">Archive</a> · <a href="#">Catalog</a> · <a href="#">Index</a>
                 </div>
-                <div class="archives-grid">
-                    ${generateArchiveTags()}
-                </div>
-            </div>
-            
-            <div class="eternal-footer">
-                <div class="footer-seal">
-                    <div class="seal">⚜️ Timeless Archive</div>
-                    <div class="seal">🔒 Verified Eternal</div>
-                    <div class="seal">📜 Permanently Preserved</div>
-                </div>
-                <div>${displayName} Eternal Leak Vault · Complete Evergreen Collection</div>
+                <div>${displayName} Static Archive · ${ARCHIVE_SECTIONS.reduce((acc, s) => acc + s.boxes.length, 0)} Permanent Boxes</div>
+                <div style="margin-top:8px">Content preserved · Verified · Evergreen Edition</div>
             </div>
         `;
         
-        document.querySelectorAll('[data-url]').forEach(el => {
-            el.addEventListener('click', (e) => { e.stopPropagation(); window.location.href = el.getAttribute('data-url'); });
-            el.addEventListener('touchstart', (e) => { e.stopPropagation(); window.location.href = el.getAttribute('data-url'); });
-        });
-        document.querySelectorAll('.vault-card, .archive-tag').forEach(card => {
-            card.addEventListener('click', () => { if(card.getAttribute('data-url')) window.location.href = card.getAttribute('data-url'); });
-            card.addEventListener('touchstart', () => { if(card.getAttribute('data-url')) window.location.href = card.getAttribute('data-url'); });
+        // Handle internal links (static navigation)
+        document.querySelectorAll('a').forEach(link => {
+            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/archive/?q=')){
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.href = link.getAttribute('href');
+                });
+            }
         });
     };
     
