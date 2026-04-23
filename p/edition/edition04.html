@@ -7,524 +7,448 @@ permalink: /edition04/
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta name="referrer" content="always">
-    <title id="dynamic-title">LeakX · Akses Konten Viral Terbaru</title>
-    <meta id="dynamic-description" name="description" content="Temukan konten viral terbaru. Update setiap hari. Akses eksklusif untuk member.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition/">
+    <title id="dynamic-title">WAR ROOM · Tactical Intelligence Command</title>
+    <meta id="dynamic-description" name="description" content="Tactical intelligence command center. Real-time strategic monitoring and threat assessment.">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/command/">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #000000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #e7e9ea; }
-        .container { max-width: 600px; margin: 0 auto; background: #000000; min-height: 100vh; border-left: 1px solid #2f3336; border-right: 1px solid #2f3336; }
-        .header { position: sticky; top: 0; background: rgba(0,0,0,0.95); backdrop-filter: blur(12px); padding: 0.75rem 1rem; border-bottom: 1px solid #2f3336; z-index: 10; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.3rem; font-weight: 700; }
-        .logo span { color: #1d9bf0; }
-        .logo .accent { color: #ec489a; }
-        .search-box { background: #202327; padding: 0.3rem 0.8rem; border-radius: 30px; font-size: 0.7rem; color: #71767b; }
-        .breadcrumb { padding: 0.5rem 1rem; font-size: 0.7rem; color: #71767b; background: #000000; border-bottom: 1px solid #2f3336; }
-        .breadcrumb a { color: #1d9bf0; text-decoration: none; }
-        .trending-bar { padding: 0.75rem 1rem; border-bottom: 1px solid #2f3336; display: flex; gap: 1rem; overflow-x: auto; scrollbar-width: thin; }
-        .trending-item { font-size: 0.7rem; white-space: nowrap; cursor: pointer; transition: all 0.2s; padding: 0.2rem 0.5rem; border-radius: 20px; }
-        .trending-item:hover { background: #1d9bf022; color: #1d9bf0; }
-        .profile-header { padding: 1rem; border-bottom: 1px solid #2f3336; }
-        .profile-row { display: flex; justify-content: space-between; align-items: center; }
-        .profile-name { font-size: 1.1rem; font-weight: 700; }
-        .profile-handle { font-size: 0.7rem; color: #71767b; }
-        .follow-btn { background: #1d9bf0; padding: 0.3rem 1rem; border-radius: 30px; font-size: 0.7rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
-        .profile-bio { font-size: 0.8rem; margin-top: 0.5rem; line-height: 1.3; }
-        .profile-stats { display: flex; gap: 1rem; margin-top: 0.5rem; font-size: 0.7rem; color: #71767b; }
-        .tabs { display: flex; border-bottom: 1px solid #2f3336; }
-        .tab { flex: 1; text-align: center; padding: 0.75rem; font-size: 0.7rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-        .tab.active { border-bottom: 2px solid #1d9bf0; color: #1d9bf0; }
-        .link-card { padding: 0.75rem 1rem; border-bottom: 1px solid #2f3336; cursor: pointer; transition: background 0.1s; position: relative; }
-        .link-card:hover { background: #080808; }
-        .card-header { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; }
-        .card-avatar { width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
-        .avatar-1 { background: linear-gradient(135deg, #1d9bf0, #0a5a8a); }
-        .avatar-2 { background: linear-gradient(135deg, #ec489a, #9b2c6b); }
-        .avatar-3 { background: linear-gradient(135deg, #00ba7c, #006644); }
-        .avatar-4 { background: linear-gradient(135deg, #f59e0b, #92400e); }
-        .avatar-5 { background: linear-gradient(135deg, #8b5cf6, #5b21b6); }
-        .card-user-info { flex: 1; }
-        .card-name { font-weight: 700; font-size: 0.85rem; }
-        .card-username { font-size: 0.75rem; color: #71767b; }
-        .card-time { font-size: 0.7rem; color: #71767b; }
-        .card-content { font-size: 0.85rem; line-height: 1.4; margin-bottom: 0.5rem; padding-left: 48px; }
-        .badge { display: inline-block; font-size: 0.6rem; padding: 0.1rem 0.4rem; border-radius: 12px; margin-left: 0.5rem; vertical-align: middle; }
-        .badge-hot { background: #ec489a; color: white; }
-        .badge-new { background: #00ba7c; color: white; }
-        .badge-viral { background: #f59e0b; color: white; }
-        .badge-exclusive { background: #8b5cf6; color: white; }
-        .badge-leaked { background: #ef4444; color: white; }
-        .media-preview { background: #1a1a1a; border-radius: 16px; margin: 0.5rem 0 0.5rem 48px; padding: 0.75rem; display: flex; align-items: center; gap: 0.75rem; border: 1px solid #2f3336; }
-        .play-icon { width: 36px; height: 36px; background: rgba(0,0,0,0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
-        .media-info { flex: 1; }
-        .media-title { font-size: 0.75rem; font-weight: 500; }
-        .media-meta { font-size: 0.6rem; color: #71767b; margin-top: 0.2rem; }
-        .cta-button { background: linear-gradient(135deg, #1d9bf0, #ec489a); color: white; padding: 8px 16px; border-radius: 30px; font-size: 0.7rem; font-weight: 700; display: inline-block; margin-left: 48px; margin-top: 0.5rem; text-align: center; cursor: pointer; transition: all 0.2s; animation: softPulse 2s infinite; letter-spacing: 0.5px; }
-        @keyframes softPulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.92; transform: scale(1.01); } 100% { opacity: 1; transform: scale(1); } }
-        .card-actions { display: flex; gap: 2rem; margin-top: 0.5rem; padding-left: 48px; font-size: 0.7rem; color: #71767b; }
-        .action-item { display: flex; align-items: center; gap: 0.3rem; transition: color 0.2s; }
-        .action-item:hover { color: #1d9bf0; }
-        .sidebar-section { padding: 1rem; border-top: 1px solid #2f3336; }
-        .section-title { font-weight: 700; margin-bottom: 0.75rem; font-size: 0.85rem; }
-        .trending-topic { margin-bottom: 0.75rem; cursor: pointer; padding: 0.3rem; border-radius: 8px; transition: background 0.2s; }
-        .trending-topic:hover { background: #080808; }
-        .trending-rank { font-size: 0.65rem; color: #71767b; }
-        .trending-name { font-weight: 600; font-size: 0.8rem; }
-        .trending-posts { font-size: 0.6rem; color: #71767b; }
-        .follow-suggestion { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; padding: 0.3rem; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
-        .follow-suggestion:hover { background: #080808; }
-        .suggestion-info { flex: 1; }
-        .suggestion-name { font-weight: 600; font-size: 0.8rem; }
-        .suggestion-handle { font-size: 0.65rem; color: #71767b; }
-        .suggestion-follow { background: transparent; border: 1px solid #1d9bf0; color: #1d9bf0; padding: 0.2rem 0.8rem; border-radius: 30px; font-size: 0.65rem; cursor: pointer; transition: all 0.2s; }
-        .suggestion-follow:hover { background: #1d9bf022; }
-        .footer { padding: 1rem; text-align: center; font-size: 0.6rem; color: #71767b; border-top: 1px solid #2f3336; }
-        @media (max-width: 640px) { .container { border-left: none; border-right: none; } .card-content, .media-preview, .card-actions, .cta-button { padding-left: 48px; margin-left: 0; } }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{background:#0a0a0a;font-family:'Inter',sans-serif;color:#e0e0e0}
+        
+        /* Style War Room / Command Center - Tactical, Terminal, Military Grade */
+        .warroom{max-width:1600px;margin:0 auto;padding:20px;background:#0a0a0a}
+        
+        /* Header Terminal */
+        .terminal-header{background:#0f0f0f;border:1px solid #1f1f1f;border-radius:8px;padding:16px 24px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+        .terminal-badge{display:flex;align-items:center;gap:12px}
+        .terminal-prompt{font-family:'Space Mono',monospace;font-size:0.8rem;color:#00ff88}
+        .terminal-prompt::before{content:'>_';color:#00ff88;margin-right:8px}
+        .command-title{font-family:'Space Mono',monospace;font-size:0.7rem;color:#888}
+        .connection-status{display:flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:0.65rem}
+        .status-led{width:10px;height:10px;border-radius:50%;background:#00ff88;box-shadow:0 0 5px #00ff88;animation:blink 1.5s infinite}
+        @keyframes blink{0%{opacity:1}50%{opacity:0.4}100%{opacity:1}}
+        
+        /* Main Grid - 4 Columns Military Dashboard */
+        .tactical-grid{display:grid;grid-template-columns:320px 1fr 320px;gap:20px}
+        
+        /* Left Panel - Threat Matrix */
+        .threat-panel{background:#0f0f0f;border:1px solid #1f1f1f;border-radius:8px;overflow:hidden}
+        .panel-header{background:#141414;padding:14px 20px;border-bottom:1px solid #1f1f1f;font-family:'Space Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:1px}
+        .threat-list{display:flex;flex-direction:column}
+        .threat-item{padding:16px 20px;border-bottom:1px solid #1f1f1f;cursor:pointer;transition:background 0.2s}
+        .threat-item:hover{background:#141414}
+        .threat-level{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.55rem;font-weight:700;margin-bottom:8px}
+        .level-critical{background:#ff0000;color:#fff}
+        .level-high{background:#ff4400;color:#fff}
+        .level-medium{background:#ffaa00;color:#000}
+        .level-low{background:#00aa44;color:#fff}
+        .threat-title{font-size:0.8rem;font-weight:600;margin-bottom:4px}
+        .threat-meta{font-size:0.6rem;color:#666}
+        .threat-progress{margin-top:8px;height:3px;background:#1f1f1f;border-radius:3px;overflow:hidden}
+        .threat-progress-fill{height:3px;background:#ff0000;border-radius:3px}
+        
+        /* Center Panel - Intel Feed (Panjang) */
+        .intel-panel{background:#0f0f0f;border:1px solid #1f1f1f;border-radius:8px;overflow:hidden}
+        .intel-header{background:#141414;padding:14px 20px;border-bottom:1px solid #1f1f1f;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+        .intel-title{font-family:'Space Mono',monospace;font-size:0.7rem;text-transform:uppercase}
+        .intel-filters{display:flex;gap:8px}
+        .tactical-chip{background:#1a1a1a;padding:4px 12px;border-radius:4px;font-size:0.6rem;cursor:pointer;font-family:'Space Mono',monospace}
+        .tactical-chip-active{background:#00ff88;color:#000}
+        
+        /* Intel Card - Tactical Style (Panjang) */
+        .intel-card{border-bottom:1px solid #1f1f1f;padding:20px;cursor:pointer;transition:background 0.2s}
+        .intel-card:hover{background:#121212}
+        .card-timestamp{font-family:'Space Mono',monospace;font-size:0.6rem;color:#00ff88;margin-bottom:8px}
+        .card-badge-line{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px}
+        .tactical-badge{padding:2px 8px;border-radius:4px;font-size:0.55rem;font-family:'Space Mono',monospace}
+        .badge-source{background:#1f1f1f;color:#aaa}
+        .badge-priority{background:#ff0000;color:#fff}
+        .card-title{font-size:0.95rem;font-weight:700;margin-bottom:8px;line-height:1.4}
+        .card-summary{font-size:0.7rem;color:#aaa;line-height:1.5;margin-bottom:12px}
+        
+        /* Detail Intel (Panjang) */
+        .intel-details{background:#121212;border-left:2px solid #00ff88;padding:12px;margin:12px 0}
+        .detail-section{font-family:'Space Mono',monospace;font-size:0.6rem;color:#00ff88;margin-bottom:6px}
+        .detail-text{font-size:0.7rem;color:#ccc;margin-bottom:8px;line-height:1.5}
+        
+        .platform-tag{display:inline-flex;align-items:center;gap:4px;background:#1a1a1a;padding:2px 8px;border-radius:4px;font-size:0.55rem;margin-right:6px;margin-bottom:6px}
+        
+        /* Action Buttons */
+        .tactical-actions{display:flex;gap:12px;margin-top:12px}
+        .action-btn{background:transparent;border:1px solid #333;padding:4px 12px;border-radius:4px;font-size:0.6rem;cursor:pointer;font-family:'Space Mono',monospace}
+        .action-btn-primary{border-color:#00ff88;color:#00ff88}
+        
+        /* Right Panel - Metrics & Assets */
+        .metrics-panel{display:flex;flex-direction:column;gap:20px}
+        .metric-card{background:#0f0f0f;border:1px solid #1f1f1f;border-radius:8px;padding:20px}
+        .metric-title{font-family:'Space Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;color:#888}
+        
+        .radar-value{font-size:1.8rem;font-weight:800;font-family:'Space Mono',monospace;color:#00ff88}
+        .radar-label{font-size:0.6rem;color:#666}
+        
+        .asset-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #1f1f1f;cursor:pointer}
+        .asset-name{font-size:0.7rem;font-family:'Space Mono',monospace}
+        .asset-status{width:8px;height:8px;border-radius:50%;background:#00ff88}
+        
+        .progress-item{margin-bottom:12px}
+        .progress-label{display:flex;justify-content:space-between;font-size:0.65rem;margin-bottom:4px}
+        .progress-bar-bg{background:#1f1f1f;height:4px;border-radius:2px;overflow:hidden}
+        .progress-bar-fill{height:4px;background:#00ff88;border-radius:2px}
+        
+        /* Footer */
+        .warroom-footer{margin-top:20px;padding:16px 20px;background:#0f0f0f;border:1px solid #1f1f1f;border-radius:8px;text-align:center;font-family:'Space Mono',monospace;font-size:0.6rem;color:#666;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+        
+        @media(max-width:1100px){.tactical-grid{grid-template-columns:1fr}.threat-panel{order:3}.metrics-panel{order:2}.intel-panel{order:1}}
+        @media(max-width:600px){.warroom{padding:12px}}
     </style>
 </head>
 <body>
-<div class="container" id="app"><div id="loading" style="display: flex; justify-content: center; align-items: center; height: 100vh; color: #71767b;">⚡ Loading...</div></div>
+<div class="warroom" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#666;font-family:'Space Mono',monospace">>_ INITIALIZING COMMAND PROTOCOL...</div></div>
+
 <script>
-(function() {
-    // ========== DATABASE SUPER LENGKAP (SEMUA ELEMEN UNIK) ==========
+(function(){
+    // ========== DATABASE WAR ROOM STYLE (PANJANG & TACTICAL) ==========
     
-    // 40 Action Verbs
-    const ACTIONS = [
-        "watch", "download", "view", "access", "stream", "unlock", "see", "get", "open", "reveal",
-        "browse", "check", "find", "discover", "explore", "preview", "grab", "snag", "claim", "fetch",
-        "retrieve", "launch", "play", "load", "show", "peek", "glance", "obtain", "secure", "acquire",
-        "extract", "unzip", "unpack", "decrypt", "bypass", "enter", "join", "scan", "tap", "click"
+    // Platforms
+    const PLATFORMS = ['TIKTOK','ONLYFANS','INSTAGRAM','TWITTER','TELEGRAM','DISCORD','REDDIT','YOUTUBE','SNAPCHAT','MEGA','GOOGLEDRIVE'];
+    const PLATFORM_ICONS = {'TIKTOK':'📱','ONLYFANS':'🔞','INSTAGRAM':'📸','TWITTER':'🐦','TELEGRAM':'✈️','DISCORD':'🎮','REDDIT':'🤖','YOUTUBE':'▶️','SNAPCHAT':'👻','MEGA':'🔒','GOOGLEDRIVE':'☁️'};
+    
+    // 50 Threat Types
+    const THREAT_TYPES = [
+        "DATA EXFILTRATION","CONTENT PROPAGATION","ARCHIVAL PRESERVATION","MIRROR DEPLOYMENT","PLATFORM CIRCUMVENTION",
+        "SOURCE COMPROMISE","CHAIN DISTRIBUTION","CROSS-POLINATION","VECTOR EXPANSION","SURFACE WIDENING",
+        "DEEP ARCHIVING","REDUNDANT BACKUP","DECENTRALIZED HOSTING","TORRENT SEEDING","P2P DISTRIBUTION"
     ];
     
-    // 40 Content Types
-    const CONTENT_TYPES = [
-        "full video", "complete set", "mega folder", "archive", "compilation", "collection", "dump", 
-        "vault", "gallery", "pack", "bundle", "library", "database", "repository", "leak", 
-        "exclusive", "private content", "premium", "master collection", "ultimate pack", "director cut",
-        "extended version", "uncut footage", "raw files", "original source", "backup files",
-        "full season", "complete series", "master tape", "studio version", "behind scenes",
-        "deleted scenes", "blooper reel", "interview", "documentary", "highlight reel", "best moments",
-        "fan edit", "restored version", "remastered"
+    // 60 Intel Headlines
+    const HEADLINES = [
+        "New content package detected in wild",
+        "Distribution vector expanded to {platform}",
+        "Archival redundancy increased by {percent}%",
+        "Source attribution partially compromised",
+        "Mirror deployment detected on {count} nodes",
+        "Content surface area widening rapidly",
+        "Preservation protocol initiated by third party",
+        "Chain distribution pattern identified",
+        "Cross-platform propagation confirmed",
+        "Vector analysis reveals new threat pathways"
     ];
     
-    // 30 Qualifiers
-    const QUALIFIERS = [
-        "exclusive", "viral", "leaked", "private", "premium", "uncensored", "full HD", "rare", 
-        "limited", "new", "2024", "2025", "authentic", "verified", "original", "legit", "official",
-        "unreleased", "uncut", "unfiltered", "behind the scene", "backup", "master", "raw", "unedited",
-        "crystal clear", "high quality", "best quality", "never seen", "impossible to find"
+    // 50 Paragraph Details (Panjang)
+    const DETAIL_PARAGRAPHS = [
+        "Digital forensics indicates the material originated from a primary source before being distributed through multiple secondary channels. The propagation pattern suggests coordinated release rather than organic spread. Metadata analysis confirms file integrity and original timestamps remain intact.",
+        "Threat assessment indicates this content has achieved critical mass across {count} independent platforms. Decentralized hosting makes complete removal virtually impossible. Archival groups have already preserved multiple redundant copies using distributed storage systems.",
+        "Intelligence suggests the source channel has implemented advanced operational security measures. Traffic analysis reveals connections to at least {count} previously unknown distribution nodes. Geotagging attempts have been obfuscated through multi-hop routing.",
+        "The current threat vector shows signs of automated distribution through bot networks. Analysis of download patterns indicates coordinated access from multiple geographic regions simultaneously. Peak activity detected during off-peak hours suggests international coordination.",
+        "Content preservation efforts have successfully mirrored material across {count} independent storage solutions. Blockchain timestamps confirm creation dates with cryptographic certainty. Multiple hash matches verify content authenticity across all known copies."
     ];
     
-    // 25 Urgency Phrases
-    const URGENCY = [
-        "before takedown", "limited time", "only today", "expiring soon", "last chance", "few left",
-        "trending now", "viral today", "hot off the press", "breaking now", "just dropped",
-        "fresh upload", "new release", "latest update", "today only", "this week only",
-        "almost gone", "selling fast", "high demand", "popular right now", "copyright claim pending",
-        "dmca pending", "removal scheduled", "last copy", "final warning"
+    // 40 Tactical Recommendations
+    const TACTICAL_RECS = [
+        "Monitor {count} additional distribution channels",
+        "Deploy automated takedown requests to {platform}",
+        "Flag source accounts for enhanced surveillance",
+        "Coordinate with platform security teams",
+        "Initiate counter-narrative deployment",
+        "Expand keyword monitoring parameters",
+        "Increase scanning frequency on priority platforms"
     ];
     
-    // 25 Trigger Sentences (berbeda semua)
-    const TRIGGERS = [
-        "⚠️ Only few views left before removal! ⚠️",
-        "🔥 1.2M people already watched this 🔥",
-        "⏰ Link expires in 24 hours ⏰",
-        "📁 Last copy available 📁",
-        "🔒 47 people viewing this right now 🔒",
-        "🫣 You won't believe what's inside 🫣",
-        "🚨 Copyright holder requested removal 🚨",
-        "💎 Only 1000 people have seen this 💎",
-        "📢 BREAKING: Just uploaded 5 mins ago 📢",
-        "🌍 Going viral across all platforms 🌍",
-        "🤫 Don't share this link publicly 🤫",
-        "⏳ Access expires when this post hits 50K views ⏳",
-        "📈 Trending #1 on LeakX right now 📈",
-        "✨ NEW: Never seen before content ✨",
-        "⚠️ WARNING: This will be deleted soon ⚠️",
-        "🎯 Targeted by copyright bots - act fast 🎯",
-        "💀 Link self-destructs in 3...2... 💀",
-        "👁️ 10,000+ views in the last hour 👁️",
-        "📱 Blowing up on Telegram right now 📱",
-        "🔴 LIVE: Currently trending worldwide 🔴",
-        "⚡ Faster than any other link ⚡",
-        "🏆 Top leaked content this week 🏆",
-        "🎁 Hidden content - click to reveal 🎁",
-        "🔑 Exclusive key required - get it here 🔑",
-        "💣 This will be gone by tomorrow 💣"
+    // 30 Asset Names
+    const ASSET_NAMES = [
+        "PRIMARY_SOURCE_TRACKER","MIRROR_DETECTION_ENGINE","ARCHIVAL_SCANNER","DISTRIBUTION_MAPPER","THREAT_ANALYZER",
+        "VECTOR_TRACER","NODE_DISCOVERY","SURFACE_CALCULATOR","PROPAGATION_MODEL","REDUNDANCY_CHECKER"
     ];
     
-    // 8 Avatar Styles
-    const AVATAR_STYLES = ['avatar-1', 'avatar-2', 'avatar-3', 'avatar-4', 'avatar-5', 'avatar-1', 'avatar-2', 'avatar-3'];
-    const AVATAR_ICONS = ['🔥', '💎', '⭐', '👑', '🔞', '💿', '📁', '🎬', '📸', '🎥', '📹', '🎞️', '📀', '💾', '🗂️', '📦', '🗄️', '🔓', '🗝️', '🎭'];
+    // Threat levels
+    const THREAT_LEVELS = ['CRITICAL','HIGH','MEDIUM','LOW'];
+    const THREAT_CLASS = { CRITICAL:'level-critical', HIGH:'level-high', MEDIUM:'level-medium', LOW:'level-low' };
     
-    // 30 Display Names
-    const DISPLAY_NAMES = [
-        "LeakArchive", "ViralFinder", "ExclusiveHub", "ContentVault", "LeakCentral", 
-        "ViralNow", "DailyXclusive", "LeakFeed", "ContentKing", "VaultKeeper",
-        "LeakMaster", "ViralTracker", "ExclusiveSource", "ContentCollector", "LeakHunter",
-        "ViralAlert", "FlashLeak", "RapidViral", "LeakRadar", "ContentReveal",
-        "TheLeakFactory", "ViralVault", "ExclusiveAccess", "ContentDepot", "LeakDispatch",
-        "ViralCircuit", "LeakPipeline", "ContentStream", "ExclusiveDrop", "ViralTorrent"
-    ];
-    
-    // 30 Usernames
-    const USERNAMES = [
-        "leakarchive", "viralfinder", "exclusivehub", "contentvault", "leakcentral", 
-        "viralnow", "dailyxclusive", "leakfeed", "contentking", "vaultkeeper",
-        "leakmaster", "viraltracker", "exclusivesource", "contentcollector", "leakhunter",
-        "viraldaily", "flashleak", "rapidviral", "leakradar", "contentreveal",
-        "theleakfactory", "viralvault", "exclusiveaccess", "contentdepot", "leakdispatch",
-        "viralcircuit", "leakpipeline", "contentstream", "exclusivedrop", "viraltorrent"
-    ];
-    
-    // 5 Badge Types
-    const BADGE_TYPES = ['hot', 'new', 'viral', 'exclusive', 'leaked'];
-    const BADGE_LABELS = { hot: 'HOT', new: 'NEW', viral: 'VIRAL', exclusive: 'EXCLUSIVE', leaked: 'LEAKED' };
-    const BADGE_CLASSES = { hot: 'badge-hot', new: 'badge-new', viral: 'badge-viral', exclusive: 'badge-exclusive', leaked: 'badge-leaked' };
-    
-    // 20 File Sizes
-    const FILE_SIZES = ['45 MB', '89 MB', '124 MB', '256 MB', '512 MB', '789 MB', '1.2 GB', '1.8 GB', '2.3 GB', '3.1 GB', '4.5 GB', '5.0 GB', '678 MB', '345 MB', '892 MB', '1.5 GB', '2.7 GB', '3.9 GB', '6.2 GB', '7.5 GB'];
-    
-    // 15 View Ranges
-    const VIEW_RANGES = [
-        [1000, 5000], [5000, 15000], [15000, 35000], [35000, 70000], [70000, 120000],
-        [120000, 200000], [200000, 350000], [350000, 550000], [550000, 800000], [800000, 1000000],
-        [1000000, 1500000], [1500000, 2000000], [2000000, 3000000], [3000000, 5000000], [5000000, 10000000]
-    ];
-    
-    // 20 Time Options
-    const TIME_AGOS = ['5m', '12m', '28m', '1h', '2h', '3h', '5h', '7h', '11h', '14h', '18h', '22h', '1d', '2d', '3d', '5d', '1w', '2w', '3w', '1M'];
-    
-    // Interaction Ranges
-    const REPLY_RANGES = [[5, 30], [30, 80], [80, 150], [150, 300], [300, 600], [600, 1000], [1000, 2500]];
-    const RETWEET_RANGES = [[20, 80], [80, 200], [200, 500], [500, 1200], [1200, 3000], [3000, 8000], [8000, 20000]];
-    const LIKE_RANGES = [[100, 500], [500, 1500], [1500, 4000], [4000, 10000], [10000, 25000], [25000, 50000], [50000, 150000]];
-    
-    // 15 CTA Variations
-    const CTA_TEXTS = [
-        "⚡ CLICK TO ACCESS ⚡",
-        "🎬 WATCH NOW →",
-        "🔓 UNLOCK CONTENT →",
-        "👇 DOWNLOAD HERE 👇",
-        "▶️ PLAY FULL VERSION",
-        "📥 GET IT NOW - LIMITED!",
-        "🎯 TAP TO REVEAL",
-        "✨ ACCESS EXCLUSIVE ✨",
-        "🚀 CLAIM YOUR LINK 🚀",
-        "💎 VIP ACCESS 💎",
-        "🔑 UNLOCK SECRETS 🔑",
-        "📀 OPEN VAULT 📀",
-        "🎁 CLAIM FREE ACCESS 🎁",
-        "⚡ LIMITED TIME ⚡",
-        "👁️ VIEW CONTENT 👁️"
-    ];
-    
-    // 15 Bio Templates
-    const BIO_TEMPLATES = [
-        (name, followers) => `The complete archive of ${name} exclusive content. Updated daily with new material. ${followers}+ followers.`,
-        (name, followers) => `Official ${name} content hub. Get the latest leaks, exclusives, and viral updates. Join ${followers}+ others.`,
-        (name) => `${name} archive since 2024. Thousands of files available. Premium quality guaranteed.`,
-        (name, followers) => `Your #1 source for ${name} content. Follow for daily updates and exclusive drops. ${followers} followers.`,
-        (name) => `${name} leaked content collection. The largest database on the internet. Updated hourly.`,
-        (name, followers) => `Verified ${name} archive. ${followers}+ people already following. Don't miss out.`,
-        (name) => `The ultimate ${name} vault. Everything in one place. No ads, fast access.`,
-        (name, followers) => `${name} central hub. ${followers} members and counting. Join the community.`,
-        (name) => `Exclusive ${name} content not found anywhere else. Premium members only.`,
-        (name, followers) => `The original ${name} archive. Trusted by ${followers}+ fans worldwide.`,
-        (name) => `${name} leaked vault. Complete collection 2024-2025. 100% verified.`,
-        (name, followers) => `Daily ${name} updates. ${followers} followers can't be wrong. Get access now.`,
-        (name) => `The most comprehensive ${name} archive anywhere. Regularly updated.`,
-        (name, followers) => `Join ${followers}+ others getting ${name} exclusives daily.`,
-        (name) => `${name} content central. New drops every hour. Never miss a leak.`
-    ];
-    
-    // 15 Handle Suffixes
-    const HANDLE_SUFFIXES = ['archive', 'hub', 'central', 'vault', 'leaks', 'exclusive', 'content', 'library', 'source', 'channel', 'zone', 'base', 'portal', 'network', 'global'];
-    
-    // 30 Trending Topic Templates
-    const TRENDING_TEMPLATES = [
-        (name) => `#${name.replace(/ /g, '')}Leak`,
-        (name) => `#${name.replace(/ /g, '')}Viral`,
-        (name) => `#${name.replace(/ /g, '')}Exclusive`,
-        (name) => `#${name.replace(/ /g, '')}Archive`,
-        () => `#ViralLeaks`,
-        () => `#TrendingNow`,
-        () => `#ExclusiveContent`,
-        () => `#LeakOfTheDay`,
-        () => `#BreakingLeak`,
-        () => `#ViralAlert`,
-        (name) => `#${name.replace(/ /g, '')}Drama`,
-        (name) => `#${name.replace(/ /g, '')}Scandal`,
-        () => `#OnlyLeaks`,
-        () => `#TelegramLeaks`,
-        () => `#LeakXclusive`
-    ];
-    
-    // 20 Stop Words untuk ekstraksi nama
+    // Stop Words
     const STOP_WORDS = [
-        'leaked', 'leak', 'leaks', 'archive', 'collection', 'dump', 'vault', 'pack', 'bundle', 
-        'gallery', 'content', 'media', 'videos', 'photos', 'pics', 'onlyfans', 'tiktok', 
-        'instagram', 'twitter', 'telegram', 'discord', 'trending', 'viral', 'exclusive', 
-        'private', 'premium', 'watch', 'download', 'view', 'access', 'stream', 'unlock', 
-        'see', 'get', 'open', 'reveal', 'full', 'complete', 'hot', 'new', '2024', '2025',
-        'uncensored', 'hd', 'rare', 'limited', 'authentic', 'verified', 'original', 'uncut',
-        'raw', 'master', 'behind', 'scenes', 'deleted', 'blooper', 'interview', 'documentary'
+        'leaked','leak','leaks','archive','collection','dump','vault','content','media','video','photo',
+        'exclusive','private','premium','onlyfans','tiktok','instagram','twitter','telegram','discord',
+        'command','warroom','tactical','intel','threat'
     ];
     
-    // ========== UTILITY FUNCTIONS ==========
-    const random = (arr) => arr[Math.floor(Math.random() * arr.length)];
-    const randomRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+    // ========== UTILITY ==========
+    const rand = (arr) => arr[Math.floor(Math.random() * arr.length)];
+    const range = (min,max) => Math.floor(Math.random() * (max - min + 1)) + min;
     
-    // ========== EKSTRAK NAMA DARI KUERI ==========
+    // ========== EKSTRAK TOPIK (PUBLIC FIGURE) ==========
     const urlParams = new URLSearchParams(window.location.search);
     let rawQuery = urlParams.get('q');
+    if(!rawQuery || rawQuery.trim() === ""){ window.location.href = "/"; return; }
+    rawQuery = decodeURIComponent(rawQuery.replace(/\+/g,' '));
     
-    if (!rawQuery || rawQuery.trim() === "") {
-        window.location.href = "/";
-        return;
-    }
+    let baseTopic = rawQuery.toLowerCase();
+    STOP_WORDS.forEach(w => { baseTopic = baseTopic.replace(new RegExp('\\b'+w+'\\b','gi'),''); });
+    baseTopic = baseTopic.replace(/\s+/g,' ').trim();
+    if(baseTopic.length < 2) baseTopic = rawQuery;
     
-    rawQuery = decodeURIComponent(rawQuery.replace(/\+/g, ' '));
+    const formatTopic = (s) => s.split(' ').map(w => w[0].toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    const displayName = formatTopic(baseTopic);
+    const nameUpper = displayName.toUpperCase();
+    const nameLower = displayName.toLowerCase();
     
-    let baseName = rawQuery.toLowerCase();
-    STOP_WORDS.forEach(word => {
-        const regex = new RegExp('\\b' + word + '\\b', 'gi');
-        baseName = baseName.replace(regex, '');
-    });
-    baseName = baseName.replace(/\s+/g, ' ').trim();
-    if (baseName.length < 2) baseName = rawQuery;
-    
-    const formatName = (str) => str.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
-    const displayName = formatName(baseName);
-    const displayLower = displayName.toLowerCase();
-    
-    // ========== GENERATE VARIAN LINK (SETIAP PANGGILAN BERBEDA) ==========
-    const generateLink = () => {
-        const action = random(ACTIONS);
-        const contentType = random(CONTENT_TYPES);
-        const qualifier = random(QUALIFIERS);
-        const urgency = random(URGENCY);
-        
-        let newQuery = `${displayLower} ${action} ${contentType} ${qualifier}`;
-        if (Math.random() > 0.25) newQuery += ` ${urgency}`;
-        
-        return {
-            url: `/edition/?q=${encodeURIComponent(newQuery)}`,
-            anchor: `${action.charAt(0).toUpperCase() + action.slice(1)} ${contentType}`,
-            qualifier: qualifier,
-            action: action,
-            contentType: contentType
-        };
+    // ========== GENERATE LINK ==========
+    const genLink = () => {
+        let platform = rand(PLATFORMS);
+        let newQ = `${nameLower} ${rand(['distribution','propagation','archive','source'])} ${platform}`;
+        return { url:`/command/?q=${encodeURIComponent(newQ)}`, platform: platform };
     };
     
-    // ========== GENERATE METRIK UNIK ==========
-    const generateMetrics = () => ({
-        views: randomRange(...random(VIEW_RANGES)),
-        replies: randomRange(...random(REPLY_RANGES)),
-        retweets: randomRange(...random(RETWEET_RANGES)),
-        likes: randomRange(...random(LIKE_RANGES)),
-        timeAgo: random(TIME_AGOS),
-        fileSize: random(FILE_SIZES),
-        fileCount: randomRange(5, 200)
-    });
-    
-    // ========== RENDER LINK CARD (100% UNIK) ==========
-    const renderCard = (link, idx) => {
-        const m = generateMetrics();
-        const trigger = random(TRIGGERS);
-        const avatarStyle = random(AVATAR_STYLES);
-        const avatarIcon = random(AVATAR_ICONS);
-        const displayNameRand = random(DISPLAY_NAMES);
-        const usernameRand = random(USERNAMES);
-        const badgeType = random(BADGE_TYPES);
-        const ctaText = random(CTA_TEXTS);
-        
-        const formatNum = (n) => n.toLocaleString();
-        
-        return `
-            <div class="link-card" data-url="${link.url}">
-                <div class="card-header">
-                    <div class="card-avatar ${avatarStyle}">${avatarIcon}</div>
-                    <div class="card-user-info">
-                        <div class="card-name">
-                            ${displayNameRand}
-                            <span class="badge ${BADGE_CLASSES[badgeType]}">${BADGE_LABELS[badgeType]}</span>
-                        </div>
-                        <div class="card-username">@${usernameRand}</div>
-                        <div class="card-time">· ${m.timeAgo}</div>
-                    </div>
-                </div>
-                <div class="card-content">
-                    ${trigger} ${displayName} ${link.anchor} ${link.qualifier} content just dropped!
-                    <div style="margin-top: 4px; font-size: 0.7rem; color: #1d9bf0;">👁️ ${formatNum(m.views)} views</div>
-                </div>
-                <div class="media-preview">
-                    <div class="play-icon">▶</div>
-                    <div class="media-info">
-                        <div class="media-title">${link.anchor.toUpperCase()} · ${link.qualifier.toUpperCase()}</div>
-                        <div class="media-meta">${m.fileSize} · ${m.fileCount} files</div>
-                    </div>
-                    <div>→</div>
-                </div>
-                <div class="cta-button">${ctaText}</div>
-                <div class="card-actions">
-                    <span class="action-item">💬 ${formatNum(m.replies)}</span>
-                    <span class="action-item">🔁 ${formatNum(m.retweets)}</span>
-                    <span class="action-item">❤️ ${formatNum(m.likes)}</span>
-                    <span class="action-item">📤 ${Math.floor(m.views / 100)}</span>
-                </div>
-            </div>
-        `;
+    // ========== GENERATE THREAT LEVEL ==========
+    const genThreatLevel = () => {
+        let randNum = Math.random();
+        if(randNum < 0.25) return 'CRITICAL';
+        if(randNum < 0.5) return 'HIGH';
+        if(randNum < 0.75) return 'MEDIUM';
+        return 'LOW';
     };
     
-    // ========== RENDER TRENDING TOPICS ==========
-    const renderTrending = (links) => {
-        const items = [];
-        for (let i = 0; i = 0.3 ? randomRange(1, 99) : '') : '';
-        const posts = randomRange(3, 98);
-        items.push(`
-            <div class="trending-topic" data-url="${link.url}">
-                <div class="trending-rank">Trending ${i+1} · ${link.qualifier.toUpperCase()}</div>
-                <div class="trending-name">${topicName}${numSuffix}</div>
-                <div class="trending-posts">${posts}K posts</div>
-            </div>
-        `);
-    }
-    return items.join('');
+    // ========== GENERATE TIMESTAMP ==========
+    const genTimestamp = () => {
+        let hours = range(0,23);
+        let minutes = range(0,59);
+        let seconds = range(0,59);
+        return `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')} UTC`;
     };
     
-    // ========== RENDER WHO TO FOLLOW ==========
-    const renderFollowSuggestions = () => {
-        const suggestions = [];
-        for (let i = 0; i < 4; i++) {
-            const link = generateLink();
-            const name = random(DISPLAY_NAMES);
-            const handle = random(USERNAMES);
-            suggestions.push(`
-                <div class="follow-suggestion" data-url="${link.url}">
-                    <div class="suggestion-info">
-                        <div class="suggestion-name">${name}</div>
-                        <div class="suggestion-handle">@${handle}</div>
-                    </div>
-                    <div class="suggestion-follow">Follow</div>
+    // ========== GENERATE THREAT ITEMS ==========
+    const generateThreatItems = () => {
+        let threats = [];
+        for(let i=0;i<5;i++){
+            let threatType = rand(THREAT_TYPES);
+            let level = genThreatLevel();
+            let progress = range(15,95);
+            threats.push(`
+                <div class="threat-item" data-url="${genLink().url}">
+                    <div class="threat-level ${THREAT_CLASS[level]}">${level}</div>
+                    <div class="threat-title">${threatType}</div>
+                    <div class="threat-meta">Vector: ${rand(PLATFORMS)} · Impact: ${range(45,380)}K</div>
+                    <div class="threat-progress"><div class="threat-progress-fill" style="width:${progress}%"></div></div>
                 </div>
             `);
         }
-        return suggestions.join('');
+        return threats.join('');
     };
     
-    // ========== RENDER TRENDING BAR ==========
-    const renderTrendingBar = (links) => links.slice(0, 12).map(link => 
-        `<span class="trending-item" data-url="${link.url}">🔥 ${link.anchor}</span>`
-    ).join('');
-    
-    // ========== UPDATE SEO DINAMIS ==========
-    const updateSEO = () => {
-        const titles = [
-            `${displayName} · Akses Konten Eksklusif Terbaru | LeakX`,
-            `${displayName} Viral Archive - Full Collection | LeakX`,
-            `${displayName} Leaked Content Hub - Update Harian | LeakX`,
-            `${displayName} Exclusive Vault - Premium Access | LeakX`,
-            `${displayName} Complete Archive - 2025 Edition | LeakX`,
-            `${displayName} Mega Collection - Download Now | LeakX`,
-            `${displayName} Uncensored Content | LeakX`,
-            `${displayName} Full Package - Limited Time | LeakX`
-        ];
+    // ========== GENERATE INTEL CARD (PANJANG) ==========
+    const generateIntelCard = (link, idx) => {
+        let timestamp = genTimestamp();
+        let platform = link.platform;
+        let platformIcon = PLATFORM_ICONS[platform] || '🖥️';
+        let headline = rand(HEADLINES)
+            .replace('{platform}', platform)
+            .replace('{percent}', range(15,85))
+            .replace('{count}', range(3,24));
+        let detail = rand(DETAIL_PARAGRAPHS)
+            .replace('{count}', range(2,18));
+        let tacticalRec = rand(TACTICAL_RECS)
+            .replace('{count}', range(2,12))
+            .replace('{platform}', platform);
+        let priority = Math.random() > 0.7 ? 'PRIORITY_ALPHA' : 'ROUTINE';
+        let views = range(15000, 8500000);
         
-        const descs = [
-            `Temukan konten eksklusif ${displayName} terbaru. Update viral setiap hari. Akses cepat dan mudah.`,
-            `Archive lengkap ${displayName} termasuk video dan foto eksklusif. Update real-time dari berbagai sumber.`,
-            `${displayName} leaked content collection terlengkap. Ribuan file siap diakses. Limited time only.`,
-            `Kanal resmi ${displayName} archive. Dapatkan akses ke konten premium dan eksklusif.`,
-            `${displayName} viral content hub. Update setiap jam. Jangan sampai ketinggalan.`,
-            `Download ${displayName} complete collection sekarang juga. Full HD quality.`,
-            `${displayName} uncensored and uncut. The most complete archive online.`,
-            `${displayName} leaks updated daily. Join thousands of satisfied users.`
-        ];
+        let fmt = (n) => n.toLocaleString();
         
-        document.title = random(titles);
-        const metaDesc = document.getElementById('dynamic-description');
-        if (metaDesc) metaDesc.setAttribute('content', random(descs));
-        const canonical = document.getElementById('dynamic-canonical');
-        if (canonical) canonical.setAttribute('href', window.location.href.split('?')[0]);
-    };
-    
-    // ========== RENDER HALAMAN UTUH ==========
-    const renderPage = () => {
-        const bulkLinks = Array.from({ length: 20 }, () => generateLink());
-        const stats = {
-            tweets: randomRange(50, 600),
-            following: randomRange(30, 300),
-            followers: randomRange(100, 1200)
-        };
-        
-        const bio = random(BIO_TEMPLATES)(displayName, stats.followers);
-        const handleSuffix = random(HANDLE_SUFFIXES);
-        const randomHandle = `${displayLower.replace(/\s/g, '')}_${handleSuffix}`;
-        const tabNames = ['For You', 'Latest', 'Trending', 'New', 'Hot', 'Viral'];
-        const sectionTitles = ['🔥 Trending terkait', '🌍 Viral sekarang', '📈 Populer', '💥 Sedang ramai', '⚡ Breaking now'];
-        const footerTitles = ['LeakX', 'ViralLeak', 'LeakCentral', 'ExclusiveHub', 'ContentVault'];
-        
-        const html = `
-            <div class="header">
-                <div class="logo">Leak<span>X</span><span class="accent">.</span></div>
-                <div class="search-box">🔍 Search</div>
-            </div>
-            <div class="breadcrumb">
-                <a href="/">Home</a> / <a href="/edition/">Edition</a> / ${displayName}
-            </div>
-            <div class="trending-bar">${renderTrendingBar(bulkLinks)}</div>
-            <div class="profile-header">
-                <div class="profile-row">
+        return `
+            <div class="intel-card" data-url="${link.url}">
+                <div class="card-timestamp">[${timestamp}]</div>
+                <div class="card-badge-line">
                     <div>
-                        <div class="profile-name">${displayName} <span style="font-size:0.7rem; color:#1d9bf0;">· ${random(['Archive', 'Hub', 'Vault', 'Central', 'Source'])}</span></div>
-                        <div class="profile-handle">@${randomHandle}</div>
+                        <span class="tactical-badge badge-source">${platformIcon} ${platform}</span>
+                        <span class="tactical-badge badge-source">CHAIN: ${range(2,8)}</span>
                     </div>
-                    <div class="follow-btn">${Math.random() > 0.5 ? 'Follow' : '+ Follow'}</div>
+                    <div class="tactical-badge badge-priority">${priority}</div>
                 </div>
-                <div class="profile-bio">${bio}</div>
-                <div class="profile-stats">
-                    <span>📝 ${stats.tweets} Posts</span>
-                    <span>👥 ${stats.following} Following</span>
-                    <span>❤️ ${stats.followers} Followers</span>
+                
+                <div class="card-title">${headline}</div>
+                <div class="card-summary">Target: ${nameUpper} · Severity: ${genThreatLevel()} · Confidence: ${range(65,98)}%</div>
+                
+                <div class="intel-details">
+                    <div class="detail-section">[INTEL_ANALYSIS]</div>
+                    <div class="detail-text">${detail}</div>
+                    <div class="detail-section" style="margin-top:8px">[SITUATION_ASSESSMENT]</div>
+                    <div class="detail-text">Current distribution metrics indicate approximately ${fmt(views)} confirmed access events across ${range(3,15)} independent nodes. Content integrity verification complete. ${range(45,98)}% of material remains accessible despite active countermeasures.</div>
+                    <div class="detail-section" style="margin-top:8px">[TACTICAL_RECOMMENDATION]</div>
+                    <div class="detail-text">${tacticalRec}. Recommended action priority: ${rand(['IMMEDIATE','HIGH','STANDARD','MONITOR_ONLY'])}.</div>
                 </div>
-            </div>
-            <div class="tabs">
-                <div class="tab active">${random(tabNames)}</div>
-                <div class="tab">Following</div>
-                <div class="tab">Media</div>
-                <div class="tab">Likes</div>
-            </div>
-            <div id="feedContainer">${bulkLinks.map((l, i) => renderCard(l, i)).join('')}</div>
-            <div class="sidebar-section">
-                <div class="section-title">${random(sectionTitles)}</div>
-                <div id="trendingContainer">${renderTrending(bulkLinks)}</div>
-            </div>
-            <div class="sidebar-section">
-                <div class="section-title">${random(['Who to follow', 'Rekomendasi', 'Suggested for you', 'Anda mungkin suka', 'Similar accounts'])}</div>
-                <div id="followContainer">${renderFollowSuggestions()}</div>
-            </div>
-            <div class="footer">
-                ${random(footerTitles)} · ${stats.followers} followers · Updated ${random(['real-time', 'every 5 minutes', 'constantly', 'live', 'hourly'])} · #${displayLower.replace(/\s/g, '')}${random(['Hub', 'Central', 'Archive'])}
+                
+                <div class="platform-tags" style="margin:12px 0">
+                    <span class="platform-tag">${platformIcon} ${platform}</span>
+                    <span class="platform-tag">🔗 ${range(3,18)} active mirrors</span>
+                    <span class="platform-tag">📊 ${fmt(views)} access events</span>
+                    <span class="platform-tag">💾 ${range(1,8)} archival copies</span>
+                </div>
+                
+                <div class="tactical-actions">
+                    <div class="action-btn action-btn-primary">DEPLOY_COUNTERMEASURE</div>
+                    <div class="action-btn">ANALYZE_FURTHER</div>
+                    <div class="action-btn">FLAG_AS_INTEL</div>
+                </div>
             </div>
         `;
+    };
+    
+    // ========== GENERATE ASSETS ==========
+    const generateAssets = () => {
+        let assets = [];
+        for(let i=0;i<6;i++){
+            let asset = rand(ASSET_NAMES);
+            let status = Math.random() > 0.2;
+            assets.push(`
+                <div class="asset-item" data-url="${genLink().url}">
+                    <div class="asset-name">${asset}</div>
+                    <div class="asset-status" style="background:${status ? '#00ff88' : '#ff4400'}"></div>
+                </div>
+            `);
+        }
+        return assets.join('');
+    };
+    
+    // ========== GENERATE METRICS ==========
+    const generateMetrics = () => {
+        let surfaceArea = range(125, 850);
+        let propagationSpeed = range(15, 95);
+        let archivalScore = range(45, 98);
+        let takedownEffectiveness = range(12, 67);
         
-        document.getElementById('app').innerHTML = html;
+        return `
+            <div class="metric-card">
+                <div class="metric-title">[THREAT_METRICS]</div>
+                <div style="margin-bottom:16px">
+                    <div class="progress-item"><div class="progress-label"><span>SURFACE_AREA</span><span>${surfaceArea}K</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${Math.min(surfaceArea/10,100)}%"></div></div></div>
+                    <div class="progress-item"><div class="progress-label"><span>PROPAGATION_SPEED</span><span>${propagationSpeed}/100</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${propagationSpeed}%"></div></div></div>
+                    <div class="progress-item"><div class="progress-label"><span>ARCHIVAL_REDUNDANCY</span><span>${archivalScore}%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${archivalScore}%"></div></div></div>
+                    <div class="progress-item"><div class="progress-label"><span>TAKEDOWN_EFFECT</span><span>${takedownEffectiveness}%</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="background:#ff4400;width:${takedownEffectiveness}%"></div></div></div>
+                </div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-title">[RADAR_ANALYSIS]</div>
+                <div style="text-align:center">
+                    <div class="radar-value">${range(65,98)}</div>
+                    <div class="radar-label">THREAT_INDEX</div>
+                    <div style="margin-top:10px;font-size:0.65rem;color:#888">ACTIVE_VECTORS: ${range(4,12)}</div>
+                    <div style="font-size:0.65rem;color:#888">NODE_COUNT: ${range(15,85)}</div>
+                    <div style="font-size:0.65rem;color:#888">COMPROMISE_LEVEL: ${range(25,75)}%</div>
+                </div>
+            </div>
+        `;
+    };
+    
+    // ========== UPDATE SEO ==========
+    const updateSEO = () => {
+        let titles = [
+            `${displayName} · Tactical Intelligence Command | WAR ROOM`,
+            `${displayName} · Threat Assessment Dashboard | WAR ROOM`,
+            `${displayName} · Real-time Intel Monitoring | WAR ROOM`,
+            `${displayName} · Strategic Command Center | WAR ROOM`
+        ];
+        let descs = [
+            `Tactical intelligence command center for ${displayName}. Real-time threat monitoring across ${range(6,12)} platforms. Strategic assessment dashboard.`,
+            `${displayName} threat assessment and monitoring. ${range(24,68)} active vectors. ${range(12,45)} intelligence sources. Real-time updates.`,
+            `Command center for ${displayName} digital intelligence. Priority threat tracking and tactical recommendations.`
+        ];
+        document.title = rand(titles);
+        let md = document.getElementById('dynamic-description'); if(md) md.setAttribute('content', rand(descs));
+        let can = document.getElementById('dynamic-canonical'); if(can) can.setAttribute('href', window.location.href.split('?')[0]);
+    };
+    
+    // ========== RENDER PAGE ==========
+    const renderPage = () => {
+        let links = [];
+        for(let i=0;i<8;i++){
+            links.push(genLink());
+        }
+        
+        let sessionId = `CMD-${range(10000,99999)}`;
+        let threatIndex = range(65, 94);
+        
+        document.getElementById('app').innerHTML = `
+            <div class="terminal-header">
+                <div class="terminal-badge">
+                    <div class="terminal-prompt">WAR_ROOM_TERMINAL</div>
+                    <div class="command-title">TACTICAL INTELLIGENCE COMMAND</div>
+                </div>
+                <div class="connection-status">
+                    <div class="status-led"></div>
+                    <span>SECURE_CHANNEL_${range(1,9)} · ${new Date().toLocaleTimeString()} UTC</span>
+                </div>
+            </div>
+            
+            <div class="tactical-grid">
+                <!-- Left Panel: Threat Matrix -->
+                <div class="threat-panel">
+                    <div class="panel-header">[THREAT_MATRIX] · ACTIVE_VECTORS</div>
+                    <div class="threat-list" id="threatList">
+                        ${generateThreatItems()}
+                    </div>
+                    <div class="panel-header" style="border-top:1px solid #1f1f1f">[INTEL_SOURCES] · ${range(8,24)} ACTIVE</div>
+                </div>
+                
+                <!-- Center Panel: Intel Feed -->
+                <div class="intel-panel">
+                    <div class="intel-header">
+                        <div class="intel-title">[INTEL_FEED] · TARGET: ${nameUpper}</div>
+                        <div class="intel-filters">
+                            <span class="tactical-chip tactical-chip-active">ALL</span>
+                            <span class="tactical-chip">PRIORITY</span>
+                            <span class="tactical-chip">NEW</span>
+                            <span class="tactical-chip">ARCHIVED</span>
+                        </div>
+                    </div>
+                    <div id="feedContainer">
+                        ${links.map((l,i)=>generateIntelCard(l,i)).join('')}
+                        ${generateIntelCard(genLink(), 8)}
+                        ${generateIntelCard(genLink(), 9)}
+                    </div>
+                </div>
+                
+                <!-- Right Panel: Metrics & Assets -->
+                <div class="metrics-panel">
+                    ${generateMetrics()}
+                    
+                    <div class="metric-card">
+                        <div class="metric-title">[ACTIVE_ASSETS]</div>
+                        ${generateAssets()}
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-title">[SESSION_INFO]</div>
+                        <div style="font-family:'Space Mono',monospace;font-size:0.65rem">
+                            <div class="asset-item" style="padding:6px 0"><span>SESS_ID</span><span>${sessionId}</span></div>
+                            <div class="asset-item" style="padding:6px 0"><span>THREAT_INDEX</span><span>${threatIndex}/100</span></div>
+                            <div class="asset-item" style="padding:6px 0"><span>PRIORITY_LEVEL</span><span>${rand(['ALPHA','BRAVO','CHARLIE','DELTA'])}</span></div>
+                            <div class="asset-item" style="padding:6px 0"><span>SCAN_CYCLE</span><span>${range(15,45)}s</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="warroom-footer">
+                <span>⛁ WAR_ROOM_v${range(1,5)}.${range(0,9)}</span>
+                <span>🔒 ENCRYPTED_CHANNEL · ACTIVE_OPERATORS: ${range(2,8)}</span>
+                <span>📡 LAST_SCAN: ${new Date().toLocaleTimeString()} UTC</span>
+                <span>🎯 TARGET: ${nameUpper}</span>
+            </div>
+        `;
         
         // Attach event listeners
         document.querySelectorAll('[data-url]').forEach(el => {
             el.addEventListener('click', (e) => { e.stopPropagation(); window.location.href = el.getAttribute('data-url'); });
         });
-        document.querySelectorAll('.link-card').forEach(card => {
-            card.addEventListener('click', () => window.location.href = card.getAttribute('data-url'));
+        document.querySelectorAll('.intel-card, .threat-item, .asset-item').forEach(card => {
+            card.addEventListener('click', () => { if(card.getAttribute('data-url')) window.location.href = card.getAttribute('data-url'); });
         });
     };
     
-    // ========== EKSEKUSI ==========
     updateSEO();
     renderPage();
 })();
