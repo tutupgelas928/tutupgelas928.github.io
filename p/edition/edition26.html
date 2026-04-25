@@ -4,7 +4,7 @@ permalink: /edition26/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition26/
     <meta name="referrer" content="always">
     <title id="dynamic-title">HOLOGRAPHIC BREACH COMMAND · Leak Intelligence Center</title>
     <meta id="dynamic-description" name="description" content="Holographic breach command center. Real-time leak intelligence with 3D threat visualization.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/command/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition27/">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -131,8 +131,9 @@ permalink: /edition26/
         @media(max-width:700px){.threat-holo-grid{grid-template-columns:1fr}.platform-holo{grid-template-columns:1fr}.hero-holo{padding:32px 24px}}
         @media(max-width:500px){.command-container{padding:0 16px}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="particles" id="particles"></div>
 <div class="command-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#0ff;font-family:'Orbitron',monospace">>_ INITIALIZING HOLOGRAPHIC COMMAND...</div></div>
 
@@ -213,7 +214,7 @@ permalink: /edition26/
     // ========== GENERATE LINK ==========
     const genLink = (title) => {
         let newQ = `${nameLower} ${title.toLowerCase().substring(0, 55)} leak access`;
-        return { url:`/command/?q=${encodeURIComponent(newQ)}` };
+        return { url:`/edition27/?q=${encodeURIComponent(newQ)}` };
     };
     
     // ========== GENERATE THREAT GAUGES ==========
@@ -422,5 +423,9 @@ permalink: /edition26/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition26.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

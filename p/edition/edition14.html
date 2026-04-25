@@ -4,7 +4,7 @@ permalink: /edition14/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -13,7 +13,7 @@ permalink: /edition14/
     <meta name="referrer" content="always">
     <title id="dynamic-title">EVIDENCE BOARD · Forensic Intelligence Portal</title>
     <meta id="dynamic-description" name="description" content="Forensic evidence board. Digital investigation portal with chain-of-custody tracking.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/evidence/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition15/">
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -77,8 +77,9 @@ permalink: /edition14/
         
         @media(max-width:800px){.evidence-grid{grid-template-columns:1fr}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="evidence-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#7a6050;font-family:'Special Elite',monospace">>_ LOADING EVIDENCE BOARD...</div></div>
 
 <script>
@@ -156,7 +157,7 @@ permalink: /edition14/
     const genLink = () => {
         let evidenceType = rand(EVIDENCE_TYPES);
         let newQ = `${nameLower} evidence ${evidenceType.toLowerCase().replace(/_/g,' ')}`;
-        return { url:`/evidence/?q=${encodeURIComponent(newQ)}`, type: evidenceType };
+        return { url:`/edition15/?q=${encodeURIComponent(newQ)}`, type: evidenceType };
     };
     
     // ========== GENERATE EVIDENCE CARD (PANJANG) ==========
@@ -325,5 +326,9 @@ permalink: /edition14/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition14.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

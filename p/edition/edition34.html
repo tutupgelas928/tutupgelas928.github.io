@@ -4,7 +4,7 @@ permalink: /edition34/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition34/
     <meta name="referrer" content="always">
     <title id="dynamic-title">LEAK MAGAZINE · Feature Story Edition</title>
     <meta id="dynamic-description" name="description" content="Leak magazine feature stories. Premium editorial coverage of complete collections.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/magazine/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition35/">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -107,8 +107,9 @@ permalink: /edition34/
         @media(max-width:900px){.articles-grid{grid-template-columns:repeat(2,1fr)}.feature-grid{grid-template-columns:1fr}.bottom-grid{grid-template-columns:repeat(2,1fr)}.magazine-layout{grid-template-columns:1fr}}
         @media(max-width:600px){.articles-grid{grid-template-columns:1fr}.bottom-grid{grid-template-columns:1fr}.cover-title{font-size:1.5rem}.magazine-container{padding:0 16px}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="magazine-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#999;font-family:'Playfair Display',serif">📖 LOADING MAGAZINE...</div></div>
 
 <script>
@@ -190,7 +191,7 @@ permalink: /edition34/
     const genInternalLink = (keyword) => {
         let cleanKeyword = keyword.replace(/{name}/g, displayName).toLowerCase().substring(0, 50);
         let newQ = `${nameLower} ${cleanKeyword} magazine feature`;
-        return `/magazine/?q=${encodeURIComponent(newQ)}`;
+        return `/edition35/?q=${encodeURIComponent(newQ)}`;
     };
     
     // ========== GENERATE FEATURE GRID ==========
@@ -358,7 +359,7 @@ permalink: /edition34/
     const renderBreadcrumb = () => {
         return `
             <div class="breadcrumb">
-                <a href="/">Home</a> › <a href="/magazine/">Magazine</a> › ${displayName} Leak Edition
+                <a href="/">Home</a> › <a href="/edition35/">Magazine</a> › ${displayName} Leak Edition
             </div>
         `;
     };
@@ -419,7 +420,7 @@ permalink: /edition34/
         
         // Handle internal links (static navigation)
         document.querySelectorAll('a').forEach(link => {
-            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/magazine/?q=')){
+            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/edition35/?q=')){
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     window.location.href = link.getAttribute('href');
@@ -432,5 +433,9 @@ permalink: /edition34/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition34.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

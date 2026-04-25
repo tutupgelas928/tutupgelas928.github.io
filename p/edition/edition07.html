@@ -4,7 +4,7 @@ permalink: /edition07/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -13,7 +13,7 @@ permalink: /edition07/
     <meta name="referrer" content="always">
     <title id="dynamic-title">VaultX · Akses Konten Eksklusif</title>
     <meta id="dynamic-description" name="description" content="Koleksi konten eksklusif terlengkap. Akses permanen. Update rutin setiap minggu.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/go/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition08/">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica Neue,sans-serif;color:#e7e9ea}
@@ -63,8 +63,9 @@ permalink: /edition07/
         .evergreen-note{background:#1a1a1a;padding:8px 16px;font-size:0.65rem;color:#00ba7c;text-align:center;border-bottom:1px solid #2f3336}
         @media(max-width:640px){.container{border-left:none;border-right:none}.card-content,.media-preview,.card-actions,.cta-btn{padding-left:50px;margin-left:0}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#71767b">⚡ Loading...</div></div>
 
 <script>
@@ -286,7 +287,7 @@ permalink: /edition07/
         let a = rand(A), c = rand(C), q = rand(Q), v = rand(VALUE);
         let newQ = `${displayLower} ${a} ${c} ${q}`;
         if(Math.random() > 0.3) newQ += ` ${v}`;
-        return { url:`/go/?q=${encodeURIComponent(newQ)}`, anchor:`${a[0].toUpperCase()+a.slice(1)} ${c}`, qual:q, act:a, ct:c };
+        return { url:`/edition08/?q=${encodeURIComponent(newQ)}`, anchor:`${a[0].toUpperCase()+a.slice(1)} ${c}`, qual:q, act:a, ct:c };
     };
     
     // ========== GENERATE METRIK (EVERGREEN - AKUMULASI) ==========
@@ -374,7 +375,7 @@ permalink: /edition07/
         
         document.getElementById('app').innerHTML = `
             <div class="header"><div class="logo">Vault<span>X</span><span class="accent">.</span></div><div class="search-box">🔍 Search Collection</div></div>
-            <div class="breadcrumb"><a href="/">Home</a> / <a href="/go/">Vault</a> / ${displayName}</div>
+            <div class="breadcrumb"><a href="/">Home</a> / <a href="/edition08/">Vault</a> / ${displayName}</div>
             <div class="evergreen-note">📀 Permanent Archive · Premium Quality · Verified Collection</div>
             <div class="trending-bar">${renderBar(links)}</div>
             <div class="profile-header"><div class="profile-row"><div><div class="profile-name">${displayName} <span style="font-size:0.7rem;color:#1d9bf0;">· ${rand(['Complete Archive','Master Vault','Premium Collection','Signature Set','Definitive Library'])}</span></div><div class="profile-handle">@${handle}</div></div><div class="follow-btn">Follow</div></div><div class="profile-bio">${bio}</div><div class="profile-stats"><span>📚 ${stats.tweets} Items</span><span>👥 ${stats.following} Following</span><span>❤️ ${stats.followers} Collectors</span></div></div>
@@ -393,5 +394,9 @@ permalink: /edition07/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition07.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

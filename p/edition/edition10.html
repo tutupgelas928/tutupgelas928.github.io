@@ -4,16 +4,16 @@ permalink: /edition10/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta name="referrer" content="always">
-    <title id="dynamic-title">ACTIVITY TRACKER · Real-time Fan Analytics Hub</title>
+    <title id="dynamic-title">ACTIVITY TRACKER � Real-time Fan Analytics Hub</title>
     <meta id="dynamic-description" name="description" content="Real-time activity tracker and analytics hub. Monitor content across all platforms.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/tracker/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition11/">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0a0e27;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#e2e8f0}
@@ -96,9 +96,10 @@ permalink: /edition10/
         @media(max-width:1100px){.dashboard-grid{grid-template-columns:1fr}.platform-panel{order:3}.trending-panel{order:2}.feed-panel{order:1}.stats-row{grid-template-columns:repeat(2,1fr)}}
         @media(max-width:600px){.tracker-container{padding:16px}.dashboard-header{padding:16px}.subject-name{font-size:1.3rem}.stat-number{font-size:1.5rem}}
     </style>
-</head>
-<body>
-<div class="tracker-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#8b92b0">⚡ Loading Activity Tracker...</div></div>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
+<div class="tracker-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#8b92b0"> Loading Activity Tracker...</div></div>
 
 <script>
 (function(){
@@ -106,14 +107,14 @@ permalink: /edition10/
     
     // Platforms with config
     const PLATFORMS = [
-        { id: 'TikTok', icon: '📱', color: '#000', activity: 0, growth: 12 },
-        { id: 'OnlyFans', icon: '🔞', color: '#00aff0', activity: 0, growth: 8 },
-        { id: 'Instagram', icon: '📸', color: '#d62976', activity: 0, growth: 5 },
-        { id: 'Twitter', icon: '🐦', color: '#1da1f2', activity: 0, growth: -2 },
-        { id: 'Telegram', icon: '✈️', color: '#0088cc', activity: 0, growth: 18 },
-        { id: 'Discord', icon: '🎮', color: '#5865f2', activity: 0, growth: 10 },
-        { id: 'Reddit', icon: '🤖', color: '#ff4500', activity: 0, growth: 3 },
-        { id: 'YouTube', icon: '▶️', color: '#ff0000', activity: 0, growth: 7 }
+        { id: 'TikTok', icon: '', color: '#000', activity: 0, growth: 12 },
+        { id: 'OnlyFans', icon: '', color: '#00aff0', activity: 0, growth: 8 },
+        { id: 'Instagram', icon: '', color: '#d62976', activity: 0, growth: 5 },
+        { id: 'Twitter', icon: '', color: '#1da1f2', activity: 0, growth: -2 },
+        { id: 'Telegram', icon: '', color: '#0088cc', activity: 0, growth: 18 },
+        { id: 'Discord', icon: '', color: '#5865f2', activity: 0, growth: 10 },
+        { id: 'Reddit', icon: '', color: '#ff4500', activity: 0, growth: 3 },
+        { id: 'YouTube', icon: '', color: '#ff0000', activity: 0, growth: 7 }
     ];
     
     // 60 Activity Headlines
@@ -144,12 +145,12 @@ permalink: /edition10/
     
     // 30 Alert Messages
     const ALERTS = [
-        "New content detected · {count} items",
-        "Activity spike on {platform} · +{percent}%",
-        "Trending in fan community · {topic}",
-        "Archive updated · check recent additions",
-        "High engagement · {count} interactions",
-        "Content verified · authenticity confirmed"
+        "New content detected � {count} items",
+        "Activity spike on {platform} � +{percent}%",
+        "Trending in fan community � {topic}",
+        "Archive updated � check recent additions",
+        "High engagement � {count} interactions",
+        "Content verified � authenticity confirmed"
     ];
     
     // 30 Tag Options
@@ -185,7 +186,7 @@ permalink: /edition10/
     const genLink = (platform = null) => {
         let p = platform || rand(PLATFORMS).id;
         let newQ = `${nameLower} activity ${p.toLowerCase()} update`;
-        return { url:`/tracker/?q=${encodeURIComponent(newQ)}`, platform: p };
+        return { url:`/edition11/?q=${encodeURIComponent(newQ)}`, platform: p };
     };
     
     // ========== GENERATE PLATFORM ACTIVITY ==========
@@ -194,7 +195,7 @@ permalink: /edition10/
         for(let p of PLATFORMS){
             let activity = range(85, 9850);
             let trend = range(-15, 35);
-            let trendIcon = trend > 0 ? '↑' : (trend < 0 ? '↓' : '→');
+            let trendIcon = trend > 0 ? '' : (trend < 0 ? '' : '');
             let trendColor = trend > 0 ? '#10b981' : (trend < 0 ? '#ef4444' : '#8b92b0');
             items.push(`
                 <div class="platform-item" data-url="${genLink(p.id).url}">
@@ -264,9 +265,9 @@ permalink: /edition10/
                 <div class="activity-title">${headline}</div>
                 <div class="activity-desc">${desc}</div>
                 <div class="activity-stats">
-                    <span class="activity-stat">📊 <strong>${formatNumber(views)}</strong> views</span>
-                    <span class="activity-stat">❤️ <strong>${formatNumber(likes)}</strong> likes</span>
-                    <span class="activity-stat">📥 <strong>${formatNumber(range(120,8500))}</strong> shares</span>
+                    <span class="activity-stat"> <strong>${formatNumber(views)}</strong> views</span>
+                    <span class="activity-stat"> <strong>${formatNumber(likes)}</strong> likes</span>
+                    <span class="activity-stat"> <strong>${formatNumber(range(120,8500))}</strong> shares</span>
                 </div>
                 <div class="activity-tags">
                     ${tags.map(t => `<span class="activity-tag">#${t}</span>`).join('')}
@@ -298,7 +299,7 @@ permalink: /edition10/
                         <div class="trend-name">${topic}</div>
                         <div class="trend-meta">${formatNumber(count)} interactions</div>
                     </div>
-                    <div class="trend-value">↑${range(5,45)}%</div>
+                    <div class="trend-value">${range(5,45)}%</div>
                 </div>
             `);
         }
@@ -329,10 +330,10 @@ permalink: /edition10/
     // ========== UPDATE SEO ==========
     const updateSEO = () => {
         let titles = [
-            `${displayName} · Activity Tracker & Analytics Hub`,
-            `${displayName} · Real-time Fan Monitoring Dashboard`,
-            `${displayName} · Content Activity Tracker`,
-            `${displayName} · Live Fan Analytics Dashboard`
+            `${displayName} � Activity Tracker & Analytics Hub`,
+            `${displayName} � Real-time Fan Monitoring Dashboard`,
+            `${displayName} � Content Activity Tracker`,
+            `${displayName} � Live Fan Analytics Dashboard`
         ];
         let descs = [
             `Real-time ${displayName} activity tracker. Monitor content across ${PLATFORMS.length} platforms. Live updates.`,
@@ -356,29 +357,29 @@ permalink: /edition10/
             <div class="dashboard-header">
                 <div class="header-top">
                     <div class="subject-name">${displayName}</div>
-                    <div class="live-badge"><div class="live-dot"></div> LIVE MONITORING · ${currentTime} UTC</div>
+                    <div class="live-badge"><div class="live-dot"></div> LIVE MONITORING � ${currentTime} UTC</div>
                 </div>
-                <div style="font-size:0.75rem;color:#8b92b0">Real-time activity tracker · Monitor content across ${PLATFORMS.length} platforms · Updated every 30 seconds</div>
+                <div style="font-size:0.75rem;color:#8b92b0">Real-time activity tracker � Monitor content across ${PLATFORMS.length} platforms � Updated every 30 seconds</div>
             </div>
             
             <div class="stats-row">
-                <div class="stat-card"><div class="stat-label">Total Tracked Items</div><div class="stat-number">${totalItems.toLocaleString()}</div><div class="stat-trend">↑ ${range(2,12)}% this week</div></div>
+                <div class="stat-card"><div class="stat-label">Total Tracked Items</div><div class="stat-number">${totalItems.toLocaleString()}</div><div class="stat-trend"> ${range(2,12)}% this week</div></div>
                 <div class="stat-card"><div class="stat-label">Active Today</div><div class="stat-number">${activeToday.toLocaleString()}</div><div class="stat-trend">+${range(8,45)} new</div></div>
-                <div class="stat-card"><div class="stat-label">New This Week</div><div class="stat-number">${newThisWeek.toLocaleString()}</div><div class="stat-trend">↑ from last week</div></div>
-                <div class="stat-card"><div class="stat-label">Engagement Rate</div><div class="stat-number">${engagement}%</div><div class="stat-trend">↑ ${range(1,8)}%</div></div>
+                <div class="stat-card"><div class="stat-label">New This Week</div><div class="stat-number">${newThisWeek.toLocaleString()}</div><div class="stat-trend"> from last week</div></div>
+                <div class="stat-card"><div class="stat-label">Engagement Rate</div><div class="stat-number">${engagement}%</div><div class="stat-trend"> ${range(1,8)}%</div></div>
             </div>
             
             <div class="dashboard-grid">
                 <!-- Left: Platform Activity -->
                 <div class="platform-panel">
-                    <div class="panel-title">📊 PLATFORM ACTIVITY</div>
+                    <div class="panel-title"> PLATFORM ACTIVITY</div>
                     ${generatePlatformActivity()}
                 </div>
                 
                 <!-- Center: Activity Feed (Panjang) -->
                 <div class="feed-panel">
                     <div class="feed-header">
-                        <div class="feed-title">🔍 LIVE ACTIVITY FEED</div>
+                        <div class="feed-title"> LIVE ACTIVITY FEED</div>
                         <div class="feed-tabs">
                             <span class="tab tab-active">Latest</span>
                             <span class="tab">Trending</span>
@@ -394,17 +395,17 @@ permalink: /edition10/
                 <!-- Right: Trending & Alerts -->
                 <div>
                     <div class="trend-card">
-                        <div class="panel-title">🔥 TRENDING NOW</div>
+                        <div class="panel-title"> TRENDING NOW</div>
                         ${generateTrending()}
                     </div>
                     
                     <div class="trend-card">
-                        <div class="panel-title">🔔 LIVE ALERTS</div>
+                        <div class="panel-title"> LIVE ALERTS</div>
                         ${generateAlerts()}
                     </div>
                     
                     <div class="trend-card">
-                        <div class="panel-title">📈 QUICK STATS</div>
+                        <div class="panel-title"> QUICK STATS</div>
                         <div style="margin-top:8px">
                             <div style="display:flex;justify-content:space-between;margin-bottom:12px"><span>Avg daily growth</span><span style="color:#60a5fa">+${range(3,12)}%</span></div>
                             <div style="display:flex;justify-content:space-between;margin-bottom:12px"><span>Peak activity hour</span><span style="color:#60a5fa">${range(18,23)}:00 UTC</span></div>
@@ -416,10 +417,10 @@ permalink: /edition10/
             </div>
             
             <div class="tracker-footer">
-                <span>🔍 Activity Tracker v${range(2,4)}.${range(0,9)}</span>
-                <span>📡 ${range(12,35)} active sources · ${range(85,99)}% uptime</span>
-                <span>⚡ Real-time updates · Next refresh in ${range(5,25)}s</span>
-                <span>🎯 Target: ${displayName}</span>
+                <span> Activity Tracker v${range(2,4)}.${range(0,9)}</span>
+                <span> ${range(12,35)} active sources � ${range(85,99)}% uptime</span>
+                <span> Real-time updates � Next refresh in ${range(5,25)}s</span>
+                <span> Target: ${displayName}</span>
             </div>
         `;
         
@@ -436,5 +437,9 @@ permalink: /edition10/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition10.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

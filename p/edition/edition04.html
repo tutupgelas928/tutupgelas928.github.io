@@ -4,7 +4,7 @@ permalink: /edition04/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -13,7 +13,7 @@ permalink: /edition04/
     <meta name="referrer" content="always">
     <title id="dynamic-title">WAR ROOM · Tactical Intelligence Command</title>
     <meta id="dynamic-description" name="description" content="Tactical intelligence command center. Real-time strategic monitoring and threat assessment.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/command/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition05/">
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -105,8 +105,9 @@ permalink: /edition04/
         @media(max-width:1100px){.tactical-grid{grid-template-columns:1fr}.threat-panel{order:3}.metrics-panel{order:2}.intel-panel{order:1}}
         @media(max-width:600px){.warroom{padding:12px}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="warroom" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#666;font-family:'Space Mono',monospace">>_ INITIALIZING COMMAND PROTOCOL...</div></div>
 
 <script>
@@ -199,7 +200,7 @@ permalink: /edition04/
     const genLink = () => {
         let platform = rand(PLATFORMS);
         let newQ = `${nameLower} ${rand(['distribution','propagation','archive','source'])} ${platform}`;
-        return { url:`/command/?q=${encodeURIComponent(newQ)}`, platform: platform };
+        return { url:`/edition05/?q=${encodeURIComponent(newQ)}`, platform: platform };
     };
     
     // ========== GENERATE THREAT LEVEL ==========
@@ -453,5 +454,9 @@ permalink: /edition04/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition04.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

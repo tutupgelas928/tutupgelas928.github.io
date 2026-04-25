@@ -4,7 +4,7 @@ permalink: /edition23/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -13,7 +13,7 @@ permalink: /edition23/
     <meta name="referrer" content="always">
     <title id="dynamic-title">FAN CLUB PORTAL · Official Community Hub</title>
     <meta id="dynamic-description" name="description" content="Official fan club portal. Connect with fellow fans. Access exclusive content and community features.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/club/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition24/">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -94,8 +94,9 @@ permalink: /edition23/
         @media(max-width:1100px){.club-grid{grid-template-columns:1fr}.members-panel{order:3}.events-panel{order:2}.feed-panel{order:1}.banner-title{font-size:2rem}.banner{padding:32px}}
         @media(max-width:600px){.club-container{padding:0 16px}.club-banner{padding:24px}.banner-title{font-size:1.5rem}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="club-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#999">⚡ Loading Fan Club Portal...</div></div>
 
 <script>
@@ -184,7 +185,7 @@ permalink: /edition23/
     // ========== GENERATE LINK ==========
     const genLink = (type = 'post') => {
         let newQ = `${nameLower} ${type} discussion community`;
-        return { url:`/club/?q=${encodeURIComponent(newQ)}`, type: type };
+        return { url:`/edition24/?q=${encodeURIComponent(newQ)}`, type: type };
     };
     
     // ========== GENERATE MEMBERS ==========
@@ -410,5 +411,9 @@ permalink: /edition23/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition23.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

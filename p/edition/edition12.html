@@ -4,7 +4,7 @@ permalink: /edition12/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -13,7 +13,7 @@ permalink: /edition12/
     <meta name="referrer" content="always">
     <title id="dynamic-title">InfoCenter · Complete Topic Dashboard</title>
     <meta id="dynamic-description" name="description" content="Complete information center and resource dashboard. Permanent access. Premium quality data.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/center/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition13/">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -115,8 +115,9 @@ permalink: /edition12/
         @media(max-width:1000px){.main-dashboard{grid-template-columns:1fr}.stats-bar{grid-template-columns:repeat(2,1fr)}}
         @media(max-width:600px){.dashboard{padding:16px}.stats-bar{grid-template-columns:1fr}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="dashboard" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#6b7280">⚡ Loading Dashboard...</div></div>
 
 <script>
@@ -249,7 +250,7 @@ permalink: /edition12/
     const CTA_TEXTS = [
         "📊 ACCESS DATASET","📈 VIEW REPORT","🔍 ANALYZE DATA","💾 DOWNLOAD ARCHIVE","📁 BROWSE FILES",
         "📑 READ DOCUMENT","🔬 EXAMINE FINDINGS","📀 OPEN REPOSITORY","🗂️ EXPLORE COLLECTION","💿 ACCESS LIBRARY",
-        "📊 RUN ANALYSIS","📈 GENERATE REPORT","🔍 QUERY DATABASE","💾 EXPORT DATA","📁 RETRIEVE FILES"
+        "📊 RUN ANALYSIS","📈 GENERATE REPORT","🔍 QUERY DATABASE","?? EXPORT DATA","📁 RETRIEVE FILES"
     ];
     
     // 20 Bio Templates (Panjang)
@@ -344,7 +345,7 @@ permalink: /edition12/
         if(Math.random() > 0.4) newQ += ` ${q}`;
         if(Math.random() > 0.6) newQ += ` ${u}`;
         return { 
-            url:`/center/?q=${encodeURIComponent(newQ)}`, 
+            url:`/edition13/?q=${encodeURIComponent(newQ)}`, 
             title:`${a[0].toUpperCase()+a.slice(1)} ${r}`,
             desc:d,
             resource:r,
@@ -569,5 +570,9 @@ permalink: /edition12/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition12.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

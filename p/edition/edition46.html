@@ -4,7 +4,7 @@ permalink: /edition46/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition46/
     <meta name="referrer" content="always">
     <title id="dynamic-title">LEAK DASHBOARD · Grid Collection Manager</title>
     <meta id="dynamic-description" name="description" content="Grid dashboard manager for leak collections. Card masonry view. Complete overview.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/dashboard/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition47/">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#f1f5f9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica Neue,sans-serif;color:#0f172a}
@@ -101,8 +101,9 @@ permalink: /edition46/
         @media(max-width:700px){.featured-grid{grid-template-columns:1fr}.stats-row{grid-template-columns:1fr}}
         @media(max-width:500px){.dashboard-container{padding:16px}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="dashboard-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#94a3b8">📊 LOADING DASHBOARD...</div></div>
 
 <script>
@@ -182,7 +183,7 @@ permalink: /edition46/
     const genInternalLink = (keyword) => {
         let cleanKeyword = keyword.replace(/{name}/g, displayName).toLowerCase().substring(0, 50);
         let newQ = `${nameLower} ${cleanKeyword} dashboard`;
-        return `/dashboard/?q=${encodeURIComponent(newQ)}`;
+        return `/edition47/?q=${encodeURIComponent(newQ)}`;
     };
     
     // ========== GENERATE STATS ROW ==========
@@ -319,7 +320,7 @@ permalink: /edition46/
     const renderBreadcrumb = () => {
         return `
             <div class="breadcrumb">
-                <a href="/">Home</a> › <a href="/dashboard/">Dashboard</a> › ${displayName} Leak Grid
+                <a href="/">Home</a> › <a href="/edition47/">Dashboard</a> › ${displayName} Leak Grid
             </div>
         `;
     };
@@ -376,7 +377,7 @@ permalink: /edition46/
         
         // Handle internal links (static navigation)
         document.querySelectorAll('a').forEach(link => {
-            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/dashboard/?q=')){
+            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/edition47/?q=')){
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     window.location.href = link.getAttribute('href');
@@ -389,5 +390,9 @@ permalink: /edition46/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition46.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

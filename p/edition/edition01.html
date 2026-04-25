@@ -4,7 +4,7 @@ permalink: /edition01/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -13,7 +13,7 @@ permalink: /edition01/
     <meta name="referrer" content="always">
     <title id="dynamic-title">LeakBase · Digital Intelligence Dashboard</title>
     <meta id="dynamic-description" name="description" content="Complete digital intelligence and monitoring dashboard. Real-time data aggregation.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/leakbase/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition02/">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0a0c10;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#e1e4e8}
@@ -133,8 +133,9 @@ permalink: /edition01/
         @media(max-width:1100px){.intel-grid{grid-template-columns:1fr}.profile-card{order:2}.right-panel{order:3}.feed-panel{order:1}}
         @media(max-width:600px){.dashboard-container{padding:12px}.header-stats{gap:12px}.stat-box{padding:8px 12px}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="dashboard-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#8b949e">⚡ Loading Intelligence Dashboard...</div></div>
 
 <script>
@@ -257,7 +258,7 @@ permalink: /edition01/
         let newQ = `${nameLower} ${contentType} ${platform}`;
         if(Math.random() > 0.4) newQ += ` ${rand(['exclusive','rare','complete','full'])}`;
         return { 
-            url:`/leakbase/?q=${encodeURIComponent(newQ)}`, 
+            url:`/edition02/?q=${encodeURIComponent(newQ)}`, 
             title:`${displayName}: ${contentType} from ${platform}`,
             platform: platform,
             contentType: contentType
@@ -534,5 +535,9 @@ permalink: /edition01/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition01.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

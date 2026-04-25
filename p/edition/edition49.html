@@ -4,7 +4,7 @@ permalink: /edition49/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition49/
     <meta name="referrer" content="always">
     <title id="dynamic-title">STACKED CARDS · Leak Accordion Directory</title>
     <meta id="dynamic-description" name="description" content="Stacked cards accordion directory for leak collections. Collapsible sections. Easy navigation.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/stack/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition50/">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#eef2f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica Neue,sans-serif;color:#1a2a3a}
@@ -88,8 +88,9 @@ permalink: /edition49/
         
         @media(max-width:600px){.stack-container{padding:16px}.quick-stats{grid-template-columns:repeat(2,1fr)}.sub-items-grid{grid-template-columns:1fr}.nested-grid{grid-template-columns:1fr}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="stack-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#6c8a9e">📚 LOADING STACKED DIRECTORY...</div></div>
 
 <script>
@@ -230,7 +231,7 @@ permalink: /edition49/
     const genInternalLink = (keyword) => {
         let cleanKeyword = keyword.replace(/{name}/g, displayName).toLowerCase().substring(0, 50);
         let newQ = `${nameLower} ${cleanKeyword} stack directory`;
-        return `/stack/?q=${encodeURIComponent(newQ)}`;
+        return `/edition50/?q=${encodeURIComponent(newQ)}`;
     };
     
     // ========== GENERATE STACK SECTIONS ==========
@@ -353,7 +354,7 @@ permalink: /edition49/
     const renderBreadcrumb = () => {
         return `
             <div class="breadcrumb">
-                <a href="/">Home</a> › <a href="/stack/">Stack Directory</a> › ${displayName} Leak Stack
+                <a href="/">Home</a> › <a href="/edition50/">Stack Directory</a> › ${displayName} Leak Stack
             </div>
         `;
     };
@@ -408,7 +409,7 @@ permalink: /edition49/
         
         // Handle internal links (static navigation)
         document.querySelectorAll('a').forEach(link => {
-            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/stack/?q=')){
+            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/edition50/?q=')){
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     window.location.href = link.getAttribute('href');
@@ -421,5 +422,9 @@ permalink: /edition49/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition49.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

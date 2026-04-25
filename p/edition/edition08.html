@@ -4,7 +4,7 @@ permalink: /edition08/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -13,7 +13,7 @@ permalink: /edition08/
     <meta name="referrer" content="always">
     <title id="dynamic-title">TheArchive · Complete Topic Resource</title>
     <meta id="dynamic-description" name="description" content="Complete archive and collection. Permanent access. Premium quality content.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/topic/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition09/">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -88,8 +88,9 @@ permalink: /edition08/
         @media(max-width:800px){.featured-card{grid-template-columns:1fr}.site-wrapper{padding:0 24px}.hero-title{font-size:2.5rem}.topic-grid{grid-template-columns:1fr}.two-col-grid{grid-template-columns:1fr}}
         @media(max-width:500px){.site-wrapper{padding:0 16px}.hero-title{font-size:2rem}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="site-wrapper" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#999">⚡ Loading Archive...</div></div>
 
 <script>
@@ -302,7 +303,7 @@ permalink: /edition08/
         if(Math.random() > 0.5) newQ += ` ${e}`;
         if(Math.random() > 0.7) newQ += ` ${v}`;
         return { 
-            url:`/topic/?q=${encodeURIComponent(newQ)}`, 
+            url:`/edition09/?q=${encodeURIComponent(newQ)}`, 
             title:`${a[0].toUpperCase()+a.slice(1)} ${r}`,
             desc:d,
             resource:r,
@@ -427,7 +428,7 @@ permalink: /edition08/
             </div>
             
             <div class="breadcrumb">
-                <a href="/">HOME</a> / <a href="/topic/">ARCHIVE</a> / <span style="color:#c41e3a">${displayTopic.toUpperCase()}</span>
+                <a href="/">HOME</a> / <a href="/edition09/">ARCHIVE</a> / <span style="color:#c41e3a">${displayTopic.toUpperCase()}</span>
             </div>
             
             <div class="hero">
@@ -486,5 +487,9 @@ permalink: /edition08/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition08.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

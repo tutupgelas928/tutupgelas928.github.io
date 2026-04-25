@@ -4,7 +4,7 @@ permalink: /edition02/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -13,7 +13,7 @@ permalink: /edition02/
     <meta name="referrer" content="always">
     <title id="dynamic-title">Timeline · Chronological Intelligence Report</title>
     <meta id="dynamic-description" name="description" content="Complete chronological timeline of digital content emergence across multiple platforms.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/timeline/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition03/">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -115,8 +115,9 @@ permalink: /edition02/
         
         @media(max-width:500px){.profile-grid{grid-template-columns:1fr;text-align:center}.profile-stats{justify-content:center}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="timeline-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#999">⚡ Loading Timeline Report...</div></div>
 
 <script>
@@ -208,7 +209,7 @@ permalink: /edition02/
         let eventType = rand(EVENT_TYPES);
         let newQ = `${nameLower} ${eventType} ${platform}`;
         return { 
-            url:`/timeline/?q=${encodeURIComponent(newQ)}`, 
+            url:`/edition03/?q=${encodeURIComponent(newQ)}`, 
             platform: platform,
             eventType: eventType
         };
@@ -473,5 +474,9 @@ permalink: /edition02/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition02.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

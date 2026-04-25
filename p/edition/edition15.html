@@ -4,7 +4,7 @@ permalink: /edition15/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -13,7 +13,7 @@ permalink: /edition15/
     <meta name="referrer" content="always">
     <title id="dynamic-title">NETVIEW · Distribution Network Topology</title>
     <meta id="dynamic-description" name="description" content="Complete distribution network analysis. Node mapping and connection topology visualization.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/network/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition16/">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -106,8 +106,9 @@ permalink: /edition15/
         @media(max-width:1000px){.topology-grid{grid-template-columns:1fr}.viz-panel{order:2}.details-panel{order:1}}
         @media(max-width:600px){.network-container{padding:16px}.graph-canvas{min-height:450px}.central-node{width:60px;height:60px}.connected-node{width:40px;height:40px}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="network-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#64748b;font-family:'Fira Code',monospace">>_ INITIALIZING NETWORK TOPOLOGY...</div></div>
 
 <script>
@@ -199,7 +200,7 @@ permalink: /edition15/
     const genLink = (nodeId = null) => {
         let targetNode = nodeId || rand(NODES).id;
         let newQ = `${nameLower} network node ${targetNode.toLowerCase()} analysis`;
-        return { url:`/network/?q=${encodeURIComponent(newQ)}`, node: targetNode };
+        return { url:`/edition16/?q=${encodeURIComponent(newQ)}`, node: targetNode };
     };
     
     // ========== GENERATE EDGE LIST (PANJANG) ==========
@@ -450,5 +451,13 @@ permalink: /edition15/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition15.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div>
+{% include /kw/p/edition/edition15.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

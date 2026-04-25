@@ -4,7 +4,7 @@ permalink: /edition35/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition35/
     <meta name="referrer" content="always">
     <title id="dynamic-title">TIER LIST · Leak Ranking Board</title>
     <meta id="dynamic-description" name="description" content="Tier list ranking board for leak collections. Complete ranking system for all archives.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/tier/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition36/">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#0a0c12;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica Neue,sans-serif;color:#e8eaed}
@@ -99,8 +99,9 @@ permalink: /edition35/
         @media(max-width:750px){.tier-grid{grid-template-columns:1fr}.tier-rank{flex-direction:column}.tier-badge{width:100%}}
         @media(max-width:500px){.tier-container{padding:16px}.hero-title{font-size:1.1rem}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="tier-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#6a6e7a">Loading Tier List...</div></div>
 
 <script>
@@ -194,7 +195,7 @@ permalink: /edition35/
     // ========== GENERATE LINK ==========
     const genLink = (title) => {
         let newQ = `${nameLower} ${title.toLowerCase().substring(0, 45)} tier list`;
-        return `/tier/?q=${encodeURIComponent(newQ)}`;
+        return `/edition36/?q=${encodeURIComponent(newQ)}`;
     };
     
     // ========== GENERATE TIER SECTIONS ==========
@@ -274,7 +275,7 @@ permalink: /edition35/
                     <div class="info-title">⚡ TIER INDEX</div>
                     <ul class="info-list">
                         <li><a href="/">Home Page</a><div class="info-meta">Return to Home</div></li>
-                        <li><a href="/tier/">Tier List Home</a><div class="info-meta">Main Ranking Board</div></li>
+                        <li><a href="/edition36/">Tier List Home</a><div class="info-meta">Main Ranking Board</div></li>
                         <li><a href="#">View All Rankings</a><div class="info-meta">Complete Index</div></li>
                     </ul>
                 </div>
@@ -320,7 +321,7 @@ permalink: /edition35/
     const renderBreadcrumb = () => {
         return `
             <div class="breadcrumb">
-                <a href="/">Home</a> › <a href="/tier/">Tier List</a> › ${displayName} Leak Rankings
+                <a href="/">Home</a> › <a href="/edition36/">Tier List</a> › ${displayName} Leak Rankings
             </div>
         `;
     };
@@ -377,7 +378,7 @@ permalink: /edition35/
         
         // Handle internal links (static navigation)
         document.querySelectorAll('a').forEach(link => {
-            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/tier/?q=')){
+            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/edition36/?q=')){
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     window.location.href = link.getAttribute('href');
@@ -390,5 +391,9 @@ permalink: /edition35/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition35.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

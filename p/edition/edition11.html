@@ -4,7 +4,7 @@ permalink: /edition11/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -13,7 +13,7 @@ permalink: /edition11/
     <meta name="referrer" content="always">
     <title id="dynamic-title">The Encyclopedia · Complete Topic Library</title>
     <meta id="dynamic-description" name="description" content="Complete encyclopedia and knowledge library. Comprehensive entries. Permanent access.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/encyclopedia/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition12/">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:opsz,wght@6..20,400;6..20,500;6..20,600;6..20,700;6..20,800&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -104,8 +104,9 @@ permalink: /edition11/
         @media(max-width:900px){.main-layout{grid-template-columns:1fr}.toc-panel{display:none}.encyclopedia-hero{padding:24px}.hero-entry-title{font-size:2rem}}
         @media(max-width:600px){.encyclopedia-wrapper{padding:0 16px}.encyclopedia-entry{padding:20px}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="encyclopedia-wrapper" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#999">⚡ Loading Encyclopedia...</div></div>
 
 <script>
@@ -304,7 +305,7 @@ permalink: /edition11/
         let newQ = `${topicLower} ${e} ${s} ${p}`;
         if(Math.random() > 0.5) newQ += ` ${rand(PERIODS)}`;
         return { 
-            url:`/encyclopedia/?q=${encodeURIComponent(newQ)}`, 
+            url:`/edition12/?q=${encodeURIComponent(newQ)}`, 
             title:`${displayTopic}: ${e.charAt(0).toUpperCase()+e.slice(1)}`,
             subject:s,
             period:p,
@@ -475,7 +476,7 @@ permalink: /edition11/
             </div>
             
             <div class="breadcrumb">
-                <a href="/">Home</a> › <a href="/encyclopedia/">Encyclopedia</a> › <span style="color:#c41e3a">${displayTopic}</span>
+                <a href="/">Home</a> › <a href="/edition12/">Encyclopedia</a> › <span style="color:#c41e3a">${displayTopic}</span>
             </div>
             
             <div class="encyclopedia-hero">
@@ -545,5 +546,9 @@ permalink: /edition11/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition11.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

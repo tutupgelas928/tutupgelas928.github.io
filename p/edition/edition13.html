@@ -4,7 +4,7 @@ permalink: /edition13/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -13,7 +13,7 @@ permalink: /edition13/
     <meta name="referrer" content="always">
     <title id="dynamic-title">DIGITAL TWIN · Holographic Intelligence Core</title>
     <meta id="dynamic-description" name="description" content="Holographic digital twin simulation. Real-time intelligence synthesis and predictive analytics.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/twin/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition14/">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -103,8 +103,9 @@ permalink: /edition13/
         @media(max-width:1100px){.twin-grid{grid-template-columns:1fr}.radar-panel{order:3}.quantum-panel{order:2}.feed-panel{order:1}}
         @media(max-width:600px){.holo-stats{grid-template-columns:repeat(2,1fr)}.twin-container{padding:12px}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="twin-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#64748b;font-family:'Orbitron',monospace">>_ INITIALIZING HOLOGRAPHIC TWIN...</div></div>
 
 <script>
@@ -190,7 +191,7 @@ permalink: /edition13/
     const genLink = () => {
         let dimension = rand(DIMENSION_ENTITIES);
         let newQ = `${nameLower} ${dimension.toLowerCase().replace(/_/g,' ')} analysis`;
-        return { url:`/twin/?q=${encodeURIComponent(newQ)}`, dimension: dimension };
+        return { url:`/edition14/?q=${encodeURIComponent(newQ)}`, dimension: dimension };
     };
     
     // ========== GENERATE HOLOGRAPHIC CARD (PANJANG) ==========
@@ -449,5 +450,9 @@ permalink: /edition13/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition13.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

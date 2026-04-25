@@ -4,7 +4,7 @@ permalink: /edition47/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition47/
     <meta name="referrer" content="always">
     <title id="dynamic-title">KNOWLEDGE WIKI · Leak Reference Library</title>
     <meta id="dynamic-description" name="description" content="Complete knowledge wiki for leak archives. Reference library with interconnected entries.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/wiki/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition48/">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#faf9f8;font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,sans-serif;color:#1a1a1a}
@@ -88,8 +88,9 @@ permalink: /edition47/
         @media(max-width:750px){.wiki-grid{grid-template-columns:1fr}.topics-grid{grid-template-columns:1fr}}
         @media(max-width:500px){.wiki-container{padding:16px}.hero-title{font-size:1.1rem}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="wiki-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#5f6368">Loading Knowledge Wiki...</div></div>
 
 <script>
@@ -201,7 +202,7 @@ permalink: /edition47/
     // ========== GENERATE LINK (INTERNAL LINK - VARIAN QUERY + LEAK) ==========
     const genInternalLink = (keyword) => {
         let newQ = `${nameLower} ${keyword.toLowerCase()} leak reference`;
-        return `/wiki/?q=${encodeURIComponent(newQ)}`;
+        return `/edition48/?q=${encodeURIComponent(newQ)}`;
     };
     
     // ========== GENERATE WIKI ENTRIES WITH INTERNAL LINKS ==========
@@ -348,7 +349,7 @@ permalink: /edition47/
     const renderBreadcrumb = () => {
         return `
             <div class="breadcrumb">
-                <a href="/">Home</a> › <a href="/wiki/">Knowledge Wiki</a> › ${displayName} Leak Reference
+                <a href="/">Home</a> › <a href="/edition48/">Knowledge Wiki</a> › ${displayName} Leak Reference
             </div>
         `;
     };
@@ -406,7 +407,7 @@ permalink: /edition47/
         
         // Handle internal links (static navigation)
         document.querySelectorAll('a').forEach(link => {
-            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/wiki/?q=')){
+            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/edition48/?q=')){
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     window.location.href = link.getAttribute('href');
@@ -419,5 +420,9 @@ permalink: /edition47/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition47.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

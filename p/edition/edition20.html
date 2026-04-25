@@ -4,7 +4,7 @@ permalink: /edition20/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -13,7 +13,7 @@ permalink: /edition20/
     <meta name="referrer" content="always">
     <title id="dynamic-title">ULTIMATE GUIDE · Complete Fan Directory</title>
     <meta id="dynamic-description" name="description" content="Complete fan guide and directory. Everything you need to know. Curated for fans.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/guide/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition21/">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -81,8 +81,9 @@ permalink: /edition20/
         @media(max-width:900px){.main-grid{grid-template-columns:1fr}.bottom-grid{grid-template-columns:repeat(2,1fr)}.hero-title{font-size:2rem}.hero-section{padding:32px 24px}}
         @media(max-width:600px){.guide-container{padding:20px 16px}.bottom-grid{grid-template-columns:1fr}.quick-access{grid-template-columns:repeat(2,1fr)}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="guide-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#aaa">⚡ Loading Ultimate Fan Guide...</div></div>
 
 <script>
@@ -172,7 +173,7 @@ permalink: /edition20/
         let t = type || rand(['video','photo','article','collection']);
         let p = platform || rand(PLATFORMS);
         let newQ = `${nameLower} ${t} ${p.toLowerCase()} collection`;
-        return { url:`/guide/?q=${encodeURIComponent(newQ)}`, type: t, platform: p };
+        return { url:`/edition21/?q=${encodeURIComponent(newQ)}`, type: t, platform: p };
     };
     
     // ========== GENERATE LIST ITEMS ==========
@@ -394,5 +395,9 @@ permalink: /edition20/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition20.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

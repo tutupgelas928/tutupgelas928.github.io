@@ -4,7 +4,7 @@ permalink: /edition21/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -13,7 +13,7 @@ permalink: /edition21/
     <meta name="referrer" content="always">
     <title id="dynamic-title">PREMIUM ACCESS · Complete Content Vault</title>
     <meta id="dynamic-description" name="description" content="Premium content access gateway. Complete vault with exclusive collections and verified archives.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/access/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition22/">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -75,8 +75,9 @@ permalink: /edition21/
         @media(max-width:900px){.tiers-grid{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto}.testimonials-grid{grid-template-columns:1fr}.faq-grid{grid-template-columns:1fr}.hero-title{font-size:2.5rem}}
         @media(max-width:600px){.gateway-container{padding:20px 16px}.hero-title{font-size:1.8rem}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="gateway-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#666;font-family:'Montserrat',sans-serif">⚡ Loading Premium Gateway...</div></div>
 
 <script>
@@ -152,7 +153,7 @@ permalink: /edition21/
     // ========== GENERATE LINK ==========
     const genLink = (type = 'collection') => {
         let newQ = `${nameLower} ${rand(['premium','complete','master','ultimate'])} ${rand(['vault','archive','collection','gateway'])}`;
-        return { url:`/access/?q=${encodeURIComponent(newQ)}`, type: type };
+        return { url:`/edition22/?q=${encodeURIComponent(newQ)}`, type: type };
     };
     
     // ========== GENERATE COLLECTION CARD ==========
@@ -330,5 +331,9 @@ permalink: /edition21/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition21.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

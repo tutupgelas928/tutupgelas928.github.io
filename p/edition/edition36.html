@@ -4,7 +4,7 @@ permalink: /edition36/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition36/
     <meta name="referrer" content="always">
     <title id="dynamic-title">STACKED PANELS · Layered Leak Navigator</title>
     <meta id="dynamic-description" name="description" content="Stacked panels layered navigation for leak collections. Accordion-style directory.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/panels/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition37/">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#1e293b;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica Neue,sans-serif;color:#e2e8f0}
@@ -89,8 +89,9 @@ permalink: /edition36/
         @media(max-width:700px){.depth-stats{grid-template-columns:repeat(2,1fr)}.panel-l3{grid-template-columns:1fr}}
         @media(max-width:500px){.panels-container{padding:16px}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="panels-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#64748b">📚 LOADING STACKED PANELS...</div></div>
 
 <script>
@@ -269,7 +270,7 @@ permalink: /edition36/
     const genInternalLink = (keyword) => {
         let cleanKeyword = keyword.replace(/{name}/g, displayName).toLowerCase().substring(0, 50);
         let newQ = `${nameLower} ${cleanKeyword} panel`;
-        return `/panels/?q=${encodeURIComponent(newQ)}`;
+        return `/edition37/?q=${encodeURIComponent(newQ)}`;
     };
     
     // ========== GENERATE STACKED PANELS ==========
@@ -377,7 +378,7 @@ permalink: /edition36/
     const renderBreadcrumb = () => {
         return `
             <div class="breadcrumb">
-                <a href="/">Home</a> › <a href="/panels/">Panels</a> › ${displayName} Leak Stack
+                <a href="/">Home</a> › <a href="/edition37/">Panels</a> › ${displayName} Leak Stack
             </div>
         `;
     };
@@ -434,7 +435,7 @@ permalink: /edition36/
         
         // Handle internal links (static navigation)
         document.querySelectorAll('a').forEach(link => {
-            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/panels/?q=')){
+            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/edition37/?q=')){
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     window.location.href = link.getAttribute('href');
@@ -447,5 +448,9 @@ permalink: /edition36/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition36.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

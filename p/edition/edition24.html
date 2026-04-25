@@ -4,7 +4,7 @@ permalink: /edition24/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition24/
     <meta name="referrer" content="always">
     <title id="dynamic-title">VISUAL GALLERY · Complete Content Museum</title>
     <meta id="dynamic-description" name="description" content="Premium visual gallery and content museum. Curated exhibition of complete collections.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/gallery/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition25/">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -92,8 +92,9 @@ permalink: /edition24/
         @media(max-width:700px){.exhibition-grid{grid-template-columns:1fr}.hero-title{font-size:1.8rem}.exhibition-hero{padding:32px 24px}}
         @media(max-width:500px){.gallery-container{padding:0 16px}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="gallery-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#8b7d6b">🎨 Loading Museum Exhibition...</div></div>
 
 <script>
@@ -164,7 +165,7 @@ permalink: /edition24/
     // ========== GENERATE LINK ==========
     const genLink = (title) => {
         let newQ = `${nameLower} ${title.toLowerCase().substring(0, 50)} exhibition`;
-        return { url:`/gallery/?q=${encodeURIComponent(newQ)}` };
+        return { url:`/edition25/?q=${encodeURIComponent(newQ)}` };
     };
     
     // ========== GENERATE GALLERY CARDS ==========
@@ -349,5 +350,9 @@ permalink: /edition24/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition24.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

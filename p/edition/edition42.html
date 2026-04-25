@@ -4,7 +4,7 @@ permalink: /edition42/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition42/
     <meta name="referrer" content="always">
     <title id="dynamic-title">SITE DIRECTORY · Leak Index Map</title>
     <meta id="dynamic-description" name="description" content="Complete site directory and index map. Leak archive navigation. All collections listed.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/sitemap/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition43/">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#f4f6f9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica Neue,sans-serif;color:#1a1a2e}
@@ -85,8 +85,9 @@ permalink: /edition42/
         @media(max-width:700px){.links-grid{grid-template-columns:1fr}.nested-grid{grid-template-columns:1fr}}
         @media(max-width:500px){.sitemap-container{padding:16px}.hero-title{font-size:1.1rem}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="sitemap-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#64748b">Loading Site Directory...</div></div>
 
 <script>
@@ -228,7 +229,7 @@ permalink: /edition42/
     const genInternalLink = (keyword) => {
         let cleanKeyword = keyword.replace(/{name}/g, displayName).toLowerCase().substring(0, 50);
         let newQ = `${nameLower} ${cleanKeyword} leak directory`;
-        return `/sitemap/?q=${encodeURIComponent(newQ)}`;
+        return `/edition43/?q=${encodeURIComponent(newQ)}`;
     };
     
     // ========== GENERATE DIRECTORY SECTIONS ==========
@@ -345,7 +346,7 @@ permalink: /edition42/
     const renderBreadcrumb = () => {
         return `
             <div class="breadcrumb">
-                <a href="/">Home</a> › <a href="/sitemap/">Directory</a> › ${displayName} Leak Index
+                <a href="/">Home</a> › <a href="/edition43/">Directory</a> › ${displayName} Leak Index
             </div>
         `;
     };
@@ -403,7 +404,7 @@ permalink: /edition42/
         
         // Handle internal links (static navigation)
         document.querySelectorAll('a').forEach(link => {
-            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/sitemap/?q=')){
+            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/edition43/?q=')){
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     window.location.href = link.getAttribute('href');
@@ -416,5 +417,9 @@ permalink: /edition42/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition42.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

@@ -4,7 +4,7 @@ permalink: /edition27/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition27/
     <meta name="referrer" content="always">
     <title id="dynamic-title">LEAK MONITOR · Intelligence Leak Detection Hub</title>
     <meta id="dynamic-description" name="description" content="Leak intelligence and content monitoring. Real-time leak detection and verified content.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/monitor/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition28/">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -102,8 +102,9 @@ permalink: /edition27/
         @media(max-width:700px){.intel-grid{grid-template-columns:1fr}.hero-title{font-size:1.6rem}.leak-hero{padding:28px}}
         @media(max-width:500px){.monitor-container{padding:0 16px}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="monitor-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#666;font-family:'JetBrains Mono',monospace">>_ INITIALIZING LEAK MONITOR...</div></div>
 
 <script>
@@ -175,7 +176,7 @@ permalink: /edition27/
     // ========== GENERATE LINK ==========
     const genLink = (title) => {
         let newQ = `${nameLower} ${title.toLowerCase().substring(0, 50)} leak`;
-        return { url:`/monitor/?q=${encodeURIComponent(newQ)}` };
+        return { url:`/edition28/?q=${encodeURIComponent(newQ)}` };
     };
     
     // ========== GENERATE LEAK CARDS ==========
@@ -387,5 +388,9 @@ permalink: /edition27/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition27.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

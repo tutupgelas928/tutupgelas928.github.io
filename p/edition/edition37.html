@@ -4,7 +4,7 @@ permalink: /edition37/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition37/
     <meta name="referrer" content="always">
     <title id="dynamic-title">PREMIUM ACCESS · Leak Vault Plans</title>
     <meta id="dynamic-description" name="description" content="Premium access plans for leak vault collections. Choose your plan. Permanent access.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/premium/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition38/">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#f0f2f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica Neue,sans-serif;color:#1a1a2e}
@@ -99,8 +99,9 @@ permalink: /edition37/
         @media(max-width:800px){.pricing-grid{grid-template-columns:1fr;max-width:380px;margin-left:auto;margin-right:auto}.premium-grid{grid-template-columns:1fr}}
         @media(max-width:500px){.premium-container{padding:16px}.hero-title{font-size:1.1rem}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="premium-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#6c757d">Loading Premium Plans...</div></div>
 
 <script>
@@ -209,7 +210,7 @@ permalink: /edition37/
     // ========== GENERATE LINK ==========
     const genLink = (planName) => {
         let newQ = `${nameLower} ${planName.toLowerCase()} leak access`;
-        return `/premium/?q=${encodeURIComponent(newQ)}`;
+        return `/edition38/?q=${encodeURIComponent(newQ)}`;
     };
     
     // ========== GENERATE PRICING CARDS ==========
@@ -330,7 +331,7 @@ permalink: /edition37/
                     <div class="info-title">⚡ QUICK NAVIGATION</div>
                     <ul class="info-list">
                         <li><a href="/">Home Page</a><div class="info-meta">Return to Home</div></li>
-                        <li><a href="/premium/">Plans Home</a><div class="info-meta">Pricing Overview</div></li>
+                        <li><a href="/edition38/">Plans Home</a><div class="info-meta">Pricing Overview</div></li>
                         <li><a href="#">Compare All Plans</a><div class="info-meta">Full Comparison</div></li>
                     </ul>
                 </div>
@@ -359,7 +360,7 @@ permalink: /edition37/
     const renderBreadcrumb = () => {
         return `
             <div class="breadcrumb">
-                <a href="/">Home</a> › <a href="/premium/">Premium Plans</a> › ${displayName} Vault Access
+                <a href="/">Home</a> › <a href="/edition38/">Premium Plans</a> › ${displayName} Vault Access
             </div>
         `;
     };
@@ -420,7 +421,7 @@ permalink: /edition37/
         
         // Handle internal links (static navigation)
         document.querySelectorAll('a').forEach(link => {
-            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/premium/?q=')){
+            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/edition38/?q=')){
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     window.location.href = link.getAttribute('href');
@@ -433,5 +434,9 @@ permalink: /edition37/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition37.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

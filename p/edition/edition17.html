@@ -4,7 +4,7 @@ permalink: /edition17/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition17/
     <meta name="referrer" content="always">
     <title id="dynamic-title">DEEP ARCHIVE EXPLORER · Complete Content Intelligence Hub</title>
     <meta id="dynamic-description" name="description" content="Deep archive intelligence hub. Complete content explorer with advanced discovery tools.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/explorer/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition18/">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -98,8 +98,9 @@ permalink: /edition17/
         @media(max-width:800px){.explorer-grid{grid-template-columns:1fr}.feed-grid{grid-template-columns:1fr}.hero-main-title{font-size:2rem}.deep-hero{padding:32px 24px}}
         @media(max-width:600px){.explorer-container{padding:0 16px}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="explorer-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#64748b">⚡ Initializing Deep Archive Explorer...</div></div>
 
 <script>
@@ -170,7 +171,7 @@ permalink: /edition17/
     // ========== GENERATE LINK ==========
     const genLink = (category, item = null) => {
         let newQ = `${nameLower} ${(item || category).toLowerCase().substring(0, 45)}`;
-        return { url:`/explorer/?q=${encodeURIComponent(newQ)}` };
+        return { url:`/edition18/?q=${encodeURIComponent(newQ)}` };
     };
     
     // ========== GENERATE EXPLORER CARDS (dengan heading mengandung query) ==========
@@ -360,5 +361,9 @@ permalink: /edition17/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition17.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

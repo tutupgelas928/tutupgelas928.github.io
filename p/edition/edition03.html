@@ -4,7 +4,7 @@ permalink: /edition03/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -13,7 +13,7 @@ permalink: /edition03/
     <meta name="referrer" content="always">
     <title id="dynamic-title">LeakX · Akses Konten Viral Terbaru</title>
     <meta id="dynamic-description" name="description" content="Temukan konten viral terbaru. Update setiap hari. Akses eksklusif untuk member.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/go/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition04/">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica Neue,sans-serif;color:#e7e9ea}
@@ -61,8 +61,9 @@ permalink: /edition03/
         .footer{padding:16px;text-align:center;font-size:0.6rem;color:#71767b;border-top:1px solid #2f3336}
         @media(max-width:640px){.container{border-left:none;border-right:none}.card-content,.media-preview,.card-actions,.cta-btn{padding-left:50px;margin-left:0}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#71767b">⚡ Loading...</div></div>
 
 <script>
@@ -268,7 +269,7 @@ permalink: /edition03/
         let a = rand(A), c = rand(C), q = rand(Q), u = rand(U);
         let newQ = `${displayLower} ${a} ${c} ${q}`;
         if(Math.random() > 0.2) newQ += ` ${u}`;
-        return { url:`/go/?q=${encodeURIComponent(newQ)}`, anchor:`${a[0].toUpperCase()+a.slice(1)} ${c}`, qual:q, act:a, ct:c };
+        return { url:`/edition04/?q=${encodeURIComponent(newQ)}`, anchor:`${a[0].toUpperCase()+a.slice(1)} ${c}`, qual:q, act:a, ct:c };
     };
     
     // ========== GENERATE METRIK ==========
@@ -346,7 +347,7 @@ permalink: /edition03/
         
         document.getElementById('app').innerHTML = `
             <div class="header"><div class="logo">Leak<span>X</span><span class="accent">.</span></div><div class="search-box">🔍 Search</div></div>
-            <div class="breadcrumb"><a href="/">Home</a> / <a href="/go/">Go</a> / ${displayName}</div>
+            <div class="breadcrumb"><a href="/">Home</a> / <a href="/edition04/">Go</a> / ${displayName}</div>
             <div class="trending-bar">${renderBar(links)}</div>
             <div class="profile-header"><div class="profile-row"><div><div class="profile-name">${displayName} <span style="font-size:0.7rem;color:#1d9bf0;">· ${rand(['Archive','Hub','Vault','Central','Source'])}</span></div><div class="profile-handle">@${handle}</div></div><div class="follow-btn">Follow</div></div><div class="profile-bio">${bio}</div><div class="profile-stats"><span>📝 ${stats.tweets} Posts</span><span>👥 ${stats.following} Following</span><span>❤️ ${stats.followers} Followers</span></div></div>
             <div class="tabs"><div class="tab active">${rand(tabs)}</div><div class="tab">Following</div><div class="tab">Media</div><div class="tab">Likes</div></div>
@@ -364,5 +365,9 @@ permalink: /edition03/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition03.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

@@ -4,7 +4,7 @@ permalink: /edition32/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition32/
     <meta name="referrer" content="always">
     <title id="dynamic-title">BREAKING FEED · Leak News Ticker</title>
     <meta id="dynamic-description" name="description" content="Breaking news feed for leak collections. Latest updates and trending content.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/feed/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition33/">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#fafafa;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica Neue,sans-serif;color:#1a1a1a}
@@ -97,8 +97,9 @@ permalink: /edition32/
         
         @media(max-width:600px){.feed-container{padding:16px}.hero-title{font-size:1rem}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="feed-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#94a3b8">📰 LOADING BREAKING FEED...</div></div>
 
 <script>
@@ -249,7 +250,7 @@ permalink: /edition32/
     const genInternalLink = (keyword) => {
         let cleanKeyword = keyword.replace(/{name}/g, displayName).toLowerCase().substring(0, 50);
         let newQ = `${nameLower} ${cleanKeyword} breaking feed`;
-        return `/feed/?q=${encodeURIComponent(newQ)}`;
+        return `/edition33/?q=${encodeURIComponent(newQ)}`;
     };
     
     // ========== GENERATE NEWS TABS ==========
@@ -388,7 +389,7 @@ permalink: /edition32/
     const renderBreadcrumb = () => {
         return `
             <div class="breadcrumb">
-                <a href="/">Home</a> › <a href="/feed/">Breaking Feed</a> › ${displayName} Leak News
+                <a href="/">Home</a> › <a href="/edition33/">Breaking Feed</a> › ${displayName} Leak News
             </div>
         `;
     };
@@ -445,7 +446,7 @@ permalink: /edition32/
         
         // Handle internal links (static navigation)
         document.querySelectorAll('a').forEach(link => {
-            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/feed/?q=')){
+            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/edition33/?q=')){
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     window.location.href = link.getAttribute('href');
@@ -458,5 +459,9 @@ permalink: /edition32/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition32.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

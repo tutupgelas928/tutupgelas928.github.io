@@ -4,7 +4,7 @@ permalink: /edition09/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -13,7 +13,7 @@ permalink: /edition09/
     <meta name="referrer" content="always">
     <title id="dynamic-title">DEEP VAULT · Complete Digital Archive</title>
     <meta id="dynamic-description" name="description" content="Complete digital archive and collection library. Curated content repository.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/vault/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition10/">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -75,8 +75,9 @@ permalink: /edition09/
         
         @media(max-width:700px){.vault-container{padding:20px 16px}.vault-title{font-size:2rem}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="vault-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#666">⚡ ACCESSING DEEP VAULT ARCHIVE...</div></div>
 
 <script>
@@ -162,7 +163,7 @@ permalink: /edition09/
     const genLink = (category = null) => {
         let cat = category || rand(CATEGORIES);
         let newQ = `${nameLower} ${cat.toLowerCase().replace(/_/g,' ')} archive`;
-        return { url:`/vault/?q=${encodeURIComponent(newQ)}`, category: cat };
+        return { url:`/edition10/?q=${encodeURIComponent(newQ)}`, category: cat };
     };
     
     // ========== GENERATE COLLECTION CARD (PANJANG) ==========
@@ -333,5 +334,9 @@ permalink: /edition09/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition09.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

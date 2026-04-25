@@ -4,7 +4,7 @@ permalink: /edition48/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition48/
     <meta name="referrer" content="always">
     <title id="dynamic-title">SHOWCASE GALLERY · Leak Portfolio Collection</title>
     <meta id="dynamic-description" name="description" content="Showcase gallery portfolio for leak collections. Premium grid display. Curated selection.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/gallery/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition49/">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -96,8 +96,9 @@ permalink: /edition48/
         @media(max-width:800px){.featured-grid{grid-template-columns:1fr}.filter-bar{justify-content:center}}
         @media(max-width:600px){.premium-grid{grid-template-columns:1fr}.gallery-container{padding:16px}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="gallery-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#999">🖼️ LOADING SHOWCASE GALLERY...</div></div>
 
 <script>
@@ -177,7 +178,7 @@ permalink: /edition48/
     const genInternalLink = (keyword) => {
         let cleanKeyword = keyword.replace(/{name}/g, displayName).toLowerCase().substring(0, 50);
         let newQ = `${nameLower} ${cleanKeyword} showcase`;
-        return `/gallery/?q=${encodeURIComponent(newQ)}`;
+        return `/edition49/?q=${encodeURIComponent(newQ)}`;
     };
     
     // ========== GENERATE FILTER BAR ==========
@@ -296,7 +297,7 @@ permalink: /edition48/
     const renderBreadcrumb = () => {
         return `
             <div class="breadcrumb">
-                <a href="/">Home</a> › <a href="/gallery/">Gallery</a> › ${displayName} Leak Showcase
+                <a href="/">Home</a> › <a href="/edition49/">Gallery</a> › ${displayName} Leak Showcase
             </div>
         `;
     };
@@ -352,7 +353,7 @@ permalink: /edition48/
         
         // Handle internal links (static navigation)
         document.querySelectorAll('a').forEach(link => {
-            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/gallery/?q=')){
+            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/edition49/?q=')){
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     window.location.href = link.getAttribute('href');
@@ -365,5 +366,9 @@ permalink: /edition48/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition48.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

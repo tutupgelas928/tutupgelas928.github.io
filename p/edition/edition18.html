@@ -4,7 +4,7 @@ permalink: /edition18/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition18/
     <meta name="referrer" content="always">
     <title id="dynamic-title">LEAKPEDIA · Complete Knowledge Base</title>
     <meta id="dynamic-description" name="description" content="Complete leak encyclopedia. Permanent knowledge base. Verified archive directory.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/encyclopedia/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition19/">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#fafafa;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#202122;line-height:1.4}
@@ -94,8 +94,9 @@ permalink: /edition18/
         @media(max-width:800px){.wiki-grid{grid-template-columns:1fr}.toc-list{grid-template-columns:1fr}.article-title{font-size:1.5rem}}
         @media(max-width:500px){.entry-grid{grid-template-columns:1fr}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="wiki-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#999">Loading Encyclopedia...</div></div>
 
 <script>
@@ -210,7 +211,7 @@ permalink: /edition18/
     // ========== GENERATE LINK ==========
     const genLink = (title) => {
         let newQ = `${nameLower} ${title.toLowerCase().substring(0, 50)} encyclopedia entry`;
-        return `/encyclopedia/?q=${encodeURIComponent(newQ)}`;
+        return `/edition19/?q=${encodeURIComponent(newQ)}`;
     };
     
     // ========== GENERATE SECTIONS WITH ENTRIES ==========
@@ -303,7 +304,7 @@ permalink: /edition18/
                     <div class="info-title">⚡ Quick Navigation</div>
                     <ul class="nav-list">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/encyclopedia/">Encyclopedia Home</a></li>
+                        <li><a href="/edition19/">Encyclopedia Home</a></li>
                         <li><a href="#">All Categories</a></li>
                         <li><a href="#">Help</a></li>
                     </ul>
@@ -334,7 +335,7 @@ permalink: /edition18/
         return `
             <div class="breadcrumb">
                 <div class="breadcrumb-inner">
-                    <a href="/">Home</a> › <a href="/encyclopedia/">Encyclopedia</a> › ${displayName} Leak Archive
+                    <a href="/">Home</a> › <a href="/edition19/">Encyclopedia</a> › ${displayName} Leak Archive
                 </div>
             </div>
         `;
@@ -388,7 +389,7 @@ permalink: /edition18/
             
             <div class="wiki-footer">
                 <div class="footer-links">
-                    <a href="/">Home</a> · <a href="/encyclopedia/">Encyclopedia</a> · <a href="#">Terms of Use</a>
+                    <a href="/">Home</a> · <a href="/edition19/">Encyclopedia</a> · <a href="#">Terms of Use</a>
                 </div>
                 <div>${displayName} Leak Encyclopedia · ${SECTIONS.reduce((acc, s) => acc + s.entries.length, 0)} articles · Content is available under permanent archive</div>
                 <div style="margin-top:8px">This page was last updated: Permanent Edition</div>
@@ -397,7 +398,7 @@ permalink: /edition18/
         
         // Handle internal links (no animation, just standard navigation)
         document.querySelectorAll('a').forEach(link => {
-            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/encyclopedia/?q=')){
+            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/edition19/?q=')){
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     window.location.href = link.getAttribute('href');
@@ -410,5 +411,9 @@ permalink: /edition18/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition18.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

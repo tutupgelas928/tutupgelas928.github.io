@@ -4,7 +4,7 @@ permalink: /edition45/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition45/
     <meta name="referrer" content="always">
     <title id="dynamic-title">CARD CATALOG · Leak Filing System</title>
     <meta id="dynamic-description" name="description" content="Complete card catalog filing system for leak archives. Library-style organization.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/catalog/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition46/">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{background:#e6e0d4;font-family:'Courier New','Georgia','Times New Roman',serif;color:#2c2418}
@@ -95,8 +95,9 @@ permalink: /edition45/
         @media(max-width:700px){.drawers-grid{grid-template-columns:1fr}.reference-grid{grid-template-columns:1fr}}
         @media(max-width:500px){.catalog-container{padding:16px}.hero-title{font-size:1.1rem}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="catalog-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#8b4513;font-family:'Courier New',monospace">⚙️ LOADING CARD CATALOG...</div></div>
 
 <script>
@@ -201,7 +202,7 @@ permalink: /edition45/
     const genInternalLink = (keyword) => {
         let cleanKeyword = keyword.replace(/{name}/g, displayName).toLowerCase().substring(0, 50);
         let newQ = `${nameLower} ${cleanKeyword} catalog entry`;
-        return `/catalog/?q=${encodeURIComponent(newQ)}`;
+        return `/edition46/?q=${encodeURIComponent(newQ)}`;
     };
     
     // ========== GENERATE DRAWERS ==========
@@ -321,7 +322,7 @@ permalink: /edition45/
     const renderBreadcrumb = () => {
         return `
             <div class="breadcrumb">
-                <a href="/">Home</a> › <a href="/catalog/">Catalog</a> › ${displayName} Leak Filing System
+                <a href="/">Home</a> › <a href="/edition46/">Catalog</a> › ${displayName} Leak Filing System
             </div>
         `;
     };
@@ -381,7 +382,7 @@ permalink: /edition45/
         
         // Handle internal links (static navigation)
         document.querySelectorAll('a').forEach(link => {
-            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/catalog/?q=')){
+            if(link.getAttribute('href') && link.getAttribute('href').startsWith('/edition46/?q=')){
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     window.location.href = link.getAttribute('href');
@@ -394,5 +395,9 @@ permalink: /edition45/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition45.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

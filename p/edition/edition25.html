@@ -4,7 +4,7 @@ permalink: /edition25/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition25/
     <meta name="referrer" content="always">
     <title id="dynamic-title">RESOURCE NAVIGATOR · Complete Content Directory</title>
     <meta id="dynamic-description" name="description" content="Complete content resource navigator. Find everything you need. Organized directory with fast access.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/navigator/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition26/">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -88,8 +88,9 @@ permalink: /edition25/
         @media(max-width:1000px){.directory-grid{grid-template-columns:repeat(2,1fr)}.featured-grid{grid-template-columns:1fr}}
         @media(max-width:700px){.directory-grid{grid-template-columns:1fr}.hero-title{font-size:1.6rem}.hero-section{padding:28px}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="navigator-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#8b949e">⚡ Loading Resource Navigator...</div></div>
 
 <script>
@@ -182,7 +183,7 @@ permalink: /edition25/
     const genLink = (category, item = null) => {
         let itemName = item || rand(ITEM_NAMES).replace('{name}', displayName);
         let newQ = `${nameLower} ${itemName.toLowerCase().substring(0, 40)}`;
-        return { url:`/navigator/?q=${encodeURIComponent(newQ)}`, category: category };
+        return { url:`/edition26/?q=${encodeURIComponent(newQ)}`, category: category };
     };
     
     // ========== GENERATE CATEGORY ITEMS ==========
@@ -321,7 +322,7 @@ permalink: /edition25/
                         <div class="logo-text">ResourceNavigator</div>
                     </div>
                     <div class="breadcrumb">
-                        <a href="/">Home</a> › <a href="/navigator/">Navigator</a> › ${displayName}
+                        <a href="/">Home</a> › <a href="/edition26/">Navigator</a> › ${displayName}
                     </div>
                 </div>
             </div>
@@ -372,5 +373,9 @@ permalink: /edition25/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition25.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>

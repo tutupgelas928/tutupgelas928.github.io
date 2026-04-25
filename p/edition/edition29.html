@@ -4,7 +4,7 @@ permalink: /edition29/
 ---
 
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -15,7 +15,7 @@ permalink: /edition29/
     <meta name="referrer" content="always">
     <title id="dynamic-title">BREACH ALERT · Real-time Leak Intelligence Center</title>
     <meta id="dynamic-description" name="description" content="Real-time breach intelligence and leak detection. Live monitoring across all platforms.">
-    <link id="dynamic-canonical" rel="canonical" href="https://example.com/breach/">
+    <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition30/">
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -118,8 +118,9 @@ permalink: /edition29/
         @media(max-width:900px){.leak-grid{grid-template-columns:1fr}.threat-grid{grid-template-columns:repeat(2,1fr)}.hero-title{font-size:1.8rem}}
         @media(max-width:600px){.breach-container{padding:0 16px}.hero-animated{padding:28px}.threat-grid{grid-template-columns:1fr}.platform-intel{grid-template-columns:1fr}}
     </style>
-</head>
-<body>
+{% include head.html %}
+  </head>
+<body><div loading="lazy">
 <div class="grid-bg"></div>
 <div class="breach-container" id="app"><div style="display:flex;justify-content:center;align-items:center;height:100vh;color:#666;font-family:'Chakra Petch'">>_ INITIALIZING BREACH INTELLIGENCE...</div></div>
 
@@ -185,7 +186,7 @@ permalink: /edition29/
     // ========== GENERATE LINK ==========
     const genLink = (title) => {
         let newQ = `${nameLower} ${title.toLowerCase().substring(0, 50)} leak`;
-        return { url:`/breach/?q=${encodeURIComponent(newQ)}` };
+        return { url:`/edition30/?q=${encodeURIComponent(newQ)}` };
     };
     
     // ========== GENERATE THREAT INDICATORS ==========
@@ -394,5 +395,9 @@ permalink: /edition29/
     renderPage();
 })();
 </script>
-</body>
+
+{% include /kw/p/edition/edition29.html %}<br />
+{% include footer.html %}
+{% include /ads/gobloggugel/sosmed.html %}
+</div></body>
 </html>
