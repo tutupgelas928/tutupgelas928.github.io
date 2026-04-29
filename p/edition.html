@@ -14,6 +14,10 @@ permalink: /edition/
     <meta id="dynamic-description" name="description" content="Watch leaked videos from influencers, TikTokers, and OnlyFans creators. Trending leaked content updated daily.">
     <link id="dynamic-canonical" rel="canonical" href="https://example.com/photo/">
     <style>
+        :root {
+            --yt-red: #ff0000;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -61,7 +65,7 @@ permalink: /edition/
         }
 
         .logo-text span {
-            color: #ff0000;
+            color: var(--yt-red);
         }
 
         .trend-badge {
@@ -101,7 +105,7 @@ permalink: /edition/
         .channel-avatar {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #ff0000, #cc0000);
+            background: linear-gradient(135deg, var(--yt-red), #cc0000);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -120,7 +124,7 @@ permalink: /edition/
         }
 
         .subscribe-btn {
-            background: #ff0000;
+            background: var(--yt-red);
             padding: 0.5rem 1rem;
             border-radius: 30px;
             font-size: 0.7rem;
@@ -208,7 +212,7 @@ permalink: /edition/
         .trending-number {
             font-size: 1rem;
             font-weight: 700;
-            color: #ff0000;
+            color: var(--yt-red);
             min-width: 30px;
         }
 
@@ -306,19 +310,19 @@ permalink: /edition/
                 <div class="thumbnail">🎬 <span class="duration">12:34</span></div>
                 <div class="video-title">🔥 Trending: TikTok Star Leaked Video Compilation</div>
                 <div class="video-meta">2.3M views · 2 days ago</div>
-                <a href="/photo/?q=tiktok+star+leaked+video+compilation" style="color:#ff0000; font-size:0.7rem;">Watch leaked video →</a>
+                <a href="/photo/?q=tiktok+star+leaked+video+compilation" style="color: var(--yt-red); font-size:0.7rem;">Watch leaked video →</a>
             </div>
             <div class="video-card">
                 <div class="thumbnail">🔞 <span class="duration">08:21</span></div>
-                <div class="video-title">💎 Exclusive: OnlyFans Creator Leaked Full Set</div>
+                <div class="video-title">🔎 Exclusive: OnlyFans Creator Leaked Full Set</div>
                 <div class="video-meta">1.8M views · 5 days ago</div>
-                <a href="/photo/?q=onlyfans+creator+leaked+full+set" style="color:#ff0000; font-size:0.7rem;">Watch leaked content →</a>
+                <a href="/photo/?q=onlyfans+creator+leaked+full+set" style="color: var(--yt-red); font-size:0.7rem;">Watch leaked content →</a>
             </div>
             <div class="video-card">
                 <div class="thumbnail">📸 <span class="duration">05:47</span></div>
                 <div class="video-title">📸 Instagram Influencer Leaked Private Gallery</div>
                 <div class="video-meta">987K views · 1 week ago</div>
-                <a href="/photo/?q=instagram+influencer+leaked+private+gallery" style="color:#ff0000; font-size:0.7rem;">View leaked photos →</a>
+                <a href="/photo/?q=instagram+influencer+leaked+private+gallery" style="color: var(--yt-red); font-size:0.7rem;">View leaked photos →</a>
             </div>
         </div>
 
@@ -328,13 +332,13 @@ permalink: /edition/
                     <div class="thumbnail">💬 <span class="duration">45:12</span></div>
                     <div class="video-title">Telegram Leaked Channel: Complete Dump</div>
                     <div class="video-meta">456K views · 3 days ago</div>
-                    <a href="/photo/?q=telegram+leaked+channel+complete+dump" style="color:#ff0000; font-size:0.7rem;">Access leak →</a>
+                    <a href="/photo/?q=telegram+leaked+channel+complete+dump" style="color: var(--yt-red); font-size:0.7rem;">Access leak →</a>
                 </div>
                 <div class="video-card">
                     <div class="thumbnail">🎮 <span class="duration">1:23:45</span></div>
                     <div class="video-title">Discord Leaked Server: Private Archive</div>
                     <div class="video-meta">234K views · 1 week ago</div>
-                    <a href="/photo/?q=discord+leaked+server+private+archive" style="color:#ff0000; font-size:0.7rem;">View archive →</a>
+                    <a href="/photo/?q=discord+leaked+server+private+archive" style="color: var(--yt-red); font-size:0.7rem;">View archive →</a>
                 </div>
             </div>
             <div class="trending-list">
@@ -396,6 +400,9 @@ permalink: /edition/
     if (!query) {
         defaultDiv.style.display = 'block';
         queryDiv.style.display = 'none';
+        // Set canonical for default state
+        const canonical = document.getElementById('dynamic-canonical');
+        if (canonical) canonical.setAttribute('href', window.location.href.split('?')[0]);
         return;
     }
 
@@ -404,7 +411,7 @@ permalink: /edition/
 
     query = decodeURIComponent(query.replace(/\+/g, ' '));
     
-    // extract nama influencer
+    // extract influencer name
     const removeTerms = ['leaked', 'leak', 'leaks', 'archive', 'collection', 'dump', 'vault', 'pack', 'bundle', 'gallery', 'content', 'media', 'videos', 'photos', 'pics', 'onlyfans', 'tiktok', 'instagram', 'twitter', 'telegram', 'discord', 'trending', 'viral', 'exclusive', 'private', 'premium', '2024', '2025', '2026', 'full', 'complete', 'hot', 'new', 'watch', 'view', 'access'];
     let baseRaw = query.toLowerCase();
     removeTerms.forEach(term => {
@@ -432,7 +439,7 @@ permalink: /edition/
     const metaTag = document.getElementById('dynamic-description');
     if (metaTag) metaTag.setAttribute('content', pageDesc);
     
-    document.getElementById('channel-name').innerHTML = `${displayName} <span style="font-size:0.7rem; color:#ff0000;">· LEAKED CONTENT</span>`;
+    document.getElementById('channel-name').innerHTML = `${displayName} <span style="font-size:0.7rem; color: var(--yt-red);">· LEAKED CONTENT</span>`;
     document.getElementById('channel-stats').innerHTML = `${subCount}K subscribers · ${totalViews}K views this month`;
     document.getElementById('bc-name').innerText = displayName;
     document.getElementById('channel-avatar').innerHTML = displayName.charAt(0).toUpperCase();
@@ -445,7 +452,7 @@ permalink: /edition/
                 <div class="thumbnail">${icon} <span class="duration">${duration}</span></div>
                 <div class="video-title">${title}</div>
                 <div class="video-meta">${views} views · ${timeAgo}</div>
-                <a href="/photo/?q=${encodeURIComponent(newQ)}" style="color:#ff0000; font-size:0.7rem;">▶ WATCH LEAKED VIDEO</a>
+                <a href="/photo/?q=${encodeURIComponent(newQ)}" style="color: var(--yt-red); font-size:0.7rem;">▶ WATCH LEAKED VIDEO</a>
             </div>
         `;
     }
@@ -457,7 +464,7 @@ permalink: /edition/
                 <div class="thumbnail" style="height:100px;">🎬</div>
                 <div class="video-title" style="font-size:0.75rem;">${title}</div>
                 <div class="video-meta">${views} views · ${timeAgo}</div>
-                <a href="/photo/?q=${encodeURIComponent(newQ)}" style="color:#ff0000; font-size:0.65rem;">WATCH →</a>
+                <a href="/photo/?q=${encodeURIComponent(newQ)}" style="color: var(--yt-red); font-size:0.65rem;">WATCH →</a>
             </div>
         `;
     }
@@ -466,7 +473,7 @@ permalink: /edition/
     const chips = [
         { variant: 'leaked videos playlist', label: '🔥 LEAKED VIDEOS' },
         { variant: 'leaked photos gallery', label: '📸 LEAKED PHOTOS' },
-        { variant: 'exclusive leaked vault', label: '💎 EXCLUSIVE LEAKS' }
+        { variant: 'exclusive leaked vault', label: '🔎 EXCLUSIVE LEAKS' }
     ];
     document.getElementById('dynamic-chips').innerHTML = chips.map(chip => 
         `<a href="/photo/?q=${encodeURIComponent(displayLower + ' ' + chip.variant)}" class="chip">${chip.label}</a>`
@@ -508,7 +515,7 @@ permalink: /edition/
                     <h4>${item.title}</h4>
                     <p>${item.views} views</p>
                 </div>
-                <a href="/photo/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}" style="margin-left:auto; color:#ff0000;">▶</a>
+                <a href="/photo/?q=${encodeURIComponent(displayLower + ' ' + item.variant)}" style="margin-left:auto; color: var(--yt-red);">▶</a>
             </div>
         `).join('')}
     `;
@@ -530,10 +537,10 @@ permalink: /edition/
     const dateStr = today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     document.getElementById('update-date').innerText = dateStr;
     
-    // canonical
+    // canonical dynamic following query
     const canonical = document.getElementById('dynamic-canonical');
     if (canonical) {
-        canonical.setAttribute('href', window.location.href.split('?')[0]);
+        canonical.setAttribute('href', window.location.href);
     }
 })();
 </script>
