@@ -3,6 +3,7 @@ layout: null
 permalink: /edition-b33/
 ---
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@ permalink: /edition-b33/
     <meta name="bingbot" content="index, follow">
     <meta name="yandex" content="index, follow">
     <meta name="referrer" content="always">
-    <title id="dynamic-title">LEAK BOOKLET · Complete Reference Catalog</title>
+    <title id="dynamic-title">LEAK BOOKLET ï¿½ Complete Reference Catalog</title>
     <meta id="dynamic-description" name="description" content="Complete reference booklet catalog for leak collections. Flip card style directory.">
     <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition-b33/">
     <style>
@@ -310,7 +311,7 @@ permalink: /edition-b33/
         }
         return `
             <div class="appendix-section">
-                <div class="appendix-title"> APPENDIX — Additional References</div>
+                <div class="appendix-title"> APPENDIX ï¿½ Additional References</div>
                 <div class="appendix-grid">
                     ${appendixHtml}
                 </div>
@@ -328,7 +329,7 @@ permalink: /edition-b33/
         }
         return `
             <div class="index-section">
-                <div class="index-title"> INDEX — Quick Reference</div>
+                <div class="index-title"> INDEX ï¿½ Quick Reference</div>
                 <div class="index-chips">
                     ${chipsHtml}
                 </div>
@@ -358,7 +359,7 @@ permalink: /edition-b33/
     const renderBreadcrumb = () => {
         return `
             <div class="breadcrumb">
-                <a href="/">Home</a> › <a href="/edition-b33/">Booklet</a> › ${displayName} Leak Catalog
+                <a href="/">Home</a> ï¿½ <a href="/edition-b33/">Booklet</a> ï¿½ ${displayName} Leak Catalog
             </div>
         `;
     };
@@ -372,7 +373,7 @@ permalink: /edition-b33/
                     <div class="logo">Leak<span>Booklet</span></div>
                     <div class="booklet-id">ISBN 978-${Math.floor(Math.random()*1000)}-${Math.floor(Math.random()*10000)}</div>
                 </div>
-                <div class="header-desc">Complete Reference Catalog · ${totalCards} Entries · Flip Card Style</div>
+                <div class="header-desc">Complete Reference Catalog ï¿½ ${totalCards} Entries ï¿½ Flip Card Style</div>
             </div>
         `;
     };
@@ -381,10 +382,10 @@ permalink: /edition-b33/
     const updateSEO = () => {
         let totalCards = BOOKLET_SECTIONS.reduce((acc, s) => acc + s.cards.length, 0);
         let titles = [
-            `${displayName} Leak Booklet — Complete Reference Catalog`,
-            `${displayName} Leak Booklet — Flip Card Directory`,
+            `${displayName} Leak Booklet ï¿½ Complete Reference Catalog`,
+            `${displayName} Leak Booklet ï¿½ Flip Card Directory`,
             `Booklet: ${displayName} Leak Reference Guide`,
-            `${displayName} Leak Booklet — ${totalCards} Entries`
+            `${displayName} Leak Booklet ï¿½ ${totalCards} Entries`
         ];
         let descs = [
             `Complete reference booklet catalog for ${displayName} leak collections. ${totalCards} entries. Flip card style directory.`,
@@ -409,7 +410,7 @@ permalink: /edition-b33/
             ${generateIndex()}
             
             <div class="booklet-bottom">
-                <span> ${displayName} Leak Booklet · Complete Reference Catalog · ${BOOKLET_SECTIONS.reduce((acc, s) => acc + s.cards.length, 0)} Entries</span>
+                <span> ${displayName} Leak Booklet ï¿½ Complete Reference Catalog ï¿½ ${BOOKLET_SECTIONS.reduce((acc, s) => acc + s.cards.length, 0)} Entries</span>
             </div>
         `;
         

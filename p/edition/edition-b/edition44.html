@@ -3,6 +3,7 @@ layout: null
 permalink: /edition-b44/
 ---
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@ permalink: /edition-b44/
     <meta name="bingbot" content="index, follow">
     <meta name="yandex" content="index, follow">
     <meta name="referrer" content="always">
-    <title id="dynamic-title">SPECTRUM · Color-Coded Leak Directory</title>
+    <title id="dynamic-title">SPECTRUM ï¿½ Color-Coded Leak Directory</title>
     <meta id="dynamic-description" name="description" content="Spectrum color-coded directory for leak collections. Rainbow organization. Easy visual navigation.">
     <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition-b44/">
     <style>
@@ -119,38 +120,38 @@ permalink: /edition-b44/
     
     // Color Categories with Leak Collections
     const COLOR_CATEGORIES = [
-        { color: "red", bg: "var(--primary-red)", text: "COMPLETE", name: "Red Spectrum — Complete Leak Archives", items: [
+        { color: "red", bg: "var(--primary-red)", text: "COMPLETE", name: "Red Spectrum ï¿½ Complete Leak Archives", items: [
             "{name} Complete Master Leak Archive",
             "{name} Comprehensive Leak Library",
             "{name} Eternal Leak Vault"
         ]},
-        { color: "orange", bg: "var(--primary-orange)", text: "PREMIUM", name: "Orange Spectrum — OnlyFans Leak Collections", items: [
+        { color: "orange", bg: "var(--primary-orange)", text: "PREMIUM", name: "Orange Spectrum ï¿½ OnlyFans Leak Collections", items: [
             "{name} OnlyFans Complete Leak",
             "{name} OnlyFans Master Leak Vault",
             "{name} OnlyFans Ultimate Leak Archive"
         ]},
-        { color: "yellow", bg: "var(--primary-yellow)", text: "VIRAL", name: "Yellow Spectrum — TikTok Leak Compilations", items: [
+        { color: "yellow", bg: "var(--primary-yellow)", text: "VIRAL", name: "Yellow Spectrum ï¿½ TikTok Leak Compilations", items: [
             "{name} TikTok Complete Leak Compilation",
             "{name} TikTok Master Leak Feed",
             "{name} TikTok Viral Leak Collection"
         ]},
-        { color: "green", bg: "var(--primary-green)", text: "CHANNEL", name: "Green Spectrum — Telegram Leak Channels", items: [
+        { color: "green", bg: "var(--primary-green)", text: "CHANNEL", name: "Green Spectrum ï¿½ Telegram Leak Channels", items: [
             "{name} Telegram Complete Leak Channel",
             "{name} Telegram Master Leak Archive"
         ]},
-        { color: "blue", bg: "var(--primary-blue)", text: "GALLERY", name: "Blue Spectrum — Instagram Leak Galleries", items: [
+        { color: "blue", bg: "var(--primary-blue)", text: "GALLERY", name: "Blue Spectrum ï¿½ Instagram Leak Galleries", items: [
             "{name} Instagram Complete Leak Gallery",
             "{name} Instagram Master Leak Collection"
         ]},
-        { color: "purple", bg: "var(--primary-purple)", text: "STORAGE", name: "Purple Spectrum — Mega Archive Leaks", items: [
+        { color: "purple", bg: "var(--primary-purple)", text: "STORAGE", name: "Purple Spectrum ï¿½ Mega Archive Leaks", items: [
             "{name} Mega Complete Leak Archive",
             "{name} Mega Master Leak Vault"
         ]},
-        { color: "pink", bg: "var(--primary-pink)", text: "RARE", name: "Pink Spectrum — Rare & Unreleased Leaks", items: [
+        { color: "pink", bg: "var(--primary-pink)", text: "RARE", name: "Pink Spectrum ï¿½ Rare & Unreleased Leaks", items: [
             "{name} Rare Leak Collection",
             "{name} Unreleased Leak Archive"
         ]},
-        { color: "teal", bg: "var(--primary-teal)", text: "FAN", name: "Teal Spectrum — Fan Favorite Leak Compilations", items: [
+        { color: "teal", bg: "var(--primary-teal)", text: "FAN", name: "Teal Spectrum ï¿½ Fan Favorite Leak Compilations", items: [
             "{name} Fan Favorites Leak Collection",
             "{name} Top Rated Leak Archive"
         ]}
@@ -258,7 +259,7 @@ permalink: /edition-b44/
                 <div class="color-card">
                     <div class="card-color-bar" style="background:${cat.bg}"></div>
                     <div class="card-content">
-                        <div class="card-category" style="color:${cat.bg}">${cat.text || cat.name.split(' — ')[0]}</div>
+                        <div class="card-category" style="color:${cat.bg}">${cat.text || cat.name.split(' ï¿½ ')[0]}</div>
                         <div class="card-title">${cat.name}</div>
                         <div class="card-links">
                             ${itemsHtml}
@@ -280,7 +281,7 @@ permalink: /edition-b44/
         }
         return `
             <div class="rainbow-section">
-                <div class="rainbow-title"> Rainbow Tags — Explore by Color</div>
+                <div class="rainbow-title"> Rainbow Tags ï¿½ Explore by Color</div>
                 <div class="rainbow-tags">
                     ${tagsHtml}
                 </div>
@@ -320,7 +321,7 @@ permalink: /edition-b44/
     const renderBreadcrumb = () => {
         return `
             <div class="breadcrumb">
-                <a href="/">Home</a> › <a href="/edition-b44/">Spectrum</a> › ${displayName} Color Directory
+                <a href="/">Home</a> ï¿½ <a href="/edition-b44/">Spectrum</a> ï¿½ ${displayName} Color Directory
             </div>
         `;
     };
@@ -334,7 +335,7 @@ permalink: /edition-b44/
                     <div class="logo">Leak<span>Spectrum</span></div>
                     <div class="spectrum-badge"> ${totalItems} SPECTRUM COLORS</div>
                 </div>
-                <div class="header-desc">Color-Coded Directory · Rainbow Organization · Visual Navigation</div>
+                <div class="header-desc">Color-Coded Directory ï¿½ Rainbow Organization ï¿½ Visual Navigation</div>
             </div>
         `;
     };
@@ -343,10 +344,10 @@ permalink: /edition-b44/
     const updateSEO = () => {
         let totalColors = COLOR_CATEGORIES.length + EXTRA_COLORS.length;
         let titles = [
-            `${displayName} Leak Spectrum — Color-Coded Directory`,
-            `${displayName} Leak Rainbow Directory — Spectrum Colors`,
+            `${displayName} Leak Spectrum ï¿½ Color-Coded Directory`,
+            `${displayName} Leak Rainbow Directory ï¿½ Spectrum Colors`,
             `Spectrum: ${displayName} Leak Color Categories`,
-            `${displayName} Leak Spectrum — ${totalColors} Color Sections`
+            `${displayName} Leak Spectrum ï¿½ ${totalColors} Color Sections`
         ];
         let descs = [
             `Rainbow color-coded directory for ${displayName} leak collections. ${totalColors} color categories. Visual navigation.`,
@@ -384,7 +385,7 @@ permalink: /edition-b44/
             ${generateRainbowTags()}
             
             <div class="spectrum-bottom">
-                <span> ${displayName} Leak Spectrum · Color-Coded Directory · Rainbow Organization</span>
+                <span> ${displayName} Leak Spectrum ï¿½ Color-Coded Directory ï¿½ Rainbow Organization</span>
             </div>
         `;
         

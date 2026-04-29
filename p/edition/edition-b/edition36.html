@@ -3,6 +3,7 @@ layout: null
 permalink: /edition-b36/
 ---
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@ permalink: /edition-b36/
     <meta name="bingbot" content="index, follow">
     <meta name="yandex" content="index, follow">
     <meta name="referrer" content="always">
-    <title id="dynamic-title">Stacked Panels · Layered Leak Navigator</title>
+    <title id="dynamic-title">Stacked Panels ï¿½ Layered Leak Navigator</title>
     <meta id="dynamic-description" name="description" content="Stacked panels layered navigation for leak collections. Accordion-style directory.">
     <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition-b36/">
     <style>
@@ -362,7 +363,7 @@ permalink: /edition-b36/
         }
         return `
             <div class="quick-nav">
-                <div class="quick-title"> QUICK NAVIGATION — Direct Access</div>
+                <div class="quick-title"> QUICK NAVIGATION ï¿½ Direct Access</div>
                 <div class="quick-grid">
                     ${quickHtml}
                 </div>
@@ -391,7 +392,7 @@ permalink: /edition-b36/
     const renderBreadcrumb = () => {
         return `
             <div class="breadcrumb">
-                <a href="/">Home</a> › <a href="/edition-b36/">Panels</a> › ${displayName} Leak Stack
+                <a href="/">Home</a> ï¿½ <a href="/edition-b36/">Panels</a> ï¿½ ${displayName} Leak Stack
             </div>
         `;
     };
@@ -405,7 +406,7 @@ permalink: /edition-b36/
                     <div class="logo">Leak<span>Panels</span></div>
                     <div class="depth-badge"> ${stats.totalL3} DEPTH ITEMS</div>
                 </div>
-                <div class="header-desc">Stacked Panels · Layered Navigation · 3-Level Depth</div>
+                <div class="header-desc">Stacked Panels ï¿½ Layered Navigation ï¿½ 3-Level Depth</div>
             </div>
         `;
     };
@@ -415,10 +416,10 @@ permalink: /edition-b36/
         const stats = getDepthStats();
         // Title variations based on query
         let titles = [
-            `${displayName} Leak Panels — Stacked Layered Navigation`,
-            `${displayName} Leak Stacked Panels — Depth Directory`,
+            `${displayName} Leak Panels ï¿½ Stacked Layered Navigation`,
+            `${displayName} Leak Stacked Panels ï¿½ Depth Directory`,
             `Panels: ${displayName} Leak Layered Navigation`,
-            `${displayName} Leak Panels — ${stats.totalL1} Layer 1 Panels`
+            `${displayName} Leak Panels ï¿½ ${stats.totalL1} Layer 1 Panels`
         ];
         let descs = [
             `Stacked panels layered navigation for ${displayName} leak collections. ${stats.totalL1} main panels. 3-level depth directory.`,
@@ -449,7 +450,7 @@ permalink: /edition-b36/
             ${generateQuickNav()}
             
             <div class="panels-bottom">
-                <span> ${displayName} Leak Panels · Stacked Layered Navigation · ${getDepthStats().totalL3} Depth Items</span>
+                <span> ${displayName} Leak Panels ï¿½ Stacked Layered Navigation ï¿½ ${getDepthStats().totalL3} Depth Items</span>
             </div>
         `;
         

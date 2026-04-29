@@ -3,6 +3,7 @@ layout: null
 permalink: /edition-b50/
 ---
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@ permalink: /edition-b50/
     <meta name="bingbot" content="index, follow">
     <meta name="yandex" content="index, follow">
     <meta name="referrer" content="always">
-    <title id="dynamic-title">PINBOARD · Leak Sticky Notes Wall</title>
+    <title id="dynamic-title">PINBOARD ï¿½ Leak Sticky Notes Wall</title>
     <meta id="dynamic-description" name="description" content="Pinboard sticky notes wall for leak collections. Colorful notes for every collection.">
     <link id="dynamic-canonical" rel="canonical" href="https://example.com/edition-b01/">
     <style>
@@ -282,7 +283,7 @@ permalink: /edition-b50/
         }
         return `
             <div class="quick-pins">
-                <div class="quick-title"> Quick Pins — Popular Sticky Notes</div>
+                <div class="quick-title"> Quick Pins ï¿½ Popular Sticky Notes</div>
                 <div class="quick-pins-grid">
                     ${chipsHtml}
                 </div>
@@ -312,7 +313,7 @@ permalink: /edition-b50/
     const renderBreadcrumb = () => {
         return `
             <div class="breadcrumb">
-                <a href="/">Home</a> › <a href="/edition-b01/">Pinboard</a> › ${displayName} Sticky Notes
+                <a href="/">Home</a> ï¿½ <a href="/edition-b01/">Pinboard</a> ï¿½ ${displayName} Sticky Notes
             </div>
         `;
     };
@@ -326,7 +327,7 @@ permalink: /edition-b50/
                     <div class="logo">Leak<span>Pinboard</span></div>
                     <div class="pin-count"> ${totalNotes} NOTES</div>
                 </div>
-                <div class="header-desc"> Sticky Notes Wall · Cork Board Style · Pin Your Favorites</div>
+                <div class="header-desc"> Sticky Notes Wall ï¿½ Cork Board Style ï¿½ Pin Your Favorites</div>
             </div>
         `;
     };
@@ -335,10 +336,10 @@ permalink: /edition-b50/
     const updateSEO = () => {
         let totalNotes = STICKY_NOTES.length;
         let titles = [
-            `${displayName} Leak Pinboard — Sticky Notes Wall`,
-            `${displayName} Leak Pinboard — Cork Board Collection`,
+            `${displayName} Leak Pinboard ï¿½ Sticky Notes Wall`,
+            `${displayName} Leak Pinboard ï¿½ Cork Board Collection`,
             `Pinboard: ${displayName} Leak Sticky Notes`,
-            `${displayName} Leak Pinboard — ${totalNotes} Pinned Notes`
+            `${displayName} Leak Pinboard ï¿½ ${totalNotes} Pinned Notes`
         ];
         let descs = [
             `Colorful pinboard of ${displayName} leak collections. ${totalNotes} sticky notes. Pin your favorite collections.`,
@@ -370,7 +371,7 @@ permalink: /edition-b50/
             ${generateQuickPins()}
             
             <div class="pinboard-bottom">
-                <span> ${displayName} Leak Pinboard · Sticky Notes Wall · Pinned Collections</span>
+                <span> ${displayName} Leak Pinboard ï¿½ Sticky Notes Wall ï¿½ Pinned Collections</span>
             </div>
         `;
         
