@@ -1,8 +1,25 @@
+<script>
+(function () {
+  const host = location.hostname.toLowerCase();
+
+  if (!(host === "nengmaya538.github.io" || host.endsWith(".nengmaya538.github.io"))) {
+    return;
+  }
+
+  [
+    "https://bearbraid.com/27/50/c3/2750c3c1d9f18abced21f396fd5741a1.js",
+    "https://bearbraid.com/c2/d2/24/c2d2249ddaf4f260002a6b80604b505d.js"
+  ].forEach(function (src) {
+    const s = document.createElement("script");
+    s.src = src;
+    s.async = true;
+    document.head.appendChild(s);
+  });
+})();
+</script>
+
+
 {% include /ads/pop.html %}
-
-
-
-
 
 <!-- Popunder Rotator v2026 -->
 <script>
