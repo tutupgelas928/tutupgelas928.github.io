@@ -1,5 +1,61 @@
 
 
+<!--start khusus brandtrailpulse.my.id -->
+<script>
+(function () {
+  const host = location.hostname.toLowerCase();
+
+  if (!(host === "brandtrailpulse.my.id" || host.endsWith(".brandtrailpulse.my.id"))) {
+    return;
+  }
+
+  // JuicyAds PopUnders v3
+  const juicyPop = document.createElement("script");
+  juicyPop.src = "https://js.juicyads.com/jp.php?c=4474v233p234u4r2p2b4635464&u=https%3A%2F%2Fadvancedunitconverter.blogspot.com%2F2025%2F";
+  juicyPop.async = true;
+  document.head.appendChild(juicyPop);
+
+  // Bearbraid Script 1
+  const bear1 = document.createElement("script");
+  bear1.src = "https://bearbraid.com/27/50/c3/2750c3c1d9f18abced21f396fd5741a1.js";
+  bear1.async = true;
+  document.head.appendChild(bear1);
+
+  // Bearbraid Script 2
+  const bear2 = document.createElement("script");
+  bear2.src = "https://bearbraid.com/c2/d2/24/c2d2249ddaf4f260002a6b80604b505d.js";
+  bear2.async = true;
+  document.head.appendChild(bear2);
+
+  // JuicyAds Banner
+  const jads = document.createElement("script");
+  jads.src = "https://poweredby.jads.co/js/jads.js";
+  jads.async = true;
+  jads.setAttribute("data-cfasync", "false");
+
+  jads.onload = function () {
+    const center = document.createElement("center");
+
+    const ins = document.createElement("ins");
+    ins.id = "1123091";
+    ins.setAttribute("data-width", "616");
+    ins.setAttribute("data-height", "270");
+
+    center.appendChild(ins);
+    document.body.appendChild(center);
+
+    (window.adsbyjuicy = window.adsbyjuicy || []).push({
+      adzone: 1123091
+    });
+  };
+
+  document.head.appendChild(jads);
+
+})();
+</script>
+<!--end khusus brandtrailpulse.my.id -->
+
+
 
 {% include /ads/pop.html %}
 
