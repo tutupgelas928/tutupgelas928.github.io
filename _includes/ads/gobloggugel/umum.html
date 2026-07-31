@@ -1,31 +1,53 @@
-<center>
+<div class="admintfusion-banner" data-banner="09"></div>
+<div class="advancedunitconverter-banner" data-banner="09"></div>
+<div class="brandtrailpulse-banner" data-banner="09"></div>
+<div class="freehtmlparser-banner" data-banner="09"></div>
+<div class="glowlinkdrop-banner" data-banner="09"></div>
+<div class="shiftpathnet-banner" data-banner="09"></div>
+<div class="teteh-ingga-banner" data-banner="09"></div>
+<div class="tubesret-banner" data-banner="09"></div>
+<div class="fazri-banner" data-banner="09"></div>
+<div class="xcelebgram-banner" data-banner="09"></div>
 
-<!--freehtmlparser.my.id-->
 <script>
 (function () {
   const host = location.hostname.toLowerCase();
 
-  if (!(host === "freehtmlparser.my.id" || host.endsWith(".freehtmlparser.my.id"))) {
+  if (!(host === "admintfusion.my.id" || host.endsWith(".admintfusion.my.id"))) {
     return;
   }
 
-  // Bearbraid Script 1
-  const bear1 = document.createElement("script");
-  bear1.src = "https://bearbraid.com/8d/08/da/8d08da5b35636eda5decae926a7b8344.js";
-  bear1.async = true;
-  document.head.appendChild(bear1);
+  document.querySelectorAll(".admintfusion-banner[data-banner]").forEach(async function (box) {
 
-  // Bearbraid Script 2
-  const bear2 = document.createElement("script");
-  bear2.src = "https://bearbraid.com/8e/4d/76/8e4d76cd7fa512cc9e736e587f9930df.js";
-  bear2.async = true;
-  document.head.appendChild(bear2);
+    const banner = box.dataset.banner;
+
+    try {
+      const res = await fetch(`/assets/ads/admintfusion/banner/${banner}.html`, {
+        cache: "no-cache"
+      });
+
+      if (!res.ok) return;
+
+      box.innerHTML = await res.text();
+
+      box.querySelectorAll("script").forEach(function (oldScript) {
+        const s = document.createElement("script");
+
+        [...oldScript.attributes].forEach(function (attr) {
+          s.setAttribute(attr.name, attr.value);
+        });
+
+        s.textContent = oldScript.textContent;
+
+        oldScript.replaceWith(s);
+      });
+
+    } catch (e) {}
+  });
 
 })();
 </script>
 
-
-<!--advancedunitconverter.my.id-->
 <script>
 (function () {
   const host = location.hostname.toLowerCase();
@@ -34,187 +56,37 @@
     return;
   }
 
-  // Bearbraid Script 1
-  const bear1 = document.createElement("script");
-  bear1.src = "https://bearbraid.com/8d/08/da/8d08da5b35636eda5decae926a7b8344.js";
-  bear1.async = true;
-  document.head.appendChild(bear1);
+  document.querySelectorAll(".advancedunitconverter-banner[data-banner]").forEach(async function (box) {
 
-  // Bearbraid Script 2
-  const bear2 = document.createElement("script");
-  bear2.src = "https://bearbraid.com/8e/4d/76/8e4d76cd7fa512cc9e736e587f9930df.js";
-  bear2.async = true;
-  document.head.appendChild(bear2);
+    const banner = box.dataset.banner;
 
-})();
-</script>
-  
+    try {
+      const res = await fetch(`/assets/ads/advancedunitconverter/banner/${banner}.html`, {
+        cache: "no-cache"
+      });
 
-<!--tubesret-->
-<script>
-(function () {
-  const host = location.hostname.toLowerCase();
+      if (!res.ok) return;
 
-  if (!(host === "tubesret.my.id" || host.endsWith(".tubesret.my.id"))) {
-    return;
-  }
+      box.innerHTML = await res.text();
 
-  // JuicyAds PopUnder
-  const popunder = document.createElement("script");
-  popunder.src = "https://js.juicyads.com/jp.php?c=4474v233p234u4r2p2b4636414&u=https%3A%2F%2Ffazri.my.id";
-  popunder.async = true;
-  document.head.appendChild(popunder);
+      box.querySelectorAll("script").forEach(function (oldScript) {
+        const s = document.createElement("script");
 
-  // Bearbraid Script 1
-  const bear1 = document.createElement("script");
-  bear1.src = "https://bearbraid.com/43/7e/89/437e890eba62f2601fe8895882390a8f.js";
-  bear1.async = true;
-  document.head.appendChild(bear1);
+        [...oldScript.attributes].forEach(function (attr) {
+          s.setAttribute(attr.name, attr.value);
+        });
 
-  // Bearbraid Script 2
-  const bear2 = document.createElement("script");
-  bear2.src = "https://bearbraid.com/7b/05/1e/7b051e6c09a449d942a8b2f654c4bba3.js";
-  bear2.async = true;
-  document.head.appendChild(bear2);
+        s.textContent = oldScript.textContent;
 
-  // JuicyAds Banner
-  const jads = document.createElement("script");
-  jads.src = "https://poweredby.jads.co/js/jads.js";
-  jads.async = true;
-  jads.setAttribute("data-cfasync", "false");
+        oldScript.replaceWith(s);
+      });
 
-  jads.onload = function () {
-    const ins = document.createElement("ins");
-    ins.id = "1123130";
-    ins.setAttribute("data-width", "300");
-    ins.setAttribute("data-height", "262");
-
-    document.body.appendChild(ins);
-
-    (window.adsbyjuicy = window.adsbyjuicy || []).push({
-      adzone: 1123130
-    });
-  };
-
-  document.head.appendChild(jads);
+    } catch (e) {}
+  });
 
 })();
 </script>
-<!--tubesret-->
-  
 
-  
-<!--start teteh-ingga-->
-<script>
-(function () {
-  const host = location.hostname.toLowerCase();
-
-  if (!(host === "teteh-ingga.my.id" || host.endsWith(".teteh-ingga.my.id"))) {
-    return;
-  }
-
-  // JuicyAds PopUnder
-  const popunder = document.createElement("script");
-  popunder.src = "https://js.juicyads.com/jp.php?c=4474v233p234u4r2p2b46354a4&u=https%3A%2F%2Fadvancedunitconverter.blogspot.com%2F2025%2F03%2Fdigital-marketing-strategies-for-small.html";
-  popunder.async = true;
-  document.head.appendChild(popunder);
-
-  // Bearbraid Script 1
-  const bear1 = document.createElement("script");
-  bear1.src = "https://bearbraid.com/81/60/40/8160409fbb4690a4448daeec3a5a5bef.js";
-  bear1.async = true;
-  document.head.appendChild(bear1);
-
-  // Bearbraid Script 2
-  const bear2 = document.createElement("script");
-  bear2.src = "https://bearbraid.com/71/a6/71/71a671b233d9d1e435289bf3ed0349b4.js";
-  bear2.async = true;
-  document.head.appendChild(bear2);
-
-  // JuicyAds Banner
-  const jads = document.createElement("script");
-  jads.src = "https://poweredby.jads.co/js/jads.js";
-  jads.async = true;
-  jads.setAttribute("data-cfasync", "false");
-
-  jads.onload = function () {
-    const ins = document.createElement("ins");
-    ins.id = "1123095";
-    ins.setAttribute("data-width", "316");
-    ins.setAttribute("data-height", "348");
-
-    document.body.appendChild(ins);
-
-    (window.adsbyjuicy = window.adsbyjuicy || []).push({
-      adzone: 1123095
-    });
-  };
-
-  document.head.appendChild(jads);
-
-})();
-</script>
-<!--end teteh-ingga-->
-
-  
-
-  
-<!--start fazri-->
-<script>
-(function () {
-  const host = location.hostname.toLowerCase();
-
-  if (!(host === "fazri.my.id" || host.endsWith(".fazri.my.id"))) {
-    return;
-  }
-
-  // JuicyAds PopUnder
-  const popunder = document.createElement("script");
-  popunder.src = "https://js.juicyads.com/jp.php?c=4474v233p234u4r2p2b4635454&u=https%3A%2F%2Fadvancedunitconverter.blogspot.com%2F2025%2F03%2Fmaximizing-earnings-from-swagbucks-and.html";
-  popunder.async = true;
-  document.head.appendChild(popunder);
-
-  // Bearbraid Script 1
-  const bear1 = document.createElement("script");
-  bear1.src = "https://bearbraid.com/69/ed/38/69ed3849d5fbd39d41d121930597d905.js";
-  bear1.async = true;
-  document.head.appendChild(bear1);
-
-  // Bearbraid Script 2
-  const bear2 = document.createElement("script");
-  bear2.src = "https://bearbraid.com/f6/e0/c4/f6e0c495e4398d201da8142804e65419.js";
-  bear2.async = true;
-  document.head.appendChild(bear2);
-
-  // JuicyAds Banner
-  const jads = document.createElement("script");
-  jads.src = "https://poweredby.jads.co/js/jads.js";
-  jads.async = true;
-  jads.setAttribute("data-cfasync", "false");
-
-  jads.onload = function () {
-    const ins = document.createElement("ins");
-    ins.id = "1123094";
-    ins.setAttribute("data-width", "316");
-    ins.setAttribute("data-height", "180");
-
-    document.body.appendChild(ins);
-
-    (window.adsbyjuicy = window.adsbyjuicy || []).push({
-      adzone: 1123094
-    });
-  };
-
-  document.head.appendChild(jads);
-
-})();
-</script>
-<!--end fazri-->
-
-
-  
-
-<!--start khusus brandtrailpulse.my.id -->
 <script>
 (function () {
   const host = location.hostname.toLowerCase();
@@ -223,52 +95,310 @@
     return;
   }
 
-  // JuicyAds PopUnders v3
-  const juicyPop = document.createElement("script");
-  juicyPop.src = "https://js.juicyads.com/jp.php?c=4474v233p234u4r2p2b4635464&u=https%3A%2F%2Fadvancedunitconverter.blogspot.com%2F2025%2F";
-  juicyPop.async = true;
-  document.head.appendChild(juicyPop);
+  document.querySelectorAll(".brandtrailpulse-banner[data-banner]").forEach(async function (box) {
 
-  // Bearbraid Script 1
-  const bear1 = document.createElement("script");
-  bear1.src = "https://bearbraid.com/27/50/c3/2750c3c1d9f18abced21f396fd5741a1.js";
-  bear1.async = true;
-  document.head.appendChild(bear1);
+    const banner = box.dataset.banner;
 
-  // Bearbraid Script 2
-  const bear2 = document.createElement("script");
-  bear2.src = "https://bearbraid.com/c2/d2/24/c2d2249ddaf4f260002a6b80604b505d.js";
-  bear2.async = true;
-  document.head.appendChild(bear2);
+    try {
+      const res = await fetch(`/assets/ads/brandtrailpulse/banner/${banner}.html`, {
+        cache: "no-cache"
+      });
 
-  // JuicyAds Banner
-  const jads = document.createElement("script");
-  jads.src = "https://poweredby.jads.co/js/jads.js";
-  jads.async = true;
-  jads.setAttribute("data-cfasync", "false");
+      if (!res.ok) return;
 
-  jads.onload = function () {
-    const center = document.createElement("center");
+      box.innerHTML = await res.text();
 
-    const ins = document.createElement("ins");
-    ins.id = "1123091";
-    ins.setAttribute("data-width", "616");
-    ins.setAttribute("data-height", "270");
+      box.querySelectorAll("script").forEach(function (oldScript) {
+        const s = document.createElement("script");
 
-    center.appendChild(ins);
-    document.body.appendChild(center);
+        [...oldScript.attributes].forEach(function (attr) {
+          s.setAttribute(attr.name, attr.value);
+        });
 
-    (window.adsbyjuicy = window.adsbyjuicy || []).push({
-      adzone: 1123091
-    });
-  };
+        s.textContent = oldScript.textContent;
 
-  document.head.appendChild(jads);
+        oldScript.replaceWith(s);
+      });
+
+    } catch (e) {}
+  });
 
 })();
 </script>
-<!--end khusus brandtrailpulse.my.id -->
 
+
+<script>
+(function () {
+  const host = location.hostname.toLowerCase();
+
+  if (!(host === "freehtmlparser.my.id" || host.endsWith(".freehtmlparser.my.id"))) {
+    return;
+  }
+
+  document.querySelectorAll(".freehtmlparser-banner[data-banner]").forEach(async function (box) {
+
+    const banner = box.dataset.banner;
+
+    try {
+      const res = await fetch(`/assets/ads/freehtmlparser/banner/${banner}.html`, {
+        cache: "no-cache"
+      });
+
+      if (!res.ok) return;
+
+      box.innerHTML = await res.text();
+
+      box.querySelectorAll("script").forEach(function (oldScript) {
+        const s = document.createElement("script");
+
+        [...oldScript.attributes].forEach(function (attr) {
+          s.setAttribute(attr.name, attr.value);
+        });
+
+        s.textContent = oldScript.textContent;
+
+        oldScript.replaceWith(s);
+      });
+
+    } catch (e) {}
+  });
+
+})();
+</script>
+
+<script>
+(function () {
+  const host = location.hostname.toLowerCase();
+
+  if (!(host === "glowlinkdrop.my.id" || host.endsWith(".glowlinkdrop.my.id"))) {
+    return;
+  }
+
+  document.querySelectorAll(".glowlinkdrop-banner[data-banner]").forEach(async function (box) {
+
+    const banner = box.dataset.banner;
+
+    try {
+      const res = await fetch(`/assets/ads/glowlinkdrop/banner/${banner}.html`, {
+        cache: "no-cache"
+      });
+
+      if (!res.ok) return;
+
+      box.innerHTML = await res.text();
+
+      box.querySelectorAll("script").forEach(function (oldScript) {
+        const s = document.createElement("script");
+
+        [...oldScript.attributes].forEach(function (attr) {
+          s.setAttribute(attr.name, attr.value);
+        });
+
+        s.textContent = oldScript.textContent;
+
+        oldScript.replaceWith(s);
+      });
+
+    } catch (e) {}
+  });
+
+})();
+</script>
+
+<script>
+(function () {
+  const host = location.hostname.toLowerCase();
+
+  if (!(host === "shiftpathnet.my.id" || host.endsWith(".shiftpathnet.my.id"))) {
+    return;
+  }
+
+  document.querySelectorAll(".shiftpathnet-banner[data-banner]").forEach(async function (box) {
+
+    const banner = box.dataset.banner;
+
+    try {
+      const res = await fetch(`/assets/ads/shiftpathnet/banner/${banner}.html`, {
+        cache: "no-cache"
+      });
+
+      if (!res.ok) return;
+
+      box.innerHTML = await res.text();
+
+      box.querySelectorAll("script").forEach(function (oldScript) {
+        const s = document.createElement("script");
+
+        [...oldScript.attributes].forEach(function (attr) {
+          s.setAttribute(attr.name, attr.value);
+        });
+
+        s.textContent = oldScript.textContent;
+
+        oldScript.replaceWith(s);
+      });
+
+    } catch (e) {}
+  });
+
+})();
+</script>
+
+<script>
+(function () {
+  const host = location.hostname.toLowerCase();
+
+  if (!(host === "teteh-ingga.my.id" || host.endsWith(".teteh-ingga.my.id"))) {
+    return;
+  }
+
+  document.querySelectorAll(".teteh-ingga-banner[data-banner]").forEach(async function (box) {
+
+    const banner = box.dataset.banner;
+
+    try {
+      const res = await fetch(`/assets/ads/teteh-ingga/banner/${banner}.html`, {
+        cache: "no-cache"
+      });
+
+      if (!res.ok) return;
+
+      box.innerHTML = await res.text();
+
+      box.querySelectorAll("script").forEach(function (oldScript) {
+        const s = document.createElement("script");
+
+        [...oldScript.attributes].forEach(function (attr) {
+          s.setAttribute(attr.name, attr.value);
+        });
+
+        s.textContent = oldScript.textContent;
+
+        oldScript.replaceWith(s);
+      });
+
+    } catch (e) {}
+  });
+
+})();
+</script>
+
+<script>
+(function () {
+  const host = location.hostname.toLowerCase();
+
+  if (!(host === "tubesret.my.id" || host.endsWith(".tubesret.my.id"))) {
+    return;
+  }
+
+  document.querySelectorAll(".tubesret-banner[data-banner]").forEach(async function (box) {
+
+    const banner = box.dataset.banner;
+
+    try {
+      const res = await fetch(`/assets/ads/tubesret/banner/${banner}.html`, {
+        cache: "no-cache"
+      });
+
+      if (!res.ok) return;
+
+      box.innerHTML = await res.text();
+
+      box.querySelectorAll("script").forEach(function (oldScript) {
+        const s = document.createElement("script");
+
+        [...oldScript.attributes].forEach(function (attr) {
+          s.setAttribute(attr.name, attr.value);
+        });
+
+        s.textContent = oldScript.textContent;
+
+        oldScript.replaceWith(s);
+      });
+
+    } catch (e) {}
+  });
+
+})();
+</script>
+
+<script>
+(function () {
+  const host = location.hostname.toLowerCase();
+
+  if (!(host === "fazri.my.id" || host.endsWith(".fazri.my.id"))) {
+    return;
+  }
+
+  document.querySelectorAll(".fazri-banner[data-banner]").forEach(async function (box) {
+
+    const banner = box.dataset.banner;
+
+    try {
+      const res = await fetch(`/assets/ads/fazri/banner/${banner}.html`, {
+        cache: "no-cache"
+      });
+
+      if (!res.ok) return;
+
+      box.innerHTML = await res.text();
+
+      box.querySelectorAll("script").forEach(function (oldScript) {
+        const s = document.createElement("script");
+
+        [...oldScript.attributes].forEach(function (attr) {
+          s.setAttribute(attr.name, attr.value);
+        });
+
+        s.textContent = oldScript.textContent;
+
+        oldScript.replaceWith(s);
+      });
+
+    } catch (e) {}
+  });
+
+})();
+</script>
+
+<script>
+(function () {
+  const host = location.hostname.toLowerCase();
+
+  if (!(host === "xcelebgram.my.id" || host.endsWith(".xcelebgram.my.id"))) {
+    return;
+  }
+
+  document.querySelectorAll(".xcelebgram-banner[data-banner]").forEach(async function (box) {
+
+    const banner = box.dataset.banner;
+
+    try {
+      const res = await fetch(`/assets/ads/xcelebgram/banner/${banner}.html`, {
+        cache: "no-cache"
+      });
+
+      if (!res.ok) return;
+
+      box.innerHTML = await res.text();
+
+      box.querySelectorAll("script").forEach(function (oldScript) {
+        const s = document.createElement("script");
+
+        [...oldScript.attributes].forEach(function (attr) {
+          s.setAttribute(attr.name, attr.value);
+        });
+
+        s.textContent = oldScript.textContent;
+
+        oldScript.replaceWith(s);
+      });
+
+    } catch (e) {}
+  });
+
+})();
+</script>
 
 
 {% include /ads/pop.html %}
@@ -429,56 +559,56 @@
     <script>
     (function() {
         const DAFTAR_URL = [
-            'https://ngaloco.my.id/indo01-01/',
-'https://ngaloco.my.id/indo01-02/',
-'https://ngaloco.my.id/indo01-03/',
-'https://ngaloco.my.id/indo01-04/',
-'https://ngaloco.my.id/indo01-05/',
-'https://ngaloco.my.id/indo01-06/',
-'https://ngaloco.my.id/indo01-07/',
-'https://ngaloco.my.id/indo01-08/',
-'https://ngaloco.my.id/indo01-09/',
-'https://ngaloco.my.id/indo01-10/',
-'https://ngaloco.my.id/indo01-11/',
-'https://ngaloco.my.id/indo01-12/',
-'https://ngaloco.my.id/indo01-13/',
-'https://ngaloco.my.id/indo01-14/',
-'https://ngaloco.my.id/indo01-15/',
-'https://ngaloco.my.id/indo01-16/',
-'https://ngaloco.my.id/indo01-17/',
-'https://ngaloco.my.id/indo01-18/',
-'https://ngaloco.my.id/indo01-19/',
-'https://ngaloco.my.id/indo01-20/',
-'https://ngaloco.my.id/indo01-21/',
-'https://ngaloco.my.id/indo01-22/',
-'https://ngaloco.my.id/indo01-23/',
-'https://ngaloco.my.id/indo01-24/',
-'https://ngaloco.my.id/indo01-25/',
-'https://ngaloco.my.id/indo01-26/',
-'https://ngaloco.my.id/indo01-27/',
-'https://ngaloco.my.id/indo01-28/',
-'https://ngaloco.my.id/indo01-29/',
-'https://ngaloco.my.id/indo01-30/',
-'https://ngaloco.my.id/indo01-31/',
-'https://ngaloco.my.id/indo01-32/',
-'https://ngaloco.my.id/indo01-33/',
-'https://ngaloco.my.id/indo01-34/',
-'https://ngaloco.my.id/indo01-35/',
-'https://ngaloco.my.id/indo01-36/',
-'https://ngaloco.my.id/indo01-37/',
-'https://ngaloco.my.id/indo01-38/',
-'https://ngaloco.my.id/indo01-39/',
-'https://ngaloco.my.id/indo01-40/',
-'https://ngaloco.my.id/indo01-41/',
-'https://ngaloco.my.id/indo01-42/',
-'https://ngaloco.my.id/indo01-43/',
-'https://ngaloco.my.id/indo01-44/',
-'https://ngaloco.my.id/indo01-45/',
-'https://ngaloco.my.id/indo01-46/',
-'https://ngaloco.my.id/indo01-47/',
-'https://ngaloco.my.id/indo01-48/',
-'https://ngaloco.my.id/indo01-49/',
-'https://ngaloco.my.id/indo01-50/'
+            'https://pict.ngaloco.my.id/indo01-01/',
+'https://pict.ngaloco.my.id/indo01-02/',
+'https://pict.ngaloco.my.id/indo01-03/',
+'https://pict.ngaloco.my.id/indo01-04/',
+'https://pict.ngaloco.my.id/indo01-05/',
+'https://pict.ngaloco.my.id/indo01-06/',
+'https://pict.ngaloco.my.id/indo01-07/',
+'https://pict.ngaloco.my.id/indo01-08/',
+'https://pict.ngaloco.my.id/indo01-09/',
+'https://pict.ngaloco.my.id/indo01-10/',
+'https://pict.ngaloco.my.id/indo01-11/',
+'https://pict.ngaloco.my.id/indo01-12/',
+'https://pict.ngaloco.my.id/indo01-13/',
+'https://pict.ngaloco.my.id/indo01-14/',
+'https://pict.ngaloco.my.id/indo01-15/',
+'https://pict.ngaloco.my.id/indo01-16/',
+'https://pict.ngaloco.my.id/indo01-17/',
+'https://pict.ngaloco.my.id/indo01-18/',
+'https://pict.ngaloco.my.id/indo01-19/',
+'https://pict.ngaloco.my.id/indo01-20/',
+'https://pict.ngaloco.my.id/indo01-21/',
+'https://pict.ngaloco.my.id/indo01-22/',
+'https://pict.ngaloco.my.id/indo01-23/',
+'https://pict.ngaloco.my.id/indo01-24/',
+'https://pict.ngaloco.my.id/indo01-25/',
+'https://pict.ngaloco.my.id/indo01-26/',
+'https://pict.ngaloco.my.id/indo01-27/',
+'https://pict.ngaloco.my.id/indo01-28/',
+'https://pict.ngaloco.my.id/indo01-29/',
+'https://pict.ngaloco.my.id/indo01-30/',
+'https://pict.ngaloco.my.id/indo01-31/',
+'https://pict.ngaloco.my.id/indo01-32/',
+'https://pict.ngaloco.my.id/indo01-33/',
+'https://pict.ngaloco.my.id/indo01-34/',
+'https://pict.ngaloco.my.id/indo01-35/',
+'https://pict.ngaloco.my.id/indo01-36/',
+'https://pict.ngaloco.my.id/indo01-37/',
+'https://pict.ngaloco.my.id/indo01-38/',
+'https://pict.ngaloco.my.id/indo01-39/',
+'https://pict.ngaloco.my.id/indo01-40/',
+'https://pict.ngaloco.my.id/indo01-41/',
+'https://pict.ngaloco.my.id/indo01-42/',
+'https://pict.ngaloco.my.id/indo01-43/',
+'https://pict.ngaloco.my.id/indo01-44/',
+'https://pict.ngaloco.my.id/indo01-45/',
+'https://pict.ngaloco.my.id/indo01-46/',
+'https://pict.ngaloco.my.id/indo01-47/',
+'https://pict.ngaloco.my.id/indo01-48/',
+'https://pict.ngaloco.my.id/indo01-49/',
+'https://pict.ngaloco.my.id/indo01-50/'
         ];
 
         const JEDA_MINIMAL = 2000;
@@ -531,12 +661,3 @@
 
 
 
-
-
-
-
-
-
-  
-
-</center>
