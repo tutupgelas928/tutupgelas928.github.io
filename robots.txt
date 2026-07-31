@@ -1,3 +1,4 @@
 User-agent: *
-Disallow: /Atest/
+Disallow: /test/
+Disallow: /assets/
 Allow: /
