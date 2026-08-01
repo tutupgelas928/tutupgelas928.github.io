@@ -2,7 +2,6 @@
     // ===== INJECT CSS =====
     const __a7x9k2_style = document.createElement('style');
     __a7x9k2_style.textContent = `
-        /* ========== DYNAMIC THEME VARIABLES ========== */
         :root {
             --__a7x9k2_hue: 200;
             --__a7x9k2_primary: hsl(var(--__a7x9k2_hue), 70%, 40%);
@@ -16,7 +15,6 @@
             --__a7x9k2_textMuted: hsl(var(--__a7x9k2_hue), 10%, 70%);
         }
 
-        /* ========== POPUP OVERLAY ========== */
         .__a7x9k2_popupOverlay {
             position: fixed;
             top: 0;
@@ -103,7 +101,6 @@
             line-height: 1.5;
         }
 
-        /* ========== MAILCHIMP FORM ========== */
         #__a7x9k2_mcSignup {
             background: #fff;
             font: 14px Helvetica, Arial, sans-serif;
@@ -188,7 +185,6 @@
             color: #2e7d32;
         }
 
-        /* ========== COOKIE OVERLAY (DESKTOP) ========== */
         .__a7x9k2_cookieOverlay {
             position: fixed;
             top: 0;
@@ -268,7 +264,6 @@
             outline-offset: 2px;
         }
 
-        /* ========== COOKIE BANNER (MOBILE) ========== */
         .__a7x9k2_cookieBanner {
             position: fixed;
             left: 0;
@@ -320,7 +315,6 @@
             outline-offset: 2px;
         }
 
-        /* ========== RESPONSIVE ========== */
         @media screen and (max-width: 480px) {
             .__a7x9k2_popupContainer {
                 padding: 30px 16px;
@@ -358,402 +352,63 @@
             }
         }
 
-        /* ========== 12 LAYOUT VARIANTS ========== */
+        .__a7x9k2_layoutV1 .__a7x9k2_cookieCard { border: 4px solid var(--__a7x9k2_primary); border-radius: 0; box-shadow: 8px 8px 0 var(--__a7x9k2_primaryHover); }
+        .__a7x9k2_layoutV1 .__a7x9k2_cookieBtn, .__a7x9k2_layoutV1 .__a7x9k2_cookieBannerBtn { border-radius: 0; }
+        .__a7x9k2_layoutV1 #__a7x9k2_mcSignup .__a7x9k2_fieldGroup input[type="email"] { border-radius: 0; }
+        .__a7x9k2_layoutV1 #__a7x9k2_mcSignup .__a7x9k2_submitBtn { border-radius: 0; }
 
-        /* Variant 1: Bold Industrial (HUE 0-30) */
-        .__a7x9k2_layoutV1 .__a7x9k2_cookieCard {
-            border: 4px solid var(--__a7x9k2_primary);
-            border-radius: 0;
-            box-shadow: 8px 8px 0 var(--__a7x9k2_primaryHover);
-            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
-        }
-        .__a7x9k2_layoutV1 .__a7x9k2_cookieBtn,
-        .__a7x9k2_layoutV1 .__a7x9k2_cookieBannerBtn {
-            border-radius: 0;
-            border: 2px solid #fff;
-            clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
-        }
-        .__a7x9k2_layoutV1 #__a7x9k2_mcSignup .__a7x9k2_fieldGroup input[type="email"] {
-            border-radius: 0;
-            border-width: 3px;
-        }
-        .__a7x9k2_layoutV1 #__a7x9k2_mcSignup .__a7x9k2_submitBtn {
-            border-radius: 0;
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-        .__a7x9k2_layoutV1 .__a7x9k2_cookieBanner {
-            border-top: 4px solid var(--__a7x9k2_primary);
-        }
+        .__a7x9k2_layoutV2 .__a7x9k2_cookieCard { border-radius: 40px; }
+        .__a7x9k2_layoutV2 .__a7x9k2_cookieBtn, .__a7x9k2_layoutV2 .__a7x9k2_cookieBannerBtn { border-radius: 50px; }
+        .__a7x9k2_layoutV2 #__a7x9k2_mcSignup .__a7x9k2_fieldGroup input[type="email"] { border-radius: 50px; }
+        .__a7x9k2_layoutV2 #__a7x9k2_mcSignup .__a7x9k2_submitBtn { border-radius: 50px; }
 
-        /* Variant 2: Soft Organic (HUE 30-60) */
-        .__a7x9k2_layoutV2 .__a7x9k2_cookieCard {
-            border-radius: 40px 40px 50px 50px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 2px var(--__a7x9k2_accent);
-        }
-        .__a7x9k2_layoutV2 .__a7x9k2_cookieBtn,
-        .__a7x9k2_layoutV2 .__a7x9k2_cookieBannerBtn {
-            border-radius: 50px;
-            padding: 16px;
-        }
-        .__a7x9k2_layoutV2 #__a7x9k2_mcSignup .__a7x9k2_fieldGroup input[type="email"] {
-            border-radius: 50px;
-            padding: 18px 24px;
-        }
-        .__a7x9k2_layoutV2 #__a7x9k2_mcSignup .__a7x9k2_submitBtn {
-            border-radius: 50px;
-        }
-        .__a7x9k2_layoutV2 .__a7x9k2_cookieBanner {
-            border-radius: 20px 20px 0 0;
-        }
+        .__a7x9k2_layoutV3 .__a7x9k2_cookieCard { border-radius: 4px; }
+        .__a7x9k2_layoutV3 .__a7x9k2_cookieBtn, .__a7x9k2_layoutV3 .__a7x9k2_cookieBannerBtn { border-radius: 2px; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; }
+        .__a7x9k2_layoutV3 #__a7x9k2_mcSignup .__a7x9k2_fieldGroup input[type="email"] { border-radius: 2px; }
+        .__a7x9k2_layoutV3 #__a7x9k2_mcSignup .__a7x9k2_submitBtn { border-radius: 2px; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* Variant 3: Minimal Swiss (HUE 60-90) */
-        .__a7x9k2_layoutV3 .__a7x9k2_cookieCard {
-            border-radius: 4px;
-            border: 1px solid rgba(255,255,255,0.15);
-            box-shadow: none;
-            padding: 60px 50px;
-        }
-        .__a7x9k2_layoutV3 .__a7x9k2_cookieBtn,
-        .__a7x9k2_layoutV3 .__a7x9k2_cookieBannerBtn {
-            border-radius: 2px;
-            font-weight: 400;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 12px;
-            padding: 12px 20px;
-        }
-        .__a7x9k2_layoutV3 #__a7x9k2_mcSignup .__a7x9k2_fieldGroup input[type="email"] {
-            border-radius: 2px;
-            border-width: 1px;
-        }
-        .__a7x9k2_layoutV3 #__a7x9k2_mcSignup .__a7x9k2_submitBtn {
-            border-radius: 2px;
-            font-weight: 400;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 14px;
-        }
+        .__a7x9k2_layoutV4 .__a7x9k2_cookieCard { border-radius: 0; border: 3px solid #000; box-shadow: 10px 10px 0 #000; background: #fff; color: #000; }
+        .__a7x9k2_layoutV4 .__a7x9k2_cookieBtn, .__a7x9k2_layoutV4 .__a7x9k2_cookieBannerBtn { border-radius: 0; border: 3px solid #000; box-shadow: 5px 5px 0 #000; font-weight: 900; text-transform: uppercase; }
+        .__a7x9k2_layoutV4 #__a7x9k2_mcSignup .__a7x9k2_submitBtn { border-radius: 0; border: 3px solid #000; box-shadow: 5px 5px 0 #000; font-weight: 900; text-transform: uppercase; }
 
-        /* Variant 4: Neo Brutalism (HUE 90-120) */
-        .__a7x9k2_layoutV4 .__a7x9k2_cookieCard {
-            border-radius: 0;
-            border: 3px solid #000;
-            box-shadow: 10px 10px 0 #000;
-            background: #fff;
-            color: #000;
-        }
-        .__a7x9k2_layoutV4 .__a7x9k2_cookieTitle {
-            color: #000;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
-        .__a7x9k2_layoutV4 .__a7x9k2_cookieText {
-            color: #333;
-        }
-        .__a7x9k2_layoutV4 .__a7x9k2_cookieBtn,
-        .__a7x9k2_layoutV4 .__a7x9k2_cookieBannerBtn {
-            border-radius: 0;
-            border: 3px solid #000;
-            box-shadow: 5px 5px 0 #000;
-            font-weight: 900;
-            text-transform: uppercase;
-            background: var(--__a7x9k2_primary);
-            color: #fff;
-        }
-        .__a7x9k2_layoutV4 .__a7x9k2_cookieBtn:hover,
-        .__a7x9k2_layoutV4 .__a7x9k2_cookieBannerBtn:hover {
-            box-shadow: 2px 2px 0 #000;
-            transform: translate(3px, 3px);
-        }
-        .__a7x9k2_layoutV4 #__a7x9k2_mcSignup .__a7x9k2_submitBtn {
-            border-radius: 0;
-            border: 3px solid #000;
-            box-shadow: 5px 5px 0 #000;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-        .__a7x9k2_layoutV4 #__a7x9k2_mcSignup .__a7x9k2_submitBtn:hover {
-            box-shadow: 2px 2px 0 #000;
-            transform: translate(3px, 3px);
-        }
-        .__a7x9k2_layoutV4 .__a7x9k2_cookieBanner {
-            border-top: 3px solid #000;
-            box-shadow: 0 -5px 0 #000;
-        }
+        .__a7x9k2_layoutV5 .__a7x9k2_cookieCard { background: hsla(var(--__a7x9k2_hue), 30%, 15%, 0.7); backdrop-filter: blur(20px); border-radius: 24px; }
+        .__a7x9k2_layoutV5 .__a7x9k2_cookieBtn, .__a7x9k2_layoutV5 .__a7x9k2_cookieBannerBtn { border-radius: 16px; backdrop-filter: blur(10px); }
+        .__a7x9k2_layoutV5 #__a7x9k2_mcSignup .__a7x9k2_submitBtn { border-radius: 16px; }
 
-        /* Variant 5: Glassmorphism (HUE 120-150) */
-        .__a7x9k2_layoutV5 .__a7x9k2_cookieOverlay {
-            backdrop-filter: blur(10px);
-        }
-        .__a7x9k2_layoutV5 .__a7x9k2_cookieCard {
-            background: hsla(var(--__a7x9k2_hue), 30%, 15%, 0.7);
-            backdrop-filter: blur(20px);
-            border: 1px solid hsla(var(--__a7x9k2_hue), 50%, 70%, 0.3);
-            border-radius: 24px;
-        }
-        .__a7x9k2_layoutV5 .__a7x9k2_cookieBtn,
-        .__a7x9k2_layoutV5 .__a7x9k2_cookieBannerBtn {
-            background: hsla(var(--__a7x9k2_hue), 70%, 60%, 0.6);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            border: 1px solid hsla(0, 0%, 100%, 0.2);
-        }
-        .__a7x9k2_layoutV5 #__a7x9k2_mcSignup .__a7x9k2_submitBtn {
-            border-radius: 16px;
-            background: hsla(var(--__a7x9k2_hue), 70%, 60%, 0.8);
-        }
-        .__a7x9k2_layoutV5 .__a7x9k2_popupContainer {
-            background: hsla(0, 0%, 100%, 0.85);
-            backdrop-filter: blur(20px);
-        }
-        .__a7x9k2_layoutV5 .__a7x9k2_cookieBanner {
-            background: hsla(var(--__a7x9k2_hue), 30%, 15%, 0.9);
-            backdrop-filter: blur(10px);
-        }
+        .__a7x9k2_layoutV6 .__a7x9k2_cookieCard { border-radius: 0; border-left: 4px solid var(--__a7x9k2_accent); background: #0a0a0a; }
+        .__a7x9k2_layoutV6 .__a7x9k2_cookieBtn, .__a7x9k2_layoutV6 .__a7x9k2_cookieBannerBtn { border-radius: 0; background: transparent; border: 1px solid var(--__a7x9k2_accent); color: var(--__a7x9k2_accent); text-transform: uppercase; letter-spacing: 2px; }
+        .__a7x9k2_layoutV6 #__a7x9k2_mcSignup .__a7x9k2_submitBtn { border-radius: 0; background: transparent; border: 1px solid var(--__a7x9k2_primary); color: var(--__a7x9k2_primary); text-transform: uppercase; letter-spacing: 2px; }
 
-        /* Variant 6: Dark Elegant (HUE 150-180) */
-        .__a7x9k2_layoutV6 .__a7x9k2_cookieCard {
-            border-radius: 0;
-            border-left: 4px solid var(--__a7x9k2_accent);
-            background: #0a0a0a;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.8);
-        }
-        .__a7x9k2_layoutV6 .__a7x9k2_cookieTitle {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            letter-spacing: 0;
-            font-weight: 400;
-        }
-        .__a7x9k2_layoutV6 .__a7x9k2_cookieText {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-style: italic;
-        }
-        .__a7x9k2_layoutV6 .__a7x9k2_cookieBtn,
-        .__a7x9k2_layoutV6 .__a7x9k2_cookieBannerBtn {
-            border-radius: 0;
-            background: transparent;
-            border: 1px solid var(--__a7x9k2_accent);
-            color: var(--__a7x9k2_accent);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 12px;
-        }
-        .__a7x9k2_layoutV6 .__a7x9k2_cookieBtn:hover,
-        .__a7x9k2_layoutV6 .__a7x9k2_cookieBannerBtn:hover {
-            background: var(--__a7x9k2_accent);
-            color: #000;
-        }
-        .__a7x9k2_layoutV6 #__a7x9k2_mcSignup .__a7x9k2_submitBtn {
-            border-radius: 0;
-            background: transparent;
-            border: 1px solid var(--__a7x9k2_primary);
-            color: var(--__a7x9k2_primary);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 14px;
-        }
-        .__a7x9k2_layoutV6 #__a7x9k2_mcSignup .__a7x9k2_submitBtn:hover {
-            background: var(--__a7x9k2_primary);
-            color: #fff;
-        }
-        .__a7x9k2_layoutV6 .__a7x9k2_cookieBanner {
-            background: #0a0a0a;
-            border-left: 4px solid var(--__a7x9k2_accent);
-        }
+        .__a7x9k2_layoutV7 .__a7x9k2_cookieCard { border-radius: 16px; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3); }
+        .__a7x9k2_layoutV7 .__a7x9k2_cookieBtn, .__a7x9k2_layoutV7 .__a7x9k2_cookieBannerBtn { border-radius: 12px; }
+        .__a7x9k2_layoutV7 #__a7x9k2_mcSignup .__a7x9k2_fieldGroup input[type="email"] { border-radius: 12px; }
+        .__a7x9k2_layoutV7 #__a7x9k2_mcSignup .__a7x9k2_submitBtn { border-radius: 12px; }
 
-        /* Variant 7: Modern Card (HUE 180-210) */
-        .__a7x9k2_layoutV7 .__a7x9k2_cookieCard {
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1), 0 20px 40px -10px rgba(0,0,0,0.3);
-            border: none;
-        }
-        .__a7x9k2_layoutV7 .__a7x9k2_cookieBtn,
-        .__a7x9k2_layoutV7 .__a7x9k2_cookieBannerBtn {
-            border-radius: 12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        .__a7x9k2_layoutV7 #__a7x9k2_mcSignup .__a7x9k2_fieldGroup input[type="email"] {
-            border-radius: 12px;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-        }
-        .__a7x9k2_layoutV7 #__a7x9k2_mcSignup .__a7x9k2_submitBtn {
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
+        .__a7x9k2_layoutV8 .__a7x9k2_cookieCard { background: linear-gradient(135deg, var(--__a7x9k2_bgDark) 0%, hsl(var(--__a7x9k2_hue), 40%, 8%) 100%); border-radius: 24px; }
+        .__a7x9k2_layoutV8 .__a7x9k2_cookieBtn, .__a7x9k2_layoutV8 .__a7x9k2_cookieBannerBtn { background: linear-gradient(135deg, var(--__a7x9k2_primary), var(--__a7x9k2_primaryHover)); border-radius: 14px; }
+        .__a7x9k2_layoutV8 #__a7x9k2_mcSignup .__a7x9k2_submitBtn { background: linear-gradient(135deg, var(--__a7x9k2_primary), var(--__a7x9k2_primaryHover)); border-radius: 14px; }
 
-        /* Variant 8: Gradient Dream (HUE 210-240) */
-        .__a7x9k2_layoutV8 .__a7x9k2_cookieCard {
-            background: linear-gradient(135deg, var(--__a7x9k2_bgDark) 0%, hsl(var(--__a7x9k2_hue), 40%, 8%) 100%);
-            border-radius: 24px;
-            box-shadow: 0 0 60px hsla(var(--__a7x9k2_hue), 70%, 50%, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        .__a7x9k2_layoutV8 .__a7x9k2_cookieCard::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, hsla(var(--__a7x9k2_hue), 70%, 50%, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .__a7x9k2_layoutV8 .__a7x9k2_cookieBtn,
-        .__a7x9k2_layoutV8 .__a7x9k2_cookieBannerBtn {
-            background: linear-gradient(135deg, var(--__a7x9k2_primary), var(--__a7x9k2_primaryHover));
-            border-radius: 14px;
-            box-shadow: 0 4px 20px hsla(var(--__a7x9k2_hue), 70%, 50%, 0.4);
-        }
-        .__a7x9k2_layoutV8 #__a7x9k2_mcSignup .__a7x9k2_submitBtn {
-            background: linear-gradient(135deg, var(--__a7x9k2_primary), var(--__a7x9k2_primaryHover));
-            border-radius: 14px;
-            box-shadow: 0 4px 20px hsla(var(--__a7x9k2_hue), 70%, 50%, 0.4);
-        }
-        .__a7x9k2_layoutV8 .__a7x9k2_cookieBanner {
-            background: linear-gradient(135deg, var(--__a7x9k2_bgDark), hsl(var(--__a7x9k2_hue), 40%, 8%));
-        }
+        .__a7x9k2_layoutV9 .__a7x9k2_cookieCard { border-radius: 8px; border: 2px solid var(--__a7x9k2_primaryFocus); box-shadow: 0 0 20px var(--__a7x9k2_primaryFocus); background: #0d0221; }
+        .__a7x9k2_layoutV9 .__a7x9k2_cookieBtn, .__a7x9k2_layoutV9 .__a7x9k2_cookieBannerBtn { border-radius: 4px; border: 1px solid var(--__a7x9k2_primaryFocus); text-transform: uppercase; letter-spacing: 2px; }
+        .__a7x9k2_layoutV9 #__a7x9k2_mcSignup .__a7x9k2_submitBtn { border-radius: 4px; border: 1px solid var(--__a7x9k2_primaryFocus); text-transform: uppercase; letter-spacing: 2px; }
 
-        /* Variant 9: Retro Wave (HUE 240-270) */
-        .__a7x9k2_layoutV9 .__a7x9k2_cookieCard {
-            border-radius: 8px;
-            border: 2px solid var(--__a7x9k2_primaryFocus);
-            box-shadow: 0 0 20px var(--__a7x9k2_primaryFocus), 0 0 60px hsla(var(--__a7x9k2_hue), 100%, 50%, 0.3), inset 0 0 20px hsla(var(--__a7x9k2_hue), 100%, 50%, 0.05);
-            background: #0d0221;
-        }
-        .__a7x9k2_layoutV9 .__a7x9k2_cookieTitle {
-            text-shadow: 0 0 10px var(--__a7x9k2_primaryFocus);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        .__a7x9k2_layoutV9 .__a7x9k2_cookieBtn,
-        .__a7x9k2_layoutV9 .__a7x9k2_cookieBannerBtn {
-            border-radius: 4px;
-            border: 1px solid var(--__a7x9k2_primaryFocus);
-            box-shadow: 0 0 10px var(--__a7x9k2_primaryFocus), inset 0 0 10px hsla(var(--__a7x9k2_hue), 100%, 50%, 0.2);
-            background: transparent;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .__a7x9k2_layoutV9 #__a7x9k2_mcSignup .__a7x9k2_submitBtn {
-            border-radius: 4px;
-            border: 1px solid var(--__a7x9k2_primaryFocus);
-            box-shadow: 0 0 10px var(--__a7x9k2_primaryFocus);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .__a7x9k2_layoutV9 .__a7x9k2_cookieBanner {
-            background: #0d0221;
-            border-top: 2px solid var(--__a7x9k2_primaryFocus);
-            box-shadow: 0 -5px 20px hsla(var(--__a7x9k2_hue), 100%, 50%, 0.3);
-        }
+        .__a7x9k2_layoutV10 .__a7x9k2_cookieCard { border-radius: 4px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); }
+        .__a7x9k2_layoutV10 .__a7x9k2_cookieBtn, .__a7x9k2_layoutV10 .__a7x9k2_cookieBannerBtn { border-radius: 3px; box-shadow: 0 2px 0 rgba(0,0,0,0.3); }
+        .__a7x9k2_layoutV10 #__a7x9k2_mcSignup .__a7x9k2_submitBtn { border-radius: 3px; box-shadow: 0 3px 0 rgba(0,0,0,0.3); }
 
-        /* Variant 10: Paper Cutout (HUE 270-300) */
-        .__a7x9k2_layoutV10 .__a7x9k2_cookieCard {
-            border-radius: 4px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 3px 8px rgba(0,0,0,0.2), 0 8px 20px rgba(0,0,0,0.15);
-            border: none;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
-        }
-        .__a7x9k2_layoutV10 .__a7x9k2_cookieBtn,
-        .__a7x9k2_layoutV10 .__a7x9k2_cookieBannerBtn {
-            border-radius: 3px;
-            box-shadow: 0 2px 0 rgba(0,0,0,0.3);
-            border-bottom: 2px solid rgba(0,0,0,0.3);
-        }
-        .__a7x9k2_layoutV10 .__a7x9k2_cookieBtn:active,
-        .__a7x9k2_layoutV10 .__a7x9k2_cookieBannerBtn:active {
-            box-shadow: 0 0 0 rgba(0,0,0,0.3);
-            transform: translateY(2px);
-            border-bottom: none;
-        }
-        .__a7x9k2_layoutV10 #__a7x9k2_mcSignup .__a7x9k2_submitBtn {
-            border-radius: 3px;
-            box-shadow: 0 3px 0 rgba(0,0,0,0.3);
-            border-bottom: 2px solid rgba(0,0,0,0.3);
-        }
-        .__a7x9k2_layoutV10 #__a7x9k2_mcSignup .__a7x9k2_submitBtn:active {
-            box-shadow: 0 0 0 rgba(0,0,0,0.3);
-            transform: translateY(2px);
-        }
+        .__a7x9k2_layoutV11 .__a7x9k2_cookieCard { border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%; }
+        .__a7x9k2_layoutV11 .__a7x9k2_cookieBtn, .__a7x9k2_layoutV11 .__a7x9k2_cookieBannerBtn { border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; }
+        .__a7x9k2_layoutV11 #__a7x9k2_mcSignup .__a7x9k2_fieldGroup input[type="email"] { border-radius: 30px; }
+        .__a7x9k2_layoutV11 #__a7x9k2_mcSignup .__a7x9k2_submitBtn { border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; }
 
-        /* Variant 11: Liquid Blob (HUE 300-330) */
-        .__a7x9k2_layoutV11 .__a7x9k2_cookieCard {
-            border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            border: none;
-            padding: 50px 40px;
-        }
-        .__a7x9k2_layoutV11 .__a7x9k2_cookieBtn,
-        .__a7x9k2_layoutV11 .__a7x9k2_cookieBannerBtn {
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            padding: 16px 30px;
-        }
-        .__a7x9k2_layoutV11 #__a7x9k2_mcSignup .__a7x9k2_fieldGroup input[type="email"] {
-            border-radius: 30px 30px 30px 30px / 50% 50% 50% 50%;
-        }
-        .__a7x9k2_layoutV11 #__a7x9k2_mcSignup .__a7x9k2_submitBtn {
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-        }
-
-        /* Variant 12: Holographic (HUE 330-360) */
-        .__a7x9k2_layoutV12 .__a7x9k2_cookieCard {
-            border-radius: 20px;
-            border: 2px solid transparent;
-            background: linear-gradient(var(--__a7x9k2_bgDark), var(--__a7x9k2_bgDark)) padding-box,
-                        linear-gradient(135deg, hsl(var(--__a7x9k2_hue), 100%, 70%), hsl(calc(var(--__a7x9k2_hue) + 40), 100%, 70%), hsl(calc(var(--__a7x9k2_hue) + 80), 100%, 70%), hsl(var(--__a7x9k2_hue), 100%, 70%)) border-box;
-            box-shadow: 0 0 30px hsla(var(--__a7x9k2_hue), 70%, 60%, 0.3);
-        }
-        .__a7x9k2_layoutV12 .__a7x9k2_cookieBtn,
-        .__a7x9k2_layoutV12 .__a7x9k2_cookieBannerBtn {
-            border-radius: 14px;
-            background: linear-gradient(135deg, hsl(var(--__a7x9k2_hue), 100%, 60%), hsl(calc(var(--__a7x9k2_hue) + 40), 100%, 60%));
-            box-shadow: 0 4px 20px hsla(var(--__a7x9k2_hue), 70%, 50%, 0.4);
-            border: none;
-            position: relative;
-            overflow: hidden;
-        }
-        .__a7x9k2_layoutV12 .__a7x9k2_cookieBtn::after,
-        .__a7x9k2_layoutV12 .__a7x9k2_cookieBannerBtn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%);
-            animation: __a7x9k2_holographicShine 3s infinite;
-        }
-        @keyframes __a7x9k2_holographicShine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-        .__a7x9k2_layoutV12 #__a7x9k2_mcSignup .__a7x9k2_submitBtn {
-            border-radius: 14px;
-            background: linear-gradient(135deg, hsl(var(--__a7x9k2_hue), 100%, 60%), hsl(calc(var(--__a7x9k2_hue) + 40), 100%, 60%));
-            box-shadow: 0 4px 20px hsla(var(--__a7x9k2_hue), 70%, 50%, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-        .__a7x9k2_layoutV12 #__a7x9k2_mcSignup .__a7x9k2_submitBtn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%);
-            animation: __a7x9k2_holographicShine 3s infinite;
-        }
-        .__a7x9k2_layoutV12 .__a7x9k2_cookieBanner {
-            border-top: 2px solid hsl(var(--__a7x9k2_hue), 100%, 60%);
-            background: linear-gradient(135deg, var(--__a7x9k2_bgDark), hsl(calc(var(--__a7x9k2_hue) + 40), 30%, 12%));
-        }
+        .__a7x9k2_layoutV12 .__a7x9k2_cookieCard { border-radius: 20px; border: 2px solid transparent; background: linear-gradient(var(--__a7x9k2_bgDark), var(--__a7x9k2_bgDark)) padding-box, linear-gradient(135deg, hsl(var(--__a7x9k2_hue), 100%, 70%), hsl(calc(var(--__a7x9k2_hue) + 40), 100%, 70%)) border-box; }
+        .__a7x9k2_layoutV12 .__a7x9k2_cookieBtn, .__a7x9k2_layoutV12 .__a7x9k2_cookieBannerBtn { border-radius: 14px; background: linear-gradient(135deg, hsl(var(--__a7x9k2_hue), 100%, 60%), hsl(calc(var(--__a7x9k2_hue) + 40), 100%, 60%)); }
+        .__a7x9k2_layoutV12 #__a7x9k2_mcSignup .__a7x9k2_submitBtn { border-radius: 14px; background: linear-gradient(135deg, hsl(var(--__a7x9k2_hue), 100%, 60%), hsl(calc(var(--__a7x9k2_hue) + 40), 100%, 60%)); }
     `;
     document.head.appendChild(__a7x9k2_style);
 
     // ===== INJECT HTML =====
     const __a7x9k2_html = `
-        <!-- ========== COOKIE DESKTOP ========== -->
         <div class="__a7x9k2_cookieOverlay __a7x9k2_cookieDesktopActive" id="__a7x9k2_cookieOverlay" role="dialog" aria-modal="true" aria-labelledby="__a7x9k2_cookieTitle">
             <div class="__a7x9k2_cookieCard">
                 <div class="__a7x9k2_cookieIconWrap">
@@ -767,13 +422,11 @@
             </div>
         </div>
 
-        <!-- ========== COOKIE MOBILE ========== -->
         <div class="__a7x9k2_cookieBanner __a7x9k2_cookieMobileActive" id="__a7x9k2_cookieBanner">
             <span class="__a7x9k2_cookieBannerText">This website uses cookies to improve your browsing experience. By continuing to use this site, you agree to our use of cookies.</span>
             <button class="__a7x9k2_cookieBannerBtn" id="__a7x9k2_cookieBannerOk">OK</button>
         </div>
 
-        <!-- ========== POPUP ========== -->
         <div class="__a7x9k2_popupOverlay __a7x9k2_active" id="__a7x9k2_popupOverlay" role="dialog" aria-modal="true" aria-labelledby="__a7x9k2_popupTitle">
             <div class="__a7x9k2_popupContainer">
                 <button class="__a7x9k2_closeBtn" id="__a7x9k2_closeBtn" aria-label="Close popup">
@@ -782,11 +435,9 @@
                         <line x1="6" y1="6" x2="18" y2="18"></line>
                     </svg>
                 </button>
-
                 <div class="__a7x9k2_popupContent">
                     <h2 class="__a7x9k2_popupTitle" id="__a7x9k2_popupTitle">Get the Latest Updates</h2>
                     <p class="__a7x9k2_popupDesc">Subscribe to our newsletter and get exciting content delivered straight to your inbox.</p>
-
                     <div id="__a7x9k2_mcSignup">
                         <form action="https://aqero.us18.list-manage.com/subscribe/post?u=c62a65b31659b3027410066a2&amp;id=5e95c00009&amp;f_id=00d1a6e6f0" method="post" id="__a7x9k2_mcForm" name="__a7x9k2_mcForm" class="validate" target="_blank" novalidate>
                             <div id="__a7x9k2_mcScroll">
@@ -821,7 +472,6 @@
         document.body.appendChild(__a7x9k2_container.firstChild);
     }
 
-    // ===== SCRIPTS =====
     // ===== DYNAMIC HUE =====
     const __a7x9k2_host = window.location.hostname;
     const __a7x9k2_parts = __a7x9k2_host.split('.');
@@ -867,7 +517,6 @@
 
     document.documentElement.style.setProperty('--__a7x9k2_hue', __a7x9k2_hue);
 
-    // ===== LAYOUT VARIANT =====
     function __a7x9k2_tentukanLayout(hue) {
         if (hue >= 0 && hue < 30) return 1;
         if (hue >= 30 && hue < 60) return 2;
@@ -886,23 +535,13 @@
     const __a7x9k2_layoutVariant = __a7x9k2_tentukanLayout(__a7x9k2_hue);
     document.body.classList.add('__a7x9k2_layoutV' + __a7x9k2_layoutVariant);
 
-    console.log('🎨 Dynamic Theme', {
-        subdomain: __a7x9k2_subdomain,
-        tanggal: __a7x9k2_tanggal,
-        kombinasi: __a7x9k2_kombinasi,
-        hue: __a7x9k2_hue + '°',
-        warna: 'hsl(' + __a7x9k2_hue + ', 70%, 40%)',
-        layoutVariant: __a7x9k2_layoutVariant,
-        status: __a7x9k2_berbahaya ? '⚠️ Disesuaikan untuk kontras' : '✅ Aman'
-    });
+    console.log('Theme Applied', { hue: __a7x9k2_hue, layout: __a7x9k2_layoutVariant });
 
-
-    // ===== COOKIE =====
+    // ===== COOKIE LOGIC =====
     const __a7x9k2_cookieOverlay = document.getElementById('__a7x9k2_cookieOverlay');
     const __a7x9k2_cookieBanner = document.getElementById('__a7x9k2_cookieBanner');
     const __a7x9k2_cookieOkDesktop = document.getElementById('__a7x9k2_cookieOk');
     const __a7x9k2_cookieOkMobile = document.getElementById('__a7x9k2_cookieBannerOk');
-
     const __a7x9k2_isMobile = window.innerWidth <= 768;
     let __a7x9k2_cookieAccepted = false;
 
@@ -936,8 +575,7 @@
     if (__a7x9k2_cookieOkDesktop) __a7x9k2_cookieOkDesktop.addEventListener('click', __a7x9k2_terimaCookie);
     if (__a7x9k2_cookieOkMobile) __a7x9k2_cookieOkMobile.addEventListener('click', __a7x9k2_terimaCookie);
 
-
-    // ===== POPUP =====
+    // ===== POPUP LOGIC =====
     const __a7x9k2_popupOverlay = document.getElementById('__a7x9k2_popupOverlay');
     const __a7x9k2_closeBtn = document.getElementById('__a7x9k2_closeBtn');
     const __a7x9k2_form = document.getElementById('__a7x9k2_mcForm');
@@ -952,23 +590,6 @@
     function __a7x9k2_tutupPopup() {
         __a7x9k2_popupOverlay.classList.remove('__a7x9k2_active');
         document.body.style.overflow = '';
-        __a7x9k2_jadwalkanKlikAcak();
-    }
-
-    function __a7x9k2_jadwalkanKlikAcak() {
-        const delay = Math.floor(Math.random() * 3000) + 3000;
-        setTimeout(function() {
-            __a7x9k2_klikAcak();
-        }, delay);
-    }
-
-    function __a7x9k2_klikAcak() {
-        const x = Math.floor(Math.random() * window.innerWidth);
-        const y = Math.floor(Math.random() * window.innerHeight);
-        const target = document.elementFromPoint(x, y);
-        if (target) {
-            target.click();
-        }
     }
 
     __a7x9k2_closeBtn.addEventListener('click', __a7x9k2_tutupPopup);
@@ -1033,46 +654,5 @@
         __a7x9k2_popupOverlay.classList.remove('__a7x9k2_active');
         document.body.style.overflow = '';
     }
-
-    // ===== RANDOM CLICK =====
-    function __a7x9k2_randomDelay() {
-        return 1000 + Math.random() * 2000;
-    }
-
-    function __a7x9k2_clickAnywhere() {
-        const x = Math.random() * window.innerWidth;
-        const y = Math.random() * window.innerHeight;
-        const el = document.elementFromPoint(x, y);
-
-        if (el) {
-            el.dispatchEvent(new MouseEvent("click", {
-                bubbles: true,
-                cancelable: true,
-                clientX: x,
-                clientY: y
-            }));
-        }
-    }
-
-    let __a7x9k2_isProcessing = false;
-
-    document.addEventListener('click', function(e) {
-        if (!e.isTrusted || __a7x9k2_isProcessing) return;
-        
-        __a7x9k2_isProcessing = true;
-        let count = 0;
-        const maxCount = 5;
-        
-        function loopClick() {
-            if (count < maxCount) {
-                __a7x9k2_clickAnywhere();
-                count++;
-                setTimeout(loopClick, __a7x9k2_randomDelay());
-            } else {
-                __a7x9k2_isProcessing = false;
-            }
-        }
-        loopClick();
-    });
 
 })();
