@@ -5,35 +5,92 @@
   const CR_DAY=24*60*60*1000;
 
   const CR_GROUPS=[
-
-    // ===== pict ngaloco =====
+   // ===== pict ngaloco =====
     [
-    "https://t.co/q7sbFqUXN6",
-"https://t.co/q7sbFqUXN6"
-    ],
-    
-    // ===== pict ngaloco =====
-    [
-    "https://t.co/q7sbFqUXN6",
-"https://t.co/q7sbFqUXN6"
-    ],
-    
-    // ===== pict ngaloco =====
-    [
-    "https://t.co/q7sbFqUXN6",
-"https://t.co/q7sbFqUXN6"
+    "https://aqero.my.id",
+"https://aqero.my.id"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://t.co/q7sbFqUXN6",
-"https://t.co/q7sbFqUXN6"
+    "https://aqero.my.id",
+"https://aqero.my.id"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://t.co/q7sbFqUXN6",
-"https://t.co/q7sbFqUXN6"
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+      // ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+        // ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+// ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+       // ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+        // ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+// ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+       // ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+        // ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+// ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+    
+    // ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+        // ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+// ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
     ],
     
     // ===== ngaloco 2 =====
@@ -149,9 +206,9 @@
 // Tabunder
 (function() {
     const DAFTAR_URL = [
-        'https://pict.ngaloco.my.id/indo01-01/',
-'https://pict.ngaloco.my.id/indo01-02/',
-'https://pict.ngaloco.my.id/indo01-50/'
+        'https://aqero.my.id',
+'https://aqero.my.id',
+'https://aqero.my.id'
     ];
 
     const JEDA_MINIMAL = 2000;
