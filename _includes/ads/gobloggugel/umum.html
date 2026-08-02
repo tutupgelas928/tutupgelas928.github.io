@@ -1,5 +1,26 @@
 <script src="/js/pop.js"></script>
-<script src="/js/popunder-umum.js"></script>
+
+<script>
+(function () {
+  const host = location.hostname.toLowerCase();
+
+  if (
+    !host.endsWith(".github.io") &&
+    !host.endsWith(".pages.dev")
+  ) {
+    return;
+  }
+
+  const s = document.createElement("script");
+  s.src = "/js/popunder-umum.js";
+  document.head.appendChild(s);
+
+})();
+</script>
+
+
+
+
 
 <script>
 (function () {
