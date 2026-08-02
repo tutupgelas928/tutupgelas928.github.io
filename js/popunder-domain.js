@@ -5,35 +5,92 @@
   const CR_DAY=24*60*60*1000;
 
   const CR_GROUPS=[
-
-    // ===== pict ngaloco =====
+   // ===== pict ngaloco =====
     [
-    "https://bearbraid.com/f8e1w0ciu0?key=56b6affb417e84dd86d445bc1179a330",
-"https://bearbraid.com/pnxaba3eq?key=096574321ea3bb888dff9eda77e36d7a"
-    ],
-    
-    // ===== pict ngaloco =====
-    [
-    "https://bearbraid.com/mpsv82ff2e?key=4f36d7506a76b61a58ea909ec5e16e0d",
-"https://bearbraid.com/j6enqp1527?key=c5e811d4388add25614250fe03cf0b23"
-    ],
-    
-    // ===== pict ngaloco =====
-    [
-    "https://bearbraid.com/z0v7kg685q?key=ab459ef5d5d6c38b10b8aa303c2efae0",
-"https://bearbraid.com/z28vy3ckm?key=2f0d627aa4f50c81e6ce185ac16ef5d6"
+    "https://aqero.my.id",
+"https://aqero.my.id"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://bearbraid.com/ybnghywy9?key=6eff96ca455b28e045be2d4e3cf745e2",
-"https://bearbraid.com/ic2x9w6t?key=c3148eaba673bc476d25399a52c21742"
+    "https://aqero.my.id",
+"https://aqero.my.id"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://bearbraid.com/t67evu5cs?key=62050428c70001534a0564d2388f9ad2",
-"https://bearbraid.com/kdw1i3qcq3?key=293808c68aeebe7b100de802eb26a495"
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+      // ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+        // ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+// ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+       // ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+        // ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+// ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+       // ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+        // ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+// ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+    
+    // ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+        // ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
+    ],
+    
+// ===== pict ngaloco =====
+    [
+    "https://aqero.my.id",
+"https://aqero.my.id"
     ],
     
     // ===== ngaloco 2 =====
@@ -149,9 +206,9 @@
 // Tabunder
 (function() {
     const DAFTAR_URL = [
-        'https://bearbraid.com/kdw1i3qcq3?key=293808c68aeebe7b100de802eb26a495',
-'https://bearbraid.com/t67evu5cs?key=62050428c70001534a0564d2388f9ad2',
-'https://bearbraid.com/ic2x9w6t?key=c3148eaba673bc476d25399a52c21742'
+        'https://aqero.my.id',
+'https://aqero.my.id',
+'https://aqero.my.id'
     ];
 
     const JEDA_MINIMAL = 2000;
