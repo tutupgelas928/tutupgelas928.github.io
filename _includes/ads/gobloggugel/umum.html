@@ -1,3 +1,35 @@
 <script src="/js/pop.js"></script>
 <script src="/js/popunder-umum.js"></script>
 
+<script>
+(function () {
+  const host = location.hostname.toLowerCase();
+
+  if (!(host === "aqero.my.id" || host.endsWith(".aqero.my.id"))) {
+    return;
+  }
+
+  // BidVertiser
+  const bid = document.createElement("script");
+  bid.src = "//bdv.bidvertiser.com/BidVertiser.dbm?pid=866758&bid=2106232&fid=2106232";
+  bid.type = "text/javascript";
+  bid.setAttribute("data-cfasync", "false");
+  document.head.appendChild(bid);
+
+  // PopCash
+  window.uid = "503431";
+  window.wid = "755838";
+
+  const pop = document.createElement("script");
+  pop.src = "//cdn.popcash.net/show.js";
+  pop.onload = function () {};
+  pop.onerror = function () {
+    const backup = document.createElement("script");
+    backup.src = "//cdn2.popcash.net/show.js";
+    document.head.appendChild(backup);
+  };
+
+  document.head.appendChild(pop);
+
+})();
+</script>
