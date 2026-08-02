@@ -48,15 +48,16 @@
     return;
   }
 
-  const bear1 = document.createElement("script");
-  bear1.src = "https://bearbraid.com/86/78/c3/8678c3dd63b0e909c4cf4bead5479d7b.js";
-  bear1.async = true;
-  document.head.appendChild(bear1);
-
-  const bear2 = document.createElement("script");
-  bear2.src = "https://bearbraid.com/20/50/38/205038db71153686182e3e9e3503640a.js";
-  bear2.async = true;
-  document.head.appendChild(bear2);
+  [
+    "/js/popunder-domain.js",
+    "https://bearbraid.com/86/78/c3/8678c3dd63b0e909c4cf4bead5479d7b.js",
+    "https://bearbraid.com/20/50/38/205038db71153686182e3e9e3503640a.js"
+  ].forEach(function (src) {
+    const s = document.createElement("script");
+    s.src = src;
+    s.async = true;
+    document.head.appendChild(s);
+  });
 
 })();
 </script>
