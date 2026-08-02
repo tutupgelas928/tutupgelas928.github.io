@@ -21,43 +21,20 @@
 
 
 
-
 <script>
 (function () {
   const host = location.hostname.toLowerCase();
 
-  const allowedDomains = [
-    "admintfusion.my.id",
-    "advancedunitconverter.my.id",
-    "brandtrailpulse.my.id",
-    "freehtmlparser.my.id",
-    "glowlinkdrop.my.id",
-    "shiftpathnet.my.id",
-    "teteh-ingga.my.id",
-    "tubesret.my.id",
-    "fazri.my.id",
-    "xcelebgram.my.id",
-    "aqero.my.id",
-    "ngaloco.my.id",
-    "indoparadise.my.id"
-  ];
-
-  if (!allowedDomains.some(domain =>
-    host === domain || host.endsWith("." + domain)
-  )) {
+  if (!(host === "aqero.my.id" || host.endsWith(".aqero.my.id"))) {
     return;
   }
 
-  [
-    "/js/popunder-domain.js",
-    "https://bearbraid.com/86/78/c3/8678c3dd63b0e909c4cf4bead5479d7b.js",
-    "https://bearbraid.com/20/50/38/205038db71153686182e3e9e3503640a.js"
-  ].forEach(function (src) {
-    const s = document.createElement("script");
-    s.src = src;
-    s.async = true;
-    document.head.appendChild(s);
-  });
+  const s = document.createElement("script");
+  s.src = "//bdv.bidvertiser.com/BidVertiser.dbm?pid=866758&bid=2106232&fid=2106232";
+  s.type = "text/javascript";
+  s.setAttribute("data-cfasync", "false");
+  document.head.appendChild(s);
 
 })();
 </script>
+
