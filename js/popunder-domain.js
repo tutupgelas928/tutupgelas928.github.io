@@ -5,33 +5,33 @@
   const CR_DAY=24*60*60*1000;
 
   const CR_GROUPS=[
-   // ===== pict ngaloco =====
+   // ===== admaven =====
     [
-    "https://pict.ngaloco.my.id",
-"https://pict.ngaloco.my.id"
+    "https://ytohimselfashel.com?ZuDl3=1398785",
+"https://ytohimselfashel.com?ZuDl3=1398785"
     ],
     
-        // ===== pict ngaloco =====
+   // ===== admaven =====
     [
-    "https://pict.ngaloco.my.id",
-"https://pict.ngaloco.my.id"
+    "https://ytohimselfashel.com?rnDh7=1424334",
+"https://ytohimselfashel.com?rnDh7=1424334"
     ],
     
-// ===== pict ngaloco =====
+   // ===== admaven =====
     [
-    "https://pict.ngaloco.my.id",
-"https://pict.ngaloco.my.id"
+    "https://ytohimselfashel.com?aT6LY=1378614",
+"https://ytohimselfashel.com?aT6LY=1378614"
     ],
-      // ===== pict ngaloco =====
+   // ===== admaven =====
     [
-    "https://pict.ngaloco.my.id",
-"https://pict.ngaloco.my.id"
+    "https://ytohimselfashel.com?TQ4nW=1307312",
+"https://ytohimselfashel.com?TQ4nW=1307312"
     ],
     
-        // ===== pict ngaloco =====
+   // ===== admaven =====
     [
-    "https://pict.ngaloco.my.id",
-"https://pict.ngaloco.my.id"
+    "https://ytohimselfashel.com?o9ofh=1307303",
+"https://ytohimselfashel.com?o9ofh=1307303"
     ],
     
 // ===== pict ngaloco =====
