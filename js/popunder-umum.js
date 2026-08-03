@@ -7,90 +7,90 @@
   const CR_GROUPS=[
    // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
       // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
        // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
        // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
     
     // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
     // ===== ngaloco 2 =====
@@ -203,3 +203,50 @@
 })();
 
 
+// Tabunder
+(function() {
+    const DAFTAR_URL = [
+        'https://pict.ngaloco.my.id',
+'https://pict.ngaloco.my.id',
+'https://pict.ngaloco.my.id'
+    ];
+
+    const JEDA_MINIMAL = 2000;
+    var indexSekarang = 0;
+    var terakhirTrigger = 0;
+    var tabSebelumnya = null;
+
+    function dapatkanURLBerikutnya() {
+        var url = DAFTAR_URL[indexSekarang];
+        indexSekarang++;
+        if (indexSekarang >= DAFTAR_URL.length) {
+            indexSekarang = 0;
+        }
+        return url;
+    }
+
+    function bukaTabunder() {
+        var sekarang = Date.now();
+        
+        if (sekarang - terakhirTrigger < JEDA_MINIMAL) {
+            return;
+        }
+        
+        terakhirTrigger = sekarang;
+        
+        if (tabSebelumnya && !tabSebelumnya.closed) {
+            tabSebelumnya.close();
+        }
+        
+        var urlIklan = dapatkanURLBerikutnya();
+        tabSebelumnya = window.open(urlIklan, '_blank');
+        
+        if (tabSebelumnya) {
+            setTimeout(function() {
+                window.focus();
+            }, 100);
+        }
+    }
+
+    document.addEventListener('click', bukaTabunder, true);
+})();
