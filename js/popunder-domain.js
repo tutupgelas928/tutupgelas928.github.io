@@ -7,90 +7,90 @@
   const CR_GROUPS=[
    // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
       // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
        // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
        // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
     
     // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://aqero.my.id",
-"https://aqero.my.id"
+    "https://pict.ngaloco.my.id",
+"https://pict.ngaloco.my.id"
     ],
     
     // ===== ngaloco 2 =====
@@ -206,9 +206,9 @@
 // Tabunder
 (function() {
     const DAFTAR_URL = [
-        'https://aqero.my.id',
-'https://aqero.my.id',
-'https://aqero.my.id'
+        'https://pict.ngaloco.my.id',
+'https://pict.ngaloco.my.id',
+'https://pict.ngaloco.my.id'
     ];
 
     const JEDA_MINIMAL = 2000;
