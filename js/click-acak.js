@@ -1,6 +1,5 @@
 // click-acak.js
-// Klik acak di halaman dengan jeda 2-3 detik
-// Menunggu halaman selesai dimuat sebelum mulai
+// Klik acak dengan jeda 2-3 detik (langsung jalan)
 
 function randomDelay() {
   return 2000 + Math.random() * 1000; // 2 - 3 detik
@@ -27,7 +26,5 @@ function loop() {
   setTimeout(loop, randomDelay());
 }
 
-// tunggu halaman selesai dimuat
-window.addEventListener("load", function() {
-  loop();
-});
+// langsung jalan, gak nunggu load
+loop();
