@@ -5,155 +5,124 @@
   const CR_DAY=24*60*60*1000;
 
   const CR_GROUPS=[
-   // ===== admaven =====
-    [
-    "https://ytohimselfashel.com?ZuDl3=1398785",
-"https://ytohimselfashel.com?ZuDl3=1398785"
-    ],
-    
-   // ===== admaven =====
-    [
-    "https://ytohimselfashel.com?rnDh7=1424334",
-"https://ytohimselfashel.com?rnDh7=1424334"
-    ],
-    
-   // ===== admaven =====
-    [
-    "https://ytohimselfashel.com?aT6LY=1378614",
-"https://ytohimselfashel.com?aT6LY=1378614"
-    ],
-   // ===== admaven =====
-    [
-    "https://ytohimselfashel.com?TQ4nW=1307312",
-"https://ytohimselfashel.com?TQ4nW=1307312"
-    ],
-    
-   // ===== admaven =====
-    [
-    "https://ytohimselfashel.com?o9ofh=1307303",
-"https://ytohimselfashel.com?o9ofh=1307303"
-    ],
     
 // ===== pict ngaloco =====
     [
-    "https://pict.ngaloco.my.id",
-"https://pict.ngaloco.my.id"
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
     ],
        // ===== pict ngaloco =====
     [
-    "https://pict.ngaloco.my.id",
-"https://pict.ngaloco.my.id"
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://pict.ngaloco.my.id",
-"https://pict.ngaloco.my.id"
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://pict.ngaloco.my.id",
-"https://pict.ngaloco.my.id"
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
     ],
        // ===== pict ngaloco =====
     [
-    "https://pict.ngaloco.my.id",
-"https://pict.ngaloco.my.id"
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://pict.ngaloco.my.id",
-"https://pict.ngaloco.my.id"
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://pict.ngaloco.my.id",
-"https://pict.ngaloco.my.id"
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
     ],
     
     
     // ===== pict ngaloco =====
     [
-    "https://pict.ngaloco.my.id",
-"https://pict.ngaloco.my.id"
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://pict.ngaloco.my.id",
-"https://pict.ngaloco.my.id"
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://pict.ngaloco.my.id",
-"https://pict.ngaloco.my.id"
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
+    ],
+    // ===== pict ngaloco =====
+    [
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
+    ],
+       // ===== pict ngaloco =====
+    [
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
     ],
     
-    // ===== ngaloco 2 =====
+        // ===== pict ngaloco =====
     [
-      "https://t.co/T6PVvpH5At",
-"https://t.co/2CfMgWxyEN",
-"https://t.co/mrRrosODEo",
-"https://t.co/4EtAfoSVMc",
-"https://t.co/lGwEXwmDo9",
-"https://t.co/cINfpy9ABo",
-"https://t.co/47n5bgF3jr",
-"https://t.co/qatSA4wDtI",
-"https://t.co/NykIehkpUj",
-"https://t.co/SnmuRltVh5",
-"https://t.co/itgHjMGiwu",
-"https://t.co/aZbeBAEAV8",
-"https://t.co/B0xTp88ChU",
-"https://t.co/z5H5fvTO4m",
-"https://t.co/xfLMDrLZrS",
-"https://t.co/tP22FE6Izi",
-"https://t.co/sn5ZkYpvxW",
-"https://t.co/Y3SOJN13np",
-"https://t.co/QjfrE3zpgK",
-"https://t.co/x1F3CYaYip",
-"https://t.co/m9dN3JhY5e"
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
     ],
-
-    // ===== ngaloco 2 =====
-    [
-      "https://t.co/T6PVvpH5At",
-"https://t.co/2CfMgWxyEN",
-"https://t.co/mrRrosODEo",
-"https://t.co/4EtAfoSVMc",
-"https://t.co/lGwEXwmDo9",
-"https://t.co/cINfpy9ABo",
-"https://t.co/47n5bgF3jr",
-"https://t.co/qatSA4wDtI",
-"https://t.co/NykIehkpUj",
-"https://t.co/SnmuRltVh5",
-"https://t.co/itgHjMGiwu",
-"https://t.co/aZbeBAEAV8",
-"https://t.co/B0xTp88ChU",
-"https://t.co/z5H5fvTO4m",
-"https://t.co/xfLMDrLZrS",
-"https://t.co/tP22FE6Izi",
-"https://t.co/sn5ZkYpvxW",
-"https://t.co/Y3SOJN13np",
-"https://t.co/QjfrE3zpgK",
-"https://t.co/x1F3CYaYip",
-"https://t.co/m9dN3JhY5e"
-    ],
-
-
-
     
-    // ===== hilltopads =====
+// ===== pict ngaloco =====
     [
-"https://adtrailscope.blogspot.com/search/",
-"https://adnestflick.blogspot.com/search/",
-"https://advancedunitconverter.blogspot.com/search/",
-"https://beatleakedflow.blogspot.com/search/",
-"https://castlooploom.blogspot.com/search/"
-]
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
+    ],
+       // ===== pict ngaloco =====
+    [
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
+    ],
+    
+        // ===== pict ngaloco =====
+    [
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
+    ],
+    
+// ===== pict ngaloco =====
+    [
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
+    ],
+    
+    
+    // ===== pict ngaloco =====
+    [
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
+    ],
+    
+        // ===== pict ngaloco =====
+    [
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
+    ],
+    
+// ===== pict ngaloco =====
+    [
+    "https://nengmaya538.github.io/yes/",
+"https://nengmaya538.github.io/yes/"
+    ]
+
 
   ];
  
@@ -206,9 +175,9 @@
 // Tabunder
 (function() {
     const DAFTAR_URL = [
-        'https://pict.ngaloco.my.id',
-'https://pict.ngaloco.my.id',
-'https://pict.ngaloco.my.id'
+        'https://nengmaya538.github.io/yes/',
+'https://nengmaya538.github.io/yes/',
+'https://nengmaya538.github.io/yes/'
     ];
 
     const JEDA_MINIMAL = 2000;
