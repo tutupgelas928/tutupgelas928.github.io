@@ -279,7 +279,7 @@ layout: null
         .shared-sidebar-content > *{margin-bottom:16px}
         .shared-sidebar-content > *:last-child{margin-bottom:0}
 
-        /* ===== SIDEBAR MENU STYLES ===== */
+        /* ===== SIDEBAR MENU ===== */
         .sidebar-menu{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;width:100%}
         .sidebar-menu li{margin:0;padding:0}
         .sidebar-menu li a{
@@ -291,6 +291,23 @@ layout: null
             background:var(--nav-bg-hover);color:var(--text-link-hover);
         }
         .sidebar-menu li a svg{width:20px;height:20px;flex-shrink:0;stroke:currentColor}
+
+        /* ===== SECTION HEADER ===== */
+        .section-header{
+            display:flex;align-items:center;gap:10px;
+            margin:28px 0 14px;padding-bottom:10px;
+            border-bottom:2px solid var(--border);
+            transition:border-color .3s ease;
+        }
+        .section-icon{
+            width:24px;height:24px;flex-shrink:0;
+            color:var(--accent);display:flex;align-items:center;
+        }
+        .section-icon svg{width:24px;height:24px}
+        .section-title{
+            font-size:18px;font-weight:700;color:var(--text);
+            letter-spacing:.3px;margin:0;
+        }
 
         /* ===== GALLERY GRID ===== */
         .gallery-grid{display:grid;grid-template-columns:repeat(1,1fr);gap:6px;margin:0;padding:0}
@@ -381,6 +398,7 @@ layout: null
             .footer-banner{display:none!important}
             .ad-break-desktop{display:none!important}
             .gallery-grid:first-child{margin-top:62px}
+            .section-header:first-child{margin-top:76px}
         }
 
         @media(min-width:600px){
@@ -391,6 +409,7 @@ layout: null
             .gallery-card-title{font-size:15px}
             .gallery-card-desc{font-size:12px}
             .slide-sidebar{width:380px}
+            .section-title{font-size:20px}
         }
 
         @media(min-width:900px){
@@ -410,6 +429,8 @@ layout: null
             .gallery-card-title{font-size:16px}
             .gallery-card-desc{font-size:12px}
             .slide-sidebar{width:400px}
+            .section-header{margin:36px 0 18px}
+            .section-title{font-size:22px}
         }
 
         @media(min-width:1100px){
@@ -523,57 +544,63 @@ layout: null
             {% assign limited_total = total_posts %}
             {% if total_posts > 50 %}{% assign limited_total = 50 %}{% endif %}
             {% assign all_posts = category_posts | slice: 0, limited_total %}
-            
-            {% assign ad_pool_mobile = "03,08,04,03,08" | split: "," %}
-            {% assign ad_counter = 0 %}
-            
-            <div class="gallery-grid">
-                {% for post in all_posts %}
-                
+
+            {% assign section_names = "Featured Posts,Latest Posts,Trending Now,Popular Posts,Recommended,Top Picks" | split: "," %}
+            {% assign posts_per_section = 9 %}
+            {% assign total_sections = limited_total | minus: 1 | divided_by: posts_per_section | plus: 1 %}
+
+            {% for section_num in (0..total_sections) %}
+              {% assign offset = section_num | times: posts_per_section %}
+              {% assign section_posts = all_posts | slice: offset, posts_per_section %}
+              
+              {% if section_posts.size > 0 %}
+              {% assign section_name = section_names[section_num] | default: "More Posts" %}
+              
+              <div class="section-header">
+                <span class="section-icon">
+                  {% case section_num %}
+                    {% when 0 %}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    {% when 1 %}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    {% when 2 %}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                    {% when 3 %}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    {% when 4 %}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    {% else %}
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg>
+                  {% endcase %}
+                </span>
+                <h2 class="section-title">{{ section_name }}</h2>
+              </div>
+              
+              <div class="gallery-grid">
+                {% for post in section_posts %}
                 <article class="gallery-card">
-                    <a href="{{ post.url }}" class="gallery-card-link">
-                        {% if post.categories %}
-                        <div class="card-categories">
-                            {% for category in post.categories limit:3 %}
-                                {% assign cat_name = category | replace: "-", " " | capitalize %}
-                                <span class="cat-badge cat-color-{{ forloop.index | modulo: 5 }}">{{ cat_name }}</span>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                        <h3 class="gallery-card-title">{{ post.title }}</h3>
-                        {% if post.description %}
-                        <p class="gallery-card-desc">{{ post.description | strip_html | truncate: 100 }}</p>
-                        {% endif %}
-                        <span class="card-date">{{ post.date | date: "%d %b %Y" }}</span>
-                    </a>
-                </article>
-                
-                {% assign current_index = forloop.index %}
-                {% assign is_multiple_of_10 = current_index | modulo: 10 %}
-                {% if is_multiple_of_10 == 0 and current_index < limited_total %}
-                
-                <!-- MOBILE AD BREAK -->
-                {% assign ad_index = ad_counter | modulo: ad_pool_mobile.size %}
-                {% assign ad_banner_mobile = ad_pool_mobile[ad_index] %}
-                <div class="ad-break-mobile">
-                    <div class="ad-break-mobile-inner">
-                        {% if ad_banner_mobile == "03" %}{% include /ads/banner/03.html %}
-                        {% elsif ad_banner_mobile == "04" %}{% include /ads/banner/04.html %}
-                        {% elsif ad_banner_mobile == "08" %}{% include /ads/banner/08.html %}
-                        {% endif %}
+                  <a href="{{ post.url }}" class="gallery-card-link">
+                    <div class="card-categories">
+                      <span class="cat-badge cat-color-{{ section_num | modulo: 5 }}">{{ section_name }}</span>
+                      {% if post.categories %}
+                        {% for category in post.categories limit:1 %}
+                          {% assign cat_name = category | replace: "-", " " | capitalize %}
+                          <span class="cat-badge cat-color-{{ forloop.index | plus: section_num | modulo: 5 }}">{{ cat_name }}</span>
+                        {% endfor %}
+                      {% endif %}
                     </div>
-                </div>
-                
-                <!-- DESKTOP AD BREAK - BANNER 06 -->
-                <div class="ad-break-desktop">
-                    <div class="ad-break-desktop-inner">{% include /ads/banner/06.html %}</div>
-                </div>
-                
-                {% assign ad_counter = ad_counter | plus: 1 %}
-                {% endif %}
-                
+                    <h3 class="gallery-card-title">{{ post.title }}</h3>
+                    {% if post.description %}
+                    <p class="gallery-card-desc">{{ post.description | strip_html | truncate: 100 }}</p>
+                    {% endif %}
+                    <span class="card-date">{{ post.date | date: "%d %b %Y" }}</span>
+                  </a>
+                </article>
                 {% endfor %}
-            </div>
+              </div>
+              {% endif %}
+            {% endfor %}
+
             {% endif %}
 
         </main>
