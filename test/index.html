@@ -8,7 +8,6 @@ layout: null
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     
-    
     <script>
     (function() {
         var saved = localStorage.getItem("aqero-theme");
@@ -28,6 +27,7 @@ layout: null
         var parts = hostname.split(".");
         var isMainDomain = (parts.length <= 2) || (parts[0] === "www" && parts.length <= 3);
         var subdomain = "";
+        
         if (isMainDomain) {
             subdomain = "Home";
         } else {
@@ -35,10 +35,121 @@ layout: null
             if (candidate === "www" && parts.length > 2) candidate = parts[1];
             subdomain = candidate.replace(/[-_]/g, " ").replace(/\+/g, " ").replace(/\b\w/g, function(c) { return c.toUpperCase(); });
         }
-        document.title = isMainDomain ? "Gallery - Beautiful & Sexy Artistes Photos" : subdomain + " - Hot Celeb & Model Photos Gallery";
+        
+        function simpleHash(str) {
+            var hash = 0;
+            for (var i = 0; i < str.length; i++) {
+                hash = ((hash << 5) - hash) + str.charCodeAt(i);
+                hash |= 0;
+            }
+            return Math.abs(hash);
+        }
+        var hash = simpleHash(subdomain.toLowerCase());
+        
+        var titlePool = [
+            subdomain + " - Digital Marketing, SEO & Crypto Insights",
+            subdomain + " - SEO, Social Media & Webmaster Tips",
+            subdomain + " - Tech, Crypto & Digital Marketing Blog",
+            subdomain + " - SEO Strategies & Social Media Guide",
+            subdomain + " - Digital Marketing & Crypto Trends",
+            subdomain + " - Webmaster, SEO & Marketing Hub",
+            subdomain + " - Social Media Marketing & Crypto News",
+            subdomain + " - SEO Tips, Crypto & Tech Reviews",
+            subdomain + " - Digital Growth, SEO & Blockchain",
+            subdomain + " - Marketing Hacks, SEO & Web Dev",
+            subdomain + " - Crypto Guides & Digital Marketing",
+            subdomain + " - SEO Mastery & Social Media Tactics",
+            subdomain + " - Tech Blog: SEO, Crypto & Marketing",
+            subdomain + " - Webmaster Resources & SEO Tips",
+            subdomain + " - Digital Trends: SEO, Crypto & SMM",
+            subdomain + " - Online Marketing & Crypto Updates",
+            subdomain + " - SEO Secrets & Digital Marketing Pro",
+            subdomain + " - Crypto, SEO & Webmaster Academy",
+            subdomain + " - Social Media Growth & SEO Hacks",
+            subdomain + " - Digital Business, SEO & Blockchain",
+            subdomain + " - SEO Tools & Crypto Investment Tips",
+            subdomain + " - Marketing Strategy & Web Dev Blog",
+            subdomain + " - Crypto News & Digital Marketing Hub",
+            subdomain + " - SEO Expert & Social Media Insights",
+            subdomain + " - Tech Marketing, SEO & DeFi Guides",
+            subdomain + " - Webmaster Diary: SEO & Crypto",
+            subdomain + " - Digital Success: SEO, SMM & Crypto",
+            subdomain + " - Crypto Trading & Marketing Strategies",
+            subdomain + " - SEO Guide & Social Media Mastery",
+            subdomain + " - Blockchain, SEO & Digital Marketing",
+            subdomain + " - SEO, SEM & Content Marketing Blog",
+            subdomain + " - Digital Agency Tips: SEO & Crypto",
+            subdomain + " - Social Media Ads & Crypto Investing",
+            subdomain + " - Web Dev, SEO & Blockchain News",
+            subdomain + " - Marketing Analytics & SEO Guide",
+            subdomain + " - Crypto Wallet & Digital Marketing",
+            subdomain + " - SEO Audit, SMM & Webmaster Tools",
+            subdomain + " - Affiliate Marketing, SEO & Crypto",
+            subdomain + " - Growth Hacking, SEO & DeFi",
+            subdomain + " - Content Strategy & Crypto Insights",
+            subdomain + " - SEO Copywriting & Marketing Tips",
+            subdomain + " - PPC, SEO & Blockchain Technology",
+            subdomain + " - Email Marketing & SEO Strategies",
+            subdomain + " - NFT, SEO & Digital Marketing News",
+            subdomain + " - WordPress SEO & Crypto Guides",
+            subdomain + " - E-commerce SEO & Social Media",
+            subdomain + " - Local SEO & Crypto Trading Tips",
+            subdomain + " - Technical SEO & Marketing Automation",
+            subdomain + " - Mobile SEO & Webmaster Resources",
+            subdomain + " - AI Marketing, SEO & Crypto Trends"
+        ];
+        
+        var descPool = [
+            "Latest articles on digital marketing, SEO, social media, crypto, and webmaster tips for all levels.",
+            "Expert guides on SEO optimization, social media marketing, crypto trading, and web development.",
+            "Comprehensive resources covering digital marketing strategies, SEO techniques, and blockchain technology.",
+            "Stay updated with the latest trends in SEO, social media, cryptocurrency, and webmaster tools.",
+            "In-depth articles about digital marketing, search engine optimization, and crypto investments.",
+            "Your go-to source for SEO tips, social media growth hacks, and blockchain insights.",
+            "Practical guides on webmaster tools, SEO best practices, and digital marketing strategies.",
+            "Explore articles on crypto trading, SEO optimization, and social media marketing tactics.",
+            "Quality content about digital marketing trends, SEO techniques, and cryptocurrency updates.",
+            "Learn SEO, master social media, understand crypto, and improve your webmaster skills.",
+            "Actionable tips on digital marketing, SEO ranking, crypto investing, and web development.",
+            "Discover strategies for SEO success, social media engagement, and crypto trading.",
+            "Expert-written articles on webmaster tools, digital marketing, and blockchain technology.",
+            "Boost your knowledge with guides on SEO, social media marketing, and crypto news.",
+            "Comprehensive blog covering digital marketing, SEO, crypto, and webmaster essentials.",
+            "Tips and tutorials on SEO optimization, social media strategy, and crypto markets.",
+            "Stay ahead with insights on digital marketing, search trends, and blockchain innovations.",
+            "Practical advice for webmasters, marketers, and crypto enthusiasts at all levels.",
+            "Your daily dose of SEO tips, marketing strategies, and cryptocurrency analysis.",
+            "Quality guides on digital growth, social media management, and blockchain development.",
+            "Master digital marketing with expert guides on SEO, PPC, social media, and content strategy.",
+            "Learn crypto trading, blockchain basics, DeFi, and Web3 alongside marketing tips.",
+            "Webmaster tutorials, WordPress guides, hosting reviews, and technical SEO walkthroughs.",
+            "Social media marketing strategies for Instagram, TikTok, Facebook, Twitter, and LinkedIn.",
+            "SEO case studies, ranking experiments, traffic growth hacks, and algorithm updates.",
+            "Cryptocurrency guides, Bitcoin analysis, altcoin reviews, and blockchain explained simply.",
+            "Digital marketing tools review, comparison, tutorials, and best alternatives for every budget.",
+            "Content marketing strategies, copywriting tips, blogging guides, and viral content formulas.",
+            "Affiliate marketing guides, passive income ideas, and monetization strategies for bloggers.",
+            "Email marketing best practices, newsletter growth, automation workflows, and conversion tips.",
+            "Analytics and data-driven marketing: Google Analytics, Search Console, and tracking guides.",
+            "E-commerce SEO, Shopify optimization, product page tips, and online store growth hacks.",
+            "Local SEO strategies, Google My Business tips, local citation building, and map ranking.",
+            "Technical SEO audits, site speed optimization, Core Web Vitals, and schema markup guides.",
+            "NFT guides, metaverse marketing, Web3 strategies, and decentralized technology explained.",
+            "Growth hacking techniques, viral marketing tactics, and startup growth strategies that work.",
+            "AI in marketing: ChatGPT, Midjourney, automation tools, and AI-powered SEO strategies.",
+            "Mobile SEO optimization, AMP implementation, and responsive design best practices.",
+            "YouTube SEO, video marketing strategies, and content creator tips for channel growth.",
+            "Podcast marketing, audio content strategies, and voice search optimization techniques."
+        ];
+        
+        var titleIndex = hash % titlePool.length;
+        var descIndex = hash % descPool.length;
+        
+        document.title = titlePool[titleIndex];
+        
         var metaDesc = document.querySelector("meta[name=\"description\"]") || document.createElement("meta");
         metaDesc.name = "description";
-        metaDesc.content = isMainDomain ? "Browse stunning photo galleries of beautiful actresses, sexy models, Instagram celebrities, and TikTok stars." : "Exclusive " + subdomain + " photo gallery - beautiful actresses, sexy celebrities, Instagram models, and TikTok stars.";
+        metaDesc.content = descPool[descIndex];
         if (!metaDesc.parentNode) document.head.appendChild(metaDesc);
     })();
     </script>
@@ -181,46 +292,71 @@ layout: null
         }
         .sidebar-menu li a svg{width:20px;height:20px;flex-shrink:0;stroke:currentColor}
 
-        .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:4px;margin:0;padding:0}
+        /* ===== GALLERY GRID ===== */
+        .gallery-grid{display:grid;grid-template-columns:repeat(1,1fr);gap:6px;margin:0;padding:0}
         
+        /* ===== GALLERY CARD ===== */
         .gallery-card{
-            position:relative;overflow:hidden;border-radius:0;background:var(--bg-card);
-            -webkit-tap-highlight-color:transparent;transition:background .3s ease;
-            display:flex;flex-direction:column;
+            position:relative;overflow:hidden;border-radius:10px;background:var(--bg-card);
+            border:1px solid var(--border);transition:all .2s ease;
+            -webkit-tap-highlight-color:transparent;
         }
-        .gallery-card a{display:block;width:100%;position:relative;text-decoration:none}
-        .gallery-card a img{
-            width:100%;height:100%;object-fit:cover;display:block;
-            transition:transform .3s ease;aspect-ratio:16/9;
+        .gallery-card:hover{border-color:var(--accent);transform:translateY(-1px);box-shadow:0 4px 12px var(--shadow)}
+        .gallery-card-link{
+            display:flex;flex-direction:column;height:100%;padding:14px 16px;
+            text-decoration:none;color:inherit;gap:6px;
         }
-        .gallery-card a:active img{transform:scale(1.02)}
         
-        .gallery-card-info{
-            padding:8px 8px 10px;
-            display:flex;flex-direction:column;gap:3px;
-            transition:background .3s ease;
+        /* ===== CATEGORIES ===== */
+        .card-categories{
+            display:flex;flex-wrap:wrap;gap:4px;margin-bottom:2px;
         }
+        .cat-badge{
+            font-size:10px;font-weight:500;padding:3px 10px;border-radius:12px;
+            letter-spacing:.2px;display:inline-block;line-height:1.4;
+        }
+        .cat-color-0{background:rgba(91,155,213,.15);color:#5b9bd5}
+        .cat-color-1{background:rgba(213,128,91,.15);color:#d5805b}
+        .cat-color-2{background:rgba(145,213,91,.15);color:#91d55b}
+        .cat-color-3{background:rgba(213,91,180,.15);color:#d55bb4}
+        .cat-color-4{background:rgba(213,200,91,.15);color:#d5c85b}
+        [data-theme="light"] .cat-color-0{background:rgba(59,126,196,.12);color:#3b7ec4}
+        [data-theme="light"] .cat-color-1{background:rgba(196,108,59,.12);color:#c46c3b}
+        [data-theme="light"] .cat-color-2{background:rgba(108,196,59,.12);color:#6cc43b}
+        [data-theme="light"] .cat-color-3{background:rgba(196,59,157,.12);color:#c43b9d}
+        [data-theme="light"] .cat-color-4{background:rgba(196,180,59,.12);color:#c4b43b}
+        
+        /* ===== TITLE ===== */
         .gallery-card-title{
-            font-size:11px;font-weight:600;color:var(--text);
-            line-height:1.3;letter-spacing:.2px;
+            font-size:14px;font-weight:700;color:var(--text);
+            line-height:1.4;letter-spacing:.2px;margin:0;
+            display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+            overflow:hidden;transition:color .2s ease;
+        }
+        .gallery-card-link:hover .gallery-card-title{color:var(--accent)}
+        
+        /* ===== DESCRIPTION ===== */
+        .gallery-card-desc{
+            font-size:11px;font-weight:400;color:var(--text-secondary);
+            line-height:1.5;letter-spacing:.1px;margin:0;
             display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
             overflow:hidden;transition:color .3s ease;
         }
-        .gallery-card-desc{
-            font-size:10px;font-weight:400;color:var(--text-secondary);
-            line-height:1.4;letter-spacing:.1px;
-            display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
-            overflow:hidden;transition:color .3s ease;
+        
+        /* ===== DATE ===== */
+        .card-date{
+            font-size:10px;font-weight:500;color:var(--text-secondary);
+            margin-top:auto;padding-top:8px;letter-spacing:.3px;
+            text-transform:uppercase;transition:color .3s ease;
         }
 
         /* ===== MOBILE AD BREAK ===== */
         .ad-break-mobile{
             grid-column:1/-1;
             background:var(--ad-bg);border:1px solid var(--ad-border);
-            border-radius:0;overflow:hidden;
+            border-radius:10px;overflow:hidden;
             display:flex;align-items:center;justify-content:center;
-            padding:4px;
-            transition:background .3s ease, border-color .3s ease;
+            padding:6px;transition:background .3s ease, border-color .3s ease;
         }
         .ad-break-mobile-inner{
             width:100%;display:flex;align-items:center;justify-content:center;
@@ -250,12 +386,10 @@ layout: null
         @media(min-width:600px){
             .site-header{padding:12px 16px}
             .site-title{font-size:17px}
-            .gallery-grid{gap:6px;padding:0}
-            .gallery-card{border-radius:6px}
-            .gallery-card-info{padding:10px 10px 12px}
-            .gallery-card-title{font-size:12px}
-            .gallery-card-desc{font-size:11px}
-            .ad-break-mobile{border-radius:6px;padding:6px}
+            .gallery-grid{grid-template-columns:repeat(2,1fr);gap:8px;padding:0}
+            .gallery-card-link{padding:16px 18px}
+            .gallery-card-title{font-size:15px}
+            .gallery-card-desc{font-size:12px}
             .slide-sidebar{width:380px}
         }
 
@@ -270,17 +404,16 @@ layout: null
             .ad-break-desktop{display:block}
             
             .main-layout{padding:0 20px}
-            .gallery-grid{grid-template-columns:repeat(5,1fr);gap:10px}
+            .gallery-grid{grid-template-columns:repeat(3,1fr);gap:12px}
             .gallery-card{border-radius:12px}
-            .gallery-card:hover a img{transform:scale(1.05)}
-            .gallery-card-info{padding:12px 12px 14px}
-            .gallery-card-title{font-size:13px}
-            .gallery-card-desc{font-size:11px}
+            .gallery-card-link{padding:18px 20px}
+            .gallery-card-title{font-size:16px}
+            .gallery-card-desc{font-size:12px}
             .slide-sidebar{width:400px}
         }
 
         @media(min-width:1100px){
-            .gallery-grid{gap:12px}
+            .gallery-grid{grid-template-columns:repeat(4,1fr);gap:14px}
             .header-banner{padding:10px 20px 0}
             .footer-banner{padding:0 20px}
             .main-layout{padding:0 20px}
@@ -360,7 +493,7 @@ layout: null
         var host=window.location.hostname.split("."),sub=host[0];
         if(sub.toLowerCase()==="www")sub=host[1]||"";
         var isMain=host.length<=2||(host[0]==="www"&&host.length<=3);
-        var clean=isMain?"Hot Celebs Photo Gallery":sub.replace(/-/g," ");
+        var clean=isMain?"Home":sub.replace(/-/g," ");
         document.getElementById("blogMainTitle").textContent=clean.replace(/\b\w/g,function(c){return c.toUpperCase()});
     })();
     (function(){
@@ -398,15 +531,21 @@ layout: null
                 {% for post in all_posts %}
                 
                 <article class="gallery-card">
-                    <a href="{{ post.url }}">
-                        {% if post.image %}<img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">{% endif %}
-                    </a>
-                    <div class="gallery-card-info">
-                        <span class="gallery-card-title">{{ post.title }}</span>
-                        {% if post.description %}
-                        <span class="gallery-card-desc">{{ post.description | strip_html | truncate: 80 }}</span>
+                    <a href="{{ post.url }}" class="gallery-card-link">
+                        {% if post.categories %}
+                        <div class="card-categories">
+                            {% for category in post.categories limit:3 %}
+                                {% assign cat_name = category | replace: "-", " " | capitalize %}
+                                <span class="cat-badge cat-color-{{ forloop.index | modulo: 5 }}">{{ cat_name }}</span>
+                            {% endfor %}
+                        </div>
                         {% endif %}
-                    </div>
+                        <h3 class="gallery-card-title">{{ post.title }}</h3>
+                        {% if post.description %}
+                        <p class="gallery-card-desc">{{ post.description | strip_html | truncate: 100 }}</p>
+                        {% endif %}
+                        <span class="card-date">{{ post.date | date: "%d %b %Y" }}</span>
+                    </a>
                 </article>
                 
                 {% assign current_index = forloop.index %}
@@ -456,7 +595,6 @@ layout: null
         document.getElementById("domainAvatar").innerHTML="<svg width=\"34\" height=\"34\" viewBox=\"0 0 34 34\"><rect width=\"34\" height=\"34\" rx=\"17\" fill=\"hsl("+(d%360)+",60%,50%)\"/><text x=\"17\" y=\"23\" text-anchor=\"middle\" fill=\"#fff\" font-size=\"14\" font-weight=\"bold\" font-family=\"sans-serif\">"+init+"</text></svg>";
     })();
     </script>
-
 
     {% include /ads/gobloggugel/default.html %}
     {% include footer.html %}
