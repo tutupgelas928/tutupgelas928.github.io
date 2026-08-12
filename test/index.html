@@ -324,24 +324,24 @@ layout: null
             text-decoration:none;color:inherit;gap:6px;
         }
         
-        /* ===== CATEGORIES ===== */
-        .card-categories{
+        /* ===== TAGS ===== */
+        .card-tags{
             display:flex;flex-wrap:wrap;gap:4px;margin-bottom:2px;
         }
-        .cat-badge{
+        .tag-badge{
             font-size:10px;font-weight:500;padding:3px 10px;border-radius:12px;
             letter-spacing:.2px;display:inline-block;line-height:1.4;
         }
-        .cat-color-0{background:rgba(91,155,213,.15);color:#5b9bd5}
-        .cat-color-1{background:rgba(213,128,91,.15);color:#d5805b}
-        .cat-color-2{background:rgba(145,213,91,.15);color:#91d55b}
-        .cat-color-3{background:rgba(213,91,180,.15);color:#d55bb4}
-        .cat-color-4{background:rgba(213,200,91,.15);color:#d5c85b}
-        [data-theme="light"] .cat-color-0{background:rgba(59,126,196,.12);color:#3b7ec4}
-        [data-theme="light"] .cat-color-1{background:rgba(196,108,59,.12);color:#c46c3b}
-        [data-theme="light"] .cat-color-2{background:rgba(108,196,59,.12);color:#6cc43b}
-        [data-theme="light"] .cat-color-3{background:rgba(196,59,157,.12);color:#c43b9d}
-        [data-theme="light"] .cat-color-4{background:rgba(196,180,59,.12);color:#c4b43b}
+        .tag-color-0{background:rgba(91,155,213,.15);color:#5b9bd5}
+        .tag-color-1{background:rgba(213,128,91,.15);color:#d5805b}
+        .tag-color-2{background:rgba(145,213,91,.15);color:#91d55b}
+        .tag-color-3{background:rgba(213,91,180,.15);color:#d55bb4}
+        .tag-color-4{background:rgba(213,200,91,.15);color:#d5c85b}
+        [data-theme="light"] .tag-color-0{background:rgba(59,126,196,.12);color:#3b7ec4}
+        [data-theme="light"] .tag-color-1{background:rgba(196,108,59,.12);color:#c46c3b}
+        [data-theme="light"] .tag-color-2{background:rgba(108,196,59,.12);color:#6cc43b}
+        [data-theme="light"] .tag-color-3{background:rgba(196,59,157,.12);color:#c43b9d}
+        [data-theme="light"] .tag-color-4{background:rgba(196,180,59,.12);color:#c4b43b}
         
         /* ===== TITLE ===== */
         .gallery-card-title{
@@ -397,7 +397,6 @@ layout: null
             .header-banner{display:none!important}
             .footer-banner{display:none!important}
             .ad-break-desktop{display:none!important}
-            .gallery-grid:first-child{margin-top:62px}
             .section-header:first-child{margin-top:76px}
         }
 
@@ -580,12 +579,12 @@ layout: null
                 {% for post in section_posts %}
                 <article class="gallery-card">
                   <a href="{{ post.url }}" class="gallery-card-link">
-                    <div class="card-categories">
-                      <span class="cat-badge cat-color-{{ section_num | modulo: 5 }}">{{ section_name }}</span>
-                      {% if post.categories %}
-                        {% for category in post.categories limit:1 %}
-                          {% assign cat_name = category | replace: "-", " " | capitalize %}
-                          <span class="cat-badge cat-color-{{ forloop.index | plus: section_num | modulo: 5 }}">{{ cat_name }}</span>
+                    <div class="card-tags">
+                      <span class="tag-badge tag-color-{{ section_num | modulo: 5 }}">{{ section_name }}</span>
+                      {% if post.tags %}
+                        {% for tag in post.tags limit:2 %}
+                          {% assign tag_name = tag | replace: "-", " " | capitalize %}
+                          <span class="tag-badge tag-color-{{ forloop.index | plus: section_num | modulo: 5 }}">{{ tag_name }}</span>
                         {% endfor %}
                       {% endif %}
                     </div>
