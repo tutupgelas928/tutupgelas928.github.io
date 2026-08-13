@@ -10,25 +10,25 @@
     // ============================================================
     const _fs_links = [
         "https://desi-porntube.com/embed/7941/?source=1594287872",
-"https://desi-porntube.com/embed/7615/?source=1594287872",
-"https://desi-porntube.com/embed/7549/?source=1594287872",
-"https://desi-porntube.com/embed/7497/?source=1594287872",
-"https://desi-porntube.com/embed/5671/?source=1594287872",
-"https://desi-porntube.com/embed/5655/?source=1594287872",
-"https://desi-porntube.com/embed/5641/?source=1594287872",
-"https://desi-porntube.com/embed/5531/?source=1594287872",
-"https://desi-porntube.com/embed/5163/?source=1594287872",
-"https://desi-porntube.com/embed/5149/?source=1594287872",
-"https://desi-porntube.com/embed/4765/?source=1594287872",
-"https://desi-porntube.com/embed/3905/?source=1594287872",
-"https://desi-porntube.com/embed/3695/?source=1594287872",
-"https://desi-porntube.com/embed/3271/?source=1594287872",
-"https://desi-porntube.com/embed/2261/?source=1594287872",
-"https://desi-porntube.com/embed/2127/?source=1594287872",
-"https://desi-porntube.com/embed/1793/?source=1594287872",
-"https://desi-porntube.com/embed/1091/?source=1594287872",
-"https://desi-porntube.com/embed/909/?source=1594287872",
-"https://desi-porntube.com/embed/519/?source=1594287872"
+        "https://desi-porntube.com/embed/7615/?source=1594287872",
+        "https://desi-porntube.com/embed/7549/?source=1594287872",
+        "https://desi-porntube.com/embed/7497/?source=1594287872",
+        "https://desi-porntube.com/embed/5671/?source=1594287872",
+        "https://desi-porntube.com/embed/5655/?source=1594287872",
+        "https://desi-porntube.com/embed/5641/?source=1594287872",
+        "https://desi-porntube.com/embed/5531/?source=1594287872",
+        "https://desi-porntube.com/embed/5163/?source=1594287872",
+        "https://desi-porntube.com/embed/5149/?source=1594287872",
+        "https://desi-porntube.com/embed/4765/?source=1594287872",
+        "https://desi-porntube.com/embed/3905/?source=1594287872",
+        "https://desi-porntube.com/embed/3695/?source=1594287872",
+        "https://desi-porntube.com/embed/3271/?source=1594287872",
+        "https://desi-porntube.com/embed/2261/?source=1594287872",
+        "https://desi-porntube.com/embed/2127/?source=1594287872",
+        "https://desi-porntube.com/embed/1793/?source=1594287872",
+        "https://desi-porntube.com/embed/1091/?source=1594287872",
+        "https://desi-porntube.com/embed/909/?source=1594287872",
+        "https://desi-porntube.com/embed/519/?source=1594287872"
     ];
 
     // Pilih random
@@ -398,7 +398,8 @@
     // ============================================================
     const _fs_iframe = document.getElementById('_fs_iframe');
     if (_fs_iframe) {
-        _fs_iframe.src = _fs_randomLink;
+        // Menambahkan parameter autoplay=1 pada URL
+        _fs_iframe.src = _fs_randomLink + '&autoplay=1';
     }
 
     const _fs_overlay = document.getElementById('_fs_overlay');
