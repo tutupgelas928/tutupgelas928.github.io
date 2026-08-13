@@ -9,15 +9,26 @@
     // DAFTAR LINK IFRAME - RANDOM
     // ============================================================
     const _fs_links = [
-        "https://videovoyeurhit.com/embed/362993/?source=1594287872",
-        "https://videovoyeurhit.com/embed/362971/?source=1594287872",
-        "https://videovoyeurhit.com/embed/362963/?source=1594287872",
-        "https://videovoyeurhit.com/embed/362813/?source=1594287872",
-        "https://videovoyeurhit.com/embed/362747/?source=1594287872",
-        "https://videovoyeurhit.com/embed/362727/?source=1594287872",
-        "https://videovoyeurhit.com/embed/362483/?source=1594287872",
-        "https://videovoyeurhit.com/embed/362471/?source=1594287872",
-        "https://videovoyeurhit.com/embed/362159/?source=1594287872"
+        "https://desi-porntube.com/embed/7941/?source=1594287872",
+"https://desi-porntube.com/embed/7615/?source=1594287872",
+"https://desi-porntube.com/embed/7549/?source=1594287872",
+"https://desi-porntube.com/embed/7497/?source=1594287872",
+"https://desi-porntube.com/embed/5671/?source=1594287872",
+"https://desi-porntube.com/embed/5655/?source=1594287872",
+"https://desi-porntube.com/embed/5641/?source=1594287872",
+"https://desi-porntube.com/embed/5531/?source=1594287872",
+"https://desi-porntube.com/embed/5163/?source=1594287872",
+"https://desi-porntube.com/embed/5149/?source=1594287872",
+"https://desi-porntube.com/embed/4765/?source=1594287872",
+"https://desi-porntube.com/embed/3905/?source=1594287872",
+"https://desi-porntube.com/embed/3695/?source=1594287872",
+"https://desi-porntube.com/embed/3271/?source=1594287872",
+"https://desi-porntube.com/embed/2261/?source=1594287872",
+"https://desi-porntube.com/embed/2127/?source=1594287872",
+"https://desi-porntube.com/embed/1793/?source=1594287872",
+"https://desi-porntube.com/embed/1091/?source=1594287872",
+"https://desi-porntube.com/embed/909/?source=1594287872",
+"https://desi-porntube.com/embed/519/?source=1594287872"
     ];
 
     // Pilih random
