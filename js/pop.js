@@ -407,10 +407,10 @@
     const _fs_topbar = document.getElementById('_fs_topbar');
     const _fs_sep_close = document.getElementById('_fs_sep_close');
 
-    let _fs_seconds = 15;
+    let _fs_seconds = 20;
 
     function _fs_startCountdown() {
-        _fs_seconds = 15;
+        _fs_seconds = 20;
         _fs_number.textContent = _fs_seconds;
 
         const timer = setInterval(function() {
