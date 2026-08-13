@@ -398,8 +398,8 @@
     // ============================================================
     const _fs_iframe = document.getElementById('_fs_iframe');
     if (_fs_iframe) {
-        // Menambahkan parameter autoplay=1 pada URL
-        _fs_iframe.src = _fs_randomLink + '&autoplay=1';
+        // Menambahkan parameter autoplay=1&muted=1 pada URL
+        _fs_iframe.src = _fs_randomLink + '&autoplay=1&muted=1';
     }
 
     const _fs_overlay = document.getElementById('_fs_overlay');
