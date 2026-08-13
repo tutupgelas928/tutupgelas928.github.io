@@ -1,0 +1,669 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    
+    
+    <script>
+    (function() {
+        var hostname = location.hostname;
+        var parts = hostname.split(".");
+        var fullName = parts[0];
+        if (fullName.toLowerCase() === "www") fullName = parts[1] || fullName;
+        var formatText = function(str) {
+            return str.replace(/[-_]/g, " ").replace(/\+/g, " ").replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+        };
+        var displayDomain = formatText(fullName);
+        document.title = displayDomain + " - Beautiful Girls Photo Gallery";
+        var metaDesc = document.querySelector("meta[name=\"description\"]") || document.createElement("meta");
+        metaDesc.name = "description";
+        metaDesc.content = displayDomain + " - Stunning collection of beautiful girls photography from around the world.";
+        if (!metaDesc.parentNode) document.head.appendChild(metaDesc);
+        var metaAuthor = document.querySelector("meta[name=\"author\"]") || document.createElement("meta");
+        metaAuthor.name = "author";
+        metaAuthor.content = displayDomain;
+        if (!metaAuthor.parentNode) document.head.appendChild(metaAuthor);
+        var canonical = document.querySelector("link[rel=\"canonical\"]") || document.createElement("link");
+        canonical.setAttribute("rel", "canonical");
+        canonical.setAttribute("href", location.href);
+        if (!canonical.parentNode) document.head.appendChild(canonical);
+        var schemaData = {"@context":"https://schema.org","@type":"WebSite","name":displayDomain,"description":"Beautiful girls photo gallery from around the world","url":location.origin};
+        var schemaScript = document.createElement("script");
+        schemaScript.type = "application/ld+json";
+        schemaScript.textContent = JSON.stringify(schemaData);
+        document.head.appendChild(schemaScript);
+    })();
+    </script>
+
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,*::before,*::after{box-sizing:border-box}
+        html{overflow-x:hidden;background:var(--bg-color)}
+        body{
+            width:100%;min-width:320px;max-width:100%;margin:0;padding:0;
+            background:var(--bg-color);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+            color:var(--text-color);line-height:1.3;-webkit-font-smoothing:antialiased;
+        }
+
+        /* Light / Dark Theme Variables */
+        :root {
+            --bg-color: #050505;
+            --header-bg: rgba(5,5,5,.97);
+            --text-color: #fff;
+            --border-color: rgba(255,255,255,.08);
+            --menu-bg: #1a1a1a;
+            --menu-border: #333;
+            --menu-text: #ccc;
+            --menu-hover-bg: #2a2a2a;
+            --card-bg: #0a0a0a;
+            --ad-bg: #080808;
+            --desc-color: rgba(255,255,255,.65);
+            --btn-bg: rgba(255,255,255,.05);
+            --btn-border: rgba(255,255,255,.1);
+            --icon-fill: #fff;
+            --icon-stroke: #fff;
+            --section-title: #fff;
+            --featured-title: #ff6b6b;
+        }
+
+        body.light-mode {
+            --bg-color: #f5f5f7;
+            --header-bg: rgba(245,245,247,.97);
+            --text-color: #1d1d1f;
+            --border-color: rgba(0,0,0,.08);
+            --menu-bg: #ffffff;
+            --menu-border: #e5e5e5;
+            --menu-text: #1d1d1f;
+            --menu-hover-bg: #f0f0f0;
+            --card-bg: #ffffff;
+            --ad-bg: #eaeaea;
+            --desc-color: rgba(0,0,0,.55);
+            --btn-bg: rgba(0,0,0,.05);
+            --btn-border: rgba(0,0,0,.1);
+            --icon-fill: #1d1d1f;
+            --icon-stroke: #1d1d1f;
+            --section-title: #1d1d1f;
+            --featured-title: #d32f2f;
+        }
+
+        /* ===== HEADER ===== */
+        .site-header{
+            width:100%;position:fixed;top:0;left:0;z-index:1000;
+            background:var(--header-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+            border-bottom:1px solid var(--border-color);
+            padding:12px 12px;
+        }
+        .header-inner{
+            display:flex;align-items:center;gap:10px;max-width:1280px;margin:0 auto;
+        }
+        .site-avatar{flex-shrink:0;line-height:0}
+        .site-avatar svg{width:34px;height:34px}
+        .site-title{
+            flex:1;font-size:16px;font-weight:700;letter-spacing:.3px;
+            white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text-color);
+        }
+        .menu-btn, .theme-btn{
+            width:42px;height:42px;flex-shrink:0;
+            background:var(--btn-bg);border:1px solid var(--btn-border);
+            cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center;
+            border-radius:50%;transition:all .2s ease;
+        }
+        .menu-btn:active, .theme-btn:active{background:rgba(255,255,255,.12);transform:scale(.95)}
+        .menu-btn svg, .theme-btn svg{width:22px;height:22px;stroke:var(--icon-stroke);fill:none;stroke-width:2;stroke-linecap:round}
+
+        .slide-menu{
+            display:none;position:fixed;top:58px;right:8px;z-index:999;
+            background:var(--menu-bg);border:1px solid var(--menu-border);border-radius:14px;padding:6px;
+            min-width:200px;box-shadow:0 8px 32px rgba(0,0,0,.6);
+        }
+        .slide-menu.open{display:block}
+        .slide-menu ul{list-style:none;margin:0;padding:0}
+        .slide-menu li+li{border-top:1px solid rgba(255,255,255,.04)}
+        .slide-menu a{
+            display:flex;align-items:center;gap:8px;padding:13px 16px;color:var(--menu-text);text-decoration:none;
+            font-size:15px;font-weight:500;border-radius:10px;transition:all .15s ease;
+        }
+        .slide-menu a svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;}
+        .slide-menu a:active{background:var(--menu-hover-bg);color:var(--text-color)}
+
+        /* ===== DESKTOP NAV (hidden di mobile) ===== */
+        .desktop-nav{display:none}
+        .desktop-nav a{
+            display:inline-flex;align-items:center;gap:6px;
+        }
+        .desktop-nav a svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;}
+
+        /* ===== AD CONTAINER ===== */
+        .ad-box{
+            display:flex;justify-content:center;align-items:center;
+            margin:0 auto;max-width:100%;overflow:hidden;
+            background:var(--ad-bg);min-height:50px;
+        }
+        .ad-box ins{max-width:100%}
+        
+        /* Responsive ad visibility */
+        .ad-desktop{display:none}
+        .ad-mobile{display:flex}
+        .ad-both{display:flex}
+
+        /* ===== AD BREAK (top & bottom) ===== */
+        .ad-break{
+            padding:12px 0;background:var(--ad-bg);
+            border-top:1px solid var(--border-color);
+            border-bottom:1px solid var(--border-color);
+        }
+        .ad-break:first-child{margin-top:58px}
+
+        /* ===== AD INLINE (antar section) ===== */
+        .ad-inline{
+            margin:24px 0;padding:12px 0;
+            background:var(--ad-bg);
+            border-top:1px solid var(--border-color);
+            border-bottom:1px solid var(--border-color);
+        }
+
+        /* ===== MAIN LAYOUT ===== */
+        .main-layout{
+            display:flex;flex-direction:column;gap:0;width:100%;max-width:1280px;
+            margin:0 auto;padding:0;
+        }
+        .content-area{flex:1;min-width:0;padding:0;width:100%}
+
+        .sidebar{display:none}
+        .sticky-ad{position:sticky;top:80px;display:flex;justify-content:center}
+
+        /* ============================
+           GV2 GALLERY SYSTEM
+           ============================ */
+        .gv2-section{margin:20px 0}
+        .gv2-section:first-child{margin-top:4px}
+        .gv2-title{padding:0 8px;margin:0 auto 10px;max-width:1400px}
+        .gv2-title h2{
+            margin:0;font-size:19px;font-weight:800;color:var(--section-title);letter-spacing:.2px;
+            display:flex;align-items:center;gap:8px;
+        }
+        .gv2-title h2 svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;}
+        .gv2-featured-title h2{color:var(--featured-title)}
+        .gv2-grid{max-width:1400px;margin:auto;padding:0;gap:0}
+
+        /* === MOBILE: 1 KOLOM FULLWIDTH === */
+        .gv2-featured{display:grid;grid-template-columns:1fr;gap:4px}
+        .gv2-latest{display:grid;grid-template-columns:1fr;gap:4px}
+        .gv2-stories{display:grid;grid-template-columns:1fr;gap:4px}
+        .gv2-tutorials{display:grid;grid-template-columns:1fr;gap:4px}
+        .gv2-archive{display:grid;grid-template-columns:1fr;gap:4px}
+
+        .gv2-featured-big,
+        .gv2-featured-small{
+            grid-column:auto;grid-row:auto;
+        }
+
+        /* Card */
+        .gv2-card{
+            position:relative;overflow:hidden;border-radius:0;background:var(--card-bg);
+            -webkit-tap-highlight-color:transparent;
+        }
+        .gv2-card-link{
+            display:block;width:100%;
+        }
+        .gv2-card-link img{
+            width:100%;height:100%;object-fit:cover;display:block;
+            transition:transform .3s ease;aspect-ratio:16/9;
+        }
+        .gv2-card-link:active img{transform:scale(1.02)}
+
+        /* Card body (di luar link) - disembunyikan karena tidak ada judul */
+        .gv2-card-body{
+            display:none;
+        }
+        .gv2-card-title-link{
+            display:none;
+        }
+        .gv2-card-desc{
+            display:none;
+        }
+
+        .excerpt{display:none}
+
+        /* ============================
+           TABLET (min-width:600px)
+           ============================ */
+        @media(min-width:600px){
+            .ad-desktop{display:flex}
+            .ad-mobile{display:none}
+            .ad-both{display:flex}
+
+            .site-header{padding:12px 16px}
+            .site-title{font-size:17px}
+            .ad-break{padding:16px 0}
+            .ad-break:first-child{margin-top:60px}
+            .ad-inline{margin:28px 0;padding:14px 0}
+            .gv2-title{padding:0 12px}
+            .gv2-title h2{font-size:22px}
+            .gv2-grid{padding:0 8px;gap:6px}
+
+            .gv2-featured{grid-template-columns:1fr 1fr;gap:6px}
+            .gv2-featured-big{grid-column:1 / -1}
+            .gv2-latest{grid-template-columns:1fr 1fr;gap:6px}
+            .gv2-stories{grid-template-columns:1fr 1fr;gap:6px}
+            .gv2-tutorials{grid-template-columns:1fr 1fr;gap:6px}
+            .gv2-archive{grid-template-columns:1fr 1fr;gap:6px}
+
+            .gv2-card{border-radius:6px}
+            .gv2-card-link img{aspect-ratio:16/9}
+        }
+
+        /* ============================
+           DESKTOP (min-width:900px)
+           ============================ */
+        @media(min-width:900px){
+            body{max-width:1280px;margin:0 auto}
+
+            .site-header{
+                left:50%;transform:translateX(-50%);max-width:1280px;
+                padding:12px 20px;
+            }
+            .site-title{font-size:15px;font-weight:600;color:var(--menu-text)}
+            .menu-btn{display:none}
+            .slide-menu{display:none!important}
+
+            .ad-break:first-child{margin-top:62px}
+
+            .main-layout{flex-direction:row;padding:0 8px}
+            .sidebar{display:block;flex-shrink:0;padding:16px 8px;position:relative}
+            .sidebar-left{width:160px;border-right:1px solid var(--border-color)}
+            .sidebar-right{width:160px;border-left:1px solid var(--border-color)}
+
+            .gv2-section{margin:32px 0}
+            .gv2-section:first-child{margin-top:8px}
+            .gv2-title{padding:0 14px}
+            .gv2-title h2{font-size:22px}
+            .gv2-grid{padding:0 14px;gap:10px}
+
+            .gv2-featured{
+                grid-template-columns:2fr 1fr 1fr;
+                grid-template-rows:1fr 1fr;gap:10px;
+            }
+            .gv2-featured-big{
+                grid-column:1 / 2;grid-row:1 / 3;
+            }
+            .gv2-featured-big .gv2-card-link img{aspect-ratio:auto;height:100%}
+            .gv2-featured-small{grid-column:auto;grid-row:auto}
+            .gv2-featured-small .gv2-card-link img{aspect-ratio:16/9}
+
+            .gv2-latest{grid-template-columns:repeat(5,1fr);gap:10px}
+            .gv2-stories{grid-template-columns:repeat(4,1fr);gap:10px}
+            .gv2-tutorials{grid-template-columns:repeat(3,1fr);gap:10px}
+            .gv2-archive{grid-template-columns:repeat(6,1fr);gap:10px}
+
+            .gv2-card{border-radius:12px}
+            .gv2-card:hover .gv2-card-link img{transform:scale(1.05)}
+
+            /* Desktop nav: muncul */
+            .desktop-nav{
+                display:flex;gap:4px;padding:0 14px;max-width:1400px;margin:0 auto 8px;
+            }
+            .desktop-nav a{
+                padding:6px 12px;color:var(--menu-text);text-decoration:none;font-size:13px;
+                border-radius:6px;transition:all .15s ease;
+            }
+            .desktop-nav a:hover{color:var(--text-color);background:var(--menu-hover-bg)}
+        }
+
+        /* ============================
+           LARGE DESKTOP (min-width:1100px)
+           ============================ */
+        @media(min-width:1100px){
+            .sidebar-left{width:180px}
+            .sidebar-right{width:180px}
+            .gv2-grid{gap:12px}
+            .gv2-featured{gap:12px}
+            .gv2-latest{gap:12px}
+            .gv2-stories{gap:12px}
+            .gv2-tutorials{gap:12px}
+            .gv2-archive{gap:12px}
+        }
+    </style>
+    
+{% include head.html %}
+{% include verif.html %}
+
+</head>
+<body>
+
+
+{{content}}
+
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div id="domainAvatar" class="site-avatar"></div>
+            <span id="blogMainTitle" class="site-title"></span>
+            <button class="theme-btn" id="themeToggle" aria-label="Toggle Theme">
+                <!-- Sun Icon -->
+                <svg id="sunIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+                <!-- Moon Icon -->
+                <svg id="moonIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+            <button class="menu-btn" id="blogMenuToggle" aria-label="Menu">
+                <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+                <svg viewBox="0 0 24 24" style="display:none"><path d="M6 6l12 12M6 18l12-12"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- SLIDE MENU -->
+    <nav id="blogMenuPanel" class="slide-menu">
+        <ul>
+            <li><a href="/"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Home</a></li>
+            <li><a href="/contact/"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Contact</a></li>
+            <li><a href="/privacy-policy/"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Privacy Policy</a></li>
+            <li><a href="/terms-and-conditions/"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Terms & Conditions</a></li>
+        </ul>
+    </nav>
+
+    <script>
+    (function(){
+        var host = window.location.hostname.split(".");
+        var sub = host[0];
+        if (sub.toLowerCase() === "www") sub = host[1] || "";
+        var clean = sub.replace(/-/g, " ");
+        document.getElementById("blogMainTitle").textContent = clean.replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+    })();
+    (function(){
+        var btn = document.getElementById("blogMenuToggle");
+        var panel = document.getElementById("blogMenuPanel");
+        var menuIcon = btn.querySelector("svg:first-child");
+        var closeIcon = btn.querySelector("svg:last-child");
+        btn.addEventListener("click", function(e){
+            e.stopPropagation();
+            var open = panel.classList.toggle("open");
+            menuIcon.style.display = open ? "none" : "block";
+            closeIcon.style.display = open ? "block" : "none";
+        });
+        document.addEventListener("click", function(e){
+            if(!panel.contains(e.target) && !btn.contains(e.target)){
+                panel.classList.remove("open");
+                menuIcon.style.display = "block";
+                closeIcon.style.display = "none";
+            }
+        });
+        panel.addEventListener("click", function(e){
+            e.stopPropagation();
+        });
+    })();
+    </script>
+
+    <!-- Theme Toggle Script -->
+    <script>
+    (function() {
+        var body = document.body;
+        var themeBtn = document.getElementById('themeToggle');
+        var sunIcon = document.getElementById('sunIcon');
+        var moonIcon = document.getElementById('moonIcon');
+        
+        // Check saved theme
+        var savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            body.classList.add('light-mode');
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'block';
+        }
+        
+        themeBtn.addEventListener('click', function() {
+            body.classList.toggle('light-mode');
+            var isLight = body.classList.contains('light-mode');
+            
+            if (isLight) {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+                localStorage.setItem('theme', 'light');
+            } else {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    })();
+    </script>
+
+
+    <!-- ==================== BANNER 06: TOP ==================== -->
+    <div class="ad-break">
+        <div class="ad-box ad-desktop">
+            {% include /ads/banner/06.html %}
+        </div>
+        <div class="ad-box ad-mobile">
+            {% include /ads/banner/04.html %}
+        </div>
+    </div>
+
+    <!-- DESKTOP NAV -->
+    <nav class="desktop-nav">
+        <a href="/"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Home</a>
+        <a href="/contact/"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Contact</a>
+        <a href="/privacy-policy/"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Privacy Policy</a>
+        <a href="/terms-and-conditions/"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> Terms & Conditions</a>
+    </nav>
+
+    <!-- MAIN LAYOUT -->
+    <div class="main-layout">
+
+        <!-- LEFT SIDEBAR: Banner 05 -->
+        <aside class="sidebar sidebar-left">
+            <div class="sticky-ad">
+                {% include /ads/banner/05.html %}
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="content-area">
+
+            <!-- ========== FEATURED ========== -->
+            {% assign category_posts = site.categories['pict69'] %}
+            {% assign featured_posts = category_posts | slice: 0, 5 %}
+            {% if featured_posts.size >= 5 %}
+            <section class="gv2-section">
+                <div class="gv2-title gv2-featured-title">
+                    <h2>
+                        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        Featured
+                    </h2>
+                </div>
+                <div class="gv2-grid gv2-featured">
+                    {% for post in featured_posts %}
+                    <article class="gv2-card {% if forloop.first %}gv2-featured-big{% else %}gv2-featured-small{% endif %}">
+                        <a href="{{ post.url }}" class="gv2-card-link">
+                            {% if post.image %}
+                                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+                            {% endif %}
+                        </a>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+
+            <!-- ========== BANNER 01: SETELAH FEATURED ========== -->
+            <div class="ad-inline">
+                <div class="ad-box ad-desktop">
+                    {% include /ads/banner/01.html %}
+                </div>
+                <div class="ad-box ad-mobile">
+                    {% include /ads/banner/04.html %}
+                </div>
+            </div>
+
+            <!-- ========== LATEST ========== -->
+            {% assign latest_posts = category_posts | slice: 5, 15 %}
+            {% if latest_posts.size > 0 %}
+            <section class="gv2-section">
+                <div class="gv2-title">
+                    <h2>
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Latest
+                    </h2>
+                </div>
+                <div class="gv2-grid gv2-latest">
+                    {% for post in latest_posts %}
+                    <article class="gv2-card">
+                        <a href="{{ post.url }}" class="gv2-card-link">
+                            {% if post.image %}
+                                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+                            {% endif %}
+                        </a>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+
+            <!-- ========== BANNER 02: SETELAH LATEST ========== -->
+            <div class="ad-inline">
+                <div class="ad-box ad-both">
+                    {% include /ads/banner/02.html %}
+                </div>
+            </div>
+
+            <!-- ========== STORIES ========== -->
+            {% assign stories_posts = category_posts | slice: 20, 12 %}
+            {% if stories_posts.size > 0 %}
+            <section class="gv2-section">
+                <div class="gv2-title">
+                    <h2>
+                        <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                        Stories
+                    </h2>
+                </div>
+                <div class="gv2-grid gv2-stories">
+                    {% for post in stories_posts %}
+                    <article class="gv2-card">
+                        <a href="{{ post.url }}" class="gv2-card-link">
+                            {% if post.image %}
+                                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+                            {% endif %}
+                        </a>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+
+            <!-- ========== BANNER 03: SETELAH STORIES ========== -->
+            <div class="ad-inline">
+                <div class="ad-box ad-both">
+                    {% include /ads/banner/03.html %}
+                </div>
+            </div>
+
+            <!-- ========== POPULAR ========== -->
+            {% assign popular_posts = category_posts | slice: 32, 12 %}
+            {% if popular_posts.size > 0 %}
+            <section class="gv2-section">
+                <div class="gv2-title">
+                    <h2>
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        Popular
+                    </h2>
+                </div>
+                <div class="gv2-grid gv2-tutorials">
+                    {% for post in popular_posts %}
+                    <article class="gv2-card">
+                        <a href="{{ post.url }}" class="gv2-card-link">
+                            {% if post.image %}
+                                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+                            {% endif %}
+                        </a>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+
+            <!-- ========== BANNER 08: SETELAH POPULAR ========== -->
+            <div class="ad-inline">
+                <div class="ad-box ad-both">
+                    {% include /ads/banner/08.html %}
+                </div>
+            </div>
+
+            <!-- ========== ARCHIVE ========== -->
+            {% assign archive_posts = category_posts | slice: 44, 6 %}
+            {% if archive_posts.size > 0 %}
+            <section class="gv2-section">
+                <div class="gv2-title">
+                    <h2>
+                        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        Archive
+                    </h2>
+                </div>
+                <div class="gv2-grid gv2-archive">
+                    {% for post in archive_posts %}
+                    <article class="gv2-card">
+                        <a href="{{ post.url }}" class="gv2-card-link">
+                            {% if post.image %}
+                                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+                            {% endif %}
+                        </a>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+
+        </main>
+
+        <!-- RIGHT SIDEBAR: Banner 05 -->
+        <aside class="sidebar sidebar-right">
+            <div class="sticky-ad">
+                {% include /ads/banner/05.html %}
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- ==================== BANNER 07: BOTTOM ==================== -->
+    <div class="ad-break">
+        <div class="ad-box ad-desktop">
+            {% include /ads/banner/07.html %}
+        </div>
+        <div class="ad-box ad-mobile">
+            {% include /ads/banner/04.html %}
+        </div>
+    </div>
+
+    <!-- AVATAR SCRIPT -->
+    <script>
+    (function() {
+        var hostname = window.location.hostname;
+        var parts = hostname.split(".");
+        var fullName = parts[0];
+        if (fullName.toLowerCase() === "www") fullName = parts[1] || fullName;
+        function h(s) {var h=0;for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0;}return Math.abs(h);}
+        var dh = h(fullName);
+        var clean = fullName.replace(/-/g," ");
+        var w = clean.split(" "), init = "";
+        for (var i=0;i<Math.min(w.length,3);i++){if(w[i].length>0)init+=w[i].charAt(0).toUpperCase();}
+        if(init.length<2)init=fullName.substring(0,3).toUpperCase();
+        document.getElementById("domainAvatar").innerHTML = "<svg width=\"34\" height=\"34\" viewBox=\"0 0 34 34\"><rect width=\"34\" height=\"34\" rx=\"17\" fill=\"hsl("+(dh%360)+",60%,50%)\"/><text x=\"17\" y=\"23\" text-anchor=\"middle\" fill=\"#fff\" font-size=\"14\" font-weight=\"bold\" font-family=\"sans-serif\">"+init+"</text></svg>";
+    })();
+    </script>
+
+ 
+    {% include /nav/pict/01.html %}
+    {% include /ads/gobloggugel/default.html %}
+    {% include footer.html %}
+
+    
+</body>
+</html>
