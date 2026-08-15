@@ -9,26 +9,26 @@
     // DAFTAR LINK IFRAME - RANDOM
     // ============================================================
     const _fs_links = [
-        "https://desi-porntube.com/embed/7941/?source=1594287872",
-        "https://desi-porntube.com/embed/7615/?source=1594287872",
-        "https://desi-porntube.com/embed/7549/?source=1594287872",
-        "https://desi-porntube.com/embed/7497/?source=1594287872",
-        "https://desi-porntube.com/embed/5671/?source=1594287872",
-        "https://desi-porntube.com/embed/5655/?source=1594287872",
-        "https://desi-porntube.com/embed/5641/?source=1594287872",
-        "https://desi-porntube.com/embed/5531/?source=1594287872",
-        "https://desi-porntube.com/embed/5163/?source=1594287872",
-        "https://desi-porntube.com/embed/5149/?source=1594287872",
-        "https://desi-porntube.com/embed/4765/?source=1594287872",
-        "https://desi-porntube.com/embed/3905/?source=1594287872",
-        "https://desi-porntube.com/embed/3695/?source=1594287872",
-        "https://desi-porntube.com/embed/3271/?source=1594287872",
-        "https://desi-porntube.com/embed/2261/?source=1594287872",
-        "https://desi-porntube.com/embed/2127/?source=1594287872",
-        "https://desi-porntube.com/embed/1793/?source=1594287872",
-        "https://desi-porntube.com/embed/1091/?source=1594287872",
-        "https://desi-porntube.com/embed/909/?source=1594287872",
-        "https://desi-porntube.com/embed/519/?source=1594287872"
+        "https://desi-porntube.com/embed/7941/?promo=40266",
+        "https://desi-porntube.com/embed/7615/?promo=40266",
+        "https://desi-porntube.com/embed/7549/?promo=40266",
+        "https://desi-porntube.com/embed/7497/?promo=40266",
+        "https://desi-porntube.com/embed/5671/?promo=40266",
+        "https://desi-porntube.com/embed/5655/?promo=40266",
+        "https://desi-porntube.com/embed/5641/?promo=40266",
+        "https://desi-porntube.com/embed/5531/?promo=40266",
+        "https://desi-porntube.com/embed/5163/?promo=40266",
+        "https://desi-porntube.com/embed/5149/?promo=40266",
+        "https://desi-porntube.com/embed/4765/?promo=40266",
+        "https://desi-porntube.com/embed/3905/?promo=40266",
+        "https://desi-porntube.com/embed/3695/?promo=40266",
+        "https://desi-porntube.com/embed/3271/?promo=40266",
+        "https://desi-porntube.com/embed/2261/?promo=40266",
+        "https://desi-porntube.com/embed/2127/?promo=40266",
+        "https://desi-porntube.com/embed/1793/?promo=40266",
+        "https://desi-porntube.com/embed/1091/?promo=40266",
+        "https://desi-porntube.com/embed/909/?promo=40266",
+        "https://desi-porntube.com/embed/519/?promo=40266"
     ];
 
     // Pilih random
