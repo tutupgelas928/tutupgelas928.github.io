@@ -1,6 +1,3 @@
-// ============================================================
-// FULLSCREEN POPUP - VIA JAVASCRIPT INJECT
-// ============================================================
 
 (function() {
     'use strict';
@@ -364,7 +361,7 @@
                     <span class="_fs_separator"></span>
                     <div class="_fs_countdown">
                         <span class="_fs_icon">⏳</span>
-                        <span class="_fs_number" id="_fs_number">15</span>
+                        <span class="_fs_number" id="_fs_number">20</span>
                         <span class="_fs_text">sec</span>
                         <span class="_fs_dot"></span>
                     </div>
