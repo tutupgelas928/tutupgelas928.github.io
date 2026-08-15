@@ -1,0 +1,78 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .video-container {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+    }
+
+    .video-container iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="video-container">
+    <iframe
+      id="videoFrame"
+      src=""
+      allow="autoplay; fullscreen"
+      allowfullscreen
+      webkitallowfullscreen
+      mozallowfullscreen
+      oallowfullscreen
+      msallowfullscreen
+      frameborder="0">
+    </iframe>
+  </div>
+
+  <script>
+    // Daftar URL video
+    const videoUrls = [
+      "https://desi-porntube.com/embed/253267/?source=1594287872&autoplay=1&muted=1",
+      "https://desi-porntube.com/embed/253237/?source=1594287872&autoplay=1&muted=1",
+      "https://desi-porntube.com/embed/252995/?source=1594287872&autoplay=1&muted=1",
+      "https://desi-porntube.com/embed/252983/?source=1594287872&autoplay=1&muted=1",
+      "https://desi-porntube.com/embed/252977/?source=1594287872&autoplay=1&muted=1",
+      "https://desi-porntube.com/embed/252973/?source=1594287872&autoplay=1&muted=1"
+    ];
+
+    // Pilih URL acak
+    function getRandomVideoUrl() {
+      const randomIndex = Math.floor(Math.random() * videoUrls.length);
+      return videoUrls[randomIndex];
+    }
+
+    // Set src iframe dengan URL acak
+    document.getElementById('videoFrame').src = getRandomVideoUrl();
+  </script>
+
+</body>
+</html>
