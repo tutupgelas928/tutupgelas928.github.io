@@ -1,0 +1,711 @@
+---
+layout: null
+permalink: /dash/
+---
+  
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="content-language" content="en">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="canonical" id="dynamic-canonical" href="">
+    
+    <title id="dynamic-title">Search Exclusive Content Archive</title>
+    
+    <meta id="dynamic-description" name="description" content="Browse our comprehensive collections of celebrity content, including photos, videos, biographies, and exclusive material.">
+    
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,*::before,*::after{box-sizing:border-box}
+        html{overflow-x:hidden}
+        
+        /* ===== THEME VARIABLES ===== */
+        :root{
+            --bg: #050505;
+            --bg-header: rgba(5,5,5,.97);
+            --text: #ccc;
+            --text-white: #fff;
+            --text-muted: rgba(255,255,255,.5);
+            --card-bg: rgba(255,255,255,.03);
+            --card-border: rgba(255,255,255,.05);
+            --card-hover-bg: rgba(255,255,255,.06);
+            --card-hover-border: rgba(255,107,107,.3);
+            --link: #ff6b6b;
+            --border: rgba(255,255,255,.08);
+            --menu-bg: #1a1a1a;
+            --menu-border: #333;
+            --btn-bg: rgba(255,255,255,.05);
+            --btn-border: rgba(255,255,255,.1);
+            --btn-hover-bg: rgba(255,255,255,.12);
+            --shadow: 0 8px 32px rgba(0,0,0,.6);
+        }
+        
+        [data-theme="light"]{
+            --bg: #f8f8f8;
+            --bg-header: rgba(248,248,248,.97);
+            --text: #444;
+            --text-white: #111;
+            --text-muted: rgba(0,0,0,.5);
+            --card-bg: rgba(0,0,0,.03);
+            --card-border: rgba(0,0,0,.08);
+            --card-hover-bg: rgba(0,0,0,.05);
+            --card-hover-border: rgba(211,47,47,.4);
+            --link: #d32f2f;
+            --border: rgba(0,0,0,.1);
+            --menu-bg: #ffffff;
+            --menu-border: #ddd;
+            --btn-bg: rgba(0,0,0,.05);
+            --btn-border: rgba(0,0,0,.1);
+            --btn-hover-bg: rgba(0,0,0,.1);
+            --shadow: 0 8px 32px rgba(0,0,0,.1);
+        }
+        
+        body{
+            width:100%;min-width:320px;max-width:100%;margin:0;padding:0;
+            background:var(--bg);
+            font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+            color:var(--text);
+            line-height:1.6;
+            -webkit-font-smoothing:antialiased;
+            transition:background .3s ease,color .3s ease;
+        }
+
+        /* ===== HEADER ===== */
+        .site-header{
+            width:100%;position:fixed;top:0;left:0;z-index:1000;
+            background:var(--bg-header);
+            backdrop-filter:blur(20px);
+            -webkit-backdrop-filter:blur(20px);
+            border-bottom:1px solid var(--border);
+            padding:12px 12px;
+            transition:background .3s ease,border-color .3s ease;
+        }
+        .header-inner{
+            display:flex;align-items:center;gap:8px;max-width:750px;margin:0 auto;
+        }
+        .header-text{flex:1;min-width:0}
+        .page-title-header{
+            font-size:16px;font-weight:700;color:var(--text-white);
+            white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2;
+            transition:color .3s ease;
+        }
+        .domain-sub{
+            font-size:11px;color:var(--text-muted);line-height:1.2;margin-top:1px;
+            transition:color .3s ease;
+        }
+        
+        .theme-btn{
+            width:42px;height:42px;flex-shrink:0;
+            background:var(--btn-bg);
+            border:1px solid var(--btn-border);
+            cursor:pointer;padding:0;
+            display:flex;align-items:center;justify-content:center;
+            border-radius:50%;transition:all .2s ease;
+            color:var(--text-white);
+        }
+        .theme-btn:active{
+            background:var(--btn-hover-bg);
+            transform:scale(.95);
+        }
+        .theme-btn svg{
+            width:20px;height:20px;
+            stroke:currentColor;fill:none;
+            stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+        }
+        
+        .menu-btn{
+            width:42px;height:42px;flex-shrink:0;
+            background:var(--btn-bg);
+            border:1px solid var(--btn-border);
+            cursor:pointer;padding:0;
+            display:flex;align-items:center;justify-content:center;
+            border-radius:50%;transition:all .2s ease;
+        }
+        .menu-btn:active{
+            background:var(--btn-hover-bg);
+            transform:scale(.95);
+        }
+        .menu-btn svg{
+            width:22px;height:22px;
+            stroke:var(--text-white);fill:none;
+            stroke-width:2;stroke-linecap:round;
+        }
+
+        .slide-menu{
+            display:none;position:fixed;top:58px;right:8px;z-index:999;
+            background:var(--menu-bg);
+            border:1px solid var(--menu-border);
+            border-radius:14px;padding:6px;
+            min-width:200px;
+            box-shadow:var(--shadow);
+            transition:background .3s ease,border-color .3s ease;
+        }
+        .slide-menu.open{display:block}
+        .slide-menu ul{list-style:none;margin:0;padding:0}
+        .slide-menu li+li{border-top:1px solid var(--card-border)}
+        .slide-menu a{
+            display:block;padding:13px 16px;
+            color:var(--text);text-decoration:none;
+            font-size:15px;font-weight:500;
+            border-radius:10px;transition:all .15s ease;
+        }
+        .slide-menu a:active{background:var(--card-hover-bg);color:var(--text-white)}
+        .slide-menu a svg{
+            vertical-align:middle;margin-right:8px;
+            stroke:currentColor;fill:none;stroke-width:2;
+        }
+
+        /* ===== DESKTOP NAV ===== */
+        .desktop-nav{display:none}
+
+        /* ===== MAIN LAYOUT ===== */
+        .main-layout{
+            width:100%;max-width:750px;margin:0 auto;padding:0;
+        }
+        .content-area{
+            width:100%;padding:0;
+            padding-top:58px;
+        }
+
+        /* ===== PAGE CONTAINER ===== */
+        .page-container{
+            max-width:750px;margin:0 auto;padding:0 12px 24px;
+        }
+
+        /* ===== VIDEO CONTAINER ===== */
+        .video-wrapper{
+            position:relative;width:100%;max-width:750px;margin:0 auto;
+            background:#000;overflow:hidden;
+        }
+        .video-wrapper::before{
+            content:"";display:block;padding-top:56.25%;
+        }
+        .video-wrapper iframe{
+            position:absolute;top:0;left:0;width:100%;height:100%;border:0;
+            opacity:1;transition:opacity .3s ease;
+        }
+        
+        /* ===== PLAY OVERLAY (Fallback only) ===== */
+        .play-overlay{
+            position:absolute;top:0;left:0;width:100%;height:100%;
+            display:flex;
+            align-items:center;justify-content:center;
+            background:rgba(0,0,0,.3);
+            transition:all .3s ease;
+            z-index:2;
+            opacity:0;pointer-events:none;
+        }
+        .play-overlay.show{
+            opacity:1;pointer-events:auto;
+            cursor:pointer;
+        }
+        .play-button{
+            width:70px;height:70px;
+            background:rgba(255,107,107,.9);
+            border:3px solid rgba(255,255,255,.8);
+            border-radius:50%;
+            display:flex;align-items:center;justify-content:center;
+            cursor:pointer;
+            transition:all .3s ease;
+            animation:pulse 2s infinite;
+        }
+        .play-button:hover{
+            background:rgba(255,107,107,1);
+            transform:scale(1.05);
+        }
+        .play-button svg{
+            width:28px;height:28px;
+            fill:#fff;stroke:#fff;
+            stroke-width:2;
+            margin-left:4px;
+        }
+        
+        @keyframes pulse{
+            0%,100%{box-shadow:0 0 0 0 rgba(255,107,107,.4)}
+            50%{box-shadow:0 0 0 15px rgba(255,107,107,0)}
+        }
+
+        /* ===== CONTENT STYLING ===== */
+        h1{
+            color:var(--text-white);
+            font-size:22px;font-weight:800;
+            margin:20px 0 16px;line-height:1.3;
+            text-align:center;
+            transition:color .3s ease;
+        }
+        p{
+            font-size:14px;color:var(--text);
+            margin:0 0 16px;
+            transition:color .3s ease;
+        }
+        p strong{color:var(--text-white)}
+        a{color:var(--link);text-decoration:none}
+        a:hover{text-decoration:underline}
+
+        .info-grid{
+            display:grid;grid-template-columns:1fr 1fr;
+            gap:10px;margin:16px 0;
+        }
+        .info-card{
+            background:var(--card-bg);
+            padding:14px;border-radius:10px;
+            border:1px solid var(--card-border);
+            text-align:center;
+            transition:all .2s ease;
+        }
+        .info-card:hover{
+            background:var(--card-hover-bg);
+            border-color:var(--card-hover-border);
+        }
+        .info-card a{
+            font-size:13px;font-weight:600;
+            color:var(--link);display:block;
+            text-decoration:none;line-height:1.4;
+        }
+        .info-card a:hover{text-decoration:underline}
+
+        ul{padding-left:20px;margin:0 0 16px}
+        li{margin-bottom:8px;font-size:14px}
+        li a{color:var(--link);text-decoration:none}
+        li a:hover{text-decoration:underline}
+
+        .hidden{display:none}
+        .query-placeholder{font-weight:700;color:var(--link)}
+        .default-content.active{display:block}
+        .default-content{display:none}
+
+        /* ============================
+           TABLET (min-width:600px)
+           ============================ */
+        @media(min-width:600px){
+            .site-header{padding:12px 16px}
+            .page-title-header{font-size:17px}
+            .content-area{padding-top:60px}
+            .page-container{padding:0 16px 32px}
+            h1{font-size:26px}
+            .info-grid{grid-template-columns:1fr 1fr;gap:12px}
+            .info-card a{font-size:14px}
+            .play-button{width:80px;height:80px}
+            .play-button svg{width:32px;height:32px}
+        }
+
+        /* ============================
+           DESKTOP (min-width:900px)
+           ============================ */
+        @media(min-width:900px){
+            .site-header{
+                left:50%;transform:translateX(-50%);
+                max-width:750px;padding:12px 20px;
+            }
+            .page-title-header{font-size:15px;font-weight:600}
+            .content-area{padding-top:62px}
+            
+            .page-container{padding:0 14px 40px}
+            h1{font-size:28px}
+            .info-grid{grid-template-columns:repeat(3,1fr)}
+            
+            .slide-menu{
+                position:fixed;top:62px;
+                right:calc(50% - 375px + 20px);
+            }
+        }
+    </style>
+{% include head.html %}
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-text">
+                <div class="page-title-header">Resource Directory</div>
+                <div id="domainSub" class="domain-sub"></div>
+            </div>
+            <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
+                <svg id="sunIcon" viewBox="0 0 24 24" style="display:none">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg id="moonIcon" viewBox="0 0 24 24" style="display:block">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+            <button class="menu-btn" id="blogMenuToggle" aria-label="Menu">
+                <svg id="menuOpenIcon" viewBox="0 0 24 24">
+                    <path d="M3 6h18M3 12h18M3 18h18"/>
+                </svg>
+                <svg id="menuCloseIcon" viewBox="0 0 24 24" style="display:none">
+                    <path d="M6 6l12 12M6 18l12-12"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- SLIDE MENU -->
+    <nav id="blogMenuPanel" class="slide-menu">
+        <ul>
+            <li><a href="/">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Home
+            </a></li>
+            <li><a href="/contact/">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Contact
+            </a></li>
+            <li><a href="/privacy-policy/">
+                <svg width="16" height="16" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Privacy Policy
+            </a></li>
+            <li><a href="/terms-and-conditions/">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                Terms & Conditions
+            </a></li>
+        </ul>
+    </nav>
+
+    <script>
+    // ===== SUBDOMAIN DETECTION =====
+    (function(){
+        var host = window.location.hostname.split(".");
+        var sub = host[0];
+        if (sub.toLowerCase() === "www") sub = host[1] || "";
+        var clean = sub.replace(/-/g, " ");
+        document.getElementById("domainSub").textContent = clean.replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+    })();
+    
+    // ===== THEME TOGGLE =====
+    (function(){
+        var themeBtn = document.getElementById("themeToggle");
+        var sunIcon = document.getElementById("sunIcon");
+        var moonIcon = document.getElementById("moonIcon");
+        var html = document.documentElement;
+        
+        var savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+        }
+        
+        function updateIcons() {
+            var currentTheme = html.getAttribute('data-theme');
+            if (currentTheme === 'light') {
+                sunIcon.style.display = 'none';
+                moonIcon.style.display = 'block';
+            } else {
+                sunIcon.style.display = 'block';
+                moonIcon.style.display = 'none';
+            }
+        }
+        
+        updateIcons();
+        
+        themeBtn.addEventListener('click', function() {
+            var currentTheme = html.getAttribute('data-theme');
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcons();
+        });
+    })();
+    
+    // ===== MENU TOGGLE =====
+    (function(){
+        var btn = document.getElementById("blogMenuToggle");
+        var panel = document.getElementById("blogMenuPanel");
+        var menuOpenIcon = document.getElementById("menuOpenIcon");
+        var menuCloseIcon = document.getElementById("menuCloseIcon");
+        
+        btn.addEventListener("click", function(e){
+            e.stopPropagation();
+            var open = panel.classList.toggle("open");
+            menuOpenIcon.style.display = open ? "none" : "block";
+            menuCloseIcon.style.display = open ? "block" : "none";
+        });
+        
+        document.addEventListener("click", function(e){
+            if(!panel.contains(e.target) && !btn.contains(e.target)){
+                panel.classList.remove("open");
+                menuOpenIcon.style.display = "block";
+                menuCloseIcon.style.display = "none";
+            }
+        });
+        
+        panel.addEventListener("click", function(e){e.stopPropagation();});
+    })();
+    </script>
+
+    <!-- MAIN LAYOUT -->
+    <div class="main-layout">
+
+        <!-- MAIN CONTENT -->
+        <main class="content-area">
+
+            <!-- VIDEO PLAYER -->
+            <div class="video-wrapper" id="videoWrapper">
+                <iframe
+                    id="videoFrame"
+                    src=""
+                    allow="autoplay; fullscreen"
+                    allowfullscreen
+                    webkitallowfullscreen
+                    mozallowfullscreen
+                    oallowfullscreen
+                    msallowfullscreen
+                    frameborder="0">
+                </iframe>
+                
+                <!-- PLAY OVERLAY (Fallback) -->
+                <div class="play-overlay" id="playOverlay">
+                    <div class="play-button">
+                        <svg viewBox="0 0 24 24">
+                            <polygon points="5 3 19 12 5 21 5 3"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                // Daftar URL video
+                const videoUrls = [
+                    "https://desi-porntube.com/embed/764465/?source=1594287872&autoplay=1&muted=1",
+                    "https://desi-porntube.com/embed/763769/?source=1594287872&autoplay=1&muted=1",
+                    "https://desi-porntube.com/embed/252973/?source=1594287872&autoplay=1&muted=1"
+                ];
+
+                // Pilih URL acak
+                function getRandomVideoUrl() {
+                    const randomIndex = Math.floor(Math.random() * videoUrls.length);
+                    return videoUrls[randomIndex];
+                }
+
+                // Set src iframe dengan URL acak (sudah ada autoplay=1&muted=1)
+                document.getElementById('videoFrame').src = getRandomVideoUrl();
+                
+                // Fallback: tampilkan play button jika autoplay gagal
+                (function(){
+                    var overlay = document.getElementById('playOverlay');
+                    var iframe = document.getElementById('videoFrame');
+                    
+                    // Cek setelah 3 detik jika iframe belum load/play
+                    var autoplayFailed = false;
+                    
+                    // Deteksi jika user perlu interaksi (autoplay blocked)
+                    setTimeout(function() {
+                        // Cek apakah iframe sudah terlihat (loaded)
+                        // Jika browser blokir autoplay, tampilkan overlay
+                        try {
+                            // Heuristic: jika document.hidden atau user belum interaksi
+                            // Browser mungkin blokir autoplay
+                            if (document.hidden) {
+                                showPlayButton();
+                            }
+                        } catch(e) {
+                            showPlayButton();
+                        }
+                    }, 3000);
+                    
+                    function showPlayButton() {
+                        overlay.classList.add('show');
+                    }
+                    
+                    overlay.addEventListener('click', function() {
+                        overlay.classList.remove('show');
+                        
+                        // Reload iframe dengan autoplay
+                        var currentSrc = iframe.src;
+                        if (currentSrc.indexOf('autoplay=1') === -1) {
+                            if (currentSrc.indexOf('?') === -1) {
+                                iframe.src = currentSrc + '?autoplay=1';
+                            } else {
+                                iframe.src = currentSrc + '&autoplay=1';
+                            }
+                        } else {
+                            // Force reload
+                            iframe.src = currentSrc;
+                        }
+                    });
+                })();
+            </script>
+
+            <div class="page-container">
+
+                <!-- DEFAULT CONTENT -->
+                <div id="default-content" class="default-content active">
+                    <h1 id="default-h1">Digital Media Resource Center</h1>
+                    <p>Comprehensive directory of media profiles, visual archives, and biographical references. Organized for efficient research and discovery.</p>
+                    
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <a href="/dash/?q=celebrity+leaked+video">Celebrity Leaked Videos</a>
+                        </div>
+                        <div class="info-card">
+                            <a href="/dash/?q=celebrity+leaked+photos">Celebrity Leaked Photos</a>
+                        </div>
+                        <div class="info-card">
+                            <a href="/dash/?q=exclusive+content">Exclusive Content</a>
+                        </div>
+                        <div class="info-card">
+                            <a href="/dash/?q=video+collections">Video Collections</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QUERY CONTENT -->
+                <div id="query-content" style="display: none;">
+                    
+                    <h1 id="main-heading"></h1>
+                    
+                    <p id="seo-paragraph-1"></p>
+                    
+                    <div class="info-grid" id="link-grid"></div>
+                    
+                    <p id="seo-paragraph-2"></p>
+                    
+                    <ul id="link-list"></ul>
+                    
+                    <p id="seo-paragraph-3"></p>
+                    
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+    
+    <script>
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        let query = urlParams.get('q');
+        
+        const hostname = window.location.hostname;
+        const subdomain = hostname.split('.')[0];
+        let identity = (subdomain && subdomain !== 'www' && hostname.split('.').length > 2) ? subdomain : '';
+        
+        const currentUrl = window.location.href;
+        const canonicalLink = document.getElementById('dynamic-canonical');
+        if (canonicalLink) {
+            canonicalLink.setAttribute('href', currentUrl);
+        }
+        
+        if (!query) {
+            document.getElementById('default-content').classList.add('active');
+            if (identity) {
+                document.title = identity + ' | Digital Media Resource Center';
+                const defaultH1 = document.getElementById('default-h1');
+                if (defaultH1) {
+                    defaultH1.textContent = identity + ' | Digital Media Resource Center';
+                }
+            } else {
+                document.title = 'Digital Media Resource Center';
+            }
+            return;
+        }
+        
+        document.getElementById('default-content').classList.remove('active');
+        document.getElementById('default-content').style.display = 'none';
+        document.getElementById('query-content').style.display = 'block';
+        
+        query = decodeURIComponent(query.replace(/\+/g, ' '));
+        
+        const removeTerms = ['2024', '2025', 'leaked', 'leak', 'video', 'videos', 'photos', 'photo', 'full', 'watch', 'online', 'free'];
+        
+        function getBaseName(query) {
+            let base = query.toLowerCase();
+            removeTerms.forEach(term => {
+                const regex = new RegExp('\\b' + term + '\\s*', 'gi');
+                base = base.replace(regex, '');
+            });
+            return base.trim() || query;
+        }
+        
+        const baseName = getBaseName(query);
+        const queryLower = query.toLowerCase();
+        
+        function capitalizeWords(str) {
+            return str.replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+        }
+        
+        const displayName = capitalizeWords(baseName);
+        
+        let title = displayName + ' Leaked Video - Full Collection & Exclusive Content';
+        if (identity) {
+            title = identity + ' | ' + title;
+        }
+        
+        document.title = title;
+        document.getElementById('dynamic-description').setAttribute('content', 
+            'Watch ' + displayName + ' leaked video and exclusive content. Full video, photos, and rare footage of ' + displayName + '. Updated daily.');
+        
+        let h1Text = displayName + ' Leaked Video - Full Collection';
+        if (identity) {
+            h1Text = identity + ' | ' + h1Text;
+        }
+        document.getElementById('main-heading').textContent = h1Text;
+        
+        const p1 = '<strong>' + displayName + ' leaked video</strong> has become one of the most searched topics online. Many users are looking for <strong>' + displayName + ' leaked content</strong> and <strong>' + displayName + ' exclusive footage</strong>. This page provides access to the complete collection of materials related to ' + displayName + '.';
+        document.getElementById('seo-paragraph-1').innerHTML = p1;
+        
+        const p2 = 'The <strong>' + displayName + ' leaked video</strong> collection includes various materials from multiple sources. Users searching for <strong>' + displayName + ' video leaked</strong> will find curated content here. We regularly update this resource with new <strong>' + displayName + ' content</strong> as it becomes available.';
+        document.getElementById('seo-paragraph-2').innerHTML = p2;
+        
+        const p3 = 'This page is regularly updated with the latest <strong>' + displayName + ' leaked content</strong>. Bookmark this resource for new <strong>' + displayName + ' videos</strong>, photos, and exclusive materials. Our team works to provide the most comprehensive collection available online.';
+        document.getElementById('seo-paragraph-3').innerHTML = p3;
+        
+        const linkGrid = document.getElementById('link-grid');
+        const linkVariants = [
+            { text: displayName + ' Leaked Video', variant: 'leaked+video' },
+            { text: displayName + ' Leaked Photos', variant: 'leaked+photos' },
+            { text: displayName + ' Exclusive Content', variant: 'exclusive+content' },
+            { text: displayName + ' Full Video', variant: 'full+video' },
+            { text: displayName + ' Viral Video', variant: 'viral+video' },
+            { text: displayName + ' Rare Footage', variant: 'rare+footage' }
+        ];
+        
+        linkVariants.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'info-card';
+            const link = document.createElement('a');
+            link.href = '/dash/?q=' + encodeURIComponent(baseName + ' ' + item.variant);
+            link.textContent = item.text;
+            card.appendChild(link);
+            linkGrid.appendChild(card);
+        });
+        
+        const linkList = document.getElementById('link-list');
+        const listVariants = [
+            displayName + ' leaked video',
+            displayName + ' viral video',
+            displayName + ' rare footage',
+            displayName + ' uncensored content',
+            displayName + ' private video',
+            displayName + ' exclusive footage',
+            displayName + ' behind the scenes',
+            displayName + ' unreleased video'
+        ];
+        
+        listVariants.forEach(item => {
+            const li = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = '/dash/?q=' + encodeURIComponent(item.toLowerCase());
+            link.textContent = item;
+            li.appendChild(link);
+            linkList.appendChild(li);
+        });
+        
+    })();
+    </script>
+    
+    {% include footer.html %}
+
+</body>
+</html>
