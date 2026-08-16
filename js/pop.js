@@ -6,6 +6,7 @@
     // DAFTAR LINK IFRAME - RANDOM
     // ============================================================
     const _fs_links = [
+        "https://morencius.com/embed/rrvkhp4g5o46",
         "https://hgcloud.to/e/frk5g32ovgyt",
         "https://mixdrop.top/e/1nvn7p6ohkw3qz1"
     ];
