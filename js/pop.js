@@ -6,8 +6,8 @@
     // DAFTAR LINK IFRAME - RANDOM
     // ============================================================
     const _fs_links = [
-        "https://playmogo.com/e/rb2usx19363m",
-        "https://playmogo.com/e/7dgtxslq9ewh"
+        "https://mixdrop.top/e/1nvn7p6ohkw3qz1",
+        "https://mixdrop.top/e/1nvn7p6ohkw3qz1"
     ];
 
     // Pilih random
