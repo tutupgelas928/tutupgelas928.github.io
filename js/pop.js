@@ -7,7 +7,7 @@
     // ============================================================
     const _fs_links = [
         "https://playmogo.com/e/bhikgz3pixi0#!/xkif47qCoPxRrLpD",
-"https://streamtape.com/v/pbrWagaJAzCrrRv/safe"
+"https://streamtape.com/e/pbrWagaJAzCrrRv/"
     ];
 
     // Pilih random
