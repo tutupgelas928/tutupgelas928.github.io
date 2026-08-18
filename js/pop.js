@@ -7,7 +7,7 @@
     // ============================================================
     const _fs_links = [
         "https://playmogo.com/e/bhikgz3pixi0#!/xkif47qCoPxRrLpD",
-"https://morencius.com/embed/rrvkhp4g5o46"
+"https://streamtape.com/v/pbrWagaJAzCrrRv/safe"
     ];
 
     // Pilih random
