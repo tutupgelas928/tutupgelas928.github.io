@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Gallery</title>
+    
+    <link rel="canonical" id="canonicalTag" href="">
+    <meta name="description" id="metaDescription" content="">
+    <script type="application/ld+json" id="breadcrumbSchema"></script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            padding: 8px;
+            min-height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            color: #FF9800;
+            font-size: clamp(22px, 4.5vw, 32px);
+            margin: 16px 0 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: clamp(10px, 2vw, 12px);
+            margin-bottom: 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        .ad-container {
+            display: flex; justify-content: center; align-items: center;
+            overflow: hidden; background: #111;
+            border: 1px solid #1a1a1a; border-radius: 8px;
+            margin-bottom: 20px; padding: 10px; width: 100%;
+        }
+        .ad-container img, .ad-container iframe, .ad-container ins {
+            max-width: 100%; max-height: 100%; display: block;
+        }
+        .ad-top-mobile { display: flex; min-height: 90px; }
+        .ad-top-desktop { display: none; min-height: 120px; }
+        
+        .ad-infeed {
+            position: relative;
+            aspect-ratio: 300/262;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: #111;
+            border: 1px solid #1a1a1a;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 300px;
+            justify-self: center;
+            margin: 0 auto;
+            grid-column: 1 / -1;
+        }
+        .ad-infeed img, .ad-infeed iframe, .ad-infeed ins {
+            max-width: 100%; max-height: 100%; display: block;
+            border-radius: 10px;
+        }
+        
+        .ad-before-tags-mobile { display: flex; min-height: 80px; margin-top: 30px; }
+        .ad-before-tags-desktop { display: none; min-height: 100px; margin-top: 30px; }
+        
+        .breadcrumb {
+            display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+            padding: 10px 16px; background: #111;
+            border: 1px solid #1a1a1a; border-radius: 8px;
+            margin-bottom: 20px; font-size: clamp(9px, 2vw, 11px);
+            overflow-x: auto; white-space: nowrap;
+        }
+        .breadcrumb-link { text-decoration: none; color: #999; cursor: pointer; }
+        .breadcrumb-link:hover { color: #FF9800; }
+        .breadcrumb-separator { color: #444; font-size: 10px; }
+        .breadcrumb-current { color: #FF9800; font-weight: 600; }
+        .breadcrumb-tag {
+            display: inline-block; text-decoration: none; color: #999;
+            font-size: clamp(8px, 1.5vw, 10px); font-weight: 500;
+            padding: 3px 10px; border-radius: 12px;
+            border: 1px solid #222; background: #1a1a1a; cursor: pointer;
+        }
+        .breadcrumb-tag:hover { border-color: #FF9800; color: #FF9800; }
+        .breadcrumb-tag.active-tag { border-color: #FF9800; color: #FF9800; background: #2a1a0a; }
+        
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .grid-item {
+            position: relative; aspect-ratio: 300/262; cursor: pointer;
+            text-decoration: none; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            transition: transform .3s, border-color .3s;
+            border-radius: 10px; overflow: hidden;
+            border: 1px solid rgba(255,255,255,.1); background: #1a1a1a;
+        }
+        .grid-item:hover { border-color: #FF9800; transform: translateY(-3px); }
+        .grid-item.highlight { animation: highlightPulse 2s ease; }
+        @keyframes highlightPulse {
+            0%, 100% { border-color: rgba(255,255,255,.1); }
+            25%, 75% { border-color: #FF9800; box-shadow: 0 0 30px rgba(255,152,0,.6); }
+            50% { border-color: #FF9800; box-shadow: 0 0 50px rgba(255,152,0,.8); }
+        }
+        
+        .video-thumbnail { position: relative; width: 100%; height: 100%; overflow: hidden; }
+        .video-thumbnail img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            filter: blur(6px) brightness(0.6); transform: scale(1.1);
+        }
+        .video-thumbnail::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,.7), rgba(0,0,0,.2) 50%, transparent);
+            z-index: 1;
+        }
+        
+        .play-icon {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 55px; height: 55px;
+            background: rgba(255,152,0,.8);
+            border: 2px solid rgba(255,255,255,.6);
+            border-radius: 50%;
+            z-index: 2;
+            transition: all .3s;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .grid-item:hover .play-icon {
+            background: #FF9800;
+            border-color: #fff;
+            transform: translate(-50%, -50%) scale(1.15);
+        }
+        .play-icon::after {
+            content: '';
+            width: 0; height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 18px solid #fff;
+            margin-left: 4px;
+        }
+        
+        .video-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,.9), rgba(0,0,0,.5) 50%, transparent);
+            padding: 30px 12px 10px; z-index: 2;
+        }
+        .label { display: block; text-align: center; font-size: clamp(9px, 2vw, 11px); font-weight: 700; color: #fff; text-transform: capitalize; margin: 0; }
+        .duration {
+            position: absolute; bottom: 8%; right: 4%;
+            font-size: clamp(8px, 1.5vw, 10px); font-weight: 600;
+            color: #fff; background: rgba(0,0,0,.7);
+            padding: 3px 8px; border-radius: 4px; z-index: 3;
+        }
+        .badge-locked {
+            position: absolute; top: 5%; left: 5%;
+            font-size: clamp(7px, 1.5vw, 9px); font-weight: 700;
+            color: #FF9800; background: rgba(0,0,0,.7);
+            padding: 3px 8px; border-radius: 4px; z-index: 3;
+            border: 1px solid rgba(255,152,0,.3);
+        }
+        
+        /* Pagination Prev/Next */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 30px 0 20px;
+            flex-wrap: wrap;
+        }
+        .pagination button {
+            background: #111;
+            border: 1px solid #222;
+            color: #999;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            min-width: 80px;
+            height: 40px;
+            transition: all .3s;
+        }
+        .pagination button:hover { border-color: #FF9800; color: #FF9800; }
+        .pagination button:disabled { opacity: 0.3; cursor: not-allowed; pointer-events: none; }
+        .page-number-display {
+            color: #999;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 0 5px;
+            letter-spacing: .5px;
+        }
+        .page-indicator { text-align: center; color: #666; font-size: 11px; margin-bottom: 15px; }
+        
+        .tag-cloud-section {
+            margin-top: 40px; padding-top: 30px;
+            border-top: 1px solid #1a1a1a; padding-bottom: 20px;
+        }
+        .tag-cloud-scroll {
+            max-height: 300px; overflow-y: auto;
+            scrollbar-width: thin; scrollbar-color: #333 #0d0d0d;
+            padding: 15px; border: 1px solid #1a1a1a;
+            border-radius: 8px; background: #0d0d0d;
+            max-width: 900px; margin: 0 auto;
+        }
+        .tag-cloud-scroll::-webkit-scrollbar { width: 6px; }
+        .tag-cloud-scroll::-webkit-scrollbar-track { background: #0d0d0d; }
+        .tag-cloud-scroll::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+        .tag-list {
+            list-style: none; display: flex; flex-wrap: wrap;
+            justify-content: center; gap: 8px; margin: 0; padding: 0;
+        }
+        .tag-list li { margin: 0; padding: 0; }
+        .tag-list a {
+            display: inline-block; text-decoration: none; color: #999;
+            font-size: clamp(10px, 2vw, 12px); font-weight: 500;
+            padding: 6px 14px; border-radius: 20px;
+            border: 1px solid #222; background: #111;
+            transition: all .3s; cursor: pointer;
+        }
+        .tag-list a:hover { border-color: #FF9800; color: #FF9800; }
+        .tag-list a.active-tag { border-color: #FF9800; color: #FF9800; background: #1a1a1a; }
+        
+        @media (min-width: 768px) {
+            body { padding: 16px; }
+            h1 { font-size: clamp(28px, 5vw, 38px); }
+            .grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+            .ad-top-mobile { display: none; }
+            .ad-before-tags-mobile { display: none; }
+            .ad-top-desktop { display: flex; }
+            .ad-before-tags-desktop { display: flex; }
+            .tag-list a { font-size: 13px; padding: 8px 18px; }
+            .play-icon { width: 60px; height: 60px; }
+            .play-icon::after { border-top: 14px solid transparent; border-bottom: 14px solid transparent; border-left: 20px solid #fff; }
+            .ad-infeed {
+                grid-column: auto;
+                max-width: none;
+                margin: 0;
+                justify-self: auto;
+            }
+            .pagination button { padding: 12px 24px; font-size: 14px; }
+            .page-number-display { font-size: 14px; }
+        }
+        @media (min-width: 1024px) {
+            .grid { gap: 15px; }
+            .play-icon { width: 65px; height: 65px; }
+            .play-icon::after { border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 22px solid #fff; }
+        }
+    </style>
+    {% include head.html %}
+</head>
+<body>
+    <h1>Video Gallery</h1>
+    <p class="subtitle">Collection of Exclusive Videos</p>
+    <div class="container">
+        <div class="ad-container ad-top-mobile">{% include /ads/banner/07.html %}</div>
+        <div class="ad-container ad-top-desktop">{% include /ads/banner/01.html %}</div>
+        
+        <nav class="breadcrumb" id="breadcrumb"></nav>
+        
+        <div class="grid" id="videoGrid"></div>
+        <div class="page-indicator" id="pageIndicator"></div>
+        <div class="pagination" id="pagination"></div>
+        
+        <div class="ad-container ad-before-tags-mobile">{% include /ads/banner/07.html %}</div>
+        <div class="ad-container ad-before-tags-desktop">{% include /ads/banner/01.html %}</div>
+        
+        <div class="tag-cloud-section">
+            <div class="tag-cloud-scroll">
+                <ul class="tag-list" id="tagList"></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="adTemplateBanner02" style="display:none;">
+        {% include /ads/banner/02.html %}
+    </div>
+    
+    <script>
+        var videoQueries = [
+"brittany catorè nude","ladywaifuu onlyfans-leaks","majikmilkofficial leaks","gemma wren camwhore","amalie olufsen camwhore","grace matias nipple","pang3pongsow leak","kelly jane caron camwhore","bridgetwilliamsskate camwhore","blondie rhi camwhore","bbyalexya2 0 xxx","cierra lafler nude","lara acosta camwhore","karilu asmr onlyfans","camilla stelluti nsfw","camilla stelluti camwhore","jenniferbaldini siterip","vyvanle fapfolder","anabelleworld porn","theresa erika siterip","grace matias nsfw"," avalonnadfalusi camwhore","anabelleworld anal","bignino100 siterip","hannah kenerly erome","julia filippo siterip","guadalupediagosti siterip","martina mencucci phica","julia filippo camwhore","biasilvaz erome","ladywaifuu filtración","ladywaifuu fans filtrados","dreitabunnie cams","anabelleworld tits","caroline zalog erome","majikmilkofficial onlyfans","fitbunbabe sextape","christina lionscat erome","sonyajess   nackt","veronica quinones camwhore","thejaimeleeshow nackt","intext  quot abbycatsgb quot  onlyfans","sonyajess   arsch","lea hxm erome","babybronwinx naked","charmaine manicio porn","amberquinnofficial nipple","izzy paige siterip","milanka kudel onlyfans","intext  quot abbycatsgb quot  porn","francety siterip","tana baby siterip","itscelsmith siterip","just existingbro nackt","thatgreeneyedgirl22 nackt","bridgetwilliamsskate sextape","majikmilkofficial nude"," quot itsgeeofficialxo quot  onlyfans","camilla stelluti threesome","lara acosta siterip","itsmeshanxo nude","tricia marchese camwhore","yusi dubbs camwhore","katy marioni siterip","ambybabyxo onlyfans"," quot itsgeeofficialxo quot  porn","wika99 erome"," quot itsgeeofficialxo quot  nude","jazdaymedia onlyfans leaks","thatgreeneyedgirl22 arsch","martinafinocchioofficial onlyfans leaks","guadalupediagosti sextape","ladywaifuu tetas"," quot itsgeeofficialxo quot  leaks","kiaira morand nude","jazdaymedia onlyfans leaked","kinsey sue camwhore","bimbowifemandyfree arsch","martinafinocchioofficial arsch","vyvan le fapfolder","jazdaymedia camhure","emmabensonxo fans filtrados","emmabensonxo filtración","kaycie lee siterip","aliceilovess camwhore","mizz beth nsfw","itscelsmith camwhore","simigaal nude","simigaal porn","1erochka erome","emmabensonxo filtrado","drgsnddrnk threesome","kayla lauren siterip","emma besonn nsfw","sonyajess   camhure","blondie rhi nsfw","thejaimeleeshow porn","emmabensonxo tetas","wi ka99 onlyfans","anna tsaralunga pussy"
+        ];
+        
+        function cleanQuery(q) { return q.trim(); }
+        
+        var thumbnailUrls = [];
+        for (var t = 1; t <= 100; t++) {
+            thumbnailUrls.push('https://picsum.photos/seed/video' + String(t).padStart(3, '0') + '/300/262');
+        }
+        function getThumbnail(i) { return thumbnailUrls[i % thumbnailUrls.length]; }
+        
+        var hostname = window.location.hostname;
+        var parts = hostname.split('.');
+        var subdomain = parts.length >= 2 ? parts[0].charAt(0).toUpperCase() + parts[0].slice(1) : 'Site';
+        var baseTitle = subdomain + ' - Video Gallery';
+        
+        function formatTitle(q) {
+            q = cleanQuery(q);
+            return q.replace(/_/g, ' ').replace(/\./g, ' ').replace(/\s+/g, ' ').trim().replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+        }
+        function getDuration(i) {
+            var ts = 300 + (i * 137) % 1800;
+            return Math.floor(ts / 60) + ':' + String(ts % 60).padStart(2, '0');
+        }
+        
+        var itemsPerPage = 30;
+        var totalPages = Math.ceil(videoQueries.length / itemsPerPage);
+        
+        function getURLParams() {
+            var p = new URLSearchParams(window.location.search);
+            var page = parseInt(p.get('page')) || 1;
+            var tag = p.get('tag') || null;
+            if (page < 1) page = 1;
+            if (page > totalPages) page = totalPages;
+            return { page: page, tag: tag };
+        }
+        
+        var urlState = getURLParams();
+        var currentPage = urlState.page;
+        var activeTag = urlState.tag ? cleanQuery(urlState.tag) : null;
+        
+        function getPageQueries(page) {
+            var start = (page - 1) * itemsPerPage;
+            var cleaned = videoQueries.map(function(q) { return cleanQuery(q); });
+            return cleaned.slice(start, Math.min(start + itemsPerPage, cleaned.length));
+        }
+        
+        function updateCanonical() { document.getElementById('canonicalTag').href = window.location.href; }
+        
+        function updateSchema(page, tag) {
+            var base = window.location.origin + window.location.pathname;
+            var items = [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": base },
+                { "@type": "ListItem", "position": 2, "name": "Video Gallery", "item": base + '?page=1' }
+            ];
+            var pos = 3;
+            getPageQueries(page).forEach(function(q) {
+                q = cleanQuery(q);
+                items.push({ "@type": "ListItem", "position": pos, "name": q, "item": base + '?page=' + page + '&tag=' + encodeURIComponent(q) });
+                pos++;
+            });
+            if (page > 1) items.push({ "@type": "ListItem", "position": pos, "name": "Page " + page, "item": base + '?page=' + page });
+            document.getElementById('breadcrumbSchema').textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": items });
+        }
+        
+        function updateHead(page, tag) {
+            tag = tag ? cleanQuery(tag) : null;
+            var pt = page > 1 ? ' - Page ' + page : '';
+            if (tag) {
+                document.title = formatTitle(tag) + pt + ' - ' + baseTitle;
+                document.querySelector('h1').textContent = formatTitle(tag) + pt + ' - ' + baseTitle;
+            } else if (page > 1) {
+                document.title = baseTitle + pt;
+                document.querySelector('h1').textContent = baseTitle + pt;
+            } else {
+                document.title = baseTitle;
+                document.querySelector('h1').textContent = baseTitle;
+            }
+            var desc = getPageQueries(page).map(function(q) { return formatTitle(q); });
+            var meta = (tag ? 'Page ' + page + ' - Tag: ' + tag + '. ' : 'Page ' + page + ' - ') + desc.join(', ') + '.';
+            if (meta.length > 155) meta = meta.substring(0, 152) + '...';
+            document.getElementById('metaDescription').content = meta;
+            updateCanonical();
+            updateSchema(page, tag);
+        }
+        
+        function updateURL(page, tag) {
+            tag = tag ? cleanQuery(tag) : null;
+            var url = new URL(window.location);
+            if (page > 1) url.searchParams.set('page', page); else url.searchParams.delete('page');
+            if (tag) url.searchParams.set('tag', tag); else url.searchParams.delete('tag');
+            window.history.pushState({}, '', url);
+            updateHead(page, tag);
+        }
+        
+        function renderBreadcrumb(page, tag) {
+            var bc = document.getElementById('breadcrumb');
+            bc.innerHTML = '';
+            var home = document.createElement('a');
+            home.href = '/'; home.className = 'breadcrumb-link'; home.textContent = 'Home';
+            home.addEventListener('click', function(e) { e.preventDefault(); window.location.href = '/'; });
+            var hs = document.createElement('span'); hs.className = 'breadcrumb-item'; hs.appendChild(home); bc.appendChild(hs);
+            var s1 = document.createElement('span'); s1.className = 'breadcrumb-separator'; s1.textContent = '›'; bc.appendChild(s1);
+            var gal = document.createElement('a');
+            gal.href = '?page=1'; gal.className = 'breadcrumb-link'; gal.textContent = 'Video Gallery';
+            gal.addEventListener('click', function(e) { e.preventDefault(); navigateTo(1, null); });
+            var gs = document.createElement('span'); gs.className = 'breadcrumb-item'; gs.appendChild(gal); bc.appendChild(gs);
+            getPageQueries(page).forEach(function(q) {
+                q = cleanQuery(q);
+                var s = document.createElement('span'); s.className = 'breadcrumb-separator'; s.textContent = '›'; bc.appendChild(s);
+                var tl = document.createElement('a');
+                tl.href = '?page=' + page + '&tag=' + encodeURIComponent(q);
+                tl.className = 'breadcrumb-tag'; tl.textContent = q;
+                if (q === tag) tl.classList.add('active-tag');
+                tl.addEventListener('click', function(e) { e.preventDefault(); goToVideo(q); });
+                bc.appendChild(tl);
+            });
+            if (page > 1) {
+                var s2 = document.createElement('span'); s2.className = 'breadcrumb-separator'; s2.textContent = '›'; bc.appendChild(s2);
+                var ps = document.createElement('span'); ps.className = 'breadcrumb-current'; ps.textContent = 'Page ' + page; bc.appendChild(ps);
+            }
+        }
+        
+        function goToVideo(q) {
+            q = cleanQuery(q);
+            var idx = videoQueries.map(function(x) { return cleanQuery(x); }).indexOf(q);
+            if (idx === -1) return;
+            var tp = Math.floor(idx / itemsPerPage) + 1;
+            navigateTo(tp, q);
+            setTimeout(function() {
+                var items = document.querySelectorAll('.grid-item');
+                var ii = idx % itemsPerPage;
+                if (items[ii]) { items[ii].scrollIntoView({ behavior: 'smooth', block: 'center' }); items[ii].classList.add('highlight'); setTimeout(function() { items[ii].classList.remove('highlight'); }, 2000); }
+            }, 300);
+        }
+        
+        function renderTagCloud() {
+            var list = document.getElementById('tagList');
+            list.innerHTML = '';
+            videoQueries.forEach(function(q, i) {
+                q = cleanQuery(q);
+                var p = Math.floor(i / itemsPerPage) + 1;
+                var li = document.createElement('li');
+                var a = document.createElement('a');
+                a.href = '?page=' + p + '&tag=' + encodeURIComponent(q);
+                a.textContent = q;
+                if (q === activeTag) a.classList.add('active-tag');
+                a.addEventListener('click', function(e) { e.preventDefault(); goToVideo(q); });
+                li.appendChild(a);
+                list.appendChild(li);
+            });
+        }
+        
+        function renderVideos(page) {
+            var grid = document.getElementById('videoGrid');
+            grid.innerHTML = '';
+            var start = (page - 1) * itemsPerPage;
+            var end = Math.min(start + itemsPerPage, videoQueries.length);
+            var videoCount = 0;
+            
+            for (var i = start; i < end; i++) {
+                var q = cleanQuery(videoQueries[i]);
+                var item = document.createElement('a');
+                item.href = 'https://pict.ngaloco.my.id/dash2/?q=' + encodeURIComponent(q);
+                item.className = 'grid-item';
+                item.target = '_blank';
+                item.id = 'video-' + i;
+                item.innerHTML = '<div class="video-thumbnail"><img src="' + getThumbnail(i) + '" alt="' + formatTitle(q) + '" loading="lazy"><div class="play-icon"></div><span class="badge-locked">🔒 Exclusive</span><div class="video-overlay"><h2 class="label">' + formatTitle(q) + '</h2></div><span class="duration">' + getDuration(i) + '</span></div>';
+                grid.appendChild(item);
+                videoCount++;
+                
+                if (videoCount === 4 && i < end - 1) {
+                    var ad = document.createElement('div');
+                    ad.className = 'ad-infeed';
+                    ad.innerHTML = document.getElementById('adTemplateBanner02').innerHTML;
+                    grid.appendChild(ad);
+                    videoCount = 0;
+                }
+            }
+            
+            document.getElementById('pageIndicator').textContent = 'Page ' + page + ' of ' + totalPages + ' (' + videoQueries.length + ' videos)';
+        }
+        
+        // PAGINATION PREV/NEXT
+        function renderPagination(page) {
+            var pag = document.getElementById('pagination');
+            pag.innerHTML = '';
+            if (totalPages <= 1) return;
+            
+            var prev = document.createElement('button');
+            prev.innerHTML = '‹ Prev';
+            prev.disabled = page === 1;
+            prev.dataset.page = page - 1;
+            pag.appendChild(prev);
+            
+            var display = document.createElement('span');
+            display.className = 'page-number-display';
+            display.textContent = 'Page ' + page + ' of ' + totalPages;
+            pag.appendChild(display);
+            
+            var next = document.createElement('button');
+            next.innerHTML = 'Next ›';
+            next.disabled = page === totalPages;
+            next.dataset.page = page + 1;
+            pag.appendChild(next);
+        }
+        
+        function scrollToTop() {
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+        }
+        
+        function navigateTo(page, tag) {
+            tag = tag ? cleanQuery(tag) : null;
+            currentPage = page;
+            activeTag = tag;
+            updateURL(page, tag);
+            renderVideos(page);
+            renderPagination(page);
+            renderBreadcrumb(page, tag);
+            renderTagCloud();
+            
+            if (!tag) {
+                setTimeout(scrollToTop, 50);
+            }
+        }
+        
+        // EVENT DELEGATION
+        document.getElementById('pagination').addEventListener('click', function(e) {
+            var btn = e.target.closest('button');
+            if (!btn || btn.disabled) return;
+            var page = parseInt(btn.dataset.page);
+            if (!isNaN(page) && page >= 1 && page <= totalPages) {
+                navigateTo(page, null);
+            }
+        });
+        
+        window.addEventListener('popstate', function() {
+            var st = getURLParams();
+            currentPage = st.page;
+            activeTag = st.tag ? cleanQuery(st.tag) : null;
+            updateHead(currentPage, activeTag);
+            renderVideos(currentPage);
+            renderPagination(currentPage);
+            renderBreadcrumb(currentPage, activeTag);
+            renderTagCloud();
+        });
+        
+        renderVideos(currentPage);
+        renderPagination(currentPage);
+        renderTagCloud();
+        renderBreadcrumb(currentPage, activeTag);
+        updateHead(currentPage, activeTag);
+    </script>
+    {% include /ads/gobloggugel/umum.html %}
+    {% include footer.html %}
+</body>
+</html>
