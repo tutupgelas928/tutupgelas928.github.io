@@ -2,7 +2,7 @@
     "use strict";
 
     /* =====================================================
-       CONFIGURATION
+       CONFIG
     ===================================================== */
 
     const VAST_URL =
@@ -59,10 +59,10 @@
 
             padding: 7px 10px;
 
-            background: rgba(0, 0, 0, .65);
+            background: rgba(0,0,0,.65);
             color: #fff;
 
-            font: 13px Arial, sans-serif;
+            font: 13px Arial,sans-serif;
             border-radius: 4px;
         }
 
@@ -71,43 +71,39 @@
             top: 15px;
             right: 15px;
 
-            z-index: 100;
+            z-index: 2147483647;
 
             display: block;
 
-            min-width: 92px;
+            min-width: 100px;
             height: 42px;
 
-            padding: 0 14px;
+            padding: 0 15px;
 
             border: 0;
             border-radius: 21px;
 
-            background: rgba(0, 0, 0, .8);
+            background: rgba(0,0,0,.8);
             color: #fff;
 
-            font: 14px Arial, sans-serif;
-            cursor: default;
+            font: 14px Arial,sans-serif;
 
-            opacity: .9;
+            cursor: default;
+            pointer-events: none;
         }
 
-        #closeVastPopup.is-ready {
+        #closeVastPopup.ready {
             min-width: 42px;
             width: 42px;
+
             padding: 0;
 
             border-radius: 50%;
 
             font-size: 28px;
-            line-height: 42px;
 
             cursor: pointer;
-            opacity: 1;
-        }
-
-        #closeVastPopup.is-ready:hover {
-            background: rgba(0, 0, 0, 1);
+            pointer-events: auto;
         }
     `;
 
@@ -121,7 +117,9 @@
     const popup =
         document.createElement("div");
 
-    popup.id = "vastPopup";
+    popup.id =
+        "vastPopup";
+
 
     popup.innerHTML = `
         <video
@@ -145,12 +143,16 @@
         <button
             id="closeVastPopup"
             type="button"
-            aria-label="Close">
-            Close in ${CLOSE_DELAY}s
+            aria-label="Close"
+            aria-disabled="true">
+            Close in 20s
         </button>
     `;
 
-    document.body.appendChild(popup);
+
+    document.body.appendChild(
+        popup
+    );
 
 
     /* =====================================================
@@ -158,74 +160,137 @@
     ===================================================== */
 
     const video =
-        document.getElementById("vastVideo");
+        document.getElementById(
+            "vastVideo"
+        );
 
     const youtube =
-        document.getElementById("youtubeFrame");
+        document.getElementById(
+            "youtubeFrame"
+        );
 
     const status =
-        document.getElementById("vastStatus");
+        document.getElementById(
+            "vastStatus"
+        );
 
     const closeButton =
-        document.getElementById("closeVastPopup");
+        document.getElementById(
+            "closeVastPopup"
+        );
 
 
     /* =====================================================
-       CLOSE COUNTDOWN
+       CLOSE TIMER
        
        IMPORTANT:
-       This timer is COMPLETELY INDEPENDENT
+       This timer is completely independent
        from VAST.
     ===================================================== */
-
-    let remaining =
-        CLOSE_DELAY;
 
     let popupClosed =
         false;
 
-    const countdownTimer =
-        setInterval(function () {
+    let closeReady =
+        false;
 
-            if (popupClosed) {
-                return;
-            }
+    const timerStart =
+        Date.now();
 
-            remaining--;
-
-            if (remaining > 0) {
-
-                closeButton.textContent =
-                    "Close in " +
-                    remaining +
-                    "s";
-
-                return;
-            }
+    let lastShown =
+        CLOSE_DELAY;
 
 
-            /* =============================================
-               COUNTDOWN FINISHED
-            ============================================= */
+    function updateCloseTimer() {
 
-            clearInterval(
-                countdownTimer
+        if (popupClosed) {
+            return;
+        }
+
+
+        const elapsed =
+            (Date.now() - timerStart) / 1000;
+
+
+        const remaining =
+            Math.max(
+                0,
+                Math.ceil(
+                    CLOSE_DELAY - elapsed
+                )
             );
+
+
+        /*
+         * Update only when
+         * the displayed number changes.
+         */
+
+        if (
+            remaining !== lastShown &&
+            remaining > 0
+        ) {
+
+            lastShown =
+                remaining;
+
+
+            closeButton.textContent =
+                "Close in " +
+                remaining +
+                "s";
+        }
+
+
+        /*
+         * Timer finished.
+         */
+
+        if (
+            remaining <= 0
+        ) {
+
+            closeReady =
+                true;
 
 
             closeButton.textContent =
                 "×";
 
+
             closeButton.classList.add(
-                "is-ready"
+                "ready"
             );
+
 
             closeButton.setAttribute(
-                "aria-label",
-                "Close"
+                "aria-disabled",
+                "false"
             );
 
-        }, 1000);
+
+            return;
+        }
+
+
+        /*
+         * Continue timer.
+         */
+
+        setTimeout(
+            updateCloseTimer,
+            250
+        );
+    }
+
+
+    /*
+     * Start timer IMMEDIATELY.
+     * Nothing related to VAST
+     * can stop this timer.
+     */
+
+    updateCloseTimer();
 
 
     /* =====================================================
@@ -236,25 +301,13 @@
         "click",
         function () {
 
-            /*
-             * Do nothing before countdown finishes.
-             */
-
-            if (
-                !closeButton.classList.contains(
-                    "is-ready"
-                )
-            ) {
+            if (!closeReady) {
                 return;
             }
 
 
-            popupClosed = true;
-
-
-            clearInterval(
-                countdownTimer
-            );
+            popupClosed =
+                true;
 
 
             /*
@@ -299,7 +352,7 @@
 
 
     /* =====================================================
-       CLEAN URL
+       URL HELPERS
     ===================================================== */
 
     function cleanURL(value) {
@@ -307,6 +360,7 @@
         if (!value) {
             return null;
         }
+
 
         return value
             .trim()
@@ -321,10 +375,6 @@
             .trim();
     }
 
-
-    /* =====================================================
-       ABSOLUTE URL
-    ===================================================== */
 
     function absoluteURL(
         url,
@@ -393,7 +443,6 @@
 
 
             if (
-                type === "video/mp4" ||
                 type.includes("mp4") ||
                 /\.mp4(\?|$)/i.test(url)
             ) {
@@ -401,13 +450,11 @@
                 return url;
 
             }
-
         }
 
 
         /*
-         * Fallback to first
-         * available MediaFile.
+         * Fallback.
          */
 
         for (
@@ -423,7 +470,6 @@
             if (url) {
                 return url;
             }
-
         }
 
 
@@ -432,7 +478,7 @@
 
 
     /* =====================================================
-       FIND VAST WRAPPER
+       FIND WRAPPER
     ===================================================== */
 
     function findWrapperURL(xml) {
@@ -483,7 +529,6 @@
                 "VAST HTTP " +
                 response.status
             );
-
         }
 
 
@@ -496,17 +541,7 @@
             throw new Error(
                 "Empty VAST response"
             );
-
         }
-
-
-        console.log(
-            "[VAST] Response received:",
-            text.substring(
-                0,
-                500
-            )
-        );
 
 
         const parser =
@@ -529,7 +564,6 @@
             throw new Error(
                 "Invalid VAST XML"
             );
-
         }
 
 
@@ -539,11 +573,6 @@
 
     /* =====================================================
        RESOLVE VAST
-       
-       Supports:
-       Inline
-       Wrapper
-       Multiple Wrapper levels
     ===================================================== */
 
     async function resolveVAST(
@@ -553,10 +582,6 @@
         let currentURL =
             startURL;
 
-
-        /*
-         * Maximum 5 wrappers.
-         */
 
         for (
             let attempt = 0;
@@ -574,10 +599,6 @@
                 );
 
 
-            /*
-             * Try MediaFile.
-             */
-
             const mediaURL =
                 findMediaFile(
                     xml
@@ -586,25 +607,17 @@
 
             if (mediaURL) {
 
-                console.log(
-                    "[VAST] Media found:",
-                    mediaURL
-                );
-
-
                 return {
+
                     mediaURL:
                         absoluteURL(
                             mediaURL,
                             currentURL
                         )
+
                 };
             }
 
-
-            /*
-             * Try Wrapper.
-             */
 
             const wrapperURL =
                 findWrapperURL(
@@ -617,7 +630,6 @@
                 throw new Error(
                     "No MediaFile or VAST Wrapper found"
                 );
-
             }
 
 
@@ -632,7 +644,6 @@
                 "[VAST] Following Wrapper:",
                 currentURL
             );
-
         }
 
 
@@ -648,11 +659,6 @@
 
     function showYouTube() {
 
-        /*
-         * Don't do anything if
-         * user already closed popup.
-         */
-
         if (popupClosed) {
             return;
         }
@@ -663,32 +669,16 @@
         );
 
 
-        /*
-         * Stop VAST.
-         */
-
-        try {
-
-            video.pause();
-
-        } catch (e) {}
+        video.pause();
 
 
         video.style.display =
             "none";
 
 
-        /*
-         * Hide status.
-         */
-
         status.style.display =
             "none";
 
-
-        /*
-         * Load YouTube.
-         */
 
         youtube.src =
             YOUTUBE_URL;
@@ -702,18 +692,13 @@
     /* =====================================================
        PLAY VAST
        
-       IMPORTANT:
-       Nothing here controls the
-       Close countdown.
+       This NEVER touches the
+       Close timer.
     ===================================================== */
 
     async function playVAST() {
 
         try {
-
-            status.textContent =
-                "Loading advertisement...";
-
 
             const result =
                 await resolveVAST(
@@ -722,14 +707,10 @@
 
 
             console.log(
-                "[VAST] Final media:",
+                "[VAST] Media:",
                 result.mediaURL
             );
 
-
-            /*
-             * Load VAST video.
-             */
 
             video.src =
                 result.mediaURL;
@@ -740,16 +721,13 @@
             video.playsInline =
                 true;
 
+
             video.load();
 
 
             status.textContent =
                 "Advertisement playing...";
 
-
-            /*
-             * Start playback.
-             */
 
             await video.play();
 
@@ -760,11 +738,6 @@
 
 
         } catch (error) {
-
-            /*
-             * Technical error only.
-             * Countdown remains untouched.
-             */
 
             console.error(
                 "[VAST] ERROR:",
@@ -777,18 +750,16 @@
 
 
             /*
-             * Continue to YouTube.
+             * VAST failed.
+             *
+             * The Close timer continues
+             * independently.
              */
 
             setTimeout(
-                function () {
-
-                    showYouTube();
-
-                },
+                showYouTube,
                 1000
             );
-
         }
     }
 
@@ -801,11 +772,6 @@
         "ended",
         function () {
 
-            console.log(
-                "[VAST] Advertisement finished"
-            );
-
-
             showYouTube();
 
         }
@@ -813,7 +779,7 @@
 
 
     /* =====================================================
-       VAST PLAYBACK ERROR
+       VAST ERROR
     ===================================================== */
 
     video.addEventListener(
@@ -821,7 +787,7 @@
         function () {
 
             console.error(
-                "[VAST] Video playback error:",
+                "[VAST] Playback error:",
                 video.error
             );
 
@@ -835,8 +801,8 @@
     /* =====================================================
        START VAST
        
-       Countdown has already started
-       independently above.
+       The Close timer is already
+       running independently.
     ===================================================== */
 
     playVAST();
