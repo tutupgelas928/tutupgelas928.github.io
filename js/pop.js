@@ -95,111 +95,23 @@
         ================================================= */
 
         #vastCountdown {
-            position: relative;
-
             display: block;
-
             width: 100%;
             height: 100%;
-
             line-height: 42px;
-
             text-align: center;
         }
 
         .vast-count-number {
-            position: absolute;
-
-            inset: 0;
-
-            display: flex;
+            display: none;
+            width: 100%;
+            height: 100%;
             align-items: center;
             justify-content: center;
-
-            opacity: 0;
         }
 
-        /*
-         * 20 numbers.
-         * CSS controls the countdown.
-         */
-
-        .vast-count-number:nth-child(20) {
-            animation: vastCount20 20s steps(20,end) forwards;
-        }
-
-        @keyframes vastCount20 {
-
-            0%   { opacity: 1; }
-            4.9% { opacity: 1; }
-
-            5%   { opacity: 0; }
-            100% { opacity: 0; }
-        }
-
-
-        /*
-         * Use a CSS custom animation on the
-         * whole countdown container.
-         */
-
-        #vastCountdown {
-            animation:
-                vastCountdownVisibility
-                20s
-                steps(1,end)
-                forwards;
-        }
-
-        @keyframes vastCountdownVisibility {
-
-            0% {
-                opacity: 1;
-            }
-
-            99.99% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0;
-            }
-        }
-
-
-        /* =================================================
-           INDIVIDUAL NUMBERS
-        ================================================= */
-
-        #count20 { animation: c20 20s steps(20,end) infinite; }
-        #count19 { animation: c19 20s steps(20,end) infinite; }
-        #count18 { animation: c18 20s steps(20,end) infinite; }
-        #count17 { animation: c17 20s steps(20,end) infinite; }
-        #count16 { animation: c16 20s steps(20,end) infinite; }
-        #count15 { animation: c15 20s steps(20,end) infinite; }
-        #count14 { animation: c14 20s steps(20,end) infinite; }
-        #count13 { animation: c13 20s steps(20,end) infinite; }
-        #count12 { animation: c12 20s steps(20,end) infinite; }
-        #count11 { animation: c11 20s steps(20,end) infinite; }
-        #count10 { animation: c10 20s steps(20,end) infinite; }
-        #count9  { animation: c9  20s steps(20,end) infinite; }
-        #count8  { animation: c8  20s steps(20,end) infinite; }
-        #count7  { animation: c7  20s steps(20,end) infinite; }
-        #count6  { animation: c6  20s steps(20,end) infinite; }
-        #count5  { animation: c5  20s steps(20,end) infinite; }
-        #count4  { animation: c4  20s steps(20,end) infinite; }
-        #count3  { animation: c3  20s steps(20,end) infinite; }
-        #count2  { animation: c2  20s steps(20,end) infinite; }
-        #count1  { animation: c1  20s steps(20,end) infinite; }
-
-
-        /*
-         * Simpler reliable countdown:
-         * each number has its own 1-second window.
-         */
-
-        .vast-number {
-            animation: none !important;
+        .vast-count-number.active {
+            display: flex;
         }
 
 
@@ -275,26 +187,26 @@
             aria-disabled="true">
 
             <span id="vastCountdown">
-                <span id="count20" class="vast-number">Close in 20s</span>
-                <span id="count19" class="vast-number">Close in 19s</span>
-                <span id="count18" class="vast-number">Close in 18s</span>
-                <span id="count17" class="vast-number">Close in 17s</span>
-                <span id="count16" class="vast-number">Close in 16s</span>
-                <span id="count15" class="vast-number">Close in 15s</span>
-                <span id="count14" class="vast-number">Close in 14s</span>
-                <span id="count13" class="vast-number">Close in 13s</span>
-                <span id="count12" class="vast-number">Close in 12s</span>
-                <span id="count11" class="vast-number">Close in 11s</span>
-                <span id="count10" class="vast-number">Close in 10s</span>
-                <span id="count9" class="vast-number">Close in 9s</span>
-                <span id="count8" class="vast-number">Close in 8s</span>
-                <span id="count7" class="vast-number">Close in 7s</span>
-                <span id="count6" class="vast-number">Close in 6s</span>
-                <span id="count5" class="vast-number">Close in 5s</span>
-                <span id="count4" class="vast-number">Close in 4s</span>
-                <span id="count3" class="vast-number">Close in 3s</span>
-                <span id="count2" class="vast-number">Close in 2s</span>
-                <span id="count1" class="vast-number">Close in 1s</span>
+                <span id="count20" class="vast-count-number active">Close in 20s</span>
+                <span id="count19" class="vast-count-number">Close in 19s</span>
+                <span id="count18" class="vast-count-number">Close in 18s</span>
+                <span id="count17" class="vast-count-number">Close in 17s</span>
+                <span id="count16" class="vast-count-number">Close in 16s</span>
+                <span id="count15" class="vast-count-number">Close in 15s</span>
+                <span id="count14" class="vast-count-number">Close in 14s</span>
+                <span id="count13" class="vast-count-number">Close in 13s</span>
+                <span id="count12" class="vast-count-number">Close in 12s</span>
+                <span id="count11" class="vast-count-number">Close in 11s</span>
+                <span id="count10" class="vast-count-number">Close in 10s</span>
+                <span id="count9" class="vast-count-number">Close in 9s</span>
+                <span id="count8" class="vast-count-number">Close in 8s</span>
+                <span id="count7" class="vast-count-number">Close in 7s</span>
+                <span id="count6" class="vast-count-number">Close in 6s</span>
+                <span id="count5" class="vast-count-number">Close in 5s</span>
+                <span id="count4" class="vast-count-number">Close in 4s</span>
+                <span id="count3" class="vast-count-number">Close in 3s</span>
+                <span id="count2" class="vast-count-number">Close in 2s</span>
+                <span id="count1" class="vast-count-number">Close in 1s</span>
             </span>
 
             <span id="vastCloseIcon">×</span>
@@ -327,45 +239,40 @@
 
 
     /* =====================================================
-       REAL CLOSE TIMER
-       
-       Separate from VAST.
+       COUNTDOWN FUNCTION
     ===================================================== */
 
-    const closeStart = Date.now();
+    function startCountdown() {
+        const countElements = document.querySelectorAll('.vast-count-number');
+        let remaining = CLOSE_DELAY;
 
-    function checkCloseReady() {
+        function updateCountdown() {
+            if (closed || ready) return;
 
-        if (closed || ready) {
-            return;
+            // Hide all
+            countElements.forEach(el => el.classList.remove('active'));
+
+            // Show current number
+            const currentEl = document.getElementById(`count${remaining}`);
+            if (currentEl) {
+                currentEl.classList.add('active');
+            }
+
+            if (remaining <= 0) {
+                // Countdown finished
+                ready = true;
+                closeButton.classList.add("ready");
+                closeButton.setAttribute("aria-disabled", "false");
+                return;
+            }
+
+            remaining--;
+            setTimeout(updateCountdown, 1000);
         }
 
-        if (
-            Date.now() - closeStart >=
-            CLOSE_DELAY * 1000
-        ) {
-
-            ready = true;
-
-            closeButton.classList.add(
-                "ready"
-            );
-
-            closeButton.setAttribute(
-                "aria-disabled",
-                "false"
-            );
-
-            return;
-        }
-
-        setTimeout(
-            checkCloseReady,
-            200
-        );
+        // Start countdown immediately
+        setTimeout(updateCountdown, 1000);
     }
-
-    checkCloseReady();
 
 
     /* =====================================================
@@ -625,8 +532,6 @@
 
     /* =====================================================
        VAST PLAYBACK
-       
-       Does NOT touch countdown.
     ===================================================== */
 
     async function playVAST() {
@@ -695,9 +600,10 @@
 
 
     /* =====================================================
-       START VAST
+       START VAST & COUNTDOWN
     ===================================================== */
 
     playVAST();
+    startCountdown();
 
 })();
