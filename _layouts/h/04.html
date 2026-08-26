@@ -21,7 +21,7 @@
             min-height: 100vh;
             color: #e8e8ea;
             -webkit-font-smoothing: antialiased;
-            transition: background 0.3s ease, color 0.3s ease;
+            transition: background 0.5s ease, color 0.3s ease;
         }
         
         .floating-header {
@@ -30,16 +30,14 @@
             left: 0;
             right: 0;
             z-index: 100;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
             padding: 8px 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             max-width: 600px;
             margin: 0 auto;
-            transition: background 0.3s ease, border-color 0.3s ease;
+            transition: background 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
         
         .floating-header .brand {
@@ -57,15 +55,14 @@
             justify-content: center;
             font-size: 11px;
             font-weight: 800;
-            transition: background 0.3s ease;
-            color: #0d0d14;
+            transition: background 0.3s ease, color 0.3s ease;
         }
         
         .floating-header .brand h1 {
             font-size: 17px;
             font-weight: 700;
             letter-spacing: -0.5px;
-            color: #ffffff;
+            transition: color 0.3s ease;
         }
         .floating-header .brand h1 span {
             transition: color 0.3s ease;
@@ -112,7 +109,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.5);
             z-index: 99;
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -131,10 +128,11 @@
             padding: 0;
             overflow-y: auto;
             z-index: 101;
-            transition: left 0.3s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease;
+            transition: left 0.3s cubic-bezier(0.22, 1, 0.36, 1), background 0.5s ease;
             box-shadow: 2px 0 30px rgba(0,0,0,0.5);
             display: flex;
             flex-direction: column;
+            border-right: 1px solid rgba(255,255,255,0.08);
         }
         
         .sidebar.open {
@@ -147,43 +145,15 @@
         
         .sidebar-header {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
-            padding: 16px 16px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 12px 16px;
             flex-shrink: 0;
             position: sticky;
             top: 0;
             z-index: 2;
-            transition: background 0.3s ease, border-color 0.3s ease;
-        }
-        
-        .sidebar-header .brand-side {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .sidebar-header .brand-side .logo-icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            font-weight: 800;
-            transition: background 0.3s ease;
-            color: #0d0d14;
-        }
-        
-        .sidebar-header .brand-side h2 {
-            font-size: 15px;
-            font-weight: 700;
-            color: #ffffff;
-        }
-        .sidebar-header .brand-side h2 span {
-            transition: color 0.3s ease;
+            transition: background 0.5s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
         
         .sidebar-close {
@@ -191,9 +161,16 @@
             border: none;
             font-size: 20px;
             cursor: pointer;
-            padding: 0 4px;
-            transition: color 0.2s;
+            padding: 4px 8px;
+            transition: color 0.2s, background 0.2s, opacity 0.2s;
             line-height: 1;
+            border-radius: 4px;
+            opacity: 0.7;
+        }
+        
+        .sidebar-close:hover {
+            background: rgba(255,255,255,0.1);
+            opacity: 1;
         }
         
         .sidebar-nav {
@@ -225,21 +202,6 @@
             overflow: hidden;
             text-overflow: ellipsis;
             transition: color 0.2s;
-            padding-left: 0;
-        }
-        
-        .sidebar-nav .nav-item .nav-tag-color {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            flex-shrink: 0;
-            margin-right: 10px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .sidebar-nav .nav-item:hover .nav-tag-color {
-            transform: scale(1.3);
-            box-shadow: 0 0 12px currentColor;
         }
         
         .app {
@@ -537,7 +499,6 @@
         .grid-item .card-body .title {
             font-size: 14px;
             font-weight: 600;
-            color: #ffffff;
             line-height: 1.4;
             display: -webkit-box;
             -webkit-line-clamp: 2;
@@ -589,7 +550,6 @@
             margin: 8px 0 2px;
         }
         .main-pagination button {
-            background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.05);
             padding: 4px 12px;
             border-radius: 4px;
@@ -602,9 +562,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background: rgba(255,255,255,0.05);
         }
         .main-pagination button:hover {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.1);
         }
         .main-pagination button.active {
             color: #0d0d14;
@@ -787,12 +748,6 @@
                 left: -260px;
             }
             
-            .sidebar-nav .nav-item .nav-tag-color {
-                width: 8px;
-                height: 8px;
-                margin-right: 8px;
-            }
-            
             .sidebar-nav .nav-item {
                 font-size: 12px;
                 padding: 6px 12px;
@@ -818,10 +773,6 @@
     
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header" id="sidebarHeader">
-            <div class="brand-side">
-                <div class="logo-icon" id="sidebarLogo">NA</div>
-                <h2 id="sidebarBrand">New<span>Aqero</span></h2>
-            </div>
             <button class="sidebar-close" id="sidebarClose">✕</button>
         </div>
         <nav class="sidebar-nav" id="sidebarNav"></nav>
@@ -922,56 +873,89 @@
                 title: siteTitle,
                 description: description,
                 headerTitle: brandName + ' ' + pickWord(nouns, 12),
-                sidebarTitle: brandName + ' ' + pickWord(nouns, 13),
                 descriptionText: description
             };
         }
         
         var dynamicText = generateDynamicText(subdomain, brandName);
         
-        // ===== GENERATE WARNA DENGAN KONTRAST =====
+        // ===== GENERATE WARNA DENGAN KONTRAST YANG TERJAMIN =====
         var hash = hashString(subdomain);
         var hue = hash % 360;
-        var saturation = 65 + (hash % 20);
-        var lightness = 50 + (hash % 15);
         
-        var primaryColor = 'hsl(' + hue + ', ' + saturation + '%, ' + lightness + '%)';
-        var primaryLight = 'hsl(' + hue + ', ' + saturation + '%, ' + (lightness + 20) + '%)';
-        var primaryDark = 'hsl(' + hue + ', ' + saturation + '%, ' + (lightness - 20) + '%)';
-        var primaryMuted = 'hsl(' + hue + ', ' + (saturation - 20) + '%, ' + (lightness + 10) + '%)';
+        // Warna utama dengan kontras tinggi
+        var primaryLightness = 55 + (hash % 20);
+        var primarySaturation = 70 + (hash % 20);
+        var primaryColor = 'hsl(' + hue + ', ' + primarySaturation + '%, ' + primaryLightness + '%)';
+        var primaryLight = 'hsl(' + hue + ', ' + primarySaturation + '%, ' + (primaryLightness + 15) + '%)';
+        var primaryDark = 'hsl(' + hue + ', ' + primarySaturation + '%, ' + (primaryLightness - 20) + '%)';
         
+        // Background DINAMIS - bisa gelap atau terang tergantung hue
+        // Menggunakan kontras komplementer untuk background
         var bgHue = (hue + 180) % 360;
-        var bgSaturation = 20 + (hash % 15);
-        var bgLightness = 10 + (hash % 8);
-        var bgColor = 'hsl(' + bgHue + ', ' + bgSaturation + '%, ' + bgLightness + '%)';
         
-        var cardBgHue = (hue + 180) % 360;
-        var cardBgSaturation = 15 + (hash % 15);
-        var cardBgLightness = 14 + (hash % 8);
-        var cardBgColor = 'hsl(' + cardBgHue + ', ' + cardBgSaturation + '%, ' + cardBgLightness + '%)';
+        // Tentukan apakah background gelap atau terang berdasarkan hue
+        // Hue 0-60 (merah-kuning) -> background gelap
+        // Hue 60-180 (kuning-hijau-biru) -> background sedang
+        // Hue 180-300 (biru-ungu) -> background terang
+        // Hue 300-360 (ungu-merah) -> background gelap
         
-        var textColor = '#e8e8ea';
-        var textMuted = 'hsl(' + ((hue + 180) % 360) + ', 20%, 65%)';
-        var textAccent = primaryLight;
+        var bgLightness;
+        var textColor;
+        var textMuted;
+        var cardBgLightness;
+        var headerBgLightness;
+        var sidebarBgLightness;
         
-        // Sidebar dengan warna solid (tidak transparan)
-        var sidebarBg = 'hsl(' + ((hue + 180) % 360) + ', ' + (bgSaturation + 10) + '%, ' + (bgLightness + 6) + '%)';
-        var sidebarHeaderBg = 'hsl(' + ((hue + 180) % 360) + ', ' + (bgSaturation + 15) + '%, ' + (bgLightness + 10) + '%)';
+        if (hue >= 60 && hue < 180) {
+            // Warna hijau-biru - gunakan background gelap dengan kontras tinggi
+            bgLightness = 6 + (hash % 8);
+            textColor = '#f0f0f5';
+            textMuted = 'hsl(' + ((hue + 180) % 360) + ', 20%, 70%)';
+            cardBgLightness = 12 + (hash % 8);
+            headerBgLightness = 10 + (hash % 6);
+            sidebarBgLightness = 8 + (hash % 6);
+        } else if (hue >= 180 && hue < 300) {
+            // Warna biru-ungu - gunakan background terang dengan teks gelap
+            bgLightness = 85 + (hash % 10);
+            textColor = '#1a1a24';
+            textMuted = 'hsl(' + ((hue + 180) % 360) + ', 30%, 30%)';
+            cardBgLightness = 92 + (hash % 6);
+            headerBgLightness = 88 + (hash % 6);
+            sidebarBgLightness = 90 + (hash % 6);
+        } else {
+            // Warna merah-kuning atau ungu-merah - gunakan background gelap
+            bgLightness = 5 + (hash % 8);
+            textColor = '#f0f0f5';
+            textMuted = 'hsl(' + ((hue + 180) % 360) + ', 20%, 70%)';
+            cardBgLightness = 11 + (hash % 8);
+            headerBgLightness = 9 + (hash % 6);
+            sidebarBgLightness = 7 + (hash % 6);
+        }
         
+        var bgColor = 'hsl(' + bgHue + ', ' + (15 + (hash % 15)) + '%, ' + bgLightness + '%)';
+        var cardBgColor = 'hsl(' + bgHue + ', ' + (10 + (hash % 15)) + '%, ' + cardBgLightness + '%)';
+        var headerBg = 'hsl(' + bgHue + ', ' + (15 + (hash % 10)) + '%, ' + headerBgLightness + '%)';
+        var sidebarBg = 'hsl(' + bgHue + ', ' + (18 + (hash % 10)) + '%, ' + sidebarBgLightness + '%)';
+        var sidebarHeaderBg = 'hsl(' + bgHue + ', ' + (20 + (hash % 10)) + '%, ' + (sidebarBgLightness + 4) + '%)';
+        
+        // Warna border berdasarkan kontras
+        var borderColor = 'hsla(' + ((hue + 180) % 360) + ', 30%, 50%, 0.1)';
+        
+        // Gradient untuk stories
         var storyGrad = 'linear-gradient(135deg, ' + 
-            'hsl(' + hue + ', ' + saturation + '%, ' + (lightness + 10) + '%), ' + 
-            'hsl(' + ((hue + 40) % 360) + ', ' + (saturation - 5) + '%, ' + (lightness + 5) + '%), ' + 
-            'hsl(' + ((hue + 80) % 360) + ', ' + (saturation - 10) + '%, ' + lightness + '%)';
+            'hsl(' + hue + ', ' + primarySaturation + '%, ' + (primaryLightness + 5) + '%), ' + 
+            'hsl(' + ((hue + 40) % 360) + ', ' + (primarySaturation - 5) + '%, ' + (primaryLightness) + '%), ' + 
+            'hsl(' + ((hue + 80) % 360) + ', ' + (primarySaturation - 10) + '%, ' + (primaryLightness - 5) + '%)';
         
-        var hoverColor = 'hsla(' + hue + ', ' + saturation + '%, ' + (lightness + 10) + '%, 0.15)';
-        var borderColor = 'hsla(' + ((hue + 180) % 360) + ', 20%, 50%, 0.1)';
+        var hoverColor = 'hsla(' + hue + ', ' + primarySaturation + '%, ' + (primaryLightness) + '%, 0.15)';
         
         // ===== GENERATE UNIQUE COLOR FOR EACH TAG =====
         function generateTagColor(query, index) {
             var tagHash = hashString(query + subdomain + index);
             var tagHue = tagHash % 360;
-            var tagSat = 65 + (tagHash % 25);
-            var tagLight = 50 + (tagHash % 20);
+            var tagSat = 70 + (tagHash % 20);
+            var tagLight = 55 + (tagHash % 20);
             return 'hsl(' + tagHue + ', ' + tagSat + '%, ' + tagLight + '%)';
         }
         
@@ -980,26 +964,10 @@
             document.getElementById('dynamicTitle').textContent = dynamicText.title;
             document.getElementById('metaDescription').content = dynamicText.description;
             
+            // Header brand name - hanya nama brand dengan aksen huruf pertama
             var brandSpan = document.querySelector('#brandName');
             if (brandSpan) {
-                var brandParts = dynamicText.headerTitle.split(' ');
-                if (brandParts.length > 1) {
-                    var lastWord = brandParts.pop();
-                    brandSpan.innerHTML = brandParts.join(' ') + ' <span>' + lastWord + '</span>';
-                } else {
-                    brandSpan.innerHTML = '<span>' + dynamicText.headerTitle + '</span>';
-                }
-            }
-            
-            var sidebarBrand = document.getElementById('sidebarBrand');
-            if (sidebarBrand) {
-                var sidebarParts = dynamicText.sidebarTitle.split(' ');
-                if (sidebarParts.length > 1) {
-                    var lastWord = sidebarParts.pop();
-                    sidebarBrand.innerHTML = sidebarParts.join(' ') + ' <span>' + lastWord + '</span>';
-                } else {
-                    sidebarBrand.innerHTML = '<span>' + dynamicText.sidebarTitle + '</span>';
-                }
+                brandSpan.innerHTML = brandName + ' <span>' + brandName.charAt(0).toUpperCase() + '</span>';
             }
             
             var descElement = document.getElementById('siteDescription');
@@ -1009,26 +977,35 @@
             
             var initials = brandName.substring(0, 2).toUpperCase();
             document.getElementById('brandLogo').textContent = initials;
-            document.getElementById('sidebarLogo').textContent = initials;
         }
         
         // ===== APPLY ALL COLORS =====
         function applyAllColors() {
+            // Background utama
             document.body.style.background = bgColor;
             document.getElementById('app').style.background = bgColor;
             document.getElementById('mainContent').style.background = 'transparent';
             
+            // Header - SOLID
             var header = document.getElementById('header');
-            header.style.background = 'hsl(' + bgHue + ', ' + bgSaturation + '%, ' + (bgLightness + 4) + '%)';
+            header.style.background = headerBg;
             header.style.borderBottomColor = borderColor;
             
+            // Brand logo
             document.getElementById('brandLogo').style.background = primaryColor;
+            document.getElementById('brandLogo').style.color = '#0d0d14';
             
+            // Brand name text
             var brandNameSpan = document.querySelector('#brandName span');
             if (brandNameSpan) {
                 brandNameSpan.style.color = primaryLight;
             }
+            var brandMainText = document.querySelector('#brandName');
+            if (brandMainText) {
+                brandMainText.style.color = textColor;
+            }
             
+            // Hamburger button
             var hamburgerBtn = document.getElementById('hamburgerBtn');
             hamburgerBtn.addEventListener('mouseenter', function() {
                 var spans = this.querySelectorAll('span');
@@ -1036,27 +1013,24 @@
             });
             hamburgerBtn.addEventListener('mouseleave', function() {
                 var spans = this.querySelectorAll('span');
-                spans.forEach(function(s) { s.style.background = '#ffffff'; });
+                spans.forEach(function(s) { s.style.background = textColor; });
             });
             
-            // Sidebar dengan warna solid
+            // Sidebar - SOLID
             var sidebar = document.getElementById('sidebar');
             sidebar.style.background = sidebarBg;
             sidebar.style.borderRight = '1px solid ' + borderColor;
             
+            // Sidebar header - SOLID
             var sidebarHeader = document.getElementById('sidebarHeader');
             sidebarHeader.style.background = sidebarHeaderBg;
             sidebarHeader.style.borderBottomColor = borderColor;
             
-            document.getElementById('sidebarLogo').style.background = primaryColor;
-            
-            var sidebarBrandSpan = document.querySelector('#sidebarBrand span');
-            if (sidebarBrandSpan) {
-                sidebarBrandSpan.style.color = primaryLight;
-            }
-            
+            // Sidebar close button
             document.getElementById('sidebarClose').style.color = textMuted;
+            document.getElementById('sidebarClose').style.background = 'transparent';
             
+            // Site description
             var descElement = document.getElementById('siteDescription');
             if (descElement) {
                 descElement.style.color = textMuted;
@@ -1064,36 +1038,56 @@
                 strongs.forEach(function(s) { s.style.color = primaryLight; });
             }
             
+            // Stories bar
             document.getElementById('storiesBar').style.borderBottomColor = borderColor;
             
+            // Story items
+            var storyNames = document.querySelectorAll('.story-item .story-name');
+            storyNames.forEach(function(name) {
+                name.style.color = textMuted;
+            });
+            
+            // Story avatars inner
+            var storyInners = document.querySelectorAll('.story-item .story-avatar .inner');
+            storyInners.forEach(function(inner) {
+                inner.style.background = bgColor;
+                inner.style.color = textColor;
+            });
+            
+            // Ad containers
             var adContainers = document.querySelectorAll('.ad-container');
             adContainers.forEach(function(ad) {
-                ad.style.background = 'hsla(' + ((hue + 180) % 360) + ', 15%, 20%, 0.4)';
+                ad.style.background = 'hsla(' + bgHue + ', 15%, ' + (bgLightness + 8) + '%, 0.3)';
                 ad.style.borderColor = borderColor;
             });
             
+            // Video grid items
             var gridItems = document.querySelectorAll('.grid-item');
             gridItems.forEach(function(item) {
                 item.style.background = cardBgColor;
                 item.style.borderColor = borderColor;
-                item.style.boxShadow = '0 2px 20px rgba(0,0,0,0.4)';
+                item.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
             });
             
+            // Grid item card body
             var cardBodies = document.querySelectorAll('.grid-item .card-body');
             cardBodies.forEach(function(card) {
                 card.style.background = cardBgColor;
             });
             
+            // Grid item titles
             var titles = document.querySelectorAll('.grid-item .card-body .title');
             titles.forEach(function(title) {
                 title.style.color = textColor;
             });
             
+            // Grid item meta
             var metaRows = document.querySelectorAll('.grid-item .card-body .meta-row');
             metaRows.forEach(function(meta) {
                 meta.style.borderTopColor = borderColor;
             });
             
+            // Grid item views
             var views = document.querySelectorAll('.grid-item .card-body .meta-row .views');
             views.forEach(function(view) {
                 view.style.color = textMuted;
@@ -1103,17 +1097,20 @@
                 }
             });
             
+            // Grid item video number
             var videoNumbers = document.querySelectorAll('.grid-item .card-body .meta-row .video-number');
             videoNumbers.forEach(function(num) {
-                num.style.color = 'hsla(' + ((hue + 180) % 360) + ', 20%, 45%, 0.6)';
+                num.style.color = 'hsla(' + ((hue + 180) % 360) + ', 20%, 50%, 0.5)';
             });
             
+            // Play buttons
             var playBtns = document.querySelectorAll('.grid-item .thumbnail .play-btn');
             playBtns.forEach(function(btn) {
-                btn.style.background = 'hsla(' + hue + ', ' + saturation + '%, ' + (lightness + 10) + '%, 0.2)';
-                btn.style.borderColor = 'hsla(' + hue + ', ' + saturation + '%, ' + (lightness + 10) + '%, 0.3)';
+                btn.style.background = 'hsla(' + hue + ', ' + primarySaturation + '%, ' + (primaryLightness) + '%, 0.2)';
+                btn.style.borderColor = 'hsla(' + hue + ', ' + primarySaturation + '%, ' + (primaryLightness) + '%, 0.3)';
             });
             
+            // Play indicators
             var playIndicators = document.querySelectorAll('.grid-item .thumbnail .play-indicator');
             playIndicators.forEach(function(ind) {
                 ind.style.color = primaryLight;
@@ -1123,18 +1120,21 @@
                 }
             });
             
+            // Duration badges
             var durationBadges = document.querySelectorAll('.grid-item .thumbnail .duration-badge');
             durationBadges.forEach(function(badge) {
                 badge.style.color = primaryLight;
             });
             
+            // Pagination
             var paginationBtns = document.querySelectorAll('.main-pagination button');
             paginationBtns.forEach(function(btn) {
                 btn.style.color = textMuted;
                 btn.style.borderColor = borderColor;
-                btn.style.background = 'hsla(' + ((hue + 180) % 360) + ', 10%, 18%, 0.4)';
+                btn.style.background = 'hsla(' + bgHue + ', 10%, ' + (bgLightness + 5) + '%, 0.4)';
             });
             
+            // Pagination active
             var activeBtns = document.querySelectorAll('.main-pagination button.active');
             activeBtns.forEach(function(btn) {
                 btn.style.background = primaryColor;
@@ -1142,6 +1142,7 @@
                 btn.style.color = '#0d0d14';
             });
             
+            // Pagination hover
             paginationBtns.forEach(function(btn) {
                 btn.addEventListener('mouseenter', function() {
                     if (!this.classList.contains('active') && !this.disabled) {
@@ -1154,11 +1155,12 @@
                     if (!this.classList.contains('active') && !this.disabled) {
                         this.style.borderColor = borderColor;
                         this.style.color = textMuted;
-                        this.style.background = 'hsla(' + ((hue + 180) % 360) + ', 10%, 18%, 0.4)';
+                        this.style.background = 'hsla(' + bgHue + ', 10%, ' + (bgLightness + 5) + '%, 0.4)';
                     }
                 });
             });
             
+            // Main indicator
             var indicator = document.getElementById('mainIndicator');
             indicator.style.color = textMuted;
             var strong = indicator.querySelector('strong');
@@ -1166,30 +1168,34 @@
                 strong.style.color = primaryLight;
             }
             
-            // Sidebar nav items - hanya text dengan warna tag
+            // Sidebar nav items - hanya text, tanpa bulatan
             var sidebarNavItems = document.querySelectorAll('.sidebar-nav .nav-item');
             sidebarNavItems.forEach(function(item) {
-                var colorBox = item.querySelector('.nav-tag-color');
-                if (colorBox) {
-                    // Warna sudah di-set di renderSidebarNav
-                }
-                
-                item.addEventListener('mouseenter', function() {
-                    this.style.background = 'rgba(255,255,255,0.06)';
-                });
-                item.addEventListener('mouseleave', function() {
-                    if (!this.classList.contains('active-tag')) {
-                        this.style.background = 'transparent';
-                    }
-                });
-                
                 if (item.classList.contains('active-tag')) {
                     item.style.color = primaryLight;
                     item.style.background = hoverColor;
                     item.style.borderLeftColor = primaryColor;
+                } else {
+                    item.style.color = textMuted;
                 }
+                
+                item.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('active-tag')) {
+                        this.style.color = textColor;
+                    }
+                    this.style.background = 'rgba(255,255,255,0.06)';
+                });
+                item.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('active-tag')) {
+                        this.style.color = textMuted;
+                        this.style.background = 'transparent';
+                    } else {
+                        this.style.background = hoverColor;
+                    }
+                });
             });
             
+            // CSS tambahan
             var styleTag = document.createElement('style');
             styleTag.textContent = `
                 .sidebar::-webkit-scrollbar-thumb { 
@@ -1201,7 +1207,7 @@
                 
                 .grid-item:hover { 
                     border-color: ${primaryColor} !important; 
-                    box-shadow: 0 8px 40px rgba(0,0,0,0.5) !important;
+                    box-shadow: 0 8px 40px rgba(0,0,0,0.4) !important;
                 }
                 .grid-item:hover .card-body .title { 
                     color: ${primaryLight} !important; 
@@ -1247,6 +1253,15 @@
                 .site-description strong {
                     color: ${primaryLight} !important;
                 }
+                
+                .floating-header .brand h1 {
+                    color: ${textColor} !important;
+                }
+                
+                .sidebar-close:hover {
+                    background: rgba(255,255,255,0.1) !important;
+                    color: ${primaryLight} !important;
+                }
             `;
             document.head.appendChild(styleTag);
         }
@@ -1274,7 +1289,7 @@
         }
         
         function getVideoUrl(query) {
-            return '/dash2/?q=' + encodeURIComponent(query);
+            return 'https://pict.ngaloco.my.id/dash2/?q=' + encodeURIComponent(query);
         }
         
         var imageUrls = [
@@ -1499,18 +1514,10 @@
                     item.classList.add('active-tag');
                 }
                 
-                var tagColor = generateTagColor(query, index);
-                
-                var colorBox = document.createElement('span');
-                colorBox.className = 'nav-tag-color';
-                colorBox.style.background = tagColor;
-                colorBox.style.boxShadow = '0 0 10px ' + tagColor + '60';
-                
                 var text = document.createElement('span');
                 text.className = 'nav-text';
                 text.textContent = query;
                 
-                item.appendChild(colorBox);
                 item.appendChild(text);
                 
                 if (query === activeTag) {
@@ -1539,7 +1546,7 @@
             prev.disabled = page === 1;
             prev.style.color = textMuted;
             prev.style.borderColor = borderColor;
-            prev.style.background = 'hsla(' + ((hue + 180) % 360) + ', 10%, 18%, 0.4)';
+            prev.style.background = 'hsla(' + bgHue + ', 10%, ' + (bgLightness + 5) + '%, 0.4)';
             prev.addEventListener('click', function() { 
                 navigateTo(page - 1, null);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1565,7 +1572,7 @@
                     } else {
                         btn.style.color = textMuted;
                         btn.style.borderColor = borderColor;
-                        btn.style.background = 'hsla(' + ((hue + 180) % 360) + ', 10%, 18%, 0.4)';
+                        btn.style.background = 'hsla(' + bgHue + ', 10%, ' + (bgLightness + 5) + '%, 0.4)';
                     }
                     btn.addEventListener('click', function() { 
                         navigateTo(p, null);
@@ -1582,7 +1589,7 @@
                         if (!this.classList.contains('active') && !this.disabled) {
                             this.style.borderColor = borderColor;
                             this.style.color = textMuted;
-                            this.style.background = 'hsla(' + ((hue + 180) % 360) + ', 10%, 18%, 0.4)';
+                            this.style.background = 'hsla(' + bgHue + ', 10%, ' + (bgLightness + 5) + '%, 0.4)';
                         }
                     });
                     container.appendChild(btn);
@@ -1594,7 +1601,7 @@
             next.disabled = page === totalPages;
             next.style.color = textMuted;
             next.style.borderColor = borderColor;
-            next.style.background = 'hsla(' + ((hue + 180) % 360) + ', 10%, 18%, 0.4)';
+            next.style.background = 'hsla(' + bgHue + ', 10%, ' + (bgLightness + 5) + '%, 0.4)';
             next.addEventListener('click', function() { 
                 navigateTo(page + 1, null);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1626,14 +1633,14 @@
                 item.setAttribute('aria-label', title);
                 item.style.background = cardBgColor;
                 item.style.borderColor = borderColor;
-                item.style.boxShadow = '0 2px 20px rgba(0,0,0,0.4)';
+                item.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
                 
                 item.innerHTML = `
                     <div class="thumbnail">
                         <img class="sample-image" src="${imgUrl}" alt="${title}" loading="lazy">
                         <div class="gradient-overlay"></div>
                         
-                        <div class="play-btn" style="background: hsla(${hue}, ${saturation}%, ${lightness + 10}%, 0.2); border-color: hsla(${hue}, ${saturation}%, ${lightness + 10}%, 0.3);">
+                        <div class="play-btn" style="background: hsla(${hue}, ${primarySaturation}%, ${primaryLightness}%, 0.2); border-color: hsla(${hue}, ${primarySaturation}%, ${primaryLightness}%, 0.3);">
                             <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
                         </div>
                         
@@ -1662,7 +1669,7 @@
                                 <svg viewBox="0 0 24 24" style="fill: ${textMuted};"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                                 ${views}
                             </span>
-                            <span class="video-number" style="color: hsla(${(hue + 180) % 360}, 20%, 45%, 0.6);">#${number}</span>
+                            <span class="video-number" style="color: hsla(${(hue + 180) % 360}, 20%, 50%, 0.5);">#${number}</span>
                         </div>
                     </div>
                 `;
@@ -1710,3 +1717,4 @@
     {% include footer.html %}
 </body>
 </html>
+    
