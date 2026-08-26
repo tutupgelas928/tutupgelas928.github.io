@@ -211,6 +211,7 @@
             border-left: 3px solid transparent;
             font-size: 13px;
             font-weight: 500;
+            border-radius: 0;
         }
         
         .sidebar-nav .nav-item:hover {
@@ -218,11 +219,15 @@
         }
         
         .sidebar-nav .nav-item .nav-dot {
-            width: 6px;
-            height: 6px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             flex-shrink: 0;
-            transition: background 0.2s;
+            transition: background 0.2s, transform 0.2s;
+        }
+        
+        .sidebar-nav .nav-item:hover .nav-dot {
+            transform: scale(1.3);
         }
         
         .sidebar-nav .nav-item .nav-text {
@@ -230,6 +235,19 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            transition: color 0.2s;
+        }
+        
+        .sidebar-nav .nav-item .nav-tag-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            flex-shrink: 0;
+            transition: transform 0.2s;
+        }
+        
+        .sidebar-nav .nav-item:hover .nav-tag-color {
+            transform: scale(1.2);
         }
         
         .app {
@@ -243,6 +261,20 @@
             padding: 12px 12px 24px;
             overflow-x: hidden;
             max-width: 100%;
+        }
+        
+        .site-description {
+            padding: 12px 0 16px;
+            font-size: 13px;
+            line-height: 1.6;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+        
+        .site-description strong {
+            font-weight: 600;
+            transition: color 0.3s;
         }
         
         .stories-bar {
@@ -624,6 +656,11 @@
                 padding: 8px 8px 16px;
             }
             
+            .site-description {
+                font-size: 12px;
+                padding: 8px 0 12px;
+            }
+            
             .video-grid {
                 gap: 12px;
             }
@@ -705,6 +742,11 @@
                 gap: 10px;
             }
             
+            .site-description {
+                font-size: 11px;
+                padding: 6px 0 10px;
+            }
+            
             .story-item .story-avatar {
                 width: 36px;
                 height: 36px;
@@ -752,6 +794,11 @@
                 width: 240px;
                 left: -260px;
             }
+            
+            .sidebar-nav .nav-item .nav-tag-color {
+                width: 10px;
+                height: 10px;
+            }
         }
     </style>
     {% include head.html %}
@@ -784,6 +831,8 @@
     
     <div class="app" id="app">
         <main class="main-content" id="mainContent">
+            <div class="site-description" id="siteDescription"></div>
+            
             <div class="stories-bar" id="storiesBar"></div>
             
             <div class="ad-container ad-top ad-desktop" id="adDesktopTop">
@@ -815,7 +864,7 @@
     </div>
     
     <script>
-        // ===== GENERATE WARNA DARI SUBDOMAIN =====
+        // ===== GENERATE SUBDOMAIN DATA =====
         function hashString(str) {
             var hash = 0;
             for (var i = 0; i < str.length; i++) {
@@ -843,79 +892,145 @@
         var brandInitial = brandName.charAt(0).toUpperCase() + brandName.charAt(1).toUpperCase();
         var baseTitle = brandName + ' - Video Gallery';
         
+        // ===== GENERATE DINAMIC TEXT CONTENT =====
+        function generateDynamicText(subdomain, brandName) {
+            var adjectives = ['Amazing', 'Awesome', 'Best', 'Cool', 'Dynamic', 'Epic', 'Fantastic', 'Great', 'Hot', 'Incredible', 'Legendary', 'Massive', 'New', 'Premium', 'Quality', 'Rare', 'Super', 'Top', 'Ultimate', 'Viral', 'Wow', 'Xtreme', 'Young', 'Zealous'];
+            var nouns = ['Archive', 'Collection', 'Database', 'Exclusive', 'Gallery', 'Hub', 'Library', 'Mega', 'Network', 'Portal', 'Source', 'Vault', 'World'];
+            var verbs = ['Browse', 'Check', 'Discover', 'Explore', 'Find', 'Get', 'Grab', 'See', 'Unlock', 'View', 'Watch'];
+            
+            var hash = hashString(subdomain);
+            
+            function seededRandom(seed) {
+                var x = Math.sin(seed) * 10000;
+                return x - Math.floor(x);
+            }
+            
+            function pickWord(words, offset) {
+                var idx = Math.floor(seededRandom(hash + offset) * words.length);
+                return words[idx % words.length];
+            }
+            
+            var siteTitle = brandName + ' ' + pickWord(nouns, 0) + ' - ' + pickWord(adjectives, 1) + ' Videos';
+            
+            var descParts = [
+                pickWord(verbs, 2) + ' the ' + pickWord(adjectives, 3) + ' ' + pickWord(nouns, 4) + ' of ' + brandName,
+                'featuring ' + pickWord(adjectives, 5) + ' ' + pickWord(nouns, 6) + ' and ' + pickWord(adjectives, 7) + ' content',
+                'updated daily with fresh ' + pickWord(nouns, 8).toLowerCase(),
+                'your ' + pickWord(adjectives, 9).toLowerCase() + ' destination for ' + brandName.toLowerCase() + ' media'
+            ];
+            var description = descParts.join('. ');
+            
+            return {
+                title: siteTitle,
+                description: description,
+                headerTitle: brandName + ' ' + pickWord(nouns, 12),
+                sidebarTitle: brandName + ' ' + pickWord(nouns, 13),
+                descriptionText: description
+            };
+        }
+        
+        var dynamicText = generateDynamicText(subdomain, brandName);
+        
         // ===== GENERATE WARNA DENGAN KONTRAST =====
         var hash = hashString(subdomain);
         var hue = hash % 360;
-        var saturation = 65 + (hash % 20); // 65-85%
-        var lightness = 50 + (hash % 15); // 50-65%
+        var saturation = 65 + (hash % 20);
+        var lightness = 50 + (hash % 15);
         
-        // Warna utama dengan lightness yang lebih tinggi untuk kontras
         var primaryColor = 'hsl(' + hue + ', ' + saturation + '%, ' + lightness + '%)';
         var primaryLight = 'hsl(' + hue + ', ' + saturation + '%, ' + (lightness + 20) + '%)';
         var primaryDark = 'hsl(' + hue + ', ' + saturation + '%, ' + (lightness - 20) + '%)';
         var primaryMuted = 'hsl(' + hue + ', ' + (saturation - 20) + '%, ' + (lightness + 10) + '%)';
         
-        // Warna background dinamis (gelap dengan sentuhan warna)
         var bgHue = (hue + 180) % 360;
-        var bgSaturation = 15 + (hash % 15); // 15-30%
-        var bgLightness = 6 + (hash % 8); // 6-14%
+        var bgSaturation = 15 + (hash % 15);
+        var bgLightness = 6 + (hash % 8);
         var bgColor = 'hsl(' + bgHue + ', ' + bgSaturation + '%, ' + bgLightness + '%)';
         
-        // Warna background untuk card
         var cardBgHue = (hue + 180) % 360;
         var cardBgSaturation = 10 + (hash % 15);
         var cardBgLightness = 10 + (hash % 8);
         var cardBgColor = 'hsl(' + cardBgHue + ', ' + cardBgSaturation + '%, ' + cardBgLightness + '%)';
         
-        // Warna text dengan kontras tinggi
         var textColor = '#e8e8ea';
         var textMuted = 'hsl(' + ((hue + 180) % 360) + ', 20%, 60%)';
         var textAccent = primaryLight;
         
-        // Warna untuk sidebar
         var sidebarBg = 'hsl(' + ((hue + 180) % 360) + ', ' + (bgSaturation + 5) + '%, ' + (bgLightness + 4) + '%)';
         var sidebarHeaderBg = 'hsl(' + ((hue + 180) % 360) + ', ' + (bgSaturation + 8) + '%, ' + (bgLightness + 8) + '%)';
         
-        // Gradient untuk stories
         var storyGrad = 'linear-gradient(135deg, ' + 
             'hsl(' + hue + ', ' + saturation + '%, ' + (lightness + 10) + '%), ' + 
             'hsl(' + ((hue + 40) % 360) + ', ' + (saturation - 5) + '%, ' + (lightness + 5) + '%), ' + 
             'hsl(' + ((hue + 80) % 360) + ', ' + (saturation - 10) + '%, ' + lightness + '%)';
         
-        // Warna untuk hover dan elemen interaktif
         var hoverColor = 'hsla(' + hue + ', ' + saturation + '%, ' + (lightness + 10) + '%, 0.15)';
         var borderColor = 'hsla(' + ((hue + 180) % 360) + ', 20%, 50%, 0.1)';
         
-        // ===== HITUNG KONTRAST UNTUK TEXT =====
-        function getContrastColor(backgroundColor, lightColor, darkColor) {
-            // Fungsi sederhana untuk memilih warna text berdasarkan background
-            // Mengembalikan warna dengan kontras yang baik
-            return lightColor; // default ke light
+        // ===== GENERATE UNIQUE COLOR FOR EACH TAG =====
+        function generateTagColor(query, index) {
+            var tagHash = hashString(query + subdomain);
+            var tagHue = tagHash % 360;
+            var tagSat = 60 + (tagHash % 30);
+            var tagLight = 50 + (tagHash % 20);
+            return 'hsl(' + tagHue + ', ' + tagSat + '%, ' + tagLight + '%)';
         }
         
-        // ===== SET WARNA KE SEMUA ELEMEN =====
+        // ===== APPLY DYNAMIC TEXT CONTENT =====
+        function applyDynamicText() {
+            document.getElementById('dynamicTitle').textContent = dynamicText.title;
+            document.getElementById('metaDescription').content = dynamicText.description;
+            
+            var brandSpan = document.querySelector('#brandName');
+            if (brandSpan) {
+                var brandParts = dynamicText.headerTitle.split(' ');
+                if (brandParts.length > 1) {
+                    var lastWord = brandParts.pop();
+                    brandSpan.innerHTML = brandParts.join(' ') + ' <span>' + lastWord + '</span>';
+                } else {
+                    brandSpan.innerHTML = '<span>' + dynamicText.headerTitle + '</span>';
+                }
+            }
+            
+            var sidebarBrand = document.getElementById('sidebarBrand');
+            if (sidebarBrand) {
+                var sidebarParts = dynamicText.sidebarTitle.split(' ');
+                if (sidebarParts.length > 1) {
+                    var lastWord = sidebarParts.pop();
+                    sidebarBrand.innerHTML = sidebarParts.join(' ') + ' <span>' + lastWord + '</span>';
+                } else {
+                    sidebarBrand.innerHTML = '<span>' + dynamicText.sidebarTitle + '</span>';
+                }
+            }
+            
+            var descElement = document.getElementById('siteDescription');
+            if (descElement) {
+                descElement.innerHTML = dynamicText.descriptionText;
+            }
+            
+            var initials = brandName.substring(0, 2).toUpperCase();
+            document.getElementById('brandLogo').textContent = initials;
+            document.getElementById('sidebarLogo').textContent = initials;
+        }
+        
+        // ===== APPLY ALL COLORS =====
         function applyAllColors() {
-            // Background utama
             document.body.style.background = bgColor;
             document.getElementById('app').style.background = bgColor;
             document.getElementById('mainContent').style.background = 'transparent';
             
-            // Header
             var header = document.getElementById('header');
             header.style.background = 'hsla(' + bgHue + ', ' + bgSaturation + '%, ' + (bgLightness + 2) + '%, 0.95)';
             header.style.borderBottomColor = borderColor;
             
-            // Brand logo
             document.getElementById('brandLogo').style.background = primaryColor;
             document.getElementById('brandLogo').style.color = '#0d0d14';
             
-            // Brand name
             var brandNameSpan = document.querySelector('#brandName span');
             if (brandNameSpan) {
                 brandNameSpan.style.color = primaryLight;
             }
             
-            // Hamburger button hover
             var hamburgerBtn = document.getElementById('hamburgerBtn');
             hamburgerBtn.addEventListener('mouseenter', function() {
                 var spans = this.querySelectorAll('span');
@@ -926,52 +1041,39 @@
                 spans.forEach(function(s) { s.style.background = '#ffffff'; });
             });
             
-            // Sidebar
             var sidebar = document.getElementById('sidebar');
             sidebar.style.background = sidebarBg;
             sidebar.style.borderRight = '1px solid ' + borderColor;
             
-            // Sidebar header
             var sidebarHeader = document.getElementById('sidebarHeader');
             sidebarHeader.style.background = sidebarHeaderBg;
             sidebarHeader.style.borderBottomColor = borderColor;
             
-            // Sidebar logo
             document.getElementById('sidebarLogo').style.background = primaryColor;
             document.getElementById('sidebarLogo').style.color = '#0d0d14';
             
-            // Sidebar brand name
             var sidebarBrandSpan = document.querySelector('#sidebarBrand span');
             if (sidebarBrandSpan) {
                 sidebarBrandSpan.style.color = primaryLight;
             }
             
-            // Sidebar close button
             document.getElementById('sidebarClose').style.color = textMuted;
             
-            // Sidebar nav items
-            var navItems = document.querySelectorAll('.sidebar-nav .nav-item');
-            navItems.forEach(function(item) {
-                item.style.color = textMuted;
-            });
+            var descElement = document.getElementById('siteDescription');
+            if (descElement) {
+                descElement.style.color = textMuted;
+                var strongs = descElement.querySelectorAll('strong');
+                strongs.forEach(function(s) { s.style.color = primaryLight; });
+            }
             
-            // Stories bar
             document.getElementById('storiesBar').style.borderBottomColor = borderColor;
             
-            // Story items
-            var storyNames = document.querySelectorAll('.story-item .story-name');
-            storyNames.forEach(function(name) {
-                name.style.color = textMuted;
-            });
-            
-            // Ad containers
             var adContainers = document.querySelectorAll('.ad-container');
             adContainers.forEach(function(ad) {
                 ad.style.background = 'hsla(' + ((hue + 180) % 360) + ', 15%, 15%, 0.3)';
                 ad.style.borderColor = borderColor;
             });
             
-            // Video grid items
             var gridItems = document.querySelectorAll('.grid-item');
             gridItems.forEach(function(item) {
                 item.style.background = cardBgColor;
@@ -979,25 +1081,21 @@
                 item.style.boxShadow = '0 2px 20px rgba(0,0,0,0.4)';
             });
             
-            // Grid item card body
             var cardBodies = document.querySelectorAll('.grid-item .card-body');
             cardBodies.forEach(function(card) {
                 card.style.background = cardBgColor;
             });
             
-            // Grid item titles
             var titles = document.querySelectorAll('.grid-item .card-body .title');
             titles.forEach(function(title) {
                 title.style.color = textColor;
             });
             
-            // Grid item meta
             var metaRows = document.querySelectorAll('.grid-item .card-body .meta-row');
             metaRows.forEach(function(meta) {
                 meta.style.borderTopColor = borderColor;
             });
             
-            // Grid item views
             var views = document.querySelectorAll('.grid-item .card-body .meta-row .views');
             views.forEach(function(view) {
                 view.style.color = textMuted;
@@ -1007,20 +1105,17 @@
                 }
             });
             
-            // Grid item video number
             var videoNumbers = document.querySelectorAll('.grid-item .card-body .meta-row .video-number');
             videoNumbers.forEach(function(num) {
                 num.style.color = 'hsla(' + ((hue + 180) % 360) + ', 20%, 40%, 0.6)';
             });
             
-            // Play buttons
             var playBtns = document.querySelectorAll('.grid-item .thumbnail .play-btn');
             playBtns.forEach(function(btn) {
                 btn.style.background = 'hsla(' + hue + ', ' + saturation + '%, ' + (lightness + 10) + '%, 0.2)';
                 btn.style.borderColor = 'hsla(' + hue + ', ' + saturation + '%, ' + (lightness + 10) + '%, 0.3)';
             });
             
-            // Play indicators
             var playIndicators = document.querySelectorAll('.grid-item .thumbnail .play-indicator');
             playIndicators.forEach(function(ind) {
                 ind.style.color = primaryLight;
@@ -1030,13 +1125,11 @@
                 }
             });
             
-            // Duration badges
             var durationBadges = document.querySelectorAll('.grid-item .thumbnail .duration-badge');
             durationBadges.forEach(function(badge) {
                 badge.style.color = primaryLight;
             });
             
-            // Pagination
             var paginationBtns = document.querySelectorAll('.main-pagination button');
             paginationBtns.forEach(function(btn) {
                 btn.style.color = textMuted;
@@ -1044,7 +1137,6 @@
                 btn.style.background = 'hsla(' + ((hue + 180) % 360) + ', 10%, 15%, 0.3)';
             });
             
-            // Pagination active
             var activeBtns = document.querySelectorAll('.main-pagination button.active');
             activeBtns.forEach(function(btn) {
                 btn.style.background = primaryColor;
@@ -1052,7 +1144,6 @@
                 btn.style.color = '#0d0d14';
             });
             
-            // Pagination hover
             paginationBtns.forEach(function(btn) {
                 btn.addEventListener('mouseenter', function() {
                     if (!this.classList.contains('active') && !this.disabled) {
@@ -1070,7 +1161,6 @@
                 });
             });
             
-            // Main indicator
             var indicator = document.getElementById('mainIndicator');
             indicator.style.color = textMuted;
             var strong = indicator.querySelector('strong');
@@ -1078,7 +1168,6 @@
                 strong.style.color = primaryLight;
             }
             
-            // Sidebar nav items hover
             var sidebarNavItems = document.querySelectorAll('.sidebar-nav .nav-item');
             sidebarNavItems.forEach(function(item) {
                 var dot = item.querySelector('.nav-dot');
@@ -1092,6 +1181,10 @@
                     if (dot2) {
                         dot2.style.background = primaryLight;
                     }
+                    var colorBox = this.querySelector('.nav-tag-color');
+                    if (colorBox) {
+                        colorBox.style.transform = 'scale(1.2)';
+                    }
                 });
                 item.addEventListener('mouseleave', function() {
                     if (!this.classList.contains('active-tag')) {
@@ -1100,6 +1193,10 @@
                         if (dot2) {
                             dot2.style.background = textMuted;
                         }
+                    }
+                    var colorBox = this.querySelector('.nav-tag-color');
+                    if (colorBox) {
+                        colorBox.style.transform = 'scale(1)';
                     }
                 });
                 
@@ -1114,7 +1211,6 @@
                 }
             });
             
-            // Sidebar scrollbar
             var styleTag = document.createElement('style');
             styleTag.textContent = `
                 .sidebar::-webkit-scrollbar-thumb { 
@@ -1172,16 +1268,17 @@
                 .grid-item .thumbnail .hover-overlay .stat svg {
                     fill: ${primaryLight} !important;
                 }
+                
+                .site-description strong {
+                    color: ${primaryLight} !important;
+                }
             `;
             document.head.appendChild(styleTag);
         }
         
-        // ===== TITLE DAN META =====
-        document.getElementById('dynamicTitle').textContent = baseTitle;
-        
         // ===== VIDEO QUERIES =====
         var videoQueries = [
-           {{content}}
+ {{content}}
         ];
         
         function formatTitle(query) {
@@ -1256,19 +1353,6 @@
             return imageUrls[index % imageUrls.length];
         }
         
-        var gradients = [
-            'linear-gradient(135deg, #00d2a0, #00b894)',
-            'linear-gradient(135deg, #55efc4, #00d2a0)',
-            'linear-gradient(135deg, #00b894, #0984e3)',
-            'linear-gradient(135deg, #74b9ff, #00b894)',
-            'linear-gradient(135deg, #55efc4, #00d2a0)',
-            'linear-gradient(135deg, #fdcb6e, #f39c12)',
-            'linear-gradient(135deg, #00d2a0, #00b894)',
-            'linear-gradient(135deg, #55efc4, #00d2a0)',
-            'linear-gradient(135deg, #00b894, #0984e3)',
-            'linear-gradient(135deg, #74b9ff, #00b894)'
-        ];
-        
         var itemsPerPage = 30;
         var totalPages = Math.ceil(videoQueries.length / itemsPerPage);
         
@@ -1299,8 +1383,8 @@
             var baseURL = window.location.origin + window.location.pathname;
             var pageQueries = getPageQueries(page);
             var breadcrumbItems = [
-                { "@type": "ListItem", "position": 1, "name": "Home", "item": baseURL },
-                { "@type": "ListItem", "position": 2, "name": "Video Gallery", "item": baseURL + '?page=1' }
+                { "@type": "ListItem", "position": 1, "name": brandName + " Home", "item": baseURL },
+                { "@type": "ListItem", "position": 2, "name": dynamicText.title, "item": baseURL + '?page=1' }
             ];
             var position = 3;
             pageQueries.forEach(function(query) {
@@ -1330,19 +1414,19 @@
         function updateHeadTags(page, tag) {
             var pageText = page > 1 ? ' - Page ' + page : '';
             if (tag) {
-                document.getElementById('dynamicTitle').textContent = formatTitle(tag) + pageText + ' - ' + baseTitle;
+                document.getElementById('dynamicTitle').textContent = formatTitle(tag) + pageText + ' - ' + dynamicText.title;
             } else if (page > 1) {
-                document.getElementById('dynamicTitle').textContent = baseTitle + pageText;
+                document.getElementById('dynamicTitle').textContent = dynamicText.title + pageText;
             } else {
-                document.getElementById('dynamicTitle').textContent = baseTitle;
+                document.getElementById('dynamicTitle').textContent = dynamicText.title;
             }
             var pageQueries = getPageQueries(page);
             var descriptions = pageQueries.map(function(q) { return formatTitle(q); });
             var metaDescription;
             if (tag) {
-                metaDescription = 'Page ' + page + ' - Watch videos tagged with ' + tag + '. ' + descriptions.join(', ') + '. ' + brandName + ' exclusive collection.';
+                metaDescription = 'Page ' + page + ' - Watch videos tagged with ' + tag + '. ' + descriptions.join(', ') + '. ' + dynamicText.description;
             } else {
-                metaDescription = 'Page ' + page + ' - Watch: ' + descriptions.join(', ') + '. ' + brandName + ' exclusive collection.';
+                metaDescription = 'Page ' + page + ' - Watch: ' + descriptions.join(', ') + '. ' + dynamicText.description;
             }
             if (metaDescription.length > 999) {
                 metaDescription = metaDescription.substring(0, 152) + '...';
@@ -1440,15 +1524,23 @@
                     item.classList.add('active-tag');
                 }
                 
+                var tagColor = generateTagColor(query, index);
+                
                 var dot = document.createElement('span');
                 dot.className = 'nav-dot';
-                dot.style.background = query === activeTag ? primaryColor : textMuted;
+                dot.style.background = query === activeTag ? primaryColor : tagColor;
+                
+                var colorBox = document.createElement('span');
+                colorBox.className = 'nav-tag-color';
+                colorBox.style.background = tagColor;
+                colorBox.style.boxShadow = '0 0 8px ' + tagColor + '40';
                 
                 var text = document.createElement('span');
                 text.className = 'nav-text';
                 text.textContent = query;
                 
                 item.appendChild(dot);
+                item.appendChild(colorBox);
                 item.appendChild(text);
                 
                 if (query === activeTag) {
@@ -1634,13 +1726,14 @@
         });
         
         // ===== INIT =====
+        applyDynamicText();
+        
         renderVideos(currentPage);
         renderMainPagination(currentPage);
         renderStories();
         renderSidebarNav();
         updateHeadTags(currentPage, activeTag);
         
-        // Apply colors after rendering
         setTimeout(applyAllColors, 50);
     </script>
     {% include /ads/gobloggugel/umum.html %}
