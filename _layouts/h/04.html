@@ -7,23 +7,24 @@
     
     <link rel="canonical" id="canonicalTag" href="">
     <meta name="description" id="metaDescription" content="">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    
     <script type="application/ld+json" id="breadcrumbSchema"></script>
+    <script type="application/ld+json" id="websiteSchema"></script>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* ===== RESET & BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             min-height: 100vh;
-            color: #e8e8ea;
             -webkit-font-smoothing: antialiased;
-            transition: background 0.5s ease, color 0.3s ease;
+            transition: all 0.5s ease;
         }
         
+        /* ===== FLOATING HEADER ===== */
         .floating-header {
             position: fixed;
             top: 0;
@@ -36,8 +37,9 @@
             justify-content: space-between;
             max-width: 600px;
             margin: 0 auto;
-            transition: background 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.5s ease;
+            border-bottom: 2px solid;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
         }
         
         .floating-header .brand {
@@ -55,7 +57,7 @@
             justify-content: center;
             font-size: 11px;
             font-weight: 800;
-            transition: background 0.3s ease, color 0.3s ease;
+            transition: all 0.3s ease;
         }
         
         .floating-header .brand h1 {
@@ -64,9 +66,7 @@
             letter-spacing: -0.5px;
             transition: color 0.3s ease;
         }
-        .floating-header .brand h1 span {
-            transition: color 0.3s ease;
-        }
+        .floating-header .brand h1 span { transition: color 0.3s ease; }
         
         .hamburger-btn {
             background: none;
@@ -81,27 +81,26 @@
             justify-content: center;
             align-items: center;
             transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+        
+        .hamburger-btn:hover {
+            background: rgba(255,255,255,0.1);
         }
         
         .hamburger-btn span {
             display: block;
             width: 20px;
-            height: 2px;
-            background: #ffffff;
+            height: 2.5px;
             border-radius: 2px;
             transition: all 0.3s ease;
         }
         
-        .hamburger-btn.active span:nth-child(1) {
-            transform: rotate(45deg) translate(4px, 4px);
-        }
-        .hamburger-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger-btn.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(4px, -4px);
-        }
+        .hamburger-btn.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+        .hamburger-btn.active span:nth-child(2) { opacity: 0; }
+        .hamburger-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
         
+        /* ===== SIDEBAR ===== */
         .sidebar-overlay {
             display: none;
             position: fixed;
@@ -109,15 +108,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.5);
             z-index: 99;
             opacity: 0;
             transition: opacity 0.3s ease;
+            background: rgba(0,0,0,0.6);
         }
-        .sidebar-overlay.open {
-            display: block;
-            opacity: 1;
-        }
+        .sidebar-overlay.open { display: block; opacity: 1; }
         
         .sidebar {
             position: fixed;
@@ -128,16 +124,14 @@
             padding: 0;
             overflow-y: auto;
             z-index: 101;
-            transition: left 0.3s cubic-bezier(0.22, 1, 0.36, 1), background 0.5s ease;
-            box-shadow: 2px 0 30px rgba(0,0,0,0.5);
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 4px 0 40px rgba(0,0,0,0.5);
             display: flex;
             flex-direction: column;
-            border-right: 1px solid rgba(255,255,255,0.08);
+            border-right: 2px solid;
         }
         
-        .sidebar.open {
-            left: 0;
-        }
+        .sidebar.open { left: 0; }
         
         .sidebar::-webkit-scrollbar { width: 4px; }
         .sidebar::-webkit-scrollbar-thumb { border-radius: 4px; }
@@ -152,8 +146,8 @@
             position: sticky;
             top: 0;
             z-index: 2;
-            transition: background 0.5s ease;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.5s ease;
+            border-bottom: 2px solid;
         }
         
         .sidebar-close {
@@ -162,15 +156,16 @@
             font-size: 20px;
             cursor: pointer;
             padding: 4px 8px;
-            transition: color 0.2s, background 0.2s, opacity 0.2s;
+            transition: all 0.2s;
             line-height: 1;
             border-radius: 4px;
             opacity: 0.7;
+            font-weight: 700;
         }
         
         .sidebar-close:hover {
-            background: rgba(255,255,255,0.1);
             opacity: 1;
+            background: rgba(255,255,255,0.1);
         }
         
         .sidebar-nav {
@@ -184,7 +179,7 @@
             align-items: center;
             padding: 8px 16px;
             cursor: pointer;
-            transition: background 0.15s, color 0.2s, border-color 0.2s;
+            transition: all 0.2s;
             text-decoration: none;
             border-left: 3px solid transparent;
             font-size: 13px;
@@ -204,11 +199,13 @@
             transition: color 0.2s;
         }
         
+        /* ===== MAIN CONTENT ===== */
         .app {
             min-height: 100vh;
             max-width: 600px;
             margin: 0 auto;
             padding-top: 52px;
+            transition: background 0.5s ease;
         }
         
         .main-content {
@@ -217,20 +214,21 @@
             max-width: 100%;
         }
         
+        /* ===== SITE DESCRIPTION ===== */
         .site-description {
             padding: 12px 0 16px;
             font-size: 13px;
             line-height: 1.6;
             border-bottom: 1px solid rgba(255,255,255,0.05);
             margin-bottom: 12px;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
         }
-        
         .site-description strong {
             font-weight: 600;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
         
+        /* ===== STORIES BAR ===== */
         .stories-bar {
             display: flex;
             gap: 12px;
@@ -273,9 +271,8 @@
             justify-content: center;
             font-size: 15px;
             font-weight: 700;
-            color: #ffffff;
             overflow: hidden;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
         }
         
         .story-item .story-avatar .inner img {
@@ -294,6 +291,7 @@
             transition: color 0.3s ease;
         }
         
+        /* ===== AD CONTAINERS ===== */
         .ad-container {
             display: flex;
             justify-content: center;
@@ -301,16 +299,14 @@
             margin: 14px 0;
             border-radius: 10px;
             border: 1px solid rgba(255,255,255,0.04);
-            transition: background 0.3s ease, border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
-        
         .ad-container .ad-content {
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
         }
-        
         .ad-container .ad-content iframe,
         .ad-container .ad-content img,
         .ad-container .ad-content ins {
@@ -321,6 +317,7 @@
         .ad-desktop { display: flex; }
         .ad-mobile { display: none; }
         
+        /* ===== VIDEO GRID ===== */
         .video-grid {
             display: flex;
             flex-direction: column;
@@ -338,7 +335,7 @@
             border: 1px solid rgba(255,255,255,0.05);
             -webkit-tap-highlight-color: transparent;
             scroll-margin-top: 20px;
-            transition: transform 0.2s, box-shadow 0.2s, border-color 0.3s, background 0.3s;
+            transition: all 0.3s ease;
             width: 100%;
             box-shadow: 0 2px 20px rgba(0,0,0,0.3);
         }
@@ -347,10 +344,7 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 40px rgba(0,0,0,0.4);
         }
-        
-        .grid-item:active {
-            transform: scale(0.98);
-        }
+        .grid-item:active { transform: scale(0.98); }
         
         .grid-item .thumbnail {
             position: relative;
@@ -370,7 +364,7 @@
             height: 100%;
             object-fit: cover;
             filter: blur(10px) brightness(0.45);
-            transition: filter 0.3s, transform 0.3s;
+            transition: all 0.3s ease;
             transform: scale(1.05);
         }
         
@@ -436,7 +430,6 @@
             font-weight: 600;
             transition: color 0.3s;
         }
-        
         .grid-item .thumbnail .play-indicator svg {
             width: 11px;
             height: 11px;
@@ -470,9 +463,7 @@
             transition: opacity 0.3s;
         }
         
-        .grid-item:hover .thumbnail .hover-overlay {
-            opacity: 1;
-        }
+        .grid-item:hover .thumbnail .hover-overlay { opacity: 1; }
         
         .grid-item .thumbnail .hover-overlay .stat {
             display: flex;
@@ -542,6 +533,7 @@
             50% { border-color: var(--hl-color, #00d2a0); box-shadow: 0 0 0 4px rgba(0,210,160,0.15); }
         }
         
+        /* ===== PAGINATION ===== */
         .main-pagination {
             display: flex;
             justify-content: center;
@@ -591,167 +583,77 @@
             transition: color 0.3s;
         }
         
+        /* ===== SEO BREADCRUMB ===== */
+        .seo-breadcrumb {
+            padding: 8px 0 12px;
+            font-size: 11px;
+            opacity: 0.8;
+            transition: color 0.3s;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .seo-breadcrumb a {
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .seo-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .seo-breadcrumb .separator {
+            margin: 0 4px;
+        }
+        .seo-breadcrumb .current {
+            font-weight: 600;
+        }
+        
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .floating-header {
                 padding: 6px 12px;
                 max-width: 100%;
             }
-            .floating-header .brand h1 {
-                font-size: 15px;
-            }
-            
-            .app {
-                padding-top: 46px;
-                max-width: 100%;
-            }
-            
-            .main-content {
-                padding: 8px 8px 16px;
-            }
-            
-            .site-description {
-                font-size: 12px;
-                padding: 8px 0 12px;
-            }
-            
-            .video-grid {
-                gap: 12px;
-            }
-            
-            .grid-item .thumbnail .play-btn {
-                width: 48px;
-                height: 48px;
-            }
-            .grid-item .thumbnail .play-btn svg {
-                width: 22px;
-                height: 22px;
-            }
-            .grid-item .thumbnail .play-indicator {
-                font-size: 8px;
-                padding: 2px 8px;
-                top: 8px;
-                right: 8px;
-            }
-            .grid-item .thumbnail .play-indicator svg {
-                width: 9px;
-                height: 9px;
-            }
-            .grid-item .thumbnail .duration-badge {
-                font-size: 9px;
-                padding: 2px 8px;
-                top: 8px;
-                left: 8px;
-            }
+            .floating-header .brand h1 { font-size: 15px; }
+            .app { padding-top: 46px; max-width: 100%; }
+            .main-content { padding: 8px 8px 16px; }
+            .site-description { font-size: 12px; padding: 8px 0 12px; }
+            .video-grid { gap: 12px; }
+            .grid-item .thumbnail .play-btn { width: 48px; height: 48px; }
+            .grid-item .thumbnail .play-btn svg { width: 22px; height: 22px; }
+            .grid-item .thumbnail .play-indicator { font-size: 8px; padding: 2px 8px; top: 8px; right: 8px; }
+            .grid-item .thumbnail .play-indicator svg { width: 9px; height: 9px; }
+            .grid-item .thumbnail .duration-badge { font-size: 9px; padding: 2px 8px; top: 8px; left: 8px; }
             .grid-item .thumbnail .hover-overlay { display: none; }
-            .grid-item .card-body {
-                padding: 10px 12px 12px;
-            }
-            .grid-item .card-body .title {
-                font-size: 13px;
-            }
-            .grid-item .card-body .meta-row {
-                font-size: 9px;
-                padding-top: 6px;
-            }
-            .grid-item .card-body .meta-row .views svg {
-                width: 11px;
-                height: 11px;
-            }
-            
-            .stories-bar {
-                gap: 10px;
-                padding: 6px 0 12px;
-            }
-            .story-item .story-avatar {
-                width: 44px;
-                height: 44px;
-            }
-            .story-item .story-avatar .inner {
-                width: 40px;
-                height: 40px;
-                font-size: 12px;
-            }
-            .story-item .story-name {
-                font-size: 8px;
-                max-width: 44px;
-            }
-            
-            .sidebar {
-                width: 260px;
-                left: -280px;
-            }
-            
+            .grid-item .card-body { padding: 10px 12px 12px; }
+            .grid-item .card-body .title { font-size: 13px; }
+            .grid-item .card-body .meta-row { font-size: 9px; padding-top: 6px; }
+            .grid-item .card-body .meta-row .views svg { width: 11px; height: 11px; }
+            .stories-bar { gap: 10px; padding: 6px 0 12px; }
+            .story-item .story-avatar { width: 44px; height: 44px; }
+            .story-item .story-avatar .inner { width: 40px; height: 40px; font-size: 12px; }
+            .story-item .story-name { font-size: 8px; max-width: 44px; }
+            .sidebar { width: 260px; left: -280px; }
             .ad-desktop { display: none !important; }
             .ad-mobile { display: flex !important; }
-            .ad-container {
-                padding: 4px 0;
-                border-radius: 8px;
-                margin: 10px 0;
-            }
+            .ad-container { padding: 4px 0; border-radius: 8px; margin: 10px 0; }
+            .seo-breadcrumb { font-size: 10px; }
         }
         
         @media (max-width: 480px) {
-            .video-grid {
-                gap: 10px;
-            }
-            
-            .site-description {
-                font-size: 11px;
-                padding: 6px 0 10px;
-            }
-            
-            .story-item .story-avatar {
-                width: 36px;
-                height: 36px;
-            }
-            .story-item .story-avatar .inner {
-                width: 32px;
-                height: 32px;
-                font-size: 10px;
-            }
-            .story-item .story-name {
-                font-size: 7px;
-                max-width: 36px;
-            }
-            
-            .grid-item .thumbnail .play-btn {
-                width: 40px;
-                height: 40px;
-            }
-            .grid-item .thumbnail .play-btn svg {
-                width: 18px;
-                height: 18px;
-            }
-            .grid-item .thumbnail .duration-badge {
-                font-size: 8px;
-                padding: 2px 7px;
-                top: 6px;
-                left: 6px;
-            }
-            .grid-item .card-body {
-                padding: 8px 10px 10px;
-            }
-            .grid-item .card-body .title {
-                font-size: 12px;
-            }
-            .grid-item .card-body .meta-row {
-                font-size: 8px;
-                padding-top: 5px;
-            }
-            .grid-item .card-body .meta-row .views svg {
-                width: 10px;
-                height: 10px;
-            }
-            
-            .sidebar {
-                width: 240px;
-                left: -260px;
-            }
-            
-            .sidebar-nav .nav-item {
-                font-size: 12px;
-                padding: 6px 12px;
-            }
+            .video-grid { gap: 10px; }
+            .site-description { font-size: 11px; padding: 6px 0 10px; }
+            .story-item .story-avatar { width: 36px; height: 36px; }
+            .story-item .story-avatar .inner { width: 32px; height: 32px; font-size: 10px; }
+            .story-item .story-name { font-size: 7px; max-width: 36px; }
+            .grid-item .thumbnail .play-btn { width: 40px; height: 40px; }
+            .grid-item .thumbnail .play-btn svg { width: 18px; height: 18px; }
+            .grid-item .thumbnail .duration-badge { font-size: 8px; padding: 2px 7px; top: 6px; left: 6px; }
+            .grid-item .card-body { padding: 8px 10px 10px; }
+            .grid-item .card-body .title { font-size: 12px; }
+            .grid-item .card-body .meta-row { font-size: 8px; padding-top: 5px; }
+            .grid-item .card-body .meta-row .views svg { width: 10px; height: 10px; }
+            .sidebar { width: 240px; left: -260px; }
+            .sidebar-nav .nav-item { font-size: 12px; padding: 6px 12px; }
+            .seo-breadcrumb { font-size: 9px; }
         }
     </style>
     {% include head.html %}
@@ -780,6 +682,8 @@
     
     <div class="app" id="app">
         <main class="main-content" id="mainContent">
+            <div class="seo-breadcrumb" id="seoBreadcrumb"></div>
+            
             <div class="site-description" id="siteDescription"></div>
             
             <div class="stories-bar" id="storiesBar"></div>
@@ -813,19 +717,42 @@
     </div>
     
     <script>
-        // ===== GENERATE SUBDOMAIN DATA =====
-        function hashString(str) {
+        // ============================================================
+        // ===== MULTI-DOMAIN ENGINE =====
+        // ============================================================
+        
+        // ===== 1. SUBDOMAIN DETECTION =====
+        function getSubdomain() {
+            var hostname = window.location.hostname;
+            var parts = hostname.split('.');
+            if (hostname === 'localhost' || hostname === '127.0.0.1' || parts.length <= 2) {
+                return 'site';
+            }
+            return parts[0] || 'site';
+        }
+        
+        var subdomain = getSubdomain();
+        
+        // ===== 2. HASH GENERATOR =====
+        function hashCode(str) {
             var hash = 0;
             for (var i = 0; i < str.length; i++) {
-                hash = str.charCodeAt(i) + ((hash << 5) - hash);
+                var char = str.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
             }
             return Math.abs(hash);
         }
         
-        var hostname = window.location.hostname;
-        var parts = hostname.split('.');
-        var subdomain = parts.length >= 2 ? parts[0] : 'site';
+        var brandHash = hashCode(subdomain);
         
+        // ===== 3. SEEDED RANDOM =====
+        function seededRandom(seed) {
+            var x = Math.sin(seed) * 10000;
+            return x - Math.floor(x);
+        }
+        
+        // ===== 4. BRAND NAME =====
         function formatBrandName(str) {
             var cleaned = str.replace(/[^a-zA-Z0-9]/g, ' ');
             var words = cleaned.split(' ');
@@ -838,439 +765,139 @@
         }
         
         var brandName = formatBrandName(subdomain);
-        var brandInitial = brandName.charAt(0).toUpperCase() + brandName.charAt(1).toUpperCase();
-        var baseTitle = brandName + ' - Video Gallery';
+        var brandInitial = brandName.substring(0, 2).toUpperCase();
         
-        // ===== GENERATE DINAMIC TEXT CONTENT =====
-        function generateDynamicText(subdomain, brandName) {
-            var adjectives = ['Amazing', 'Awesome', 'Best', 'Cool', 'Dynamic', 'Epic', 'Fantastic', 'Great', 'Hot', 'Incredible', 'Legendary', 'Massive', 'New', 'Premium', 'Quality', 'Rare', 'Super', 'Top', 'Ultimate', 'Viral', 'Wow', 'Xtreme', 'Young', 'Zealous'];
-            var nouns = ['Archive', 'Collection', 'Database', 'Exclusive', 'Gallery', 'Hub', 'Library', 'Mega', 'Network', 'Portal', 'Source', 'Vault', 'World'];
-            var verbs = ['Browse', 'Check', 'Discover', 'Explore', 'Find', 'Get', 'Grab', 'See', 'Unlock', 'View', 'Watch'];
-            
-            var hash = hashString(subdomain);
-            
-            function seededRandom(seed) {
-                var x = Math.sin(seed) * 10000;
-                return x - Math.floor(x);
-            }
-            
-            function pickWord(words, offset) {
-                var idx = Math.floor(seededRandom(hash + offset) * words.length);
-                return words[idx % words.length];
-            }
-            
-            var siteTitle = brandName + ' ' + pickWord(nouns, 0) + ' - ' + pickWord(adjectives, 1) + ' Videos';
+        // ===== 5. SEO WORD LISTS =====
+        var seoWords = {
+            titles: [
+                'Exclusive Leaked Videos', 'Premium Content Archive', 
+                'Leaked Media Collection', 'Exclusive Video Library',
+                'Premium Leaks Database', 'Exclusive Content Hub',
+                'Leaked Videos Archive', 'Premium Media Vault'
+            ],
+            descActions: ['Watch', 'View', 'Explore', 'Discover', 'Access', 'Browse', 'Stream', 'Download'],
+            descTopics: ['leaked videos', 'exclusive content', 'premium media', 'archived footage', 'rare clips', 'uncensored videos', 'full length videos', 'high quality content'],
+            descAdj: ['exclusive', 'premium', 'rare', 'uncensored', 'uncut', 'original', 'high quality', 'full HD'],
+            metaKeywords: ['leaked videos', 'exclusive content', 'premium leaks', 'video archive', 'media collection', 'uncensored videos', 'viral content', 'trending videos']
+        };
+        
+        function pickSeoWord(list, offset) {
+            var idx = Math.floor(seededRandom(brandHash + offset) * list.length);
+            return list[idx % list.length];
+        }
+        
+        // ===== 6. GENERATE SEO CONTENT =====
+        function generateSeoContent() {
+            var title = brandName + ' - ' + pickSeoWord(seoWords.titles, 1);
             
             var descParts = [
-                pickWord(verbs, 2) + ' the ' + pickWord(adjectives, 3) + ' ' + pickWord(nouns, 4) + ' of ' + brandName,
-                'featuring ' + pickWord(adjectives, 5) + ' ' + pickWord(nouns, 6) + ' and ' + pickWord(adjectives, 7) + ' content',
-                'updated daily with fresh ' + pickWord(nouns, 8).toLowerCase(),
-                'your ' + pickWord(adjectives, 9).toLowerCase() + ' destination for ' + brandName.toLowerCase() + ' media'
+                pickSeoWord(seoWords.descActions, 2) + ' ' + pickSeoWord(seoWords.descAdj, 3) + ' ' + pickSeoWord(seoWords.descTopics, 4),
+                'featuring ' + pickSeoWord(seoWords.descAdj, 5) + ' ' + pickSeoWord(seoWords.descTopics, 6) + ' from ' + brandName,
+                'updated daily with fresh ' + pickSeoWord(seoWords.descTopics, 7),
+                'your destination for ' + brandName.toLowerCase() + ' ' + pickSeoWord(seoWords.descTopics, 8)
             ];
+            
             var description = descParts.join('. ');
             
+            var keywords = [];
+            for (var i = 0; i < 5; i++) {
+                keywords.push(pickSeoWord(seoWords.metaKeywords, 10 + i));
+            }
+            var metaKeywords = keywords.join(', ');
+            
+            var breadcrumbName = brandName + ' ' + pickSeoWord(seoWords.titles, 20);
+            
             return {
-                title: siteTitle,
+                title: title,
                 description: description,
-                headerTitle: brandName + ' ' + pickWord(nouns, 12),
-                descriptionText: description
+                metaKeywords: metaKeywords,
+                breadcrumbName: breadcrumbName
             };
         }
         
-        var dynamicText = generateDynamicText(subdomain, brandName);
+        var seoContent = generateSeoContent();
         
-        // ===== GENERATE WARNA DENGAN KONTRAST YANG TERJAMIN =====
-        var hash = hashString(subdomain);
-        var hue = hash % 360;
-        
-        // Warna utama dengan kontras tinggi
-        var primaryLightness = 55 + (hash % 20);
-        var primarySaturation = 70 + (hash % 20);
-        var primaryColor = 'hsl(' + hue + ', ' + primarySaturation + '%, ' + primaryLightness + '%)';
-        var primaryLight = 'hsl(' + hue + ', ' + primarySaturation + '%, ' + (primaryLightness + 15) + '%)';
-        var primaryDark = 'hsl(' + hue + ', ' + primarySaturation + '%, ' + (primaryLightness - 20) + '%)';
-        
-        // Background DINAMIS - bisa gelap atau terang tergantung hue
-        // Menggunakan kontras komplementer untuk background
-        var bgHue = (hue + 180) % 360;
-        
-        // Tentukan apakah background gelap atau terang berdasarkan hue
-        // Hue 0-60 (merah-kuning) -> background gelap
-        // Hue 60-180 (kuning-hijau-biru) -> background sedang
-        // Hue 180-300 (biru-ungu) -> background terang
-        // Hue 300-360 (ungu-merah) -> background gelap
-        
-        var bgLightness;
-        var textColor;
-        var textMuted;
-        var cardBgLightness;
-        var headerBgLightness;
-        var sidebarBgLightness;
-        
-        if (hue >= 60 && hue < 180) {
-            // Warna hijau-biru - gunakan background gelap dengan kontras tinggi
-            bgLightness = 6 + (hash % 8);
-            textColor = '#f0f0f5';
-            textMuted = 'hsl(' + ((hue + 180) % 360) + ', 20%, 70%)';
-            cardBgLightness = 12 + (hash % 8);
-            headerBgLightness = 10 + (hash % 6);
-            sidebarBgLightness = 8 + (hash % 6);
-        } else if (hue >= 180 && hue < 300) {
-            // Warna biru-ungu - gunakan background terang dengan teks gelap
-            bgLightness = 85 + (hash % 10);
-            textColor = '#1a1a24';
-            textMuted = 'hsl(' + ((hue + 180) % 360) + ', 30%, 30%)';
-            cardBgLightness = 92 + (hash % 6);
-            headerBgLightness = 88 + (hash % 6);
-            sidebarBgLightness = 90 + (hash % 6);
-        } else {
-            // Warna merah-kuning atau ungu-merah - gunakan background gelap
-            bgLightness = 5 + (hash % 8);
-            textColor = '#f0f0f5';
-            textMuted = 'hsl(' + ((hue + 180) % 360) + ', 20%, 70%)';
-            cardBgLightness = 11 + (hash % 8);
-            headerBgLightness = 9 + (hash % 6);
-            sidebarBgLightness = 7 + (hash % 6);
+        // ===== 7. GENERATE COLORS =====
+        function generateColors() {
+            var hue = brandHash % 360;
+            var hue2 = (hue + 120 + (brandHash % 120)) % 360;
+            
+            var primarySat = 65 + (brandHash % 25);
+            var primaryLight = 50 + (brandHash % 20);
+            var primary = 'hsl(' + hue + ', ' + primarySat + '%, ' + primaryLight + '%)';
+            var primaryLight2 = 'hsl(' + hue + ', ' + primarySat + '%, ' + (primaryLight + 15) + '%)';
+            var primaryDark2 = 'hsl(' + hue + ', ' + primarySat + '%, ' + (primaryLight - 15) + '%)';
+            
+            var bgHue = (hue + 180 + (brandHash % 30)) % 360;
+            var bgSat = 15 + (brandHash % 20);
+            var isDark = (hue >= 60 && hue < 180) || (hue >= 300 && hue < 360) || (brandHash % 3 === 0);
+            
+            var bgLightness, textColor, textMuted;
+            
+            if (isDark) {
+                bgLightness = 5 + (brandHash % 10);
+                textColor = '#f0f0f5';
+                textMuted = 'hsl(' + ((hue + 180) % 360) + ', 20%, 70%)';
+            } else {
+                bgLightness = 85 + (brandHash % 10);
+                textColor = '#1a1a24';
+                textMuted = 'hsl(' + ((hue + 180) % 360) + ', 30%, 30%)';
+            }
+            
+            var bgColor = 'hsl(' + bgHue + ', ' + bgSat + '%, ' + bgLightness + '%)';
+            var cardBgLightness = isDark ? 10 + (brandHash % 10) : 92 + (brandHash % 6);
+            var cardBg = 'hsl(' + bgHue + ', ' + (bgSat + 5) + '%, ' + cardBgLightness + '%)';
+            var headerBgLightness = isDark ? 8 + (brandHash % 8) : 88 + (brandHash % 6);
+            var headerBg = 'hsl(' + bgHue + ', ' + (bgSat + 10) + '%, ' + headerBgLightness + '%)';
+            var sidebarBgLightness = isDark ? 6 + (brandHash % 8) : 90 + (brandHash % 6);
+            var sidebarBg = 'hsl(' + bgHue + ', ' + (bgSat + 15) + '%, ' + sidebarBgLightness + '%)';
+            var sidebarHeaderBg = 'hsl(' + bgHue + ', ' + (bgSat + 20) + '%, ' + (sidebarBgLightness + 4) + '%)';
+            
+            var borderColor = isDark ? 
+                'hsla(' + ((hue + 180) % 360) + ', 30%, 60%, 0.15)' : 
+                'hsla(' + ((hue + 180) % 360) + ', 30%, 30%, 0.12)';
+            
+            var storyGrad = 'linear-gradient(135deg, ' + 
+                'hsl(' + hue + ', ' + primarySat + '%, ' + (primaryLight + 5) + '%), ' + 
+                'hsl(' + ((hue + 40) % 360) + ', ' + (primarySat - 5) + '%, ' + primaryLight + '%), ' + 
+                'hsl(' + ((hue + 80) % 360) + ', ' + (primarySat - 10) + '%, ' + (primaryLight - 5) + '%)';
+            
+            var hoverColor = 'hsla(' + hue + ', ' + primarySat + '%, ' + (primaryLight) + '%, 0.15)';
+            var hamburgerColor = primaryLight2;
+            
+            return {
+                primary: primary,
+                primaryLight: primaryLight2,
+                primaryDark: primaryDark2,
+                bgColor: bgColor,
+                cardBg: cardBg,
+                headerBg: headerBg,
+                sidebarBg: sidebarBg,
+                sidebarHeaderBg: sidebarHeaderBg,
+                borderColor: borderColor,
+                storyGrad: storyGrad,
+                hoverColor: hoverColor,
+                textColor: textColor,
+                textMuted: textMuted,
+                isDark: isDark,
+                hue: hue,
+                primarySat: primarySat,
+                primaryLight: primaryLight,
+                hamburgerColor: hamburgerColor,
+                bgHue: bgHue,
+                bgSat: bgSat,
+                bgLightness: bgLightness
+            };
         }
         
-        var bgColor = 'hsl(' + bgHue + ', ' + (15 + (hash % 15)) + '%, ' + bgLightness + '%)';
-        var cardBgColor = 'hsl(' + bgHue + ', ' + (10 + (hash % 15)) + '%, ' + cardBgLightness + '%)';
-        var headerBg = 'hsl(' + bgHue + ', ' + (15 + (hash % 10)) + '%, ' + headerBgLightness + '%)';
-        var sidebarBg = 'hsl(' + bgHue + ', ' + (18 + (hash % 10)) + '%, ' + sidebarBgLightness + '%)';
-        var sidebarHeaderBg = 'hsl(' + bgHue + ', ' + (20 + (hash % 10)) + '%, ' + (sidebarBgLightness + 4) + '%)';
+        var colors = generateColors();
         
-        // Warna border berdasarkan kontras
-        var borderColor = 'hsla(' + ((hue + 180) % 360) + ', 30%, 50%, 0.1)';
-        
-        // Gradient untuk stories
-        var storyGrad = 'linear-gradient(135deg, ' + 
-            'hsl(' + hue + ', ' + primarySaturation + '%, ' + (primaryLightness + 5) + '%), ' + 
-            'hsl(' + ((hue + 40) % 360) + ', ' + (primarySaturation - 5) + '%, ' + (primaryLightness) + '%), ' + 
-            'hsl(' + ((hue + 80) % 360) + ', ' + (primarySaturation - 10) + '%, ' + (primaryLightness - 5) + '%)';
-        
-        var hoverColor = 'hsla(' + hue + ', ' + primarySaturation + '%, ' + (primaryLightness) + '%, 0.15)';
-        
-        // ===== GENERATE UNIQUE COLOR FOR EACH TAG =====
-        function generateTagColor(query, index) {
-            var tagHash = hashString(query + subdomain + index);
-            var tagHue = tagHash % 360;
-            var tagSat = 70 + (tagHash % 20);
-            var tagLight = 55 + (tagHash % 20);
-            return 'hsl(' + tagHue + ', ' + tagSat + '%, ' + tagLight + '%)';
-        }
-        
-        // ===== APPLY DYNAMIC TEXT CONTENT =====
-        function applyDynamicText() {
-            document.getElementById('dynamicTitle').textContent = dynamicText.title;
-            document.getElementById('metaDescription').content = dynamicText.description;
-            
-            // Header brand name - hanya nama brand dengan aksen huruf pertama
-            var brandSpan = document.querySelector('#brandName');
-            if (brandSpan) {
-                brandSpan.innerHTML = brandName + ' <span>' + brandName.charAt(0).toUpperCase() + '</span>';
-            }
-            
-            var descElement = document.getElementById('siteDescription');
-            if (descElement) {
-                descElement.innerHTML = dynamicText.descriptionText;
-            }
-            
-            var initials = brandName.substring(0, 2).toUpperCase();
-            document.getElementById('brandLogo').textContent = initials;
-        }
-        
-        // ===== APPLY ALL COLORS =====
-        function applyAllColors() {
-            // Background utama
-            document.body.style.background = bgColor;
-            document.getElementById('app').style.background = bgColor;
-            document.getElementById('mainContent').style.background = 'transparent';
-            
-            // Header - SOLID
-            var header = document.getElementById('header');
-            header.style.background = headerBg;
-            header.style.borderBottomColor = borderColor;
-            
-            // Brand logo
-            document.getElementById('brandLogo').style.background = primaryColor;
-            document.getElementById('brandLogo').style.color = '#0d0d14';
-            
-            // Brand name text
-            var brandNameSpan = document.querySelector('#brandName span');
-            if (brandNameSpan) {
-                brandNameSpan.style.color = primaryLight;
-            }
-            var brandMainText = document.querySelector('#brandName');
-            if (brandMainText) {
-                brandMainText.style.color = textColor;
-            }
-            
-            // Hamburger button
-            var hamburgerBtn = document.getElementById('hamburgerBtn');
-            hamburgerBtn.addEventListener('mouseenter', function() {
-                var spans = this.querySelectorAll('span');
-                spans.forEach(function(s) { s.style.background = primaryLight; });
-            });
-            hamburgerBtn.addEventListener('mouseleave', function() {
-                var spans = this.querySelectorAll('span');
-                spans.forEach(function(s) { s.style.background = textColor; });
-            });
-            
-            // Sidebar - SOLID
-            var sidebar = document.getElementById('sidebar');
-            sidebar.style.background = sidebarBg;
-            sidebar.style.borderRight = '1px solid ' + borderColor;
-            
-            // Sidebar header - SOLID
-            var sidebarHeader = document.getElementById('sidebarHeader');
-            sidebarHeader.style.background = sidebarHeaderBg;
-            sidebarHeader.style.borderBottomColor = borderColor;
-            
-            // Sidebar close button
-            document.getElementById('sidebarClose').style.color = textMuted;
-            document.getElementById('sidebarClose').style.background = 'transparent';
-            
-            // Site description
-            var descElement = document.getElementById('siteDescription');
-            if (descElement) {
-                descElement.style.color = textMuted;
-                var strongs = descElement.querySelectorAll('strong');
-                strongs.forEach(function(s) { s.style.color = primaryLight; });
-            }
-            
-            // Stories bar
-            document.getElementById('storiesBar').style.borderBottomColor = borderColor;
-            
-            // Story items
-            var storyNames = document.querySelectorAll('.story-item .story-name');
-            storyNames.forEach(function(name) {
-                name.style.color = textMuted;
-            });
-            
-            // Story avatars inner
-            var storyInners = document.querySelectorAll('.story-item .story-avatar .inner');
-            storyInners.forEach(function(inner) {
-                inner.style.background = bgColor;
-                inner.style.color = textColor;
-            });
-            
-            // Ad containers
-            var adContainers = document.querySelectorAll('.ad-container');
-            adContainers.forEach(function(ad) {
-                ad.style.background = 'hsla(' + bgHue + ', 15%, ' + (bgLightness + 8) + '%, 0.3)';
-                ad.style.borderColor = borderColor;
-            });
-            
-            // Video grid items
-            var gridItems = document.querySelectorAll('.grid-item');
-            gridItems.forEach(function(item) {
-                item.style.background = cardBgColor;
-                item.style.borderColor = borderColor;
-                item.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
-            });
-            
-            // Grid item card body
-            var cardBodies = document.querySelectorAll('.grid-item .card-body');
-            cardBodies.forEach(function(card) {
-                card.style.background = cardBgColor;
-            });
-            
-            // Grid item titles
-            var titles = document.querySelectorAll('.grid-item .card-body .title');
-            titles.forEach(function(title) {
-                title.style.color = textColor;
-            });
-            
-            // Grid item meta
-            var metaRows = document.querySelectorAll('.grid-item .card-body .meta-row');
-            metaRows.forEach(function(meta) {
-                meta.style.borderTopColor = borderColor;
-            });
-            
-            // Grid item views
-            var views = document.querySelectorAll('.grid-item .card-body .meta-row .views');
-            views.forEach(function(view) {
-                view.style.color = textMuted;
-                var svg = view.querySelector('svg');
-                if (svg) {
-                    svg.style.fill = textMuted;
-                }
-            });
-            
-            // Grid item video number
-            var videoNumbers = document.querySelectorAll('.grid-item .card-body .meta-row .video-number');
-            videoNumbers.forEach(function(num) {
-                num.style.color = 'hsla(' + ((hue + 180) % 360) + ', 20%, 50%, 0.5)';
-            });
-            
-            // Play buttons
-            var playBtns = document.querySelectorAll('.grid-item .thumbnail .play-btn');
-            playBtns.forEach(function(btn) {
-                btn.style.background = 'hsla(' + hue + ', ' + primarySaturation + '%, ' + (primaryLightness) + '%, 0.2)';
-                btn.style.borderColor = 'hsla(' + hue + ', ' + primarySaturation + '%, ' + (primaryLightness) + '%, 0.3)';
-            });
-            
-            // Play indicators
-            var playIndicators = document.querySelectorAll('.grid-item .thumbnail .play-indicator');
-            playIndicators.forEach(function(ind) {
-                ind.style.color = primaryLight;
-                var svg = ind.querySelector('svg');
-                if (svg) {
-                    svg.style.fill = primaryLight;
-                }
-            });
-            
-            // Duration badges
-            var durationBadges = document.querySelectorAll('.grid-item .thumbnail .duration-badge');
-            durationBadges.forEach(function(badge) {
-                badge.style.color = primaryLight;
-            });
-            
-            // Pagination
-            var paginationBtns = document.querySelectorAll('.main-pagination button');
-            paginationBtns.forEach(function(btn) {
-                btn.style.color = textMuted;
-                btn.style.borderColor = borderColor;
-                btn.style.background = 'hsla(' + bgHue + ', 10%, ' + (bgLightness + 5) + '%, 0.4)';
-            });
-            
-            // Pagination active
-            var activeBtns = document.querySelectorAll('.main-pagination button.active');
-            activeBtns.forEach(function(btn) {
-                btn.style.background = primaryColor;
-                btn.style.borderColor = primaryColor;
-                btn.style.color = '#0d0d14';
-            });
-            
-            // Pagination hover
-            paginationBtns.forEach(function(btn) {
-                btn.addEventListener('mouseenter', function() {
-                    if (!this.classList.contains('active') && !this.disabled) {
-                        this.style.borderColor = primaryLight;
-                        this.style.color = primaryLight;
-                        this.style.background = hoverColor;
-                    }
-                });
-                btn.addEventListener('mouseleave', function() {
-                    if (!this.classList.contains('active') && !this.disabled) {
-                        this.style.borderColor = borderColor;
-                        this.style.color = textMuted;
-                        this.style.background = 'hsla(' + bgHue + ', 10%, ' + (bgLightness + 5) + '%, 0.4)';
-                    }
-                });
-            });
-            
-            // Main indicator
-            var indicator = document.getElementById('mainIndicator');
-            indicator.style.color = textMuted;
-            var strong = indicator.querySelector('strong');
-            if (strong) {
-                strong.style.color = primaryLight;
-            }
-            
-            // Sidebar nav items - hanya text, tanpa bulatan
-            var sidebarNavItems = document.querySelectorAll('.sidebar-nav .nav-item');
-            sidebarNavItems.forEach(function(item) {
-                if (item.classList.contains('active-tag')) {
-                    item.style.color = primaryLight;
-                    item.style.background = hoverColor;
-                    item.style.borderLeftColor = primaryColor;
-                } else {
-                    item.style.color = textMuted;
-                }
-                
-                item.addEventListener('mouseenter', function() {
-                    if (!this.classList.contains('active-tag')) {
-                        this.style.color = textColor;
-                    }
-                    this.style.background = 'rgba(255,255,255,0.06)';
-                });
-                item.addEventListener('mouseleave', function() {
-                    if (!this.classList.contains('active-tag')) {
-                        this.style.color = textMuted;
-                        this.style.background = 'transparent';
-                    } else {
-                        this.style.background = hoverColor;
-                    }
-                });
-            });
-            
-            // CSS tambahan
-            var styleTag = document.createElement('style');
-            styleTag.textContent = `
-                .sidebar::-webkit-scrollbar-thumb { 
-                    background: ${primaryColor} !important; 
-                }
-                .sidebar::-webkit-scrollbar-track { 
-                    background: ${sidebarBg} !important; 
-                }
-                
-                .grid-item:hover { 
-                    border-color: ${primaryColor} !important; 
-                    box-shadow: 0 8px 40px rgba(0,0,0,0.4) !important;
-                }
-                .grid-item:hover .card-body .title { 
-                    color: ${primaryLight} !important; 
-                }
-                
-                .grid-item .thumbnail .play-btn:hover {
-                    background: ${primaryColor} !important;
-                    border-color: ${primaryColor} !important;
-                    box-shadow: 0 4px 30px ${primaryColor}40 !important;
-                }
-                
-                .grid-item.highlight { 
-                    --hl-color: ${primaryColor}; 
-                }
-                
-                .story-item .story-avatar { 
-                    background: ${storyGrad} !important; 
-                }
-                
-                .story-item .story-avatar .inner {
-                    background: ${bgColor} !important;
-                    color: ${textColor} !important;
-                }
-                
-                .sidebar-nav .nav-item.active-tag {
-                    background: ${hoverColor} !important;
-                    border-left-color: ${primaryColor} !important;
-                    color: ${primaryLight} !important;
-                }
-                
-                .grid-item .thumbnail .hover-overlay {
-                    background: rgba(0,0,0,0.5) !important;
-                }
-                
-                .grid-item .thumbnail .hover-overlay .stat {
-                    color: ${textColor} !important;
-                }
-                
-                .grid-item .thumbnail .hover-overlay .stat svg {
-                    fill: ${primaryLight} !important;
-                }
-                
-                .site-description strong {
-                    color: ${primaryLight} !important;
-                }
-                
-                .floating-header .brand h1 {
-                    color: ${textColor} !important;
-                }
-                
-                .sidebar-close:hover {
-                    background: rgba(255,255,255,0.1) !important;
-                    color: ${primaryLight} !important;
-                }
-            `;
-            document.head.appendChild(styleTag);
-        }
-        
-        // ===== VIDEO QUERIES =====
+        // ===== 8. VIDEO QUERIES =====
         var videoQueries = [
 {{content}}
         ];
         
+        // ===== 9. HELPER FUNCTIONS =====
         function formatTitle(query) {
             var title = query.replace(/_/g, ' ');
             title = title.replace(/\./g, ' ');
@@ -1343,6 +970,7 @@
             return imageUrls[index % imageUrls.length];
         }
         
+        // ===== 10. PAGINATION =====
         var itemsPerPage = 30;
         var totalPages = Math.ceil(videoQueries.length / itemsPerPage);
         
@@ -1365,29 +993,72 @@
             return videoQueries.slice(start, end);
         }
         
-        function updateCanonicalTag() {
+        // ===== 11. SEO META TAGS =====
+        function updateMetaTags(page, tag) {
+            var pageText = page > 1 ? ' - Page ' + page : '';
+            var title = seoContent.title + pageText;
+            if (tag) {
+                title = formatTitle(tag) + pageText + ' - ' + seoContent.title;
+            }
+            document.getElementById('dynamicTitle').textContent = title;
+            
+            var description = seoContent.description;
+            if (tag) {
+                description = 'Watch ' + formatTitle(tag) + ' leaked videos. ' + seoContent.description;
+            }
+            if (description.length > 999) {
+                description = description.substring(0, 152) + '...';
+            }
+            document.getElementById('metaDescription').content = description;
+            
+            var metaKeywords = document.querySelector('meta[name="keywords"]');
+            if (!metaKeywords) {
+                metaKeywords = document.createElement('meta');
+                metaKeywords.name = 'keywords';
+                document.head.appendChild(metaKeywords);
+            }
+            metaKeywords.content = seoContent.metaKeywords + (tag ? ', ' + tag : '');
+            
             document.getElementById('canonicalTag').href = window.location.href;
+            updateBreadcrumbSchema(page, tag);
+            updateWebsiteSchema();
         }
         
-        function updateStructuredData(page, tag) {
+        function updateWebsiteSchema() {
+            var schema = {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": brandName,
+                "description": seoContent.description,
+                "url": window.location.origin,
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": window.location.origin + "?q={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                }
+            };
+            document.getElementById('websiteSchema').textContent = JSON.stringify(schema);
+        }
+        
+        function updateBreadcrumbSchema(page, tag) {
             var baseURL = window.location.origin + window.location.pathname;
             var pageQueries = getPageQueries(page);
-            var breadcrumbItems = [
-                { "@type": "ListItem", "position": 1, "name": brandName + " Home", "item": baseURL },
-                { "@type": "ListItem", "position": 2, "name": dynamicText.title, "item": baseURL + '?page=1' }
+            var items = [
+                { "@type": "ListItem", "position": 1, "name": brandName, "item": baseURL },
+                { "@type": "ListItem", "position": 2, "name": seoContent.breadcrumbName, "item": baseURL + '?page=1' }
             ];
             var position = 3;
             pageQueries.forEach(function(query) {
-                breadcrumbItems.push({
+                items.push({
                     "@type": "ListItem",
                     "position": position,
-                    "name": query,
+                    "name": query.substring(0, 30) + (query.length > 30 ? '...' : ''),
                     "item": baseURL + '?page=' + page + '&tag=' + encodeURIComponent(query)
                 });
                 position++;
             });
             if (page > 1) {
-                breadcrumbItems.push({
+                items.push({
                     "@type": "ListItem",
                     "position": position,
                     "name": "Page " + page,
@@ -1397,95 +1068,291 @@
             document.getElementById('breadcrumbSchema').textContent = JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",
-                "itemListElement": breadcrumbItems
+                "itemListElement": items
             });
         }
         
-        function updateHeadTags(page, tag) {
-            var pageText = page > 1 ? ' - Page ' + page : '';
+        // ===== 12. UPDATE SEO BREADCRUMB HTML =====
+        function updateSeoBreadcrumb(page, tag) {
+            var container = document.getElementById('seoBreadcrumb');
+            var baseURL = window.location.origin + window.location.pathname;
+            var html = '<a href="' + baseURL + '" style="color: ' + colors.primary + ';">' + brandName + '</a>';
+            html += '<span class="separator" style="color: ' + colors.textMuted + ';"> › </span>';
+            html += '<a href="' + baseURL + '?page=1" style="color: ' + colors.primary + ';">' + seoContent.breadcrumbName + '</a>';
             if (tag) {
-                document.getElementById('dynamicTitle').textContent = formatTitle(tag) + pageText + ' - ' + dynamicText.title;
+                html += '<span class="separator" style="color: ' + colors.textMuted + ';"> › </span>';
+                html += '<span class="current" style="color: ' + colors.primaryLight + ';">' + formatTitle(tag) + '</span>';
             } else if (page > 1) {
-                document.getElementById('dynamicTitle').textContent = dynamicText.title + pageText;
-            } else {
-                document.getElementById('dynamicTitle').textContent = dynamicText.title;
+                html += '<span class="separator" style="color: ' + colors.textMuted + ';"> › </span>';
+                html += '<span class="current" style="color: ' + colors.primaryLight + ';">Page ' + page + '</span>';
             }
-            var pageQueries = getPageQueries(page);
-            var descriptions = pageQueries.map(function(q) { return formatTitle(q); });
-            var metaDescription;
-            if (tag) {
-                metaDescription = 'Page ' + page + ' - Watch videos tagged with ' + tag + '. ' + descriptions.join(', ') + '. ' + dynamicText.description;
-            } else {
-                metaDescription = 'Page ' + page + ' - Watch: ' + descriptions.join(', ') + '. ' + dynamicText.description;
+            container.innerHTML = html;
+        }
+        
+        // ===== 13. APPLY ALL COLORS =====
+        function applyColors() {
+            var c = colors;
+            
+            // Body & App
+            document.body.style.background = c.bgColor;
+            document.getElementById('app').style.background = c.bgColor;
+            document.getElementById('mainContent').style.background = 'transparent';
+            
+            // Header
+            var header = document.getElementById('header');
+            header.style.background = c.headerBg;
+            header.style.borderBottomColor = c.primary;
+            header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
+            
+            // Brand
+            document.getElementById('brandLogo').style.background = c.primary;
+            document.getElementById('brandLogo').style.color = '#0d0d14';
+            
+            var brandNameSpan = document.querySelector('#brandName span');
+            if (brandNameSpan) {
+                brandNameSpan.style.color = c.primaryLight;
             }
-            if (metaDescription.length > 999) {
-                metaDescription = metaDescription.substring(0, 152) + '...';
+            var brandMainText = document.querySelector('#brandName');
+            if (brandMainText) {
+                brandMainText.style.color = c.textColor;
             }
-            document.getElementById('metaDescription').content = metaDescription;
-            updateCanonicalTag();
-            updateStructuredData(page, tag);
-        }
-        
-        function updateURL(page, tag) {
-            var url = new URL(window.location);
-            if (page > 1) url.searchParams.set('page', page);
-            else url.searchParams.delete('page');
-            if (tag) url.searchParams.set('tag', tag);
-            else url.searchParams.delete('tag');
-            window.history.pushState({}, '', url);
-            updateHeadTags(page, tag);
-        }
-        
-        function goToVideoUrl(query) {
-            var url = getVideoUrl(query);
-            window.open(url, '_blank');
-            closeSidebar();
-        }
-        
-        function scrollToVideo(index) {
-            var grid = document.getElementById('videoGrid');
-            var items = grid.querySelectorAll('.grid-item');
-            var itemIndex = index % itemsPerPage;
-            if (items[itemIndex]) {
-                items[itemIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
-                items[itemIndex].classList.add('highlight');
-                setTimeout(function() { items[itemIndex].classList.remove('highlight'); }, 1500);
+            
+            // Hamburger - WARNA HUE
+            var hamburgerBtn = document.getElementById('hamburgerBtn');
+            var hamburgerSpans = hamburgerBtn.querySelectorAll('span');
+            hamburgerSpans.forEach(function(s) {
+                s.style.background = c.hamburgerColor;
+            });
+            
+            hamburgerBtn.addEventListener('mouseenter', function() {
+                var spans = this.querySelectorAll('span');
+                spans.forEach(function(s) { s.style.background = c.primaryLight; });
+            });
+            hamburgerBtn.addEventListener('mouseleave', function() {
+                var spans = this.querySelectorAll('span');
+                spans.forEach(function(s) { s.style.background = c.hamburgerColor; });
+            });
+            
+            // Sidebar
+            var sidebar = document.getElementById('sidebar');
+            sidebar.style.background = c.sidebarBg;
+            sidebar.style.borderRightColor = c.primary;
+            
+            var sidebarHeader = document.getElementById('sidebarHeader');
+            sidebarHeader.style.background = c.sidebarHeaderBg;
+            sidebarHeader.style.borderBottomColor = c.primary;
+            
+            var closeBtn = document.getElementById('sidebarClose');
+            closeBtn.style.color = c.textMuted;
+            closeBtn.addEventListener('mouseenter', function() {
+                this.style.color = c.primaryLight;
+            });
+            closeBtn.addEventListener('mouseleave', function() {
+                this.style.color = c.textMuted;
+            });
+            
+            // Description
+            var descElement = document.getElementById('siteDescription');
+            if (descElement) {
+                descElement.style.color = c.textMuted;
+                var strongs = descElement.querySelectorAll('strong');
+                strongs.forEach(function(s) { s.style.color = c.primaryLight; });
             }
-        }
-        
-        function openSidebar() {
-            document.getElementById('sidebar').classList.add('open');
-            document.getElementById('sidebarOverlay').classList.add('open');
-            document.getElementById('hamburgerBtn').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeSidebar() {
-            document.getElementById('sidebar').classList.remove('open');
-            document.getElementById('sidebarOverlay').classList.remove('open');
-            document.getElementById('hamburgerBtn').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        
-        function toggleSidebar() {
-            if (document.getElementById('sidebar').classList.contains('open')) {
-                closeSidebar();
-            } else {
-                openSidebar();
+            
+            // Stories bar
+            document.getElementById('storiesBar').style.borderBottomColor = c.borderColor;
+            
+            var storyNames = document.querySelectorAll('.story-item .story-name');
+            storyNames.forEach(function(name) {
+                name.style.color = c.textMuted;
+            });
+            
+            var storyInners = document.querySelectorAll('.story-item .story-avatar .inner');
+            storyInners.forEach(function(inner) {
+                inner.style.background = c.bgColor;
+                inner.style.color = c.textColor;
+            });
+            
+            // Ads
+            var adContainers = document.querySelectorAll('.ad-container');
+            adContainers.forEach(function(ad) {
+                ad.style.background = 'hsla(' + c.bgHue + ', ' + c.bgSat + '%, ' + (c.isDark ? 15 : 80) + '%, 0.3)';
+                ad.style.borderColor = c.borderColor;
+            });
+            
+            // Grid items
+            var gridItems = document.querySelectorAll('.grid-item');
+            gridItems.forEach(function(item) {
+                item.style.background = c.cardBg;
+                item.style.borderColor = c.borderColor;
+                item.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
+            });
+            
+            var cardBodies = document.querySelectorAll('.grid-item .card-body');
+            cardBodies.forEach(function(card) {
+                card.style.background = c.cardBg;
+            });
+            
+            var titles = document.querySelectorAll('.grid-item .card-body .title');
+            titles.forEach(function(title) {
+                title.style.color = c.textColor;
+            });
+            
+            var metaRows = document.querySelectorAll('.grid-item .card-body .meta-row');
+            metaRows.forEach(function(meta) {
+                meta.style.borderTopColor = c.borderColor;
+            });
+            
+            var views = document.querySelectorAll('.grid-item .card-body .meta-row .views');
+            views.forEach(function(view) {
+                view.style.color = c.textMuted;
+                var svg = view.querySelector('svg');
+                if (svg) {
+                    svg.style.fill = c.textMuted;
+                }
+            });
+            
+            var videoNumbers = document.querySelectorAll('.grid-item .card-body .meta-row .video-number');
+            videoNumbers.forEach(function(num) {
+                num.style.color = 'hsla(' + ((c.hue + 180) % 360) + ', 20%, 50%, 0.5)';
+            });
+            
+            // Play buttons
+            var playBtns = document.querySelectorAll('.grid-item .thumbnail .play-btn');
+            playBtns.forEach(function(btn) {
+                btn.style.background = 'hsla(' + c.hue + ', ' + c.primarySat + '%, ' + c.primaryLight + '%, 0.2)';
+                btn.style.borderColor = 'hsla(' + c.hue + ', ' + c.primarySat + '%, ' + c.primaryLight + '%, 0.3)';
+            });
+            
+            var playIndicators = document.querySelectorAll('.grid-item .thumbnail .play-indicator');
+            playIndicators.forEach(function(ind) {
+                ind.style.color = c.primaryLight;
+                var svg = ind.querySelector('svg');
+                if (svg) {
+                    svg.style.fill = c.primaryLight;
+                }
+            });
+            
+            var durationBadges = document.querySelectorAll('.grid-item .thumbnail .duration-badge');
+            durationBadges.forEach(function(badge) {
+                badge.style.color = c.primaryLight;
+            });
+            
+            // Pagination
+            var paginationBtns = document.querySelectorAll('.main-pagination button');
+            paginationBtns.forEach(function(btn) {
+                btn.style.color = c.textMuted;
+                btn.style.borderColor = c.borderColor;
+                btn.style.background = 'hsla(' + c.bgHue + ', ' + c.bgSat + '%, ' + (c.isDark ? 15 : 80) + '%, 0.4)';
+            });
+            
+            var activeBtns = document.querySelectorAll('.main-pagination button.active');
+            activeBtns.forEach(function(btn) {
+                btn.style.background = c.primary;
+                btn.style.borderColor = c.primary;
+                btn.style.color = '#0d0d14';
+            });
+            
+            // Indicator
+            var indicator = document.getElementById('mainIndicator');
+            indicator.style.color = c.textMuted;
+            var strong = indicator.querySelector('strong');
+            if (strong) {
+                strong.style.color = c.primaryLight;
             }
+            
+            // Sidebar nav
+            var sidebarNavItems = document.querySelectorAll('.sidebar-nav .nav-item');
+            sidebarNavItems.forEach(function(item) {
+                if (item.classList.contains('active-tag')) {
+                    item.style.color = c.primaryLight;
+                    item.style.background = c.hoverColor;
+                    item.style.borderLeftColor = c.primary;
+                } else {
+                    item.style.color = c.textMuted;
+                }
+                
+                item.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('active-tag')) {
+                        this.style.color = c.textColor;
+                    }
+                    this.style.background = 'rgba(255,255,255,0.06)';
+                });
+                item.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('active-tag')) {
+                        this.style.color = c.textMuted;
+                        this.style.background = 'transparent';
+                    } else {
+                        this.style.background = c.hoverColor;
+                    }
+                });
+            });
+            
+            // Breadcrumb
+            var breadcrumb = document.getElementById('seoBreadcrumb');
+            if (breadcrumb) {
+                breadcrumb.style.color = c.textMuted;
+                var links = breadcrumb.querySelectorAll('a');
+                links.forEach(function(link) {
+                    link.style.color = c.primaryLight;
+                });
+                var current = breadcrumb.querySelector('.current');
+                if (current) {
+                    current.style.color = c.primaryLight;
+                }
+                var separators = breadcrumb.querySelectorAll('.separator');
+                separators.forEach(function(sep) {
+                    sep.style.color = c.textMuted;
+                });
+            }
+            
+            // Additional CSS
+            var styleTag = document.createElement('style');
+            styleTag.textContent = `
+                .sidebar::-webkit-scrollbar-thumb { background: ${c.primary} !important; }
+                .sidebar::-webkit-scrollbar-track { background: ${c.sidebarBg} !important; }
+                .grid-item:hover { border-color: ${c.primary} !important; }
+                .grid-item:hover .card-body .title { color: ${c.primaryLight} !important; }
+                .grid-item .thumbnail .play-btn:hover {
+                    background: ${c.primary} !important;
+                    border-color: ${c.primary} !important;
+                }
+                .grid-item.highlight { --hl-color: ${c.primary}; }
+                .story-item .story-avatar { background: ${c.storyGrad} !important; }
+                .sidebar-nav .nav-item.active-tag {
+                    background: ${c.hoverColor} !important;
+                    border-left-color: ${c.primary} !important;
+                    color: ${c.primaryLight} !important;
+                }
+                .site-description strong { color: ${c.primaryLight} !important; }
+                .floating-header .brand h1 { color: ${c.textColor} !important; }
+                .sidebar-close:hover {
+                    background: rgba(255,255,255,0.1) !important;
+                    color: ${c.primaryLight} !important;
+                }
+                .main-pagination button:hover:not(.active):not(:disabled) {
+                    border-color: ${c.primaryLight} !important;
+                    color: ${c.primaryLight} !important;
+                    background: ${c.hoverColor} !important;
+                }
+                .seo-breadcrumb a:hover {
+                    color: ${c.primary} !important;
+                }
+                .hamburger-btn:hover {
+                    background: rgba(255,255,255,0.1) !important;
+                }
+            `;
+            document.head.appendChild(styleTag);
         }
         
-        document.getElementById('hamburgerBtn').addEventListener('click', toggleSidebar);
-        document.getElementById('sidebarClose').addEventListener('click', closeSidebar);
-        document.getElementById('sidebarOverlay').addEventListener('click', closeSidebar);
-        
+        // ===== 14. RENDER FUNCTIONS =====
         function renderStories() {
             var bar = document.getElementById('storiesBar');
             bar.innerHTML = '';
             var queries = getPageQueries(currentPage);
             var displayQueries = queries.slice(0, 8);
             
-            displayQueries.forEach(function(query, idx) {
+            displayQueries.forEach(function(query) {
                 var item = document.createElement('a');
                 item.className = 'story-item';
                 item.href = getVideoUrl(query);
@@ -1494,10 +1361,10 @@
                 var letter = query.charAt(0).toUpperCase();
                 
                 item.innerHTML = `
-                    <div class="story-avatar" style="background: ${storyGrad};">
-                        <div class="inner" style="background: ${bgColor}; color: ${textColor}; font-size: 15px;">${letter}</div>
+                    <div class="story-avatar" style="background: ${colors.storyGrad};">
+                        <div class="inner" style="background: ${colors.bgColor}; color: ${colors.textColor}; font-size: 15px;">${letter}</div>
                     </div>
-                    <span class="story-name" style="color: ${textMuted};">${shortName}</span>
+                    <span class="story-name" style="color: ${colors.textMuted};">${shortName}</span>
                 `;
                 bar.appendChild(item);
             });
@@ -1507,7 +1374,7 @@
             var container = document.getElementById('sidebarNav');
             container.innerHTML = '';
             
-            videoQueries.forEach(function(query, index) {
+            videoQueries.forEach(function(query) {
                 var item = document.createElement('a');
                 item.className = 'nav-item';
                 if (query === activeTag) {
@@ -1521,11 +1388,11 @@
                 item.appendChild(text);
                 
                 if (query === activeTag) {
-                    item.style.color = primaryLight;
-                    item.style.background = hoverColor;
-                    item.style.borderLeftColor = primaryColor;
+                    item.style.color = colors.primaryLight;
+                    item.style.background = colors.hoverColor;
+                    item.style.borderLeftColor = colors.primary;
                 } else {
-                    item.style.color = textMuted;
+                    item.style.color = colors.textMuted;
                 }
                 
                 item.addEventListener('click', function(e) {
@@ -1544,9 +1411,9 @@
             var prev = document.createElement('button');
             prev.innerHTML = '<svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6 1.5 1.5L12 12l4.5 4.5z"/></svg>';
             prev.disabled = page === 1;
-            prev.style.color = textMuted;
-            prev.style.borderColor = borderColor;
-            prev.style.background = 'hsla(' + bgHue + ', 10%, ' + (bgLightness + 5) + '%, 0.4)';
+            prev.style.color = colors.textMuted;
+            prev.style.borderColor = colors.borderColor;
+            prev.style.background = 'hsla(' + colors.bgHue + ', ' + colors.bgSat + '%, ' + (colors.isDark ? 15 : 80) + '%, 0.4)';
             prev.addEventListener('click', function() { 
                 navigateTo(page - 1, null);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1566,31 +1433,17 @@
                     btn.textContent = p;
                     if (p === page) {
                         btn.classList.add('active');
-                        btn.style.background = primaryColor;
-                        btn.style.borderColor = primaryColor;
+                        btn.style.background = colors.primary;
+                        btn.style.borderColor = colors.primary;
                         btn.style.color = '#0d0d14';
                     } else {
-                        btn.style.color = textMuted;
-                        btn.style.borderColor = borderColor;
-                        btn.style.background = 'hsla(' + bgHue + ', 10%, ' + (bgLightness + 5) + '%, 0.4)';
+                        btn.style.color = colors.textMuted;
+                        btn.style.borderColor = colors.borderColor;
+                        btn.style.background = 'hsla(' + colors.bgHue + ', ' + colors.bgSat + '%, ' + (colors.isDark ? 15 : 80) + '%, 0.4)';
                     }
                     btn.addEventListener('click', function() { 
                         navigateTo(p, null);
                         window.scrollTo({ top: 0, behavior: 'smooth' });
-                    });
-                    btn.addEventListener('mouseenter', function() {
-                        if (!this.classList.contains('active') && !this.disabled) {
-                            this.style.borderColor = primaryLight;
-                            this.style.color = primaryLight;
-                            this.style.background = hoverColor;
-                        }
-                    });
-                    btn.addEventListener('mouseleave', function() {
-                        if (!this.classList.contains('active') && !this.disabled) {
-                            this.style.borderColor = borderColor;
-                            this.style.color = textMuted;
-                            this.style.background = 'hsla(' + bgHue + ', 10%, ' + (bgLightness + 5) + '%, 0.4)';
-                        }
                     });
                     container.appendChild(btn);
                 })(i);
@@ -1599,9 +1452,9 @@
             var next = document.createElement('button');
             next.innerHTML = '<svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6-1.5 1.5L12 12l-4.5 4.5z"/></svg>';
             next.disabled = page === totalPages;
-            next.style.color = textMuted;
-            next.style.borderColor = borderColor;
-            next.style.background = 'hsla(' + bgHue + ', 10%, ' + (bgLightness + 5) + '%, 0.4)';
+            next.style.color = colors.textMuted;
+            next.style.borderColor = colors.borderColor;
+            next.style.background = 'hsla(' + colors.bgHue + ', ' + colors.bgSat + '%, ' + (colors.isDark ? 15 : 80) + '%, 0.4)';
             next.addEventListener('click', function() { 
                 navigateTo(page + 1, null);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1631,8 +1484,8 @@
                 item.target = '_blank';
                 item.id = 'video-' + i;
                 item.setAttribute('aria-label', title);
-                item.style.background = cardBgColor;
-                item.style.borderColor = borderColor;
+                item.style.background = colors.cardBg;
+                item.style.borderColor = colors.borderColor;
                 item.style.boxShadow = '0 2px 20px rgba(0,0,0,0.3)';
                 
                 item.innerHTML = `
@@ -1640,36 +1493,36 @@
                         <img class="sample-image" src="${imgUrl}" alt="${title}" loading="lazy">
                         <div class="gradient-overlay"></div>
                         
-                        <div class="play-btn" style="background: hsla(${hue}, ${primarySaturation}%, ${primaryLightness}%, 0.2); border-color: hsla(${hue}, ${primarySaturation}%, ${primaryLightness}%, 0.3);">
+                        <div class="play-btn" style="background: hsla(${colors.hue}, ${colors.primarySat}%, ${colors.primaryLight}%, 0.2); border-color: hsla(${colors.hue}, ${colors.primarySat}%, ${colors.primaryLight}%, 0.3);">
                             <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
                         </div>
                         
-                        <div class="play-indicator" style="color: ${primaryLight};">
-                            <svg viewBox="0 0 24 24" style="fill: ${primaryLight};"><polygon points="5,3 19,12 5,21"/></svg>
+                        <div class="play-indicator" style="color: ${colors.primaryLight};">
+                            <svg viewBox="0 0 24 24" style="fill: ${colors.primaryLight};"><polygon points="5,3 19,12 5,21"/></svg>
                             Video
                         </div>
                         
-                        <span class="duration-badge" style="color: ${primaryLight};">${dur}</span>
+                        <span class="duration-badge" style="color: ${colors.primaryLight};">${dur}</span>
                         
                         <div class="hover-overlay" style="background: rgba(0,0,0,0.5);">
-                            <div class="stat" style="color: ${textColor};">
-                                <svg viewBox="0 0 24 24" style="fill: ${primaryLight};"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                            <div class="stat" style="color: ${colors.textColor};">
+                                <svg viewBox="0 0 24 24" style="fill: ${colors.primaryLight};"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                                 ${likes}
                             </div>
-                            <div class="stat" style="color: ${textColor};">
-                                <svg viewBox="0 0 24 24" style="fill: ${primaryLight};"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            <div class="stat" style="color: ${colors.textColor};">
+                                <svg viewBox="0 0 24 24" style="fill: ${colors.primaryLight};"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                                 ${views}
                             </div>
                         </div>
                     </div>
-                    <div class="card-body" style="background: ${cardBgColor};">
-                        <div class="title" style="color: ${textColor};">${title}</div>
-                        <div class="meta-row" style="border-top-color: ${borderColor};">
-                            <span class="views" style="color: ${textMuted};">
-                                <svg viewBox="0 0 24 24" style="fill: ${textMuted};"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <div class="card-body" style="background: ${colors.cardBg};">
+                        <div class="title" style="color: ${colors.textColor};">${title}</div>
+                        <div class="meta-row" style="border-top-color: ${colors.borderColor};">
+                            <span class="views" style="color: ${colors.textMuted};">
+                                <svg viewBox="0 0 24 24" style="fill: ${colors.textMuted};"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                                 ${views}
                             </span>
-                            <span class="video-number" style="color: hsla(${(hue + 180) % 360}, 20%, 50%, 0.5);">#${number}</span>
+                            <span class="video-number" style="color: hsla(${(colors.hue + 180) % 360}, 20%, 50%, 0.5);">#${number}</span>
                         </div>
                     </div>
                 `;
@@ -1677,44 +1530,95 @@
             }
             
             var indicator = document.getElementById('mainIndicator');
-            indicator.style.color = textMuted;
-            indicator.innerHTML = 'Page <strong style="color: ' + primaryLight + ';">' + page + '</strong> of ' + totalPages + ' (' + videoQueries.length + ' videos)';
+            indicator.style.color = colors.textMuted;
+            indicator.innerHTML = 'Page <strong style="color: ' + colors.primaryLight + ';">' + page + '</strong> of ' + totalPages + ' (' + videoQueries.length + ' videos)';
         }
         
+        // ===== 15. NAVIGATION =====
         function navigateTo(page, tag) {
             currentPage = page;
             activeTag = tag;
-            updateURL(page, tag);
+            var url = new URL(window.location);
+            if (page > 1) url.searchParams.set('page', page);
+            else url.searchParams.delete('page');
+            if (tag) url.searchParams.set('tag', tag);
+            else url.searchParams.delete('tag');
+            window.history.pushState({}, '', url);
+            
+            updateMetaTags(page, tag);
+            updateSeoBreadcrumb(page, tag);
             renderVideos(page);
             renderMainPagination(page);
             renderStories();
             renderSidebarNav();
+            applyColors();
         }
         
+        function goToVideoUrl(query) {
+            var url = getVideoUrl(query);
+            window.open(url, '_blank');
+            closeSidebar();
+        }
+        
+        // ===== 16. SIDEBAR CONTROLS =====
+        function openSidebar() {
+            document.getElementById('sidebar').classList.add('open');
+            document.getElementById('sidebarOverlay').classList.add('open');
+            document.getElementById('hamburgerBtn').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeSidebar() {
+            document.getElementById('sidebar').classList.remove('open');
+            document.getElementById('sidebarOverlay').classList.remove('open');
+            document.getElementById('hamburgerBtn').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        function toggleSidebar() {
+            if (document.getElementById('sidebar').classList.contains('open')) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
+        }
+        
+        document.getElementById('hamburgerBtn').addEventListener('click', toggleSidebar);
+        document.getElementById('sidebarClose').addEventListener('click', closeSidebar);
+        document.getElementById('sidebarOverlay').addEventListener('click', closeSidebar);
+        
+        // ===== 17. POPSTATE =====
         window.addEventListener('popstate', function() {
             var state = getURLParams();
             currentPage = state.page;
             activeTag = state.tag;
-            updateHeadTags(currentPage, activeTag);
+            updateMetaTags(currentPage, activeTag);
+            updateSeoBreadcrumb(currentPage, activeTag);
             renderVideos(currentPage);
             renderMainPagination(currentPage);
             renderStories();
             renderSidebarNav();
+            applyColors();
         });
         
-        // ===== INIT =====
-        applyDynamicText();
+        // ===== 18. INIT =====
+        document.getElementById('siteDescription').textContent = seoContent.description;
         
+        var brandSpan = document.querySelector('#brandName');
+        if (brandSpan) {
+            brandSpan.innerHTML = brandName + ' <span>' + brandName.charAt(0).toUpperCase() + '</span>';
+        }
+        document.getElementById('brandLogo').textContent = brandInitial;
+        
+        updateMetaTags(currentPage, activeTag);
+        updateSeoBreadcrumb(currentPage, activeTag);
         renderVideos(currentPage);
         renderMainPagination(currentPage);
         renderStories();
         renderSidebarNav();
-        updateHeadTags(currentPage, activeTag);
-        
-        setTimeout(applyAllColors, 50);
+        applyColors();
     </script>
     {% include /ads/gobloggugel/umum.html %}
     {% include footer.html %}
 </body>
 </html>
-    
