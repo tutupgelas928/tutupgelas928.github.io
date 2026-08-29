@@ -10,11 +10,43 @@ permalink: /yes/
 
 <script>
 const urls = [
-"/nono/",
+  "https://t.co/StloQHZNiA",
+"https://t.co/J9CbCULhwq",
+"https://t.co/rOGPuGhtDk",
+"https://t.co/Sb9lAEYYna",
+"https://t.co/dFGTUcnXuC",
+"https://t.co/IBuh0kq5my",
+"https://t.co/PlLByYeJbq",
+"https://t.co/kQS57yrGcz",
+"https://t.co/b6juQPul9e",
+"https://t.co/9qlwAX4KZU",
+"https://t.co/pdmu2cbjmb",
+"https://t.co/2GJD2Sqb7Q",
+"https://t.co/YHum80FA6L",
+"https://t.co/e5VYt4xt8Y",
+"https://t.co/VOf6GD8TAj",
+"https://t.co/flLofFJAtn",
+"https://t.co/LukZcrSphE",
+"https://t.co/FXIHRgeUcW",
+"https://t.co/zwINNzVoBe",
+"https://t.co/NNLYUniJX8",
+"https://t.co/7ekKrXsU2y",
   "/nono/"
 ];
 
-const tujuan = urls[Math.floor(Math.random() * urls.length)];
+let index = parseInt(localStorage.getItem("yes_redirect_index"), 10);
+
+if (isNaN(index) || index >= urls.length) {
+  index = 0;
+}
+
+const tujuan = urls[index];
+
+localStorage.setItem(
+  "yes_redirect_index",
+  (index + 1) % urls.length
+);
+
 window.location.replace(tujuan);
 </script>
 
