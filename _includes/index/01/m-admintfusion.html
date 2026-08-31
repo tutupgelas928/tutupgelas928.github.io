@@ -814,7 +814,7 @@
         var parts = hostname.split('.');
         
         // Ambil subdomain (bagian pertama dari hostname)
-        var subdomain = parts.length >= 2 ? parts[0] : 'site';
+        var subdomain = parts.length >= 2 ? parts[0] : '';
         
         // Format subdomain menjadi nama brand yang rapi
         function formatBrandName(str) {
@@ -828,7 +828,7 @@
             
             // Jika kosong atau terlalu pendek, gunakan default
             if (formatted.length < 2) {
-                return 'Site';
+                return 'madmintfusion';
             }
             
             return formatted;
