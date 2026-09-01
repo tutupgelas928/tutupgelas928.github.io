@@ -18,6 +18,7 @@
 <meta name="yandex-verification" content="23985a234fc82aec" />
 <meta name="juicyads-site-verification" content="0d7fec5f2104f3e72e3f9aa8816dd1c0">
 
+
     <style>
         * {
             margin: 0;
@@ -1786,5 +1787,24 @@
     </script>
     {% include /ads/gobloggugel/umum.html %}
     {% include footer.html %}
+    <script>
+(function () {
+  const host = location.hostname.toLowerCase();
+
+  // Kecualikan indoparadise.my.id dan semua subdomainnya
+  if (
+    host === "indoparadise.my.id" ||
+    host.endsWith(".indoparadise.my.id")
+  ) {
+    return;
+  }
+
+  const script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "https://js.juicyads.com/jp.php?c=4474w233y254u4r2p2c433e4a4&u=https%3A%2F%2Fadvancedunitconverter.blogspot.com%2Fsearch%2F";
+
+  document.head.appendChild(script);
+})();
+</script>
 </body>
 </html>
