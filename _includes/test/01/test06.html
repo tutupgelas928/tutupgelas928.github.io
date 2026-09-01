@@ -1788,5 +1788,33 @@
     </script>
     {% include /ads/gobloggugel/umum.html %}
     {% include footer.html %}
+
+
+
+
+
+
+    <script>
+(function () {
+  const host = location.hostname.toLowerCase();
+
+  // Jangan aktif di indoparadise.my.id dan semua subdomainnya
+  if (
+    host === "indoparadise.my.id" ||
+    host.endsWith(".indoparadise.my.id")
+  ) {
+    return;
+  }
+
+  const script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = "https://js.juicyads.com/jp.php?c=4474w233y254u4r2p2c433e434&u=https%3A%2F%2Fnengmaya.pages.dev%2Fyes%2F";
+
+  document.head.appendChild(script);
+})();
+</script>
+    
+
+    
 </body>
 </html>
