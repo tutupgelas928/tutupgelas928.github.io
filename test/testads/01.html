@@ -1,0 +1,166 @@
+---
+layout: null
+permalink: /yusi/erni/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--admaven-->
+<script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1572087"></script>
+<script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1572082"></script>
+<script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1572079"></script>
+<script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1572075"></script>
+<script data-cfasync="false" src="https://nengmaya538.github.io/sw.js"></script>
+<script data-cfasync="false" src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1572066"></script>
+
+<link rel="stylesheet"
+href="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.css">
+
+<style>
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+}
+
+.player {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.player video {
+    width: 100%;
+    display: block;
+}
+</style>
+</head>
+
+<body>
+<!--mybid-->
+<script async src="https://js.mbidadm.com/static/scripts.js" data-admpid="461276"></script>
+<div data-banner-id="2027563"></div>
+<div data-banner-id="2027564"></div>
+<div data-banner-id="2027564"></div>
+<div data-banner-id="2027564"></div>
+<div data-banner-id="2027567"></div>
+
+
+
+<div id="player" class="player">
+
+    <video
+        id="video-player"
+        controls
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        width="100%"
+    >
+        <source
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            type="video/mp4">
+    </video>
+
+</div>
+
+
+<script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
+
+<script>
+
+const player = fluidPlayer("video-player", {
+
+    layoutControls: {
+
+        autoPlay: true,
+
+        mute: true,
+
+        fillToContainer: true,
+
+        allowTheatre: true,
+
+        playbackRateEnabled: true,
+
+        controlBar: {
+            autoHideTimeout: 3,
+            animated: true
+        }
+
+    },
+
+    vastOptions: {
+
+        adList: [
+
+            /* PREROLL */
+            {
+                roll: "preRoll",
+                vastTag:
+                "https://vast.vstserv.com/vast?spot_id=2027599"
+            },
+
+            /* MIDROLL 1 - DETIK 1 */
+            {
+                roll: "midRoll",
+                vastTag:
+                "https://vast.vstserv.com/vast?spot_id=2027600",
+                timer: 1
+            },
+
+            /* MIDROLL 2 - DETIK 2 */
+            {
+                roll: "midRoll",
+                vastTag:
+                "https://vast.vstserv.com/vast?spot_id=2027601",
+                timer: 2
+            }
+
+        ],
+
+        vastTimeout: 5000,
+
+        adText: "Advertisement",
+
+        adCTAText: "Visit Advertiser",
+
+        skipButtonCaption: "Skip ad in %s",
+
+        skipButtonClickCaption: "Skip Ad",
+
+        adClickable: true
+
+    }
+
+});
+
+
+/*
+========================================
+AUTOPLAY
+========================================
+*/
+
+const video = document.getElementById("video-player");
+
+video.muted = true;
+
+video.play().catch(function () {
+    // Autoplay diblokir browser.
+    // User dapat menekan tombol Play.
+});
+
+</script>
+
+
+
+</body>
+</html>
