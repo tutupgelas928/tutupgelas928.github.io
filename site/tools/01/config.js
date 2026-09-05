@@ -1,12 +1,8 @@
 // ============================================
-// AUTO CONFIG - ZERO HARDCODE
+// AUTO CONFIG - ZERO HARDCODE - RELATIVE PATH
 // ============================================
 
 const CONFIG = (function() {
-    // ===== DETEKSI PATH =====
-    const path = window.location.pathname;
-    const basePath = path.substring(0, path.lastIndexOf('/') + 1);
-    
     // ===== DETEKSI DOMAIN =====
     const hostname = window.location.hostname;
     const parts = hostname.split('.');
@@ -94,7 +90,6 @@ const CONFIG = (function() {
         description: generateDescription(siteName),
         logoEmoji: generateLogo(),
         colors: colors,
-        basePath: basePath,
         isLocal: isLocal,
         hostname: hostname,
         
@@ -104,32 +99,33 @@ const CONFIG = (function() {
             slots: { header: '', content: '', footer: '' }
         },
         
+        // ===== RELATIVE PATH =====
         tools: [
-            { id: 'word-counter', name: 'Word Counter', icon: '📝', file: '/site/tools/01/word-counter.html', description: 'Count words, characters, and sentences instantly.', color: '#e0e7ff' },
-            { id: 'case-converter', name: 'Case Converter', icon: '🔤', file: '/site/tools/01/case-converter.html', description: 'Convert text to UPPERCASE, lowercase, Title Case.', color: '#fce7f3' },
-            { id: 'age-calculator', name: 'Age Calculator', icon: '🎂', file: '/site/tools/01/age-calculator.html', description: 'Calculate exact age in years, months, and days.', color: '#d1fae5' },
-            { id: 'color-converter', name: 'Color Converter', icon: '🎨', file: '/site/tools/01/color-converter.html', description: 'Convert colors between HEX, RGB, and HSL.', color: '#fef3c7' },
-            { id: 'lorem-ipsum', name: 'Lorem Ipsum', icon: '📄', file: '/site/tools/01/lorem-ipsum.html', description: 'Generate placeholder text for your projects.', color: '#e0e7ff' },
-            { id: 'json-formatter', name: 'JSON Formatter', icon: '💻', file: '/site/tools/01/json-formatter.html', description: 'Format and validate JSON data easily.', color: '#dcfce7' }
+            { id: 'word-counter', name: 'Word Counter', icon: '📝', file: 'word-counter.html', description: 'Count words, characters, and sentences instantly.', color: '#e0e7ff' },
+            { id: 'case-converter', name: 'Case Converter', icon: '🔤', file: 'case-converter.html', description: 'Convert text to UPPERCASE, lowercase, Title Case.', color: '#fce7f3' },
+            { id: 'age-calculator', name: 'Age Calculator', icon: '🎂', file: 'age-calculator.html', description: 'Calculate exact age in years, months, and days.', color: '#d1fae5' },
+            { id: 'color-converter', name: 'Color Converter', icon: '🎨', file: 'color-converter.html', description: 'Convert colors between HEX, RGB, and HSL.', color: '#fef3c7' },
+            { id: 'lorem-ipsum', name: 'Lorem Ipsum', icon: '📄', file: 'lorem-ipsum.html', description: 'Generate placeholder text for your projects.', color: '#e0e7ff' },
+            { id: 'json-formatter', name: 'JSON Formatter', icon: '💻', file: 'json-formatter.html', description: 'Format and validate JSON data easily.', color: '#dcfce7' }
         ],
         
         navigation: [
-            { name: 'Home', file: '/site/tools/01/index.html' },
-            { name: 'About', file: '/site/tools/01/about.html' },
-            { name: 'Contact', file: '/site/tools/01/contact.html' }
+            { name: 'Home', file: 'index.html' },
+            { name: 'About', file: 'about.html' },
+            { name: 'Contact', file: 'contact.html' }
         ],
         
         footerLinks: [
-            { name: 'About', file: '/site/tools/01/about.html' },
-            { name: 'Contact', file: '/site/tools/01/contact.html' },
-            { name: 'Privacy Policy', file: '/site/tools/01/privacy-policy.html' },
-            { name: 'Terms', file: '/site/tools/01/terms.html' }
+            { name: 'About', file: 'about.html' },
+            { name: 'Contact', file: 'contact.html' },
+            { name: 'Privacy Policy', file: 'privacy-policy.html' },
+            { name: 'Terms', file: 'terms.html' }
         ]
     };
 })();
 
 // ============================================
-// HELPER FUNCTIONS
+// HELPER FUNCTIONS - RELATIVE
 // ============================================
 
 function applyColors() {
@@ -143,13 +139,13 @@ function applyColors() {
 
 function renderHeader() {
     const navLinks = CONFIG.navigation.map(link => 
-        `<a href="${CONFIG.basePath}${link.file}">${link.name}</a>`
+        `<a href="${link.file}">${link.name}</a>`
     ).join('');
     
     return `
         <header>
             <div class="header-container">
-                <a href="${CONFIG.basePath}index.html" class="logo">
+                <a href="index.html" class="logo">
                     <div class="logo-icon">${CONFIG.logoEmoji}</div>
                     <span>${CONFIG.siteName}</span>
                 </a>
@@ -161,11 +157,11 @@ function renderHeader() {
 
 function renderFooter() {
     const footerLinks = CONFIG.footerLinks.map(link => 
-        `<li><a href="${CONFIG.basePath}${link.file}">${link.name}</a></li>`
+        `<li><a href="${link.file}">${link.name}</a></li>`
     ).join('');
     
     const popularTools = CONFIG.tools.slice(0, 4).map(tool => 
-        `<li><a href="${CONFIG.basePath}${tool.file}">${tool.icon} ${tool.name}</a></li>`
+        `<li><a href="${tool.file}">${tool.icon} ${tool.name}</a></li>`
     ).join('');
     
     const year = new Date().getFullYear();
@@ -196,7 +192,7 @@ function renderFooter() {
 function renderBreadcrumb(pageName) {
     return `
         <div class="breadcrumb">
-            <a href="${CONFIG.basePath}index.html">Home</a> → 
+            <a href="index.html">Home</a> → 
             <span>${pageName}</span>
         </div>
     `;
@@ -204,7 +200,7 @@ function renderBreadcrumb(pageName) {
 
 function renderToolCards() {
     return CONFIG.tools.map(tool => `
-        <a href="${CONFIG.basePath}${tool.file}" class="tool-card">
+        <a href="${tool.file}" class="tool-card">
             <div class="tool-icon" style="background: ${tool.color};">${tool.icon}</div>
             <h3>${tool.name}</h3>
             <p>${tool.description}</p>
@@ -215,7 +211,7 @@ function renderToolCards() {
 function renderRelatedTools(currentId) {
     const related = CONFIG.tools.filter(t => t.id !== currentId).slice(0, 3);
     return related.map(tool => `
-        <a href="${CONFIG.basePath}${tool.file}" class="related-tool">${tool.icon} ${tool.name}</a>
+        <a href="${tool.file}" class="related-tool">${tool.icon} ${tool.name}</a>
     `).join('');
 }
 
