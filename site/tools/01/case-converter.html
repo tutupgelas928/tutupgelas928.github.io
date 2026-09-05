@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Converter</title>
+    <meta name="description" content="Free online case converter. Convert text to UPPERCASE, lowercase, Title Case.">
+    <link rel="stylesheet" href="style.css">
+    <script src="config.js"></script>
+</head>
+<body data-page-name="Case Converter" data-tool-id="case-converter">
+    <div id="site-header"></div>
+    <div id="breadcrumb"></div>
+    
+    <main class="tool-page">
+        <h1>🔤 Case Converter</h1>
+        <p class="tool-intro">Convert text to any case format instantly.</p>
+        
+        <div class="tool-box">
+            <textarea id="input" placeholder="Type or paste text here..." style="min-height:100px;"></textarea>
+            
+            <div style="display:flex; flex-wrap:wrap; gap:8px; margin:1rem 0;">
+                <button class="btn btn-primary" onclick="convert('upper')">UPPERCASE</button>
+                <button class="btn btn-primary" onclick="convert('lower')">lowercase</button>
+                <button class="btn btn-primary" onclick="convert('title')">Title Case</button>
+                <button class="btn btn-primary" onclick="convert('sentence')">Sentence case</button>
+                <button class="btn btn-primary" onclick="convert('camel')">camelCase</button>
+                <button class="btn btn-primary" onclick="convert('pascal')">PascalCase</button>
+                <button class="btn btn-primary" onclick="convert('snake')">snake_case</button>
+                <button class="btn btn-primary" onclick="convert('kebab')">kebab-case</button>
+                <button class="btn btn-primary" onclick="convert('alternating')">aLtErNaTiNg</button>
+                <button class="btn btn-primary" onclick="convert('reverse')">esreveR</button>
+            </div>
+            
+            <div class="output-box" id="output">Result will appear here...</div>
+            
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button class="btn btn-copy" onclick="copyResult()">📋 Copy</button>
+                <button class="btn btn-secondary" onclick="clearAll()">🗑️ Clear</button>
+                <button class="btn btn-secondary" onclick="sampleText()">📄 Sample</button>
+            </div>
+        </div>
+        
+        <div id="ad-content" class="ad-container"></div>
+        
+        <section class="content-section">
+            <h2>How to Use</h2>
+            <ol>
+                <li>Type or paste text.</li>
+                <li>Click desired format.</li>
+                <li>Copy result.</li>
+            </ol>
+        </section>
+        
+        <section class="content-section">
+            <h2>FAQ</h2>
+            <div class="faq-item">
+                <h3>What is camelCase?</h3>
+                <p>camelCase removes spaces, capitalizing each word except the first.</p>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2>Related Tools</h2>
+            <div class="related-tools" id="related-tools"></div>
+        </section>
+    </main>
+    
+    <div id="site-footer"></div>
+    
+    <script>
+        const input = document.getElementById('input');
+        const output = document.getElementById('output');
+        
+        function convert(type) {
+            const t = input.value;
+            if (!t.trim()) { alert('Please enter text first.'); return; }
+            
+            let r = '';
+            switch(type) {
+                case 'upper': r = t.toUpperCase(); break;
+                case 'lower': r = t.toLowerCase(); break;
+                case 'title': r = t.replace(/\w\S*/g, w => w.charAt(0).toUpperCase() + w.substr(1).toLowerCase()); break;
+                case 'sentence': r = t.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase()); break;
+                case 'camel': r = t.replace(/[^a-zA-Z0-9]+(.)/g, (m, c) => c.toUpperCase()); break;
+                case 'pascal': r = t.replace(/\w\S*/g, w => w.charAt(0).toUpperCase() + w.substr(1).toLowerCase()).replace(/\s+/g, ''); break;
+                case 'snake': r = t.toLowerCase().replace(/\s+/g, '_'); break;
+                case 'kebab': r = t.toLowerCase().replace(/\s+/g, '-'); break;
+                case 'alternating': r = [...t].map((c, i) => i % 2 ? c.toUpperCase() : c.toLowerCase()).join(''); break;
+                case 'reverse': r = [...t].reverse().join(''); break;
+            }
+            output.textContent = r;
+        }
+        
+        function copyResult() {
+            if (output.textContent === 'Result will appear here...') { alert('Convert first.'); return; }
+            navigator.clipboard.writeText(output.textContent).then(() => alert('Copied!'));
+        }
+        function clearAll() { input.value = ''; output.textContent = 'Result will appear here...'; }
+        function sampleText() { input.value = "the quick brown fox jumps over the lazy dog"; }
+    </script>
+</body>
+</html>

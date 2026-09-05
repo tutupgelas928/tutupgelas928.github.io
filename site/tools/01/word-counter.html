@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <meta name="description" content="Free online word counter. Count words, characters, sentences instantly.">
+    <link rel="stylesheet" href="style.css">
+    <script src="config.js"></script>
+</head>
+<body data-page-name="Word Counter" data-tool-id="word-counter">
+    <div id="site-header"></div>
+    <div id="breadcrumb"></div>
+    
+    <main class="tool-page">
+        <h1>📝 Word Counter</h1>
+        <p class="tool-intro">Count words, characters, sentences, and paragraphs instantly.</p>
+        
+        <div class="tool-box">
+            <textarea id="input" placeholder="Type or paste your text here..."></textarea>
+            
+            <div class="stats">
+                <div class="stat-card"><div class="stat-number" id="words">0</div><div class="stat-label">Words</div></div>
+                <div class="stat-card"><div class="stat-number" id="chars">0</div><div class="stat-label">Characters</div></div>
+                <div class="stat-card"><div class="stat-number" id="noSpace">0</div><div class="stat-label">No Spaces</div></div>
+                <div class="stat-card"><div class="stat-number" id="sentences">0</div><div class="stat-label">Sentences</div></div>
+                <div class="stat-card"><div class="stat-number" id="paragraphs">0</div><div class="stat-label">Paragraphs</div></div>
+                <div class="stat-card"><div class="stat-number" id="readTime">0</div><div class="stat-label">Min Read</div></div>
+            </div>
+            
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button class="btn btn-copy" onclick="copyText()">📋 Copy</button>
+                <button class="btn btn-secondary" onclick="clearText()">🗑️ Clear</button>
+                <button class="btn btn-secondary" onclick="sampleText()">📄 Sample</button>
+            </div>
+        </div>
+        
+        <div id="ad-content" class="ad-container"></div>
+        
+        <section class="content-section">
+            <h2>How to Use</h2>
+            <ol>
+                <li>Type or paste text into the box.</li>
+                <li>Results update automatically.</li>
+                <li>Copy with one click.</li>
+            </ol>
+        </section>
+        
+        <section class="content-section">
+            <h2>FAQ</h2>
+            <div class="faq-item">
+                <h3>Is my text stored?</h3>
+                <p>No. All processing happens in your browser.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How is reading time calculated?</h3>
+                <p>Based on 200 words per minute average.</p>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2>Related Tools</h2>
+            <div class="related-tools" id="related-tools"></div>
+        </section>
+    </main>
+    
+    <div id="site-footer"></div>
+    
+    <script>
+        const input = document.getElementById('input');
+        input.addEventListener('input', update);
+        
+        function update() {
+            const t = input.value;
+            const words = t.trim() ? t.trim().split(/\s+/).length : 0;
+            document.getElementById('words').textContent = words;
+            document.getElementById('chars').textContent = t.length;
+            document.getElementById('noSpace').textContent = t.replace(/\s/g, '').length;
+            document.getElementById('sentences').textContent = t.trim() ? t.split(/[.!?]+/).filter(s => s.trim()).length : 0;
+            document.getElementById('paragraphs').textContent = t.trim() ? t.split(/\n+/).filter(p => p.trim()).length : 0;
+            document.getElementById('readTime').textContent = Math.ceil(words / 200);
+        }
+        
+        function copyText() {
+            if (!input.value) { alert('Please enter text first.'); return; }
+            navigator.clipboard.writeText(input.value).then(() => alert('Copied!'));
+        }
+        function clearText() { input.value = ''; update(); input.focus(); }
+        function sampleText() {
+            input.value = "The quick brown fox jumps over the lazy dog. This is sample text to demonstrate the word counter tool.";
+            update();
+        }
+    </script>
+</body>
+</html>

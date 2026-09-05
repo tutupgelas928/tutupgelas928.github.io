@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Formatter</title>
+    <meta name="description" content="Free online JSON formatter and validator.">
+    <link rel="stylesheet" href="style.css">
+    <script src="config.js"></script>
+</head>
+<body data-page-name="JSON Formatter" data-tool-id="json-formatter">
+    <div id="site-header"></div>
+    <div id="breadcrumb"></div>
+    
+    <main class="tool-page">
+        <h1>💻 JSON Formatter</h1>
+        <p class="tool-intro">Format, validate, and beautify JSON data.</p>
+        
+        <div class="tool-box">
+            <textarea id="input" placeholder='Paste JSON here...' style="font-family:'Courier New',monospace; min-height:120px;"></textarea>
+            
+            <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:0.8rem;">
+                <button class="btn btn-primary" onclick="formatJson()">✨ Format</button>
+                <button class="btn btn-secondary" onclick="minifyJson()">📦 Minify</button>
+                <button class="btn btn-secondary" onclick="validateJson()">✅ Validate</button>
+                <button class="btn btn-secondary" onclick="sampleJson()">📄 Sample</button>
+                <button class="btn btn-copy" onclick="copyJson()">📋 Copy</button>
+                <button class="btn btn-secondary" onclick="clearJson()">🗑️ Clear</button>
+            </div>
+            
+            <div id="status" style="margin-top:0.8rem; padding:0.8rem; border-radius:8px; display:none;"></div>
+            
+            <textarea id="output" readonly style="font-family:'Courier New',monospace; background:#f8fafc; min-height:150px; margin-top:1rem;"></textarea>
+        </div>
+        
+        <div id="ad-content" class="ad-container"></div>
+        
+        <section class="content-section">
+            <h2>Related Tools</h2>
+            <div class="related-tools" id="related-tools"></div>
+        </section>
+    </main>
+    
+    <div id="site-footer"></div>
+    
+    <script>
+        function formatJson() {
+            const t = document.getElementById('input').value;
+            if (!t.trim()) { showStatus('Paste JSON first.', false); return; }
+            try {
+                document.getElementById('output').value = JSON.stringify(JSON.parse(t), null, 2);
+                showStatus('✅ Valid JSON!', true);
+            } catch(e) {
+                showStatus('❌ ' + e.message, false);
+            }
+        }
+        function minifyJson() {
+            const t = document.getElementById('input').value;
+            if (!t.trim()) { showStatus('Paste JSON first.', false); return; }
+            try {
+                document.getElementById('output').value = JSON.stringify(JSON.parse(t));
+                showStatus('✅ Minified!', true);
+            } catch(e) {
+                showStatus('❌ ' + e.message, false);
+            }
+        }
+        function validateJson() {
+            const t = document.getElementById('input').value;
+            if (!t.trim()) { showStatus('Paste JSON first.', false); return; }
+            try { JSON.parse(t); showStatus('✅ Valid JSON!', true); }
+            catch(e) { showStatus('❌ ' + e.message, false); }
+        }
+        function sampleJson() {
+            document.getElementById('input').value = JSON.stringify({ name: "John", age: 30, hobbies: ["reading","coding"] }, null, 2);
+            document.getElementById('output').value = '';
+            hideStatus();
+        }
+        function copyJson() {
+            const t = document.getElementById('output').value;
+            if (!t) { alert('Format first.'); return; }
+            navigator.clipboard.writeText(t).then(() => alert('Copied!'));
+        }
+        function clearJson() {
+            document.getElementById('input').value = '';
+            document.getElementById('output').value = '';
+            hideStatus();
+        }
+        function showStatus(msg, ok) {
+            const s = document.getElementById('status');
+            s.textContent = msg;
+            s.style.display = 'block';
+            s.style.background = ok ? '#d1fae5' : '#fee2e2';
+            s.style.color = ok ? '#065f46' : '#991b1b';
+        }
+        function hideStatus() { document.getElementById('status').style.display = 'none'; }
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem Ipsum Generator</title>
+    <meta name="description" content="Free Lorem Ipsum generator. Create placeholder text instantly.">
+    <link rel="stylesheet" href="style.css">
+    <script src="config.js"></script>
+</head>
+<body data-page-name="Lorem Ipsum" data-tool-id="lorem-ipsum">
+    <div id="site-header"></div>
+    <div id="breadcrumb"></div>
+    
+    <main class="tool-page">
+        <h1>📄 Lorem Ipsum Generator</h1>
+        <p class="tool-intro">Generate placeholder text for your projects.</p>
+        
+        <div class="tool-box">
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <div style="flex:1; min-width:120px;">
+                    <label style="font-weight:600;">Type:</label>
+                    <select id="type">
+                        <option value="paragraphs">Paragraphs</option>
+                        <option value="sentences">Sentences</option>
+                        <option value="words">Words</option>
+                    </select>
+                </div>
+                <div style="flex:1; min-width:120px;">
+                    <label style="font-weight:600;">Amount:</label>
+                    <input type="number" id="amount" value="3" min="1" max="100">
+                </div>
+            </div>
+            
+            <div style="display:flex; gap:8px; margin-top:0.8rem;">
+                <button class="btn btn-primary" onclick="generate()">Generate</button>
+                <button class="btn btn-copy" onclick="copyResult()">📋 Copy</button>
+            </div>
+            
+            <div class="output-box" id="output" style="white-space:pre-wrap; font-family:Georgia,serif; line-height:1.7;">
+                Generated text will appear here...
+            </div>
+        </div>
+        
+        <div id="ad-content" class="ad-container"></div>
+        
+        <section class="content-section">
+            <h2>Related Tools</h2>
+            <div class="related-tools" id="related-tools"></div>
+        </section>
+    </main>
+    
+    <div id="site-footer"></div>
+    
+    <script>
+        const words = ["lorem","ipsum","dolor","sit","amet","consectetur","adipiscing","elit","sed","do","eiusmod","tempor","incididunt","ut","labore","et","dolore","magna","aliqua","enim","ad","minim","veniam","quis","nostrud","exercitation","ullamco","laboris","nisi","aliquip","ex","ea","commodo","consequat","duis","aute","irure","reprehenderit","voluptate","velit","esse","cillum","fugiat","nulla","pariatur","excepteur","sint","occaecat","cupidatat","non","proident","sunt","culpa","qui","officia","deserunt","mollit","anim","id","est","laborum"];
+        
+        function generate() {
+            const type = document.getElementById('type').value;
+            const amount = parseInt(document.getElementById('amount').value) || 3;
+            if (amount < 1 || amount > 100) { alert('Enter 1-100.'); return; }
+            
+            let result = '';
+            if (type === 'words') result = genWords(amount);
+            else if (type === 'sentences') result = genSentences(amount);
+            else result = genParagraphs(amount);
+            
+            document.getElementById('output').textContent = result;
+        }
+        function genWords(n) {
+            const arr = [];
+            for (let i=0; i<n; i++) arr.push(words[Math.floor(Math.random()*words.length)]);
+            return arr.join(' ');
+        }
+        function genSentences(n) {
+            const arr = [];
+            for (let i=0; i<n; i++) {
+                const s = genWords(Math.floor(Math.random()*10)+5);
+                arr.push(s.charAt(0).toUpperCase() + s.slice(1) + '.');
+            }
+            return arr.join(' ');
+        }
+        function genParagraphs(n) {
+            const arr = [];
+            for (let i=0; i<n; i++) arr.push(genSentences(Math.floor(Math.random()*4)+3));
+            return arr.join('\n\n');
+        }
+        function copyResult() {
+            const t = document.getElementById('output').textContent;
+            if (t === 'Generated text will appear here...') { alert('Generate first.'); return; }
+            navigator.clipboard.writeText(t).then(() => alert('Copied!'));
+        }
+    </script>
+</body>
+</html>
