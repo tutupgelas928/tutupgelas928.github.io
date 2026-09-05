@@ -105,25 +105,25 @@ const CONFIG = (function() {
         },
         
         tools: [
-            { id: 'word-counter', name: 'Word Counter', icon: '📝', file: 'word-counter.html', description: 'Count words, characters, and sentences instantly.', color: '#e0e7ff' },
-            { id: 'case-converter', name: 'Case Converter', icon: '🔤', file: 'case-converter.html', description: 'Convert text to UPPERCASE, lowercase, Title Case.', color: '#fce7f3' },
-            { id: 'age-calculator', name: 'Age Calculator', icon: '🎂', file: 'age-calculator.html', description: 'Calculate exact age in years, months, and days.', color: '#d1fae5' },
-            { id: 'color-converter', name: 'Color Converter', icon: '🎨', file: 'color-converter.html', description: 'Convert colors between HEX, RGB, and HSL.', color: '#fef3c7' },
-            { id: 'lorem-ipsum', name: 'Lorem Ipsum', icon: '📄', file: 'lorem-ipsum.html', description: 'Generate placeholder text for your projects.', color: '#e0e7ff' },
-            { id: 'json-formatter', name: 'JSON Formatter', icon: '💻', file: 'json-formatter.html', description: 'Format and validate JSON data easily.', color: '#dcfce7' }
+            { id: 'word-counter', name: 'Word Counter', icon: '📝', file: '/site/tools/01/word-counter.html', description: 'Count words, characters, and sentences instantly.', color: '#e0e7ff' },
+            { id: 'case-converter', name: 'Case Converter', icon: '🔤', file: '/site/tools/01/case-converter.html', description: 'Convert text to UPPERCASE, lowercase, Title Case.', color: '#fce7f3' },
+            { id: 'age-calculator', name: 'Age Calculator', icon: '🎂', file: '/site/tools/01/age-calculator.html', description: 'Calculate exact age in years, months, and days.', color: '#d1fae5' },
+            { id: 'color-converter', name: 'Color Converter', icon: '🎨', file: '/site/tools/01/color-converter.html', description: 'Convert colors between HEX, RGB, and HSL.', color: '#fef3c7' },
+            { id: 'lorem-ipsum', name: 'Lorem Ipsum', icon: '📄', file: '/site/tools/01/lorem-ipsum.html', description: 'Generate placeholder text for your projects.', color: '#e0e7ff' },
+            { id: 'json-formatter', name: 'JSON Formatter', icon: '💻', file: '/site/tools/01/json-formatter.html', description: 'Format and validate JSON data easily.', color: '#dcfce7' }
         ],
         
         navigation: [
-            { name: 'Home', file: 'index.html' },
-            { name: 'About', file: 'about.html' },
-            { name: 'Contact', file: 'contact.html' }
+            { name: 'Home', file: '/site/tools/01/index.html' },
+            { name: 'About', file: '/site/tools/01/about.html' },
+            { name: 'Contact', file: '/site/tools/01/contact.html' }
         ],
         
         footerLinks: [
-            { name: 'About', file: 'about.html' },
-            { name: 'Contact', file: 'contact.html' },
-            { name: 'Privacy Policy', file: 'privacy-policy.html' },
-            { name: 'Terms', file: 'terms.html' }
+            { name: 'About', file: '/site/tools/01/about.html' },
+            { name: 'Contact', file: '/site/tools/01/contact.html' },
+            { name: 'Privacy Policy', file: '/site/tools/01/privacy-policy.html' },
+            { name: 'Terms', file: '/site/tools/01/terms.html' }
         ]
     };
 })();
