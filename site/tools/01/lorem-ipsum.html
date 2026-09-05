@@ -10,7 +10,7 @@ layout: null
     <meta name="description" content="Free Lorem Ipsum generator. Create placeholder text instantly.">
     <link rel="stylesheet" href="/site/tools/01/style.css">
     <script src="/site/tools/01/config.js"></script>
-{ include head.html %} </head>
+{% include head.html %} </head>
 <body data-page-name="Lorem Ipsum" data-tool-id="lorem-ipsum">
     <div id="site-header"></div>
     <div id="breadcrumb"></div>
@@ -94,5 +94,5 @@ layout: null
             navigator.clipboard.writeText(t).then(() => alert('Copied!'));
         }
     </script>
-<details><summary>.</summary>{ include footer.html %}</details> </body>
+<details><summary>.</summary>{% include footer.html %}</details> </body>
 </html>

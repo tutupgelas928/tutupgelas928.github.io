@@ -10,7 +10,7 @@ layout: null
     <meta name="description" content="Free online word counter. Count words, characters, sentences instantly.">
     <link rel="stylesheet" href="/site/tools/01/style.css">
     <script src="/site/tools/01/config.js"></script>
-{ include head.html %} </head>
+{% include head.html %} </head>
 <body data-page-name="Word Counter" data-tool-id="word-counter">
     <div id="site-header"></div>
     <div id="breadcrumb"></div>
@@ -94,5 +94,5 @@ layout: null
             update();
         }
     </script>
-<details><summary>.</summary>{ include footer.html %}</details> </body>
+<details><summary>.</summary>{% include footer.html %}</details> </body>
 </html>

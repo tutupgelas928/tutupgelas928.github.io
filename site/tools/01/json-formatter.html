@@ -10,7 +10,7 @@ layout: null
     <meta name="description" content="Free online JSON formatter and validator.">
     <link rel="stylesheet" href="/site/tools/01/style.css">
     <script src="/site/tools/01/config.js"></script>
-{ include head.html %} </head>
+{% include head.html %} </head>
 <body data-page-name="JSON Formatter" data-tool-id="json-formatter">
     <div id="site-header"></div>
     <div id="breadcrumb"></div>
@@ -97,5 +97,5 @@ layout: null
         }
         function hideStatus() { document.getElementById('status').style.display = 'none'; }
     </script>
-<details><summary>.</summary>{ include footer.html %}</details> </body>
+<details><summary>.</summary>{% include footer.html %}</details> </body>
 </html>

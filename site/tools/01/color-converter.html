@@ -10,7 +10,7 @@ layout: null
     <meta name="description" content="Free online color converter. Convert HEX, RGB, HSL instantly.">
     <link rel="stylesheet" href="/site/tools/01/style.css">
     <script src="/site/tools/01/config.js"></script>
-{ include head.html %} </head>
+{% include head.html %} </head>
 <body data-page-name="Color Converter" data-tool-id="color-converter">
     <div id="site-header"></div>
     <div id="breadcrumb"></div>
@@ -131,5 +131,5 @@ layout: null
         }
         window.onload = function() { document.getElementById('colorInput').value = '#6366f1'; convertColor(); };
     </script>
-<details><summary>.</summary>{ include footer.html %}</details> </body>
+<details><summary>.</summary>{% include footer.html %}</details> </body>
 </html>

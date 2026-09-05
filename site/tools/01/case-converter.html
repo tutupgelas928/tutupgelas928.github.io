@@ -10,7 +10,7 @@ layout: null
     <meta name="description" content="Free online case converter. Convert text to UPPERCASE, lowercase, Title Case.">
     <link rel="stylesheet" href="/site/tools/01/style.css">
     <script src="/site/tools/01/config.js"></script>
-{ include head.html %} </head>
+{% include head.html %} </head>
 <body data-page-name="Case Converter" data-tool-id="case-converter">
     <div id="site-header"></div>
     <div id="breadcrumb"></div>
@@ -102,5 +102,5 @@ layout: null
         function clearAll() { input.value = ''; output.textContent = 'Result will appear here...'; }
         function sampleText() { input.value = "the quick brown fox jumps over the lazy dog"; }
     </script>
-<details><summary>.</summary>{ include footer.html %}</details> </body>
+<details><summary>.</summary>{% include footer.html %}</details> </body>
 </html>
