@@ -1,9 +1,12 @@
 // ============================================
-// AUTO CONFIG - ZERO HARDCODE - RELATIVE PATH
+// CONFIG - HARDCODE PATH /site/tools/01/
 // ============================================
 
 const CONFIG = (function() {
-    // ===== DETEKSI DOMAIN =====
+    // ===== PATH FOLDER (HARDCODE) =====
+    const basePath = '/site/tools/01/';
+    
+    // ===== DETEKSI DOMAIN (untuk branding) =====
     const hostname = window.location.hostname;
     const parts = hostname.split('.');
     
@@ -90,6 +93,7 @@ const CONFIG = (function() {
         description: generateDescription(siteName),
         logoEmoji: generateLogo(),
         colors: colors,
+        basePath: basePath,
         isLocal: isLocal,
         hostname: hostname,
         
@@ -99,7 +103,7 @@ const CONFIG = (function() {
             slots: { header: '', content: '', footer: '' }
         },
         
-        // ===== RELATIVE PATH =====
+        // ===== TOOLS =====
         tools: [
             { id: 'word-counter', name: 'Word Counter', icon: '📝', file: 'word-counter.html', description: 'Count words, characters, and sentences instantly.', color: '#e0e7ff' },
             { id: 'case-converter', name: 'Case Converter', icon: '🔤', file: 'case-converter.html', description: 'Convert text to UPPERCASE, lowercase, Title Case.', color: '#fce7f3' },
@@ -125,7 +129,7 @@ const CONFIG = (function() {
 })();
 
 // ============================================
-// HELPER FUNCTIONS - RELATIVE
+// HELPER FUNCTIONS - PAKAI BASEPATH HARDCODE
 // ============================================
 
 function applyColors() {
@@ -139,13 +143,13 @@ function applyColors() {
 
 function renderHeader() {
     const navLinks = CONFIG.navigation.map(link => 
-        `<a href="${link.file}">${link.name}</a>`
+        `<a href="${CONFIG.basePath}${link.file}">${link.name}</a>`
     ).join('');
     
     return `
         <header>
             <div class="header-container">
-                <a href="index.html" class="logo">
+                <a href="${CONFIG.basePath}index.html" class="logo">
                     <div class="logo-icon">${CONFIG.logoEmoji}</div>
                     <span>${CONFIG.siteName}</span>
                 </a>
@@ -157,11 +161,11 @@ function renderHeader() {
 
 function renderFooter() {
     const footerLinks = CONFIG.footerLinks.map(link => 
-        `<li><a href="${link.file}">${link.name}</a></li>`
+        `<li><a href="${CONFIG.basePath}${link.file}">${link.name}</a></li>`
     ).join('');
     
     const popularTools = CONFIG.tools.slice(0, 4).map(tool => 
-        `<li><a href="${tool.file}">${tool.icon} ${tool.name}</a></li>`
+        `<li><a href="${CONFIG.basePath}${tool.file}">${tool.icon} ${tool.name}</a></li>`
     ).join('');
     
     const year = new Date().getFullYear();
@@ -192,7 +196,7 @@ function renderFooter() {
 function renderBreadcrumb(pageName) {
     return `
         <div class="breadcrumb">
-            <a href="index.html">Home</a> → 
+            <a href="${CONFIG.basePath}index.html">Home</a> → 
             <span>${pageName}</span>
         </div>
     `;
@@ -200,7 +204,7 @@ function renderBreadcrumb(pageName) {
 
 function renderToolCards() {
     return CONFIG.tools.map(tool => `
-        <a href="${tool.file}" class="tool-card">
+        <a href="${CONFIG.basePath}${tool.file}" class="tool-card">
             <div class="tool-icon" style="background: ${tool.color};">${tool.icon}</div>
             <h3>${tool.name}</h3>
             <p>${tool.description}</p>
@@ -211,7 +215,7 @@ function renderToolCards() {
 function renderRelatedTools(currentId) {
     const related = CONFIG.tools.filter(t => t.id !== currentId).slice(0, 3);
     return related.map(tool => `
-        <a href="${tool.file}" class="related-tool">${tool.icon} ${tool.name}</a>
+        <a href="${CONFIG.basePath}${tool.file}" class="related-tool">${tool.icon} ${tool.name}</a>
     `).join('');
 }
 
