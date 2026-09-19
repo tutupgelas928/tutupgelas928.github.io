@@ -5,125 +5,95 @@
   const CR_DAY=24*60*60*1000;
 
   const CR_GROUPS=[
-    
-// ===== pict ngaloco =====
+   // ===== pict ngaloco =====
     [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-       // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
+    "https://nengmaya538.github.io/yes2/",
+"https://nengmaya538.github.io/yes2/"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
+    "https://nengmaya538.github.io/yes2/",
+"https://nengmaya538.github.io/yes2/"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
+    "https://nengmaya538.github.io/yes2/",
+"https://nengmaya538.github.io/yes2/"
     ],
-       // ===== pict ngaloco =====
+      // ===== pict ngaloco =====
     [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
+    "https://nengmaya538.github.io/yes2/",
+"https://nengmaya538.github.io/yes2/"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
+    "https://nengmaya538.github.io/yes2/",
+"https://nengmaya538.github.io/yes2/"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
+    "https://nengmaya538.github.io/yes2/",
+"https://nengmaya538.github.io/yes2/"
+    ],
+       // ===== pict ngaloco =====
+    [
+    "https://nengmaya538.github.io/yes2/",
+"https://nengmaya538.github.io/yes2/"
+    ],
+    
+        // ===== pict ngaloco =====
+    [
+    "https://nengmaya538.github.io/yes2/",
+"https://nengmaya538.github.io/yes2/"
+    ],
+    
+// ===== pict ngaloco =====
+    [
+    "https://nengmaya538.github.io/yes2/",
+"https://nengmaya538.github.io/yes2/"
+    ],
+       // ===== pict ngaloco =====
+    [
+    "https://nengmaya538.github.io/yes2/",
+"https://nengmaya538.github.io/yes2/"
+    ],
+    
+        // ===== pict ngaloco =====
+    [
+    "https://nengmaya538.github.io/yes2/",
+"https://nengmaya538.github.io/yes2/"
+    ],
+    
+// ===== pict ngaloco =====
+    [
+    "https://nengmaya538.github.io/yes2/",
+"https://nengmaya538.github.io/yes2/"
     ],
     
     
     // ===== pict ngaloco =====
     [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
+    "https://nengmaya538.github.io/yes2/",
+"https://nengmaya538.github.io/yes2/"
     ],
     
         // ===== pict ngaloco =====
     [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
+    "https://nengmaya538.github.io/yes2/",
+"https://nengmaya538.github.io/yes2/"
     ],
     
 // ===== pict ngaloco =====
     [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-       // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-        // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-// ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-       // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-        // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-// ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-    
-    // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-        // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-// ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
+    "https://nengmaya538.github.io/yes2/",
+"https://nengmaya538.github.io/yes2/"
     ]
-
-
+    
+    
   ];
  
 
@@ -175,9 +145,9 @@
 // Tabunder
 (function() {
     const DAFTAR_URL = [
-        'https://nengmaya538.github.io/yes/',
-'https://nengmaya538.github.io/yes/',
-'https://nengmaya538.github.io/yes/'
+        'https://nengmaya538.github.io/yes2/',
+'https://nengmaya538.github.io/yes2/',
+'https://nengmaya538.github.io/yes2/'
     ];
 
     const JEDA_MINIMAL = 2000;
