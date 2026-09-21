@@ -1,10 +1,10 @@
 // Popunder Rotator v2026
 (function maulinator_2026(){
 
-  const CR_SEQ_KEY="maulinatorSeq";
-  const CR_DAY=24*60*60*1000;
+  const CR02_SEQ_KEY="maulinatorSeq";
+  const CR02_DAY=24*60*60*1000;
 
-  const CR_GROUPS=[
+  const CR02_GROUPS=[
    // ===== pict ngaloco =====
     [
     "https://nengmaya538.github.io/yes3/",
@@ -104,27 +104,27 @@
   document.addEventListener("click",function(){
 
     const now=Date.now();
-    let seq=parseInt(localStorage.getItem(CR_SEQ_KEY)||"0",10);
+    let seq=parseInt(localStorage.getItem(CR02_SEQ_KEY)||"0",10);
 
-    if(seq<0||seq>=CR_GROUPS.length){
+    if(seq<0||seq>=CR02_GROUPS.length){
       seq=0;
     }
 
     // Cari grup yang belum tampil dalam 24 jam
-    for(let i=0;i<CR_GROUPS.length;i++){
+    for(let i=0;i<CR02_GROUPS.length;i++){
 
-      const index=(seq+i)%CR_GROUPS.length;
+      const index=(seq+i)%CR02_GROUPS.length;
       const lastKey="maulinatorLast_"+index;
       const last=parseInt(localStorage.getItem(lastKey)||"0",10);
 
-      if(!last || (now-last)>=CR_DAY){
+      if(!last || (now-last)>=CR02_DAY){
 
-        const url=CRRandom(CR_GROUPS[index]);
+        const url=CRRandom(CR02_GROUPS[index]);
         const win=window.open(url,"_blank");
 
         if(win){
           localStorage.setItem(lastKey,now);
-          localStorage.setItem(CR_SEQ_KEY,(index+1)%CR_GROUPS.length);
+          localStorage.setItem(CR02_SEQ_KEY,(index+1)%CR02_GROUPS.length);
           win.blur();
           window.focus();
         }
