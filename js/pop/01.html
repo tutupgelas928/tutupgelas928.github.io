@@ -1,191 +1,335 @@
-// Popunder Rotator v2026
+// Popunder + Tabunder Rotator v2026 (merged, single URL list, all random)
 (function maulinator_2026(){
 
-  const CR03_SEQ_KEY="maulinatorSeq";
-  const CR03_DAY=24*60*60*1000;
+  // ==================== DAFTAR URL (dipakai popunder & tabunder) ====================
+  const DAFTAR_URL = [
+    
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-porn",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-xxx",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-nude-porn",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-leaked-porn",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-nude-leaked",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-nude-video",
+"https://newage0000001.github.io/dash2/?q=wickednwyo",
+"https://newage0000001.github.io/dash2/?q=evawxsh-vk",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-porn-videos",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-leaked-nude",
+"https://newage0000001.github.io/dash2/?q=nothing_betttt-leak",
+"https://newage0000001.github.io/dash2/?q=hyacinth0_0i-leak",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-nudes",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-leaked-nude-videos",
+"https://newage0000001.github.io/dash2/?q=hyacinth0_0i-leaked",
+"https://newage0000001.github.io/dash2/?q=therealsmahane-leak",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-leaked-videos",
+"https://newage0000001.github.io/dash2/?q=xnxx-earthiangel",
+"https://newage0000001.github.io/dash2/?q=ariedha2arie-bugil",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-onlyfans-xxx",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-xxx-leaked",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-onlyfans-porn",
+"https://newage0000001.github.io/dash2/?q=77sam_th",
+"https://newage0000001.github.io/dash2/?q=hunparee_cxx",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-porn-leaked",
+"https://newage0000001.github.io/dash2/?q=woooozzzzz-nude",
+"https://newage0000001.github.io/dash2/?q=mickeyv74-nude",
+"https://newage0000001.github.io/dash2/?q=nothing_betttter-leaked",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-only-fans-porn",
+"https://newage0000001.github.io/dash2/?q=nothing_betttter-onlyfans",
+"https://newage0000001.github.io/dash2/?q=sailee-dhate-porn",
+"https://newage0000001.github.io/dash2/?q=beverlyloh-kofi",
+"https://newage0000001.github.io/dash2/?q=melixap_mdl",
+"https://newage0000001.github.io/dash2/?q=pxtriadel-nude",
+"https://newage0000001.github.io/dash2/?q=vikaviktoriy215",
+"https://newage0000001.github.io/dash2/?q=itsnaletti",
+"https://newage0000001.github.io/dash2/?q=mandy-victoria-matosao",
+"https://newage0000001.github.io/dash2/?q=elvanimsigul",
+"https://newage0000001.github.io/dash2/?q=taniasissak-nude",
+"https://newage0000001.github.io/dash2/?q=marinagonz99-filtrado",
+"https://newage0000001.github.io/dash2/?q=earthiangel-xnxx",
+"https://newage0000001.github.io/dash2/?q=jjaninacamillae-onlyfans",
+"https://newage0000001.github.io/dash2/?q=madhumita-boliar-nudes",
+"https://newage0000001.github.io/dash2/?q=sandrawro",
+"https://newage0000001.github.io/dash2/?q=prennski-psd",
+"https://newage0000001.github.io/dash2/?q=alexisfogartyy-onlyfans",
+"https://newage0000001.github.io/dash2/?q=mamasweetleaf808",
+"https://newage0000001.github.io/dash2/?q=ririkadajo-слив",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-nuds",
+"https://newage0000001.github.io/dash2/?q=pxtriadel-xxx",
+"https://newage0000001.github.io/dash2/?q=shitalshawofficial",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-nude",
+"https://newage0000001.github.io/dash2/?q=alixa-massi-leakimedia",
+"https://newage0000001.github.io/dash2/?q=lanasdiaries",
+"https://newage0000001.github.io/dash2/?q=margaryta-movchan-erome",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-nude-leak",
+"https://newage0000001.github.io/dash2/?q=dinafaridabecker-nude",
+"https://newage0000001.github.io/dash2/?q=horygram-erome",
+"https://newage0000001.github.io/dash2/?q=karinerino-erothots",
+"https://newage0000001.github.io/dash2/?q=teamseq75-lpsg",
+"https://newage0000001.github.io/dash2/?q=madhumita-boliar-nude",
+"https://newage0000001.github.io/dash2/?q=lanasdiaries-nude",
+"https://newage0000001.github.io/dash2/?q=boobiebouncer18",
+"https://newage0000001.github.io/dash2/?q=nothing_betttter-leak",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-nude-xxx",
+"https://newage0000001.github.io/dash2/?q=ivett-hupczik-nude",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-leak-porn",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-nudes-leaked",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-nsfw",
+"https://newage0000001.github.io/dash2/?q=nothing_betttter-fantrie",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-leak-xxx",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-xxx-nude",
+"https://newage0000001.github.io/dash2/?q=gabymendii_1028",
+"https://newage0000001.github.io/dash2/?q=erreci_o2",
+"https://newage0000001.github.io/dash2/?q=ttuulinatalja-leaks",
+"https://newage0000001.github.io/dash2/?q=justdoitx_x",
+"https://newage0000001.github.io/dash2/?q=nessankang-alua",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-fapello",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-erome",
+"https://newage0000001.github.io/dash2/?q=valeczka-nude",
+"https://newage0000001.github.io/dash2/?q=julietta-rapisarda-leaked",
+"https://newage0000001.github.io/dash2/?q=ttuulinatalja-leak",
+"https://newage0000001.github.io/dash2/?q=hyacinth0_0i",
+"https://newage0000001.github.io/dash2/?q=irishdevilfairy",
+"https://newage0000001.github.io/dash2/?q=atiyyvh-porn",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-only-fans-xxx",
+"https://newage0000001.github.io/dash2/?q=yueqiuzaomengjia-leak",
+"https://newage0000001.github.io/dash2/?q=mrmrsd001",
+"https://newage0000001.github.io/dash2/?q=chupz-ink-porn",
+"https://newage0000001.github.io/dash2/?q=giuggyross-nude",
+"https://newage0000001.github.io/dash2/?q=gabby-goessling-fapello",
+"https://newage0000001.github.io/dash2/?q=yuhwa.__kong-라이키",
+"https://newage0000001.github.io/dash2/?q=anastaisime-слив",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-leaks-xxx",
+"https://newage0000001.github.io/dash2/?q=rosita-massignan-fapello",
+"https://newage0000001.github.io/dash2/?q=taniasissak-слив",
+"https://newage0000001.github.io/dash2/?q=nothing_betttter-nude",
+"https://newage0000001.github.io/dash2/?q=vaniasse1-fapello",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-leaked-video",
+"https://newage0000001.github.io/dash2/?q=arkishalai",
+"https://newage0000001.github.io/dash2/?q=babyyfaria-sex",
+"https://newage0000001.github.io/dash2/?q=sofiaalegriaa-coomer",
+"https://newage0000001.github.io/dash2/?q=manithai99-nackt",
+"https://newage0000001.github.io/dash2/?q=hamslam5858-onlyfans",
+"https://newage0000001.github.io/dash2/?q=elebertoli-erome",
+"https://newage0000001.github.io/dash2/?q=woooozzzzz-likey",
+"https://newage0000001.github.io/dash2/?q=cutiedzeniii-nude",
+"https://newage0000001.github.io/dash2/?q=mickeyv74-nuda",
+"https://newage0000001.github.io/dash2/?q=mariyturneer",
+"https://newage0000001.github.io/dash2/?q=vaniasse1-porno",
+"https://newage0000001.github.io/dash2/?q=maria-arreghini-phica",
+"https://newage0000001.github.io/dash2/?q=valirainesouray",
+"https://newage0000001.github.io/dash2/?q=rozaguilarfit-erome",
+"https://newage0000001.github.io/dash2/?q=siobhanlife2222",
+"https://newage0000001.github.io/dash2/?q=__dmswl_-leaked",
+"https://newage0000001.github.io/dash2/?q=itseunchaeofficial-camwhores",
+"https://newage0000001.github.io/dash2/?q=_lizbethv9-nude",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-nude-pictures",
+"https://newage0000001.github.io/dash2/?q=sinemis-ergül-alagöz-porn",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-nudes-leaks",
+"https://newage0000001.github.io/dash2/?q=honeylea_xo-nude",
+"https://newage0000001.github.io/dash2/?q=influencer-sailee-dahate-nude",
+"https://newage0000001.github.io/dash2/?q=isra-hurmanli-reddit",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-nudes-video",
+"https://newage0000001.github.io/dash2/?q=hupczik-ivett-nude",
+"https://newage0000001.github.io/dash2/?q=itsgiudicelli-foro",
+"https://newage0000001.github.io/dash2/?q=nikanowak-onlyfans",
+"https://newage0000001.github.io/dash2/?q=honeylea_xo",
+"https://newage0000001.github.io/dash2/?q=ella-bergztröm",
+"https://newage0000001.github.io/dash2/?q=xxxocvm",
+"https://newage0000001.github.io/dash2/?q=dirungzi-fantrie",
+"https://newage0000001.github.io/dash2/?q=marcelalg22",
+"https://newage0000001.github.io/dash2/?q=#NAME?",
+"https://newage0000001.github.io/dash2/?q=ladiiscorpio-erome",
+"https://newage0000001.github.io/dash2/?q=leakimedia-ilonaaln",
+"https://newage0000001.github.io/dash2/?q=yina-menez-nude",
+"https://newage0000001.github.io/dash2/?q=emineakcayli-ifşa",
+"https://newage0000001.github.io/dash2/?q=drgsnddrnk-tass-leak",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-nudes-videos",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-onlyfans-nude-video",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-leak-nudes",
+"https://newage0000001.github.io/dash2/?q=allersxo-leak",
+"https://newage0000001.github.io/dash2/?q=tatianapulido1111-erome",
+"https://newage0000001.github.io/dash2/?q=nicsofiadiaz-nudes",
+"https://newage0000001.github.io/dash2/?q=sara-picuki-nila-video",
+"https://newage0000001.github.io/dash2/?q=mybasicfyp",
+"https://newage0000001.github.io/dash2/?q=kennylubs-nude",
+"https://newage0000001.github.io/dash2/?q=crisie-isbell-nude",
+"https://newage0000001.github.io/dash2/?q=bizcuitbeer-likey-leak",
+"https://newage0000001.github.io/dash2/?q=sariikubraa-reddit",
+"https://newage0000001.github.io/dash2/?q=ariedha2arie-nude",
+"https://newage0000001.github.io/dash2/?q=marinagonz99-nude",
+"https://newage0000001.github.io/dash2/?q=szokerebi-onlyfans-leaked",
+"https://newage0000001.github.io/dash2/?q=totalsbella27",
+"https://newage0000001.github.io/dash2/?q=ayolethvivian_01",
+"https://newage0000001.github.io/dash2/?q=mxxrtini_",
+"https://newage0000001.github.io/dash2/?q=kamfoo_2003",
+"https://newage0000001.github.io/dash2/?q=shiromayxx",
+"https://newage0000001.github.io/dash2/?q=rociiogonnzalez-ass",
+"https://newage0000001.github.io/dash2/?q=mottawz7",
+"https://newage0000001.github.io/dash2/?q=kayla-heredia-scandal",
+"https://newage0000001.github.io/dash2/?q=justvegaa-naked",
+"https://newage0000001.github.io/dash2/?q=martina-finocchio-phica",
+"https://newage0000001.github.io/dash2/?q=elebertoli-nackt",
+"https://newage0000001.github.io/dash2/?q=fapello-sinemzgr6",
+"https://newage0000001.github.io/dash2/?q=ivett-hupczik-nudes",
+"https://newage0000001.github.io/dash2/?q=gergana-zdravkova-nuda",
+"https://newage0000001.github.io/dash2/?q=hannn0501-onlyfans",
+"https://newage0000001.github.io/dash2/?q=imnassiimvipi",
+"https://newage0000001.github.io/dash2/?q=kyla-dodds-leakimedia",
+"https://newage0000001.github.io/dash2/?q=panttymello-telegram",
+"https://newage0000001.github.io/dash2/?q=arssenya-forum",
+"https://newage0000001.github.io/dash2/?q=geovana_carpenter-xxx",
+"https://newage0000001.github.io/dash2/?q=nicole-nurko-erothots",
+"https://newage0000001.github.io/dash2/?q=soniyaa3366-real-name",
+"https://newage0000001.github.io/dash2/?q=nyityam-onlyfans",
+"https://newage0000001.github.io/dash2/?q=hudastyle7backup-سكس",
+"https://newage0000001.github.io/dash2/?q=margaryta-movchan-onlyfans",
+"https://newage0000001.github.io/dash2/?q=wmookies-vk",
+"https://newage0000001.github.io/dash2/?q=hannn0501-leaked",
+"https://newage0000001.github.io/dash2/?q=sara-atehortua-porn",
+"https://newage0000001.github.io/dash2/?q=sarahbustani69-bj",
+"https://newage0000001.github.io/dash2/?q=gingerphoenixvip",
+"https://newage0000001.github.io/dash2/?q=shircano",
+"https://newage0000001.github.io/dash2/?q=whyimandrea",
+"https://newage0000001.github.io/dash2/?q=angelicabfl-xxx",
+"https://newage0000001.github.io/dash2/?q=rozaguilarfit-xxx",
+"https://newage0000001.github.io/dash2/?q=ivy-yvon-pinayflix",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-xnxx",
+"https://newage0000001.github.io/dash2/?q=daariaatka",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-sex-videos",
+"https://newage0000001.github.io/dash2/?q=yuddi-mendoza-patreon",
+"https://newage0000001.github.io/dash2/?q=simiixml-porn",
+"https://newage0000001.github.io/dash2/?q=babybronwinx-real-name",
+"https://newage0000001.github.io/dash2/?q=itseunchaeofficial-vk",
+"https://newage0000001.github.io/dash2/?q=sharwari-gujar-nude",
+"https://newage0000001.github.io/dash2/?q=joana-rodrigues-слив",
+"https://newage0000001.github.io/dash2/?q=cheila_haber",
+"https://newage0000001.github.io/dash2/?q=zozo881111",
+"https://newage0000001.github.io/dash2/?q=sai_sanvi_77",
+"https://newage0000001.github.io/dash2/?q=jarrahanne2.0",
+"https://newage0000001.github.io/dash2/?q=dominetta-mazzu",
+"https://newage0000001.github.io/dash2/?q=djamiliatau",
+"https://newage0000001.github.io/dash2/?q=madhumita-boliar",
+"https://newage0000001.github.io/dash2/?q=kaskosaa-siterip",
+"https://newage0000001.github.io/dash2/?q=sheswitme-siterip",
+"https://newage0000001.github.io/dash2/?q=danielle-ayala-siterip",
+"https://newage0000001.github.io/dash2/?q=thejaimeleeshow-siterip",
+"https://newage0000001.github.io/dash2/?q=kaeleereneofficial-siterip",
+"https://newage0000001.github.io/dash2/?q=kristina-levina-siterip",
+"https://newage0000001.github.io/dash2/?q=dreitabunny-siterip",
+"https://newage0000001.github.io/dash2/?q=stephanie-collier-siterip",
+"https://newage0000001.github.io/dash2/?q=hadelinemope-siterip",
+"https://newage0000001.github.io/dash2/?q=zara-hedges-siterip",
+"https://newage0000001.github.io/dash2/?q=thejaimeleeshow-anal",
+"https://newage0000001.github.io/dash2/?q=dreitabunny-ass",
+"https://newage0000001.github.io/dash2/?q=dreitabunny-nipple",
+"https://newage0000001.github.io/dash2/?q=chris-mouton-lpsg",
+"https://newage0000001.github.io/dash2/?q=juuicyjordan-fanfix.io",
+"https://newage0000001.github.io/dash2/?q=giuggyross-imginn",
+"https://newage0000001.github.io/dash2/?q=madisonsmith111x-ass",
+"https://newage0000001.github.io/dash2/?q=gemma-wren-siterip",
+"https://newage0000001.github.io/dash2/?q=thejaimeleeshow-nipple",
+"https://newage0000001.github.io/dash2/?q=thalia-matos-siterip",
+"https://newage0000001.github.io/dash2/?q=joey-fisher-siterip",
+"https://newage0000001.github.io/dash2/?q=zara-hedges-camwhore",
+"https://newage0000001.github.io/dash2/?q=iidazsofia-imginn",
+"https://newage0000001.github.io/dash2/?q=thejaimeleeshow-camwhore",
+"https://newage0000001.github.io/dash2/?q=giovanna-favaro-imginn",
+"https://newage0000001.github.io/dash2/?q=swedishkiller-siterip",
+"https://newage0000001.github.io/dash2/?q=nichameleon-siterip",
+"https://newage0000001.github.io/dash2/?q=boycottfathers-leaked",
+"https://newage0000001.github.io/dash2/?q=cait-knight-sextape",
+"https://newage0000001.github.io/dash2/?q=dreitabunny-cams",
+"https://newage0000001.github.io/dash2/?q=shelby-lucisano-siterip",
+"https://newage0000001.github.io/dash2/?q=kaskosaa-arsch",
+"https://newage0000001.github.io/dash2/?q=celebforum-tizeax",
+"https://newage0000001.github.io/dash2/?q=iliyana-apostolova-siterip",
+"https://newage0000001.github.io/dash2/?q=slpybby-fansly",
+"https://newage0000001.github.io/dash2/?q=dreitabunny-nu",
+"https://newage0000001.github.io/dash2/?q=cait-knight-camwhore",
+"https://newage0000001.github.io/dash2/?q=earthiangel-coomer",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-leaked-xxx",
+"https://newage0000001.github.io/dash2/?q=subiechickk28-porn",
+"https://newage0000001.github.io/dash2/?q=sheswitme-arsch",
+"https://newage0000001.github.io/dash2/?q=madisonsmith111x-nu",
+"https://newage0000001.github.io/dash2/?q=sheswitme-camhure",
+"https://newage0000001.github.io/dash2/?q=seebignino-siterip",
+"https://newage0000001.github.io/dash2/?q=meilani-kalei-siterip",
+"https://newage0000001.github.io/dash2/?q=laila-tucker-siterip",
+"https://newage0000001.github.io/dash2/?q=missparaskeva-curvage",
+"https://newage0000001.github.io/dash2/?q=niemka-celebforum",
+"https://newage0000001.github.io/dash2/?q=bridgetwilliamsskate-fansly",
+"https://newage0000001.github.io/dash2/?q=earthiangel-siterip",
+"https://newage0000001.github.io/dash2/?q=destiny-velez-siterip",
+"https://newage0000001.github.io/dash2/?q=earthiangel-nu",
+"https://newage0000001.github.io/dash2/?q=sailee-dahate-onlyfans-nude",
+"https://newage0000001.github.io/dash2/?q=madisonsmith111x-nipple",
+"https://newage0000001.github.io/dash2/?q=claudia-guzman-siterip",
+"https://newage0000001.github.io/dash2/?q=kaskosaa-nackt",
+"https://newage0000001.github.io/dash2/?q=thejaimeleeshow-arsch",
+"https://newage0000001.github.io/dash2/?q=alessandra-liu-siterip",
+"https://newage0000001.github.io/dash2/?q=thejaimeleeshow-nu",
+"https://newage0000001.github.io/dash2/?q=kaskosaa-camhure",
+"https://newage0000001.github.io/dash2/?q=jojo2208dk12-pixwox",
+"https://newage0000001.github.io/dash2/?q=dreitabunny-arsch",
+"https://newage0000001.github.io/dash2/?q=sherina-leakimedia",
+"https://newage0000001.github.io/dash2/?q=nikanowak-onylfans",
+"https://newage0000001.github.io/dash2/?q=misschailing-nude",
+"https://newage0000001.github.io/dash2/?q=samy-king-leakimedia",
+"https://newage0000001.github.io/dash2/?q=celebforum-doreengnadi",
+"https://newage0000001.github.io/dash2/?q=bridgetwilliamsskate-forum",
+"https://newage0000001.github.io/dash2/?q=kaskosaa-nsfw",
+"https://newage0000001.github.io/dash2/?q=cait-knight-siterip",
+"https://newage0000001.github.io/dash2/?q=ladywaifuu-camwhore",
+"https://newage0000001.github.io/dash2/?q=zuhlaynuh-erome",
+"https://newage0000001.github.io/dash2/?q=whitneywren1-siterip",
+"https://newage0000001.github.io/dash2/?q=empemb-patreon",
+"https://newage0000001.github.io/dash2/?q=citygirlgin-camwhores",
+"https://newage0000001.github.io/dash2/?q=boycottfathers-onlyfans-leaked"
 
-  const CR03_GROUPS=[
-   // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes4/",
-"https://nengmaya538.github.io/yes4/"
-    ],
-    
-        // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes4/",
-"https://nengmaya538.github.io/yes4/"
-    ],
-    
-// ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes4/",
-"https://nengmaya538.github.io/yes4/"
-    ],
-      // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes4/",
-"https://nengmaya538.github.io/yes4/"
-    ],
-    
-        // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes4/",
-"https://nengmaya538.github.io/yes4/"
-    ],
-    
-// ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes4/",
-"https://nengmaya538.github.io/yes4/"
-    ],
-       // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes4/",
-"https://nengmaya538.github.io/yes4/"
-    ],
-    
-        // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes4/",
-"https://nengmaya538.github.io/yes4/"
-    ],
-    
-// ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes4/",
-"https://nengmaya538.github.io/yes4/"
-    ],
-       // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes4/",
-"https://nengmaya538.github.io/yes4/"
-    ],
-    
-        // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes4/",
-"https://nengmaya538.github.io/yes4/"
-    ],
-    
-// ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes4/",
-"https://nengmaya538.github.io/yes4/"
-    ],
-    
-    
-    // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes4/",
-"https://nengmaya538.github.io/yes4/"
-    ],
-    
-        // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes4/",
-"https://nengmaya538.github.io/yes4/"
-    ],
-    
-// ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes4/",
-"https://nengmaya538.github.io/yes4/"
-    ]
-    
-    
   ];
- 
 
+  // ==================== RANDOM HELPER ====================
   function CRRandom(arr){
     return arr[Math.floor(Math.random()*arr.length)];
   }
 
-  document.addEventListener("click",function(){
+  // ==================== TABUNDER ====================
+  const JEDA_MINIMAL = 2000;
+  var terakhirTrigger = 0;
 
-    const now=Date.now();
-    let seq=parseInt(localStorage.getItem(CR03_SEQ_KEY)||"0",10);
+  function bukaTabunder() {
+    var sekarang = Date.now();
 
-    if(seq<0||seq>=CR03_GROUPS.length){
-      seq=0;
+    if (sekarang - terakhirTrigger < JEDA_MINIMAL) {
+      return;
     }
 
-    // Cari grup yang belum tampil dalam 24 jam
-    for(let i=0;i<CR03_GROUPS.length;i++){
+    terakhirTrigger = sekarang;
 
-      const index=(seq+i)%CR03_GROUPS.length;
-      const lastKey="maulinatorLast_"+index;
-      const last=parseInt(localStorage.getItem(lastKey)||"0",10);
+    var urlIklan = CRRandom(DAFTAR_URL);
+    var tabBaru = window.open(urlIklan, "_blank");
 
-      if(!last || (now-last)>=CR03_DAY){
+    if (tabBaru) {
+      setTimeout(function() {
+        window.focus();
+      }, 100);
+    }
+  }
 
-        const url=CRRandom(CR03_GROUPS[index]);
-        const win=window.open(url,"_blank");
+  // ==================== HANDLER GABUNGAN ====================
+  document.addEventListener("click", function(){
 
-        if(win){
-          localStorage.setItem(lastKey,now);
-          localStorage.setItem(CR03_SEQ_KEY,(index+1)%CR03_GROUPS.length);
-          win.blur();
-          window.focus();
-        }
+    // --- Popunder: tiap klik, URL random ---
+    const url = CRRandom(DAFTAR_URL);
+    const win = window.open(url, "_blank");
 
-        return;
-      }
-
+    if(win){
+      win.blur();
+      window.focus();
     }
 
-    // Semua popunder masih dalam masa 24 jam.
-    // Tidak membuka apa pun.
+    // --- Tabunder: jeda 2 detik, URL random ---
+    bukaTabunder();
 
-  },{once:true});
+  }, true);
 
-})();
-
-
-// Tabunder
-(function() {
-    const DAFTAR_URL = [
-        'https://nengmaya538.github.io/yes4/',
-'https://nengmaya538.github.io/yes4/',
-'https://nengmaya538.github.io/yes4/'
-    ];
-
-    const JEDA_MINIMAL = 2000;
-    var indexSekarang = 0;
-    var terakhirTrigger = 0;
-    var tabSebelumnya = null;
-
-    function dapatkanURLBerikutnya() {
-        var url = DAFTAR_URL[indexSekarang];
-        indexSekarang++;
-        if (indexSekarang >= DAFTAR_URL.length) {
-            indexSekarang = 0;
-        }
-        return url;
-    }
-
-    function bukaTabunder() {
-        var sekarang = Date.now();
-        
-        if (sekarang - terakhirTrigger < JEDA_MINIMAL) {
-            return;
-        }
-        
-        terakhirTrigger = sekarang;
-        
-        if (tabSebelumnya && !tabSebelumnya.closed) {
-            tabSebelumnya.close();
-        }
-        
-        var urlIklan = dapatkanURLBerikutnya();
-        tabSebelumnya = window.open(urlIklan, '_blank');
-        
-        if (tabSebelumnya) {
-            setTimeout(function() {
-                window.focus();
-            }, 100);
-        }
-    }
-
-    document.addEventListener('click', bukaTabunder, true);
 })();
