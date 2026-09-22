@@ -1,191 +1,335 @@
-// Popunder Rotator v2026
+// Popunder + Tabunder Rotator v2026 (merged, single URL list, all random)
 (function maulinator_2026(){
 
-  const CR_SEQ_KEY="maulinatorSeq";
-  const CR_DAY=24*60*60*1000;
+  // ==================== DAFTAR URL (dipakai popunder & tabunder) ====================
+  const DAFTAR_URL = [
+    
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-porn",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-xxx",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-nude-porn",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-leaked-porn",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-nude-leaked",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-nude-video",
+"https://nengmaya538.github.io/dash1/?q=wickednwyo",
+"https://nengmaya538.github.io/dash1/?q=evawxsh-vk",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-porn-videos",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-leaked-nude",
+"https://nengmaya538.github.io/dash1/?q=nothing_betttt-leak",
+"https://nengmaya538.github.io/dash1/?q=hyacinth0_0i-leak",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-nudes",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-leaked-nude-videos",
+"https://nengmaya538.github.io/dash1/?q=hyacinth0_0i-leaked",
+"https://nengmaya538.github.io/dash1/?q=therealsmahane-leak",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-leaked-videos",
+"https://nengmaya538.github.io/dash1/?q=xnxx-earthiangel",
+"https://nengmaya538.github.io/dash1/?q=ariedha2arie-bugil",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-onlyfans-xxx",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-xxx-leaked",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-onlyfans-porn",
+"https://nengmaya538.github.io/dash1/?q=77sam_th",
+"https://nengmaya538.github.io/dash1/?q=hunparee_cxx",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-porn-leaked",
+"https://nengmaya538.github.io/dash1/?q=woooozzzzz-nude",
+"https://nengmaya538.github.io/dash1/?q=mickeyv74-nude",
+"https://nengmaya538.github.io/dash1/?q=nothing_betttter-leaked",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-only-fans-porn",
+"https://nengmaya538.github.io/dash1/?q=nothing_betttter-onlyfans",
+"https://nengmaya538.github.io/dash1/?q=sailee-dhate-porn",
+"https://nengmaya538.github.io/dash1/?q=beverlyloh-kofi",
+"https://nengmaya538.github.io/dash1/?q=melixap_mdl",
+"https://nengmaya538.github.io/dash1/?q=pxtriadel-nude",
+"https://nengmaya538.github.io/dash1/?q=vikaviktoriy215",
+"https://nengmaya538.github.io/dash1/?q=itsnaletti",
+"https://nengmaya538.github.io/dash1/?q=mandy-victoria-matosao",
+"https://nengmaya538.github.io/dash1/?q=elvanimsigul",
+"https://nengmaya538.github.io/dash1/?q=taniasissak-nude",
+"https://nengmaya538.github.io/dash1/?q=marinagonz99-filtrado",
+"https://nengmaya538.github.io/dash1/?q=earthiangel-xnxx",
+"https://nengmaya538.github.io/dash1/?q=jjaninacamillae-onlyfans",
+"https://nengmaya538.github.io/dash1/?q=madhumita-boliar-nudes",
+"https://nengmaya538.github.io/dash1/?q=sandrawro",
+"https://nengmaya538.github.io/dash1/?q=prennski-psd",
+"https://nengmaya538.github.io/dash1/?q=alexisfogartyy-onlyfans",
+"https://nengmaya538.github.io/dash1/?q=mamasweetleaf808",
+"https://nengmaya538.github.io/dash1/?q=ririkadajo-слив",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-nuds",
+"https://nengmaya538.github.io/dash1/?q=pxtriadel-xxx",
+"https://nengmaya538.github.io/dash1/?q=shitalshawofficial",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-nude",
+"https://nengmaya538.github.io/dash1/?q=alixa-massi-leakimedia",
+"https://nengmaya538.github.io/dash1/?q=lanasdiaries",
+"https://nengmaya538.github.io/dash1/?q=margaryta-movchan-erome",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-nude-leak",
+"https://nengmaya538.github.io/dash1/?q=dinafaridabecker-nude",
+"https://nengmaya538.github.io/dash1/?q=horygram-erome",
+"https://nengmaya538.github.io/dash1/?q=karinerino-erothots",
+"https://nengmaya538.github.io/dash1/?q=teamseq75-lpsg",
+"https://nengmaya538.github.io/dash1/?q=madhumita-boliar-nude",
+"https://nengmaya538.github.io/dash1/?q=lanasdiaries-nude",
+"https://nengmaya538.github.io/dash1/?q=boobiebouncer18",
+"https://nengmaya538.github.io/dash1/?q=nothing_betttter-leak",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-nude-xxx",
+"https://nengmaya538.github.io/dash1/?q=ivett-hupczik-nude",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-leak-porn",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-nudes-leaked",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-nsfw",
+"https://nengmaya538.github.io/dash1/?q=nothing_betttter-fantrie",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-leak-xxx",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-xxx-nude",
+"https://nengmaya538.github.io/dash1/?q=gabymendii_1028",
+"https://nengmaya538.github.io/dash1/?q=erreci_o2",
+"https://nengmaya538.github.io/dash1/?q=ttuulinatalja-leaks",
+"https://nengmaya538.github.io/dash1/?q=justdoitx_x",
+"https://nengmaya538.github.io/dash1/?q=nessankang-alua",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-fapello",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-erome",
+"https://nengmaya538.github.io/dash1/?q=valeczka-nude",
+"https://nengmaya538.github.io/dash1/?q=julietta-rapisarda-leaked",
+"https://nengmaya538.github.io/dash1/?q=ttuulinatalja-leak",
+"https://nengmaya538.github.io/dash1/?q=hyacinth0_0i",
+"https://nengmaya538.github.io/dash1/?q=irishdevilfairy",
+"https://nengmaya538.github.io/dash1/?q=atiyyvh-porn",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-only-fans-xxx",
+"https://nengmaya538.github.io/dash1/?q=yueqiuzaomengjia-leak",
+"https://nengmaya538.github.io/dash1/?q=mrmrsd001",
+"https://nengmaya538.github.io/dash1/?q=chupz-ink-porn",
+"https://nengmaya538.github.io/dash1/?q=giuggyross-nude",
+"https://nengmaya538.github.io/dash1/?q=gabby-goessling-fapello",
+"https://nengmaya538.github.io/dash1/?q=yuhwa.__kong-라이키",
+"https://nengmaya538.github.io/dash1/?q=anastaisime-слив",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-leaks-xxx",
+"https://nengmaya538.github.io/dash1/?q=rosita-massignan-fapello",
+"https://nengmaya538.github.io/dash1/?q=taniasissak-слив",
+"https://nengmaya538.github.io/dash1/?q=nothing_betttter-nude",
+"https://nengmaya538.github.io/dash1/?q=vaniasse1-fapello",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-leaked-video",
+"https://nengmaya538.github.io/dash1/?q=arkishalai",
+"https://nengmaya538.github.io/dash1/?q=babyyfaria-sex",
+"https://nengmaya538.github.io/dash1/?q=sofiaalegriaa-coomer",
+"https://nengmaya538.github.io/dash1/?q=manithai99-nackt",
+"https://nengmaya538.github.io/dash1/?q=hamslam5858-onlyfans",
+"https://nengmaya538.github.io/dash1/?q=elebertoli-erome",
+"https://nengmaya538.github.io/dash1/?q=woooozzzzz-likey",
+"https://nengmaya538.github.io/dash1/?q=cutiedzeniii-nude",
+"https://nengmaya538.github.io/dash1/?q=mickeyv74-nuda",
+"https://nengmaya538.github.io/dash1/?q=mariyturneer",
+"https://nengmaya538.github.io/dash1/?q=vaniasse1-porno",
+"https://nengmaya538.github.io/dash1/?q=maria-arreghini-phica",
+"https://nengmaya538.github.io/dash1/?q=valirainesouray",
+"https://nengmaya538.github.io/dash1/?q=rozaguilarfit-erome",
+"https://nengmaya538.github.io/dash1/?q=siobhanlife2222",
+"https://nengmaya538.github.io/dash1/?q=__dmswl_-leaked",
+"https://nengmaya538.github.io/dash1/?q=itseunchaeofficial-camwhores",
+"https://nengmaya538.github.io/dash1/?q=_lizbethv9-nude",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-nude-pictures",
+"https://nengmaya538.github.io/dash1/?q=sinemis-ergül-alagöz-porn",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-nudes-leaks",
+"https://nengmaya538.github.io/dash1/?q=honeylea_xo-nude",
+"https://nengmaya538.github.io/dash1/?q=influencer-sailee-dahate-nude",
+"https://nengmaya538.github.io/dash1/?q=isra-hurmanli-reddit",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-nudes-video",
+"https://nengmaya538.github.io/dash1/?q=hupczik-ivett-nude",
+"https://nengmaya538.github.io/dash1/?q=itsgiudicelli-foro",
+"https://nengmaya538.github.io/dash1/?q=nikanowak-onlyfans",
+"https://nengmaya538.github.io/dash1/?q=honeylea_xo",
+"https://nengmaya538.github.io/dash1/?q=ella-bergztröm",
+"https://nengmaya538.github.io/dash1/?q=xxxocvm",
+"https://nengmaya538.github.io/dash1/?q=dirungzi-fantrie",
+"https://nengmaya538.github.io/dash1/?q=marcelalg22",
+"https://nengmaya538.github.io/dash1/?q=#NAME?",
+"https://nengmaya538.github.io/dash1/?q=ladiiscorpio-erome",
+"https://nengmaya538.github.io/dash1/?q=leakimedia-ilonaaln",
+"https://nengmaya538.github.io/dash1/?q=yina-menez-nude",
+"https://nengmaya538.github.io/dash1/?q=emineakcayli-ifşa",
+"https://nengmaya538.github.io/dash1/?q=drgsnddrnk-tass-leak",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-nudes-videos",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-onlyfans-nude-video",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-leak-nudes",
+"https://nengmaya538.github.io/dash1/?q=allersxo-leak",
+"https://nengmaya538.github.io/dash1/?q=tatianapulido1111-erome",
+"https://nengmaya538.github.io/dash1/?q=nicsofiadiaz-nudes",
+"https://nengmaya538.github.io/dash1/?q=sara-picuki-nila-video",
+"https://nengmaya538.github.io/dash1/?q=mybasicfyp",
+"https://nengmaya538.github.io/dash1/?q=kennylubs-nude",
+"https://nengmaya538.github.io/dash1/?q=crisie-isbell-nude",
+"https://nengmaya538.github.io/dash1/?q=bizcuitbeer-likey-leak",
+"https://nengmaya538.github.io/dash1/?q=sariikubraa-reddit",
+"https://nengmaya538.github.io/dash1/?q=ariedha2arie-nude",
+"https://nengmaya538.github.io/dash1/?q=marinagonz99-nude",
+"https://nengmaya538.github.io/dash1/?q=szokerebi-onlyfans-leaked",
+"https://nengmaya538.github.io/dash1/?q=totalsbella27",
+"https://nengmaya538.github.io/dash1/?q=ayolethvivian_01",
+"https://nengmaya538.github.io/dash1/?q=mxxrtini_",
+"https://nengmaya538.github.io/dash1/?q=kamfoo_2003",
+"https://nengmaya538.github.io/dash1/?q=shiromayxx",
+"https://nengmaya538.github.io/dash1/?q=rociiogonnzalez-ass",
+"https://nengmaya538.github.io/dash1/?q=mottawz7",
+"https://nengmaya538.github.io/dash1/?q=kayla-heredia-scandal",
+"https://nengmaya538.github.io/dash1/?q=justvegaa-naked",
+"https://nengmaya538.github.io/dash1/?q=martina-finocchio-phica",
+"https://nengmaya538.github.io/dash1/?q=elebertoli-nackt",
+"https://nengmaya538.github.io/dash1/?q=fapello-sinemzgr6",
+"https://nengmaya538.github.io/dash1/?q=ivett-hupczik-nudes",
+"https://nengmaya538.github.io/dash1/?q=gergana-zdravkova-nuda",
+"https://nengmaya538.github.io/dash1/?q=hannn0501-onlyfans",
+"https://nengmaya538.github.io/dash1/?q=imnassiimvipi",
+"https://nengmaya538.github.io/dash1/?q=kyla-dodds-leakimedia",
+"https://nengmaya538.github.io/dash1/?q=panttymello-telegram",
+"https://nengmaya538.github.io/dash1/?q=arssenya-forum",
+"https://nengmaya538.github.io/dash1/?q=geovana_carpenter-xxx",
+"https://nengmaya538.github.io/dash1/?q=nicole-nurko-erothots",
+"https://nengmaya538.github.io/dash1/?q=soniyaa3366-real-name",
+"https://nengmaya538.github.io/dash1/?q=nyityam-onlyfans",
+"https://nengmaya538.github.io/dash1/?q=hudastyle7backup-سكس",
+"https://nengmaya538.github.io/dash1/?q=margaryta-movchan-onlyfans",
+"https://nengmaya538.github.io/dash1/?q=wmookies-vk",
+"https://nengmaya538.github.io/dash1/?q=hannn0501-leaked",
+"https://nengmaya538.github.io/dash1/?q=sara-atehortua-porn",
+"https://nengmaya538.github.io/dash1/?q=sarahbustani69-bj",
+"https://nengmaya538.github.io/dash1/?q=gingerphoenixvip",
+"https://nengmaya538.github.io/dash1/?q=shircano",
+"https://nengmaya538.github.io/dash1/?q=whyimandrea",
+"https://nengmaya538.github.io/dash1/?q=angelicabfl-xxx",
+"https://nengmaya538.github.io/dash1/?q=rozaguilarfit-xxx",
+"https://nengmaya538.github.io/dash1/?q=ivy-yvon-pinayflix",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-xnxx",
+"https://nengmaya538.github.io/dash1/?q=daariaatka",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-sex-videos",
+"https://nengmaya538.github.io/dash1/?q=yuddi-mendoza-patreon",
+"https://nengmaya538.github.io/dash1/?q=simiixml-porn",
+"https://nengmaya538.github.io/dash1/?q=babybronwinx-real-name",
+"https://nengmaya538.github.io/dash1/?q=itseunchaeofficial-vk",
+"https://nengmaya538.github.io/dash1/?q=sharwari-gujar-nude",
+"https://nengmaya538.github.io/dash1/?q=joana-rodrigues-слив",
+"https://nengmaya538.github.io/dash1/?q=cheila_haber",
+"https://nengmaya538.github.io/dash1/?q=zozo881111",
+"https://nengmaya538.github.io/dash1/?q=sai_sanvi_77",
+"https://nengmaya538.github.io/dash1/?q=jarrahanne2.0",
+"https://nengmaya538.github.io/dash1/?q=dominetta-mazzu",
+"https://nengmaya538.github.io/dash1/?q=djamiliatau",
+"https://nengmaya538.github.io/dash1/?q=madhumita-boliar",
+"https://nengmaya538.github.io/dash1/?q=kaskosaa-siterip",
+"https://nengmaya538.github.io/dash1/?q=sheswitme-siterip",
+"https://nengmaya538.github.io/dash1/?q=danielle-ayala-siterip",
+"https://nengmaya538.github.io/dash1/?q=thejaimeleeshow-siterip",
+"https://nengmaya538.github.io/dash1/?q=kaeleereneofficial-siterip",
+"https://nengmaya538.github.io/dash1/?q=kristina-levina-siterip",
+"https://nengmaya538.github.io/dash1/?q=dreitabunny-siterip",
+"https://nengmaya538.github.io/dash1/?q=stephanie-collier-siterip",
+"https://nengmaya538.github.io/dash1/?q=hadelinemope-siterip",
+"https://nengmaya538.github.io/dash1/?q=zara-hedges-siterip",
+"https://nengmaya538.github.io/dash1/?q=thejaimeleeshow-anal",
+"https://nengmaya538.github.io/dash1/?q=dreitabunny-ass",
+"https://nengmaya538.github.io/dash1/?q=dreitabunny-nipple",
+"https://nengmaya538.github.io/dash1/?q=chris-mouton-lpsg",
+"https://nengmaya538.github.io/dash1/?q=juuicyjordan-fanfix.io",
+"https://nengmaya538.github.io/dash1/?q=giuggyross-imginn",
+"https://nengmaya538.github.io/dash1/?q=madisonsmith111x-ass",
+"https://nengmaya538.github.io/dash1/?q=gemma-wren-siterip",
+"https://nengmaya538.github.io/dash1/?q=thejaimeleeshow-nipple",
+"https://nengmaya538.github.io/dash1/?q=thalia-matos-siterip",
+"https://nengmaya538.github.io/dash1/?q=joey-fisher-siterip",
+"https://nengmaya538.github.io/dash1/?q=zara-hedges-camwhore",
+"https://nengmaya538.github.io/dash1/?q=iidazsofia-imginn",
+"https://nengmaya538.github.io/dash1/?q=thejaimeleeshow-camwhore",
+"https://nengmaya538.github.io/dash1/?q=giovanna-favaro-imginn",
+"https://nengmaya538.github.io/dash1/?q=swedishkiller-siterip",
+"https://nengmaya538.github.io/dash1/?q=nichameleon-siterip",
+"https://nengmaya538.github.io/dash1/?q=boycottfathers-leaked",
+"https://nengmaya538.github.io/dash1/?q=cait-knight-sextape",
+"https://nengmaya538.github.io/dash1/?q=dreitabunny-cams",
+"https://nengmaya538.github.io/dash1/?q=shelby-lucisano-siterip",
+"https://nengmaya538.github.io/dash1/?q=kaskosaa-arsch",
+"https://nengmaya538.github.io/dash1/?q=celebforum-tizeax",
+"https://nengmaya538.github.io/dash1/?q=iliyana-apostolova-siterip",
+"https://nengmaya538.github.io/dash1/?q=slpybby-fansly",
+"https://nengmaya538.github.io/dash1/?q=dreitabunny-nu",
+"https://nengmaya538.github.io/dash1/?q=cait-knight-camwhore",
+"https://nengmaya538.github.io/dash1/?q=earthiangel-coomer",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-leaked-xxx",
+"https://nengmaya538.github.io/dash1/?q=subiechickk28-porn",
+"https://nengmaya538.github.io/dash1/?q=sheswitme-arsch",
+"https://nengmaya538.github.io/dash1/?q=madisonsmith111x-nu",
+"https://nengmaya538.github.io/dash1/?q=sheswitme-camhure",
+"https://nengmaya538.github.io/dash1/?q=seebignino-siterip",
+"https://nengmaya538.github.io/dash1/?q=meilani-kalei-siterip",
+"https://nengmaya538.github.io/dash1/?q=laila-tucker-siterip",
+"https://nengmaya538.github.io/dash1/?q=missparaskeva-curvage",
+"https://nengmaya538.github.io/dash1/?q=niemka-celebforum",
+"https://nengmaya538.github.io/dash1/?q=bridgetwilliamsskate-fansly",
+"https://nengmaya538.github.io/dash1/?q=earthiangel-siterip",
+"https://nengmaya538.github.io/dash1/?q=destiny-velez-siterip",
+"https://nengmaya538.github.io/dash1/?q=earthiangel-nu",
+"https://nengmaya538.github.io/dash1/?q=sailee-dahate-onlyfans-nude",
+"https://nengmaya538.github.io/dash1/?q=madisonsmith111x-nipple",
+"https://nengmaya538.github.io/dash1/?q=claudia-guzman-siterip",
+"https://nengmaya538.github.io/dash1/?q=kaskosaa-nackt",
+"https://nengmaya538.github.io/dash1/?q=thejaimeleeshow-arsch",
+"https://nengmaya538.github.io/dash1/?q=alessandra-liu-siterip",
+"https://nengmaya538.github.io/dash1/?q=thejaimeleeshow-nu",
+"https://nengmaya538.github.io/dash1/?q=kaskosaa-camhure",
+"https://nengmaya538.github.io/dash1/?q=jojo2208dk12-pixwox",
+"https://nengmaya538.github.io/dash1/?q=dreitabunny-arsch",
+"https://nengmaya538.github.io/dash1/?q=sherina-leakimedia",
+"https://nengmaya538.github.io/dash1/?q=nikanowak-onylfans",
+"https://nengmaya538.github.io/dash1/?q=misschailing-nude",
+"https://nengmaya538.github.io/dash1/?q=samy-king-leakimedia",
+"https://nengmaya538.github.io/dash1/?q=celebforum-doreengnadi",
+"https://nengmaya538.github.io/dash1/?q=bridgetwilliamsskate-forum",
+"https://nengmaya538.github.io/dash1/?q=kaskosaa-nsfw",
+"https://nengmaya538.github.io/dash1/?q=cait-knight-siterip",
+"https://nengmaya538.github.io/dash1/?q=ladywaifuu-camwhore",
+"https://nengmaya538.github.io/dash1/?q=zuhlaynuh-erome",
+"https://nengmaya538.github.io/dash1/?q=whitneywren1-siterip",
+"https://nengmaya538.github.io/dash1/?q=empemb-patreon",
+"https://nengmaya538.github.io/dash1/?q=citygirlgin-camwhores",
+"https://nengmaya538.github.io/dash1/?q=boycottfathers-onlyfans-leaked"
 
-  const CR_GROUPS=[
-   // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-        // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-// ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-      // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-        // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-// ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-       // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-        // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-// ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-       // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-        // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-// ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-    
-    // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-        // ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ],
-    
-// ===== pict ngaloco =====
-    [
-    "https://nengmaya538.github.io/yes/",
-"https://nengmaya538.github.io/yes/"
-    ]
-    
-    
   ];
- 
 
+  // ==================== RANDOM HELPER ====================
   function CRRandom(arr){
     return arr[Math.floor(Math.random()*arr.length)];
   }
 
-  document.addEventListener("click",function(){
+  // ==================== TABUNDER ====================
+  const JEDA_MINIMAL = 2000;
+  var terakhirTrigger = 0;
 
-    const now=Date.now();
-    let seq=parseInt(localStorage.getItem(CR_SEQ_KEY)||"0",10);
+  function bukaTabunder() {
+    var sekarang = Date.now();
 
-    if(seq<0||seq>=CR_GROUPS.length){
-      seq=0;
+    if (sekarang - terakhirTrigger < JEDA_MINIMAL) {
+      return;
     }
 
-    // Cari grup yang belum tampil dalam 24 jam
-    for(let i=0;i<CR_GROUPS.length;i++){
+    terakhirTrigger = sekarang;
 
-      const index=(seq+i)%CR_GROUPS.length;
-      const lastKey="maulinatorLast_"+index;
-      const last=parseInt(localStorage.getItem(lastKey)||"0",10);
+    var urlIklan = CRRandom(DAFTAR_URL);
+    var tabBaru = window.open(urlIklan, "_blank");
 
-      if(!last || (now-last)>=CR_DAY){
+    if (tabBaru) {
+      setTimeout(function() {
+        window.focus();
+      }, 100);
+    }
+  }
 
-        const url=CRRandom(CR_GROUPS[index]);
-        const win=window.open(url,"_blank");
+  // ==================== HANDLER GABUNGAN ====================
+  document.addEventListener("click", function(){
 
-        if(win){
-          localStorage.setItem(lastKey,now);
-          localStorage.setItem(CR_SEQ_KEY,(index+1)%CR_GROUPS.length);
-          win.blur();
-          window.focus();
-        }
+    // --- Popunder: tiap klik, URL random ---
+    const url = CRRandom(DAFTAR_URL);
+    const win = window.open(url, "_blank");
 
-        return;
-      }
-
+    if(win){
+      win.blur();
+      window.focus();
     }
 
-    // Semua popunder masih dalam masa 24 jam.
-    // Tidak membuka apa pun.
+    // --- Tabunder: jeda 2 detik, URL random ---
+    bukaTabunder();
 
-  },{once:true});
+  }, true);
 
-})();
-
-
-// Tabunder
-(function() {
-    const DAFTAR_URL = [
-        'https://nengmaya538.github.io/yes/',
-'https://nengmaya538.github.io/yes/',
-'https://nengmaya538.github.io/yes/'
-    ];
-
-    const JEDA_MINIMAL = 2000;
-    var indexSekarang = 0;
-    var terakhirTrigger = 0;
-    var tabSebelumnya = null;
-
-    function dapatkanURLBerikutnya() {
-        var url = DAFTAR_URL[indexSekarang];
-        indexSekarang++;
-        if (indexSekarang >= DAFTAR_URL.length) {
-            indexSekarang = 0;
-        }
-        return url;
-    }
-
-    function bukaTabunder() {
-        var sekarang = Date.now();
-        
-        if (sekarang - terakhirTrigger < JEDA_MINIMAL) {
-            return;
-        }
-        
-        terakhirTrigger = sekarang;
-        
-        if (tabSebelumnya && !tabSebelumnya.closed) {
-            tabSebelumnya.close();
-        }
-        
-        var urlIklan = dapatkanURLBerikutnya();
-        tabSebelumnya = window.open(urlIklan, '_blank');
-        
-        if (tabSebelumnya) {
-            setTimeout(function() {
-                window.focus();
-            }, 100);
-        }
-    }
-
-    document.addEventListener('click', bukaTabunder, true);
 })();
