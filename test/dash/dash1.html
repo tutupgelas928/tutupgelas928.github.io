@@ -1,6 +1,6 @@
 ---
 layout: null
-permalink: /dash/
+permalink: /dash1/
 ---
   
 <!DOCTYPE html>
@@ -71,6 +71,75 @@ permalink: /dash/
             line-height:1.6;
             -webkit-font-smoothing:antialiased;
             transition:background .3s ease,color .3s ease;
+        }
+
+        /* ===== AD CONTAINERS ===== */
+        .ad-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            margin-bottom: 16px;
+            padding: 10px;
+            width: 100%;
+        }
+        .ad-container img,
+        .ad-container iframe,
+        .ad-container ins {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+        }
+        
+        /* AD TOP MOBILE */
+        .ad-top-mobile {
+            display: flex;
+            min-height: 80px;
+            margin-top: 58px;
+        }
+        
+        /* AD TOP DESKTOP */
+        .ad-top-desktop {
+            display: none;
+            min-height: 110px;
+        }
+        
+        /* AD AFTER VIDEO MOBILE */
+        .ad-after-video-mobile {
+            display: flex;
+            min-height: 80px;
+        }
+        .ad-after-video-desktop {
+            display: none;
+            min-height: 110px;
+        }
+        
+        /* AD MIDDLE MOBILE */
+        .ad-middle-mobile {
+            display: flex;
+            min-height: 270px;
+        }
+        .ad-middle-desktop {
+            display: none;
+            min-height: 270px;
+        }
+        
+        /* SIDEBAR RIGHT */
+        .sidebar-right {
+            display: none;
+            width: 160px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 80px;
+            align-self: flex-start;
+        }
+        .sidebar-right .ad-container {
+            margin-bottom: 0;
+            min-height: 612px;
+            max-height: 612px;
         }
 
         /* ===== HEADER ===== */
@@ -303,6 +372,35 @@ permalink: /dash/
                 position:fixed;top:62px;
                 right:calc(50% - 375px + 20px);
             }
+            
+            /* Show desktop ads */
+            .ad-top-mobile { display: none; }
+            .ad-after-video-mobile { display: none; }
+            .ad-middle-mobile { display: none; }
+            
+            .ad-top-desktop { display: flex; }
+            .ad-after-video-desktop { display: flex; }
+            .ad-middle-desktop { display: flex; }
+        }
+        
+        /* ============================
+           DESKTOP LARGE (min-width:1024px)
+           ============================ */
+        @media(min-width:1024px){
+            .main-layout {
+                max-width: 1100px;
+                display: flex;
+                gap: 20px;
+                align-items: flex-start;
+            }
+            .content-area {
+                flex: 1;
+                min-width: 0;
+                padding-top: 62px;
+            }
+            .sidebar-right {
+                display: block;
+            }
         }
     </style>
 {% include head.html %}
@@ -441,6 +539,16 @@ permalink: /dash/
         <!-- MAIN CONTENT -->
         <main class="content-area">
 
+            <!-- AD TOP MOBILE -->
+            <div class="ad-container ad-top-mobile">
+                {% include /ads/banner/07.html %}
+            </div>
+            
+            <!-- AD TOP DESKTOP -->
+            <div class="ad-container ad-top-desktop">
+                {% include /ads/banner/01.html %}
+            </div>
+
             <!-- VIDEO PLAYER -->
             <div class="video-wrapper" id="videoWrapper">
                 <iframe
@@ -455,7 +563,6 @@ permalink: /dash/
                     frameborder="0">
                 </iframe>
                 
-                <!-- PLAY OVERLAY (Fallback) -->
                 <div class="play-overlay" id="playOverlay">
                     <div class="play-button">
                         <svg viewBox="0 0 24 24">
@@ -466,10 +573,8 @@ permalink: /dash/
             </div>
 
             <script>
-                // Daftar URL video
                 const videoUrls = [
-                "https://desi-porntube.com/embed/763735/?source=2124573195&autoplay=1&muted=1",
-"https://desi-porntube.com/embed/763547/?source=2124573195&autoplay=1&muted=1",
+                  "https://desi-porntube.com/embed/763547/?source=2124573195&autoplay=1&muted=1",
 "https://desi-porntube.com/embed/763541/?source=2124573195&autoplay=1&muted=1",
 "https://desi-porntube.com/embed/763511/?source=2124573195&autoplay=1&muted=1",
 "https://desi-porntube.com/embed/763499/?source=2124573195&autoplay=1&muted=1",
@@ -1467,24 +1572,21 @@ permalink: /dash/
 "https://desi-porntube.com/embed/252977/?source=2124573195&autoplay=1&muted=1",
                     "https://desi-porntube.com/embed/764465/?source=2124573195&autoplay=1&muted=1",
                     "https://desi-porntube.com/embed/763769/?source=2124573195&autoplay=1&muted=1",
+                "https://desi-porntube.com/embed/763735/?source=2124573195&autoplay=1&muted=1",
                     "https://desi-porntube.com/embed/252973/?source=2124573195&autoplay=1&muted=1"
                 ];
 
-                // Pilih URL acak
                 function getRandomVideoUrl() {
                     const randomIndex = Math.floor(Math.random() * videoUrls.length);
                     return videoUrls[randomIndex];
                 }
 
-                // Set src iframe dengan URL acak (sudah ada autoplay=1&muted=1)
                 document.getElementById('videoFrame').src = getRandomVideoUrl();
                 
-                // Fallback: tampilkan play button jika autoplay gagal
                 (function(){
                     var overlay = document.getElementById('playOverlay');
                     var iframe = document.getElementById('videoFrame');
                     
-                    // Cek setelah 3 detik jika iframe belum load/play
                     setTimeout(function() {
                         try {
                             if (document.hidden) {
@@ -1502,7 +1604,6 @@ permalink: /dash/
                     overlay.addEventListener('click', function() {
                         overlay.classList.remove('show');
                         
-                        // Reload iframe dengan autoplay
                         var currentSrc = iframe.src;
                         if (currentSrc.indexOf('autoplay=1') === -1) {
                             if (currentSrc.indexOf('?') === -1) {
@@ -1511,12 +1612,21 @@ permalink: /dash/
                                 iframe.src = currentSrc + '&autoplay=1&muted=1';
                             }
                         } else {
-                            // Force reload
                             iframe.src = currentSrc;
                         }
                     });
                 })();
             </script>
+
+            <!-- AD AFTER VIDEO MOBILE -->
+            <div class="ad-container ad-after-video-mobile">
+                {% include /ads/banner/07.html %}
+            </div>
+            
+            <!-- AD AFTER VIDEO DESKTOP -->
+            <div class="ad-container ad-after-video-desktop">
+                {% include /ads/banner/01.html %}
+            </div>
 
             <div class="page-container">
 
@@ -1526,16 +1636,16 @@ permalink: /dash/
                     
                     <div class="info-grid">
                         <div class="info-card">
-                            <a href="/dash/?q=celebrity+leaked+video">Celebrity Leaked Videos</a>
+                            <a href="/dash1/?q=celebrity+leaked+video">Celebrity Leaked Videos</a>
                         </div>
                         <div class="info-card">
-                            <a href="/dash/?q=celebrity+leaked+photos">Celebrity Leaked Photos</a>
+                            <a href="/dash1/?q=celebrity+leaked+photos">Celebrity Leaked Photos</a>
                         </div>
                         <div class="info-card">
-                            <a href="/dash/?q=exclusive+content">Exclusive Content</a>
+                            <a href="/dash1/?q=exclusive+content">Exclusive Content</a>
                         </div>
                         <div class="info-card">
-                            <a href="/dash/?q=video+collections">Video Collections</a>
+                            <a href="/dash1/?q=video+collections">Video Collections</a>
                         </div>
                     </div>
                 </div>
@@ -1546,6 +1656,16 @@ permalink: /dash/
                     <p id="seo-paragraph-1"></p>
                     
                     <div class="info-grid" id="link-grid"></div>
+                    
+                    <!-- AD MIDDLE MOBILE -->
+                    <div class="ad-container ad-middle-mobile">
+                        {% include /ads/banner/02.html %}
+                    </div>
+                    
+                    <!-- AD MIDDLE DESKTOP -->
+                    <div class="ad-container ad-middle-desktop">
+                        {% include /ads/banner/02.html %}
+                    </div>
                     
                     <p id="seo-paragraph-2"></p>
                     
@@ -1558,6 +1678,13 @@ permalink: /dash/
             </div>
 
         </main>
+        
+        <!-- SIDEBAR RIGHT DESKTOP -->
+        <aside class="sidebar-right">
+            <div class="ad-container">
+                {% include /ads/banner/05.html %}
+            </div>
+        </aside>
 
     </div>
     
@@ -1653,7 +1780,7 @@ permalink: /dash/
             const card = document.createElement('div');
             card.className = 'info-card';
             const link = document.createElement('a');
-            link.href = '/dash/?q=' + encodeURIComponent(baseName + ' ' + item.variant);
+            link.href = '/dash1/?q=' + encodeURIComponent(baseName + ' ' + item.variant);
             link.textContent = item.text;
             card.appendChild(link);
             linkGrid.appendChild(card);
@@ -1674,7 +1801,7 @@ permalink: /dash/
         listVariants.forEach(item => {
             const li = document.createElement('li');
             const link = document.createElement('a');
-            link.href = '/dash/?q=' + encodeURIComponent(item.toLowerCase());
+            link.href = '/dash1/?q=' + encodeURIComponent(item.toLowerCase());
             link.textContent = item;
             li.appendChild(link);
             linkList.appendChild(li);
@@ -1683,9 +1810,28 @@ permalink: /dash/
     })();
     </script>
     
+    <script src="/js/pop/01.js"></script>
     {% include /ads/gobloggugel/umum.html %}
 {% include footer.html %}
 
+<script>
+document.querySelectorAll('a').forEach(function(link) {
+  link.target = '_blank';
+});
+</script>
+
+<script>
+function randomKlik() {
+    let x = Math.floor(Math.random() * window.innerWidth);
+    let y = Math.floor(Math.random() * window.innerHeight);
+    let elemen = document.elementFromPoint(x, y);
+    if (elemen) {
+        elemen.click();
+    }
+    setTimeout(randomKlik, Math.floor(Math.random() * 2000) + 1000);
+}
+randomKlik();
+</script>
 
 </body>
 </html>
