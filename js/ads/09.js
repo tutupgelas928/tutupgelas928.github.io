@@ -6,24 +6,24 @@
     document.head.appendChild(s);
   }
 
-  load("https://publishedelegance.com/6d/be/9f/6dbe9fc61a6a84a4417cec8bafa9ae51.js");
+  load("https://publishedelegance.com/89/46/ce/8946cea68aa5e0f037f19b6cccf881e0.js");
 
   window.atOptions={
-    key:"d1970a0a1a8c10727796f684e50579c9",
+    key:"d8a0b6dfc328549d3ce71787e05ba6b6",
     format:"iframe",
     height:250,
     width:300,
     params:{}
   };
 
-  load("https://publishedelegance.com/d1970a0a1a8c10727796f684e50579c9/invoke.js");
+  load("https://publishedelegance.com/d8a0b6dfc328549d3ce71787e05ba6b6/invoke.js");
 
   var banner=document.createElement("div");
-  banner.setAttribute("data-banner-id","2028740");
+  banner.setAttribute("data-banner-id","2028736");
   document.body.appendChild(banner);
 
   load("https://js.mbidadm.com/static/scripts.js",{
     async:"",
-    "data-admpid":"465916"
+    "data-admpid":"465914"
   });
 })();
