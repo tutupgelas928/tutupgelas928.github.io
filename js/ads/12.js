@@ -1,29 +1,14 @@
 (function(){
-  function load(src,attrs){
-    var s=document.createElement("script");
-    s.src=src;
-    if(attrs)for(var k in attrs)s.setAttribute(k,attrs[k]);
-    document.head.appendChild(s);
-  }
+  var box=document.createElement("div");
 
-  window.atOptions={
-    key:"8306e5d2100abe9ed7c4eeceeed67b23",
-    format:"iframe",
-    height:250,
-    width:300,
-    params:{}
-  };
+  box.style.textAlign="center";
+  box.innerHTML="<br><br><br><div data-banner-id=\"2028736\"></div>";
 
-  load("https://publishedelegance.com/8306e5d2100abe9ed7c4eeceeed67b23/invoke.js");
+  document.body.insertBefore(box,document.body.firstChild);
 
-  load("https://publishedelegance.com/65/d0/fa/65d0fad04b910c0d4be806e124bf43b6.js");
-
-  var banner=document.createElement("div");
-  banner.setAttribute("data-banner-id","2028743");
-  document.body.appendChild(banner);
-
-  load("https://js.mbidadm.com/static/scripts.js",{
-    async:"",
-    "data-admpid":"465451"
-  });
+  var s=document.createElement("script");
+  s.src="https://js.mbidadm.com/static/scripts.js";
+  s.async=true;
+  s.setAttribute("data-admpid","465914");
+  document.head.appendChild(s);
 })();

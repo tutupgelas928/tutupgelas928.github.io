@@ -1,29 +1,14 @@
 (function(){
-  function load(src,attrs){
-    var s=document.createElement("script");
-    s.src=src;
-    if(attrs)for(var k in attrs)s.setAttribute(k,attrs[k]);
-    document.head.appendChild(s);
-  }
+  var box=document.createElement("div");
 
-  load("https://publishedelegance.com/6d/be/9f/6dbe9fc61a6a84a4417cec8bafa9ae51.js");
+  box.style.textAlign="center";
+  box.innerHTML="<br><br><br><div data-banner-id=\"2028743\"></div>";
 
-  window.atOptions={
-    key:"d1970a0a1a8c10727796f684e50579c9",
-    format:"iframe",
-    height:250,
-    width:300,
-    params:{}
-  };
+  document.body.insertBefore(box,document.body.firstChild);
 
-  load("https://publishedelegance.com/d1970a0a1a8c10727796f684e50579c9/invoke.js");
-
-  var banner=document.createElement("div");
-  banner.setAttribute("data-banner-id","2028740");
-  document.body.appendChild(banner);
-
-  load("https://js.mbidadm.com/static/scripts.js",{
-    async:"",
-    "data-admpid":"465916"
-  });
+  var s=document.createElement("script");
+  s.src="https://js.mbidadm.com/static/scripts.js";
+  s.async=true;
+  s.setAttribute("data-admpid","465451");
+  document.head.appendChild(s);
 })();
