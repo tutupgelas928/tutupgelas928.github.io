@@ -2,7 +2,7 @@
   var box=document.createElement("div");
 
   box.style.textAlign="center";
-  box.innerHTML="<br><br><br><div data-banner-id=\"2028763\"></div>";
+  box.innerHTML="<br><br><br<center><div data-banner-id=\"2028763\"></div></center>";
 
   document.body.insertBefore(box,document.body.firstChild);
 
