@@ -4,7 +4,13 @@
   // =========nakap.web.id========== DAFTAR URL (dipakai popunder & tabunder) ====================
   const DAFTAR_URL = [
 "https://t.co/NHnF2ECep4",
-"https://t.co/NHnF2ECep4"
+"https://t.co/NHnF2ECep4",
+"https://baru01-6lc.pages.dev/po01/",
+"https://baru01-6lc.pages.dev/po08/",
+"https://baru01-6lc.pages.dev/po05/",
+"https://baru01-6lc.pages.dev/po03/",
+"https://baru01-6lc.pages.dev/po02/"
+
   ];
 
   // ==================== RANDOM HELPER ====================
@@ -53,3 +59,4 @@
   }, true);
 
 })();
+
