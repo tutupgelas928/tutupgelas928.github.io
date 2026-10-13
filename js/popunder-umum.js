@@ -12,8 +12,7 @@
 "https://t.co/z66OPykJzG",
 "https://t.co/Xvo87a5q8R",
 "https://t.co/6Gz8KR4nzc",
-"https://t.co/pvSY0GOnEP",
-    "https://playmogo.com/e/xyf7jybxiqs7"
+"https://t.co/pvSY0GOnEP"
 
   ];
 
