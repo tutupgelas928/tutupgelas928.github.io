@@ -1,19 +1,16 @@
-// Popunder + Tabunder Rottor v2026 (merged, single URL list, all random)
+// Popunder + Tabunder Rotator v2026 (merged, single URL list, all random)
 (function maulinator_2026(){
 
-  // =========nakap.web.id========== DAFTAR URL (dipakai popunder & tabunder) ====================
+  // ==================== DAFTAR URL (dipakai popunder & tabunder) ====================
   const DAFTAR_URL = [
-"https://t.co/mCKwJiBqFC",
-"https://t.co/oW6hH17aq5",
-"https://t.co/Tmb49a2nMC",
-    "https://t.co/oXz6nebvHO",
-    "https://t.co/9QnjpMbd2k",
-"https://t.co/jN16p8XzXH",
-"https://t.co/z66OPykJzG",
-"https://t.co/Xvo87a5q8R",
-"https://t.co/6Gz8KR4nzc",
-"https://t.co/pvSY0GOnEP"
+    
 
+"https://t.co/6eT66M8BOs",
+"https://t.co/xtj0CbWP6H",
+"https://t.co/IQe9ICGabP",
+"https://t.co/t573HyHDAt",
+"https://t.co/znF3Xk4cTf",
+"https://t.co/mOxMNsWbWz"
   ];
 
   // ==================== RANDOM HELPER ====================
@@ -62,4 +59,3 @@
   }, true);
 
 })();
-
